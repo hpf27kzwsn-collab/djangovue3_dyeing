@@ -13,7 +13,7 @@ function remove(child:any,index:string|number){const [row]=child.rows.splice(Num
 async function save(){
   saving.value=true
   try{
-    const changes=Object.fromEntries(children.value.map(child=>[child.entity,{upsert:child.rows.map((row:any)=>({...values(row.data,child.fields),...(row.id!==null?{id:row.id}:{})})),delete:child.deleted}]))
+    const changes=Object.fromEntries(children.value.map(child=>[child.entity,{upsert:child.rows.map((row:any)=>({...values(row.data,child.fields.filter((field:any)=>row.id===null?field.is_create:field.is_update)),...(row.id!==null?{id:row.id}:{})})),delete:child.deleted}]))
     await api(`/api/system/${props.meta.entity}/${props.row.id}/save_document/`,{method:'POST',data:{head:values(head.value,headFields.value),children:changes}})
     ElMessage.success('表头与全部明细已保存');emit('saved')
   }finally{saving.value=false}

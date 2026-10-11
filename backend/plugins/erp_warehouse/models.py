@@ -141,6 +141,10 @@ class StockReceipt(ErpModel):
 class StockReceiptLine(ErpModel):
     """入库明细。"""
 
+    quantity_source = models.CharField('实际数量来源', max_length=24, default='manual', choices=[
+        ('manual', '人工实录'), ('scale', '实称记录'), ('correction', '已批准更正'),
+        ('legacy_confirmed', '核实旧事实'), ('legacy_unverified', '旧事实待核实')])
+
     receipt = models.ForeignKey(
         'erp_warehouse.StockReceipt',
         verbose_name='入库单',
@@ -334,6 +338,12 @@ class StockIssue(ErpModel):
 
 class StockIssueLine(ErpModel):
     """出库明细。"""
+
+    quantity_source = models.CharField('实际数量来源', max_length=24, default='manual', choices=[
+        ('manual', '人工实录'), ('scale', '实称记录'), ('correction', '已批准更正'),
+        ('legacy_confirmed', '核实旧事实'), ('legacy_unverified', '旧事实待核实')])
+    measurement_record = models.ForeignKey('erp_production.WeighingRecord', verbose_name='实称数量记录',
+        null=True, blank=True, on_delete=models.PROTECT, related_name='stock_issue_lines')
 
     issue = models.ForeignKey(
         'erp_warehouse.StockIssue',
@@ -798,6 +808,8 @@ class StockCount(ErpModel):
 
     snapshot_at = models.DateTimeField(
         '冻结账面时间',
+        null=True,
+        blank=True,
     )
 
     counted_at = models.DateTimeField(

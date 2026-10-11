@@ -58,7 +58,7 @@ def validate(item):
 
 
 POLICY = {'parents': PARENTS, 'owned': OWNED, 'editable': editable, 'validate': validate,
-          'parent_editable': lambda model, item: editable(item), 'lock_root': locked}
+          'parent_editable': lambda model, item: editable(item), 'lock_root': locked, 'deletable': editable}
 
 
 @transaction.atomic

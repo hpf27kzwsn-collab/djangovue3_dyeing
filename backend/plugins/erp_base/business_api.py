@@ -49,7 +49,10 @@ class DocumentInput(serializers.Serializer):
 def policy_for(model):
     from plugins.erp_sales.services import POLICY as sales
     from plugins.erp_sampling.services import POLICY as sampling
-    return {'erp_sales': sales, 'erp_sampling': sampling}[model._meta.app_label]
+    from plugins.erp_purchase.services import POLICY as purchase
+    from plugins.erp_warehouse.services import POLICY as warehouse
+    return {'erp_sales': sales, 'erp_sampling': sampling, 'erp_purchase': purchase,
+            'erp_warehouse': warehouse}[model._meta.app_label]
 
 
 class BusinessSerializer(CoreSerializer):
@@ -89,7 +92,7 @@ class BusinessSerializer(CoreSerializer):
         try:
             return business.write(self.Meta.model, data, instance, policy_for(self.Meta.model))
         except ModelValidationError as error:
-            raise serializers.ValidationError(error.message_dict) from error
+            raise serializers.ValidationError(serializers.as_serializer_error(error)) from error
 
 
 class BusinessViewSet(ResourceViewSet):
@@ -140,7 +143,10 @@ class BusinessViewSet(ResourceViewSet):
                 if not ApiPermission().has_permission(scope, None):
                     raise serializers.ValidationError({'children': '没有明细保存权限。'})
                 previous = get_object_or_404(scoped_queryset(model.objects.all(), scope), pk=key, **{parent_key: item}) if key is not None else None
-                data[parent_key] = item.pk
+                if parent_key in data:
+                    raise serializers.ValidationError({parent_key: '所属表头由整单保存确定，不接收明细中的父关联。'})
+                if previous is None:
+                    data[parent_key] = item.pk
                 serializer = serializer_for(model, BusinessSerializer)(previous, data=data, partial=previous is not None, context={'request': request})
                 serializer.is_valid(raise_exception=True)
                 audit = {'modifier': request.user} if previous is not None else {'creator': request.user, 'modifier': request.user, 'dept_belong_id': item.dept_belong_id}
@@ -149,6 +155,8 @@ class BusinessViewSet(ResourceViewSet):
                 scope.method, scope.path = 'DELETE', f'/api/system/{entity}/{{id}}/'
                 if not ApiPermission().has_permission(scope, None):
                     raise serializers.ValidationError({'children': '没有明细删除权限。'})
+                for key in changes['delete']:
+                    get_object_or_404(scoped_queryset(model.objects.all(), scope), pk=key, **{parent_key: item})
                 business.delete(scoped_queryset(model.objects.all(), scope).filter(pk__in=changes['delete'], **{parent_key: item}), policy_for(model))
         return success(self.get_serializer(item).data, '表头与明细已保存')
 

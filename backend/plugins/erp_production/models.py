@@ -1649,6 +1649,11 @@ class WeighingRecord(ErpModel):
 class QualityInspection(ErpModel):
     """生产检验单。"""
 
+    lot = models.ForeignKey('erp_warehouse.InventoryLot', verbose_name='检验库存批次',
+        null=True, blank=True, on_delete=models.PROTECT, related_name='quality_inspections')
+    receipt_line = models.ForeignKey('erp_warehouse.StockReceiptLine', verbose_name='来料收货行',
+        null=True, blank=True, on_delete=models.PROTECT, related_name='quality_inspections')
+
     number = models.CharField(
         '检验单号',
         max_length=64,
@@ -1661,6 +1666,8 @@ class QualityInspection(ErpModel):
         verbose_name='工卡',
         on_delete=models.PROTECT,
         related_name="%(app_label)s_%(class)s_work_card_set",
+        null=True,
+        blank=True,
     )
 
     execution = models.ForeignKey(
@@ -1745,6 +1752,15 @@ class QualityInspection(ErpModel):
             raise ValidationError({'package': '检验包装必须属于本工卡。'})
         if self.execution_id is not None and self.execution.operation.work_card_id != self.work_card_id:
             raise ValidationError({'execution': '检验执行必须属于本工卡。'})
+        if self.kind == 'incoming':
+            if self.work_card_id is not None or self.execution_id is not None or self.package_id is not None:
+                raise ValidationError({'work_card': '来料检验不能使用生产工卡、执行或包装作为检验范围。'})
+            if self.lot_id is None or self.receipt_line_id is None:
+                raise ValidationError({'lot': '来料检验必须明确批次和收货行。'})
+            if self.receipt_line.lot_id != self.lot_id:
+                raise ValidationError({'receipt_line': '收货行必须属于所检验批次。'})
+        elif self.work_card_id is None:
+            raise ValidationError({'work_card': '生产检验必须明确工卡。'})
 
 
 class InspectionResultLine(ErpModel):

@@ -360,7 +360,7 @@ class MessageViewSet(ResourceViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         message = self.get_object()
-        if MessageCenterTargetUser.objects.filter(users=request.user, messagecenter=message,is_read=False).update(request=request,is_read=True):
+        if MessageCenterTargetUser.objects.filter(users=request.user, messagecenter=message,is_read=False).update(audit_request=request,is_read=True):
             notify_users([request.user.pk])
         return success(self.get_serializer(message).data)
 
@@ -423,7 +423,7 @@ class Inbox(APIView):
              'receive_time':serializers.DateTimeField().to_representation(item.create_datetime)} for item in page]})
 
     def post(self, request):
-        if MessageCenterTargetUser.objects.filter(users=request.user, pk__in=request.data['ids'],is_read=False).update(request=request,is_read=True):
+        if MessageCenterTargetUser.objects.filter(users=request.user, pk__in=request.data['ids'],is_read=False).update(audit_request=request,is_read=True):
             notify_users([request.user.pk])
         return success(msg='已标记为已读')
 

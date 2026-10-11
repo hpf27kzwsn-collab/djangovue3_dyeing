@@ -6,16 +6,16 @@ from django.utils import timezone
 
 
 class CoreQuerySet(models.QuerySet):
-    def update(self, request=None, **kwargs):
-        if request is not None:
-            kwargs.update(modifier=request.user,update_datetime=timezone.now())
+    def update(self, audit_request=None, **kwargs):
+        if audit_request is not None:
+            kwargs.update(modifier=audit_request.user,update_datetime=timezone.now())
         return super().update(**kwargs)
 
 
 class CoreManager(models.Manager.from_queryset(CoreQuerySet)):
-    def create(self, request=None, **kwargs):
-        if request is not None:
-            kwargs.update(creator=request.user,modifier=request.user,dept_belong_id=request.user.dept_id)
+    def create(self, audit_request=None, **kwargs):
+        if audit_request is not None:
+            kwargs.update(creator=audit_request.user,modifier=audit_request.user,dept_belong_id=audit_request.user.dept_id)
         return super().create(**kwargs)
 
 

@@ -201,6 +201,7 @@ class MeasurementSource(models.TextChoices):
     SCALE = 'scale', '秤采集'
 
 class InspectionKind(models.TextChoices):
+    INCOMING = 'incoming', '来料检验'
     IN_PROCESS = 'in_process', '过程检验'
     COLOR_SAMPLE = 'color_sample', '对色'
     FINAL = 'final', '终检'

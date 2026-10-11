@@ -71,7 +71,8 @@ def validate(item):
 
 POLICY = {'parents': PARENTS, 'owned': OWNED, 'editable': editable,
           'parent_editable': parent_editable, 'validate': validate,
-          'lock_root': lambda item: lock_line(item)[1] if isinstance(item, m.SampleLine) else locked(item)}
+          'lock_root': lambda item: lock_line(item)[1] if isinstance(item, m.SampleLine) else locked(item),
+          'deletable': editable}
 
 
 def refresh_request(request, actor):

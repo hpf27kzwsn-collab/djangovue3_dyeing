@@ -82,7 +82,7 @@ def delete(queryset, policy):
             policy['parent_editable'](model, policy['lock_root'](roots[key]))
     items = list(queryset.select_related(None).select_for_update().order_by('pk'))
     for item in items:
-        policy['editable'](item)
+        policy['deletable'](item)
     try:
         queryset.delete()
     except RestrictedError as error:

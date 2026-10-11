@@ -32,14 +32,14 @@ const actions=computed(()=>{
 watch(()=>[props.entity,account.menus,account.buttons],async()=>{
   const data=(await api('/api/meta/'+props.entity+'/')).data
   for(const field of data.fields)if(props.context&&field.key in props.context)field.form={...field.form,component:{name:'FieldInput',vModel:'modelValue',field:{...field},disabled:true}}
-  data.crud_options={...data.crud_options,rowHandle:{width:620,buttons:{edit:{show:compute(({row}:any)=>!frozen(row)&&!(props.entity==='erp_sampling_sampleconfirmation'&&row.sent_at!==null)&&account.can(props.entity+':patch'))},remove:{show:compute(({row}:any)=>!frozen(row)&&account.can(props.entity+':delete'))},copy:{show:false}}}}
+  data.crud_options={...data.crud_options,rowHandle:{width:620,buttons:{edit:{show:compute(({row}:any)=>!frozen(row)&&!(props.entity==='erp_sampling_sampleconfirmation'&&row.sent_at!==null)&&account.can(props.entity+':patch'))},remove:{show:compute(({row}:any)=>!frozen(row)&&!workflow.value.delete_disabled&&account.can(props.entity+':delete'))},copy:{show:false}}}}
   meta.value=data
 },{immediate:true})
 </script>
 <template>
   <div class="business-pane"><el-alert v-if="contextLabel" :title="contextLabel" type="info" :closable="false"/>
     <el-alert v-if="readonly" title="本层资料已经冻结，业务进度通过对应操作维护。" type="info" :closable="false"/>
-    <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :row-actions="actions"/><el-skeleton v-else animated/>
+    <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :disable-delete="workflow.delete_disabled" :row-actions="actions"/><el-skeleton v-else animated/>
     <el-drawer v-model="open" :title="meta?.title+' · 明细与关联'" size="min(1400px, 97vw)" destroy-on-close>
       <el-tabs v-if="open" v-model="activeTab"><el-tab-pane v-for="child in tabs" :key="child.entity" :name="child.entity" :label="child.title">
         <BusinessPane v-if="activeTab===child.entity" :key="child.entity+'-'+selected.id" :entity="child.entity" :context="{[child.key]:selected.id}" :context-label="String(selected.number??selected.code??selected.name??selected.id)" :readonly="childReadonly(child)"/>

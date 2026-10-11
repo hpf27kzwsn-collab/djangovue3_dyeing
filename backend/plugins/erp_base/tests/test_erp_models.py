@@ -133,9 +133,14 @@ class ErpModelConstraintTests(TestCase):
         with self.assertRaises(ValidationError):
             self.kg.convert_quantity(Decimal('1'), self.metre)
 
-    def test_model_phase_does_not_expose_a_direct_inventory_write_route(self):
+    def test_inventory_ledger_requires_authentication_and_rejects_direct_write(self):
         response = APIClient().post('/api/system/erp_warehouse_stockbalance/', {'quantity': '100'}, format='json')
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 401)
+        from system.models import Users
+        user = Users.objects.create(username='ledger-test', is_superuser=True)
+        client = APIClient()
+        client.force_authenticate(user)
+        self.assertEqual(client.post('/api/system/erp_warehouse_stockbalance/', {'quantity': '100'}, format='json').status_code, 405)
 
     def test_legacy_identity_preserves_text_code_and_source_table(self):
         identity = {'schema': 'dye', 'table': 'p_Customer', 'key': {'CustomerID': '000012'}}

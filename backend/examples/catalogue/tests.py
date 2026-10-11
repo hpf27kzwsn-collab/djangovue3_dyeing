@@ -45,11 +45,11 @@ class ExtensionTests(TestCase):
 
     def test_explicit_request_audit_and_soft_hard_cascade(self):
         request=SimpleNamespace(user=self.user)
-        note=Note.objects.create(request=request,name='父项')
-        child=NoteLine.objects.create(request=request,note=note,name='子项')
+        note=Note.objects.create(audit_request=request,name='父项')
+        child=NoteLine.objects.create(audit_request=request,note=note,name='子项')
         self.assertEqual(note.creator,self.user)
         old_time=note.update_datetime
-        Note.objects.filter(pk=note.pk).update(request=request,name='更新')
+        Note.objects.filter(pk=note.pk).update(audit_request=request,name='更新')
         updated=Note.objects.get(pk=note.pk)
         self.assertEqual(updated.modifier,self.user)
         self.assertGreater(updated.update_datetime,old_time)
