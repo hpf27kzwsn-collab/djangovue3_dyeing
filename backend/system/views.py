@@ -22,6 +22,7 @@ from .auth import config
 from .excel import ExcelActions
 from types import SimpleNamespace
 from copy import copy
+from django.utils.module_loading import import_string
 from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiTypes
 from django_celery_beat.models import PeriodicTask
 import json
@@ -561,6 +562,9 @@ class Metadata(APIView):
                 kind, options = 'select', dictionary_options(dict_key)
             elif mf.choices:
                 kind, options = 'select', [{'label': str(label), 'value': value if isinstance(value, (str,int,float,bool)) else str(value)} for value, label in mf.choices]
+            elif mf.is_relation and 'remote' in custom:
+                kind = 'multi' if mf.many_to_many else 'select'
+                remote = custom['remote']
             elif mf.is_relation:
                 kind = 'multi' if mf.many_to_many else 'select'
                 related = mf.related_model
@@ -655,4 +659,7 @@ def view_for(entity, model):
     queryset = model.objects.order_by(*(model._meta.ordering or ['-pk']))
     if any(field.name == 'creator' for field in model._meta.fields):
         queryset = queryset.select_related('creator')
-    return type(f'{model.__name__}ViewSet', (ResourceViewSet,), {'queryset': queryset, 'serializer_class': serializer_for(model)})
+    options = resource_options(model)
+    view_base = import_string(options['viewset']) if 'viewset' in options else ResourceViewSet
+    serializer = serializer_for(model, import_string(options['serializer'])) if 'serializer' in options else serializer_for(model)
+    return type(f'{model.__name__}ViewSet', (view_base,), {'queryset': queryset, 'serializer_class': serializer})

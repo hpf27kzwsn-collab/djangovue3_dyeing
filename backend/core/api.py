@@ -86,14 +86,14 @@ class CoreSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
         return result
 
 
-def serializer_for(model):
+def serializer_for(model, base=CoreSerializer):
     excluded = ['password', 'groups', 'user_permissions'] if model is get_user_model() else []
     meta = type('Meta', (), {'model': model, 'exclude': excluded, 'read_only_fields': AUDIT_FIELDS})
     attributes = {'Meta': meta}
     for field in model._meta.fields:
         if isinstance(field, TimeZoneField):
             attributes[field.name] = TimeZoneSerializerField(required=not field.blank and not field.has_default())
-    return type(f'{model.__name__}Serializer', (CoreSerializer,), attributes)
+    return type(f'{model.__name__}Serializer', (base,), attributes)
 
 
 class ModelViewSet(QueryArgumentsMixin, viewsets.ModelViewSet):

@@ -1407,6 +1407,7 @@ class Machine(ErpModel):
         '机台编号',
         max_length=64,
         blank=True,
+        null=True,
         unique=True,
     )
 

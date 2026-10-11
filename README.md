@@ -97,7 +97,7 @@ Pop-Location
 
 后续接口、页面、业务流程、数据迁移及分批验收安排见 [染色ERP后续开发方案](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/染色ERP后续开发方案.md)。
 
-目前是模型阶段，ERP 业务表为空；业务服务、接口和菜单按实施说明继续接入。
+基础信息 A 批已接入26个模型的接口、16个主档页面及10类从属资料，并实现路线版本审核、启用、停用和复制。登录后进入“染色ERP → 基础信息”，已有超级管理员可直接使用。普通账号可配置“基础资料维护”或“基础资料查询”角色。实际数据库已完成第26个ERP迁移，ERP业务表为空；验收样例使用独立数据库。字段处理及测试结果见 [基础信息A批实施记录](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/基础信息A批实施记录.md)。
 
 按普通 Django app 编写业务模型及迁移，在 backend/application/plugins.py 登记应用和路由；前端扩展放在 web/src/plugins。通用资源提供 CRUD、筛选、角色/API/数据范围/字段权限及 xlsx 模板导入导出；订单、库存、财务流程需继续开发。数据库切换不等同于企业隔离。
 

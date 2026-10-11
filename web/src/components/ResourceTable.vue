@@ -21,7 +21,7 @@ import {merge} from 'lodash-es'
 const Resource=defineAsyncComponent(()=>import('../pages/Resource.vue'))
 const ChartPanel=defineAsyncComponent(()=>import('./ChartPanel.vue'))
 const DepartmentCharts=defineAsyncComponent(()=>import('./DepartmentCharts.vue'))
-const props=defineProps<{meta:any;context?:Record<string,any>;contextLabel?:string;chartDemo?:boolean}>(), account=useAccount()
+const props=defineProps<{meta:any;context?:Record<string,any>;contextLabel?:string;chartDemo?:boolean;readonly?:boolean;rowActions?:Array<{key:string;text:string;permission:string;show?:(row:any)=>boolean;click:(row:any)=>void}>}>(), account=useAccount()
 const route=useRoute(),router=useRouter()
 const ownPath=route.path,active=ref(true)
 onActivated(async()=>{active.value=true;if(!props.context&&isOwnRoute()&&JSON.stringify(context.value)!==JSON.stringify(route.query)){context.value={...route.query};await updateContext()}})
@@ -29,7 +29,7 @@ onDeactivated(()=>active.value=false)
 const mobile=useMobile(),treeOpen=ref(false),includeChildren=ref(false),showDepartmentSummary=ref(true),departmentInfo=ref<any>()
 const entity=props.meta.entity, base=`/api/system/${entity}/`
 const context=ref<Record<string,any>>({...props.context??route.query}),treeVersion=ref(0),workspaceRow=ref<any>(),workspaceTab=ref('main')
-const editable=!['operation_log','login_log','download_center','task_result'].includes(entity)
+const editable=!props.readonly&&!['operation_log','login_log','download_center','task_result'].includes(entity)
 const selection=ref<any[]>([]), role=ref<any>(), permissionOpen=ref(false), importOpen=ref(false)
 const tree=ref<any[]>([]),contextTitle=ref(''),jsonDetail=ref<any>(),recipientMessage=ref<any>(),recipientsOpen=ref(false)
 const settings=ref<any>(),settingsOpen=ref(false),userGrantOpen=ref(false),grantRole=ref<any>()
@@ -58,12 +58,12 @@ function createCrudOptions() {
       ...(isOptions?{dict:dict({data:field.options,value:'value',label:'label'})}:{}),
       column:{show:field.is_query && !(entity==='user' && field.key==='password') && !['description','creator','modifier','dept_belong','create_datetime','update_datetime'].includes(field.key),minWidth:140,sortable:'custom',
         ...(field.kind==='multi'?{component:{multiple:true}}:{}),
-        ...(field.kind==='boolean'?{formatter:({value}:any)=>field.title==='成功'?(value?'成功':'失败'):(value?'是':'否')}:{}),
+        ...(field.kind==='boolean'?{formatter:({value}:any)=>value==null?'未填写':field.title==='成功'?(value?'成功':'失败'):(value?'是':'否')}:{}),
         ...(field.kind==='json'?{formatter:({value}:any)=>JSON.stringify(value)}:{})},
       search:{show:field.is_query&&(searches[entity]?.includes(field.key)??(!field.readonly&&['select','boolean'].includes(field.kind))),component:{name:'FieldInput',vModel:'modelValue',field:field.kind==='boolean'?{...field,kind:'select',options:[{label:'是',value:true},{label:'否',value:false}]}:field}},
       form:{show:!field.readonly,value:field.key in context.value ? field.options.find((x:any)=>String(x.value)===context.value[field.key])?.value ?? context.value[field.key] : entity==='user'&&field.key==='gender'?1:field.default,component:{name:'FieldInput',vModel:'modelValue',field:entity==='system_config' && field.key==='setting'?{...field,kind:'association'}:{...field,...(entity==='user'&&field.key==='avatar'?{kind:'avatar'}:entity==='message_center'&&field.key==='content'?{kind:'richtext'}:entity==='menu'&&field.key==='icon'?{kind:'icon'}:entity==='dictionary'&&field.key==='color'?{kind:'color'}:entity==='api_white_list'&&field.key==='url'?{kind:'api-path'}:entity==='message_center'&&field.key==='target_dept'?{remote:{entity:'dept',pk:'id',label:'name'}}:{})}},
         rules:field.required?[{required:true,message:`请填写${field.title}`}]:[]},
-      addForm:{show:!field.readonly && field.is_create},editForm:{show:!field.readonly && field.is_update && !(entity==='user' && field.key==='password')}
+      addForm:{show:!field.readonly && field.is_create},editForm:{show:!field.readonly && field.is_update && !(entity==='user' && field.key==='password')},viewForm:{show:field.is_query}
     }
     if(field.display_key)columns[field.key].column={...columns[field.key].column,component:undefined,formatter:({row}:any)=>row[field.display_key]}
     if(field.dictionary)columns[field.key].column.component={name:'DictionaryBadge',modelValue:compute(({row}:any)=>row[field.key]),options:field.options}
@@ -100,7 +100,7 @@ function createCrudOptions() {
   }
   for(const field of props.meta.fields.filter((f:any)=>f.is_query&&f.kind==='datetime'&&['create_datetime','update_datetime','date_done'].includes(f.key)))for(const [suffix,label] of [['gte','起'],['lte','止']]){columns[field.key+'__'+suffix]={title:field.title+'（'+label+'）',column:{show:false},form:{show:false},search:{show:true,component:{name:'FieldInput',vModel:'modelValue',field}}}}
   columns.search={title:'关键词',type:'text',column:{show:false},form:{show:false},search:{show:true}}
-  const buttons:any={view:{show:can('detail')},edit:{show:editable&&can('patch')},remove:{show:!['operation_log','login_log'].includes(entity)&&can('delete')}}
+  const buttons:any={view:{show:can('detail')},edit:{show:editable&&can('patch')},remove:{show:!props.readonly&&!['operation_log','login_log'].includes(entity)&&can('delete')}}
   buttons.copy={text:'复制',show:editable&&can('copy'),click:({row}:any)=>crudExpose.openCopy({row})}
   if(entity==='role') buttons.permissions={text:'权限配置',show:can('permissions-get'),click:({row}:any)=>{role.value=row;permissionOpen.value=true}}
   if(entity==='role') buttons.users={text:'授权用户',show:can('users-get'),click:({row}:any)=>{grantRole.value=row;userGrantOpen.value=true}}
@@ -123,6 +123,7 @@ function createCrudOptions() {
   if(entity==='file'||entity==='download_center') buttons.download={text:'下载',show:compute(({row}:any)=>entity==='file'||row.task_status===2),click:({row}:any)=>window.open(row.url)}
   if(entity==='file')buttons.preview={text:'预览',click:({row}:any)=>preview.value=row}
   if(entity==='file'){columns._preview={title:'预览',column:{width:100,component:{name:'FileThumbnail',file:compute(({row}:any)=>row),onPreview:(row:any)=>preview.value=row}},form:{show:false},search:{show:false}};columns.size.column.formatter=({value}:any)=>fileSize(value)}
+  for(const action of props.rowActions??[])buttons[action.key]={text:action.text,show:compute(({row}:any)=>account.can(action.permission)&&(!action.show||action.show(row))),click:({row}:any)=>action.click(row)}
   return {crudOptions:merge({
     request:{pageRequest:(query:any)=>api(base,{params:resourceQuery({...query,...context.value,...(entity==='user'?{include_children:includeChildren.value}:{})})}),addRequest:({form}:any)=>api(base,{method:'POST',data:payload(form)}),
       editRequest:({form,row}:any)=>api(`${base}${row[props.meta.pk]}/`,{method:'PATCH',data:payload(form,'is_update')}),
@@ -146,6 +147,7 @@ watch(()=>props.meta,async()=>{
   await updateContext()
 })
 async function refresh(){await crudExpose.doRefresh()}
+defineExpose({refresh})
 async function loadTree(){if(entity==='area'){tree.value=(await api(base+'children/')).data;treeVersion.value++}else if(['dept','dictionary','menu','system_config'].includes(entity))tree.value=toTree((await api(base+'tree/')).data,props.meta.pk)}
 async function refreshTree(){await refresh();await loadTree()}
 async function updateContext(){
@@ -185,9 +187,9 @@ async function saveButtons(){await api(base+'batch_create/',{method:'POST',data:
   <el-button v-if="can('async-export-post')" @click="asynchronous">异步导出</el-button>
   <el-button v-if="meta.excel_import&&can('import-template-get')" @click="download(base+'import_template/',meta.title+'新增模板.xlsx')">新增模板</el-button>
   <el-button v-if="meta.excel_import&&can('update-template-get')&&can('patch')" @click="download(base+'update_template/',meta.title+'更新模板.xlsx',exportFilters())">更新模板</el-button>
-  <el-button v-if="meta.excel_import&&can('import-data-post')&&(can('add')||can('patch'))" @click="importOpen=true">xlsx 导入</el-button>
+  <el-button v-if="editable&&meta.excel_import&&can('import-data-post')&&(can('add')||can('patch'))" @click="importOpen=true">xlsx 导入</el-button>
   <el-button v-if="can('init-data-get')" @click="download(base+'init_data/',entity+'.json')">初始化数据</el-button>
-  <el-popover trigger="click" width="min(500px, calc(100vw - 24px))"><template #reference><el-button>已选 {{selection.length}} 项</el-button></template><el-button @click="clearSelected">清空选择</el-button><el-table :data="selection"><el-table-column :prop="meta.pk" label="主键"/><el-table-column label="名称"><template #default="{row}">{{row.name||row.title||row.label||row.field_name}}</template></el-table-column><el-table-column label="操作"><template #default="{row}"><el-button text @click="deselect(row)">移除</el-button></template></el-table-column></el-table></el-popover><el-button v-if="!['operation_log','login_log'].includes(entity)&&can('multiple-delete-delete')" :disabled="selection.length===0" @click="removeSelected">批量删除</el-button>
+  <el-popover trigger="click" width="min(500px, calc(100vw - 24px))"><template #reference><el-button>已选 {{selection.length}} 项</el-button></template><el-button @click="clearSelected">清空选择</el-button><el-table :data="selection"><el-table-column :prop="meta.pk" label="主键"/><el-table-column label="名称"><template #default="{row}">{{row.name||row.title||row.label||row.field_name}}</template></el-table-column><el-table-column label="操作"><template #default="{row}"><el-button text @click="deselect(row)">移除</el-button></template></el-table-column></el-table></el-popover><el-button v-if="!props.readonly&&!['operation_log','login_log'].includes(entity)&&can('multiple-delete-delete')" :disabled="selection.length===0" @click="removeSelected">批量删除</el-button>
   <template v-if="entity==='periodic_task'"><el-button @click="router.push('/system/interval_schedule')">间隔规则</el-button><el-button @click="router.push('/system/crontab_schedule')">Crontab 规则</el-button><el-button @click="router.push('/system/clocked_schedule')">指定时间</el-button><el-button @click="router.push('/system/solar_schedule')">太阳事件</el-button></template>
 </div></div><el-alert v-if="context.parent||context.menu" :title="'当前父项：'+contextTitle" type="info" :closable="false"/><el-button v-if="entity==='user'&&context.dept" class="department-toggle" text @click="showDepartmentSummary=!showDepartmentSummary">{{showDepartmentSummary?'隐藏部门概况':'显示部门概况'}}</el-button><div v-if="entity==='user'&&context.dept&&showDepartmentSummary" class="department-summary"><el-switch v-model="includeChildren" active-text="含下级部门" @change="departmentSummary"/><el-button @click="departmentSummary">部门统计</el-button><span v-if="departmentInfo">{{departmentInfo.name}} · {{departmentInfo.count}} 人 · 负责人：{{departmentInfo.owner||'未设置'}} · 男 {{departmentInfo.gender[1]}} / 女 {{departmentInfo.gender[2]}} / 未知 {{departmentInfo.gender[0]}}</span><el-tag v-for="item in departmentInfo?.children" :key="item.id">{{item.name}}：{{item.count}} 人</el-tag><p v-if="departmentInfo?.description">{{departmentInfo.description}}</p><DepartmentCharts v-if="departmentInfo" :info="departmentInfo"/></div><div class="resource-body"><aside v-if="tree.length&&(!mobile||treeOpen)" class="tree-panel"><el-button text @click="allRows">全部</el-button><el-tree v-if="entity!=='area'" :data="tree" :props="{label:entity==='dictionary'?'label':entity==='system_config'?'title':'name'}" :node-key="meta.pk" :draggable="['dept','menu'].includes(entity) && can('batch-update-put')" @node-drop="sortTree" @node-click="filterTree"/><el-tree v-else :key="treeVersion" lazy :load="loadArea" node-key="code" :props="{label:'name',isLeaf:(data:any)=>!data.has_children}" @node-click="filterTree"/></aside><div class="resource-crud" :class="{'with-chart':chartDemo}"><el-tabs v-if="workspaceRow&&['dept','menu'].includes(entity)" v-model="workspaceTab"><el-tab-pane label="基础管理" name="main"/><el-tab-pane v-if="entity==='dept'&&account.can('user:list')" :label="workspaceRow.name+' · 部门用户'" name="users"/><el-tab-pane v-if="entity==='menu'&&account.can('menu_button:list')" label="权限按钮" name="buttons"/><el-tab-pane v-if="entity==='menu'&&account.can('column:list')" label="字段权限" name="fields"/></el-tabs><fs-crud v-show="workspaceTab==='main'" ref="crudRef" v-bind="crudBinding"><template v-if="chartDemo" #header-top><ChartPanel/></template></fs-crud><Resource v-if="workspaceRow&&workspaceTab==='users'" :key="'users-'+workspaceRow.id" entity="user" :context="{dept:workspaceRow.id}" :context-label="workspaceRow.name"/><Resource v-if="workspaceRow&&workspaceTab==='buttons'" :key="'buttons-'+workspaceRow.id" entity="menu_button" :context="{menu:workspaceRow.id}" :context-label="workspaceRow.name"/><Resource v-if="workspaceRow&&workspaceTab==='fields'" :key="'fields-'+workspaceRow.id" entity="column" :context="{menu:workspaceRow.id}" :context-label="workspaceRow.name"/></div></div>
 <MessageRecipients v-if="recipientsOpen" v-model="recipientsOpen" :message="recipientMessage"/><el-drawer :model-value="!!jsonDetail" title="JSON 明细" size="min(850px, 100vw)" @close="jsonDetail=undefined"><pre class="json-detail">{{JSON.stringify(jsonDetail,null,2)}}</pre></el-drawer>

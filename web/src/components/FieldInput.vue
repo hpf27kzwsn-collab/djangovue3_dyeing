@@ -10,7 +10,7 @@ const IconPicker=defineAsyncComponent(()=>import('./IconPicker.vue'))
 const ArrayInput=defineAsyncComponent(()=>import('./ArrayInput.vue'))
 const TableSelect=defineAsyncComponent(()=>import('./TableSelect.vue'))
 const ApiPathInput=defineAsyncComponent(()=>import('./ApiPathInput.vue'))
-const props = defineProps<{modelValue: any; field: {kind: string; options: any[]; key: string;placeholder?:string;remote?:{entity:string;pk:string;label:string}}}>()
+const props = defineProps<{modelValue: any; field: {kind: string; options: any[]; key: string;nullable?:boolean;placeholder?:string;remote?:{entity:string;pk:string;label:string;columns?:any[];params?:Record<string,any>}}}>()
 const departmentTree=computed(()=>toTree(props.field.options,'value','parent'))
 const emit = defineEmits(['update:modelValue'])
 const jsonText=ref('')
@@ -30,6 +30,7 @@ function json(value: string) {emit('update:modelValue', JSON.parse(value))}
   <IconPicker v-else-if="field.kind==='icon'" :model-value="modelValue" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>
   <div v-else-if="field.kind==='color'" class="color-input"><el-select :model-value="modelValue" filterable allow-create @update:model-value="emit('update:modelValue',$event)"><el-option v-for="color in semanticColors" :key="color" :value="color" :label="color"/></el-select><el-color-picker :model-value="modelValue" @update:model-value="emit('update:modelValue',$event)"/><el-input :model-value="modelValue" @update:model-value="emit('update:modelValue',$event)"/></div>
   <FilePicker v-else-if="['image','images','attachment'].includes(field.kind)" :model-value="modelValue" :multiple="field.kind==='images'" :images="field.kind!=='attachment'" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>
+  <FilePicker v-else-if="field.kind==='attachment-id'" :model-value="modelValue" value-key="id" :show-network="false" @update:model-value="(value:any)=>emit('update:modelValue',value===''?null:value)"/>
   <ArrayInput v-else-if="field.kind==='array'" :model-value="modelValue" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>
   <el-checkbox-group v-else-if="field.kind==='checkbox'" :model-value="modelValue||[]" @update:model-value="(value:any)=>emit('update:modelValue',value)"><el-checkbox v-for="item in field.options" :key="item.value" :value="item.value">{{item.label}}</el-checkbox></el-checkbox-group>
   <el-radio-group v-else-if="field.kind==='radio'" :model-value="modelValue" @update:model-value="(value:any)=>emit('update:modelValue',value)"><el-radio v-for="item in field.options" :key="item.value" :value="item.value">{{item.label}}</el-radio></el-radio-group>
@@ -40,9 +41,10 @@ function json(value: string) {emit('update:modelValue', JSON.parse(value))}
     <el-option v-for="item in field.options" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"/>
   </el-select>
   <el-select v-else-if="field.kind==='autocomplete'" :model-value="modelValue" filterable allow-create @update:model-value="emit('update:modelValue',$event)"><el-option v-for="item in field.options" :key="item.value" :label="item.label" :value="item.value"/></el-select>
+  <el-select v-else-if="field.kind==='boolean'&&field.nullable" :model-value="modelValue" clearable placeholder="未填写" @clear="emit('update:modelValue',null)" @update:model-value="(value:any)=>emit('update:modelValue',value)"><el-option label="是" :value="true"/><el-option label="否" :value="false"/></el-select>
   <el-switch v-else-if="field.kind === 'boolean'" :model-value="modelValue" @update:model-value="(value: any) => emit('update:modelValue', value)"/>
   <el-input-number v-else-if="field.kind === 'number'" :model-value="modelValue" @update:model-value="(value: any) => emit('update:modelValue', value)"/>
-  <el-input v-else-if="field.kind === 'decimal'" :model-value="modelValue" inputmode="decimal" @update:model-value="(value:string)=>emit('update:modelValue',value)"/>
+  <el-input v-else-if="field.kind === 'decimal'" :model-value="modelValue" inputmode="decimal" @update:model-value="(value:string)=>emit('update:modelValue',value===''&&field.nullable?null:value)"/>
   <el-date-picker v-else-if="field.kind === 'datetime'" :model-value="modelValue" type="datetime" value-format="YYYY-MM-DD HH:mm:ss" @update:model-value="(value: any) => emit('update:modelValue', value)"/>
   <el-date-picker v-else-if="field.kind === 'date'" :model-value="modelValue" type="date" value-format="YYYY-MM-DD" @update:model-value="(value: any) => emit('update:modelValue', value)"/>
   <el-time-picker v-else-if="field.kind === 'time'" :model-value="modelValue" value-format="HH:mm:ss" @update:model-value="(value: any) => emit('update:modelValue', value)"/>

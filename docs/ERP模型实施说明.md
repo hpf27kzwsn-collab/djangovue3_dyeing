@@ -2,7 +2,7 @@
 
 实施日期：2026-10-11。依据：[六模块模型与字段设计](H:/Project_python/django-vue3-admin/dyeing/染色ERP六模块模型与字段设计.md)。当前项目：`djangovue3_dyeing`，Django 5.2.18。
 
-六个业务应用已经注册，98 个实体模型、851 个专属字段全部落地；每个模型另有 9 个公共字段，含“旧系统id” `legacy_id`。12 个初始迁移及13个字段修订迁移已经在本项目的 `backend/db.sqlite3` 执行，ERP 表共98张。当前 ERP 业务表为空，准备承接后续基础资料与业务单据开发。
+六个业务应用已经注册，98 个实体模型、851 个专属字段全部落地；每个模型另有 9 个公共字段，含“旧系统id” `legacy_id`。12 个初始迁移及13个字段修订迁移已执行，A批另增1个机台编号空值迁移，当前累计26个，ERP表共98张。基础信息页面与接口已接入，ERP业务表为空，后续逐批接入业务单据。
 
 本次按当前旧系统字段设置复核，修订字段含义、标题、长度、精度及空值；具体已复刻和合理调整见 [旧系统字段复刻与差异处理说明](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段复刻与差异处理说明.md) 和 [逐项对照](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段逐项对照.md)。
 
@@ -10,7 +10,7 @@
 
 | 模块 | 应用标签 | 模型数 | 模型文件 | 初始迁移数 | 当前迁移总数 |
 |---|---|---:|---|---:|---:|
-| 基础信息 | erp_base | 26 | [models.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/plugins/erp_base/models.py) | 2 | 4 |
+| 基础信息 | erp_base | 26 | [models.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/plugins/erp_base/models.py) | 2 | 5 |
 | 销售管理 | erp_sales | 13 | [models.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/plugins/erp_sales/models.py) | 2 | 5 |
 | 采购管理 | erp_purchase | 6 | [models.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/plugins/erp_purchase/models.py) | 3 | 5 |
 | 打样管理 | erp_sampling | 10 | [models.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/plugins/erp_sampling/models.py) | 1 | 3 |
@@ -19,7 +19,7 @@
 
 应用配置位于 [application/plugins.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/application/plugins.py)。跨应用外键使用明确的 `app_label.Model` 字符串；Django 将跨模块依赖拆成多份初始迁移。所有实体继承 `ErpModel(CoreModel)`，增加长业务备注 `remarks` 和旧系统id `legacy_id`，复用现有账号、部门和附件资源。
 
-已有框架会把登记的模型自动转换为通用增删改接口。本阶段 ERP 应用同时列入 `MODEL_EXCLUDE_APPS`，先完成模型与表结构；ORM 和迁移仍正常使用。基础资料接口、单据确认及库存生效服务接入时再登记相应资源，库存流水和余额由专门业务动作维护。
+已有框架会把登记的模型转换为资源接口。A 批已登记基础信息 26 个模型，并接入模型校验、业务保存与路线版本操作；另外五个应用仍在 `MODEL_EXCLUDE_APPS`，在对应批次接入业务服务。实施范围及验收见 [基础信息A批实施记录](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/基础信息A批实施记录.md)。库存流水和余额后续由专门业务动作维护。
 
 ## 已实现的字段与关系规则
 
@@ -64,7 +64,7 @@
 
 旧 SQL Server 及旧 ERP 业务数据未写入。财务系统不在这批模型范围内，商业合同价格作为销售/采购业务信息保留。
 
-## 测试结果
+## 字段修订阶段测试结果
 
 64 项测试通过：ERP 测试 52 项，现有模型身份与业务合同回归测试 12 项。测试数据库从空库实际执行了完整迁移；覆盖固定单位换算、NULL 与零值、小数粒数、默认联系人、草稿从属删除、主数据保护、可空库存维度唯一、来源重复、冲销、更正、排程与现有附件/Excel行为；新增旧身份文本与复合键、未知标志、NULL/空串、完整进厂时间、品牌/用途/特殊事项，以及生产完成与结案时间分离的验证。
 
@@ -80,7 +80,7 @@ Pop-Location
 
 ## 后续开发入口
 
-具体批次、页面、业务动作和验收条件见 [染色ERP后续开发方案](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/染色ERP后续开发方案.md)。下一步先接入基础资料；库存基础服务在生产实际领料和销售交付前完成，供各模块共同使用。单据确认、版本冻结、订单分配上限、实际称量更正、库存生效/冲销、余额更新与并发控制属于后续业务动作，模型建表不代表这些流程已经实现。
+具体批次、页面、业务动作和验收条件见 [染色ERP后续开发方案](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/染色ERP后续开发方案.md)。A 批基础资料页面、接口及路线版本冻结已实现，累计 ERP 迁移现为26个。下一批实现商业价格、打样配方与订单需求；库存基础服务在实际领料和销售交付前完成。订单分配上限、实际称量更正、库存生效/冲销、余额更新与库存并发控制按后续批次实施。
 
 旧单位全空、旧合卡孤儿记录、报价确认表达式冲突、检验项目槽位、浴比和百分数基准等，继续按照设计第 12、15 章处理；这些内容没有被编造成迁移默认值。本次没有导入旧业务数据。
 

@@ -8,11 +8,11 @@ APPS = [
     'plugins.erp_warehouse.apps.ErpWarehouseConfig',
 ]
 URLS = []  # [('inventory', 'plugins.inventory.urls')]
-# ERP 先接入模型和表结构；确认、采用、库存生效等业务接口在对应服务实现时登记。
+# 基础信息已接入页面和业务保存；其余应用在对应批次实现业务动作时登记。
 MODEL_EXCLUDE_APPS = [
     'auth', 'contenttypes', 'sessions', 'captcha',
     'django_celery_beat', 'django_celery_results',
-    'erp_base', 'erp_sales', 'erp_purchase',
+    'erp_sales', 'erp_purchase',
     'erp_sampling', 'erp_production', 'erp_warehouse',
 ]
-INITIALIZERS = []  # ['inventory.initialize.load']，重复运行的应用种子函数
+INITIALIZERS = ['plugins.erp_base.initialize.load']
