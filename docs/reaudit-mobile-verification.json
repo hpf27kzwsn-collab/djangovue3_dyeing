@@ -1,0 +1,21 @@
+{
+  "dialog": {
+    "left": 0,
+    "right": 390,
+    "width": 390
+  },
+  "documentWidth": 390,
+  "title": "隔离验收图片",
+  "width": 390,
+  "media390": {
+    "viewportWidth": 390,
+    "dialog": {
+      "selector": ".el-dialog",
+      "left": 12,
+      "right": 378,
+      "width": 366
+    },
+    "documentWidth": 390,
+    "title": "隔离验收图片"
+  }
+}

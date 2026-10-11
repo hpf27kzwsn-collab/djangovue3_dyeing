@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-09",
+  "database": ":memory:",
+  "method": "Actual generic serializers/views, real extension AppConfigs and concrete same-named business models. No production database access. JWT test rules out blacklist races in the current configuration.",
+  "checks": {
+    "model_Users": {
+      "label": "identity_a.Users",
+      "supports_import": true,
+      "metadata": {
+        "exception": "AssertionError",
+        "detail": "The field 'password' was included on serializer UsersSerializer in the 'exclude' option, but does not match any model field."
+      },
+      "list": {
+        "exception": "AssertionError",
+        "detail": "The field 'password' was included on serializer UsersSerializer in the 'exclude' option, but does not match any model field."
+      },
+      "template": {
+        "exception": "AssertionError",
+        "detail": "The field 'password' was included on serializer UsersSerializer in the 'exclude' option, but does not match any model field."
+      },
+      "custom_serializer_export": {
+        "status": 200,
+        "headers": [
+          "序号",
+          "用户名称"
+        ],
+        "expected_business_column": "数量"
+      }
+    },
+    "model_LoginLog": {
+      "label": "identity_a.LoginLog",
+      "supports_import": false,
+      "metadata": {
+        "status": 200,
+        "excel_import": false
+      },
+      "list": {
+        "status": 200,
+        "data": {
+          "code": 2000,
+          "msg": "success",
+          "data": [],
+          "page": 1,
+          "limit": 10,
+          "total": 0,
+          "is_next": false,
+          "is_previous": false
+        }
+      },
+      "template": {
+        "status": 400,
+        "data": {
+          "code": 400,
+          "msg": "[ErrorDetail(string='该模块只提供数据导出', code='invalid')]",
+          "data": [
+            "该模块只提供数据导出"
+          ]
+        }
+      }
+    },
+    "model_OperationLog": {
+      "label": "identity_a.OperationLog",
+      "supports_import": false,
+      "metadata": {
+        "status": 200,
+        "excel_import": false
+      },
+      "list": {
+        "status": 200,
+        "data": {
+          "code": 2000,
+          "msg": "success",
+          "data": [],
+          "page": 1,
+          "limit": 10,
+          "total": 0,
+          "is_next": false,
+          "is_previous": false
+        }
+      },
+      "template": {
+        "status": 400,
+        "data": {
+          "code": 400,
+          "msg": "[ErrorDetail(string='该模块只提供数据导出', code='invalid')]",
+          "data": [
+            "该模块只提供数据导出"
+          ]
+        }
+      }
+    },
+    "model_DownloadCenter": {
+      "label": "identity_a.DownloadCenter",
+      "supports_import": false,
+      "metadata": {
+        "status": 200,
+        "excel_import": false
+      },
+      "list": {
+        "status": 200,
+        "data": {
+          "code": 2000,
+          "msg": "success",
+          "data": [],
+          "page": 1,
+          "limit": 10,
+          "total": 0,
+          "is_next": false,
+          "is_previous": false
+        }
+      },
+      "template": {
+        "status": 400,
+        "data": {
+          "code": 400,
+          "msg": "[ErrorDetail(string='该模块只提供数据导出', code='invalid')]",
+          "data": [
+            "该模块只提供数据导出"
+          ]
+        }
+      }
+    },
+    "model_TaskResult": {
+      "label": "identity_a.TaskResult",
+      "supports_import": false,
+      "metadata": {
+        "status": 200,
+        "excel_import": false
+      },
+      "list": {
+        "status": 200,
+        "data": {
+          "code": 2000,
+          "msg": "success",
+          "data": [],
+          "page": 1,
+          "limit": 10,
+          "total": 0,
+          "is_next": false,
+          "is_previous": false
+        }
+      },
+      "template": {
+        "status": 400,
+        "data": {
+          "code": 400,
+          "msg": "[ErrorDetail(string='该模块只提供数据导出', code='invalid')]",
+          "data": [
+            "该模块只提供数据导出"
+          ]
+        }
+      }
+    },
+    "model_PlainEntry": {
+      "label": "identity_a.PlainEntry",
+      "supports_import": true,
+      "metadata": {
+        "status": 200,
+        "excel_import": true
+      },
+      "list": {
+        "status": 200,
+        "data": {
+          "code": 2000,
+          "msg": "success",
+          "data": [],
+          "page": 1,
+          "limit": 10,
+          "total": 0,
+          "is_next": false,
+          "is_previous": false
+        }
+      },
+      "template": {
+        "status": 200
+      }
+    },
+    "refresh_rotation": {
+      "first_status": 200,
+      "second_status": 200,
+      "rotated": true,
+      "blacklisted": "None",
+      "settings": {
+        "ROTATE_REFRESH_TOKENS": true,
+        "BLACKLIST_AFTER_ROTATION": false
+      },
+      "blacklist_app_installed": false
+    }
+  }
+}

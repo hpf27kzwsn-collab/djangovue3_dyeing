@@ -1,0 +1,4 @@
+<script setup lang="ts">
+defineProps<{modelValue?:{url:string;mime_type:string;name?:string}}>();const emit=defineEmits(['update:modelValue'])
+</script>
+<template><el-dialog :model-value="!!modelValue" :title="modelValue?.name||'文件预览'" width="min(850px, calc(100vw - 24px))" destroy-on-close @update:model-value="!$event&&emit('update:modelValue',undefined)"><template v-if="modelValue"><video v-if="modelValue.mime_type.startsWith('video/')" :src="modelValue.url" controls style="width:100%"/><audio v-else-if="modelValue.mime_type.startsWith('audio/')" :src="modelValue.url" controls style="width:100%"/><el-image v-else-if="modelValue.mime_type.startsWith('image/')" :src="modelValue.url" :preview-src-list="[modelValue.url]" fit="contain" style="width:100%;max-height:70vh"/><a v-else :href="modelValue.url" target="_blank">打开文件</a></template></el-dialog></template>

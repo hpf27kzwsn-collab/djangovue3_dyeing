@@ -1,0 +1,68 @@
+{
+  "method": "same HTTP fixtures after export serializer reuse; sampled combined server+workers RSS, not incremental allocation",
+  "date": "2026-10-10",
+  "results": [
+    {
+      "rows": 1000,
+      "measurements": [
+        {
+          "operation": "sync_export_1000",
+          "seconds": 1.012,
+          "peak_sampled_combined_rss_mib": 485.57
+        },
+        {
+          "operation": "async_export_1000",
+          "seconds": 1.021,
+          "peak_sampled_combined_rss_mib": 502.33
+        }
+      ],
+      "download_id": 14,
+      "task_id": "41f6d111-ca43-457c-a9f2-e0c09b7e7892",
+      "sync_async_rows_equal": true
+    },
+    {
+      "rows": 10000,
+      "measurements": [
+        {
+          "operation": "sync_export_10000",
+          "seconds": 5.577,
+          "peak_sampled_combined_rss_mib": 563.34
+        },
+        {
+          "operation": "async_export_10000",
+          "seconds": 5.509,
+          "peak_sampled_combined_rss_mib": 645.11
+        }
+      ],
+      "download_id": 15,
+      "task_id": "23212a2f-2be6-4837-b2db-cb6004e8d61c",
+      "sync_async_rows_equal": true
+    },
+    {
+      "rows": 100000,
+      "measurements": [
+        {
+          "operation": "sync_export_100000",
+          "seconds": 55.76,
+          "peak_sampled_combined_rss_mib": 1124.33
+        },
+        {
+          "operation": "async_export_100000",
+          "seconds": 53.854,
+          "peak_sampled_combined_rss_mib": 1753.35
+        }
+      ],
+      "download_id": 16,
+      "task_id": "668d0b2d-1a9c-4edc-b603-75104a7ef92e",
+      "sync_async_rows_equal": true
+    }
+  ],
+  "measured_pids": [
+    16332,
+    7320,
+    13256,
+    18692,
+    19372,
+    7164
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "backup": "data-backups\\navigation-cleanup-20261011-111316",
+  "downloads": [
+    {
+      "id": 1,
+      "task_id": "4fb82cc0-ba27-4808-a330-439464a8335a",
+      "file": "downloads/2026/10/export-1.xlsx",
+      "sha256": "348e79382a2a202fbb4787b78b18ef0077177b09c749894256e161aed1372f01"
+    },
+    {
+      "id": 2,
+      "task_id": "d4bf7ceb-b87c-4405-9932-3917009ca53b",
+      "file": "downloads/2026/10/export-2.xlsx",
+      "sha256": "2b002b249f380044e36eb899bb1e68827d500e462a2913a2aac9e68d0b3c4fa1"
+    },
+    {
+      "id": 3,
+      "task_id": "f449fbcd-a4a8-45a9-9558-88a8a8327902",
+      "file": "downloads/2026/10/export-3.xlsx",
+      "sha256": "e8431dfe38e7c23957a44f34e62cd6ca4728e68de6b351d842522acf598f7ac2"
+    }
+  ],
+  "login_log_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "operation_log_ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "empty_test_directories_removed": [
+    "test-excel\\downloads\\2026\\10",
+    "test-excel\\downloads\\2026",
+    "test-excel\\downloads",
+    "test-excel",
+    "test-platform\\files\\2026\\10",
+    "test-platform\\files\\2026",
+    "test-platform\\files",
+    "test-platform"
+  ],
+  "remaining": {
+    "downloads": 0,
+    "login_logs": 0,
+    "operation_logs": 0,
+    "users": 1,
+    "media_files": []
+  },
+  "changed_tables": [
+    "system_downloadcenter",
+    "system_loginlog",
+    "system_operationlog"
+  ],
+  "all_other_tables_unchanged": true
+}

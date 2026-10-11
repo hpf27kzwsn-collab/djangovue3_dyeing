@@ -1,0 +1,941 @@
+{
+  "date": "2026-10-10",
+  "method": "Actual in-app browser DOM, viewport geometry and specified query/reset/dialog actions; no native device or all form-submit claim",
+  "resources": [
+    {
+      "entity": "user",
+      "width": 320,
+      "title": "用户",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"*密码\": <redacted>",
+        "    - textbox \"*用户名\"",
+        "    - combobox \"有效\"",
+        "    - textbox \"*描述\"",
+        "    - textbox \"*姓名\"",
+        "    - textbox \"手机号\"",
+        "    - textbox \"邮箱\"",
+        "    - combobox \"性别\"",
+        "    - combobox \"用户类型\"",
+        "    - combobox \"*部门\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "dept",
+      "width": 320,
+      "title": "部门",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"*部门编码\"",
+        "    - textbox \"描述\"",
+        "    - textbox \"*部门名称\"",
+        "    - spinbutton \"排序\"",
+        "    - textbox \"负责人\"",
+        "    - textbox \"联系电话\"",
+        "    - textbox \"邮箱\"",
+        "    - combobox \"状态\"",
+        "    - combobox \"上级部门\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "post",
+      "width": 320,
+      "title": "岗位",
+      "geometry": {
+        "root": 313,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - textbox \"*岗位名称\"",
+        "    - textbox \"*岗位编码\"",
+        "    - spinbutton \"排序\": \"1\"",
+        "    - combobox \"岗位状态\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "role",
+      "width": 320,
+      "title": "角色",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"*角色名称\"",
+        "    - textbox \"描述\"",
+        "    - textbox \"*权限字符\"",
+        "    - spinbutton \"*排序\": \"1\"",
+        "    - combobox \"状态\"",
+        "    - switch \"管理员角色\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "menu",
+      "width": 320,
+      "title": "菜单",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - textbox \"*菜单名称\"",
+        "      - combobox",
+        "    - spinbutton \"排序\"",
+        "    - switch \"目录\"",
+        "    - textbox \"*路由地址\"",
+        "    - combobox \"*组件地址\"",
+        "    - textbox \"*组件名称\"",
+        "    - switch \"外链\"",
+        "    - combobox \"状态\"",
+        "    - switch \"页面缓存\" [checked]",
+        "    - switch \"菜单可见\" [checked]",
+        "    - switch \"固定标签\"",
+        "    - combobox \"上级菜单\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "menu_button",
+      "width": 320,
+      "title": "菜单按钮",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - textbox \"*按钮名称\"",
+        "    - textbox \"*权限标识\"",
+        "    - textbox \"*接口地址\"",
+        "    - combobox \"*请求方法\"",
+        "    - combobox \"*菜单\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "column",
+      "width": 320,
+      "title": "菜单字段",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - combobox \"*模型\"",
+        "    - textbox \"*字段\"",
+        "    - textbox \"*字段标题\"",
+        "    - combobox \"*菜单\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "role_menu_permission",
+      "width": 320,
+      "title": "角色菜单权限",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - combobox \"*菜单\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "role_menu_button_permission",
+      "width": 320,
+      "title": "角色按钮权限",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - combobox \"数据范围\"",
+        "    - combobox \"*按钮\"",
+        "    - combobox \"指定部门\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "field_permission",
+      "width": 320,
+      "title": "字段权限",
+      "geometry": {
+        "root": 313,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - switch \"可查询\" [checked]",
+        "    - switch \"可新增\" [checked]",
+        "    - switch \"可修改\" [checked]",
+        "    - combobox \"*字段\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "api_white_list",
+      "width": 320,
+      "title": "接口白名单",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - combobox \"*接口地址\"",
+        "    - combobox \"*请求方法\"",
+        "    - switch \"执行数据权限\" [checked]",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "dictionary",
+      "width": 320,
+      "title": "字典",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - textbox \"*名称\"",
+        "    - textbox \"*值\"",
+        "    - spinbutton \"*排序\": \"1\"",
+        "    - combobox \"*状态\"",
+        "    - textbox \"备注\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "area",
+      "width": 320,
+      "title": "区域",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"*区域编码\"",
+        "    - textbox \"描述\"",
+        "    - textbox \"*名称\"",
+        "    - combobox \"启用\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "system_config",
+      "width": 320,
+      "title": "系统配置",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - textbox \"*标题\"",
+        "    - textbox \"*配置键\"",
+        "    - textbox \"配置值\": \"\\\"\\\"\"",
+        "    - spinbutton \"排序\": \"1\"",
+        "    - combobox \"前端公开\"",
+        "    - combobox \"表单类型\"",
+        "    - textbox \"选项\": \"[]\"",
+        "    - textbox \"规则\": \"[]\"",
+        "    - textbox \"提示\"",
+        "      - combobox",
+        "      - textbox \"字典配置键（用于下拉、单选、复选）\"",
+        "    - combobox \"分组\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "file",
+      "width": 320,
+      "title": "附件",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - textbox \"文件名\"",
+        "    - combobox \"上传方式\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "operation_log",
+      "width": 320,
+      "title": "操作日志",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true
+    },
+    {
+      "entity": "login_log",
+      "width": 320,
+      "title": "登录日志",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true
+    },
+    {
+      "entity": "message_center",
+      "width": 320,
+      "title": "消息",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"描述\"",
+        "    - combobox \"*消息类型\"",
+        "    - textbox \"*标题\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "download_center",
+      "width": 320,
+      "title": "下载任务",
+      "geometry": {
+        "root": 313,
+        "viewport": 320
+      },
+      "query_reset": true
+    },
+    {
+      "entity": "periodic_task",
+      "width": 320,
+      "title": "周期性任务",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - textbox \"*任务名\"",
+        "    - combobox \"*Task Name\"",
+        "    - textbox \"位置参数\": \"[]\"",
+        "    - textbox \"关键字参数\": \"{}\"",
+        "    - textbox \"队列覆盖\"",
+        "    - textbox \"交换机\"",
+        "    - textbox \"路由键\"",
+        "    - textbox \"AMQP消息头\": \"{}\"",
+        "    - spinbutton \"优先级\"",
+        "    - combobox \"过期时刻\"",
+        "    - spinbutton \"过期时间间隔，以秒为单位\"",
+        "    - switch \"一次任务\"",
+        "    - combobox \"开始时间\"",
+        "    - switch \"启用\" [checked]",
+        "    - textbox \"描述\"",
+        "    - combobox \"间隔时间表\"",
+        "    - combobox \"计划时间表\"",
+        "    - combobox \"日程时间表\"",
+        "    - combobox \"定时时间表\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "task_result",
+      "width": 320,
+      "title": "task result",
+      "geometry": {
+        "root": 313,
+        "viewport": 320
+      },
+      "query_reset": true
+    },
+    {
+      "entity": "interval_schedule",
+      "width": 320,
+      "title": "间隔",
+      "geometry": {
+        "root": 307,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - spinbutton \"*周期数\"",
+        "    - combobox \"*间隔周期\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "crontab_schedule",
+      "width": 320,
+      "title": "计划任务",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - combobox \"计划任务的时区\"",
+        "    - textbox \"分钟\": \"*\"",
+        "    - textbox \"小时\": \"*\"",
+        "    - textbox \"一个月的第几天\": \"*\"",
+        "    - textbox \"一年的第几个月\": \"*\"",
+        "    - textbox \"一个星期的第几天\": \"*\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "solar_schedule",
+      "width": 320,
+      "title": "日程事件",
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - combobox \"*日程事件\"",
+        "    - textbox \"*纬度\"",
+        "    - textbox \"*经度\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "clocked_schedule",
+      "width": 320,
+      "title": "定时",
+      "geometry": {
+        "root": 311,
+        "viewport": 320
+      },
+      "query_reset": true,
+      "add_dialog": true,
+      "form_fields": [
+        "    - combobox \"*定时时间\"",
+        "  - combobox",
+        "  - spinbutton \"页\": \"1\""
+      ]
+    },
+    {
+      "entity": "user",
+      "width": 390,
+      "title": "用户",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "dept",
+      "width": 390,
+      "title": "部门",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "post",
+      "width": 390,
+      "title": "岗位",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "role",
+      "width": 390,
+      "title": "角色",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "menu",
+      "width": 390,
+      "title": "菜单",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "menu_button",
+      "width": 390,
+      "title": "菜单按钮",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "column",
+      "width": 390,
+      "title": "菜单字段",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "role_menu_permission",
+      "width": 390,
+      "title": "角色菜单权限",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "role_menu_button_permission",
+      "width": 390,
+      "title": "角色按钮权限",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "field_permission",
+      "width": 390,
+      "title": "字段权限",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "api_white_list",
+      "width": 390,
+      "title": "接口白名单",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "dictionary",
+      "width": 390,
+      "title": "字典",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "area",
+      "width": 390,
+      "title": "区域",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "system_config",
+      "width": 390,
+      "title": "系统配置",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "file",
+      "width": 390,
+      "title": "附件",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "operation_log",
+      "width": 390,
+      "title": "操作日志",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "login_log",
+      "width": 390,
+      "title": "登录日志",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "message_center",
+      "width": 390,
+      "title": "消息",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "download_center",
+      "width": 390,
+      "title": "下载任务",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "periodic_task",
+      "width": 390,
+      "title": "周期性任务",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "task_result",
+      "width": 390,
+      "title": "task result",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "interval_schedule",
+      "width": 390,
+      "title": "间隔",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "crontab_schedule",
+      "width": 390,
+      "title": "计划任务",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "solar_schedule",
+      "width": 390,
+      "title": "日程事件",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "clocked_schedule",
+      "width": 390,
+      "title": "定时",
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "entity": "user",
+      "width": 768,
+      "title": "用户",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "dept",
+      "width": 768,
+      "title": "部门",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "post",
+      "width": 768,
+      "title": "岗位",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "role",
+      "width": 768,
+      "title": "角色",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "menu",
+      "width": 768,
+      "title": "菜单",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "menu_button",
+      "width": 768,
+      "title": "菜单按钮",
+      "geometry": {
+        "root": 761,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "column",
+      "width": 768,
+      "title": "菜单字段",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "role_menu_permission",
+      "width": 768,
+      "title": "角色菜单权限",
+      "geometry": {
+        "root": 761,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "role_menu_button_permission",
+      "width": 768,
+      "title": "角色按钮权限",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "field_permission",
+      "width": 768,
+      "title": "字段权限",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "api_white_list",
+      "width": 768,
+      "title": "接口白名单",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "dictionary",
+      "width": 768,
+      "title": "字典",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "area",
+      "width": 768,
+      "title": "区域",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "system_config",
+      "width": 768,
+      "title": "系统配置",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "file",
+      "width": 768,
+      "title": "附件",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "operation_log",
+      "width": 768,
+      "title": "操作日志",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "login_log",
+      "width": 768,
+      "title": "登录日志",
+      "geometry": {
+        "root": 761,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "message_center",
+      "width": 768,
+      "title": "消息",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "download_center",
+      "width": 768,
+      "title": "下载任务",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "periodic_task",
+      "width": 768,
+      "title": "周期性任务",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "task_result",
+      "width": 768,
+      "title": "task result",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "interval_schedule",
+      "width": 768,
+      "title": "间隔",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "crontab_schedule",
+      "width": 768,
+      "title": "计划任务",
+      "geometry": {
+        "root": 761,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "solar_schedule",
+      "width": 768,
+      "title": "日程事件",
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "entity": "clocked_schedule",
+      "width": 768,
+      "title": "定时",
+      "geometry": {
+        "root": 755,
+        "viewport": 768
+      }
+    }
+  ]
+}

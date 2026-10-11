@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-08",
+  "ready_package": "H:/Project_python/django-vue3-admin/djangovue3/packaging/ready-reaudit/djangovue3",
+  "program_sha256": "7ab87936de90844240d77d9fb341122447ad47f24e9e2aa23f1cce3bef54e957",
+  "ready_file_count": 4977,
+  "ready_files_equal_tested_package": true,
+  "contains_test_backend": false,
+  "documentation_local_links_valid": true,
+  "official_package_updated": true,
+  "source_database_migrated_this_batch": false,
+  "release_status": "deployed and verified on port 8000 after explicit user authorization",
+  "approval_rejection_reason": "Replacing the official runtime directory and restarting port 8000 can interrupt service; development/verification authorization was not recognized as deployment authorization.",
+  "deployment_authorized_by_user": true,
+  "release": "H:/Project_python/django-vue3-admin/djangovue3/packaging/dist/djangovue3",
+  "backup": "H:/Project_python/django-vue3-admin/djangovue3/packaging/previous-reaudit-20261008",
+  "verified_at": "2026-10-08T21:09:30.657076+08:00"
+}

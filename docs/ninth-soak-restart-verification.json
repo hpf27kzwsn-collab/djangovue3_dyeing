@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-10T13:37:20.729771+08:00",
+  "method": "real 60-second dispatch, actual beat process stop/restart, two workers; no clock acceleration",
+  "run_id": "ninth-local-24h-20261010T053046",
+  "contiguous_slots": [
+    1,
+    6
+  ],
+  "result_count": 6,
+  "duplicates": {},
+  "failed_tasks": [],
+  "beat_restart": {
+    "type": "DatabaseScheduler process restart",
+    "at": "2026-10-10T05:35:46.609260+00:00",
+    "processes": {
+      "current": 15336,
+      "at": "2026-10-10T13:35:46.5876012+08:00",
+      "previous": [
+        18040,
+        12196
+      ]
+    }
+  },
+  "database_last_run_at": "2026-10-10T05:36:46.040424+00:00",
+  "database_total_run_count": 6,
+  "beat_sync_every": 1,
+  "entire_24h_pass_claimed": false
+}

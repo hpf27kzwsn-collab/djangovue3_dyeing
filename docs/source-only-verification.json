@@ -1,0 +1,37 @@
+{
+  "readiness": {
+    "status": "ok",
+    "database": "sqlite"
+  },
+  "served_from_source": true,
+  "version": "1.0.0.1791633119992",
+  "resource_metadata_and_list": 25,
+  "database_copy_equal_before_start": true,
+  "business_data_accounts_permissions_preserved": true,
+  "tables_compared": 45,
+  "normal_task_runtime_updates": [
+    "beat counters/timestamps",
+    "celery.backend_cleanup result/sequence"
+  ],
+  "media_count": 3,
+  "media_preserved": true,
+  "frontend_backend_version_equal": true,
+  "packaging_dependencies_removed": true,
+  "packaging_directory_gib_before": 8.42,
+  "packaging_directory_removed": true,
+  "data_backup_mib": 53.25,
+  "full_extension_tests": {
+    "total": 107,
+    "passed": 107
+  },
+  "removed_dependencies": [
+    "PyQt6",
+    "PyQt6-Qt6",
+    "PyQt6-sip",
+    "PyInstaller",
+    "pyinstaller-hooks-contrib",
+    "altgraph",
+    "pefile",
+    "pywin32-ctypes"
+  ]
+}

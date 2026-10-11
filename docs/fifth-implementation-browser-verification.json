@@ -1,0 +1,74 @@
+{
+  "role_members": {
+    "page1_selected": 1,
+    "page2_selected": 2,
+    "remove_selected": 1,
+    "category_change": 0
+  },
+  "internal_link": {
+    "path": "http://127.0.0.1:8007/system/user?dept=2&audit=link",
+    "department_count": 16,
+    "child_count": 16
+  },
+  "department_layout": [
+    {
+      "doc": 305,
+      "svgs": [
+        281,
+        281
+      ],
+      "viewport": 320,
+      "width": 280.66668701171875
+    },
+    {
+      "doc": 375,
+      "svgs": [
+        351,
+        351
+      ],
+      "viewport": 390,
+      "width": 350.66668701171875
+    },
+    {
+      "doc": 753,
+      "svgs": [
+        729,
+        729
+      ],
+      "viewport": 768,
+      "width": 728.6666870117188
+    }
+  ],
+  "physical_devices": false,
+  "readonly_members": {
+    "count": true,
+    "checkboxes": 0,
+    "write_button": 0
+  },
+  "readonly_permissions": {
+    "checkbox_count": 702,
+    "enabled_checkbox_count": 0,
+    "save_buttons": 0
+  },
+  "api_path": {
+    "searched": "/api/system/user/",
+    "schema_candidates": true
+  },
+  "message_form": {
+    "empty_user_rejected": true,
+    "empty_role_rejected": true,
+    "empty_department_rejected": true,
+    "announcement_no_target": true,
+    "department_selection_clears_error": true
+  },
+  "richtext_toolbar": {
+    "network_image": true,
+    "insert_video": true,
+    "upload_video": true
+  },
+  "readonly_permissions_mobile": {
+    "doc": 320,
+    "viewport": 320,
+    "width": 320
+  }
+}

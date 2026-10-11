@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-09T01:42:27.153459",
+  "confirmed_groups": 18,
+  "priorities": {
+    "P1": 4,
+    "P2": 11,
+    "P3": 3
+  },
+  "original_manifest_files": 399,
+  "current_manifest_files": 148,
+  "original_unchanged": true,
+  "product_source_unchanged": true,
+  "probe_database": ":memory:",
+  "browser_used_this_audit": false,
+  "formal_restart_this_audit": false,
+  "formal_write_this_audit": false,
+  "source_db_system_migrations": [
+    "0001_initial",
+    "0002_alter_systemconfig_form_item_type",
+    "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+    "0004_filelist_file_type_filelist_upload_method_and_more",
+    "0005_area_enable_area_initials_dictionary_remark_and_more",
+    "0006_alter_dictionary_type_alter_dictionary_value",
+    "0007_dictionary_dictionary_root_value_and_more",
+    "0008_alter_operationlog_json_result",
+    "0009_config_group_keys",
+    "0010_alter_post_status_alter_users_user_type",
+    "0011_area_audit"
+  ],
+  "formal_db_system_migrations": [
+    "0001_initial",
+    "0002_alter_systemconfig_form_item_type",
+    "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+    "0004_filelist_file_type_filelist_upload_method_and_more",
+    "0005_area_enable_area_initials_dictionary_remark_and_more",
+    "0006_alter_dictionary_type_alter_dictionary_value",
+    "0007_dictionary_dictionary_root_value_and_more",
+    "0008_alter_operationlog_json_result",
+    "0009_config_group_keys",
+    "0010_alter_post_status_alter_users_user_type",
+    "0011_area_audit",
+    "0012_receipt_audit",
+    "0013_alter_messagecentertargetuser_options_and_more",
+    "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+    "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+    "0016_menu_resource_image_icons"
+  ],
+  "program_sha256": "58c99a98aeca0734458aa5e605eed2eb170c155d15d1fb0e8c4cdc72a8592ed2",
+  "program_matches_release_baseline": true,
+  "served_index_sha256": "f4c682cab07ca54437d1d802bb5769cdba4d4292616f7f965131d6abd9792fa2",
+  "served_index_matches_release_baseline": true,
+  "formal_readonly_health": {
+    "/healthz": {
+      "status": 200,
+      "data": {
+        "status": "ok"
+      }
+    },
+    "/readiness": {
+      "status": 200,
+      "data": {
+        "status": "ok",
+        "database": "sqlite"
+      }
+    },
+    "/": {
+      "status": 200,
+      "data": null
+    }
+  },
+  "document_links_checked": 1964,
+  "document_link_errors": [],
+  "probe_outputs_rechecked": true,
+  "source_db_last_system_migration": "0011_area_audit",
+  "formal_db_last_system_migration": "0016_menu_resource_image_icons"
+}

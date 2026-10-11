@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-09",
+  "method": "actual source functions / Vue VNode / template branches; no browser or formal DB",
+  "checks": {
+    "cached_route_props": {
+      "same_wrapper": true,
+      "expected_entity": "user",
+      "actual_entity": "post"
+    },
+    "cached_page_query": {
+      "previous_context": {
+        "parent": 7
+      },
+      "other_route_query": {
+        "dept": "42"
+      },
+      "actual_context": {
+        "dept": "42"
+      },
+      "calls": [
+        "refresh_hidden_page"
+      ],
+      "keepalive_renderer": {
+        "active_page": "B",
+        "inactive_A_context": {
+          "dept": "42"
+        },
+        "calls": [
+          "inactive_A_refresh"
+        ]
+      }
+    },
+    "role_users_cross_page_selection": {
+      "previous_ids": [
+        1
+      ],
+      "page": 2,
+      "remaining_ids": []
+    },
+    "external_link_token": {
+      "opened": [
+        {
+          "url": "https://example.invalid/?token={{token}}",
+          "target": "_blank"
+        }
+      ],
+      "real_browser_opened": false
+    },
+    "config_key_overrides_kind": [
+      {
+        "field": {
+          "key": "content",
+          "kind": "date",
+          "options": []
+        },
+        "actual": "RichText"
+      },
+      {
+        "field": {
+          "key": "avatar",
+          "kind": "number",
+          "options": []
+        },
+        "actual": "AvatarCrop"
+      },
+      {
+        "field": {
+          "key": "normal",
+          "kind": "date",
+          "options": []
+        },
+        "actual": "el-date-picker"
+      }
+    ],
+    "rich_text_default_toolbar": {
+      "current": [
+        "headerSelect",
+        "blockquote",
+        "|",
+        "bold",
+        "underline",
+        "italic",
+        "through",
+        "code",
+        "sup",
+        "sub",
+        "clearStyle",
+        "color",
+        "bgColor",
+        "|",
+        "fontSize",
+        "fontFamily",
+        "lineHeight",
+        "|",
+        "bulletedList",
+        "numberedList",
+        "todo",
+        "justifyLeft",
+        "justifyRight",
+        "justifyCenter",
+        "justifyJustify",
+        "indent",
+        "delIndent",
+        "|",
+        "emotion",
+        "insertLink",
+        "uploadImage",
+        "insertTable",
+        "codeBlock",
+        "divider",
+        "|",
+        "undo",
+        "redo",
+        "|",
+        "fullScreen"
+      ],
+      "omitted_default_menus": [
+        "insertImage",
+        "insertVideo",
+        "uploadVideo"
+      ],
+      "original_uses_default_toolbar": true
+    },
+    "array_add": {
+      "emitted": [
+        [
+          "update:modelValue",
+          [
+            {
+              "title": "",
+              "key": "",
+              "value": ""
+            }
+          ]
+        ]
+      ],
+      "has_row_form_rules": false
+    }
+  }
+}

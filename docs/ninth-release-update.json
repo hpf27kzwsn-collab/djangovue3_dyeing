@@ -1,0 +1,11 @@
+{
+  "permissions_preserved": true,
+  "test_database_merged": false,
+  "copied_database_equal": true,
+  "accounts_preserved": true,
+  "backup": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\previous-ninth-20261010",
+  "media_count": 3,
+  "release": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\dist\\djangovue3",
+  "media_preserved": true,
+  "launcher_pid": 15948
+}

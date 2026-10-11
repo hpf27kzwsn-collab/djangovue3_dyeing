@@ -1,0 +1,86 @@
+{
+  "verified_at": "2026-10-08T16:19:47.276Z",
+  "base": "http://127.0.0.1:8004",
+  "isolated_database": "runtime/third-preview/db.sqlite3",
+  "custom_resource_open": true,
+  "cross_page_selection": {
+    "count": 2,
+    "remove_off_page_retains_other": true
+  },
+  "iframe": {
+    "token_placeholder": true,
+    "independent_state": true,
+    "refresh_clears_current": true,
+    "close_removes_frame": true,
+    "other_frame_state_preserved": true
+  },
+  "child_only_role": {
+    "parent_detail_api_denied_in_backend_test": true,
+    "page_opened_with_parent_context": true,
+    "rows": 18
+  },
+  "role_all_buttons": {
+    "before": [
+      "用户 / 查询\n全部",
+      "用户 / 新增\n全部",
+      "用户 / 复制\n全部"
+    ],
+    "after": [
+      "用户 / 查询\n全部",
+      "用户 / 新增\n全部",
+      "用户 / 复制\n全部"
+    ],
+    "unsaved_changes_cancelled": true
+  },
+  "file_picker": {
+    "slots_visible": true,
+    "save_close_closed": "已确认选择 · 关闭 · 关闭动画完成",
+    "readable_size": "2.0 MB"
+  },
+  "notice_events": true,
+  "dictionary_success_tag": {
+    "color": "rgb(103, 194, 58)",
+    "background": "rgb(240, 249, 235)"
+  },
+  "external_search": {
+    "new_tab": "http://127.0.0.1:8004/media/frame-a.html",
+    "internal_route_unchanged": true
+  },
+  "responsive": {
+    "child": [
+      {
+        "cardHeight": 936.3333740234376,
+        "documentWidth": 305,
+        "rows": 18,
+        "width": 320
+      },
+      {
+        "cardHeight": 867.3958740234375,
+        "documentWidth": 753,
+        "rows": 18,
+        "width": 768
+      }
+    ],
+    "chart390": {
+      "document_width": 375,
+      "card_height": 1426.729248046875,
+      "content_height": 1410.729248046875,
+      "content_scroll_height": 1411
+    },
+    "permission_drawer_width": 390
+  },
+  "screenshots": [
+    "third-mobile-chart.png",
+    "third-mobile-child.png",
+    "third-mobile-permissions.png"
+  ],
+  "real_devices_tested": false,
+  "final_build_resource_switch": {
+    "from": "dictionary",
+    "to": "post",
+    "heading": "岗位",
+    "rows_on_page": 20,
+    "script": "/static/assets/index-DbYiuCpc.js",
+    "console_errors": 0
+  }
+}

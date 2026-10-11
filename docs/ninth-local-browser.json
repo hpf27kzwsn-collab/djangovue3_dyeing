@@ -1,0 +1,2079 @@
+{
+  "started_at": "2026-10-10T02:54:43.446Z",
+  "method": "actual in-app browser, isolated 8007/8010; synthetic accounts and local uploads",
+  "checks": [
+    {
+      "id": "MOBILE-05-390-initial",
+      "status": "replay_required",
+      "observation": "after clear/reselect/add, assigned list showed 1 rather than planned 2; replay with selection checkpoints"
+    },
+    {
+      "id": "MOBILE-05-editable",
+      "widths": [
+        320,
+        390
+      ],
+      "cross_page_2_selected": true,
+      "chip_remove": true,
+      "clear": true,
+      "add_2_assigned": true,
+      "remove_2": true,
+      "initial_replay": "pass after waiting selection state and popover close; original quick sequence retained as inconclusive",
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "NAV-02",
+      "account": "ninth-single",
+      "layout": "defaults",
+      "width": 1280,
+      "allowed_search": [
+        "岗位"
+      ],
+      "unauthorized_department_no_data": true,
+      "breadcrumb": "首页/系统管理/岗位"
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-single",
+      "layout": "defaults",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-single",
+      "layout": "classic",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-single",
+      "layout": "transverse",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-single",
+      "layout": "columns",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-multi",
+      "layout": "defaults",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-multi",
+      "layout": "classic",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-multi",
+      "layout": "transverse",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "ninth-multi",
+      "layout": "columns",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "superadmin",
+      "layout": "defaults",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位",
+        "组件示例",
+        "角色"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "superadmin",
+      "layout": "classic",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位",
+        "组件示例",
+        "角色"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "superadmin",
+      "layout": "transverse",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位",
+        "组件示例",
+        "角色"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "NAV-02/MOBILE-03",
+      "account": "superadmin",
+      "layout": "columns",
+      "desktop_width": 1280,
+      "mobile_width": 390,
+      "allowed": [
+        "部门",
+        "岗位",
+        "组件示例",
+        "角色"
+      ],
+      "layout_persisted_after_reload": true,
+      "breadcrumb": "首页\n/\n系统管理\n/\n岗位",
+      "mobile_search_select_clear_close": true,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "MOBILE-05-readonly",
+      "width": 320,
+      "two_pages": true,
+      "selection_controls": 0,
+      "write_buttons": 0,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE-05-readonly",
+      "width": 390,
+      "two_pages": true,
+      "selection_controls": 0,
+      "write_buttons": 0,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "id": "MOBILE-06-permissions-readonly",
+      "tab": "菜单",
+      "disabled_controls": 4,
+      "save_button_absent": true
+    },
+    {
+      "id": "MOBILE-06-permissions-readonly",
+      "tab": "按钮与数据范围",
+      "disabled_controls": 781,
+      "save_button_absent": true
+    },
+    {
+      "id": "MOBILE-06-permissions-readonly",
+      "tab": "字段权限",
+      "disabled_controls": 296,
+      "save_button_absent": true
+    },
+    {
+      "id": "FILE-14",
+      "codec": "h264",
+      "playing": {
+        "currentTime": 0,
+        "duration": 12,
+        "error": null,
+        "paused": false,
+        "readyState": 1
+      },
+      "paused": {
+        "currentTime": 0.039516,
+        "paused": true
+      },
+      "closed_media_removed": true
+    },
+    {
+      "id": "FILE-14",
+      "codec": "vp9",
+      "playing": {
+        "currentTime": 0.015572,
+        "duration": 12,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      },
+      "paused": {
+        "currentTime": 0.049251,
+        "paused": true
+      },
+      "closed_media_removed": true
+    },
+    {
+      "id": "FILE-14",
+      "codec": "mp3",
+      "playing": {
+        "currentTime": 0,
+        "duration": 12,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      },
+      "paused": {
+        "currentTime": 0.011965,
+        "paused": true
+      },
+      "closed_media_removed": true
+    },
+    {
+      "id": "FILE-14",
+      "codec": "pcm_s16le/wav",
+      "playing": {
+        "currentTime": 0.017574,
+        "duration": 12,
+        "error": null,
+        "paused": false,
+        "readyState": 4
+      },
+      "paused": {
+        "currentTime": 0.021278,
+        "paused": true
+      },
+      "closed_media_removed": true
+    },
+    {
+      "id": "FILE-14-download",
+      "file": "ninth-h264.mp4",
+      "path": "C:\\Users\\Admin\\Downloads\\ninth-h264_mo4et6b.mp4",
+      "download_action_clicked": true,
+      "popup_observation": "in-app browser exposed no second tab; downloaded actual preview URL through documented media capability"
+    },
+    {
+      "id": "FILE-14-download",
+      "file": "ninth-vp9.webm",
+      "path": "C:\\Users\\Admin\\Downloads\\ninth-vp9.webm",
+      "method": "documented media capability on actual preview URL"
+    },
+    {
+      "id": "FILE-14-download",
+      "file": "ninth-mp3.mp3",
+      "path": "C:\\Users\\Admin\\Downloads\\ninth-mp3.mp3",
+      "method": "documented media capability on actual preview URL"
+    },
+    {
+      "id": "FILE-14-download",
+      "file": "ninth-wav.wav",
+      "path": "C:\\Users\\Admin\\Downloads\\ninth-wav.wav",
+      "method": "documented media capability on actual preview URL"
+    },
+    {
+      "id": "MOBILE-10-crop",
+      "width": 390,
+      "local_file_chosen": true,
+      "left_right_rotation_clicked": true,
+      "upload_url": "http://127.0.0.1:8007/media/files/2026/10/avatar.png",
+      "png_dimensions": [
+        256,
+        256
+      ],
+      "verification": "ninth-media-download-verification.json"
+    },
+    {
+      "id": "MOBILE-10-richtext",
+      "width": 390,
+      "status": "passed",
+      "actions": [
+        "type text",
+        "actual image file upload",
+        "actual H264 file upload",
+        "disabled false/true/false"
+      ],
+      "html": "<p>手机富文本正文<img src=\"http://127.0.0.1:8007/media/files/2026/10/ninth-quadrants_HfsRRQN.png\" alt=\"\" data-href=\"\" style=\"\"/></p><p><br></p><div data-w-e-type=\"video\" data-w-e-is-void>\n<video poster=\"\" controls=\"true\" width=\"auto\" height=\"auto\"><source src=\"http://127.0.0.1:8007/media/files/2026/10/ninth-h264_xNQ6Af5.mp4\" type=\"video/mp4\"/></video>\n</div><p><br></p>",
+      "text": "手机富文本正文\n\n\n",
+      "disabled_contenteditable": "false",
+      "test_note": "initial text assertion omitted three paragraph newlines; expectation corrected to actual paragraph structure"
+    },
+    {
+      "id": "MOBILE-10-filepicker",
+      "width": 390,
+      "status": "passed",
+      "actions": [
+        "single selection",
+        "remove",
+        "local WAV upload",
+        "network VP9 fetch/upload",
+        "multiple image selection across pages1/2",
+        "remove one image"
+      ],
+      "image_urls": [
+        "http://127.0.0.1:8007/media/files/2026/10/ninth-image-29.png",
+        "http://127.0.0.1:8007/media/files/2026/10/ninth-image-19.png"
+      ],
+      "network_url": "http://127.0.0.1:8007/media/files/2026/10/ninth-vp9_1592Iru.webm",
+      "events": "已确认选择 · 关闭 · 关闭动画完成",
+      "slots": [
+        "actionbar-left",
+        "actionbar-right"
+      ]
+    },
+    {
+      "id": "COMP-01-remote",
+      "width": 390,
+      "status": "passed",
+      "names": [
+        "ninth-31",
+        "ninth-15"
+      ],
+      "ids": "提交用户 ID：[ 33, 17 ]",
+      "cleared": "提交用户 ID：[]",
+      "test_note": "initial assertion guessed IDs; corrected to fixture-backed name/ID verification"
+    },
+    {
+      "id": "COMP-13-notice",
+      "width": 390,
+      "status": "passed",
+      "link_event": "已触发公告链接",
+      "close_event": "公告已关闭",
+      "slot": "垂直公告一\n垂直公告二\n垂直公告一\n垂直公告二"
+    },
+    {
+      "id": "MOBILE-10-calendar",
+      "width": 390,
+      "status": "passed",
+      "actions": [
+        "multiple dates across months",
+        "tag removal",
+        "clear",
+        "crossPage false clears on turn",
+        "long range beyond42 with disabled out-of-range days"
+      ],
+      "selected": [
+        "2026-10-11",
+        "2026-11-12"
+      ],
+      "range": {
+        "cells": 49,
+        "disabled": 8
+      },
+      "test_note": "selection render wait added before subsequent UI steps; no product change"
+    },
+    {
+      "id": "COMP18-calendar-single",
+      "width": 1265,
+      "status": "passed",
+      "selected": "\"2026-10-14T16:00:00.000Z\"",
+      "events": "[[\"2026-10-14T16:00:00.000Z\"],[null],[\"2026-10-14T16:00:00.000Z\"],[null]]",
+      "watermark_positions": [
+        "calendar-watermark top-left",
+        "calendar-watermark top-right",
+        "calendar-watermark bottom-left",
+        "calendar-watermark bottom-right",
+        "calendar-watermark center",
+        "calendar-watermark center-left",
+        "calendar-watermark center-right",
+        "calendar-watermark center-top",
+        "calendar-watermark center-bottom"
+      ]
+    },
+    {
+      "id": "COMP18-calendar-multi",
+      "width": 1265,
+      "status": "passed",
+      "value": "[\"2026-10-14T16:00:00.000Z\",\"2026-11-11T16:00:00.000Z\"]",
+      "events": "[[[\"2026-10-14T16:00:00.000Z\"]],[[\"2026-10-14T16:00:00.000Z\",\"2026-11-11T16:00:00.000Z\"]]]"
+    },
+    {
+      "id": "COMP18-calendar-range",
+      "width": 375,
+      "status": "passed",
+      "cells": 77,
+      "disabled": 18,
+      "value": "\"2026-03-09T16:00:00.000Z\""
+    },
+    {
+      "id": "COMP18-calendar-readonly",
+      "width": 390,
+      "status": "passed",
+      "value": "null",
+      "page_turn_hidden": true
+    },
+    {
+      "id": "COMP18-calendar-pageoff",
+      "width": 390,
+      "status": "passed",
+      "pageTurn": false,
+      "watermark": false
+    },
+    {
+      "id": "COMP18-file-custom",
+      "width": 390,
+      "status": "passed",
+      "valueKey": "id",
+      "value": "[41]",
+      "events": "[[\"change\",[41]],[\"save\",[41],[{\"id\":41,\"description\":\"\",\"create_datetime\":\"2026-10-10 11:23:15\",\"update_datetime\":\"2026-10-10 11:23:15\",\"name\":\"ninth-image-29.png\",\"url\":\"http://127.0.0.1:8011/media/files/2026/10/ninth-image-29.png\",\"size\":906,\"mime_type\":\"image/png\",\"md5sum\":\"14fa4df23714edbdf9ea8b5d77e4e1f2\",\"upload_method\":0,\"file_type\":0,\"creator\":1,\"modifier\":1,\"dept_belong\":1,\"creator_name\":\"超级管理员\",\"creator_label\":\"超级管理员\",\"modifier_label\":\"超级管理员\",\"dept_belong_label\":\"总公司\"}]],[\"close\"],[\"closed\"]]",
+      "slots": [
+        "input",
+        "item",
+        "actionbar-left",
+        "actionbar-right",
+        "actionbar-bottom"
+      ],
+      "actions": [
+        "choose via slot",
+        "reload via slot",
+        "preview via slot",
+        "confirm via slot",
+        "remove via slot",
+        "show public",
+        "close via slot"
+      ]
+    },
+    {
+      "id": "COMP18-file-readonly",
+      "width": 390,
+      "status": "passed",
+      "no_upload": true,
+      "no_network": true,
+      "no_selection": true
+    },
+    {
+      "id": "COMP18-file-empty",
+      "width": 390,
+      "status": "passed",
+      "types": [
+        3
+      ],
+      "showInput": false,
+      "empty_slot_reload": true
+    },
+    {
+      "id": "COMP18-notice-custom",
+      "width": 390,
+      "status": "passed",
+      "style": "height: 55px; background: rgb(171, 205, 239); color: rgb(18, 52, 86); font-size: 18px;",
+      "animation": "--start: 0px; --end: -714px; animation-duration: 7.93333s; animation-delay: 0.2s; animation-iteration-count: 1;",
+      "event": "[[\"link\"]]"
+    },
+    {
+      "id": "COMP18-notice-slot",
+      "width": 390,
+      "status": "passed",
+      "scrollable": true,
+      "default_slot": true
+    },
+    {
+      "id": "COMP18-remote-custom",
+      "width": 390,
+      "status": "passed",
+      "pk": "code",
+      "label": "name",
+      "entity": "post",
+      "params": {
+        "code__startswith": "ninth-"
+      },
+      "selected": "[\"ninth-31\",\"ninth-12\"]",
+      "load_clear": true,
+      "test_note": "public clear button activated by keyboard; clicked button did not fire in IAB"
+    },
+    {
+      "id": "COMP18-remote-disabled",
+      "width": 390,
+      "status": "passed",
+      "disabled": true
+    },
+    {
+      "id": "COMP18-rich-simple",
+      "width": 390,
+      "status": "passed",
+      "mode": "simple",
+      "placeholder": "自定义占位",
+      "height": 180,
+      "toolbar_keys": [
+        "bold",
+        "italic",
+        "undo",
+        "redo"
+      ],
+      "events": "[[\"<p>外部初始值</p>\",\"外部初始值\"],[\"<p>外部更新值</p>\",\"外部更新值\"],[\"<p>外部更新值</p>\",\"外部更新值\"],[\"<p>外部更新值</p>\",\"外部更新值\"],[\"<p>公</p>\",\"公\"],[\"<p>公开</p>\",\"公开\"],[\"<p>公开组</p>\",\"公开组\"],[\"<p>公开组件</p>\",\"公开组件\"],[\"<p>公开组件输</p>\",\"公开组件输\"],[\"<p>公开组件输入</p>\",\"公开组件输入\"],[\"<p>公开组件输入</p>\",\"公开组件输入\"]]",
+      "test_note": "actual typing used instead of fill after external model replacement"
+    },
+    {
+      "id": "COMP18-rich-disabled",
+      "width": 390,
+      "status": "passed",
+      "disabled": true
+    },
+    {
+      "id": "COMP18-avatar-custom",
+      "width": 390,
+      "status": "failed_output_size",
+      "width_px": 120,
+      "height_px": 80,
+      "aspect_ratio": 1.5,
+      "value": "\"http://127.0.0.1:8011/media/files/2026/10/avatar_9jpnNLG.png\"",
+      "title": "自定义裁剪标题",
+      "actual_size": [
+        120,
+        79
+      ]
+    },
+    {
+      "id": "COMP18-table-multi",
+      "width": 390,
+      "status": "passed",
+      "pk": "code",
+      "columns": [
+        "自定义岗位编码",
+        "自定义岗位名称"
+      ],
+      "value": "[\"ninth-31\",\"ninth-12\"]",
+      "public_clear": true
+    },
+    {
+      "id": "COMP18-table-disabled",
+      "width": 390,
+      "status": "passed",
+      "disabled": true
+    },
+    {
+      "id": "COMP18-calendar-exposed",
+      "width": 390,
+      "status": "passed",
+      "updated": "\"2026-10-14T16:00:00.000Z\"",
+      "clear": "null",
+      "reset": "null"
+    },
+    {
+      "id": "MOBILE04-post-probe",
+      "width": 390,
+      "status": "passed",
+      "sort": "ID ascending",
+      "cross_page_selected": 2,
+      "cleared": true,
+      "method": "checkbox center from current DOM and screenshot; native click used after locator click did not change checked state"
+    },
+    {
+      "id": "MOBILE04-post",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n验收岗位00\n\t\nninth-00\n\t\n0\n\t\n在职\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n验收岗位20\n\t\nninth-20\n\t\n20\n\t\n在职\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 878,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-user",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n2\n\t\n\t\nninth-00\n\t\n\t\n2026-10-10 10:45:59\n\t\n验收成员00\n\t\n\t\n\t\n\t\n未知\n\t\n后台用户\n\t\n1\n\t\n本机验收部门\n\t\n本机成员验收\n\t\n\t\n本机验收部门\n\t\n本机成员验收\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n22\n\t\n\t\nninth-20\n\t\n\t\n2026-10-10 10:45:59\n\t\n验收成员20\n\t\n\t\n\t\n\t\n未知\n\t\n后台用户\n\t\n1\n\t\n本机验收部门\n\t\n本机成员验收\n\t\n\t\n本机验收部门\n\t\n本机成员验收\n\t\n\t",
+      "expected_first": [
+        2,
+        22
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 2698,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-dept",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\ncompany\n\t\n总公司\n\t\n1\n\t\n\t\n\t\n\t\n启用\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\nninth-list-17\n\t\n本机列表样本17\n\t\n17\n\t\n\t\n\t\n\t\n启用\n\t\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1438,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-role",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n管理员\n\t\nadmin\n\t\n1\n\t\n启用\n\t\n是\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n本机列表样本15\n\t\nninth-list-15\n\t\n15\n\t\n启用\n\t\n否\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1018,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-menu",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n系统管理\n\t\n\t\n1\n\t\n是\n\t\n\t\n\t\nsystem\n\t\n\t\n否\n\t\n\t\n否\n\t\n启用\n\t\n否\n\t\n是\n\t\n否\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n下载任务\n\t\n\t\n19\n\t\n否\n\t\n/system/download_center\n\t\nsystem/Resource\n\t\ndownload_center\n\t\n下载任务 (download_center)\n\t\n否\n\t\n\t\n否\n\t\n启用\n\t\n否\n\t\n是\n\t\n否\n\t\n系统管理\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 2558,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-menu_button",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n查询\n\t\nuser:list\n\t\n/api/system/user/\n\t\nGET\n\t\n用户\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n查询\n\t\ndept:list\n\t\n/api/system/dept/\n\t\nGET\n\t\n部门\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1018,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-column",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\nsystem · 用户 (system.Users)\n\t\nlast_login\n\t\n上次登录\n\t\n用户\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\nsystem · 部门 (system.Dept)\n\t\nname\n\t\n部门名称\n\t\n部门\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 878,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-role_menu_permission",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n管理员\n\t\n用户\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n管理员\n\t\n间隔\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 598,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-role_menu_button_permission",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n全部\n\t\n管理员\n\t\n查询\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n全部\n\t\n管理员\n\t\n查询\n\t\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 878,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-field_permission",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n是\n\t\n是\n\t\n是\n\t\n管理员\n\t\n上次登录\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n是\n\t\n是\n\t\n是\n\t\n管理员\n\t\n部门名称\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1018,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-api_white_list",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n/ninth-fixture/00/\n\t\nGET\n\t\n是\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n/ninth-fixture/20/\n\t\nGET\n\t\n是\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 738,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-dictionary",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n状态\n\t\nstatus\n\t\n1\n\t\n启用\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n32\n\t\n本机列表样本15\n\t\nninth-list-15\n\t\n1\n\t\n启用\n\t\n\t",
+      "expected_first": [
+        1,
+        32
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1018,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-area",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "区域编码",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\nNINTH-00\n\t\n本机列表样本00\n\t\n1\n\t\n\t\n\t\n\t\n\t\n\t",
+      "page2_first": "\t\n21\n\t\nNINTH-20\n\t\n本机列表样本20\n\t\n1\n\t\n\t\n\t\n\t\n\t\n\t",
+      "expected_first": [
+        "NINTH-00",
+        "NINTH-20"
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1298,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-system_config",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n平台设置\n\t\nsite\n\t\n\"\"\n\t\n1\n\t\n启用\n\t\n文本\n\t\n[]\n\t\n[]\n\t\n\t\n{}\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n04输入器\n\t\nfield4\n\t\n0\n\t\n4\n\t\n启用\n\t\n下拉选择\n\t\n[{\"label\":\"零\",\"value\":0},{\"label\":\"一\",\"value\":1}]\n\t\n[]\n\t\n\t\n{}\n\t\n本机16输入器\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1858,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-file",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n2\n\t\nninth-h264.mp4\n\t\nhttp://127.0.0.1:8007/media/files/2026/10/ninth-h264_mo4et6b.mp4\n\t\n30.9 KB\n\t\nvideo/mp4\n\t\nc03abbffa6ebbcc35f4443ba64a73fe7\n\t\n默认上传\n\t\n视频\n\t\n视频\n\t",
+      "page2_first": "\t\n21\n\t\n22\n\t\nninth-image-10.png\n\t\nhttp://127.0.0.1:8007/media/files/2026/10/ninth-image-10.png\n\t\n906 B\n\t\nimage/png\n\t\n14fa4df23714edbdf9ea8b5d77e4e1f2\n\t\n默认上传\n\t\n图片\n\t\n\t",
+      "expected_first": [
+        2,
+        22
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1398,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-operation_log",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n附件\n\t\n新增成功\n\t\n{\"code\":2000,\"msg\":\"新增成功\",\"data\":{\"id\":1,\"description\":\"\",\"create_datetime\":\"2026-10-10 10:52:17\",\"update_datetime\":\"2026-10-10 10:52:17\",\"name\":\"ninth-h264.mp4\",\"url\":\"http://localhost/media/files/2026/10/ninth-h264.mp4\",\"size\":31622,\"mime_type\":\"video/mp4\",\"md5sum\":\"c03abbffa6ebbcc35f4443ba64a73fe7\",\"upload_method\":0,\"file_type\":1,\"creator\":1,\"modifier\":1,\"dept_belong\":1,\"creator_name\":\"超级管理员\",\"creator_label\":\"超级管理员\",\"modifier_label\":\"超级管理员\",\"dept_belong_label\":\"总公司\"}}\n\t\n/api/system/file/\n\t\nPOST\n\t\n{}\n\t\n2000\n\t\n127.0.0.1\n\t\nOther\n\t\nOther\n\t\n启用\n\t\n634.7462999997333\n\t\n超级管理员\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n\t\n本机列表样本02\n\t\n{}\n\t\n/ninth-fixture/02/\n\t\nGET\n\t\n{}\n\t\n2000\n\t\n\t\n\t\n\t\n启用\n\t\n0\n\t\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 2138,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-login_log",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n账号密码\n\t\nsuperadmin\n\t\n127.0.0.1\n\t\nChrome\n\t\nWindows\n\t\n启用\n\t\n登录成功\n\t\n\t\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n账号密码\n\t\nninth-list-13\n\t\n\t\n\t\n\t\n启用\n\t\n本机列表样本13\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 3118,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-message_center",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n指定用户\n\t\n本机列表样本00\n\t\n本机列表样本00\n\t\n\t\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n指定用户\n\t\n本机列表样本20\n\t\n本机列表样本20\n\t\n\t\n\t\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1158,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-download_center",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n\t\nninth-list-00\n\t\n已创建\n\t\n\t\n\t\n0\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n\t\nninth-list-20\n\t\n已创建\n\t\n\t\n\t\n0\n\t\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1298,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-periodic_task",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\ncelery.backend_cleanup\n\t\ncelery.backend_cleanup\n\t\n[]\n\t\n{}\n\t\n\t\n\t\n\t\n{}\n\t\n\t\n\t\n43200\n\t\n否\n\t\n\t\n是\n\t\n\t\n0\n\t\n2026-10-10 10:52:28\n\t\n\t\n1\n\t\n\t\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\nninth-list-18\n\t\nsystem.tasks.example_task\n\t\n[]\n\t\n{}\n\t\n\t\n\t\n\t\n{}\n\t\n\t\n\t\n\t\n否\n\t\n\t\n否\n\t\n\t\n0\n\t\n2026-10-10 11:23:13\n\t\n20\n\t\n\t\n\t\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 3258,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-interval_schedule",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n60\n\t\n秒\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n2019\n\t\n秒\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 598,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-crontab_schedule",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\nAsia/Shanghai\n\t\n0\n\t\n4\n\t\n*\n\t\n*\n\t\n*\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\nAsia/Shanghai\n\t\n19\n\t\n12\n\t\n*\n\t\n*\n\t\n*\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 1158,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-clocked_schedule",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n2030-01-01 08:00:00\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n2030-01-01 08:20:00\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 458,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-solar_schedule",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n日出\n\t\n30.000000\n\t\n120.000000\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n日出\n\t\n30.200000\n\t\n120.000000\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 738,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-task_result",
+      "width": 320,
+      "status": "passed",
+      "sort_column": "ID",
+      "sort": "ascending",
+      "page1_first": "\t\n1\n\t\n1\n\t\n3dd99977-34e2-44e0-921d-05831162b675\n\t\nninth-local-24h-20261010T024723\n\t\nninth.local.soak_probe\n\t\n\"['ninth-local-24h-20261010T024723', 1791600443.0255516, 60]\"\n\t\n\"{}\"\n\t\nSUCCESS\n\t\nninth-b@PS2019VSHFTOJJ\n\t\napplication/json\n\t\nutf-8\n\t\n{\"run_id\": \"ninth-local-24h-20261010T024723\", \"slot\": 1, \"executed_at\": \"2026-10-10T02:48:23.085158+00:00\"}\n\t\n2026-10-10 10:48:23\n\t\n\t\n2026-10-10 10:48:23\n\t\n\t\n{\"children\": []}\n\t",
+      "page2_first": "\t\n21\n\t\n21\n\t\n15522d41-923a-4d8d-9b20-e0e6fb098540\n\t\nninth-local-24h-20261010T024723\n\t\nninth.local.soak_probe\n\t\n\"['ninth-local-24h-20261010T024723', 1791600443.0255516, 60]\"\n\t\n\"{}\"\n\t\nSUCCESS\n\t\nninth-a@PS2019VSHFTOJJ\n\t\napplication/json\n\t\nutf-8\n\t\n{\"run_id\": \"ninth-local-24h-20261010T024723\", \"slot\": 21, \"executed_at\": \"2026-10-10T03:08:23.085406+00:00\"}\n\t\n2026-10-10 11:08:23\n\t\n\t\n2026-10-10 11:08:23\n\t\n\t\n{\"children\": []}\n\t",
+      "expected_first": [
+        1,
+        21
+      ],
+      "selected_across_pages": 2,
+      "cleared": true,
+      "dimensions": {
+        "page": 305,
+        "table": 2418,
+        "viewport": 320
+      }
+    },
+    {
+      "id": "MOBILE04-edit-post",
+      "width": 320,
+      "status": "passed",
+      "field": "description",
+      "value": "本机移动编辑验收 post",
+      "required_error": {
+        "rect": {
+          "bottom": 265.40625762939453,
+          "height": 61.55208587646485,
+          "left": 48,
+          "right": 262,
+          "top": 203.8541717529297,
+          "width": 214,
+          "x": 48,
+          "y": 203.8541717529297
+        },
+        "text": "岗位名称请填写岗位名称"
+      }
+    },
+    {
+      "id": "MOBILE04-edit-user",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n36\n\t\n2026-10-10 11:05:39\n\t\nninth-reader\n\t\n\t\n2026-10-10 10:46:00\n\t\nninth-reader\n\t\n\t\n\t\n\t\n未知\n\t\n后台用户\n\t\n1\n\t\n本机验收部门\n\t\n本机只读角色\n\t\n\t\n本机验收部门\n\t\n本机只读角色\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 user"
+    },
+    {
+      "id": "MOBILE04-edit-dept",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n4\n\t\nninth-list-00\n\t\n本机列表样本00\n\t\n0\n\t\n\t\n\t\n\t\n启用\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 dept"
+    },
+    {
+      "id": "MOBILE04-edit-role",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n6\n\t\n本机列表样本00\n\t\nninth-list-00\n\t\n0\n\t\n启用\n\t\n否\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 role"
+    },
+    {
+      "id": "MOBILE04-edit-menu",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n1\n\t\n系统管理\n\t\n\t\n1\n\t\n是\n\t\n/system\n\t\n\t\nsystem\n\t\n\t\n否\n\t\n\t\n否\n\t\n启用\n\t\n否\n\t\n是\n\t\n否\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 menu"
+    },
+    {
+      "id": "MOBILE04-edit-menu_button",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n258\n\t\nassociation_tables\n\t\nsystem_config:association-tables-get\n\t\n/api/system/system_config/association_tables/\n\t\nGET\n\t\n系统配置\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 menu_button"
+    },
+    {
+      "id": "MOBILE04-edit-column",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n203\n\t\ndjango_celery_beat · 定时 (django_celery_beat.ClockedSchedule)\n\t\nclocked_time\n\t\n定时时间\n\t\n定时\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 column"
+    },
+    {
+      "id": "MOBILE04-edit-role_menu_permission",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n82\n\t\n本机列表样本29\n\t\n本机列表样本29\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 role_menu_permission"
+    },
+    {
+      "id": "MOBILE04-edit-role_menu_button_permission",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n830\n\t\n本人\n\t\n本机列表样本29\n\t\n本机列表样本29\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 role_menu_button_permission"
+    },
+    {
+      "id": "MOBILE04-edit-field_permission",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n374\n\t\n是\n\t\n是\n\t\n是\n\t\n本机列表样本29\n\t\n本机列表样本29\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 field_permission"
+    },
+    {
+      "id": "MOBILE04-edit-api_white_list",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n30\n\t\n/ninth-fixture/29/\n\t\nGET\n\t\n是\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 api_white_list"
+    },
+    {
+      "id": "MOBILE04-edit-dictionary",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n1\n\t\n状态\n\t\nstatus\n\t\n1\n\t\n启用\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 dictionary"
+    },
+    {
+      "id": "MOBILE04-edit-area",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\nNINTH-00\n\t\n本机列表样本00\n\t\n1\n\t\n\t\n\t\n\t\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 area"
+    },
+    {
+      "id": "MOBILE04-edit-system_config",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n17\n\t\n00输入器\n\t\nfield0\n\t\n\"初始文本\"\n\t\n0\n\t\n启用\n\t\n文本\n\t\n[]\n\t\n[]\n\t\n\t\n{}\n\t\n本机16输入器\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 system_config"
+    },
+    {
+      "id": "MOBILE04-edit-file",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n42\n\t\navatar.png\n\t\nhttp://127.0.0.1:8007/media/files/2026/10/avatar_9jpnNLG.png\n\t\n498 B\n\t\nimage/png\n\t\nb3c7e0487e6450c30b046f640a6e3ade\n\t\n默认上传\n\t\n图片\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 file"
+    },
+    {
+      "id": "MOBILE04-edit-message_center",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n30\n\t\n系统通知\n\t\n本机列表样本29\n\t\n本机列表样本29\n\t\n\t\n\t\n\t",
+      "field": "description",
+      "value": "本机移动编辑验收 message_center"
+    },
+    {
+      "id": "MOBILE04-edit-periodic_task",
+      "width": 320,
+      "status": "passed",
+      "field": "description",
+      "value": "本机移动编辑验收 periodic_task",
+      "test_note": "form initialization replaced textarea during first fill; retried after fresh visible state"
+    },
+    {
+      "id": "MOBILE04-edit-interval_schedule",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n1\n\t\n60\n\t\n秒\n\t",
+      "field": "every",
+      "value": "2059"
+    },
+    {
+      "id": "MOBILE04-edit-crontab_schedule",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n2\n\t\nAsia/Shanghai\n\t\n0\n\t\n12\n\t\n*\n\t\n*\n\t\n*\n\t",
+      "field": "minute",
+      "value": "41"
+    },
+    {
+      "id": "MOBILE04-edit-clocked_schedule",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n1\n\t\n2030-01-01 08:00:00\n\t",
+      "field": "clocked_time",
+      "value": "2030-01-02 10:11:12"
+    },
+    {
+      "id": "MOBILE04-edit-solar_schedule",
+      "width": 320,
+      "status": "passed",
+      "row_before": "\t\n1\n\t\n1\n\t\n日出\n\t\n30.000000\n\t\n120.000000\n\t",
+      "field": "latitude",
+      "value": "31.125"
+    },
+    {
+      "id": "MOBILE04-readonly-resources",
+      "width": 320,
+      "status": "passed",
+      "results": [
+        {
+          "entity": "operation_log",
+          "menu": "查看\n删除\nJSON 明细"
+        },
+        {
+          "entity": "login_log",
+          "menu": "查看\n删除"
+        },
+        {
+          "entity": "download_center",
+          "menu": "查看\n删除"
+        },
+        {
+          "entity": "task_result",
+          "menu": "查看\n删除\nJSON 明细"
+        }
+      ]
+    },
+    {
+      "id": "COMP18-avatar-custom-fixed",
+      "width": 390,
+      "status": "passed",
+      "value": "\"http://127.0.0.1:8011/media/files/2026/10/avatar_Vlxy3WG.png\"",
+      "requested_size": [
+        120,
+        80
+      ],
+      "format": "PNG",
+      "decode_check": "ninth-mobile-edit-verification.json"
+    },
+    {
+      "id": "COMP18-file-video",
+      "width": 390,
+      "status": "passed",
+      "props": {
+        "class": "file-picker ninth-input",
+        "src": "http://127.0.0.1:8011/media/files/2026/10/ninth-vp9.webm",
+        "style": "padding: 2px; border: 1px solid red;",
+        "video_width": "width: 55px;"
+      },
+      "tabs_type": "el-tabs el-tabs--top el-tabs--border-card",
+      "item_size": "--item-size: 95px;",
+      "accept": "video/mp4"
+    },
+    {
+      "id": "COMP18-file-public-and-audio",
+      "width": 390,
+      "status": "passed",
+      "public_clear": true,
+      "public_onDataChange": true,
+      "disabled_audio_model": "\"http://127.0.0.1:8011/media/files/2026/10/ninth-mp3.mp3\""
+    },
+    {
+      "id": "MOBILE06-editable-permissions",
+      "width": 320,
+      "status": "passed",
+      "actions": [
+        "all menus and clear",
+        "filter岗位",
+        "all buttons and clear",
+        "default range4/dept2",
+        "individual range0→4",
+        "field column query/create/update",
+        "one field update false",
+        "menu parent/leaf checkbox",
+        "save"
+      ],
+      "button_scope": "岗位 / 查询\n指定部门\n本机验收部门",
+      "field_checked_before_individual": 23,
+      "role": 2
+    },
+    {
+      "id": "MOBILE06-config-tree-multi",
+      "width": 320,
+      "status": "passed",
+      "selected": [
+        "本机业务子",
+        "本机列表样本20"
+      ],
+      "business_keys": [
+        "NINTH-CHILD",
+        "NINTH-20"
+      ],
+      "actions": [
+        "clear",
+        "expand lazy root",
+        "select child",
+        "page2 select",
+        "save outer settings"
+      ],
+      "test_note": "hidden selector tags excluded from visible tag assertion"
+    },
+    {
+      "id": "MOBILE07-new-required-initial",
+      "width": 320,
+      "status": "passed",
+      "errors": [
+        {
+          "error": "请填写新增00输入器",
+          "top": -2673.8125
+        },
+        {
+          "error": "请填写新增01输入器",
+          "top": -2466.260498046875
+        },
+        {
+          "error": "请填写新增02输入器",
+          "top": -2258.70849609375
+        },
+        {
+          "error": "请填写新增03输入器",
+          "top": -2051.15625
+        },
+        {
+          "error": "请填写新增04输入器",
+          "top": -1783.15625
+        },
+        {
+          "error": "请填写新增05输入器",
+          "top": -1575.604248046875
+        },
+        {
+          "error": "请填写新增06输入器",
+          "top": -1401.604248046875
+        },
+        {
+          "error": "请填写新增07输入器",
+          "label": "新增07输入器",
+          "top": -1195.604248046875
+        },
+        {
+          "error": "请填写新增08输入器",
+          "label": "新增08输入器",
+          "top": -989.6041870117188
+        },
+        {
+          "error": "请填写新增11输入器",
+          "label": "新增11输入器",
+          "top": -368.5
+        },
+        {
+          "error": "请填写新增12输入器",
+          "label": "新增12输入器",
+          "top": -54.83333587646485
+        },
+        {
+          "error": "请填写新增13输入器",
+          "label": "新增13输入器",
+          "top": 151.1666717529297
+        },
+        {
+          "error": "请填写新增14输入器",
+          "label": "新增14输入器",
+          "top": 358.71875
+        },
+        {
+          "error": "请填写新增15输入器",
+          "top": 566.2708740234375
+        }
+      ],
+      "zeroFalseAccepted": true
+    },
+    {
+      "id": "MOBILE07-initial-new-input-replay",
+      "status": "replay_required",
+      "reason": "固定选项 JSON 输入被恢复旧值；自动化在已关闭日期弹层后多发 Escape，关闭了尚未保存的外层表单。关联13/14已保存，其余新增字段将在修复后重新创建。"
+    },
+    {
+      "id": "MOBILE07-new16-persisted",
+      "status": "passed",
+      "width": 320,
+      "evidence": "ninth-settings-permissions-verification.json",
+      "uploads": [
+        "PNG",
+        "WAV"
+      ],
+      "multiImages": [
+        "ninth-image-29.png",
+        "ninth-image-19.png"
+      ],
+      "zeroFalseAccepted": true
+    },
+    {
+      "id": "MOBILE07-error-position-fixed",
+      "status": "passed",
+      "initialRequiredErrors": 14,
+      "initialFirstError": "新增13输入器",
+      "initialFirstTop": 74.1875,
+      "clearTextRetest": {
+        "height": 844,
+        "label": "新增00输入器",
+        "message": "请填写新增00输入器",
+        "rect": {
+          "bottom": 263.3229293823242,
+          "height": 189.55209350585935,
+          "left": 20,
+          "right": 284.66668701171875,
+          "top": 73.77083587646484,
+          "width": 264.66668701171875,
+          "x": 20,
+          "y": 73.77083587646484
+        },
+        "width": 320
+      }
+    },
+    {
+      "id": "MOBILE07-clear-inputs",
+      "status": "passed",
+      "width": 320,
+      "textClear": "MOBILE07-error-position-fixed",
+      "errors": [
+        {
+          "error": "请填写新增01输入器",
+          "label": "新增01输入器"
+        },
+        {
+          "error": "请填写新增02输入器",
+          "label": "新增02输入器"
+        },
+        {
+          "error": "请填写新增03输入器",
+          "label": "新增03输入器"
+        },
+        {
+          "error": "请填写新增05输入器",
+          "label": "新增05输入器"
+        },
+        {
+          "error": "请填写新增07输入器",
+          "label": "新增07输入器"
+        },
+        {
+          "error": "请填写新增08输入器",
+          "label": "新增08输入器"
+        },
+        {
+          "error": "请填写新增10输入器",
+          "label": "新增10输入器"
+        },
+        {
+          "error": "请填写新增13输入器",
+          "label": "新增13输入器"
+        },
+        {
+          "error": "请填写新增11输入器",
+          "label": "新增11输入器"
+        },
+        {
+          "error": "请填写新增14输入器",
+          "label": "新增14输入器"
+        },
+        {
+          "error": "请填写新增12输入器",
+          "label": "新增12输入器"
+        },
+        {
+          "error": "请填写新增15输入器",
+          "label": "新增15输入器"
+        }
+      ],
+      "radioAndSwitch": "无清空接口；合法0/false已经保存验收"
+    },
+    {
+      "id": "MOBILE07-clear-select",
+      "status": "passed",
+      "width": 320,
+      "errors": [
+        {
+          "label": "新增01输入器",
+          "message": "请填写新增01输入器"
+        },
+        {
+          "label": "新增02输入器",
+          "message": "请填写新增02输入器"
+        },
+        {
+          "label": "新增03输入器",
+          "message": "请填写新增03输入器"
+        },
+        {
+          "label": "新增04输入器",
+          "message": "请填写新增04输入器"
+        },
+        {
+          "label": "新增05输入器",
+          "message": "请填写新增05输入器"
+        },
+        {
+          "label": "新增07输入器",
+          "message": "请填写新增07输入器"
+        },
+        {
+          "label": "新增08输入器",
+          "message": "请填写新增08输入器"
+        },
+        {
+          "label": "新增10输入器",
+          "message": "请填写新增10输入器"
+        },
+        {
+          "label": "新增13输入器",
+          "message": "请填写新增13输入器"
+        },
+        {
+          "label": "新增11输入器",
+          "message": "请填写新增11输入器"
+        },
+        {
+          "label": "新增14输入器",
+          "message": "请填写新增14输入器"
+        },
+        {
+          "label": "新增12输入器",
+          "message": "请填写新增12输入器"
+        },
+        {
+          "label": "新增15输入器",
+          "message": "请填写新增15输入器"
+        }
+      ]
+    },
+    {
+      "id": "MOBILE07-message-user",
+      "status": "passed",
+      "width": 320,
+      "title": "本机消息用户",
+      "target": "ninth-00",
+      "requiredTargetErrorTop": 624.9583740234375
+    },
+    {
+      "id": "MOBILE07-message-role",
+      "status": "passed",
+      "width": 320,
+      "title": "本机消息角色",
+      "target": "本机成员验收"
+    },
+    {
+      "id": "MOBILE07-message-dept",
+      "status": "passed",
+      "width": 320,
+      "title": "本机消息部门",
+      "target": "ninth-dept"
+    },
+    {
+      "id": "MOBILE04-tree-dept",
+      "status": "passed",
+      "width": 320,
+      "steps": [
+        "筛选入口",
+        "父部门用户及统计35人",
+        "展开子部门",
+        "子部门工作区",
+        "基础管理",
+        "全部返回"
+      ]
+    },
+    {
+      "id": "MOBILE04-tree-menu",
+      "status": "passed",
+      "width": 320,
+      "steps": [
+        "系统展开",
+        "岗位子菜单",
+        "权限按钮",
+        "字段权限",
+        "基础管理",
+        "全部返回"
+      ]
+    },
+    {
+      "id": "MOBILE04-tree-dictionary",
+      "status": "failed_child_form_fields",
+      "width": 320,
+      "steps": [
+        "父字典筛选",
+        "子值出现",
+        "新增表单仍缺类型/颜色",
+        "取消",
+        "全部返回"
+      ],
+      "fixed_by": "MOBILE04-tree-dictionary-fixed"
+    },
+    {
+      "id": "MOBILE04-tree-dictionary-fixed",
+      "status": "passed",
+      "width": 320,
+      "steps": [
+        "父项进入",
+        "子项类型/颜色动态显示",
+        "新增数字0、warning颜色并保存",
+        "列表出现"
+      ]
+    },
+    {
+      "id": "MOBILE04-tree-system-config",
+      "status": "passed",
+      "width": 320,
+      "steps": [
+        "分组筛选",
+        "32子项",
+        "第二页业务关联字段出现",
+        "全部返回"
+      ]
+    },
+    {
+      "id": "MOBILE04-tree-area",
+      "status": "passed",
+      "width": 320,
+      "steps": [
+        "懒加载展开区域子节点",
+        "父项筛选显示子区域",
+        "重新展开后叶节点共0条",
+        "全部返回"
+      ]
+    },
+    {
+      "id": "MOBILE02-long-footer-terms",
+      "status": "passed",
+      "dimensions": [
+        {
+          "width": 320,
+          "login": {
+            "footer": 306,
+            "help": "/terms/service?help=%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6",
+            "scroll": 320,
+            "width": 320
+          },
+          "privacy": {
+            "scroll": 320,
+            "width": 320
+          },
+          "service": {
+            "scroll": 320,
+            "width": 320
+          }
+        },
+        {
+          "width": 390,
+          "login": {
+            "footer": 306,
+            "help": "/terms/service?help=%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6",
+            "scroll": 390,
+            "width": 390
+          },
+          "privacy": {
+            "scroll": 390,
+            "width": 390
+          },
+          "service": {
+            "scroll": 390,
+            "width": 390
+          }
+        },
+        {
+          "width": 768,
+          "login": {
+            "footer": 306,
+            "help": "/terms/service?help=%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6%E6%9C%AC%E6%9C%BA%E5%B8%AE%E5%8A%A9%E9%93%BE%E6%8E%A5%E9%AA%8C%E6%94%B6",
+            "scroll": 768,
+            "width": 768
+          },
+          "privacy": {
+            "scroll": 768,
+            "width": 768
+          },
+          "service": {
+            "scroll": 768,
+            "width": 768
+          }
+        }
+      ]
+    },
+    {
+      "id": "MOBILE09-defaults",
+      "status": "passed",
+      "width": 390,
+      "pageCache": true,
+      "refreshClearsState": true,
+      "contentFullscreen": true,
+      "iframe": {
+        "cached": {
+          "instance": "1791608621603",
+          "value": "defaults-frame-cache"
+        },
+        "fresh": {
+          "instance": "1791608644534",
+          "value": ""
+        },
+        "closedFrameRemoved": true,
+        "tagsHiddenThenShown": true
+      },
+      "closeOther": [
+        "首页",
+        "岗位↻×"
+      ],
+      "closeCurrent": [
+        "首页↻"
+      ],
+      "closeAll": [
+        "首页↻"
+      ]
+    },
+    {
+      "id": "MOBILE09-classic",
+      "status": "passed",
+      "width": 390,
+      "pageCache": true,
+      "refreshClearsState": true,
+      "contentFullscreen": true,
+      "iframe": {
+        "cachePreservesInputAndInstance": true,
+        "tagsHiddenThenShown": true,
+        "refreshChangesInstanceAndClearsInput": true,
+        "closedFrameRemoved": true
+      },
+      "closeOther": [
+        "首页",
+        "岗位↻×"
+      ],
+      "closeCurrent": [
+        "首页↻"
+      ],
+      "closeAll": [
+        "首页↻"
+      ]
+    },
+    {
+      "id": "MOBILE09-transverse",
+      "status": "passed",
+      "width": 390,
+      "pageCache": true,
+      "refreshClearsState": true,
+      "contentFullscreen": true,
+      "iframe": {
+        "cached": {
+          "instance": "1791608918588",
+          "value": "transverse-frame-cache"
+        },
+        "fresh": {
+          "instance": "1791608920609",
+          "value": ""
+        },
+        "closedFrameRemoved": true,
+        "tagsHiddenThenShown": true
+      },
+      "closeOther": [
+        "首页",
+        "岗位↻×"
+      ],
+      "closeCurrent": [
+        "首页↻"
+      ],
+      "closeAll": [
+        "首页↻"
+      ]
+    },
+    {
+      "id": "MOBILE09-columns",
+      "status": "passed",
+      "width": 390,
+      "pageCache": true,
+      "refreshClearsState": true,
+      "contentFullscreen": true,
+      "iframe": {
+        "cached": {
+          "instance": "1791608948921",
+          "value": "columns-frame-cache"
+        },
+        "fresh": {
+          "instance": "1791608951208",
+          "value": ""
+        },
+        "closedFrameRemoved": true,
+        "tagsHiddenThenShown": true
+      },
+      "closeOther": [
+        "首页",
+        "岗位↻×"
+      ],
+      "closeCurrent": [
+        "首页↻"
+      ],
+      "closeAll": [
+        "首页↻"
+      ]
+    },
+    {
+      "id": "MOBILE09-desktop-drag-four-layouts",
+      "status": "passed",
+      "width": 1280,
+      "cases": [
+        {
+          "layout": "defaults",
+          "before": [
+            "首页",
+            "岗位×",
+            "角色↻×"
+          ],
+          "after": [
+            "首页",
+            "角色↻×",
+            "岗位×"
+          ]
+        },
+        {
+          "layout": "classic",
+          "before": [
+            "首页",
+            "角色↻×",
+            "岗位×"
+          ],
+          "after": [
+            "首页",
+            "岗位×",
+            "角色↻×"
+          ],
+          "persisted": [
+            "首页",
+            "岗位×",
+            "角色↻×"
+          ]
+        },
+        {
+          "layout": "transverse",
+          "before": [
+            "首页",
+            "岗位×",
+            "角色↻×"
+          ],
+          "after": [
+            "首页",
+            "角色↻×",
+            "岗位×"
+          ],
+          "persisted": [
+            "首页",
+            "角色↻×",
+            "岗位×"
+          ]
+        },
+        {
+          "layout": "columns",
+          "before": [
+            "首页",
+            "角色↻×",
+            "岗位×"
+          ],
+          "after": [
+            "首页",
+            "岗位×",
+            "角色↻×"
+          ],
+          "persisted": [
+            "首页",
+            "岗位×",
+            "角色↻×"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MOBILE09-desktop-context-cache",
+      "status": "passed",
+      "width": 1280,
+      "closeCurrent": [
+        "首页",
+        "岗位↻×"
+      ],
+      "closeOther": [
+        "首页",
+        "角色↻×"
+      ],
+      "closeAll": [
+        "首页↻"
+      ],
+      "defaultTagPersistence": {
+        "before": [
+          "首页",
+          "岗位×",
+          "角色↻×"
+        ],
+        "after": [
+          "首页",
+          "岗位×",
+          "角色↻×"
+        ]
+      }
+    },
+    {
+      "id": "MOBILE09-native-middle",
+      "status": "skipped_user_manual_scope",
+      "reason": "内置浏览器的 locator middle 和原生 middle 均未触发页面 auxclick；未用注入事件代替实际点击。按用户要求跳过需真实鼠标操作的部分。"
+    },
+    {
+      "id": "MOBILE03-four-layout-logout",
+      "status": "passed",
+      "width": 390,
+      "cases": [
+        {
+          "layout": "defaults",
+          "loggedOut": "http://127.0.0.1:8007/login",
+          "reloginReturnedToWorkspace": true
+        },
+        {
+          "layout": "classic",
+          "loggedOut": "http://127.0.0.1:8007/login",
+          "reloginReturnedToWorkspace": true
+        },
+        {
+          "layout": "transverse",
+          "loggedOut": "http://127.0.0.1:8007/login",
+          "reloginReturnedToWorkspace": true
+        },
+        {
+          "layout": "columns",
+          "loggedOut": "http://127.0.0.1:8007/login",
+          "reloginReturnedToWorkspace": true
+        }
+      ]
+    }
+  ]
+}

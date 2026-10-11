@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-09",
+  "measurements": [
+    {
+      "document": 320,
+      "drawer": [
+        {
+          "left": 0,
+          "scroll": 320,
+          "width": 320
+        }
+      ],
+      "scene": "settings",
+      "width": 320
+    },
+    {
+      "document": 390,
+      "drawer": [
+        {
+          "left": 54.5625,
+          "scroll": 335,
+          "width": 335.4375
+        }
+      ],
+      "scene": "settings",
+      "width": 390
+    },
+    {
+      "document": 768,
+      "drawer": [
+        {
+          "left": 345.28125,
+          "scroll": 423,
+          "width": 422.71875
+        }
+      ],
+      "scene": "settings",
+      "width": 768
+    }
+  ],
+  "array": {
+    "empty_row_rejected": true,
+    "filled_row_saved": true,
+    "values": [
+      "标题",
+      "key",
+      "0"
+    ]
+  },
+  "physical_devices_tested": false
+}

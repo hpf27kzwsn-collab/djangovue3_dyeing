@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-09",
+  "python": "3.14.8",
+  "django": "5.2.18",
+  "database": ":memory:",
+  "formal_database_touched": false,
+  "checks": {
+    "message_empty_targets": [
+      {
+        "target_type": 0,
+        "status": 200,
+        "recipient_count": 0
+      },
+      {
+        "target_type": 1,
+        "status": 200,
+        "recipient_count": 0
+      },
+      {
+        "target_type": 2,
+        "status": 200,
+        "recipient_count": 0
+      }
+    ],
+    "message_target_metadata": [
+      {
+        "key": "target_user",
+        "title": "接收用户",
+        "kind": "multi",
+        "required": false,
+        "readonly": false,
+        "nullable": false,
+        "options": [],
+        "default": [],
+        "remote": {
+          "entity": "user",
+          "pk": "id",
+          "label": "username"
+        },
+        "dictionary": null,
+        "display_key": "target_user_label",
+        "is_query": true,
+        "is_create": true,
+        "is_update": true
+      },
+      {
+        "key": "target_dept",
+        "title": "接收部门",
+        "kind": "multi",
+        "required": false,
+        "readonly": false,
+        "nullable": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "总公司",
+            "parent": null,
+            "disabled": false
+          },
+          {
+            "value": 2,
+            "label": "权限部门",
+            "parent": null,
+            "disabled": false
+          }
+        ],
+        "default": [],
+        "remote": null,
+        "dictionary": null,
+        "display_key": "target_dept_label",
+        "is_query": true,
+        "is_create": true,
+        "is_update": true
+      },
+      {
+        "key": "target_role",
+        "title": "接收角色",
+        "kind": "multi",
+        "required": false,
+        "readonly": false,
+        "nullable": false,
+        "options": [],
+        "default": [],
+        "remote": {
+          "entity": "role",
+          "pk": "id",
+          "label": "name"
+        },
+        "dictionary": null,
+        "display_key": "target_role_label",
+        "is_query": true,
+        "is_create": true,
+        "is_update": true
+      }
+    ],
+    "public_config_prefixes": {
+      "audit-site": {
+        "audit-site.title": "SITE"
+      },
+      "audit-site|": {
+        "site.title": "ERP 管理平台",
+        "login.captcha": false,
+        "site.logo": "",
+        "site.subtitle": "组织、权限、系统数据与消息任务",
+        "login.first_password": true,
+        "login.ip_analysis": false,
+        "fourth-audit.business-code": "AUDIT-ONLY",
+        "fourth-audit.dictionary": null,
+        "fourth-audit.message_center": null,
+        "fourth-audit.actual-pk": 1,
+        "fourth-audit.array": [
+          {
+            "title": "",
+            "key": "",
+            "value": ""
+          }
+        ],
+        "audit-site.title": "SITE",
+        "audit-login.copyright": "LOGIN"
+      },
+      "|audit-site": {
+        "site.title": "ERP 管理平台",
+        "login.captcha": false,
+        "site.logo": "",
+        "site.subtitle": "组织、权限、系统数据与消息任务",
+        "login.first_password": true,
+        "login.ip_analysis": false,
+        "fourth-audit.business-code": "AUDIT-ONLY",
+        "fourth-audit.dictionary": null,
+        "fourth-audit.message_center": null,
+        "fourth-audit.actual-pk": 1,
+        "fourth-audit.array": [
+          {
+            "title": "",
+            "key": "",
+            "value": ""
+          }
+        ],
+        "audit-site.title": "SITE",
+        "audit-login.copyright": "LOGIN"
+      },
+      "audit-site|audit-login": {
+        "audit-site.title": "SITE",
+        "audit-login.copyright": "LOGIN"
+      }
+    },
+    "anonymous_dictionary_status": 401,
+    "private_brand_config": {
+      "special_public_title": "AUDIT-BRAND-HIDDEN",
+      "generic_public_contains_title": false,
+      "saved_status": false
+    },
+    "authenticated_dictionary_status": 200,
+    "user_minimal_create": {
+      "status": 200,
+      "data": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 3,
+          "last_login": null,
+          "username": "fifth-empty-user",
+          "is_active": true,
+          "date_joined": "2026-10-09 02:49:36",
+          "description": "",
+          "create_datetime": "2026-10-09 02:49:36",
+          "update_datetime": "2026-10-09 02:49:36",
+          "name": "fifth-empty-user",
+          "mobile": null,
+          "email": "",
+          "avatar": null,
+          "gender": 0,
+          "user_type": 0,
+          "pwd_change_count": 0,
+          "creator": 1,
+          "modifier": 1,
+          "dept_belong": null,
+          "dept": null,
+          "role": [],
+          "post": [],
+          "creator_name": "超级管理员",
+          "creator_label": "超级管理员",
+          "modifier_label": "超级管理员",
+          "dept_belong_label": "",
+          "dept_label": "",
+          "role_label": "",
+          "post_label": "",
+          "dept_path": "",
+          "role_names": "",
+          "post_names": ""
+        }
+      }
+    },
+    "message_delete_relation_positive": {
+      "create_status": 200,
+      "recipients_before": 1,
+      "delete_status": 200,
+      "recipients_after": 0,
+      "signal_notifications": [
+        [
+          2
+        ]
+      ],
+      "real_redis_contacted": false
+    }
+  }
+}

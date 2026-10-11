@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-09",
+  "original_files": 399,
+  "current_files": 139,
+  "changes": {
+    "original": [],
+    "current": []
+  },
+  "release": {
+    "health": {
+      "status": "ok"
+    },
+    "program_sha256": "1aad7983c19ce3a17cda7411ed470f5219fad303700dba63121d1baa3005654e",
+    "index_sha256": "f96096fc416d40b47a0250a31810eb5a5ede6ebf5f79451ace1296efd2f0c399"
+  },
+  "release_unchanged": true,
+  "ledger_count": 236,
+  "status_counts": {
+    "C": 31,
+    "D": 10,
+    "I": 50,
+    "O": 5,
+    "S": 115,
+    "U": 18,
+    "V": 2,
+    "X": 5
+  },
+  "confirmed_groups": 5,
+  "product_note": "仅docs、审计脚本和隔离runtime环境新增/修改；未执行正式库写入、迁移、构建、部署或8000重启。139项是基线选定产品源文件/配置范围，不含本轮报告和审计脚本。",
+  "cleanup": {
+    "test_listeners_remaining": {
+      "8007": false,
+      "6395": false
+    },
+    "test_browser_tab_closed": true,
+    "viewport_override_reset": true,
+    "production_health_after_cleanup": {
+      "status": "ok"
+    }
+  }
+}

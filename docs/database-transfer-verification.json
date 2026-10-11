@@ -1,0 +1,11 @@
+{
+  "records": 4908,
+  "sqlite_to_postgresql_equal": true,
+  "postgresql_to_sqlite_equal": true,
+  "all_fields_and_relations_equal": true,
+  "timestamps_full_precision": true,
+  "source_snapshot_sha256_unchanged": true,
+  "postgresql_sequence_insert": true,
+  "source_formal_database_modified": false,
+  "media_modified": false
+}

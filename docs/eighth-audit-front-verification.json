@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-10",
+  "method": "actual component scripts with real Vue watch/nextTick; dependency-isolated, browser evidence recorded separately",
+  "checks": {
+    "shared_query_update": {
+      "latest_query": true
+    },
+    "F36": {
+      "both_directions": true,
+      "latest_query_and_hash": true,
+      "close_to_home": true
+    },
+    "cached_account_isolation": true,
+    "F32_R2": {
+      "ordinary_and_affix": true,
+      "path_query_title_migrated": true,
+      "deleted_menu_removed": true
+    },
+    "F37": {
+      "local_scroll_to_current": true,
+      "right_and_left": true,
+      "container_resize": true
+    },
+    "F38": {
+      "prefix_follows_menu_identity": true,
+      "inactive_page_isolated": true,
+      "metadata_updates_field_and_button_grants": true,
+      "search_and_page_preserved": true,
+      "revoked_query_and_write_fields_removed": true
+    },
+    "mobile_form_layout": {
+      "literal_top_and_right": true,
+      "viewport_updates_form_options": true
+    },
+    "resource_metadata_reload": {
+      "same_entity_reload": true,
+      "calls": [
+        "/api/meta/post/",
+        "/api/meta/post/"
+      ]
+    },
+    "iframe_share_identity": {
+      "query_hash_and_both_modes": true,
+      "no_duplicate_frames": true
+    }
+  },
+  "rerun_source": "same source as seventh implementation; new audit rerun"
+}

@@ -1,0 +1,27 @@
+{
+  "/healthz": {
+    "status": "ok"
+  },
+  "/readiness": {
+    "status": "ok",
+    "database": "sqlite"
+  },
+  "/api/config/": {
+    "code": 2000,
+    "msg": "success",
+    "data": {
+      "title": "ERP 管理平台",
+      "captcha": false,
+      "logo": "",
+      "subtitle": "组织、权限、系统数据与消息任务",
+      "copyright": "ERP 管理平台",
+      "keep_record": "",
+      "help_url": "",
+      "privacy_url": "/terms/privacy",
+      "clause_url": "/terms/service",
+      "first_password": true,
+      "version": "1.0.0.1791514203257"
+    }
+  },
+  "served_index_sha256": "ab19c388333931795903a26a4a9b272d7e78e6ddaaa8f6cab3d8ffba8786037c"
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-09T02:54:11.124175",
+  "functional_rows": 236,
+  "confirmed_groups": 28,
+  "priorities": {
+    "P1": 4,
+    "P2": 18,
+    "P3": 6
+  },
+  "backend_inventory_files": 85,
+  "front_inventory_files": 264,
+  "model_field_rows": 153,
+  "front_field_rows": 157,
+  "view_action_rows": 62,
+  "prior_api_checks_unchanged": true,
+  "prior_front_checks_unchanged": true,
+  "original_source_changes": [],
+  "product_source_changes": [],
+  "database_used": ":memory:",
+  "formal_write": false,
+  "formal_restart": false,
+  "browser_this_round": false,
+  "truthful_limits": [
+    "未启动旧依赖环境",
+    "非全部浏览器组合",
+    "未验原生 Excel/WPS",
+    "未验真机",
+    "没有性能基准"
+  ],
+  "document_links_checked": 2545,
+  "document_link_errors": [],
+  "current_source_changes": [],
+  "served_index_sha256": "f4c682cab07ca54437d1d802bb5769cdba4d4292616f7f965131d6abd9792fa2",
+  "served_index_matches_prior": true,
+  "formal_read_only_health": {
+    "status": 200,
+    "body": {
+      "status": "ok"
+    }
+  },
+  "unique_ledger_ids": true,
+  "all_findings_have_ledger_and_batch": true,
+  "front_field_line_anchors_valid": 157
+}

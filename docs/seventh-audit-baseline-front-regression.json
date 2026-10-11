@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-09",
+  "method": "actual current Vue functions, VNodes, template branches and async-validator; no formal data",
+  "checks": {
+    "F07": {
+      "same_wrapper": true,
+      "current_entity": "user"
+    },
+    "F08": {
+      "inactive_context": {
+        "parent": 7
+      },
+      "calls": []
+    },
+    "F10": {
+      "selection_after_page": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    "F11": {
+      "content_date": "el-date-picker",
+      "avatar_number": "el-input-number",
+      "icon_date": "el-date-picker",
+      "color_number": "el-input-number"
+    },
+    "F12": {
+      "invalid_fields": [
+        "value.0.title",
+        "value.0.key",
+        "value.0.value"
+      ],
+      "zero_value_allowed": true
+    },
+    "F14": {
+      "media_menus": [
+        "insertImage",
+        "uploadImage",
+        "insertVideo",
+        "uploadVideo"
+      ]
+    },
+    "F21": {
+      "path": "/system/user",
+      "fullPath": "/system/user?dept=3",
+      "title": "用户",
+      "affix": false,
+      "icon": ""
+    },
+    "F27": {
+      "build_identity": "1.0.0.1791524285900",
+      "client_backend_match": true
+    }
+  }
+}

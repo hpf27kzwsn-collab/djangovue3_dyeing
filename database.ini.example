@@ -1,0 +1,16 @@
+# 复制为 database.ini，放在项目根目录。
+# 默认 SQLite。改成 postgresql 后，填写下方 PostgreSQL 连接信息并重启全部服务。
+[database]
+engine = sqlite
+
+[sqlite]
+# 相对 backend 数据目录；也可以填写绝对路径。
+path = db.sqlite3
+
+[postgresql]
+host = 127.0.0.1
+port = 5432
+name = djangovue3
+user = djangovue3
+password =
+sslmode = prefer

@@ -1,0 +1,4527 @@
+{
+  "at": "2026-10-10T14:21:54.277699+08:00",
+  "method": "Current APIClient actual DRF dispatch + actual Django SQLite. Original side is source comparison, not a running old installation.",
+  "resources": [
+    {
+      "entity": "user",
+      "model": "system.Users",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "password",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "last_login",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "username",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "is_active",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "date_joined",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "mobile",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "email",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "avatar",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "gender",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "user_type",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "pwd_change_count",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "role",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "post",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "dept_path",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "role_names",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "post_names",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "reset_password",
+          "methods": [
+            "post"
+          ],
+          "detail": true,
+          "url_path": "reset_password"
+        },
+        {
+          "name": "reset_to_default_password",
+          "methods": [
+            "put"
+          ],
+          "detail": true,
+          "url_path": "reset_to_default_password"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "dept",
+      "model": "system.Dept",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "key",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "sort",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "owner",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "phone",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "email",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "parent",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "info",
+          "methods": [
+            "get"
+          ],
+          "detail": true,
+          "url_path": "info"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "move_down",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "move_down"
+        },
+        {
+          "name": "move_up",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "move_up"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "options",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "options"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "post",
+      "model": "system.Post",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "code",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "sort",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "role",
+      "model": "system.Role",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "key",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "sort",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "admin",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "permissions",
+          "methods": [
+            "get",
+            "put"
+          ],
+          "detail": true,
+          "url_path": "permissions"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        },
+        {
+          "name": "users",
+          "methods": [
+            "get",
+            "put"
+          ],
+          "detail": true,
+          "url_path": "users"
+        }
+      ]
+    },
+    {
+      "entity": "menu",
+      "model": "system.Menu",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "icon",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "sort",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "is_catalog",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "web_path",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "component",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "component_name",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "resource",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "is_link",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "link_url",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "is_iframe",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "cache",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "visible",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "is_affix",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "parent",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "move_down",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "move_down"
+        },
+        {
+          "name": "move_up",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "move_up"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "menu_button",
+      "model": "system.MenuButton",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "value",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "api",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "method",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "menu",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_create",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "batch_create"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "column",
+      "model": "system.MenuField",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "model",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "field_name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "title",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "menu",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "auto_match_fields",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "auto_match_fields"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "get_models",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "get_models"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "role_menu_permission",
+      "model": "system.RoleMenuPermission",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "role",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "menu",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "role_menu_button_permission",
+      "model": "system.RoleMenuButtonPermission",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "data_range",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "role",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "menu_button",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "dept",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "field_permission",
+      "model": "system.FieldPermission",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "is_query",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "is_create",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "is_update",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "role",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "field",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "api_white_list",
+      "model": "system.ApiWhiteList",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "url",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "method",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "enable_datasource",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "dictionary",
+      "model": "system.Dictionary",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "label",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "value",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "is_value",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "type",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "color",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "sort",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "remark",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "parent",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "area",
+      "model": "system.Area",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "code",
+      "fields": [
+        {
+          "key": "code",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "level",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "pinyin",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "initials",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "enable",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "pcode",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "pcode_name",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "children",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "children"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "system_config",
+      "model": "system.SystemConfig",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "title",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "key",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "value",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "sort",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "form_item_type",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "data_options",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "rule",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "placeholder",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "setting",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "parent",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "association_tables",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "association_tables"
+        },
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "content",
+          "methods": [
+            "put"
+          ],
+          "detail": true,
+          "url_path": "content"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "relation_info",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "relation_info"
+        },
+        {
+          "name": "table_data",
+          "methods": [
+            "get"
+          ],
+          "detail": true,
+          "url_path": "table_data"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "file",
+      "model": "system.FileList",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "url",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "size",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "mime_type",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "md5sum",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "upload_method",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "file_type",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "operation_log",
+      "model": "system.OperationLog",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "request_modular",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "request_msg",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "json_result",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "request_path",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "request_method",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "request_body",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "response_code",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "request_ip",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "request_browser",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "request_os",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "duration",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "login_log",
+      "model": "system.LoginLog",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "login_type",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "username",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "ip",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "browser",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "os",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "msg",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "location",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "agent",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "continent",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "country",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "province",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "city",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "district",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "isp",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "area_code",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "country_english",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "country_code",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "longitude",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "latitude",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "message_center",
+      "model": "system.MessageCenter",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "target_type",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "title",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "content",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "target_user",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "target_dept",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "target_role",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "get_newest_msg",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "get_newest_msg"
+        },
+        {
+          "name": "get_self_receive",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "get_self_receive"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "publish",
+          "methods": [
+            "post"
+          ],
+          "detail": true,
+          "url_path": "publish"
+        },
+        {
+          "name": "recipients",
+          "methods": [
+            "get"
+          ],
+          "detail": true,
+          "url_path": "recipients"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "download_center",
+      "model": "system.DownloadCenter",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "create_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "update_datetime",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "md5sum",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "task_name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "task_status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "file_name",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "url",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "size",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "task_id",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "creator",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "modifier",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "dept_belong",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "creator_name",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "periodic_task",
+      "model": "django_celery_beat.PeriodicTask",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "name",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "task",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "args",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "kwargs",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "queue",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "exchange",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "routing_key",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "headers",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "priority",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "expires",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "expire_seconds",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "one_off",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "start_time",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "enabled",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "last_run_at",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "total_run_count",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "date_changed",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "description",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "interval",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "crontab",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "solar",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "clocked",
+          "readonly": false,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "run",
+          "methods": [
+            "post"
+          ],
+          "detail": true,
+          "url_path": "run"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "interval_schedule",
+      "model": "django_celery_beat.IntervalSchedule",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "every",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "period",
+          "readonly": false,
+          "required": true
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "crontab_schedule",
+      "model": "django_celery_beat.CrontabSchedule",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "timezone",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "minute",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "hour",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "day_of_month",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "month_of_year",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "day_of_week",
+          "readonly": false,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "clocked_schedule",
+      "model": "django_celery_beat.ClockedSchedule",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "clocked_time",
+          "readonly": false,
+          "required": true
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "solar_schedule",
+      "model": "django_celery_beat.SolarSchedule",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "event",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "latitude",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "longitude",
+          "readonly": false,
+          "required": true
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    },
+    {
+      "entity": "task_result",
+      "model": "django_celery_results.TaskResult",
+      "metadata_http": 200,
+      "list_http": 200,
+      "pk": "id",
+      "fields": [
+        {
+          "key": "id",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "task_id",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "periodic_task_name",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "task_name",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "task_args",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "task_kwargs",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "status",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "worker",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "content_type",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "content_encoding",
+          "readonly": false,
+          "required": true
+        },
+        {
+          "key": "result",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "date_created",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "date_started",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "date_done",
+          "readonly": true,
+          "required": false
+        },
+        {
+          "key": "traceback",
+          "readonly": false,
+          "required": false
+        },
+        {
+          "key": "meta",
+          "readonly": true,
+          "required": false
+        }
+      ],
+      "actions": [
+        {
+          "name": "async_export",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "async_export"
+        },
+        {
+          "name": "batch_update",
+          "methods": [
+            "put"
+          ],
+          "detail": false,
+          "url_path": "batch_update"
+        },
+        {
+          "name": "export",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "export"
+        },
+        {
+          "name": "field_permission",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "field_permission"
+        },
+        {
+          "name": "get_by_ids",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "get_by_ids"
+        },
+        {
+          "name": "import_data",
+          "methods": [
+            "post"
+          ],
+          "detail": false,
+          "url_path": "import"
+        },
+        {
+          "name": "import_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "import_template"
+        },
+        {
+          "name": "init_data",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "init_data"
+        },
+        {
+          "name": "multiple_delete",
+          "methods": [
+            "delete"
+          ],
+          "detail": false,
+          "url_path": "multiple_delete"
+        },
+        {
+          "name": "tree",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "tree"
+        },
+        {
+          "name": "update_template",
+          "methods": [
+            "get"
+          ],
+          "detail": false,
+          "url_path": "update_template"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "id": "TW-DP03",
+      "operation": "user create with spaces/colon",
+      "http": 400,
+      "body": {
+        "code": 400,
+        "msg": "{'username': [ErrorDetail(string='请输入合法的用户名。只能包含英文字母、数字、特殊字符“@”、“.”、“-”和“_”。', code='invalid')]}",
+        "data": {
+          "username": [
+            "请输入合法的用户名。只能包含英文字母、数字、特殊字符“@”、“.”、“-”和“_”。"
+          ]
+        }
+      },
+      "validators": [
+        "UnicodeUsernameValidator",
+        "MaxLengthValidator"
+      ],
+      "finding": "Original explicitly declared plain CharField; current inherits AbstractUser UnicodeUsernameValidator."
+    },
+    {
+      "id": "TW-A01",
+      "operation": "reset an account which previously changed password",
+      "http": 200,
+      "pwd_change_count": 0,
+      "password_updated": true,
+      "finding": "Current resets count to zero; original reset actions did not modify the count."
+    },
+    {
+      "id": "TW-A02",
+      "operation": "permissions supplied by disabled role",
+      "menu_ids": [],
+      "buttons": [],
+      "list_http": 403,
+      "finding": "Current ignores inactive roles. Original menu/button/field queries used all assigned roles without this filter."
+    },
+    {
+      "id": "TW-A03",
+      "operation": "duplicate keys in the same configuration group",
+      "first_http": 200,
+      "second_http": 400,
+      "second_body": {
+        "code": 400,
+        "msg": "{'non_field_errors': [ErrorDetail(string='字段 key, parent 必须能构成唯一集合。', code='unique')]}",
+        "data": {
+          "non_field_errors": [
+            "字段 key, parent 必须能构成唯一集合。"
+          ]
+        }
+      },
+      "classification": "not_a_new_difference",
+      "finding": "Both versions constrain the tuple: original SystemConfig.Meta.unique_together = ((key, parent_id),); current config_group_key. The old validate_key method alone is not the complete constraint."
+    },
+    {
+      "id": "TW-C13",
+      "operation": "anonymous file listing",
+      "http": 401,
+      "finding": "Original FileViewSet.permission_classes = []; current ApiPermission requires login and grant."
+    }
+  ]
+}

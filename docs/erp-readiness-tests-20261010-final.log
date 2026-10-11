@@ -1,0 +1,126 @@
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+Found 15 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: corsheaders, django_filters, drf_spectacular, identity_a, identity_b, messages, rest_framework, staticfiles
+  Apply all migrations: auth, captcha, contenttypes, django_celery_beat, django_celery_results, example_catalogue, sessions, system
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table identity_a_twin
+    Creating table identity_a_users
+    Creating table identity_a_loginlog
+    Creating table identity_a_operationlog
+    Creating table identity_a_downloadcenter
+    Creating table identity_a_taskresult
+    Creating table identity_a_plainentry
+    Creating table identity_a_businesscredential
+    Creating table identity_a_fileentry
+    Creating table identity_a_excludedfileentry
+    Creating table identity_a_requiredfileentry
+    Creating table identity_a_businesskey
+    Creating table identity_a_keyreference
+    Creating table identity_a_keyidentity
+    Creating table identity_a_keyidentityreference
+    Creating table identity_b_twin
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying captcha.0001_initial... OK
+  Applying captcha.0002_alter_captchastore_id... OK
+  Applying django_celery_beat.0001_initial... OK
+  Applying django_celery_beat.0002_auto_20161118_0346... OK
+  Applying django_celery_beat.0003_auto_20161209_0049... OK
+  Applying django_celery_beat.0004_auto_20170221_0000... OK
+  Applying django_celery_beat.0005_add_solarschedule_events_choices... OK
+  Applying django_celery_beat.0006_auto_20180322_0932... OK
+  Applying django_celery_beat.0007_auto_20180521_0826... OK
+  Applying django_celery_beat.0008_auto_20180914_1922... OK
+  Applying django_celery_beat.0006_auto_20180210_1226... OK
+  Applying django_celery_beat.0006_periodictask_priority... OK
+  Applying django_celery_beat.0009_periodictask_headers... OK
+  Applying django_celery_beat.0010_auto_20190429_0326... OK
+  Applying django_celery_beat.0011_auto_20190508_0153... OK
+  Applying django_celery_beat.0012_periodictask_expire_seconds... OK
+  Applying django_celery_beat.0013_auto_20200609_0727... OK
+  Applying django_celery_beat.0014_remove_clockedschedule_enabled... OK
+  Applying django_celery_beat.0015_edit_solarschedule_events_choices... OK
+  Applying django_celery_beat.0016_alter_crontabschedule_timezone... OK
+  Applying django_celery_beat.0017_alter_crontabschedule_month_of_year... OK
+  Applying django_celery_beat.0018_improve_crontab_helptext... OK
+  Applying django_celery_beat.0019_alter_periodictasks_options... OK
+  Applying django_celery_results.0001_initial... OK
+  Applying django_celery_results.0002_add_task_name_args_kwargs... OK
+  Applying django_celery_results.0003_auto_20181106_1101... OK
+  Applying django_celery_results.0004_auto_20190516_0412... OK
+  Applying django_celery_results.0005_taskresult_worker... OK
+  Applying django_celery_results.0006_taskresult_date_created... OK
+  Applying django_celery_results.0007_remove_taskresult_hidden... OK
+  Applying django_celery_results.0008_chordcounter... OK
+  Applying django_celery_results.0009_groupresult... OK
+  Applying django_celery_results.0010_remove_duplicate_indices... OK
+  Applying django_celery_results.0011_taskresult_periodic_task_name... OK
+  Applying django_celery_results.0012_taskresult_date_started... OK
+  Applying django_celery_results.0013_taskresult_django_cele_periodi_1993cf_idx... OK
+  Applying django_celery_results.0014_alter_taskresult_status... OK
+  Applying system.0001_initial... OK
+  Applying system.0002_alter_systemconfig_form_item_type... OK
+  Applying system.0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more... OK
+  Applying system.0004_filelist_file_type_filelist_upload_method_and_more... OK
+  Applying system.0005_area_enable_area_initials_dictionary_remark_and_more... OK
+  Applying system.0006_alter_dictionary_type_alter_dictionary_value... OK
+  Applying system.0007_dictionary_dictionary_root_value_and_more... OK
+  Applying system.0008_alter_operationlog_json_result... OK
+  Applying system.0009_config_group_keys... OK
+  Applying system.0010_alter_post_status_alter_users_user_type... OK
+  Applying system.0011_area_audit... OK
+  Applying example_catalogue.0001_initial... OK
+  Applying sessions.0001_initial... OK
+  Applying system.0012_receipt_audit... OK
+  Applying system.0013_alter_messagecentertargetuser_options_and_more... OK
+  Applying system.0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more... OK
+  Applying system.0015_alter_loginlog_browser_alter_loginlog_os_and_more... OK
+  Applying system.0016_menu_resource_image_icons... OK
+  Applying system.0017_model_identity... OK
+  Applying system.0018_catalog_paths... OK
+test_qualifying_existing_definition_keeps_grant_primary_keys (system.tests.test_model_identity.IdentityMigrationTests.test_qualifying_existing_definition_keeps_grant_primary_keys) ... ok
+test_actual_apps_crud_field_permissions_and_xlsx_are_isolated (system.tests.test_model_identity.TwinApplicationTests.test_actual_apps_crud_field_permissions_and_xlsx_are_isolated) ... H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\django\core\handlers\base.py:61: UserWarning: No directory at: H:\Project_python\django-vue3-admin\djangovue3\runtime\erp-readiness-review-20261010\staticfiles\
+  mw_instance = middleware(adapted_handler)
+ok
+test_tree_target_code_differs_from_selected_business_name (system.tests.test_model_identity.TwinApplicationTests.test_tree_target_code_differs_from_selected_business_name) ... ok
+test_business_authentication_names_defaults_edit_and_xlsx (system.tests.test_business_contracts.BusinessContractTests.test_business_authentication_names_defaults_edit_and_xlsx) ... ok
+test_business_authentication_names_query_create_update_grants (system.tests.test_business_contracts.BusinessContractTests.test_business_authentication_names_query_create_update_grants) ... ok
+test_business_key_collision_does_not_change_existing_record (system.tests.test_business_contracts.BusinessContractTests.test_business_key_collision_does_not_change_existing_record) ... ok
+test_business_key_rename_follows_primary_foreign_key_chain (system.tests.test_business_contracts.BusinessContractTests.test_business_key_rename_follows_primary_foreign_key_chain) ... ok
+test_business_key_rename_preserves_self_fk_m2m_and_alternate_target (system.tests.test_business_contracts.BusinessContractTests.test_business_key_rename_preserves_self_fk_m2m_and_alternate_target) ... ok
+test_filelist_xlsx_updates_metadata_preserving_uploaded_file (system.tests.test_business_contracts.BusinessContractTests.test_filelist_xlsx_updates_metadata_preserving_uploaded_file) ... ok
+test_large_page_prefetch_respects_sqlite_parameters_without_truncation (system.tests.test_business_contracts.BusinessContractTests.test_large_page_prefetch_respects_sqlite_parameters_without_truncation) ... ok
+test_optional_and_excluded_files_do_not_disable_xlsx_data (system.tests.test_business_contracts.BusinessContractTests.test_optional_and_excluded_files_do_not_disable_xlsx_data) ... ok
+test_required_file_reports_real_field_error_instead_of_module_ban (system.tests.test_business_contracts.BusinessContractTests.test_required_file_reports_real_field_error_instead_of_module_ban) ... ok
+test_data_scope_applies_to_bulk_and_export (system.tests.test_platform.PlatformTests.test_data_scope_applies_to_bulk_and_export) ... ok
+test_five_data_ranges_and_role_union (system.tests.test_platform.PlatformTests.test_five_data_ranges_and_role_union) ... ok
+test_associated_table_uses_related_data_scope (system.tests.test_platform.PlatformTests.test_associated_table_uses_related_data_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 15.562s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+  Applying system.0019_windows_parity_cleanup... OK
+System check identified no issues (0 silenced).
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。

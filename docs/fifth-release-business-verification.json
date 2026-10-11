@@ -1,0 +1,51 @@
+{
+  "unchanged_tables": {
+    "system_apiwhitelist": 0,
+    "system_area": 3445,
+    "system_dept": 1,
+    "system_dictionary": 16,
+    "system_downloadcenter": 3,
+    "system_fieldpermission": 219,
+    "system_filelist": 0,
+    "system_loginlog": 3,
+    "system_menu": 29,
+    "system_menufield": 221,
+    "system_messagecenter": 0,
+    "system_messagecenter_target_dept": 0,
+    "system_messagecenter_target_role": 0,
+    "system_messagecenter_target_user": 0,
+    "system_messagecentertargetuser": 0,
+    "system_operationlog": 3,
+    "system_post": 0,
+    "system_role": 1,
+    "system_rolemenubuttonpermission": 444,
+    "system_rolemenubuttonpermission_dept": 0,
+    "system_rolemenupermission": 26,
+    "system_users": 1,
+    "system_users_groups": 0,
+    "system_users_post": 0,
+    "system_users_role": 1,
+    "system_users_user_permissions": 0
+  },
+  "changed_tables": {
+    "system_menubutton": {
+      "before": 474,
+      "after": 475
+    },
+    "system_systemconfig": {
+      "before": 10,
+      "after": 15
+    }
+  },
+  "new_button_declarations": [
+    [
+      475,
+      "dept:options-get",
+      "/api/system/dept/options/",
+      0
+    ]
+  ],
+  "public_build_version": "1.0.0.1791514203257",
+  "source_last_migration": "0011_area_audit",
+  "test_data_merged": false
+}

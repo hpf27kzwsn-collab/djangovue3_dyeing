@@ -1,0 +1,6 @@
+{
+  "width": 768,
+  "method": "actual date selection + next month + selection + previous month",
+  "cross_month_october_retained": true,
+  "cross_month_november_retained": true
+}

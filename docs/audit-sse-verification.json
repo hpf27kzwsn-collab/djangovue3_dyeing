@@ -1,0 +1,12 @@
+{
+  "initial": {
+    "unread": 0
+  },
+  "published": {
+    "unread": 1
+  },
+  "read": {
+    "unread": 0
+  },
+  "message": 1
+}

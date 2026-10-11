@@ -1,0 +1,391 @@
+195 INFO: PyInstaller: 6.22.3, contrib hooks: 2026.8
+195 INFO: Python: 3.14.8
+243 INFO: Platform: Windows-10-10.0.19045-SP0
+243 INFO: Python environment: H:\Project_python\django-vue3-admin\djangovue3\.venv
+437 WARNING: Failed to collect submodules for 'system.models' because importing 'system.models' raised: django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+726 WARNING: Failed to collect submodules for 'rest_framework.schemas' because importing 'rest_framework.schemas' raised: django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+556 WARNING: Failed to collect submodules for 'django_celery_results.backends' because importing 'django_celery_results.backends' raised: django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+394 WARNING: Failed to collect submodules for 'celery.backends.database' because importing 'celery.backends.database' raised: ModuleNotFoundError: No module named 'sqlalchemy'
+134 WARNING: Failed to collect submodules for 'psycopg_binary' because importing 'psycopg_binary' raised: ImportError: the psycopg package should be imported before psycopg_binary
+11780 INFO: Module search paths (PYTHONPATH):
+['H:\\Project_python\\django-vue3-admin\\djangovue3\\backend',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\python\\python314.zip',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\python\\DLLs',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\python\\Lib',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\python',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging',
+ 'H:\\Project_python\\django-vue3-admin\\djangovue3\\backend']
+12487 INFO: Appending 'datas' from .spec
+12566 INFO: checking Analysis
+12566 INFO: Building Analysis because Analysis-00.toc is non existent
+12566 INFO: Looking for Python shared library...
+12566 INFO: Using Python shared library: H:\Project_python\django-vue3-admin\djangovue3\runtime\python\python314.dll
+12566 INFO: Running Analysis Analysis-00.toc
+12566 INFO: Target bytecode optimization level: 0
+12566 INFO: Initializing module dependency graph...
+12568 INFO: Initializing module graph hook caches...
+12586 INFO: Analyzing modules for base_library.zip ...
+13753 INFO: Processing standard module hook 'hook-math.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+14565 INFO: Processing standard module hook 'hook-encodings.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+15146 INFO: Processing standard module hook 'hook-pickle.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+15550 INFO: Processing standard module hook 'hook-difflib.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+15566 INFO: Processing standard module hook 'hook-heapq.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+18457 INFO: Caching module dependency graph...
+18493 INFO: Analyzing H:\Project_python\django-vue3-admin\djangovue3\packaging\launcher.py
+18533 INFO: Processing standard module hook 'hook-webbrowser.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+18595 INFO: Processing standard module hook 'hook-sysconfig.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+18602 INFO: Processing standard module hook 'hook-_ctypes.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+18610 INFO: Processing standard module hook 'hook-uvicorn.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+19294 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+19408 INFO: Processing standard module hook 'hook-xml.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+20367 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+20368 INFO: SetuptoolsInfo: initializing cached setuptools info...
+21543 INFO: Processing standard module hook 'hook-platform.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+23066 INFO: Processing standard module hook 'hook-zoneinfo.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+23104 INFO: Processing pre-safe-import-module hook 'hook-backports.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+23105 INFO: Setuptools: 'backports' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.backports'!
+23113 INFO: Processing standard module hook 'hook-setuptools.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+23130 INFO: Processing pre-safe-import-module hook 'hook-distutils.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+23167 INFO: Processing pre-safe-import-module hook 'hook-jaraco.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+23167 INFO: Setuptools: 'jaraco' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco'!
+23182 INFO: Processing pre-safe-import-module hook 'hook-more_itertools.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+23182 INFO: Setuptools: 'more_itertools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.more_itertools'!
+23353 INFO: Processing standard module hook 'hook-_osx_support.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+23373 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+23716 INFO: Processing standard module hook 'hook-setuptools._vendor.jaraco.text.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+23717 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+24335 INFO: Processing pre-safe-import-module hook 'hook-tomli.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+24335 INFO: Setuptools: 'tomli' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.tomli'!
+24983 INFO: Processing pre-safe-import-module hook 'hook-wheel.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+24983 INFO: Setuptools: 'wheel' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.wheel'!
+25148 INFO: Processing standard module hook 'hook-django.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+38005 WARNING: No django root directory could be found!
+39259 INFO: Processing standard module hook 'hook-django.db.backends.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+39932 INFO: Processing standard module hook 'hook-PIL.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+40081 INFO: Processing standard module hook 'hook-PIL.Image.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+40618 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+40873 INFO: Processing standard module hook 'hook-PIL.ImageFilter.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+41284 INFO: Processing standard module hook 'hook-django.core.cache.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+41976 INFO: Processing standard module hook 'hook-django.core.management.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+44081 INFO: Processing standard module hook 'hook-django.core.mail.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+44835 INFO: Processing standard module hook 'hook-dateutil.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+45032 INFO: Processing pre-safe-import-module hook 'hook-six.moves.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+45829 INFO: Processing standard module hook 'hook-shelve.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+46408 INFO: Processing standard module hook 'hook-wcwidth.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+47499 INFO: Processing standard module hook 'hook-xml.dom.domreg.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+48605 INFO: Processing standard module hook 'hook-PyQt6.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+50031 INFO: Processing standard module hook 'hook-PyQt6.QtWidgets.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+54050 INFO: Processing standard module hook 'hook-PyQt6.QtCore.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+59006 INFO: Processing standard module hook 'hook-PyQt6.QtGui.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+77668 INFO: Processing standard module hook 'hook-PyQt6.QtNetwork.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+81322 INFO: Processing standard module hook 'hook-psycopg_binary.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+82136 INFO: Analyzing hidden import 'application.asgi'
+82248 INFO: Analyzing hidden import 'application.build_version'
+82248 INFO: Analyzing hidden import 'application.example_settings'
+82253 INFO: Analyzing hidden import 'application.urls'
+82512 INFO: Processing standard module hook 'hook-urllib3.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+83157 INFO: Processing standard module hook 'hook-certifi.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+83222 INFO: Processing standard module hook 'hook-charset_normalizer.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\pypeg2\__init__.py:51: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+  whitespace = re.compile("(?m)\s+")
+H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\pypeg2\__init__.py:421: SyntaxWarning: "\w" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\w"? A raw string is also an option.
+  regex               regular expression to scan, default r"\w+"
+H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\pypeg2\__init__.py:459: SyntaxWarning: "\w" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\w"? A raw string is also an option.
+  regex   regular expression to scan, default r"\w+"
+H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\pypeg2\__init__.py:641: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+  default: regex "(?m)\s+"
+H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\pypeg2\__init__.py:715: SyntaxWarning: "\s" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\s"? A raw string is also an option.
+  default: "(?m)\s+"
+86574 INFO: Processing standard module hook 'hook-pypinyin.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\pypinyin\\__pyinstaller'
+89110 INFO: Processing standard module hook 'hook-openpyxl.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+90547 INFO: Analyzing hidden import 'application.wsgi'
+90549 INFO: Analyzing hidden import 'core.schema'
+90551 INFO: Analyzing hidden import 'system.apps'
+90554 INFO: Analyzing hidden import 'system.management'
+90555 INFO: Analyzing hidden import 'system.management.commands'
+90556 INFO: Analyzing hidden import 'system.management.commands.generate_crud'
+90561 INFO: Analyzing hidden import 'system.management.commands.init_area'
+90564 INFO: Analyzing hidden import 'system.management.commands.init_data'
+90571 INFO: Analyzing hidden import 'system.management.commands.load_init_data'
+90576 INFO: Analyzing hidden import 'system.management.commands.transfer_database'
+90585 INFO: Analyzing hidden import 'system.middleware'
+90589 INFO: Analyzing hidden import 'system.migrations'
+90590 INFO: Analyzing hidden import 'system.migrations.0001_initial'
+90620 INFO: Analyzing hidden import 'system.migrations.0002_alter_systemconfig_form_item_type'
+90622 INFO: Analyzing hidden import 'system.migrations.0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more'
+90624 INFO: Analyzing hidden import 'system.migrations.0004_filelist_file_type_filelist_upload_method_and_more'
+90626 INFO: Analyzing hidden import 'system.migrations.0005_area_enable_area_initials_dictionary_remark_and_more'
+90628 INFO: Analyzing hidden import 'system.migrations.0006_alter_dictionary_type_alter_dictionary_value'
+90630 INFO: Analyzing hidden import 'system.migrations.0007_dictionary_dictionary_root_value_and_more'
+90632 INFO: Analyzing hidden import 'system.migrations.0008_alter_operationlog_json_result'
+90633 INFO: Analyzing hidden import 'system.migrations.0009_config_group_keys'
+90635 INFO: Analyzing hidden import 'system.migrations.0010_alter_post_status_alter_users_user_type'
+90636 INFO: Analyzing hidden import 'system.migrations.0011_area_audit'
+90639 INFO: Analyzing hidden import 'system.migrations.0012_receipt_audit'
+90641 INFO: Analyzing hidden import 'system.migrations.0013_alter_messagecentertargetuser_options_and_more'
+90644 INFO: Analyzing hidden import 'system.migrations.0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more'
+90646 INFO: Analyzing hidden import 'system.migrations.0015_alter_loginlog_browser_alter_loginlog_os_and_more'
+90648 INFO: Analyzing hidden import 'system.migrations.0016_menu_resource_image_icons'
+90650 INFO: Analyzing hidden import 'system.migrations.0017_model_identity'
+90652 INFO: Analyzing hidden import 'system.migrations.0018_catalog_paths'
+90654 INFO: Analyzing hidden import 'system.migrations.0019_windows_parity_cleanup'
+90655 INFO: Analyzing hidden import 'captcha.fields'
+90665 INFO: Analyzing hidden import 'captcha.management'
+90666 INFO: Analyzing hidden import 'captcha.management.commands'
+90667 INFO: Analyzing hidden import 'captcha.management.commands.captcha_clean'
+90669 INFO: Analyzing hidden import 'captcha.management.commands.captcha_create_pool'
+90671 INFO: Analyzing hidden import 'captcha.migrations'
+90672 INFO: Analyzing hidden import 'captcha.migrations.0001_initial'
+90674 INFO: Analyzing hidden import 'captcha.migrations.0002_alter_captchastore_id'
+90675 INFO: Analyzing hidden import 'captcha.serializers'
+90680 INFO: Analyzing hidden import 'captcha.urls'
+90800 INFO: Analyzing hidden import 'rest_framework.apps'
+90803 INFO: Analyzing hidden import 'rest_framework.authtoken.admin'
+90807 INFO: Analyzing hidden import 'rest_framework.authtoken.apps'
+90809 INFO: Analyzing hidden import 'rest_framework.authtoken.management'
+90809 INFO: Analyzing hidden import 'rest_framework.authtoken.management.commands'
+90811 INFO: Analyzing hidden import 'rest_framework.authtoken.management.commands.drf_create_token'
+90814 INFO: Analyzing hidden import 'rest_framework.authtoken.migrations'
+90815 INFO: Analyzing hidden import 'rest_framework.authtoken.migrations.0001_initial'
+90817 INFO: Analyzing hidden import 'rest_framework.authtoken.migrations.0002_auto_20160226_1747'
+90819 INFO: Analyzing hidden import 'rest_framework.authtoken.migrations.0003_tokenproxy'
+90820 INFO: Analyzing hidden import 'rest_framework.authtoken.migrations.0004_alter_tokenproxy_options'
+90821 INFO: Analyzing hidden import 'rest_framework.authtoken.serializers'
+90823 INFO: Analyzing hidden import 'rest_framework.authtoken.views'
+90826 INFO: Analyzing hidden import 'rest_framework.filters'
+90840 INFO: Analyzing hidden import 'rest_framework.management'
+90841 INFO: Analyzing hidden import 'rest_framework.management.commands'
+90842 INFO: Analyzing hidden import 'rest_framework.management.commands.generateschema'
+90846 INFO: Analyzing hidden import 'rest_framework.metadata'
+90852 INFO: Analyzing hidden import 'rest_framework.negotiation'
+90858 INFO: Analyzing hidden import 'rest_framework.throttling'
+90865 INFO: Analyzing hidden import 'rest_framework.urls'
+90866 INFO: Analyzing hidden import 'rest_framework_simplejwt.serializers'
+90878 INFO: Analyzing hidden import 'rest_framework_simplejwt.state'
+90879 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.admin'
+90884 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.apps'
+90886 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.management'
+90887 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.management.commands'
+90888 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.management.commands.flushexpiredtokens'
+90890 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations'
+90890 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0001_initial'
+90893 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0002_outstandingtoken_jti_hex'
+90894 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0003_auto_20171017_2007'
+90896 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0004_auto_20171017_2013'
+90897 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0005_remove_outstandingtoken_jti'
+90898 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0006_auto_20171017_2113'
+90899 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0007_auto_20171017_2214'
+90901 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0008_migrate_to_bigautofield'
+90902 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0010_fix_migrate_to_bigautofield'
+90904 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0011_linearizes_history'
+90906 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0012_alter_outstandingtoken_user'
+90907 INFO: Analyzing hidden import 'rest_framework_simplejwt.token_blacklist.migrations.0013_alter_blacklistedtoken_options_and_more'
+90909 INFO: Analyzing hidden import 'drf_spectacular.apps'
+90912 INFO: Analyzing hidden import 'drf_spectacular.contrib.django_allauth'
+90914 INFO: Analyzing hidden import 'drf_spectacular.contrib.django_filters'
+91448 INFO: Analyzing hidden import 'drf_spectacular.contrib.django_oauth_toolkit'
+91452 INFO: Analyzing hidden import 'drf_spectacular.contrib.djangorestframework_camel_case'
+91459 INFO: Analyzing hidden import 'drf_spectacular.contrib.knox_auth_token'
+91460 INFO: Analyzing hidden import 'drf_spectacular.contrib.pydantic'
+91462 INFO: Analyzing hidden import 'drf_spectacular.contrib.rest_auth'
+91478 INFO: Analyzing hidden import 'drf_spectacular.contrib.rest_framework'
+91479 INFO: Analyzing hidden import 'drf_spectacular.contrib.rest_framework_dataclasses'
+91484 INFO: Analyzing hidden import 'drf_spectacular.contrib.rest_framework_gis'
+91491 INFO: Analyzing hidden import 'drf_spectacular.contrib.rest_framework_jwt'
+91494 INFO: Analyzing hidden import 'drf_spectacular.contrib.rest_framework_recursive'
+91495 INFO: Analyzing hidden import 'drf_spectacular.contrib.rest_polymorphic'
+91499 INFO: Analyzing hidden import 'drf_spectacular.helpers'
+91501 INFO: Analyzing hidden import 'drf_spectacular.hooks'
+91513 INFO: Analyzing hidden import 'drf_spectacular.management'
+91514 INFO: Analyzing hidden import 'drf_spectacular.management.commands'
+91515 INFO: Analyzing hidden import 'drf_spectacular.management.commands.spectacular'
+91526 INFO: Processing standard module hook 'hook-jsonschema.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+91928 INFO: Processing standard module hook 'hook-jsonschema_specifications.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+92036 INFO: Analyzing hidden import 'django_filters.views'
+92041 INFO: Analyzing hidden import 'corsheaders'
+92043 INFO: Analyzing hidden import 'corsheaders.apps'
+92057 INFO: Analyzing hidden import 'corsheaders.middleware'
+92068 INFO: Analyzing hidden import 'whitenoise'
+92099 INFO: Analyzing hidden import 'whitenoise.compress'
+92106 INFO: Analyzing hidden import 'whitenoise.middleware'
+92115 INFO: Analyzing hidden import 'whitenoise.runserver_nostatic'
+92116 INFO: Analyzing hidden import 'whitenoise.runserver_nostatic.management'
+92117 INFO: Analyzing hidden import 'whitenoise.runserver_nostatic.management.commands'
+92118 INFO: Analyzing hidden import 'whitenoise.runserver_nostatic.management.commands.runserver'
+92121 INFO: Analyzing hidden import 'whitenoise.storage'
+92131 INFO: Analyzing hidden import 'django_celery_beat.admin'
+92145 INFO: Analyzing hidden import 'django_celery_beat.apps'
+92148 INFO: Analyzing hidden import 'django_celery_beat.migrations'
+92149 INFO: Analyzing hidden import 'django_celery_beat.migrations.0001_initial'
+92153 INFO: Analyzing hidden import 'django_celery_beat.migrations.0002_auto_20161118_0346'
+92155 INFO: Analyzing hidden import 'django_celery_beat.migrations.0003_auto_20161209_0049'
+92157 INFO: Analyzing hidden import 'django_celery_beat.migrations.0004_auto_20170221_0000'
+92158 INFO: Analyzing hidden import 'django_celery_beat.migrations.0005_add_solarschedule_events_choices'
+92159 INFO: Analyzing hidden import 'django_celery_beat.migrations.0006_auto_20180210_1226'
+92160 INFO: Analyzing hidden import 'django_celery_beat.migrations.0006_auto_20180322_0932'
+92162 INFO: Analyzing hidden import 'django_celery_beat.migrations.0006_periodictask_priority'
+92164 INFO: Analyzing hidden import 'django_celery_beat.migrations.0007_auto_20180521_0826'
+92165 INFO: Analyzing hidden import 'django_celery_beat.migrations.0008_auto_20180914_1922'
+92167 INFO: Analyzing hidden import 'django_celery_beat.migrations.0009_periodictask_headers'
+92168 INFO: Analyzing hidden import 'django_celery_beat.migrations.0010_auto_20190429_0326'
+92174 INFO: Analyzing hidden import 'django_celery_beat.migrations.0011_auto_20190508_0153'
+92176 INFO: Analyzing hidden import 'django_celery_beat.migrations.0012_periodictask_expire_seconds'
+92177 INFO: Analyzing hidden import 'django_celery_beat.migrations.0013_auto_20200609_0727'
+92179 INFO: Analyzing hidden import 'django_celery_beat.migrations.0014_remove_clockedschedule_enabled'
+92180 INFO: Analyzing hidden import 'django_celery_beat.migrations.0015_edit_solarschedule_events_choices'
+92181 INFO: Analyzing hidden import 'django_celery_beat.migrations.0016_alter_crontabschedule_timezone'
+92182 INFO: Analyzing hidden import 'django_celery_beat.migrations.0017_alter_crontabschedule_month_of_year'
+92184 INFO: Analyzing hidden import 'django_celery_beat.migrations.0018_improve_crontab_helptext'
+92185 INFO: Analyzing hidden import 'django_celery_beat.migrations.0019_alter_periodictasks_options'
+92186 INFO: Analyzing hidden import 'django_celery_results.admin'
+92189 INFO: Analyzing hidden import 'django_celery_results.apps'
+92191 INFO: Analyzing hidden import 'django_celery_results.migrations'
+92192 INFO: Analyzing hidden import 'django_celery_results.migrations.0001_initial'
+92194 INFO: Analyzing hidden import 'django_celery_results.migrations.0002_add_task_name_args_kwargs'
+92196 INFO: Analyzing hidden import 'django_celery_results.migrations.0003_auto_20181106_1101'
+92197 INFO: Analyzing hidden import 'django_celery_results.migrations.0004_auto_20190516_0412'
+92200 INFO: Analyzing hidden import 'django_celery_results.migrations.0005_taskresult_worker'
+92201 INFO: Analyzing hidden import 'django_celery_results.migrations.0006_taskresult_date_created'
+92203 INFO: Analyzing hidden import 'django_celery_results.migrations.0007_remove_taskresult_hidden'
+92204 INFO: Analyzing hidden import 'django_celery_results.migrations.0008_chordcounter'
+92206 INFO: Analyzing hidden import 'django_celery_results.migrations.0009_groupresult'
+92211 INFO: Analyzing hidden import 'django_celery_results.migrations.0010_remove_duplicate_indices'
+92213 INFO: Analyzing hidden import 'django_celery_results.migrations.0011_taskresult_periodic_task_name'
+92214 INFO: Analyzing hidden import 'django_celery_results.migrations.0012_taskresult_date_started'
+92215 INFO: Analyzing hidden import 'django_celery_results.migrations.0013_taskresult_django_cele_periodi_1993cf_idx'
+92216 INFO: Analyzing hidden import 'django_celery_results.migrations.0014_alter_taskresult_status'
+92217 INFO: Analyzing hidden import 'django_celery_results.urls'
+92223 INFO: Analyzing hidden import 'uvicorn.__main__'
+92224 INFO: Analyzing hidden import 'uvicorn.lifespan'
+92225 INFO: Analyzing hidden import 'uvicorn.lifespan.off'
+92227 INFO: Analyzing hidden import 'uvicorn.lifespan.on'
+92235 INFO: Analyzing hidden import 'uvicorn.loops'
+92236 INFO: Analyzing hidden import 'uvicorn.loops.asyncio'
+92238 INFO: Analyzing hidden import 'uvicorn.loops.auto'
+92242 INFO: Analyzing hidden import 'uvicorn.loops.zuvloop'
+92244 INFO: Analyzing hidden import 'uvicorn.protocols.http.auto'
+92246 INFO: Analyzing hidden import 'uvicorn.protocols.websockets.auto'
+92247 INFO: Analyzing hidden import 'uvicorn.workers'
+92254 INFO: Analyzing hidden import 'celery.__main__'
+92256 INFO: Analyzing hidden import 'celery.app.amqp'
+92286 INFO: Analyzing hidden import 'celery.app.control'
+92323 INFO: Analyzing hidden import 'celery.app.events'
+92326 INFO: Analyzing hidden import 'celery.app.log'
+92336 INFO: Analyzing hidden import 'celery.apps.beat'
+92344 INFO: Analyzing hidden import 'celery.apps.worker'
+92382 INFO: Analyzing hidden import 'celery.backends.arangodb'
+92389 INFO: Analyzing hidden import 'celery.backends.asynchronous'
+92406 INFO: Analyzing hidden import 'celery.backends.azureblockblob'
+92422 INFO: Analyzing hidden import 'celery.backends.cache'
+92432 INFO: Analyzing hidden import 'celery.backends.cassandra'
+92441 INFO: Analyzing hidden import 'celery.backends.consul'
+92447 INFO: Analyzing hidden import 'celery.backends.cosmosdbsql'
+92455 INFO: Analyzing hidden import 'celery.backends.couchbase'
+92463 INFO: Analyzing hidden import 'celery.backends.couchdb'
+92470 INFO: Analyzing hidden import 'celery.backends.dynamodb'
+92489 INFO: Analyzing hidden import 'celery.backends.elasticsearch'
+92502 INFO: Analyzing hidden import 'celery.backends.filesystem'
+92508 INFO: Analyzing hidden import 'celery.backends.gcs'
+92524 INFO: Analyzing hidden import 'celery.backends.mongodb'
+92539 INFO: Analyzing hidden import 'celery.backends.redis'
+92629 INFO: Analyzing hidden import 'celery.backends.rpc'
+92643 INFO: Analyzing hidden import 'celery.backends.s3'
+92647 INFO: Analyzing hidden import 'celery.concurrency.asynpool'
+92699 INFO: Analyzing hidden import 'celery.concurrency.eventlet'
+92707 INFO: Analyzing hidden import 'celery.concurrency.gevent'
+92715 INFO: Analyzing hidden import 'celery.concurrency.prefork'
+92724 INFO: Analyzing hidden import 'celery.concurrency.solo'
+92726 INFO: Analyzing hidden import 'celery.concurrency.thread'
+92730 INFO: Analyzing hidden import 'celery.contrib.abortable'
+92733 INFO: Analyzing hidden import 'celery.contrib.django'
+92733 INFO: Analyzing hidden import 'celery.contrib.django.task'
+92736 INFO: Analyzing hidden import 'celery.events.state'
+92765 INFO: Analyzing hidden import 'celery.fixups'
+92766 INFO: Analyzing hidden import 'celery.fixups.django'
+92781 INFO: Analyzing hidden import 'celery.loaders.default'
+92783 INFO: Analyzing hidden import 'celery.utils.iso8601'
+92786 INFO: Analyzing hidden import 'celery.utils.sysinfo'
+92790 INFO: Analyzing hidden import 'celery.worker.autoscale'
+92812 INFO: Analyzing hidden import 'celery.worker.consumer'
+92883 INFO: Analyzing hidden import 'celery.worker.consumer.delayed_delivery'
+92894 INFO: Analyzing hidden import 'celery.worker.strategy'
+92902 INFO: Analyzing hidden import 'psycopg._dns'
+92916 INFO: Analyzing hidden import 'psycopg.crdb'
+92931 INFO: Analyzing hidden import 'psycopg.pq._debug'
+92937 INFO: Analyzing hidden import 'psycopg.types.hstore'
+92948 INFO: Analyzing hidden import 'psycopg.types.shapely'
+92955 INFO: Analyzing hidden import 'django.db.backends.postgresql.base'
+93221 INFO: Analyzing hidden import 'django_celery_results.backends.database'
+93237 INFO: Processing module hooks (post-graph stage)...
+93705 WARNING: Hidden import "django.db.backends.mysql.base" not found!
+93705 WARNING: Hidden import "django.db.backends.oracle.base" not found!
+93719 INFO: Processing standard module hook 'hook-sqlite3.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+94171 WARNING: Hidden import "django.db.backends.__pycache__.base" not found!
+94974 INFO: Processing standard module hook 'hook-django.contrib.sessions.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+95694 WARNING: Hidden import "django.db.backends.mysql.base" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.client" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.compiler" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.creation" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.features" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.introspection" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.operations" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.schema" not found!
+95694 WARNING: Hidden import "django.db.backends.mysql.validation" not found!
+95694 WARNING: Hidden import "django.db.backends.oracle.base" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.client" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.creation" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.features" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.functions" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.introspection" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.operations" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.oracledb_any" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.schema" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.utils" not found!
+95695 WARNING: Hidden import "django.db.backends.oracle.validation" not found!
+95811 INFO: Processing standard module hook 'hook-django.template.loaders.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+97187 INFO: Processing standard module hook 'hook-PIL.SpiderImagePlugin.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+97690 INFO: Processing standard module hook 'hook-tzdata.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+98760 INFO: Performing binary vs. data reclassification (4859 entries)
+100107 INFO: Looking for ctypes DLLs
+100324 INFO: Analyzing run-time hooks ...
+100333 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+100337 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+100341 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+100344 INFO: Including run-time hook 'pyi_rth_setuptools.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+100346 INFO: Including run-time hook 'pyi_rth_pyqt6.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+100348 INFO: Processing pre-find-module-path hook 'hook-_pyi_rth_utils.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_find_module_path'
+100351 INFO: Processing standard module hook 'hook-_pyi_rth_utils.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+100354 INFO: Including run-time hook 'pyi_rth_django.py' from 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+100488 INFO: Creating base_library.zip...
+100509 INFO: Looking for dynamic libraries
+104280 INFO: Extra DLL search directories (AddDllDirectory): ['H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin', 'H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\psycopg_binary.libs']
+104280 INFO: Extra DLL search directories (PATH): ['H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Lib\\site-packages\\PyQt6\\Qt6\\bin']
+107154 INFO: Warnings written to H:\Project_python\django-vue3-admin\djangovue3\packaging\database-build\djangovue3\warn-djangovue3.txt
+107377 INFO: Graph cross-reference written to H:\Project_python\django-vue3-admin\djangovue3\packaging\database-build\djangovue3\xref-djangovue3.html
+107574 INFO: checking PYZ
+107574 INFO: Building PYZ because PYZ-00.toc is non existent
+107574 INFO: Building PYZ (ZlibArchive) H:\Project_python\django-vue3-admin\djangovue3\packaging\database-build\djangovue3\PYZ-00.pyz
+108559 INFO: Building PYZ (ZlibArchive) H:\Project_python\django-vue3-admin\djangovue3\packaging\database-build\djangovue3\PYZ-00.pyz completed successfully.
+108616 INFO: checking PKG
+108616 INFO: Building PKG because PKG-00.toc is non existent
+108616 INFO: Building PKG (CArchive) djangovue3.pkg
+108644 INFO: Building PKG (CArchive) djangovue3.pkg completed successfully.
+108645 INFO: Bootloader H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+108645 INFO: checking EXE
+108646 INFO: Building EXE because EXE-00.toc is non existent
+108646 INFO: Building EXE from EXE-00.toc
+108646 INFO: Copying bootloader EXE to H:\Project_python\django-vue3-admin\djangovue3\packaging\database-build\djangovue3\djangovue3.exe
+108650 INFO: Copying icon to EXE
+108654 INFO: Copying 0 resources to EXE
+108654 INFO: Embedding manifest in EXE
+108657 INFO: Appending PKG archive to EXE
+108666 INFO: Fixing EXE headers
+108756 INFO: Building EXE from EXE-00.toc completed successfully.
+108796 INFO: checking COLLECT
+108797 INFO: Building COLLECT because COLLECT-00.toc is non existent
+108797 INFO: Building COLLECT COLLECT-00.toc
+118249 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+118352 INFO: Build complete! The results are available in: H:\Project_python\django-vue3-admin\djangovue3\packaging\database-dist

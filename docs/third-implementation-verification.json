@@ -1,0 +1,18 @@
+{
+  "original_source_files_unchanged": 399,
+  "current_source_files": 148,
+  "changed": 22,
+  "new": 12,
+  "local_links_checked": 1009,
+  "source_database_latest_migration": "0011_area_audit",
+  "clean_package_equal_files": 4982,
+  "test_database_in_clean_package": false,
+  "isolated_services_stopped": true,
+  "formal_service_processes": {
+    "launcher": 14496,
+    "redis": 16824,
+    "serve": 1788,
+    "worker": 13388,
+    "beat": 7968
+  }
+}

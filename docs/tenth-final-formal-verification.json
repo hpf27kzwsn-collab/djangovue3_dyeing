@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-10T15:58:51.675666+08:00",
+  "base": "http://127.0.0.1:8000",
+  "health": {
+    "/healthz": {
+      "status": "ok"
+    },
+    "/readiness": {
+      "status": "ok",
+      "database": "sqlite"
+    }
+  },
+  "build_version": "1.0.0.1791618793779",
+  "served_index_sha256": "fd17ee1ea63ee40ea92f9166af9c879a39e029367284a832c758a0c9c8f43777",
+  "program_sha256": "57d651790f4fb0603ebda61608371ed1a995f177725f6f68219924c62f2384df",
+  "preserved": {
+    "accounts": true,
+    "roles": true,
+    "retained_permissions": true,
+    "retained_field_definitions": true,
+    "media": true
+  },
+  "intentional_cleanup": {
+    "obsolete_fields": [],
+    "obsolete_grants": []
+  },
+  "media_count": 3,
+  "system_migrations": [
+    "0001_initial",
+    "0002_alter_systemconfig_form_item_type",
+    "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+    "0004_filelist_file_type_filelist_upload_method_and_more",
+    "0005_area_enable_area_initials_dictionary_remark_and_more",
+    "0006_alter_dictionary_type_alter_dictionary_value",
+    "0007_dictionary_dictionary_root_value_and_more",
+    "0008_alter_operationlog_json_result",
+    "0009_config_group_keys",
+    "0010_alter_post_status_alter_users_user_type",
+    "0011_area_audit",
+    "0012_receipt_audit",
+    "0013_alter_messagecentertargetuser_options_and_more",
+    "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+    "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+    "0016_menu_resource_image_icons",
+    "0017_model_identity",
+    "0018_catalog_paths",
+    "0019_windows_parity_cleanup"
+  ],
+  "fixture_modules_packaged": [],
+  "role_field_removed": true,
+  "admin_role_membership_preserved": true,
+  "login_options": [
+    "账号密码"
+  ],
+  "foreign_key_check": "passed",
+  "test_database_merged": false
+}

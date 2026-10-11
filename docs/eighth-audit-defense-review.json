@@ -1,0 +1,314 @@
+{
+  "date": "2026-10-10",
+  "candidates": [
+    {
+      "path": "backend/core/api.py",
+      "line": 30,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({key: '主键标识不可修改，请新增记录'})",
+      "audit_classification": "DP01：额外统一主键限制，待整改"
+    },
+    {
+      "path": "backend/core/api.py",
+      "line": 42,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({key: '无字段操作权限' for key in denied})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 53,
+      "kind": "Try",
+      "code": "try:\n    account = Users.objects.get(Q(email=username) | Q(mobile=username))\nexcept Users.DoesNotExist:\n    account = None\nexcept Users.MultipleObjectsReturned as exc:\n    raise serializers.ValidationError('邮箱或手机号对应多个账号，请使用登录账号') from exc",
+      "audit_classification": "具体异常转明确错误/清理资源；原异常代码保留，不伪造成功"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 63,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError(message)",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 145,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('密码错误')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 155,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'new_password_confirm': '两次密码不匹配'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 165,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'new_password': '新密码不能与原密码相同'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 178,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('原密码错误')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 49,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('验证码错误')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/auth.py",
+      "line": 58,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('邮箱或手机号对应多个账号，请使用登录账号') from exc",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 106,
+      "kind": "Try",
+      "code": "try:\n    write_workbook(rows, columns, output, mode)\n    output.seek(0)\n    return FileResponse(output, as_attachment=True, filename=filename + '.xlsx', content_type=XLSX_TYPE)\nexcept Exception:\n    output.close()\n    raise",
+      "audit_classification": "关闭临时文件后重新抛出，不吞异常"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 180,
+      "kind": "Try",
+      "code": "try:\n    book = load_workbook(upload, read_only=True, data_only=True)\nexcept (InvalidFileException, BadZipFile) as exc:\n    raise serializers.ValidationError('文件不是有效的 xlsx 工作簿') from exc",
+      "audit_classification": "具体异常转明确错误/清理资源；原异常代码保留，不伪造成功"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 184,
+      "kind": "Try",
+      "code": "try:\n    if '数据' not in book.sheetnames:\n        raise serializers.ValidationError('模板缺少“数据”工作表')\n    sheet = book['数据']\n    rows = sheet.iter_rows(values_only=True)\n    headers = next(rows, ())\n    if not any((header and header != SERIAL for header in headers)):\n        raise serializers.ValidationError('模板缺少中文表头')\n    mode = 'update' if UPDATE_KEY in headers else 'create'\n    queryset = self.excel_write_queryset() if mode == 'update' else None\n    if mode == 'create' and (not ApiPermission().has_permission(self.excel_query_request('POST'), self)):\n        raise PermissionDenied('无新增权限')\n    columns = {column['title']: column for column in self.excel_columns(mode, queryset)}\n    titles = [header for header in headers if header and header != SERIAL]\n    if len(titles) != len(set(titles)):\n        raise serializers.ValidationError({'sheet': '数据', 'row': 1, 'field': '表头', 'detail': '表头重复'})\n    for title in titles:\n        if title not in columns:\n            raise serializers.ValidationError({'sheet': '数据', 'row': 1, 'field': str(title), 'detail': '字段不在本模板可导入范围'})\n    counts = {'created': 0, 'updated': 0, 'skipped': 0}\n    for number, cells in enumerate(rows, 2):\n        data, primary = ({}, None)\n        title = '更新主键' if mode == 'update' else '数据'\n        try:\n            for title, value in zip(headers, cells):\n                if title in [None, SERIAL] or value is None or value == '':\n                    continue\n                column = columns[title]\n                if column['key'] == '__pk':\n                    primary = value\n                else:\n                    data[column['key']] = decode(value, column)\n            if not data:\n                counts['skipped'] += 1\n                continue\n            instance = queryset.get(pk=primary) if mode == 'update' else None\n            serializer = self.get_serializer(instance, data=data, partial=mode == 'update')\n            serializer.is_valid(raise_exception=True)\n            audit = self.audit()\n            if mode == 'update':\n                audit.pop('creator', None)\n                audit.pop('dept_belong_id', None)\n            self.excel_save(serializer, audit, mode)\n            counts['updated' if mode == 'update' else 'created'] += 1\n        except (KeyError, IndexError, ValueError, TypeError, csv.Error, ObjectDoesNotExist, serializers.ValidationError) as exc:\n            if isinstance(exc, ObjectDoesNotExist):\n                title, detail = (UPDATE_KEY, '记录不存在或不在修改范围')\n            elif isinstance(exc, serializers.ValidationError):\n                detail = exc.detail\n                title = '、'.join((columns_key['title'] for columns_key in columns.values() if isinstance(detail, dict) and columns_key['key'] in detail)) or '数据'\n            else:\n                detail = '选项或填写格式不正确：' + str(exc)\n            raise serializers.ValidationError({'sheet': '数据', 'row': number, 'field': title, 'detail': detail}) from exc\n    return success({'mode': mode, 'count': counts['created'] + counts['updated'], **counts}, '导入成功')\nfinally:\n    book.close()",
+      "audit_classification": "具体异常转明确错误/清理资源；原异常代码保留，不伪造成功"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 112,
+      "kind": "Raise",
+      "code": "raise",
+      "audit_classification": "关闭临时文件后重新抛出，不吞异常"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 126,
+      "kind": "Raise",
+      "code": "raise PermissionDenied('无修改权限')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 159,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('该模块只提供数据导出')",
+      "audit_classification": "真实只读与DP02过宽FileField限制共用分支；按实际模型拆开整改"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 165,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('该模块只提供数据导出')",
+      "audit_classification": "真实只读与DP02过宽FileField限制共用分支；按实际模型拆开整改"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 176,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('该模块只提供数据导出')",
+      "audit_classification": "真实只读与DP02过宽FileField限制共用分支；按实际模型拆开整改"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 179,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('请上传 xlsx 文件')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 183,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('文件不是有效的 xlsx 工作簿') from exc",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 186,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('模板缺少“数据”工作表')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 191,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('模板缺少中文表头')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 195,
+      "kind": "Raise",
+      "code": "raise PermissionDenied('无新增权限')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 199,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'sheet': '数据', 'row': 1, 'field': '表头', 'detail': '表头重复'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 207,
+      "kind": "Try",
+      "code": "try:\n    for title, value in zip(headers, cells):\n        if title in [None, SERIAL] or value is None or value == '':\n            continue\n        column = columns[title]\n        if column['key'] == '__pk':\n            primary = value\n        else:\n            data[column['key']] = decode(value, column)\n    if not data:\n        counts['skipped'] += 1\n        continue\n    instance = queryset.get(pk=primary) if mode == 'update' else None\n    serializer = self.get_serializer(instance, data=data, partial=mode == 'update')\n    serializer.is_valid(raise_exception=True)\n    audit = self.audit()\n    if mode == 'update':\n        audit.pop('creator', None)\n        audit.pop('dept_belong_id', None)\n    self.excel_save(serializer, audit, mode)\n    counts['updated' if mode == 'update' else 'created'] += 1\nexcept (KeyError, IndexError, ValueError, TypeError, csv.Error, ObjectDoesNotExist, serializers.ValidationError) as exc:\n    if isinstance(exc, ObjectDoesNotExist):\n        title, detail = (UPDATE_KEY, '记录不存在或不在修改范围')\n    elif isinstance(exc, serializers.ValidationError):\n        detail = exc.detail\n        title = '、'.join((columns_key['title'] for columns_key in columns.values() if isinstance(detail, dict) and columns_key['key'] in detail)) or '数据'\n    else:\n        detail = '选项或填写格式不正确：' + str(exc)\n    raise serializers.ValidationError({'sheet': '数据', 'row': number, 'field': title, 'detail': detail}) from exc",
+      "audit_classification": "具体异常转明确错误/清理资源；原异常代码保留，不伪造成功"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 202,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'sheet': '数据', 'row': 1, 'field': str(title), 'detail': '字段不在本模板可导入范围'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/excel.py",
+      "line": 237,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'sheet': '数据', 'row': number, 'field': title, 'detail': detail}) from exc",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/serializers.py",
+      "line": 61,
+      "kind": "Try",
+      "code": "try:\n    converted = field.run_validation(value)\nexcept serializers.ValidationError as error:\n    raise serializers.ValidationError({'value': error.detail}) from error",
+      "audit_classification": "具体异常转明确错误/清理资源；原异常代码保留，不伪造成功"
+    },
+    {
+      "path": "backend/system/serializers.py",
+      "line": 116,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'model': '模型不存在或不在字段配置目录'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/serializers.py",
+      "line": 123,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'field_name': '该菜单、模型和字段的权限定义已经存在'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/serializers.py",
+      "line": 64,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'value': error.detail}) from error",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/tasks.py",
+      "line": 14,
+      "kind": "Try",
+      "code": "try:\n    with TemporaryFile() as output:\n        write_workbook(rows, columns, output)\n        item.size = output.tell()\n        output.seek(0)\n        digest = md5()\n        for chunk in iter(lambda: output.read(65536), b''):\n            digest.update(chunk)\n        item.md5sum = digest.hexdigest()\n        output.seek(0)\n        item.file_name = f'export-{item.pk}.xlsx'\n        item.url.save(item.file_name, File(output), save=False)\n    item.task_status = 2\n    item.save()\nexcept Exception:\n    item.task_status = 3\n    item.save(update_fields=['task_status'])\n    raise",
+      "audit_classification": "任务失败状态与重新抛出，不吞异常"
+    },
+    {
+      "path": "backend/system/tasks.py",
+      "line": 31,
+      "kind": "Raise",
+      "code": "raise",
+      "audit_classification": "任务失败状态与重新抛出，不吞异常"
+    },
+    {
+      "path": "backend/system/views.py",
+      "line": 68,
+      "kind": "Raise",
+      "code": "raise PermissionDenied('只允许超级管理员重置密码')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/views.py",
+      "line": 72,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError('两次密码不匹配')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/views.py",
+      "line": 81,
+      "kind": "Raise",
+      "code": "raise PermissionDenied('只允许超级管理员重置密码')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/views.py",
+      "line": 105,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'model': '模型不存在或不在字段配置目录'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/views.py",
+      "line": 178,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'entity': '请指定已登记的资源实体键'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/views.py",
+      "line": 493,
+      "kind": "Raise",
+      "code": "raise PermissionDenied('无关联数据查询权限')",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    },
+    {
+      "path": "backend/system/views.py",
+      "line": 234,
+      "kind": "Raise",
+      "code": "raise serializers.ValidationError({'operation': '请选择 add、remove 或 set'})",
+      "audit_classification": "正常输入/身份/权限/字段规则"
+    }
+  ],
+  "extra_source_rules": [
+    {
+      "path": "backend/system/excel_fields.py",
+      "line": 25,
+      "finding": "DP02",
+      "rule": "any FileField disables whole-model import"
+    },
+    {
+      "path": "web/src/components/ResourceTable.vue",
+      "line": 66,
+      "finding": "DP01",
+      "rule": "every meta.pk hidden from edit"
+    },
+    {
+      "path": "web/src/components/ResourceTable.vue",
+      "line": 47,
+      "finding": "E01-R2",
+      "rule": "every password removed from update payload"
+    },
+    {
+      "path": "backend/system/management/commands/init_data.py",
+      "line": 43,
+      "finding": "E01-R2",
+      "rule": "all-model reserved authentication field exclusions"
+    }
+  ],
+  "scope": "40 AST try/raise candidates plus manual rule and frontend review; not a mathematical proof that no other defensive pattern exists",
+  "normal_rules": "auth/permissions/required input/typed values/actual model uniqueness/FK/transaction errors are normal declared behavior",
+  "answer": "不能称完全没有防御性编程：DP01/DP02为现存过宽统一限制；本轮不添加产品限制或改代码。"
+}

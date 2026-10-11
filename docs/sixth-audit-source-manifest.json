@@ -1,0 +1,5182 @@
+{
+  "time": "2026-10-09T12:02:29.520515",
+  "scope": "implementation source/config, seeds and scripts; no runtime/generated bundle/business database; declarations are not manual line-by-line proof",
+  "original": [
+    {
+      "path": "django-vue3-admin-master/backend/application/__init__.py",
+      "sha256": "25f74451ccd890dad7ff20033d1f5971c36664b3ffde38ade2cf0a931cc79641"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/application/asgi.py",
+      "sha256": "1a9be913e75bd0b6038b1ff0227a2d22deb4ea4c11d74f11e37ef08244e091d6"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/application/celery.py",
+      "sha256": "027adf4c05ed92aa39ef9f3fa724705242c97ca77e5b114b9e58166b57949886"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/application/dispatch.py",
+      "sha256": "816e0a136d29dc80705f7e907433949bad8545fb4665c37886d1660d622e45f5"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/application/settings.py",
+      "sha256": "365d62b913028e25e8b627ca888db941d626832f6de3f25449040167218c08fe"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/application/sse_views.py",
+      "sha256": "2d776ccd33b08e529e170c11aef8a11ed9915659d9a30c6ce15ef4481826e391"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/application/urls.py",
+      "sha256": "32fa0aab359b1e8a15c0e213202bd5e0a451566c48f2ab1570261863416a6c85"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/application/wsgi.py",
+      "sha256": "3903e59a5cd5f67f2075da9e1bc3976cf516436b3cb3ec397ac6ebaa523d2dab"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/conf/env.example.py",
+      "sha256": "d00197b2c6cac85ee3237c2c60ca30b9fd662014e2f036183d171969747a01d9"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/del_migrations.py",
+      "sha256": "d0480d91318bdb816fd8b186b5aa4f209f0b5bac9f259d3345321314e51cc79e"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/__init__.py",
+      "sha256": "8b084a9f378124b2b1a51563bf3c22444eb7ff33692017da28b2136ae56987ed"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/admin.py",
+      "sha256": "b2e328e31f08dc907100505521d13ee6a9ea67a240655d051120011ce49cfaf8"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/apps.py",
+      "sha256": "2a156becb699052e3c5949a61109702a675a48d2925111619c662c4be9f6128f"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_apiwhitelist.json",
+      "sha256": "c2425652bc13022d59075d713e05c3029d40c183c2f1bfe2ff4cf2ccd3d58172"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_dept.json",
+      "sha256": "974b10abd0148c1f82927d92ca20de2f41b51f5ba92520f654c549a8604c2ee7"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_dictionary.json",
+      "sha256": "2040d8f0c6b71408cd92af9811255805a50bb33116183b238f040cc9fa1f3031"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_menu.json",
+      "sha256": "e7477a959507e096187c05df0e771bc023cbbfb91bca74bed90c4c093825c07d"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_role.json",
+      "sha256": "516d481b0efc4134e231c2b3fa825a8e92c6b13aa55022cf0b0e28759b6a230a"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_rolemenubuttonpermission.json",
+      "sha256": "951a5b697c6f8900cc3bfa6fa4fa4a66dbc02c7a74b688d7da99f74c78bca745"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_rolemenupermission.json",
+      "sha256": "c836587aa2c114b7de0064bbe12e683a4661b71110ff3767d7d8c72d16d8fd38"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_systemconfig.json",
+      "sha256": "927d0cb0df821b61ac0a70419773b56146c506f00a1b2680e64b6c458d7dd6e4"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/init_users.json",
+      "sha256": "e9ed097a937dbabcd7da35b2abb4097f41e916caced2cb37d223fa4797c9d6ce"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/initialize.py",
+      "sha256": "5e4dc805329d4f5e359bb335f6b4901294b443edad3c8977510fb9aa7de2ef35"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/fixtures/initSerializer.py",
+      "sha256": "947e5988bedd4be4efbdf038c7a1f60dec8f166889622f8f4225bc9cfd656eee"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/management/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/management/commands/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/management/commands/generate_init_json.py",
+      "sha256": "98062c4d988c64a98f7dda5df8992938215c22f474ed081e06e129ebcca53c6c"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/management/commands/init.py",
+      "sha256": "1f65bf2d69a1a98edc5733fae24e07c396861e9cfb73fb7fe88a94d6922fe051"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/management/commands/init_area.py",
+      "sha256": "9b8c9b5ed75b006814266517b92b1a0930ebb3ea08badd3003fb5f1fff32603d"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/migrations/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/models.py",
+      "sha256": "0deba2ba1975ed869330c2158f5d74eacb39efd1575cebf3f667433cdc68235c"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/signals.py",
+      "sha256": "b68cc8e3f5e4646dcaa0d434957aca92de9d30b1ccff1c6ff93a01791ea5bf4a"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/tasks.py",
+      "sha256": "fb894acabb1b18fa2ee0674931938237804d5df9274c3dd4afc80e60bd180838"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/tests.py",
+      "sha256": "26d46ec0db2612e1c60e968faa595feb6578e027b1fa31b8555b4075678c8240"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/urls.py",
+      "sha256": "0227731e69496ffd79157059edc2c461fea84f7d98d82e0850a8cd118b0cdd05"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/util/pca-code.json",
+      "sha256": "32bee347de0a65c2e06866c729211b792be1a1d4cc86a1c8668a08e39a9ab35b"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/api_white_list.py",
+      "sha256": "cacf59e6c96a9f1c44f66dfa1a06368af3f6d871a84ab72a0d39448e75171539"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/area.py",
+      "sha256": "c0f1591d1daee7947ce888fd92aa59b2368fc55b8f35993dc519a5fbfe855a3c"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/clause.py",
+      "sha256": "bf0c6553a25b7ca5f73a6d970f4c8bbdbabed2744721a21e07c2b85703d5c83a"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/dept.py",
+      "sha256": "df63c37bddafeb9943c22aca32db733de1d3bad3b7644ac75c4787338ed126cb"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/dictionary.py",
+      "sha256": "f610f7bf136a771ee95dc53a7df7b329c50853706c5e7e706d90b861aa86fb85"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/download_center.py",
+      "sha256": "a27549664d73506c7d9f21fb38bdbe66791b42ee5befd621e40ee8f5b1356ea1"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/file_list.py",
+      "sha256": "7e046a2c203cd61062496460ae12b0a90071b5425947b1bc75743504f475f636"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/login.py",
+      "sha256": "55209a59f3053abc426aded1dc48017d0f280b9915d4a5aaa1627229847ab8ec"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/login_log.py",
+      "sha256": "fbb59e20ae18b76143781f5da389866bf61d597dc20a873dc14e0ba215f20085"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/menu.py",
+      "sha256": "41d7042431393eaf5fd4dc8dde23f583b7ca0df2fd70ddd0f9d09e005f326107"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/menu_button.py",
+      "sha256": "7e0c78db163b4c38b22202f8cb258e37dfff7737111a9d5bd5ccce12e8f8bd22"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/menu_field.py",
+      "sha256": "02eb769ddbc58bd155bb3aa11bd292142afc85464ea4bb05a1b80cfbbd4c3c2c"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/message_center.py",
+      "sha256": "61fe7b778205ba8ae63915a75b630ba233adc20587c7d3532ef662e9a75f4702"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/operation_log.py",
+      "sha256": "b858eacfd6e8ee206c6786d9bdf8861fb46fc08ca9049cabc2ae712d3e777537"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/role.py",
+      "sha256": "2de91e78ec2be554791b0a7d46c76443ebda083a16d8c81551190424d18ae4b9"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/role_menu.py",
+      "sha256": "9432e97e8315e1e62a10e537d1b9f81a3a6707eee252dffe35fbbeecda9ef252"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/role_menu_button_permission.py",
+      "sha256": "44b630d6e0372e2708adffe1bfa928fcd839a71ecbb031bb7b864e081dce89e6"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/system_config.py",
+      "sha256": "48393da6476764c872269f5fda4f257ec6fc54ac41ccd947bfff8610ea83491f"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/user.py",
+      "sha256": "fce7243a2eb8e97a7e8d54b816d65e98cbab6033ac2fbda252f766b46a5d4861"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/aliyunoss.py",
+      "sha256": "ff5cecade36d5aaa1820a9fa87d9c8ba70c2686d2489bd1be86f33c4205a4692"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/backends.py",
+      "sha256": "dbcb6a6b0f78f181fa77f69c413c3f59003951df459de63b708d312c1e12e7f8"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/core_initialize.py",
+      "sha256": "719cef887b830fb720030b0f76bcad486a735eb28d9874168ed8f2fc7214676a"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/crud_mixin.py",
+      "sha256": "8a6e1d54da7c1cda165fba2e0b61dad21f6c1a97e9b86136bc2e73c8fbafcf1a"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/exception.py",
+      "sha256": "892525525136be90870f74495bada0da489391ad081490734fb1d6796e6bedd7"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/field_permission.py",
+      "sha256": "cad12cb44b4265cf19e81b392c703143055ca62231a7b7936112a8c3035f2a40"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/filters.py",
+      "sha256": "dccfd9a3d3611f66ac5c74dd8f663c6b51cf5caf0d577d57c5de012c1bb8996e"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/git_utils.py",
+      "sha256": "6a3cd3f500f1e4c9b9bd0fca67349234c88311ec87a594ba795c72607ec2f7a2"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/import_export.py",
+      "sha256": "ba96614d40dd4663c20aa20f0f50ca4305882c2cc609b3960da5c8d5461b374e"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/import_export_mixin.py",
+      "sha256": "453bf4b018ba3e30eb36411a114f3635efdc275f1b9ac11330c09a4cf2352fcb"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/json_response.py",
+      "sha256": "a3838d94370b47184a760bd94e85d10eb324af1cab52edb69e0ad52d6f5576b3"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/middleware.py",
+      "sha256": "5020e60e9581f44a64cbae9f01e11bee5a970d341f7b40294cbd1d09ecf49acf"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/models.py",
+      "sha256": "1144e09cfc3fc9449d7f2bc00f0faa7a9462989d562f09c330d5c2e78631ad44"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/pagination.py",
+      "sha256": "ace851706a650a8a566630ac22bb18ef1629a36c4e0281e4deb65abb5a771c4b"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/permission.py",
+      "sha256": "98b857e8dd4cc58520bf1f8ec8c5a1dcd42187331c016f4096f662704ca1d6ec"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/request_util.py",
+      "sha256": "24984fd0fdd8d559a4ec61a4320d9f35f90e1f02c679621a833363b0081243b8"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/serializers.py",
+      "sha256": "c3f07956511e463d1f3996776689303da48817195acc73436f2cb20e10aaeba8"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/string_util.py",
+      "sha256": "edd3c972566549fa3d0ca998af765ffb42abc048b928b3ae85b74cf5034a0f00"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/swagger.py",
+      "sha256": "189daa50afd687d1baaaf6cd08a36ef0bdd89a6866eb560afaaa354a57654ca4"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/tencentcos.py",
+      "sha256": "df897fc49f4784016a784d7ea23ad8dfb0714e4eb8e539805b67259e4de88970"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/validator.py",
+      "sha256": "0082a866371671a0cb37db32a1b14e8796c6882e2aab65c08bd18e6c10ccef87"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/viewset.py",
+      "sha256": "87d3aceab1652d5845c7916e4034ac1d2a5d175d4a55f12d04541c40052440e3"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/dvadmin_main.py",
+      "sha256": "797794e3f8fb066b527f027d656330cca9af24cc5c8a3c2084a09c898c80cbfd"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/extra-hooks/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/extra-hooks/hooks-uvicorn.py",
+      "sha256": "3120914f6a465da751a36da187102554322a48057e424c42e9c851274ffa423e"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/management/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/management/commands/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/management/commands/build.py",
+      "sha256": "584e58947cfbb7c1b092e310fb1949d7db2ce43eac104c7a03a25af726f88ab0"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/server.py",
+      "sha256": "dc349af1641fbe66b66a8b0e64702c2751627881b2bd580a94e609640d48e2a8"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin3_build/setup.py",
+      "sha256": "3d8b21bf30c16091cd8e47c0bc4b8655b281abc6049c02261bea65ab6a1ef2e7"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/gunicorn_conf.py",
+      "sha256": "d5bc020f86275cd78769b6be9e1b55a327ea0fb3ee77f12645509c4530caf99c"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/logs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/main.py",
+      "sha256": "0775b04cc770df0dd94af7060c6b7cf68d31132b8fa8a2b9e304071638351c34"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/manage.py",
+      "sha256": "1c9270ff71979a1e50dc7064f7e66ff76e97aedc0e899bb01a3643ab9b4f6277"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/__init__.py",
+      "sha256": "8b084a9f378124b2b1a51563bf3c22444eb7ff33692017da28b2136ae56987ed"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/admin.py",
+      "sha256": "b2e328e31f08dc907100505521d13ee6a9ea67a240655d051120011ce49cfaf8"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/apps.py",
+      "sha256": "f0a54fbe4c80696aa09053207d95d8065099679c00b70641be00b63339ed8092"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/fixtures/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/fixtures/init_dictionary.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/fixtures/init_menu.json",
+      "sha256": "0ca0718883999ed99c6b97b3f7b1ac40bc4c62532e7bc4c174b240bd61cc3508"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/fixtures/initialize.py",
+      "sha256": "ee0dc801d4b39cd8cbb406e024c77d8a675037a9cd10dd804e21fbe19284c3a4"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/migrations/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/models.py",
+      "sha256": "8979c4089c4aab5ec6875599ad955c787988495fd05999cccdfb8d842c636bfd"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/settings.py",
+      "sha256": "de062213e4fbfa2a54c99d6e8b1a8b7aeedb00448c68c4bce08db45d23e60e71"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/urls.py",
+      "sha256": "a63433b9c0ef80f05d41269637e70c47f1f29088abb72df3281c77413c3d09ce"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/views/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/views/scan_data.py",
+      "sha256": "8b176020766ce519aa69fc076ec811a40a87d3063d66ec9f2335204f15a9e548"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/plugins/code_info/views/scan_record.py",
+      "sha256": "9240b5401d7e4c6969903fc2663e88dd8d3a2e34fa037abb7ca49a48738fc8e7"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/clause/privacy.css",
+      "sha256": "ab439831b822e3146e84453f70aa8a4d839f1bf7ad2944df8360b72041389f35"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/drf-yasg/style.css",
+      "sha256": "ab53df3b57f99d5ed39030620b7930ec5d50fd8bc6d971356c53b1418891306d"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/drf-yasg/swagger-ui-dist/index.css",
+      "sha256": "9324807d424565a1639bb29f3754c8d4d45c1009c67674e996e33355f6929ce7"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/drf-yasg/swagger-ui-dist/swagger-ui.css",
+      "sha256": "4579b8ba06b9d7b63ce2dd3b03f260d98a346110b267e8c6174d17da3c366234"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/css/bootstrap-theme.min.css",
+      "sha256": "f2e1cc227d6bbb4192e4a3becdfed971c7fc530d76200e43add11c98cb962c53"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/css/bootstrap-tweaks.css",
+      "sha256": "c17b408ef0078c071f260ffa1a2fca81c5807b972e335febefd9eb9bd3fc3e05"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/css/bootstrap.min.css",
+      "sha256": "6d92dfc1700fd38cd130ad818e23bc8aef697f815b2ea5face2b5dfad22f2e11"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/css/default.css",
+      "sha256": "116577e6db2d0f99b419ecc61b453915af0eff8206b0bf3f9e87897719c1b37b"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/css/font-awesome-4.0.3.css",
+      "sha256": "3083e8d3b21ddc3f0e6d65ec3580aa6edfaadca5d9737d9caa27e6a233e1ccf3"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/css/prettify.css",
+      "sha256": "f9932af1e67a6e5105b71715b9d335873bf8805c01c2a9603e31e96cc4a95819"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/docs/css/base.css",
+      "sha256": "7d9f4eb388801770c1ab7030c3ca9b6d1ca9c7a7e4195ffe3e3c50f18aacb0ce"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/docs/css/highlight.css",
+      "sha256": "87ee1de1b0c5b4e21de0f90be3105797e5ed45f6afe3b07c70f501a185a57373"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/static/rest_framework/docs/css/jquery.json-view.min.css",
+      "sha256": "c38fe1128cf5f4a93f7c2eee2dcb751733c4de0108bcdba52b276fef93c5c9ec"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/templates/clause/privacy.css",
+      "sha256": "ab439831b822e3146e84453f70aa8a4d839f1bf7ad2944df8360b72041389f35"
+    },
+    {
+      "path": "django-vue3-admin-master/backend/util/currency.py",
+      "sha256": "829c09d55f64ac01fc74195cf9f0f1203bb4c93d640c879f38439f9ea54d4a94"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/api/login/index.ts",
+      "sha256": "65a483de9d2d8085fbb5fd2ffa5960a10395ca48b22f1940851143570f3d9e50"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/api/menu/index.ts",
+      "sha256": "df357754680215d0ab6429d208ba201fd410190fd9f929d96c18b3eeac184849"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/App.vue",
+      "sha256": "7094e82325ac2f0d3903cde38b61f8773c1d259a171c24ec148cf7a568bf07b6"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/assets/iconfont/iconfont-01/iconfont.css",
+      "sha256": "09d86f37bd062382a4b2f932c8f62b23374a7b2dffa84c483fbceb258f01d146"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/assets/iconfont/iconfont-02/iconfont.css",
+      "sha256": "e12f8119ebe43ba0d97055739842ec2cda730bd82d5e8befb39311ea5086c2c7"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/assets/iconfont/iconfont.css",
+      "sha256": "d0632cb968ffefaa517c95ab242445bbcb453da831a3a6c0cf62c169103f2fa0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/assets/iconfont/iconfont.json",
+      "sha256": "6990743299bc2156a9e61c8ca261e34a7ef9f726451c1bf564e4777a90650241"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/assets/style/reset.scss",
+      "sha256": "c2e76e439699f27c73293c389e494b6673c2443b5863e279e70a67e597c4c48b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/assets/style/tailwind.css",
+      "sha256": "186419c47e46d1688974fe6d1d4688d7234f1790113a0c1e933526b522c9a04c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/auth/auth.vue",
+      "sha256": "71e26d81598a8a25ad7d6d8d5d8c50b63999ec88f5693aefdf780e1ac05f3135"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/auth/authAll.vue",
+      "sha256": "40de617033c1f08fb3f473ce3f9ce5e04ddd9c19a665b48af06bd81a2250a2a8"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/auth/auths.vue",
+      "sha256": "9f27c2edcebfee92fcd15a9ebb87e16b1b6893c2d4763d6741e7a8c38511802e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/avatarSelector/index.vue",
+      "sha256": "6bb98238066f7ba0111f919657f48be58fdfb8362c093e68ea9aac81b695f999"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/calendar/index.vue",
+      "sha256": "1e8aced72cff362b5a1a76557612b1e8f407f4eb7542d881bef9d27b0e03267d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/cropper/index.vue",
+      "sha256": "a7896c33e9a71508a359f639ec01af147bac660bd5f129b4ccec557cd8f447a9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/dept-format/index.vue",
+      "sha256": "7f7d8bf37bc6f705cc5972ce0302d00a1612e6a1baecf77276f23bf340adc13e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/dvaSelect/index.vue",
+      "sha256": "35c363da915db8d72d99ae82bb331e6f17ac920be338e6d7d76b43a2f6fd2fcf"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/editor/index.vue",
+      "sha256": "88e9d7410821bed448a1e0a1e5eb08faa6157132b4e093bb1e19dd1603f9f961"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/editor/toolbar.ts",
+      "sha256": "549564a436d286e05da06b0f66cf83047a040d523e7728f1dd21f1f630b8bc0e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/fileSelector/fileItem.vue",
+      "sha256": "f6d2553a1b00e8c6b2208fb78a4d62e3a7cff5e30456b63cf95d5b6a2632d861"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/fileSelector/index.vue",
+      "sha256": "115465241a979af7587acf857a4067b12f25c7090b44538574b27b11ea5faa5b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/fileSelector/types.ts",
+      "sha256": "5a80f1b285d7877e6904731847c99a5a9917a7707bcbe00834e5be452b618e3c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/foreignKey/index.vue",
+      "sha256": "74b180e7dee6b7a42381d80252f269bc55d8c7e2b6338d344121fbf35bb19221"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/iconSelector/index.vue",
+      "sha256": "fe74847ddf9150815918b7585914a73f32ec96bf7a764d77edc98f10c13177d0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/iconSelector/list.vue",
+      "sha256": "ecd52cf6f7e8aca7943ab1c3dcef3c254a9384b477b80278a431d212e50b04da"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/importExcel/index.vue",
+      "sha256": "19bbf0ea6ca3aff4af7338a6e487118a2ee5a58110f26851f09aab186c66145b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/manyToMany/index.vue",
+      "sha256": "21341250da28670470ecbd58cccb8ac863d074a27405b5654f9517f6ff34cdc7"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/noticeBar/index.vue",
+      "sha256": "6ca1be90e61edc433a9211f2e20cbe529eaf740bad874eb4538fbeba0efd3fe6"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/svgIcon/index.vue",
+      "sha256": "adc515c25ca7124940eca59c34654701f4a6b3dc1b77a3b2796473c395c5287a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/table/index.vue",
+      "sha256": "5b52b55b282422bd18a2fa24fc364abb2a812554bb886c4d130841f18c099388"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/components/tableSelector/index.vue",
+      "sha256": "a988bdee633c78497d3e374bb9a691391140e6428e477881fd55ff02ea160f5f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/directive/authDirective.ts",
+      "sha256": "d81e7492cbf14694e71f5aafc7af46f76b84f442be551c83349232e8c211a4a8"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/directive/customDirective.ts",
+      "sha256": "ef44cdc613f627ef14577fd8a45cc8ddcd317e06bf3e885091889b5110aedc3e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/directive/index.ts",
+      "sha256": "18581c4ba3fa857f4da7fbaae80f3c8977b47958edc19dca30989a213afced01"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/directive/sizeDirective.ts",
+      "sha256": "51fc183cfc6641101dd3078309427a472420a1ad24e3589f9810d17bbcb7c5be"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/index.ts",
+      "sha256": "a359a9e1b2b7df5f63ba446b0a818394486865a7990bf096da6965fa774da662"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/lang/en.ts",
+      "sha256": "c41b25adb6baa1d4674724c2ec8cf036d4922774b6d0988e0658c926ec5252df"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/lang/zh-cn.ts",
+      "sha256": "fab35f41adb4e089ee00042e71597e0f03a32738d6121bb57ad2613fdefd95d7"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/lang/zh-tw.ts",
+      "sha256": "4d3cbefd6aa9c36a0846920a9217b646e036d73ecfb22a20d6c9dd1ca1c5eee1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/pages/formI18n/en.ts",
+      "sha256": "58b26c5d0d809ab7d1398cc519496ae152862d2c39a1d1daa02b2496dfb0c103"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/pages/formI18n/zh-cn.ts",
+      "sha256": "a3eb412ac5ce5542eadd12c0857113040f856c9d67b42d72cc6e268cd5dea870"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/pages/formI18n/zh-tw.ts",
+      "sha256": "3e99e1e52820296139c432dcf037946d7fd88d53fc99cf15aa62ced03cfe3eb0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/pages/login/en.ts",
+      "sha256": "99f0e0e29f64c4a16d06460ec2efb3786ca1048f39fef1a56211909702da1be1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/pages/login/zh-cn.ts",
+      "sha256": "12a0a3df61eedc7af7d4c637ee6afe5ca44d57a36d7f85fe86aded329fe727a0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/i18n/pages/login/zh-tw.ts",
+      "sha256": "ce2e24e4173c191d6d18e70a408d7b3670ba9a1f9ac5cf420a13d0777dfc61cc"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/component/aside.vue",
+      "sha256": "df5f1b6dad40c4a4323dc975f88666f3aff6cdcddc8526ad13c9144155583cac"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/component/columnsAside.vue",
+      "sha256": "a397469b14ddec1ae1f61a4801f4a62fb9c2986b7b698593591794a5bc83efc6"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/component/header.vue",
+      "sha256": "093fd579c760cfae90cbbc7e314d49755bddb6d36136cd84cdee4a9275caf4c9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/component/main.vue",
+      "sha256": "4c0a19121266487011ebea6293b15e10ca16d79d835f4798f341250ef2637243"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/footer/index.vue",
+      "sha256": "b78699ba476759b48123d60bc43b959f983fce6f37e7f067a60afb3d2fabdedb"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/index.vue",
+      "sha256": "54a16c608de49e765fa2974e4a8816ba0eec5c1e4bdcd83eea810ca7308bb477"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/lockScreen/index.vue",
+      "sha256": "df78a3ce0ae4eb68a1be7b81f1a21f2b0e7e2ecdad4f3642147200ccad529c45"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/logo/index.vue",
+      "sha256": "81b5a6b7e254a804da5782aa9da0649666cd437aa0a4042d9ddb67f3d12a3b7b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/main/classic.vue",
+      "sha256": "4c3d014c496520445081f122eeec8a71c6ac259c0cf293a237f79e5e44350a89"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/main/columns.vue",
+      "sha256": "25b6d787c2f2ae9b9eb5bfd4f2b2f33bae47771605ef5766298ec1ff3fd9ab8d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/main/defaults.vue",
+      "sha256": "2e43f7bac0ff35510f67deb6bbb11745cf36af8332aa6df918af1932ee1931e3"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/main/transverse.vue",
+      "sha256": "55fb4d96ba16a9d22e8ba85eeb97c49a027a17934bc4eaa110e5aa192a0cb753"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/breadcrumb.vue",
+      "sha256": "c3fb1daa318c38f9f787a64fa872def8d580504be0b61a5244c72a260a46b08f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/closeFull.vue",
+      "sha256": "80c238a60c0436924f9e9e93ff6c79ed854a7a778eb11d76c71fc929755d0c84"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/index.vue",
+      "sha256": "e4bc4dbff020eee74e41fc191983413b25414e1f9d02d2a29b23f2638d36a74b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/search.vue",
+      "sha256": "3597377871f77aeda7ff70f3bea75d65dbc1a28ef3bb29fd624f234d49321870"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/setings.vue",
+      "sha256": "fa7c1d3350734fce8fb4f0bc6e6cb4275f5606e53ab54603473400b7b0c3c6ce"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/user.vue",
+      "sha256": "9a7b36ad3d9ad9fa4fe1175709c8c6820791f7e733d80b5561c536b2e57a4e17"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/userNews.vue",
+      "sha256": "0cf193e25c95e99c6b251aa770310e00790f9921745801742dc73e5206b8aa0e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/index.vue",
+      "sha256": "2c3f11c400cd5d51b5d2ba81abdd5431d78ae456ad65d2dfee96d6f9d6d2acb1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/tagsView/contextmenu.vue",
+      "sha256": "8e729e98c09c31a50094876b502ebd1e926b277f2c2512eb2576ce2a7aede586"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navBars/tagsView/tagsView.vue",
+      "sha256": "05592ddebfcf80bfe1184ce78f8110fe47bad49b1486d799885eaa771fe9aaa9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navMenu/horizontal.vue",
+      "sha256": "7c3a050a1c6b59c99310631c1e23a70912094440c9477122a85b0db9f21e0cdf"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navMenu/subItem.vue",
+      "sha256": "7f74343dabe303bc9eb5ea5de90575b4a5155d1c9167cd1ca0153c1234386886"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/navMenu/vertical.vue",
+      "sha256": "cc8c2a1a32f75b83e4271142d5ef1d28e71589bf7e6d8d07c62babc53d30e50a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/routerView/iframes.vue",
+      "sha256": "af9c5d1c5ef095ceb2748430a44402754a7dd47b598cfe8e4d5b787e874d7644"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/routerView/link.vue",
+      "sha256": "66b639134939786af5b5d7441a8cab5de9d55d4f950626916f15a615f379b223"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/routerView/parent.vue",
+      "sha256": "24e54bf98e2ff4aa98f424fa53d7f679b707962090a8f214c93252f8fd3a3e5d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/Scanned/api.ts",
+      "sha256": "65e69548bd41009e04d6ffd46979fce41b4b2a5c2e858b21592cc02b9e4fef77"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/Scanned/index.vue",
+      "sha256": "3b2902f36b9aa7acc70c9d75b9938722331bd249635f6cd507eacd2630851280"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/layout/upgrade/index.vue",
+      "sha256": "125f13e40257b797587e857b3535f4200eef6404077503dc04f6933faefd27e5"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/main.ts",
+      "sha256": "f0e3da6065aa1dbcec41bbd2df94c318bf2c31ce07e47b6535911265034917c2"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/plugin/permission/directive.permission.ts",
+      "sha256": "08130e5ee5f91758c4d71d65c71b6c06536ad368e103bec8b94f2471e8c04f66"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/plugin/permission/func.permission.ts",
+      "sha256": "69216ebf3e6218b7658b9155b3354f1d22ba94eca27e3de4754e2c7da7697b21"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/plugin/permission/index.ts",
+      "sha256": "59be1de9b9e829f8502573e0684d471ba2f97528cc534ab7d667573881e301ef"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/plugin/permission/store.permission.ts",
+      "sha256": "f934908741f88368dcd27730a8bb0fed1040eb64703fc2a0212f1b64f0077c39"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/router/backEnd.ts",
+      "sha256": "b354771cdcfa07133f6e91dd549a7bcc59c489eb3a27b187c30f5ab4758259db"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/router/frontEnd.ts",
+      "sha256": "eda288823f50aefa5b89b1e1424cf238c0c7c1b1a964970f20f35f825b27a339"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/router/index.ts",
+      "sha256": "8e6b721b9f06d57091bf6e23c27f85e8f5aad314c305164eca4cef0c3a276cae"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/router/route.ts",
+      "sha256": "fbffb29a4739fb8da4fe884c15583ad49c9ec1d7c328820393d3449f165aad3e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/scan.ts",
+      "sha256": "c2b218d98f13135a4a8ba9e23d01158483f45714e4f32b64f3b465f9088dc0ee"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/settings.ts",
+      "sha256": "d08b646a91279da9d37c5e4214346fec082de502042c8fe1d3c11fb1462a2664"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/btnPermission.ts",
+      "sha256": "f934908741f88368dcd27730a8bb0fed1040eb64703fc2a0212f1b64f0077c39"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/columnPermission.ts",
+      "sha256": "6578bfa4bfb7d05fc5087a81f59f510249040a94c48c40130d45d0a557863700"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/dictionary.ts",
+      "sha256": "2b919156855a7c8939e09ae9426ece1fb71a60bd5b19bb43d8cb3ec2b9be31bd"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/frontendMenu.ts",
+      "sha256": "ad34f8025c3aed72cff52794864d3e5af64a2b8c9013b3685644889e7ec92368"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/index.ts",
+      "sha256": "572700cff1e3ed356860d1def797410a73326268d8a8af14ead3af3c0edc79e2"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/interface/index.ts",
+      "sha256": "e194b6265ae10dc9da7ee7627939d1c4a9697d570f43d63e2f95e31a2d3de244"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/keepAliveNames.ts",
+      "sha256": "5248bc44cb1f5e0144664d4af908b8da1524b40fdc8b2fd58006aba27b6ac47a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/messageCenter.ts",
+      "sha256": "4ea7dacf8afd2899d1ca6ab8b560c167c38e4083ada7fb815c55e2de16811750"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/modules/dept.ts",
+      "sha256": "31deb937403f971090902d59ab7518639f4298ebb887b547d646bf7c6f926717"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/requestOldRoutes.ts",
+      "sha256": "c81db54eeec7bb8f6c31913330274418c29fef12466df149a90b0fa015753010"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/routesList.ts",
+      "sha256": "0fbfd173c6e66f391ef3b0813dc11b35bd038713bc4cc1bfc86630572bf67786"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/systemConfig.ts",
+      "sha256": "23f7ed0aa7ba767f8a8f15c3143dc3d4355cb633e3d42e4db4fa824c21f76d78"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/tagsViewRoutes.ts",
+      "sha256": "cdf812b2660013eedfa0a6fc5e4bdff1cbfe6a9bb245566076b5274887feb0fe"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/themeConfig.ts",
+      "sha256": "f29fac0ff30c13b26d9030310ac6e45b8b9cbbd21acb3ed6726d185487332cf3"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/stores/userInfo.ts",
+      "sha256": "417495164c3c34a07acdf1942cad203d11624d4bbfb915ff9fe9d1b83edf5b6a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/app.scss",
+      "sha256": "525a4c0ce6ec009e2060f23c2aeef4cc7984d3df822c1251c2f7a555ff8e07dd"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/common/transition.scss",
+      "sha256": "4c5304fb3057c0070c10f1a6a2dcbc358056d426b5c8781cbc1541e30cd71f15"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/dark.scss",
+      "sha256": "49d5c5be7cca1e026674aa5b75e056cc776d39bbeb2d3e6543ce4894db7e5260"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/element.scss",
+      "sha256": "f144469e6d2214f4d1a124d42e7e4378c0d3b408ff353bc033c503bb635eba0e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/fa/css/font-awesome.min.css",
+      "sha256": "774d27ecf48aec4b3317b8d1049cb6721e5c2488a3b7808664c2f0f232907c1c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/fastCrud.scss",
+      "sha256": "7d4b9854e2047134c43f000cc4c10c72c96063312c8f47060aba965b17c76c8d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/iconSelector.scss",
+      "sha256": "c5706ca749e25e244e42f662f481c065febcc28dc97cd769d91bd45dd43d57c9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/index.scss",
+      "sha256": "4d9e07fcada57b2e89ddc8daa5a9791be9ca95f07391c89956631f84af9f887a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/loading.scss",
+      "sha256": "e6b82138a3d2729e85e197247f7bf5b1b8b2990013afbfca2c7f9b4813e82aa7"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/chart.scss",
+      "sha256": "ccfe44a44003981fef83c559194008ccb09ce7daa3392406eb864598c87c28cc"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/cityLinkage.scss",
+      "sha256": "89c69dd8d7b7f147a0a29d802ae449ef57472a05bbf785a84d66bf6b0a7f7894"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/date.scss",
+      "sha256": "29131b6009635da8682389e97ff92a2611e5a2b436c90581a1b6792190dd0265"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/dialog.scss",
+      "sha256": "b3003112406276b55ddd885a8ba6a0c26cb64381a46352e4f1a32565e684982c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/error.scss",
+      "sha256": "729ce7881026cf6e5edf392d75a128ee9b688bb1784d9b63633f47f99f39e9e0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/form.scss",
+      "sha256": "d817a6fc0e84098a0f7a42e11438c3acacbd5a9d71e94809345de25420256e9b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/home.scss",
+      "sha256": "87a528bdc4fc3bf0e93b4e2d1c135085c13a81239d185913b57c7c34b847d6a2"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/index.scss",
+      "sha256": "263ca22135ff626ae21fdc3169f7c94b7ac5c61a74c99b7f60848a702894722a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/layout.scss",
+      "sha256": "465a996f7f4759fdda96471c9744b1e816c9c70b54f8697cbd1994e82ba62c8a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/login.scss",
+      "sha256": "f04bc6d3561272ded1568decc62f3a7e43c894851e1d6516d7006bc6fbe38b1e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/media.scss",
+      "sha256": "343e55a1700b0f0eb1a723f158dd7ec7b0d9083ee73249a71588c5f93e574255"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/pagination.scss",
+      "sha256": "e1f373ad59795a1821fa2d353009aabeb056764cc8a7f191310bd9a3746d9e49"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/personal.scss",
+      "sha256": "d9f7a988ef50b2ab6732d98ba27e6204503e6c51497a72cb0129f83af530d2e8"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/scrollbar.scss",
+      "sha256": "c6a67fb1b5fef537b97a15bf4c26b550255409863cdeee867e71069b657d70fb"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/media/tagsView.scss",
+      "sha256": "2d131cd2494247c9fc11e2a23dec814e4314fd06373baa80bb2aacfb782fe97f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/mixins/index.scss",
+      "sha256": "000dd1d14952e499c2a38f1e24d312f2b5395cdd03d726531d467f904de42ebc"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/other.scss",
+      "sha256": "d2ecb00d995eaf1b43ac06542696777e2e818e0c4037831d448c372b78287c9f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/tableTool.scss",
+      "sha256": "3dab0fb2a3f7f9f213278cb6ba67192a8bd17539489b8d324b5c8b793c5da063"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/theme/waves.scss",
+      "sha256": "26ecee513ec9cd325f1eebacc2a5b1a11712e02a623df89c2e30f979e18505ea"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/types/axios.d.ts",
+      "sha256": "92110c6cc7bdb59e76febd727a3257b761c9510c14cef45d14e0589836bc28c3"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/types/global.d.ts",
+      "sha256": "21197ec3f0582ea5fd0a2f0fe8eea9ce8feb91c5cbb8c16a0e341ff605a187eb"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/types/layout.d.ts",
+      "sha256": "71dd0bbc36128b609f8c3db593cba1c7bbe0e8a894492c455d178c4895068fff"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/types/mitt.d.ts",
+      "sha256": "2ec00cbbc6462f55a334b51536bf476b3202448a5f1e746a71c807613184a572"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/types/pinia.d.ts",
+      "sha256": "3b069aae50e9a334b93bec1bbad030f953bf9ea120d142a6f647142bff0be356"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/types/views.d.ts",
+      "sha256": "1c5c8d67c2a2dac6fb515b33d2116bad36f391b88e1a2bc70e4547a51409d008"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/arrayOperation.ts",
+      "sha256": "3475441fe13e9876a7ebd31cd821e6e7803a0fa280bceae8bb15ce9a2f25549f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/authFunction.ts",
+      "sha256": "f806ca0f020595127305157071f0358007f104521d1c13f2de105e430b3bed46"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/baseUrl.ts",
+      "sha256": "763e3c4858590b560367e4a743b55c710778fa40b63b3bd3857b9d6a38b64052"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/columnPermission.ts",
+      "sha256": "bbf1181aa0c7505f8f3e0fe13182a3f224498a7c774d5ccd64463f1cb325983f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/commonCrud.ts",
+      "sha256": "14d2e3440b16d8c531ed7f660d0860ef86b95e6f433e5d8d7bf151c786667343"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/commonFunction.ts",
+      "sha256": "a26a919535e807ac55d4ea3884f1186022d5495e804d7cec17964b55ddc5407c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/cores.tsx",
+      "sha256": "ebe9f2f6130690d6d0652ae623ecaee8c9f6762c71bcd8e2860ef63325dcdfb0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/dictionary.ts",
+      "sha256": "d5426b66528c3c9a134d69086884a49e5a81b8a1981ebd6ddf465ee15cc460ea"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/formatTime.ts",
+      "sha256": "e9738c2d99e680ae75c398905fb748ca27bed6bb7fb4accec37c84d4ecdfa043"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/getStyleSheets.ts",
+      "sha256": "9c171556cb3d30c402bb663b2599a32c0dc1dfd8a8e2d4803ec2a29e5403545f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/loading.ts",
+      "sha256": "5ef87d8f1c7c8cb57a3c71b80c078f843d3fffd39e6e2e10c9fbfd3e313936c7"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/menu.ts",
+      "sha256": "d62d47570058a25641e44fe10d7cdd8796a39bb992d1794f0f24d844d1d06dac"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/message.ts",
+      "sha256": "eaa9b5247c83e30496c12ab7f044713bc622068567ea56920877c985b48515bc"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/mitt.ts",
+      "sha256": "cee84a08dc325753830230f91659df5fd4cbf82380aff2cc0bb473c447295d2b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/other.ts",
+      "sha256": "646a7bee564616768be4458c89433f5cd323e15f364bd658be5dde5c4d8cc0f9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/request.ts",
+      "sha256": "adb94bfeed819cd08fe50808ae176acc9674769f0b0760eacdbab9299b55bef3"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/service.ts",
+      "sha256": "22605f4c45e7cd89a1b2ac03842682909f38565d19f612a542e9c1fe2b3c6790"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/setIconfont.ts",
+      "sha256": "2baee1ac6b084a4f28228cb0a648236cb54d843be4aedc7103a7a7457fbc3d50"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/storage.ts",
+      "sha256": "225ae81964ba1af052374bf07522ebb789cecf4da56c2286777b0145634df538"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/theme.ts",
+      "sha256": "1eb4b10a1882161df821b1a99265c85dd507fb2d6e763e3b3814aac53e87c8c9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/tools.ts",
+      "sha256": "423810d2fd870e4f291697b0f8f0348de709a3f2d873c8b541bf0dfeb1fb9d56"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/toolsValidate.ts",
+      "sha256": "eb5c3ec9f2cc7a6d765a60c2a5d9a72f455184842114d5643cdf4d9e92808de4"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/upgrade.ts",
+      "sha256": "f923c71867979baf9cc1e82f2fe82eb0aba7e17569cdf7253de785b891912f28"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/wartermark.ts",
+      "sha256": "08bbda3e43caaf12c7ee914b54da5058c7b7135dd43e602d99cf4f83bd7dcb49"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/utils/websocket.ts",
+      "sha256": "cc503841be49e55916a2513a641a8757917b00d3b6f51b88ebd961fe10db08be"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/interface/index.ts",
+      "sha256": "2505ba09d29b32a4c483e3454e52ac42e8d4a1897a77678627e6ba2cac0ca5f6"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/index.ts",
+      "sha256": "ba8b0813552648af3f8d4907525b6e05eb8731f117f4b99f8407080938ec5639"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/scanInfo/index.ts",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/scanInfo/src/scanData/api.ts",
+      "sha256": "ad84064de3c7446c28767b28768afd77fc3ab2a8141dddb53af26e9167f01d24"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/scanInfo/src/scanData/crud.tsx",
+      "sha256": "0d7ac52347558f8f43a022db8db2db315f23029e6167ceef717970c9c4a074d4"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/scanInfo/src/scanData/index.vue",
+      "sha256": "53e774d6402c7a56087663f1b234f748b8515f3e650f51989f3fdda757bcf8fd"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/scanInfo/src/scanRecord/api.ts",
+      "sha256": "4d0d3aa171bcc28e9aa237a6d384b4d89dc2bb60981ddfd58350c6de81451a78"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/scanInfo/src/scanRecord/crud.tsx",
+      "sha256": "9bd8213cb1c5041e3cc3f708e11ffc901c0929d7c114296352f6fc07e78bcbaf"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/plugins/scanInfo/src/scanRecord/index.vue",
+      "sha256": "98084effe03b1998e59aadc9d98bec8ae6d07d048ab508c6306623deaf7ae9b0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/areas/api.ts",
+      "sha256": "c60bd0dbc1a08ab91784d589a6ab47713303947f74d338ef19f9e2337d500160"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/areas/crud.tsx",
+      "sha256": "228e86edb40ada81c99b4b7218291c153079f8de7c83798bf35e263a17194c1b"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/areas/index.vue",
+      "sha256": "f9c588abbe2bb699897e98f4ed3b486cfa8e9cfa7ed3acf947a4ce56a5596d87"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/api.ts",
+      "sha256": "3924c56a004ea30e095098cb69daf1ae951cb148372d5ea2bb8b809ad4dd9a7d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/components/ColumnsFormCom/index.vue",
+      "sha256": "ebe7f5b0ec2ec588ed2547ed5d2c69132b22854c8d3f4e50abb34f76d64c5024"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/components/ColumnsTableCom/api.ts",
+      "sha256": "ccd9a43d7e9da42aeb8e02274da3990e23ccb2af3445b7c902a305b3a5e71360"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/components/ColumnsTableCom/index.vue",
+      "sha256": "40bae9fe697dc6b222deac0ac13e6ecccc97bd0cb1431b46488c945d2d876278"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/components/ItemCom/index.vue",
+      "sha256": "2d08fbfbef2387cb27e5da89e0be3ee76a9b6d2bb315ef05b0140adde33f2981"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/components/ItemCom/types.ts",
+      "sha256": "0f2302d32744b86edf3b1a0cd10524275648cdc7b135fe4af96d7bac12ea6c3c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/index.vue",
+      "sha256": "76f81e355e5fa376910a5b496a326988b5bb1129a53b89f1dfe90372f36dca24"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/columns/types.ts",
+      "sha256": "ac4bb07212517b462c9841cc03f57038727f2597671fe056e421f2ddc34a437c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/config/api.ts",
+      "sha256": "406363abbbc47652fdd1802b19137a3e0265ff0c2c3d3ef1a67535e782d0f7d0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/config/components/addContent.vue",
+      "sha256": "882b075a9773dc367533e7c40f9a9eb11c5ba46adf637777495dead07387dfb4"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/config/components/addTabs.vue",
+      "sha256": "87f143c8e9f4b44bfa886b063781f5b50330a5c81382dffe590726e9a80d9dc1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/config/components/components/associationTable.vue",
+      "sha256": "42a3fdf957f1930b64238488cb9c7e167b8bc1e9c78a17c7566b5deda737b3b8"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/config/components/components/crudTable.vue",
+      "sha256": "51bf19560cab1cbcc721c99217c8534c681cc19bf495873763be7461367faf22"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/config/components/formContent.vue",
+      "sha256": "1a600fe83aa202381830d19019f5d2dd36bc28b47cb79038a55a1dfe73c38bd9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/config/index.vue",
+      "sha256": "d1022ec7aa603c82957011e92336129ad6931e91190c82fc807570bbdb2bf9af"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/demo/api.ts",
+      "sha256": "9b0f4743c5ef75bfd4fbe2908adcfc340475b66991b3b19e70fe8aa9d651269a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/demo/crud.tsx",
+      "sha256": "63cfe75ead00943ad34cf4343cbacf456b0c8563a61b15d72f859e6a6b1bd2cd"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/demo/index.vue",
+      "sha256": "4b3943b319e68b3aeb2c7f1af43d0be06fa3c04f3af22db3d37cf977960bebed"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/api.ts",
+      "sha256": "61c798475216ebacf60c452221c3afdf69c680750f9126ab34a7a1ca79c39abe"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/components/DeptFormCom/index.vue",
+      "sha256": "43ef686f729e084f619558cc7ad9349ce71f1fed2b0393f9b6fa95efcb90f685"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/components/DeptTreeCom/index.vue",
+      "sha256": "31c2a751a11f660faae172e031f24090c1eec21a592354d08312f0d75ee8c1b0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/components/DeptUserCom/api.ts",
+      "sha256": "321010a2095082cdfb48527f0cb1b627dd7221e8e5f0c9976b45ef16cc2ef761"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/components/DeptUserCom/crud.tsx",
+      "sha256": "952cf2ff28434523345d65416de35d0856d05d9bf690297f10d13de435ff47c3"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/components/DeptUserCom/index.vue",
+      "sha256": "167383bf180283a8cc835bfce292b13553f68db00e116c3f8f40310250c315e4"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/index.vue",
+      "sha256": "60618517b99f14c7de23c3f24d9605ea15d90702d6e4bd8a08c961342d8b505a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dept/types.ts",
+      "sha256": "68fe4b1b92520236c60d205fef1a017af1e5e3e2f5518d7eb2045756fd7ffdf1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dictionary/api.ts",
+      "sha256": "bcd8fdb019958dff035ef8dd60e8a374b4de32facabda414005debd8e5127851"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dictionary/crud.tsx",
+      "sha256": "ab5ab17485a193af46714725ded5f10bf63c9cb10e822535631903ed8abd23e0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dictionary/index.vue",
+      "sha256": "02ae7426225d05e099210bfd273499985c5828e7c4d04828874b231a9e42a5e0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dictionary/subDict/api.ts",
+      "sha256": "7124e2b3a3130184f4e6e37127aac246746be9d612d18fd1571a9df501d75088"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dictionary/subDict/crud.tsx",
+      "sha256": "beb69e2f81fbb3972b9619302a74c15ee628747ed9362b4342903ec22559f810"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/dictionary/subDict/index.vue",
+      "sha256": "2e91d9515a003e2c9ff7f2927061d8ae54845bec5226b206726bb6470f728198"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/downloadCenter/api.ts",
+      "sha256": "41fdf5d0e7fb7a67d14b349e6d5106a797db744c89adf9dc52c09d530b789c5f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/downloadCenter/crud.tsx",
+      "sha256": "87a264b85046a57ee59d1a9cce412c4d2bf06169d0783eef60eab77e40475b38"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/downloadCenter/index.vue",
+      "sha256": "a021dc5eba80ef8f86c1c50fb5e93e83f46f066c1568a3b4132c4ad1fd9bece1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/error/401.vue",
+      "sha256": "f48505e4d5ba119ed1250cc87deb0c5c46a9f5fdc282dc7f40b462804aff5146"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/error/404.vue",
+      "sha256": "2ed44318fb6ab234c3156f88fee6f302945cdf48ac91e3eaad689c50265be123"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/fileList/api.ts",
+      "sha256": "a65b904f9689fcf85da25876e757ebe46429340f2fe7fcc47e8e4f5f84fbbd12"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/fileList/crud.tsx",
+      "sha256": "feb76e1a0a446a34b27d515336df0dbe604997d0c186a513b51ac3bd9af33910"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/fileList/index.vue",
+      "sha256": "dab2bba2020af524aeb872eeaa7e72b515d5de7b64b2e69362882a40dea50a15"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/home/index.vue",
+      "sha256": "2fad8572bf6d848a1b4b87beb8b65507f2f0a99a289c1104a193349ec02acb59"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/log/loginLog/api.ts",
+      "sha256": "c69bd5bb584187f9b07f46ec1dfdd92c0be2731a6cad6cc9a0e2bbe2f9c4af83"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/log/loginLog/crud.tsx",
+      "sha256": "2564a5ae19b502ffbf7420ba7463a9294bf23839c6473a49b7536f9f89c56c1d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/log/loginLog/index.vue",
+      "sha256": "b87a7bcfb23d6969fc6fe1652b9946fe98917f153cb851d71a00985f36a9ba87"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/log/operationLog/api.ts",
+      "sha256": "da1c5d689d7895b9397f9a80f4e738bcd70964442f99ffd9155a678c94bcd95e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/log/operationLog/crud.tsx",
+      "sha256": "40e93aeedf0286d70690923c637fecd6e08c93067ab438da9dcddbdb92355b82"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/log/operationLog/index.vue",
+      "sha256": "21ae8c0bc8d37aa4e8ee426fcc20e72b9b90882694111ce27edc9693f4971d64"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/api.ts",
+      "sha256": "2cbf6453c1b8e982a5955f78dfd0b446088cb312836aa738b36166766f36c6db"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/component/account.vue",
+      "sha256": "e737a5a32b2c2ce47f6e76337fcd8d49b056c650fb725e1d10795c08784b48a8"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/component/changePwd.vue",
+      "sha256": "cfc0e597d229bebbde19088ffd2f025b113c613fc205da0ac51112c274bf30c4"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/component/mobile.vue",
+      "sha256": "874e861fba963c734b7991d8e44ab208424c805e03fd6c80bf9e4e7562eb0253"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/component/oauth2.vue",
+      "sha256": "1dae5092f7616904a966c2316b1fbb9795adba017d6d1a55b3358a953998d55c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/component/scan.vue",
+      "sha256": "b5c1ee0a4e4aaf49528f423d96818ebf035e2a1f55aa37360fca170c60fd59ed"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/index.vue",
+      "sha256": "53b8f12ac5b1ffec99596bd051186fc1dc422f564a15b60f395dc5b2ef5811e3"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/login/types.ts",
+      "sha256": "b86babb0381fa50a49a49d93fe46c2bc32814349684b558fed59d7cc8f4d9ebe"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/api.ts",
+      "sha256": "66a2db719b6cee48ddacfde525f5989588bf1a520afad8ea45437ccce7d7e502"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuButtonCom/api.ts",
+      "sha256": "1af13200a001887f4fefc63333093bd1655a3745084e1c0ac1ad51b977ee15b3"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuButtonCom/crud.tsx",
+      "sha256": "fedb672d759b405a0814f0748ef7a6df7f4f42a1d285ae7f7bd423369c424531"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuButtonCom/index.vue",
+      "sha256": "b187a8c3fa8b494a5e0c3484767fb5d06f7cfac7cd8659556fa5cdb204dde053"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuFieldCom/api.ts",
+      "sha256": "9d58ebd9a47dd3bd775855ab00c4f86187f1ed43d862a9ea01ba4099956f50ae"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuFieldCom/crud.tsx",
+      "sha256": "b8c308aee6fe78883c7be85a82faff967b3618e17dd0c9c532720233fbfe7149"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuFieldCom/index.vue",
+      "sha256": "24dd644c8f3cafeab73e6d700ebf9e4c847b256c5f251fc8d5ecbf0eb1aec7d6"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuFormCom/index.vue",
+      "sha256": "4d6fcc118ed638b9884bcbd909783f60da60fb653783c7bda1132cb1e07aeaab"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/components/MenuTreeCom/index.vue",
+      "sha256": "6e3a02a3c31cb57a3e2b6101de4db653ebad5bfd671ec42072e0470f547f55a9"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/index.vue",
+      "sha256": "1ea31d7975a7eea3d9f0e98a76cf282d8a3951dfc14c75a4fb14c452eceeda69"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/menu/types.ts",
+      "sha256": "43f5d25f457e863a1f5b89ef71276dc99fa574d4d7f8e517b01529668e15b2d0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/messageCenter/api.ts",
+      "sha256": "eb8cdb89aebc0ae87e7e9b5980849ef6b51897f1438b099bb4b4c22d7446b413"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/messageCenter/crud.tsx",
+      "sha256": "cabc9b8f74cfdf513221f6163860964a970fe4b0697379f4ce4183ee9b60fad1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/messageCenter/index.vue",
+      "sha256": "ef45b3a4f370575e8b35e5701e19e67b85f3c9afca7f56c2e60f4cfbed4e189c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/personal/api.ts",
+      "sha256": "3e28bbef27a412df55f72b7c3dbff9eaa60551513516fd07d6d05d700108aab2"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/personal/index.vue",
+      "sha256": "30dfb2586a9cad6a233916b3f98565fb8dea987c48bebf6be77102bd50ded9c0"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/api.ts",
+      "sha256": "fde22d48943099d3ca282982afdb4151fd743087cdadb4d7965059ca22b2f318"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/addUsers/api.ts",
+      "sha256": "3b4dbfa48c6b23fc479ec65094f5ebfcd93842d5585fd71a7e7fef3648adf442"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/addUsers/crud.tsx",
+      "sha256": "2cea118c4d56f03f0e650813b82ae0a5a11190d86422e7c40c3e2cc54468f58c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/addUsers/index.vue",
+      "sha256": "7b07409344f43eedd3adee09637e962e6fe264bbfcdb3af4b3cdc043b0802545"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/api.ts",
+      "sha256": "a36e4ce2c28bab192b1b2c070de84f7312357e55252d4eace9d848decf00696e"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/RoleDrawer.vue",
+      "sha256": "9320d4e1145bda1cadbe9ef1eb7a736c8edf483b8ea5b8e05ac3f4b57b3d8899"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/RoleMenuBtn.vue",
+      "sha256": "d5a947bc093722969ca4c875f9d62eb99f934cb1630bbac3d33a3e9f9df4eb11"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/RoleMenuField.vue",
+      "sha256": "f432cfdcd8026e93f51dd0055fc967fb169f0ed3ff28ace04a2aee722ff5f3d7"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/RoleMenuTree.vue",
+      "sha256": "1c8b3ec151242893a98c9b932fca3bc9d247d63f30eb45cabf93292ab1db7a4f"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/RoleUsers.vue",
+      "sha256": "60a71634e7fa09b2ba8f3dca7b639831f3287538e3cabc761745a46b2e6e7ad6"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/searchUsers/api.ts",
+      "sha256": "8b4b9d27b371239e7b6ecba4c259aa27d580481a4567878a77744be5576c0082"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/searchUsers/crud.tsx",
+      "sha256": "b0c3e67c84ef3a71568bc7fdc57af2e5474ac5b18b7cd554d61b922f83bf9e75"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/components/searchUsers/index.vue",
+      "sha256": "209ec6dca1a57ad2361b4413ea4a2e6625be0207fc4e7bd408870fec4946f58a"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/crud.tsx",
+      "sha256": "15beba311389d1db3c55bf56eff70de6b93795846581562b465c3d1424f7525c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/index.vue",
+      "sha256": "d5e3367c87bdeb4defe2cb9f6861b6939ad6661838f1a9be31d140af68aead07"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/stores/RoleDrawerStores.ts",
+      "sha256": "395ea2b2b3d7b51ef5d3f3531c9aa3fc3e4246f5ebb3f53014ce9369b11a9f1d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/stores/RoleMenuBtnStores.ts",
+      "sha256": "2a98bac66d99a9a60993a0681701e4d0f7d0c4219a6c882574b127f3e0814c56"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/stores/RoleMenuFieldStores.ts",
+      "sha256": "2bd7c2147710ef6570e95e4d97a016360d5029ea31d19cba05c31439a900c00d"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/stores/RoleMenuTreeStores.ts",
+      "sha256": "019e74f4c075f38124d89ef32faa0ace49fcc58db3a8eba672770739f59b98d1"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/stores/RoleUsersStores.ts",
+      "sha256": "fa1f7eca92cf0e301a2c404bb186206c036c5c1740b43c774d3620d6845c9e82"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/stores/RoleUserStores.ts",
+      "sha256": "f7746dbbef3d7a71efac5f068cfbf1d72072d65b7efb7848a25442b385641a9c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/role/types.ts",
+      "sha256": "6aad6d14432f967fc7dafee39b55bac2382f4e61f78068ee30fb14e93901eed5"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/user/api.ts",
+      "sha256": "f950960f0b73fa0759c682105da4a2cf5c1590dbfe94ddeb97e9c8dbe393bdee"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/user/crud.tsx",
+      "sha256": "28f823ca8d1bad712897bf40c71a632603656a6d7f1e2750136505f7ca140310"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/user/index.vue",
+      "sha256": "ad9d890ed74c8d62447835e7c3ad4edb0c95bfd3b5487d646949d31e80b8024c"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/whiteList/api.ts",
+      "sha256": "22382a7e4f99a295c7203d66a9f0a0a4c3581b81a1acba1add127fc5ee799f63"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/whiteList/crud.tsx",
+      "sha256": "1ca88c069f7bc8105f7c3070725e40214f9f0142edf22b7a6a51398f5fe4f190"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/system/whiteList/index.vue",
+      "sha256": "e85f6876f06fad2d98200b9759187d4acd10a4a58a03888e27bb9e9e18971760"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/template/api.ts",
+      "sha256": "1095c30c0c4b40cfe0ef6bb604a3824fb3909d83c475c60f462e37c1ddbe8a49"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/template/crud.tsx",
+      "sha256": "74ab9ccb1c44c326f655cf02d4970f5b4715879ee01492fca6ae9197ce482add"
+    },
+    {
+      "path": "django-vue3-admin-master/web/src/views/template/index.vue",
+      "sha256": "c75fc698733bc6f22e53ee040bf63e7127be4f7a992708b0d6cf77e4203201d0"
+    }
+  ],
+  "original_unchanged": true,
+  "current": [
+    {
+      "path": "djangovue3/.env.example",
+      "sha256": "c8609082d40fff143f2c75caab236eea960b3cd3c5202fa6391debd07df71df9"
+    },
+    {
+      "path": "djangovue3/backend/application/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/application/asgi.py",
+      "sha256": "1f75d33ee9f5281637a13c75ca5e60296504d54f8703dfeadec3564980c2c0e0"
+    },
+    {
+      "path": "djangovue3/backend/application/build_version.py",
+      "sha256": "fdbabaa3c0708c5a6a8ca540321623a819074d88dda72ebcd701bc600300ee97"
+    },
+    {
+      "path": "djangovue3/backend/application/celery.py",
+      "sha256": "5f8f918b9aad4c7ab08de8494fdef6fca5e49f5e4f6ebf17091bad5e83825d1f"
+    },
+    {
+      "path": "djangovue3/backend/application/example_settings.py",
+      "sha256": "cc43337b79c602cbd4d674303401d0103cd3e6cfa501e7b770caf6f9a5fd0496"
+    },
+    {
+      "path": "djangovue3/backend/application/plugins.py",
+      "sha256": "fc3b6344f9f02785ef393d27770bbd58a0c8b7d4c449f0596e032d0cebbc918a"
+    },
+    {
+      "path": "djangovue3/backend/application/settings.py",
+      "sha256": "dbe3484f24c47a3b7e165a0536ff294e9b35ce5bbf9a6de7052204776e4e6fb6"
+    },
+    {
+      "path": "djangovue3/backend/application/urls.py",
+      "sha256": "4e09ff6b0011a3626bbd72f369c3eb4df3e54408fd6bb502a163281b139251d4"
+    },
+    {
+      "path": "djangovue3/backend/application/wsgi.py",
+      "sha256": "0a68b48659534b503848915dd5c0bf66296415d0575818177ec28b0afcc358c0"
+    },
+    {
+      "path": "djangovue3/backend/compat/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/compat/build_kombu.py",
+      "sha256": "28884b2f36a42323264866b3151e7c1cdadad9a56dec8593b6ceede3629937c9"
+    },
+    {
+      "path": "djangovue3/backend/core/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/core/api.py",
+      "sha256": "b864b9d954699ea0d8e4feeaa1ace31b16bb9a715e69cdcb8775ec1488b569e2"
+    },
+    {
+      "path": "djangovue3/backend/core/health.py",
+      "sha256": "a310ed1e13c4a866ed34bc7fc4b9e215c87812799a09c00f7f9781e04430c3b3"
+    },
+    {
+      "path": "djangovue3/backend/core/models.py",
+      "sha256": "9d50dd5983e5c99549b2dba475a1aeda83be2d867ea6c6b2480a5be055cf97b7"
+    },
+    {
+      "path": "djangovue3/backend/core/permissions.py",
+      "sha256": "ca7e8f505cf6805b48cfa1a76240fae4850167a569026baea7deff50144dad44"
+    },
+    {
+      "path": "djangovue3/backend/core/resources.py",
+      "sha256": "41b00ca46be33c0247f3bf1e8eca83671eece09527397f6ba023bd2cd479fd4a"
+    },
+    {
+      "path": "djangovue3/backend/core/responses.py",
+      "sha256": "d50939848d4f42608a4953b1a13cc7746c9396c3ef6d6a34c71eb1ee3730995c"
+    },
+    {
+      "path": "djangovue3/backend/core/schema.py",
+      "sha256": "2e486ca6856de5d8de1e532ca5dcefdcc0871449b661d29ba52e1d57c381a348"
+    },
+    {
+      "path": "djangovue3/backend/examples/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/examples/catalogue/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/examples/catalogue/apps.py",
+      "sha256": "15baa1dc73070be5214a405d72b73a36ac1f4207f19907ab1c45532c6883b03a"
+    },
+    {
+      "path": "djangovue3/backend/examples/catalogue/initialize.py",
+      "sha256": "bdce86231803b47dae636a4f6a5d67d9be27f73b7786b35305ba4d50b2de16d1"
+    },
+    {
+      "path": "djangovue3/backend/examples/catalogue/models.py",
+      "sha256": "dade4eb18e17d9643b0ce29cd52a1c604929cc02c8dc034752faddeef83c5b76"
+    },
+    {
+      "path": "djangovue3/backend/examples/catalogue/tests.py",
+      "sha256": "5c18de44863f0548fee9a49855a94d41a5bd18e6ab7351df4246bf1a6bc41e4f"
+    },
+    {
+      "path": "djangovue3/backend/manage.py",
+      "sha256": "36ea16efd7c6fe6c4dd364e377bcce57540086871d383e9ba0a57c7e174ed470"
+    },
+    {
+      "path": "djangovue3/backend/system/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/system/actions.py",
+      "sha256": "3ede4201f4e914f7623a1a5d4df272f71668af33ca11906f43f0c9c996d567f7"
+    },
+    {
+      "path": "djangovue3/backend/system/apps.py",
+      "sha256": "5e4c8f867353fef4d3e8d94a3604e34fca8dc59fc0a89e6d4593abc928ef57a8"
+    },
+    {
+      "path": "djangovue3/backend/system/auth.py",
+      "sha256": "332e76a80f471901ab8bb5ebee272c8bc80876b3bea7644fb9e8650d62a372f4"
+    },
+    {
+      "path": "djangovue3/backend/system/catalog.py",
+      "sha256": "7119ab5cbf7b445cc72716f03ec39fe6cdc29c434c98e010e5c048d74565699b"
+    },
+    {
+      "path": "djangovue3/backend/system/data/areas.json",
+      "sha256": "32bee347de0a65c2e06866c729211b792be1a1d4cc86a1c8668a08e39a9ab35b"
+    },
+    {
+      "path": "djangovue3/backend/system/dictionaries.py",
+      "sha256": "9eb9ebd507c4905874f9970f017c79022dc64656b65bd71f39ee9403c9b312d2"
+    },
+    {
+      "path": "djangovue3/backend/system/events.py",
+      "sha256": "c3007b42a9315e5430c8a7e225c4182b12643d49319f5b50195c165d8f96be3a"
+    },
+    {
+      "path": "djangovue3/backend/system/excel.py",
+      "sha256": "a2d9b2a71708e0acf6b83a36b12a47dc8dfac2c0b97daefa533abbb20692d19a"
+    },
+    {
+      "path": "djangovue3/backend/system/excel_fields.py",
+      "sha256": "161907990fcb3ceb7ee72c58fe52b3bf972f86c6fd5767379c2fea36529eaeab"
+    },
+    {
+      "path": "djangovue3/backend/system/management/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/system/management/commands/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/system/management/commands/generate_crud.py",
+      "sha256": "7511cc0e538ddcc0cdd4ecbeca349131ecea81564bbecaeffea6bb6ab1716717"
+    },
+    {
+      "path": "djangovue3/backend/system/management/commands/init_area.py",
+      "sha256": "ad6dd1ea0df97a3856565207dad39c5d0707fb8961a0e38713da2dfe60c23e55"
+    },
+    {
+      "path": "djangovue3/backend/system/management/commands/init_data.py",
+      "sha256": "2e379a4b7812617b8f1f2344c319fd2b23074d8be20a499813f36341f8cad13d"
+    },
+    {
+      "path": "djangovue3/backend/system/management/commands/load_init_data.py",
+      "sha256": "95593efec7fc73354505a2a45333102f9306acd3146249feab3a0214ca11c09b"
+    },
+    {
+      "path": "djangovue3/backend/system/middleware.py",
+      "sha256": "94bd5c706652004fed0692a1f4f6131bbf53c46d42bf47986ec05e57b71d3a39"
+    },
+    {
+      "path": "djangovue3/backend/system/model_catalog.py",
+      "sha256": "2e52f6854042516d7f5925313c5e89911db90dceafbc01c1f6dab34fbd34e737"
+    },
+    {
+      "path": "djangovue3/backend/system/models/__init__.py",
+      "sha256": "43585e274842301bb69a874216396abc99d71c9dd76d635e6c2b93b892515888"
+    },
+    {
+      "path": "djangovue3/backend/system/models/organization.py",
+      "sha256": "2806c08c318000794428c05d2ec35451cb788d05ea0780715261d7b7aba0450a"
+    },
+    {
+      "path": "djangovue3/backend/system/models/permissions.py",
+      "sha256": "e2a657d7e965927ec8c0da57c11639af9157327c2ab28274fcd00b8300cfc97d"
+    },
+    {
+      "path": "djangovue3/backend/system/models/resources.py",
+      "sha256": "aec8cc049e061eacf0e1a1143acb054ea6191abb44a8a61b151c2bda4dd934ab"
+    },
+    {
+      "path": "djangovue3/backend/system/notifications.py",
+      "sha256": "2c4a3a26a7a960482aad5a1d4cb18c592f2230d3162effaf19e8f4a084ff5a04"
+    },
+    {
+      "path": "djangovue3/backend/system/serializers.py",
+      "sha256": "fec1e00e033e47e59b6694f6d82fa5eda53ca194610976949dc753fcf962cddc"
+    },
+    {
+      "path": "djangovue3/backend/system/signals.py",
+      "sha256": "be5f3c8303143002abe309102221e12f6c5cd627a5d027078eb7d3e232e885c9"
+    },
+    {
+      "path": "djangovue3/backend/system/tasks.py",
+      "sha256": "8a99111251aaaaead5063efa5b5d33a4f82d901c3e6f37926b826c6d4a78a0a8"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/test_audit.py",
+      "sha256": "125c6fdf9e0a49f29b1d8acdb28f29e727b2853447056e9ab54c7e0546b43af8"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/test_audit_workflows.py",
+      "sha256": "54235398966404b679bcce49637436da6d560b1bbda5a6d22ef9ff8b8e451d87"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/test_excel.py",
+      "sha256": "b39f33a9a495a17a54520f619ced725d68cd0b15b6ca1acf462af4e263071985"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/test_fifth_audit.py",
+      "sha256": "caea6263669887e13327ef5003b8350493c81947a9ef496b6ae7f0725e090b87"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/test_platform.py",
+      "sha256": "4e01da0622ae694797d720eb89f92510bb392223124eb071afc96714ef2736e5"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/test_reaudit.py",
+      "sha256": "4aafb47fa83e458c722ec2a7b25abd8b92d8f80c135105f158002731e01ca838"
+    },
+    {
+      "path": "djangovue3/backend/system/tests/test_third_audit.py",
+      "sha256": "98bbcda2d0e1133d3e7e80aebe30c5eb078d6271887910b29e5caa329951631a"
+    },
+    {
+      "path": "djangovue3/backend/system/views.py",
+      "sha256": "333580e2eb228265bb1c5962b1fe97de09ee64e328a8a59b87925cc7fb2401d4"
+    },
+    {
+      "path": "djangovue3/packaging/launcher.py",
+      "sha256": "31fdbff96ec341545234baa3268eb11479279fff83fb6f1c8ceed7ca763065d7"
+    },
+    {
+      "path": "djangovue3/requirements.lock.txt",
+      "sha256": "403fc7c8319ad1faab61544380773d221ab8671c33225c7bbb678584c783bc41"
+    },
+    {
+      "path": "djangovue3/scripts/build.ps1",
+      "sha256": "eba42b2c33b968fc646a47a3cabc1fb6cfaa07585670ddae5ee1d58ab02c2ce9"
+    },
+    {
+      "path": "djangovue3/scripts/dev.ps1",
+      "sha256": "d9235dd8b14ae826f99f2d96f1bbf57214808360732ea12dc1029f6dd4fb98c8"
+    },
+    {
+      "path": "djangovue3/scripts/init.ps1",
+      "sha256": "a95b69cc30e1d961a1afa2fe3b3b492a13295bcc93283ffbfc4b47050598679d"
+    },
+    {
+      "path": "djangovue3/scripts/install_redis.py",
+      "sha256": "60b359409838d9fe3acb33425bcaabf7510e41ed980e0f0008314ee8deea8fb7"
+    },
+    {
+      "path": "djangovue3/scripts/start.ps1",
+      "sha256": "5c64f307f64c53a17c202871aab4bcf1d12823e57caba05c892fcc1e4201e131"
+    },
+    {
+      "path": "djangovue3/scripts/tasks.ps1",
+      "sha256": "f6560b95d10ceeb90f4a729c5d515648057e3ed32cea2dc15bda6d1c4a931190"
+    },
+    {
+      "path": "djangovue3/web/package-lock.json",
+      "sha256": "1931bfc9dd896eafd2c4eeb69504d04f3c2e02addd526a43e985b03be08fffc4"
+    },
+    {
+      "path": "djangovue3/web/package.json",
+      "sha256": "85ba5d97594a987803a72fa30bac638b61071ee13256350d486a238ecc82e25e"
+    },
+    {
+      "path": "djangovue3/web/src/api.ts",
+      "sha256": "19b11508e2f90747807bd03ddc81f3fcf83a280e5648c45caa5243e953cb9a41"
+    },
+    {
+      "path": "djangovue3/web/src/App.vue",
+      "sha256": "14b78b584067f1014fc5e7082fa8af782b3e7c54a8e559db91850212e3cd39bc"
+    },
+    {
+      "path": "djangovue3/web/src/appearance.css",
+      "sha256": "8654491676836eca0a8910691ecc4644e7bff02338058be1b5be9bc170ffd2a1"
+    },
+    {
+      "path": "djangovue3/web/src/appearance.ts",
+      "sha256": "c966e9631f2ccbe52924bc8d93aaabe33c35c63979b139d846b53dbcd35665f5"
+    },
+    {
+      "path": "djangovue3/web/src/appearanceMessages.ts",
+      "sha256": "04317d87b139ee69f8ffce17672b41d9f3a30db38b0a59c491609eb76ac7b319"
+    },
+    {
+      "path": "djangovue3/web/src/authorization.ts",
+      "sha256": "e3b7b893ae8152c3b9260a4858d9feee1e57c8a48bf7e8c577d1268c53fbaeb0"
+    },
+    {
+      "path": "djangovue3/web/src/components/ApiPathInput.vue",
+      "sha256": "62e6087b9efc9bf20f7ef3d7da4c1fe803cd93f82ea9362cd44739fa664761d2"
+    },
+    {
+      "path": "djangovue3/web/src/components/AppearanceDrawer.vue",
+      "sha256": "634fb4bffefb840d2fc9440b8a826bf19338345ecd8c8029317827a92219550d"
+    },
+    {
+      "path": "djangovue3/web/src/components/ArrayInput.vue",
+      "sha256": "77cafa3d1db7e7649234a6da3c7ef4e7cb20ed0ee3313f623f4c760b0b6de245"
+    },
+    {
+      "path": "djangovue3/web/src/components/AssociationSetting.vue",
+      "sha256": "e99c93dc6bb716dd68ef31d3b80ff27de834281a69a79eaf37bbe846bcc79ca5"
+    },
+    {
+      "path": "djangovue3/web/src/components/AvatarCrop.vue",
+      "sha256": "6c1d5b8db0de3fe13a422184055acb62a25753c1588338324689242fcf72d306"
+    },
+    {
+      "path": "djangovue3/web/src/components/Calendar.vue",
+      "sha256": "cc4c3636062e5d798333975ffc1e3a8d6941138cfe635fd69ea41366fd79c039"
+    },
+    {
+      "path": "djangovue3/web/src/components/ChartPanel.vue",
+      "sha256": "c59f92ae5cf32183b0fb9117d1cfb2b15afb526884e566ae748207dec91f9ccc"
+    },
+    {
+      "path": "djangovue3/web/src/components/ColoredTag.vue",
+      "sha256": "d6b755e8084e03152bec45ab12c072822cbd5621d3de49b02295ff7675c2e9ef"
+    },
+    {
+      "path": "djangovue3/web/src/components/DepartmentCharts.vue",
+      "sha256": "ff4f306084713a881a277feadd34ac4726d3e43a5af4d6edc1372748027bbbba"
+    },
+    {
+      "path": "djangovue3/web/src/components/DictionaryBadge.vue",
+      "sha256": "fbdb62941a96db4d05a6d64ca1d8c52b2aaf37777e9cf69ebda2187cba13cd65"
+    },
+    {
+      "path": "djangovue3/web/src/components/editorToolbar.ts",
+      "sha256": "4375f9c2c2c39621cc8cc41528711301fcbbdbae5a72e7ebef0538389af90ee1"
+    },
+    {
+      "path": "djangovue3/web/src/components/ExcelImport.vue",
+      "sha256": "1db88b41aa31855cba7f03f14169d766a3c6d02f3a02a4490b0440ba1ef3dca7"
+    },
+    {
+      "path": "djangovue3/web/src/components/FieldInput.vue",
+      "sha256": "d05e93356561f763c03542f48c5b53218998068b78a1d17f5f58f75b10086ce9"
+    },
+    {
+      "path": "djangovue3/web/src/components/FilePicker.vue",
+      "sha256": "f38e558911bf31a825cc52a3e8adfdd1d46b478dd04c0900e71c532d3c16c1d1"
+    },
+    {
+      "path": "djangovue3/web/src/components/FileThumbnail.vue",
+      "sha256": "7ce07f9bce9f92884e4b61c5359e1c3b8a5475e5c2960aaee41bbbfd42df8b10"
+    },
+    {
+      "path": "djangovue3/web/src/components/IconPicker.vue",
+      "sha256": "1001e68a1d57dd8922134d5cfb85cf517948f68184cfac91145f03dbf8a5a70c"
+    },
+    {
+      "path": "djangovue3/web/src/components/IframePages.vue",
+      "sha256": "ca0831504ad742e4a611554f71775a512440520b30cdf0798b219355f2f77fa7"
+    },
+    {
+      "path": "djangovue3/web/src/components/MediaPreview.vue",
+      "sha256": "542671ef7db5d6dc6b7de36b23e79d222315dd413bd58df79386a2128b71043a"
+    },
+    {
+      "path": "djangovue3/web/src/components/MenuBranch.vue",
+      "sha256": "c27a4135a4e8a7ea2e3e0609fc64016006caed82dc33a4db46ce886b468965c1"
+    },
+    {
+      "path": "djangovue3/web/src/components/MenuIcon.vue",
+      "sha256": "837397407ad743e0781fc1561261c7c730ddb683024aa929adfd6b9487e4bb5f"
+    },
+    {
+      "path": "djangovue3/web/src/components/MessageRecipients.vue",
+      "sha256": "9836d105512cd400520afc9bc2c8cde2d737f4db3bfea8c18db2b91ebc1b1a6f"
+    },
+    {
+      "path": "djangovue3/web/src/components/NoticeBar.vue",
+      "sha256": "0a9ef8ba80016d72bb7cff89cb70ef94bdc83db0a56156916b1fa0598eaa9f17"
+    },
+    {
+      "path": "djangovue3/web/src/components/RemoteSelect.vue",
+      "sha256": "94066e2fc80f73331f7335d2547b67bb7d428d4cad6e72d89a724e2a4a2ef1eb"
+    },
+    {
+      "path": "djangovue3/web/src/components/ResourceTable.vue",
+      "sha256": "f3cf580409cb916b60255ec69aaa10df6befce41990c87a6d64fce41dfdbbca8"
+    },
+    {
+      "path": "djangovue3/web/src/components/RichText.vue",
+      "sha256": "1361c6e8d17b657790f32427e015e0f10f538950da5808a515e44b258c010b91"
+    },
+    {
+      "path": "djangovue3/web/src/components/RolePermissions.vue",
+      "sha256": "b08ab4e62cadd499ed8a38d263ee36f7afa4de2c488327b6ffe0ab14dc87a575"
+    },
+    {
+      "path": "djangovue3/web/src/components/RoleUsers.vue",
+      "sha256": "40ee56d19850117e4d97efb8dcf1a178d2b57eb6d5840db1f4064eb0d6bfa952"
+    },
+    {
+      "path": "djangovue3/web/src/components/SettingsForm.vue",
+      "sha256": "1353a42216893ee04e3504583316049fcb1e0524fcaca457a99471acad9a69d7"
+    },
+    {
+      "path": "djangovue3/web/src/components/TableSelect.vue",
+      "sha256": "ae0d2ba5648b2481e77a1c67c38501164b6a05c27d15f041ea3894d55bac5056"
+    },
+    {
+      "path": "djangovue3/web/src/components/TagsBar.vue",
+      "sha256": "e961e86d9585d168e29fa86e3bc2c9f8f2361e7849717b65484c8594f2d5c75d"
+    },
+    {
+      "path": "djangovue3/web/src/components/widgets.css",
+      "sha256": "0d3f5f775e558f9c2ca6ce0daa80b46e2f113657e00d4be22d8c7b8dfda3d12b"
+    },
+    {
+      "path": "djangovue3/web/src/env.d.ts",
+      "sha256": "e001151f14714d179e78e67fdca3b8de6b4ad0abad6a4e3dfdcd07d0063cb879"
+    },
+    {
+      "path": "djangovue3/web/src/i18n.ts",
+      "sha256": "209f6a61700343db274254785965278782137c1e4cabfaf1dab485d20df9daeb"
+    },
+    {
+      "path": "djangovue3/web/src/lunar-javascript.d.ts",
+      "sha256": "a3ff309c7f4ff20bf9ed105c9b026525f15b742d30db9e5af0263ed31904a998"
+    },
+    {
+      "path": "djangovue3/web/src/main.ts",
+      "sha256": "c8d91fafa2f241a17b26e4c99c06eb0026bbfe7a2e3eacebc657618932bb172a"
+    },
+    {
+      "path": "djangovue3/web/src/mobile.ts",
+      "sha256": "18fdb8f395d0d24a8c7744cab549a6ebaa18c45f4cef75e53bf628fd98fa59a5"
+    },
+    {
+      "path": "djangovue3/web/src/navigation.ts",
+      "sha256": "f4198b878d124bae3cca5c7b14b0536210f928fe50d9d9c4d6831684e9867a7c"
+    },
+    {
+      "path": "djangovue3/web/src/pages/ChartCrud.vue",
+      "sha256": "704059fc0e343e1a13d0f924f8af8e06a39883276bb863a113b117d58ad84cb8"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Components.vue",
+      "sha256": "455dd4c86ee90716c5ee9a1f646e94b43f3d138c3f78f94f5d56247585515b59"
+    },
+    {
+      "path": "djangovue3/web/src/pages/FirstPassword.vue",
+      "sha256": "54dc9827f5b3ab3e50fe736f3ad65a2f9b7b9cdf1123e7e798c56fe537319568"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Home.vue",
+      "sha256": "8304092daf8240d72af9cd28146112458180e9b693597e64a511adfc4cc6c69a"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Inbox.vue",
+      "sha256": "0d4da6605af4c87c1262dc90a06e8ed7d12838354411dd891a621e126c4bd281"
+    },
+    {
+      "path": "djangovue3/web/src/pages/LinkLanding.vue",
+      "sha256": "4f5512f2d74174665c2698b3444d2804da17bc2026b977b25f36e8f5506ca30a"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Login.vue",
+      "sha256": "69b48a7d74ffa92d5c05cd10518315078dde20b73fd255a49bb9991c12669f6f"
+    },
+    {
+      "path": "djangovue3/web/src/pages/NotFound.vue",
+      "sha256": "000dbc8ac23f1c8521b563db83e4203d452c2365f003c4194273ebb81745a3dc"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Profile.vue",
+      "sha256": "5fba71082d779c4a6262242886573e3e167eb5998fa24ffb46f6a3c0194e40dc"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Resource.vue",
+      "sha256": "f72e246f2e01329862d2b6a65026bd1e1fd25714fb18af7c446f3c1103d88330"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Terms.vue",
+      "sha256": "2d63143d830300aab8b59a035663c723f6494e5221cd5440f58ebf62378d3bde"
+    },
+    {
+      "path": "djangovue3/web/src/pages/Unauthorized.vue",
+      "sha256": "82bd7470299d92ace3183e5acae248472c4b540e407af5cabcfeda452c2f3d77"
+    },
+    {
+      "path": "djangovue3/web/src/permission-grants.ts",
+      "sha256": "878a52b8fb4218e79e0bd2dea4da68b39112b6112d19cc55bff59271fe05d691"
+    },
+    {
+      "path": "djangovue3/web/src/plugins/index.ts",
+      "sha256": "0709e2a3f559bcb55f6591abbb908a01404c4f8bcefa452da742d389d4f045bc"
+    },
+    {
+      "path": "djangovue3/web/src/resource-config.ts",
+      "sha256": "b5369f2def0a1eb68d42c20bbbf9860bc3829c0e7bcf5b9f7490c5b4f7865a2e"
+    },
+    {
+      "path": "djangovue3/web/src/resource-query.ts",
+      "sha256": "3c64b32331986b94e6c6887644ad1102fa1343592cfc583f5e6d3a2b8c40db26"
+    },
+    {
+      "path": "djangovue3/web/src/responsive.css",
+      "sha256": "8cf7723677a38e6b3411471dc5c9bcc409b4813eee063f136015c2ed271968f7"
+    },
+    {
+      "path": "djangovue3/web/src/route-loading.ts",
+      "sha256": "47b89bec59157a2fcd13a1511b2619a7a9d63e2aef8f3d2f31e9423cee300895"
+    },
+    {
+      "path": "djangovue3/web/src/router.ts",
+      "sha256": "7ae73352fc9410f2de04e7d4296cb5dbee8cd3d0163f2fd20a0bdf433609ab4e"
+    },
+    {
+      "path": "djangovue3/web/src/store.ts",
+      "sha256": "b95b6ba8a9ad64c10063a38e3620ece9a635360aa19f00953fbe362d2d1559cc"
+    },
+    {
+      "path": "djangovue3/web/src/style.css",
+      "sha256": "1d1da0587891b38551fe763843589ff86194353dae60d77ca6486c9f21bcdd5c"
+    },
+    {
+      "path": "djangovue3/web/src/tag-color.ts",
+      "sha256": "d6f93e356427100f5e98f6bb5835a24dd6b4a0269e804a76db2cb77ef69aad16"
+    },
+    {
+      "path": "djangovue3/web/src/tree.ts",
+      "sha256": "a161cd313fe16f5cd35a3f97347acf29a52136e135bd70702ecd1d39b13fa51c"
+    },
+    {
+      "path": "djangovue3/web/src/version.ts",
+      "sha256": "eb03e85c919fde21ca4d71432e93dd37fa86f39ec73705b426d767b5ad4623a6"
+    }
+  ],
+  "actions": {
+    "user": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/user/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/user/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/user/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/user/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/user/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/user/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/user/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/user/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/user/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/user/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/user/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/user/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/user/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/user/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/user/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/user/multiple_delete/"
+      ],
+      [
+        "reset-password-post",
+        "reset_password",
+        1,
+        "/api/system/user/{id}/reset_password/"
+      ],
+      [
+        "reset-to-default-password-put",
+        "reset_to_default_password",
+        2,
+        "/api/system/user/{id}/reset_to_default_password/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/user/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/user/update_template/"
+      ]
+    ],
+    "dept": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/dept/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/dept/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/dept/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/dept/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/dept/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/dept/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/dept/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/dept/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/dept/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/dept/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/dept/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/dept/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/dept/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/dept/import_template/"
+      ],
+      [
+        "info-get",
+        "info",
+        0,
+        "/api/system/dept/{id}/info/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/dept/init_data/"
+      ],
+      [
+        "move-down-post",
+        "move_down",
+        1,
+        "/api/system/dept/move_down/"
+      ],
+      [
+        "move-up-post",
+        "move_up",
+        1,
+        "/api/system/dept/move_up/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/dept/multiple_delete/"
+      ],
+      [
+        "options-get",
+        "options",
+        0,
+        "/api/system/dept/options/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/dept/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/dept/update_template/"
+      ]
+    ],
+    "post": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/post/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/post/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/post/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/post/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/post/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/post/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/post/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/post/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/post/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/post/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/post/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/post/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/post/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/post/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/post/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/post/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/post/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/post/update_template/"
+      ]
+    ],
+    "role": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/role/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/role/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/role/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/role/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/role/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/role/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/role/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/role/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/role/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/role/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/role/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/role/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/role/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/role/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/role/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/role/multiple_delete/"
+      ],
+      [
+        "permissions-get",
+        "permissions",
+        0,
+        "/api/system/role/{id}/permissions/"
+      ],
+      [
+        "permissions-put",
+        "permissions",
+        2,
+        "/api/system/role/{id}/permissions/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/role/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/role/update_template/"
+      ],
+      [
+        "users-get",
+        "users",
+        0,
+        "/api/system/role/{id}/users/"
+      ],
+      [
+        "users-put",
+        "users",
+        2,
+        "/api/system/role/{id}/users/"
+      ]
+    ],
+    "menu": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/menu/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/menu/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/menu/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/menu/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/menu/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/menu/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/menu/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/menu/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/menu/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/menu/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/menu/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/menu/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/menu/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/menu/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/menu/init_data/"
+      ],
+      [
+        "move-down-post",
+        "move_down",
+        1,
+        "/api/system/menu/move_down/"
+      ],
+      [
+        "move-up-post",
+        "move_up",
+        1,
+        "/api/system/menu/move_up/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/menu/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/menu/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/menu/update_template/"
+      ]
+    ],
+    "menu_button": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/menu_button/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/menu_button/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/menu_button/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/menu_button/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/menu_button/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/menu_button/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/menu_button/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/menu_button/async_export/"
+      ],
+      [
+        "batch-create-post",
+        "batch_create",
+        1,
+        "/api/system/menu_button/batch_create/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/menu_button/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/menu_button/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/menu_button/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/menu_button/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/menu_button/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/menu_button/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/menu_button/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/menu_button/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/menu_button/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/menu_button/update_template/"
+      ]
+    ],
+    "column": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/column/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/column/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/column/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/column/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/column/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/column/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/column/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/column/async_export/"
+      ],
+      [
+        "auto-match-fields-post",
+        "auto_match_fields",
+        1,
+        "/api/system/column/auto_match_fields/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/column/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/column/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/column/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/column/get_by_ids/"
+      ],
+      [
+        "get-models-get",
+        "get_models",
+        0,
+        "/api/system/column/get_models/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/column/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/column/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/column/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/column/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/column/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/column/update_template/"
+      ]
+    ],
+    "role_menu_permission": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/role_menu_permission/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/role_menu_permission/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/role_menu_permission/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/role_menu_permission/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/role_menu_permission/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/role_menu_permission/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/role_menu_permission/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/role_menu_permission/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/role_menu_permission/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/role_menu_permission/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/role_menu_permission/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/role_menu_permission/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/role_menu_permission/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/role_menu_permission/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/role_menu_permission/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/role_menu_permission/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/role_menu_permission/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/role_menu_permission/update_template/"
+      ]
+    ],
+    "role_menu_button_permission": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/role_menu_button_permission/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/role_menu_button_permission/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/role_menu_button_permission/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/role_menu_button_permission/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/role_menu_button_permission/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/role_menu_button_permission/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/role_menu_button_permission/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/role_menu_button_permission/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/role_menu_button_permission/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/role_menu_button_permission/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/role_menu_button_permission/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/role_menu_button_permission/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/role_menu_button_permission/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/role_menu_button_permission/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/role_menu_button_permission/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/role_menu_button_permission/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/role_menu_button_permission/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/role_menu_button_permission/update_template/"
+      ]
+    ],
+    "field_permission": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/field_permission/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/field_permission/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/field_permission/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/field_permission/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/field_permission/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/field_permission/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/field_permission/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/field_permission/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/field_permission/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/field_permission/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/field_permission/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/field_permission/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/field_permission/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/field_permission/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/field_permission/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/field_permission/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/field_permission/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/field_permission/update_template/"
+      ]
+    ],
+    "api_white_list": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/api_white_list/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/api_white_list/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/api_white_list/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/api_white_list/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/api_white_list/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/api_white_list/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/api_white_list/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/api_white_list/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/api_white_list/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/api_white_list/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/api_white_list/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/api_white_list/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/api_white_list/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/api_white_list/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/api_white_list/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/api_white_list/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/api_white_list/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/api_white_list/update_template/"
+      ]
+    ],
+    "dictionary": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/dictionary/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/dictionary/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/dictionary/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/dictionary/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/dictionary/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/dictionary/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/dictionary/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/dictionary/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/dictionary/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/dictionary/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/dictionary/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/dictionary/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/dictionary/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/dictionary/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/dictionary/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/dictionary/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/dictionary/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/dictionary/update_template/"
+      ]
+    ],
+    "area": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/area/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/area/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/area/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/area/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/area/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/area/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/area/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/area/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/area/batch_update/"
+      ],
+      [
+        "children-get",
+        "children",
+        0,
+        "/api/system/area/children/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/area/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/area/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/area/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/area/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/area/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/area/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/area/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/area/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/area/update_template/"
+      ]
+    ],
+    "system_config": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/system_config/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/system_config/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/system_config/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/system_config/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/system_config/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/system_config/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/system_config/{id}/"
+      ],
+      [
+        "association-tables-get",
+        "association_tables",
+        0,
+        "/api/system/system_config/association_tables/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/system_config/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/system_config/batch_update/"
+      ],
+      [
+        "content-put",
+        "content",
+        2,
+        "/api/system/system_config/{id}/content/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/system_config/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/system_config/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/system_config/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/system_config/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/system_config/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/system_config/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/system_config/multiple_delete/"
+      ],
+      [
+        "relation-info-get",
+        "relation_info",
+        0,
+        "/api/system/system_config/relation_info/"
+      ],
+      [
+        "table-data-get",
+        "table_data",
+        0,
+        "/api/system/system_config/{id}/table_data/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/system_config/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/system_config/update_template/"
+      ]
+    ],
+    "file": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/file/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/file/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/file/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/file/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/file/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/file/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/file/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/file/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/file/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/file/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/file/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/file/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/file/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/file/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/file/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/file/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/file/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/file/update_template/"
+      ]
+    ],
+    "operation_log": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/operation_log/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/operation_log/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/operation_log/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/operation_log/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/operation_log/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/operation_log/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/operation_log/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/operation_log/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/operation_log/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/operation_log/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/operation_log/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/operation_log/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/operation_log/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/operation_log/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/operation_log/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/operation_log/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/operation_log/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/operation_log/update_template/"
+      ]
+    ],
+    "login_log": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/login_log/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/login_log/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/login_log/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/login_log/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/login_log/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/login_log/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/login_log/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/login_log/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/login_log/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/login_log/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/login_log/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/login_log/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/login_log/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/login_log/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/login_log/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/login_log/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/login_log/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/login_log/update_template/"
+      ]
+    ],
+    "message_center": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/message_center/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/message_center/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/message_center/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/message_center/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/message_center/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/message_center/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/message_center/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/message_center/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/message_center/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/message_center/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/message_center/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/message_center/get_by_ids/"
+      ],
+      [
+        "get-newest-msg-get",
+        "get_newest_msg",
+        0,
+        "/api/system/message_center/get_newest_msg/"
+      ],
+      [
+        "get-self-receive-get",
+        "get_self_receive",
+        0,
+        "/api/system/message_center/get_self_receive/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/message_center/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/message_center/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/message_center/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/message_center/multiple_delete/"
+      ],
+      [
+        "publish-post",
+        "publish",
+        1,
+        "/api/system/message_center/{id}/publish/"
+      ],
+      [
+        "recipients-get",
+        "recipients",
+        0,
+        "/api/system/message_center/{id}/recipients/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/message_center/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/message_center/update_template/"
+      ]
+    ],
+    "download_center": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/download_center/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/download_center/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/download_center/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/download_center/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/download_center/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/download_center/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/download_center/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/download_center/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/download_center/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/download_center/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/download_center/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/download_center/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/download_center/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/download_center/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/download_center/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/download_center/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/download_center/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/download_center/update_template/"
+      ]
+    ],
+    "periodic_task": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/periodic_task/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/periodic_task/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/periodic_task/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/periodic_task/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/periodic_task/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/periodic_task/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/periodic_task/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/periodic_task/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/periodic_task/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/periodic_task/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/periodic_task/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/periodic_task/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/periodic_task/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/periodic_task/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/periodic_task/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/periodic_task/multiple_delete/"
+      ],
+      [
+        "run-post",
+        "run",
+        1,
+        "/api/system/periodic_task/{id}/run/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/periodic_task/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/periodic_task/update_template/"
+      ]
+    ],
+    "interval_schedule": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/interval_schedule/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/interval_schedule/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/interval_schedule/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/interval_schedule/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/interval_schedule/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/interval_schedule/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/interval_schedule/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/interval_schedule/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/interval_schedule/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/interval_schedule/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/interval_schedule/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/interval_schedule/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/interval_schedule/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/interval_schedule/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/interval_schedule/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/interval_schedule/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/interval_schedule/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/interval_schedule/update_template/"
+      ]
+    ],
+    "crontab_schedule": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/crontab_schedule/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/crontab_schedule/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/crontab_schedule/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/crontab_schedule/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/crontab_schedule/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/crontab_schedule/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/crontab_schedule/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/crontab_schedule/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/crontab_schedule/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/crontab_schedule/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/crontab_schedule/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/crontab_schedule/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/crontab_schedule/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/crontab_schedule/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/crontab_schedule/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/crontab_schedule/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/crontab_schedule/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/crontab_schedule/update_template/"
+      ]
+    ],
+    "clocked_schedule": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/clocked_schedule/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/clocked_schedule/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/clocked_schedule/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/clocked_schedule/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/clocked_schedule/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/clocked_schedule/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/clocked_schedule/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/clocked_schedule/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/clocked_schedule/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/clocked_schedule/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/clocked_schedule/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/clocked_schedule/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/clocked_schedule/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/clocked_schedule/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/clocked_schedule/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/clocked_schedule/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/clocked_schedule/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/clocked_schedule/update_template/"
+      ]
+    ],
+    "solar_schedule": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/solar_schedule/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/solar_schedule/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/solar_schedule/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/solar_schedule/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/solar_schedule/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/solar_schedule/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/solar_schedule/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/solar_schedule/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/solar_schedule/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/solar_schedule/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/solar_schedule/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/solar_schedule/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/solar_schedule/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/solar_schedule/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/solar_schedule/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/solar_schedule/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/solar_schedule/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/solar_schedule/update_template/"
+      ]
+    ],
+    "task_result": [
+      [
+        "list",
+        "查询",
+        0,
+        "/api/system/task_result/"
+      ],
+      [
+        "add",
+        "新增",
+        1,
+        "/api/system/task_result/"
+      ],
+      [
+        "copy",
+        "复制",
+        1,
+        "/api/system/task_result/"
+      ],
+      [
+        "detail",
+        "详情",
+        0,
+        "/api/system/task_result/{id}/"
+      ],
+      [
+        "edit",
+        "修改",
+        2,
+        "/api/system/task_result/{id}/"
+      ],
+      [
+        "patch",
+        "局部修改",
+        5,
+        "/api/system/task_result/{id}/"
+      ],
+      [
+        "delete",
+        "删除",
+        3,
+        "/api/system/task_result/{id}/"
+      ],
+      [
+        "async-export-post",
+        "async_export",
+        1,
+        "/api/system/task_result/async_export/"
+      ],
+      [
+        "batch-update-put",
+        "batch_update",
+        2,
+        "/api/system/task_result/batch_update/"
+      ],
+      [
+        "export-get",
+        "export",
+        0,
+        "/api/system/task_result/export/"
+      ],
+      [
+        "field-permission-get",
+        "field_permission",
+        0,
+        "/api/system/task_result/field_permission/"
+      ],
+      [
+        "get-by-ids-post",
+        "get_by_ids",
+        1,
+        "/api/system/task_result/get_by_ids/"
+      ],
+      [
+        "import-data-post",
+        "import_data",
+        1,
+        "/api/system/task_result/import/"
+      ],
+      [
+        "import-template-get",
+        "import_template",
+        0,
+        "/api/system/task_result/import_template/"
+      ],
+      [
+        "init-data-get",
+        "init_data",
+        0,
+        "/api/system/task_result/init_data/"
+      ],
+      [
+        "multiple-delete-delete",
+        "multiple_delete",
+        3,
+        "/api/system/task_result/multiple_delete/"
+      ],
+      [
+        "tree-get",
+        "tree",
+        0,
+        "/api/system/task_result/tree/"
+      ],
+      [
+        "update-template-get",
+        "update_template",
+        0,
+        "/api/system/task_result/update_template/"
+      ]
+    ]
+  },
+  "model_identity_catalog": [
+    {
+      "app": "system",
+      "model": "Dept",
+      "label": "system.Dept"
+    },
+    {
+      "app": "system",
+      "model": "Role",
+      "label": "system.Role"
+    },
+    {
+      "app": "system",
+      "model": "Post",
+      "label": "system.Post"
+    },
+    {
+      "app": "system",
+      "model": "Users",
+      "label": "system.Users"
+    },
+    {
+      "app": "system",
+      "model": "Menu",
+      "label": "system.Menu"
+    },
+    {
+      "app": "system",
+      "model": "MenuButton",
+      "label": "system.MenuButton"
+    },
+    {
+      "app": "system",
+      "model": "MenuField",
+      "label": "system.MenuField"
+    },
+    {
+      "app": "system",
+      "model": "RoleMenuPermission",
+      "label": "system.RoleMenuPermission"
+    },
+    {
+      "app": "system",
+      "model": "RoleMenuButtonPermission",
+      "label": "system.RoleMenuButtonPermission"
+    },
+    {
+      "app": "system",
+      "model": "FieldPermission",
+      "label": "system.FieldPermission"
+    },
+    {
+      "app": "system",
+      "model": "ApiWhiteList",
+      "label": "system.ApiWhiteList"
+    },
+    {
+      "app": "system",
+      "model": "Dictionary",
+      "label": "system.Dictionary"
+    },
+    {
+      "app": "system",
+      "model": "Area",
+      "label": "system.Area"
+    },
+    {
+      "app": "system",
+      "model": "SystemConfig",
+      "label": "system.SystemConfig"
+    },
+    {
+      "app": "system",
+      "model": "FileList",
+      "label": "system.FileList"
+    },
+    {
+      "app": "system",
+      "model": "OperationLog",
+      "label": "system.OperationLog"
+    },
+    {
+      "app": "system",
+      "model": "LoginLog",
+      "label": "system.LoginLog"
+    },
+    {
+      "app": "system",
+      "model": "MessageCenter",
+      "label": "system.MessageCenter"
+    },
+    {
+      "app": "system",
+      "model": "MessageCenterTargetUser",
+      "label": "system.MessageCenterTargetUser"
+    },
+    {
+      "app": "system",
+      "model": "DownloadCenter",
+      "label": "system.DownloadCenter"
+    }
+  ],
+  "release_readonly_check": {
+    "program_sha256": "2795ae85cc86d12b72941169fdbe16ffa01c5b394b2708796030e95b279656df",
+    "index_sha256": "ab19c388333931795903a26a4a9b272d7e78e6ddaaa8f6cab3d8ffba8786037c",
+    "health": {
+      "status": "ok"
+    },
+    "restarted": false,
+    "database_migrated": false,
+    "matches_previous_release": true
+  },
+  "end_check": {
+    "time": "2026-10-09T12:26:24.877847",
+    "original_unchanged": true,
+    "current_unchanged": true,
+    "current_files": 139,
+    "original_files": 399
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "base": "http://127.0.0.1:8008",
+  "health": {
+    "/healthz": {
+      "status": "ok"
+    },
+    "/readiness": {
+      "status": "ok",
+      "database": "sqlite"
+    }
+  },
+  "build_version": "1.0.0.1791577969897",
+  "served_index_sha256": "fdbfb353041230eb15f584d7894a60aca4ddc3bb81d14876b5fe80eb0779be65",
+  "program_sha256": "6119be54931a835988956ff44ff5b3a82bb0194fb75ffafb2e86514f9863f645",
+  "preserved": {
+    "accounts": true,
+    "permissions": true,
+    "media": true
+  },
+  "frozen_metadata": "post normal serializer/import supported",
+  "fixture_models_packaged": false,
+  "fixture_archive_modules": [],
+  "candidate_run_did_not_write_production": true
+}

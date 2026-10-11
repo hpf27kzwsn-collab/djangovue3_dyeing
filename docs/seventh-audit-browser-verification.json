@@ -1,0 +1,336 @@
+{
+  "date": "2026-10-09",
+  "environment": "disposable runtime/seventh-env, 8007/6395; unchanged released web bundle",
+  "shareToggle": {
+    "viewport": 390,
+    "route": "/system/user?dept=3",
+    "activeTabs": 0,
+    "error": [
+      {
+        "level": "error",
+        "message": "TypeError: Cannot read properties of undefined (reading 'fullPath')\n    at b (http://127.0.0.1:8007/static/assets/index-BxYekB10.js:42:47229)\n    at w (http://127.0.0.1:8007/static/assets/index-BxYekB10.js:42:47669)\n    at xn (http://127.0.0.1:8007/static/assets/runtime-core.esm-bundler-BiUfxSJj.js:1:20958)\n    at B (http://127.0.0.1:8007/static/assets/runtime-core.esm-bundler-BiUfxSJj.js:1:21025)\n    at Wi (http://127.0.0.1:8007/static/assets/runtime-core.esm-bundler-BiUfxSJj.js:1:45930)\n    at Object.x [as commandHandler] (http://127.0.0.1:8007/static/assets/index-BxYekB10.js:38:151335)\n    at http://127.0.0.1:8007/static/assets/index-BxYekB10.js:38:157340\n    at http://127.0.0.1:8007/static/assets/api-DAkV4tF0.js:1:22360\n    at xn (http://127.0.0.1:8007/static/assets/runtime-core.esm-bundler-BiUfxSJj.js:1:20958)\n    at B (http://127.0.0.1:8007/static/assets/runtime-core.esm-bundler-BiUfxSJj.js:1:21025)",
+        "timestamp": "2026-10-09T06:30:35.536Z",
+        "url": "http://127.0.0.1:8007/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+      }
+    ],
+    "screenshot": "seventh-mobile-tags.png"
+  },
+  "pages": [
+    {
+      "documentWidth": 375,
+      "entity": "user",
+      "main": true,
+      "tables": 2,
+      "title": "用户",
+      "viewport": 390
+    },
+    {
+      "documentWidth": 383,
+      "entity": "dept",
+      "main": true,
+      "tables": 2,
+      "title": "部门",
+      "viewport": 390
+    },
+    {
+      "documentWidth": 383,
+      "entity": "post",
+      "main": true,
+      "tables": 2,
+      "title": "岗位",
+      "viewport": 390
+    },
+    {
+      "documentWidth": 383,
+      "entity": "role",
+      "main": true,
+      "tables": 2,
+      "title": "角色",
+      "viewport": 390
+    },
+    {
+      "documentWidth": 375,
+      "entity": "menu",
+      "main": true,
+      "tables": 2,
+      "title": "菜单",
+      "viewport": 390
+    },
+    {
+      "documentWidth": 381,
+      "entity": "menu_button",
+      "main": true,
+      "tables": 2,
+      "title": "菜单按钮",
+      "viewport": 390
+    },
+    {
+      "documentWidth": 383,
+      "entity": "column",
+      "main": true,
+      "tables": 2,
+      "title": "菜单字段",
+      "viewport": 390
+    },
+    {
+      "documentWidth": 377,
+      "entity": "role_menu_permission",
+      "main": true,
+      "tables": 2,
+      "title": "角色菜单权限",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 377,
+      "entity": "role_menu_button_permission",
+      "main": true,
+      "tables": 2,
+      "title": "角色按钮权限",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "field_permission",
+      "main": true,
+      "tables": 2,
+      "title": "字段权限",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "api_white_list",
+      "main": true,
+      "tables": 2,
+      "title": "接口白名单",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 381,
+      "entity": "dictionary",
+      "main": true,
+      "tables": 2,
+      "title": "字典",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "area",
+      "main": true,
+      "tables": 2,
+      "title": "区域",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 377,
+      "entity": "system_config",
+      "main": true,
+      "tables": 2,
+      "title": "系统配置",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "file",
+      "main": true,
+      "tables": 2,
+      "title": "附件",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "operation_log",
+      "main": true,
+      "tables": 2,
+      "title": "操作日志",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "login_log",
+      "main": true,
+      "tables": 2,
+      "title": "登录日志",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "message_center",
+      "main": true,
+      "tables": 2,
+      "title": "消息",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "download_center",
+      "main": true,
+      "tables": 2,
+      "title": "下载任务",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "periodic_task",
+      "main": true,
+      "tables": 2,
+      "title": "周期性任务",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "interval_schedule",
+      "main": true,
+      "tables": 2,
+      "title": "间隔",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "crontab_schedule",
+      "main": true,
+      "tables": 2,
+      "title": "计划任务",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "clocked_schedule",
+      "main": true,
+      "tables": 2,
+      "title": "定时",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "solar_schedule",
+      "main": true,
+      "tables": 2,
+      "title": "日程事件",
+      "viewport": 390
+    },
+    {
+      "clientWidth": 375,
+      "documentWidth": 383,
+      "entity": "task_result",
+      "main": true,
+      "tables": 2,
+      "title": "task result",
+      "viewport": 390
+    }
+  ],
+  "autoScroll": {
+    "active": "task result↻×",
+    "more": {
+      "left": 1372.822998046875,
+      "right": 1436.822998046875
+    },
+    "nav": {
+      "left": 0,
+      "right": 374.6666870117187
+    },
+    "scrollLeft": 0,
+    "scrollWidth": 1449,
+    "tab": {
+      "left": 1228.5,
+      "right": 1366.8229217529297
+    },
+    "viewport": 390
+  },
+  "widthInterpretation": "Immediate page probes include slide-right transition frames; their transient 2–8px overflow is not a steady-state layout finding. Stable measurements recorded separately.",
+  "stableWidths": [
+    {
+      "clientWidth": 305,
+      "pageClass": "page",
+      "pageRight": 292.66668701171875,
+      "scrollWidth": 305,
+      "viewport": 320
+    },
+    {
+      "clientWidth": 375,
+      "pageClass": "page",
+      "pageRight": 362.6666870117187,
+      "scrollWidth": 375,
+      "viewport": 390
+    },
+    {
+      "clientWidth": 753,
+      "pageClass": "page",
+      "pageRight": 740.6666870117188,
+      "scrollWidth": 753,
+      "viewport": 768
+    }
+  ],
+  "postAdd320": {
+    "clientWidth": 320,
+    "dialogs": [
+      {
+        "left": 0,
+        "right": 320,
+        "width": 320
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      },
+      {
+        "left": 0,
+        "right": 0,
+        "width": 0
+      }
+    ],
+    "scrollWidth": 320,
+    "viewport": 320
+  }
+}

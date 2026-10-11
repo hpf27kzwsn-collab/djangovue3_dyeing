@@ -1,0 +1,27 @@
+{
+  "verified_at": "2026-10-10T05:04:07.335270+08:00",
+  "stopped_owned_process_ids": [
+    17920,
+    2288,
+    16332,
+    7320,
+    13256,
+    18692,
+    19372,
+    7164,
+    292,
+    17188
+  ],
+  "closed_ports": [
+    8007,
+    8008,
+    8009,
+    6395
+  ],
+  "formal_port": 8000,
+  "formal_process": 7204,
+  "browser_created_tab_closed": true,
+  "browser_viewport_reset": true,
+  "method": "exact owned paths and Redis listener checked before stopping; second TCP/process inspection confirmed exits",
+  "initial_immediate_check": "listeners briefly remained during process exit; second inspection showed only formal 8000"
+}

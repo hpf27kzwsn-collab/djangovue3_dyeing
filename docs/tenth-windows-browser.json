@@ -1,0 +1,815 @@
+{
+  "at": "2026-10-10T06:16:41.933Z",
+  "scope": "Windows web 1440x900, isolated existing ninth fixture, entry rendering only",
+  "resources": [
+    {
+      "entity": "user",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "选择关联记录",
+        "查询",
+        "重置",
+        "添加",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "重置密码",
+        "恢复默认密码"
+      ],
+      "errors": [],
+      "heading": "用户",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "dept",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "部门用户",
+        "上移",
+        "下移"
+      ],
+      "errors": [],
+      "heading": "部门",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "post",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "岗位",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "role",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "权限配置",
+        "授权用户"
+      ],
+      "errors": [],
+      "heading": "角色",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "menu",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "全部",
+        "查询",
+        "重置",
+        "添加",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "按钮",
+        "字段",
+        "上移",
+        "下移"
+      ],
+      "errors": [],
+      "heading": "菜单",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "menu_button",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "菜单按钮",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "column",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "菜单字段",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "role_menu_permission",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "选择关联记录",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "角色菜单权限",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "role_menu_button_permission",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "选择关联记录",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "角色按钮权限",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "field_permission",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "选择关联记录",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "字段权限",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "api_white_list",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "接口白名单",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "dictionary",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "全部",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "字典配置"
+      ],
+      "errors": [],
+      "heading": "字典",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "area",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "全部",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "区域",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "system_config",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "全部",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "配置表单"
+      ],
+      "errors": [],
+      "heading": "系统配置",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "file",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "音频",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "下载",
+        "预览"
+      ],
+      "errors": [],
+      "heading": "附件",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "operation_log",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "选择关联记录",
+        "查询",
+        "重置",
+        "",
+        "查看",
+        "删除",
+        "JSON 明细"
+      ],
+      "errors": [],
+      "heading": "操作日志",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "login_log",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "",
+        "查看",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "登录日志",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "message_center",
+      "buttons": [
+        "我的接收",
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "选择关联记录",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "收件明细",
+        "发布"
+      ],
+      "errors": [],
+      "heading": "消息",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "download_center",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "",
+        "查看",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "下载任务",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "periodic_task",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "间隔规则",
+        "Crontab 规则",
+        "指定时间",
+        "太阳事件",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除",
+        "执行一次"
+      ],
+      "errors": [],
+      "heading": "周期性任务",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "interval_schedule",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "间隔",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "crontab_schedule",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "计划任务",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "clocked_schedule",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "定时",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "solar_schedule",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "新增模板",
+        "更新模板",
+        "xlsx 导入",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "添加",
+        "",
+        "查看",
+        "复制",
+        "编辑",
+        "删除"
+      ],
+      "errors": [],
+      "heading": "日程事件",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "entity": "task_result",
+      "buttons": [
+        "导出",
+        "异步导出",
+        "初始化数据",
+        "已选 0 项",
+        "批量删除",
+        "查询",
+        "重置",
+        "",
+        "查看",
+        "删除",
+        "JSON 明细"
+      ],
+      "errors": [],
+      "heading": "task result",
+      "table": true,
+      "viewport": [
+        1440,
+        900
+      ]
+    }
+  ],
+  "filePicker": {
+    "total": 44,
+    "pageSizeSelector": false,
+    "pageSize": 10,
+    "observed": "DOM pagination has prev/pager/next/total; no sizes selector"
+  },
+  "notes": [
+    "No CRUD/save flow claim for these 25 entry checks",
+    "Formal 8000 untouched"
+  ],
+  "departmentFold": {
+    "button": [
+      "显示统计图"
+    ],
+    "chartsVisible": false,
+    "summaryText": "含下级部门部门统计本机验收部门 · 35 人 · 负责人：未设置 · 男 0 / 女 0 / 未知 35本机验收子部门：0 人显示统计图01本机验收子部门0部门人数男女未知男女未知用户性别",
+    "summaryVisible": true
+  },
+  "screenshotNote": "Background screenshot attempt was unavailable; no screenshot evidence claimed.",
+  "standalonePages": [
+    {
+      "path": "/",
+      "errors": [],
+      "headings": [
+        "你好，超级管理员"
+      ],
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "/profile",
+      "errors": [],
+      "headings": [
+        "个人中心"
+      ],
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "/inbox",
+      "errors": [],
+      "headings": [
+        "我的接收 0 条未读"
+      ],
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "/401",
+      "kind": "result panel",
+      "text": "401\n\n无访问权限\n\n返回首页\n切换账号"
+    },
+    {
+      "path": "/terms/privacy",
+      "errors": [],
+      "text": "隐私政策此平台用于本地组织管理。账号资料、业务附件和操作记录保存在运行平台的设备中。账号权限由平台管理员配置。请按组织规定使用平台和管理数据。返回登录",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "/terms/service",
+      "errors": [],
+      "text": "服务条款此平台用于本地组织管理。账号资料、业务附件和操作记录保存在运行平台的设备中。账号权限由平台管理员配置。请按组织规定使用平台和管理数据。返回登录",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "/__tenth_audit_missing__",
+      "errors": [],
+      "text": "404页面不存在返回首页",
+      "viewport": [
+        1440,
+        900
+      ]
+    }
+  ],
+  "componentsEntry": {
+    "path": "/components",
+    "heading": "组件示例",
+    "tabs": [
+      "滚动公告",
+      "日历",
+      "文件选择器",
+      "富文本",
+      "关联与授权",
+      "头像裁剪"
+    ]
+  },
+  "observationErrors": [
+    "Screenshot unavailable in background",
+    "h1/h2 locator unsuitable for 401 el-result; corrected to actual result panel"
+  ]
+}

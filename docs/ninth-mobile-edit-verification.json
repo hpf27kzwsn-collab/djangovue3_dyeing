@@ -1,0 +1,180 @@
+{
+  "edits": [
+    {
+      "entity": "post",
+      "field": "description",
+      "value": "本机移动编辑验收 post",
+      "primary_keys": [
+        32
+      ]
+    },
+    {
+      "entity": "user",
+      "field": "description",
+      "value": "本机移动编辑验收 user",
+      "primary_keys": [
+        36
+      ]
+    },
+    {
+      "entity": "dept",
+      "field": "description",
+      "value": "本机移动编辑验收 dept",
+      "primary_keys": [
+        4
+      ]
+    },
+    {
+      "entity": "role",
+      "field": "description",
+      "value": "本机移动编辑验收 role",
+      "primary_keys": [
+        6
+      ]
+    },
+    {
+      "entity": "menu",
+      "field": "description",
+      "value": "本机移动编辑验收 menu",
+      "primary_keys": [
+        1
+      ]
+    },
+    {
+      "entity": "menu_button",
+      "field": "description",
+      "value": "本机移动编辑验收 menu_button",
+      "primary_keys": [
+        258
+      ]
+    },
+    {
+      "entity": "column",
+      "field": "description",
+      "value": "本机移动编辑验收 column",
+      "primary_keys": [
+        203
+      ]
+    },
+    {
+      "entity": "role_menu_permission",
+      "field": "description",
+      "value": "本机移动编辑验收 role_menu_permission",
+      "primary_keys": [
+        82
+      ]
+    },
+    {
+      "entity": "role_menu_button_permission",
+      "field": "description",
+      "value": "本机移动编辑验收 role_menu_button_permission",
+      "primary_keys": [
+        830
+      ]
+    },
+    {
+      "entity": "field_permission",
+      "field": "description",
+      "value": "本机移动编辑验收 field_permission",
+      "primary_keys": [
+        374
+      ]
+    },
+    {
+      "entity": "api_white_list",
+      "field": "description",
+      "value": "本机移动编辑验收 api_white_list",
+      "primary_keys": [
+        30
+      ]
+    },
+    {
+      "entity": "dictionary",
+      "field": "description",
+      "value": "本机移动编辑验收 dictionary",
+      "primary_keys": [
+        1
+      ]
+    },
+    {
+      "entity": "area",
+      "field": "description",
+      "value": "本机移动编辑验收 area",
+      "primary_keys": [
+        "NINTH-00"
+      ]
+    },
+    {
+      "entity": "system_config",
+      "field": "description",
+      "value": "本机移动编辑验收 system_config",
+      "primary_keys": [
+        17
+      ]
+    },
+    {
+      "entity": "file",
+      "field": "description",
+      "value": "本机移动编辑验收 file",
+      "primary_keys": [
+        42
+      ]
+    },
+    {
+      "entity": "message_center",
+      "field": "description",
+      "value": "本机移动编辑验收 message_center",
+      "primary_keys": [
+        30
+      ]
+    },
+    {
+      "entity": "periodic_task",
+      "field": "description",
+      "value": "本机移动编辑验收 periodic_task",
+      "primary_keys": [
+        32
+      ]
+    },
+    {
+      "entity": "interval_schedule",
+      "field": "every",
+      "value": 2059,
+      "primary_keys": [
+        1
+      ]
+    },
+    {
+      "entity": "crontab_schedule",
+      "field": "minute",
+      "value": "41",
+      "primary_keys": [
+        2
+      ]
+    },
+    {
+      "entity": "clocked_schedule",
+      "field": "clocked_time",
+      "value": "2030-01-02 10:11:12",
+      "primary_keys": [
+        1
+      ]
+    },
+    {
+      "entity": "solar_schedule",
+      "field": "latitude",
+      "value": "31.125",
+      "primary_keys": [
+        1
+      ]
+    }
+  ],
+  "avatar": {
+    "url": "http://127.0.0.1:8011/media/files/2026/10/avatar_Vlxy3WG.png",
+    "format": "PNG",
+    "size": [
+      120,
+      80
+    ]
+  }
+}

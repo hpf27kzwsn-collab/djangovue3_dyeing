@@ -1,0 +1,18 @@
+{
+  "test_database_merged": false,
+  "media_preserved": true,
+  "database_copy_equal": true,
+  "backup": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\previous-tenth-20261010",
+  "removed_obsolete_grants": [
+    39
+  ],
+  "retained_permissions_preserved": true,
+  "accounts_preserved": true,
+  "roles_preserved": true,
+  "retained_field_definitions_preserved": true,
+  "release": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\dist\\djangovue3",
+  "launcher_pid": 9020,
+  "removed_obsolete_fields": [
+    39
+  ]
+}

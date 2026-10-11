@@ -1,0 +1,23 @@
+{
+  "resource_metadata_and_list": 25,
+  "version": "1.0.0.1791688444185",
+  "frontend_backend_version_equal": true,
+  "first_password_state_unchanged": true,
+  "known_test_records_remaining": 0,
+  "iframe_test_menu_absent": true,
+  "readiness": {
+    "status": "ok",
+    "database": "sqlite"
+  },
+  "browser_verification": {
+    "environment": "isolated database, signing key and port 8008",
+    "old_columns_preference_migrated": true,
+    "catalog_rails": 0,
+    "sidebars": 1,
+    "appearance_selected_layout": "defaults",
+    "login_logs_displayed": 0,
+    "screenshot": "navigation-single-sidebar.png",
+    "fixture_removed": true
+  },
+  "formal_database_final_comparison": "only the three explicitly cleaned tables changed"
+}

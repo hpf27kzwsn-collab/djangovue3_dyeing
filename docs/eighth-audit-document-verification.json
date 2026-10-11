@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-10",
+  "stable_ids": 236,
+  "current_module_count": 15,
+  "choices": 24,
+  "checked_local_links": 548,
+  "invalid_links": [],
+  "release_digests_unchanged": true,
+  "release_digests": {
+    "program_sha256": "c2b859a5c23d6cae71b2da87043089ccdd08a15a3ad7b6527ad8a3b75aa99a25",
+    "index_sha256": "1ccdb546e21ca568bf937caafa414127355dc14386d04b4be6d8c6d0b3b6f266"
+  },
+  "status_counts": {
+    "C": 31,
+    "D": 6,
+    "I": 58,
+    "O": 5,
+    "S": 111,
+    "U": 17,
+    "V": 2,
+    "X": 6
+  }
+}

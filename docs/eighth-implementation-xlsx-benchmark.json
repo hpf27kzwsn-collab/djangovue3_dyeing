@@ -1,0 +1,175 @@
+{
+  "method": "real HTTP, actual openpyxl import/update/sync and Celery async export; isolated database; sampled sum of server and two workers RSS",
+  "date": "2026-10-10",
+  "results": [
+    {
+      "rows": 1000,
+      "measurements": [
+        {
+          "operation": "create_1000",
+          "seconds": 1.34,
+          "peak_sampled_combined_rss_mib": 511.26
+        },
+        {
+          "operation": "update_1000",
+          "seconds": 1.906,
+          "peak_sampled_combined_rss_mib": 514.28
+        },
+        {
+          "operation": "sync_export_1000",
+          "seconds": 1.576,
+          "peak_sampled_combined_rss_mib": 518.38
+        },
+        {
+          "operation": "async_export_1000",
+          "seconds": 1.674,
+          "peak_sampled_combined_rss_mib": 518.45
+        }
+      ],
+      "download_id": 8,
+      "task_id": "f136b771-45bc-4e46-acd0-034f4736a130",
+      "xlsx_bytes": 58497,
+      "sync_async_rows_equal": true
+    },
+    {
+      "rows": 10000,
+      "measurements": [
+        {
+          "operation": "create_10000",
+          "seconds": 13.695,
+          "peak_sampled_combined_rss_mib": 523.87
+        },
+        {
+          "operation": "update_10000",
+          "seconds": 24.303,
+          "peak_sampled_combined_rss_mib": 574.88
+        },
+        {
+          "operation": "sync_export_10000",
+          "seconds": 18.298,
+          "peak_sampled_combined_rss_mib": 578.43
+        },
+        {
+          "operation": "async_export_10000",
+          "seconds": 15.25,
+          "peak_sampled_combined_rss_mib": 658.06
+        }
+      ],
+      "download_id": 9,
+      "task_id": "620747ee-9011-4d0b-8b59-1c3f0c04c098",
+      "xlsx_bytes": 513963,
+      "sync_async_rows_equal": true
+    },
+    {
+      "rows": 100000,
+      "measurements": [
+        {
+          "operation": "create_100000",
+          "seconds": 150.538,
+          "peak_sampled_combined_rss_mib": 658.33,
+          "measured_before_list_prefetch_fix": true
+        },
+        {
+          "operation": "update_100000",
+          "seconds": 218.249,
+          "peak_sampled_combined_rss_mib": 1328.84
+        },
+        {
+          "operation": "sync_export_100000",
+          "seconds": 152.581,
+          "peak_sampled_combined_rss_mib": 1138.92
+        },
+        {
+          "operation": "async_export_100000",
+          "seconds": 150.392,
+          "peak_sampled_combined_rss_mib": 1838.54
+        }
+      ],
+      "download_id": 10,
+      "task_id": "cd4d3a4d-1228-4917-9abe-56fcfa7ded89",
+      "xlsx_bytes": 5057052,
+      "sync_async_rows_equal": true
+    }
+  ],
+  "measured_pids": [
+    18884,
+    17060,
+    14000,
+    19016,
+    15192,
+    17024
+  ],
+  "large_page_failure_before_fix": {
+    "status": 500,
+    "detail": "too many SQL variables at limit=100000"
+  },
+  "sqlite_concurrency": [
+    {
+      "parallel": 2,
+      "rows_per_request": 1000,
+      "results": [
+        {
+          "status": "success",
+          "created": 1000,
+          "seconds": 1.389
+        },
+        {
+          "status": "success",
+          "created": 1000,
+          "seconds": 3.034
+        }
+      ]
+    },
+    {
+      "parallel": 4,
+      "rows_per_request": 1000,
+      "results": [
+        {
+          "status": "success",
+          "created": 1000,
+          "seconds": 1.488
+        },
+        {
+          "status": "success",
+          "created": 1000,
+          "seconds": 4.391
+        },
+        {
+          "status": "success",
+          "created": 1000,
+          "seconds": 2.912
+        },
+        {
+          "status": "success",
+          "created": 1000,
+          "seconds": 5.777
+        }
+      ]
+    }
+  ],
+  "process_measurement_phases": [
+    {
+      "operations": "1000/10000 all operations and 100000 create",
+      "measured_pids": [
+        18884,
+        17060,
+        14000,
+        19016,
+        15192,
+        17024
+      ]
+    },
+    {
+      "operations": "100000 update/sync export/async export and concurrent imports after server restart",
+      "measured_pids": [
+        18068,
+        18128,
+        18884,
+        19016,
+        17060,
+        14000
+      ]
+    }
+  ],
+  "measured_pids_scope": "initial phase only; resumed phase has its own process_measurement_phases entry"
+}

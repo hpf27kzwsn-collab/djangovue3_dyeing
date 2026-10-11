@@ -1,0 +1,45 @@
+{
+  "base": "http://127.0.0.1:8002",
+  "isolated_database": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\verified-release-dist\\djangovue3\\backend\\db.sqlite3",
+  "redis_port": 6390,
+  "health": {
+    "status": "ok"
+  },
+  "readiness": {
+    "status": "ok",
+    "database": "sqlite"
+  },
+  "export": {
+    "id": 4,
+    "task_status": 2,
+    "rows": 2,
+    "size": 8764,
+    "md5sum": "4799fc0d29348b0c213d4317a1c951f6",
+    "sync_async_equal": true
+  },
+  "task": {
+    "id": 5,
+    "name": "隔离最终包定时验收-181931",
+    "total_run_count": 0,
+    "enabled": false,
+    "result": {
+      "id": 8,
+      "task_id": "71f5de48-a4fd-4d8f-a449-51c84fb9054e",
+      "periodic_task_name": "隔离最终包定时验收-181931",
+      "task_name": "system.tasks.demo_task",
+      "task_args": "\"['audit-final-package-beat-ok-\\u9694\\u79bb\\u6700\\u7ec8\\u5305\\u5b9a\\u65f6\\u9a8c\\u6536-181931']\"",
+      "task_kwargs": "\"{}\"",
+      "status": "SUCCESS",
+      "worker": "celery@PS2019VSHFTOJJ",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "\"audit-final-package-beat-ok-\\u9694\\u79bb\\u6700\\u7ec8\\u5305\\u5b9a\\u65f6\\u9a8c\\u6536-181931\"",
+      "date_created": "2026-10-08 18:19:36",
+      "date_started": null,
+      "date_done": "2026-10-08 18:19:36",
+      "traceback": null,
+      "meta": "{\"children\": []}"
+    }
+  },
+  "frontend_index_sha256": "9f9507e855abff7a1fe97809733e49cf5ed2cf21970e41c8b535f5143a8ee0d9"
+}

@@ -1,0 +1,9 @@
+{
+  "verified_at": "2026-10-08T15:50:38.960Z",
+  "source_helpers": true,
+  "multi_query": true,
+  "preserve_existing_grants": true,
+  "preset_array_independent": true,
+  "semantic_colors": true,
+  "readable_size": true
+}

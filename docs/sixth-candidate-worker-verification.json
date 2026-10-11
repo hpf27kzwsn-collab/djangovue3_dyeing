@@ -1,0 +1,11 @@
+{
+  "base": "http://127.0.0.1:8008",
+  "redis": "6396/3",
+  "actual_packaged_worker": true,
+  "task_status": 2,
+  "task_id": "16b83266-6067-4fc7-8655-087a6e3ae91d",
+  "rows": 29,
+  "sync_async_equal": true,
+  "md5_equal": true,
+  "formal_data_touched": false
+}

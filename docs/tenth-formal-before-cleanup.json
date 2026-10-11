@@ -1,0 +1,23 @@
+{
+  "obsolete_fields": [
+    [
+      39,
+      6,
+      "system.Role",
+      "admin"
+    ]
+  ],
+  "obsolete_grants": [
+    [
+      39,
+      1,
+      39
+    ]
+  ],
+  "login_types": [
+    [
+      1,
+      3
+    ]
+  ]
+}

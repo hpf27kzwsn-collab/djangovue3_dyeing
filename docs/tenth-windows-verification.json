@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-10T14:32:58.169122+08:00",
+  "product_sources": {
+    "original": {
+      "baseline_selected": 399,
+      "changed_since_last_release": []
+    },
+    "current": {
+      "baseline_selected": 139,
+      "changed_since_last_release": []
+    }
+  },
+  "census_fingerprint_changes": [],
+  "formal_release": {
+    "health": {
+      "/healthz": {
+        "http": 200,
+        "json": {
+          "status": "ok"
+        },
+        "sha256": null
+      },
+      "/readiness": {
+        "http": 200,
+        "json": {
+          "status": "ok",
+          "database": "sqlite"
+        },
+        "sha256": null
+      },
+      "/": {
+        "http": 200,
+        "json": null,
+        "sha256": "54967708ee1172c6e31521468e88c6639710d5465c1fffde701641dcdff72c6b"
+      }
+    },
+    "program_sha256": "ab4d11b57dcffa18d095947c5562124d8f83b716cd598a05b2dbc3458ca6887a",
+    "program_matches_previous_release": true,
+    "served_index_matches_previous_release": true
+  },
+  "windows_ledger": {
+    "all_historical_ids": 236,
+    "windows_rows": 224,
+    "counts": {
+      "I": 61,
+      "S": 107,
+      "C": 30,
+      "D": 7,
+      "O": 5,
+      "X": 6,
+      "V": 5,
+      "K": 2,
+      "U": 1
+    },
+    "findings": 6
+  },
+  "browser": {
+    "resources": 25,
+    "standalone_pages": 7,
+    "resource_tables_rendered": true,
+    "errors": []
+  },
+  "api": {
+    "resources": 25,
+    "all_metadata_list_200": true
+  },
+  "broken_local_document_links": [],
+  "soak_snapshot": {
+    "status": "running",
+    "started_at": "2026-10-10T05:30:46.013748+00:00",
+    "scheduled_finish": "2026-10-11T05:30:46.013748+00:00",
+    "result_records": 62
+  }
+}

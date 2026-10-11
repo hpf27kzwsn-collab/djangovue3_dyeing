@@ -1,0 +1,64 @@
+{
+  "verified_at": "2026-10-10T13:18:35.405474+08:00",
+  "base": "http://127.0.0.1:8000",
+  "health": {
+    "/healthz": {
+      "status": "ok"
+    },
+    "/readiness": {
+      "status": "ok",
+      "database": "sqlite"
+    }
+  },
+  "served_index_sha256": "a3bc9e57c2c11f91ae25499e88edac788a7d7e85b3c86d089563a0f79475b0e3",
+  "program_sha256": "89ba859e0d0a9eb4a527c628617815a1679d84bcd2ee2299bb0673a85de07c14",
+  "system_migrations": [
+    "0001_initial",
+    "0002_alter_systemconfig_form_item_type",
+    "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+    "0004_filelist_file_type_filelist_upload_method_and_more",
+    "0005_area_enable_area_initials_dictionary_remark_and_more",
+    "0006_alter_dictionary_type_alter_dictionary_value",
+    "0007_dictionary_dictionary_root_value_and_more",
+    "0008_alter_operationlog_json_result",
+    "0009_config_group_keys",
+    "0010_alter_post_status_alter_users_user_type",
+    "0011_area_audit",
+    "0012_receipt_audit",
+    "0013_alter_messagecentertargetuser_options_and_more",
+    "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+    "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+    "0016_menu_resource_image_icons",
+    "0017_model_identity",
+    "0018_catalog_paths"
+  ],
+  "preserved": {
+    "accounts": true,
+    "permissions": true,
+    "media": true
+  },
+  "media_count": 3,
+  "backup": "H:/Project_python/django-vue3-admin/djangovue3/packaging/previous-ninth-20261010",
+  "source_system_migrations": [
+    "0001_initial",
+    "0002_alter_systemconfig_form_item_type",
+    "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+    "0004_filelist_file_type_filelist_upload_method_and_more",
+    "0005_area_enable_area_initials_dictionary_remark_and_more",
+    "0006_alter_dictionary_type_alter_dictionary_value",
+    "0007_dictionary_dictionary_root_value_and_more",
+    "0008_alter_operationlog_json_result",
+    "0009_config_group_keys",
+    "0010_alter_post_status_alter_users_user_type",
+    "0011_area_audit",
+    "0012_receipt_audit",
+    "0013_alter_messagecentertargetuser_options_and_more",
+    "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+    "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+    "0016_menu_resource_image_icons",
+    "0017_model_identity",
+    "0018_catalog_paths"
+  ],
+  "new_schema_migration_required": true,
+  "build_version": "1.0.0.1791607671049"
+}

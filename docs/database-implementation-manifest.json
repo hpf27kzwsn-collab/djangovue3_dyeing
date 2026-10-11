@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-10T20:07:42.888811+08:00",
+  "original_baseline_files": 411,
+  "original_all_unchanged": true,
+  "changed_existing_files": [
+    {
+      "path": "backend/application/build_version.py",
+      "before_sha256": "49de94f58f0baa06567ef11f5daeea803f3e30387727b871f42c0ca9b79af677",
+      "current_sha256": "d07f2e22c1a245e7f200795fb25b6e08955179376b33913c75ca0569274d606b"
+    },
+    {
+      "path": "backend/application/settings.py",
+      "before_sha256": "1f09f1778df3e97249fe17cf2840fb186a680a954363ffcca6e8c47f4bcc98c8",
+      "current_sha256": "3cbc4726bfcbef761fddb408dc3e0456d900b2a22df7a6706a7cce26bf9720b7"
+    },
+    {
+      "path": "backend/core/api.py",
+      "before_sha256": "9d42b3624a9c8558aabe11ddf41478de8ba042f67f8a755d11caa368a439523e",
+      "current_sha256": "d4dd0af0d8d4f3ead3e31cc45fb1ef5a356720b09db7a434cfe64bad65560184"
+    },
+    {
+      "path": "backend/core/health.py",
+      "before_sha256": "a310ed1e13c4a866ed34bc7fc4b9e215c87812799a09c00f7f9781e04430c3b3",
+      "current_sha256": "9cc2624acc23b27afd364a7e3bccdcd0f45cf6ed4c26b90da0835b6d13055416"
+    },
+    {
+      "path": "backend/system/signals.py",
+      "before_sha256": "be5f3c8303143002abe309102221e12f6c5cd627a5d027078eb7d3e232e885c9",
+      "current_sha256": "b467a2b7dd807e401eb32c7a7473b7aa39f76e51eb90f44bbb68c830624eec40"
+    }
+  ],
+  "additional_files": [
+    {
+      "path": "backend/application/database_config.py",
+      "sha256": "aed464fd565d7ce57b9654fcdd1b27df3550fb7bb0b5cbfdfc7b9024ff8e8c2b"
+    },
+    {
+      "path": "backend/application/database_tools.py",
+      "sha256": "690a315c27ef43d287cd38022accb2ee2b1379999451ad18d90b5f08b2ef2ef2"
+    },
+    {
+      "path": "backend/application/database_dialog.py",
+      "sha256": "4791832ddfab77129fb6836d60e4199a7929377af47e6214daf40ad428824f1b"
+    },
+    {
+      "path": "backend/system/management/commands/transfer_database.py",
+      "sha256": "9b617c30880e6e801882c22a42fa5fe87c496cfd6b19686637aaac0981e70944"
+    },
+    {
+      "path": "backend/system/tests/test_database_backends.py",
+      "sha256": "14d230dceb348bdbe1ee2cb5649d3a450f2d30de53ef59b5e20868d6c3edf07e"
+    },
+    {
+      "path": "backend/system/tests/twin_a/migrations/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "backend/system/tests/twin_a/migrations/0001_initial.py",
+      "sha256": "dd55b070254b7441223c24502e8b2136d81a2f439a2e2d3714c6075def31240b"
+    },
+    {
+      "path": "backend/system/tests/twin_b/migrations/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "backend/system/tests/twin_b/migrations/0001_initial.py",
+      "sha256": "60c6aea96ff92df1a7d5ab02e7be0ced81f4719a24574e5f3acd85bafd96c3e8"
+    },
+    {
+      "path": "scripts/database.py",
+      "sha256": "524acfbd9894294b2708297720d4c0e0a9040bb648fbf1171de1f374d07bf5c8"
+    },
+    {
+      "path": "database.ini.example",
+      "sha256": "b1ab56c8724b565f2a42e9109a0564db06824642b1b99717f389a3d8f9551bfc"
+    }
+  ],
+  "sqlite_suite": {
+    "tests": 107,
+    "passed": 107
+  },
+  "postgresql_suite": {
+    "tests": 107,
+    "passed": 107
+  },
+  "postgresql_server": "18.6",
+  "python": "3.14.8",
+  "django": "5.2.18",
+  "psycopg": "3.3.6",
+  "standalone_test_cluster_stopped": true,
+  "formal_database": "sqlite",
+  "independent_soak_restarted": false
+}

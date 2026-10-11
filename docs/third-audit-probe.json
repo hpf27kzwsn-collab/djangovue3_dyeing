@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-08",
+  "python": "3.14.8",
+  "django": "5.2.18",
+  "database": ":memory:",
+  "formal_database_touched": false,
+  "checks": {
+    "column_model_input": {
+      "key": "model",
+      "title": "模型",
+      "kind": "text",
+      "required": true,
+      "readonly": false,
+      "nullable": false,
+      "options": [],
+      "default": "",
+      "remote": null,
+      "dictionary": null,
+      "display_key": null,
+      "is_query": true,
+      "is_create": true,
+      "is_update": true
+    },
+    "custom_menu": {
+      "button_generation_status": 200,
+      "generated_api": "/api/system/post/",
+      "metadata_exception": {
+        "type": "KeyError",
+        "key": "'audit-custom-post'"
+      }
+    },
+    "child_context_permissions": {
+      "child_list_status": 200,
+      "parent_detail_status": 403
+    },
+    "batch_selection_saved": {
+      "status": 200,
+      "before": {
+        "data_range": 4,
+        "dept": [
+          1
+        ]
+      },
+      "after": {
+        "data_range": 3,
+        "dept": []
+      }
+    },
+    "multi_role_filter": {
+      "status": 200,
+      "total": 4,
+      "unrelated_returned": true,
+      "wire_keys": [
+        "role[]",
+        "role[]"
+      ]
+    },
+    "boolean_in_filter": {
+      "type": "TypeError",
+      "detail": "'bool' object is not iterable"
+    },
+    "dictionary_child_root_same_value": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 19,
+          "description": "",
+          "create_datetime": "2026-10-08 22:27:36",
+          "update_datetime": "2026-10-08 22:27:36",
+          "label": "合法子同值",
+          "value": "audit-duplicate-value",
+          "is_value": true,
+          "type": 0,
+          "color": null,
+          "sort": 1,
+          "status": true,
+          "remark": null,
+          "creator": 1,
+          "modifier": 1,
+          "dept_belong": 1,
+          "parent": 18,
+          "creator_name": "超级管理员",
+          "creator_label": "超级管理员",
+          "modifier_label": "超级管理员",
+          "dept_belong_label": "总公司",
+          "parent_label": "另一根"
+        }
+      }
+    }
+  }
+}

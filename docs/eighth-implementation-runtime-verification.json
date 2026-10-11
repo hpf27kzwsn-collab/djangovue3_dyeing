@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-10",
+  "method": "real clock SolarSchedule + DatabaseScheduler beat and two live Celery workers; DST calculations recorded separately, no 24h claim",
+  "workers": [
+    "eighth-b@PS2019VSHFTOJJ",
+    "eighth-a@PS2019VSHFTOJJ"
+  ],
+  "events": [
+    {
+      "event": "sunrise",
+      "latitude": 0,
+      "longitude": "141.932625",
+      "due_utc": "2026-10-09T20:16:05.713690+00:00",
+      "periodic_task": 1,
+      "expected_result": "eighth-solar-sunrise",
+      "actual": {
+        "task_id": "d4621dd4-3ec6-4016-8118-cc201ed00d2a",
+        "status": "SUCCESS",
+        "worker": "eighth-b@PS2019VSHFTOJJ",
+        "date_created": "2026-10-09 20:16:05.750416+00:00",
+        "date_done": "2026-10-09 20:16:05.750435+00:00",
+        "periodic_task_name": "eighth-real-sunrise"
+      },
+      "seconds_after_due": 0.036745
+    },
+    {
+      "event": "sunset",
+      "latitude": 0,
+      "longitude": "-36.519555",
+      "due_utc": "2026-10-09T20:16:35.721365+00:00",
+      "periodic_task": 2,
+      "expected_result": "eighth-solar-sunset",
+      "actual": {
+        "task_id": "8a8a6ef5-fe5c-49f9-b8e3-2d7595f9997f",
+        "status": "SUCCESS",
+        "worker": "eighth-b@PS2019VSHFTOJJ",
+        "date_created": "2026-10-09 20:16:35.785840+00:00",
+        "date_done": "2026-10-09 20:16:35.785872+00:00",
+        "periodic_task_name": "eighth-real-sunset"
+      },
+      "seconds_after_due": 0.064507
+    },
+    {
+      "event": "clocked",
+      "due_utc": "2026-10-09T20:15:05.731090+00:00",
+      "periodic_task": 3,
+      "expected_result": "eighth-clocked-oneoff",
+      "actual": {
+        "task_id": "a4cd27e9-a6d2-499e-abfa-cd299b92a218",
+        "status": "SUCCESS",
+        "worker": "eighth-a@PS2019VSHFTOJJ",
+        "date_created": "2026-10-09 20:15:05.769291+00:00",
+        "date_done": "2026-10-09 20:15:05.769309+00:00",
+        "periodic_task_name": "eighth-real-oneoff"
+      },
+      "seconds_after_due": 0.038219
+    }
+  ],
+  "two_worker_results": [
+    {
+      "task_id": "9fa0a1b9-3227-4ebb-844c-45a25e510607",
+      "worker": "eighth-b@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-6\""
+    },
+    {
+      "task_id": "035d84b9-907d-499a-9a6f-0a16729a7867",
+      "worker": "eighth-a@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-7\""
+    },
+    {
+      "task_id": "1d984240-83d2-4551-9baa-835c110f7e8e",
+      "worker": "eighth-a@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-4\""
+    },
+    {
+      "task_id": "a5784b0f-d9c6-4839-bf1f-44a71285cf96",
+      "worker": "eighth-b@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-5\""
+    },
+    {
+      "task_id": "b9f69214-e57c-41f2-9ff9-adc4c38c9b47",
+      "worker": "eighth-b@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-1\""
+    },
+    {
+      "task_id": "d23239cc-93d8-4e5b-9c75-bf0d5c0e2cfc",
+      "worker": "eighth-a@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-3\""
+    },
+    {
+      "task_id": "39997ac4-9b5f-4bf1-866e-e47b80f66532",
+      "worker": "eighth-a@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-2\""
+    },
+    {
+      "task_id": "843db3a7-6a1c-45b4-b67c-480eed5937dd",
+      "worker": "eighth-a@PS2019VSHFTOJJ",
+      "status": "SUCCESS",
+      "result": "\"eighth-two-workers-0\""
+    }
+  ],
+  "dst_calculations": [
+    {
+      "case": "spring-before",
+      "now": "2026-03-08T00:00:00-05:00",
+      "next": "2026-03-08T01:30:00-05:00",
+      "scope": "actual schedule calculation at supplied clock; not actual DST wall-clock worker execution"
+    },
+    {
+      "case": "fall-before",
+      "now": "2026-11-01T00:00:00-04:00",
+      "next": "2026-11-01T01:30:00-04:00",
+      "scope": "actual schedule calculation at supplied clock; not actual DST wall-clock worker execution"
+    }
+  ]
+}

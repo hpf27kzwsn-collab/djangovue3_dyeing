@@ -1,0 +1,2255 @@
+{
+  "backend": [
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/api_white_list.py",
+      "declarations": [
+        {
+          "name": "ApiWhiteListSerializer",
+          "line": 14,
+          "methods": []
+        },
+        {
+          "name": "ApiWhiteListViewSet",
+          "line": 28,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/area.py",
+      "declarations": [
+        {
+          "name": "AreaSerializer",
+          "line": 13,
+          "methods": [
+            "get_pcode_info:21",
+            "get_pcode_count:25",
+            "get_hasChild:28"
+          ]
+        },
+        {
+          "name": "AreaCreateUpdateSerializer",
+          "line": 40,
+          "methods": [
+            "to_internal_value:45"
+          ]
+        },
+        {
+          "name": "AreaViewSet",
+          "line": 62,
+          "methods": [
+            "list:77"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/clause.py",
+      "declarations": [
+        {
+          "name": "PrivacyView",
+          "line": 5,
+          "methods": [
+            "get:11"
+          ]
+        },
+        {
+          "name": "TermsServiceView",
+          "line": 16,
+          "methods": [
+            "get:22"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/dept.py",
+      "declarations": [
+        {
+          "name": "DeptSerializer",
+          "line": 19,
+          "methods": [
+            "get_dept_user_count:30",
+            "get_hasChild:33",
+            "get_status_label:39",
+            "get_has_children:44"
+          ]
+        },
+        {
+          "name": "DeptImportSerializer",
+          "line": 53,
+          "methods": []
+        },
+        {
+          "name": "DeptCreateUpdateSerializer",
+          "line": 64,
+          "methods": [
+            "create:69"
+          ]
+        },
+        {
+          "name": "DeptViewSet",
+          "line": 86,
+          "methods": [
+            "list:108",
+            "all_dept:129",
+            "move_up:135",
+            "move_down:150",
+            "dept_info:165"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/dictionary.py",
+      "declarations": [
+        {
+          "name": "DictionarySerializer",
+          "line": 19,
+          "methods": []
+        },
+        {
+          "name": "DictionaryCreateUpdateSerializer",
+          "line": 33,
+          "methods": [
+            "validate_value:39"
+          ]
+        },
+        {
+          "name": "DictionaryViewSet",
+          "line": 56,
+          "methods": [
+            "get_queryset:71"
+          ]
+        },
+        {
+          "name": "InitDictionaryViewSet",
+          "line": 87,
+          "methods": [
+            "get:95"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/download_center.py",
+      "declarations": [
+        {
+          "name": "DownloadCenterSerializer",
+          "line": 10,
+          "methods": [
+            "get_url:13"
+          ]
+        },
+        {
+          "name": "DownloadCenterFilterSet",
+          "line": 30,
+          "methods": []
+        },
+        {
+          "name": "DownloadCenterViewSet",
+          "line": 39,
+          "methods": [
+            "get_queryset:46"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/file_list.py",
+      "declarations": [
+        {
+          "name": "FileSerializer",
+          "line": 17,
+          "methods": [
+            "get_url:20",
+            "create:37"
+          ]
+        },
+        {
+          "name": "FileAllSerializer",
+          "line": 81,
+          "methods": []
+        },
+        {
+          "name": "FileFilter",
+          "line": 88,
+          "methods": []
+        },
+        {
+          "name": "FileViewSet",
+          "line": 97,
+          "methods": [
+            "get_all:112",
+            "list:121"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/login.py",
+      "declarations": [
+        {
+          "name": "CaptchaView",
+          "line": 28,
+          "methods": [
+            "get:38"
+          ]
+        },
+        {
+          "name": "LoginSerializer",
+          "line": 53,
+          "methods": [
+            "validate:69"
+          ]
+        },
+        {
+          "name": "LoginView",
+          "line": 136,
+          "methods": []
+        },
+        {
+          "name": "LoginTokenSerializer",
+          "line": 209,
+          "methods": [
+            "validate:221"
+          ]
+        },
+        {
+          "name": "LoginTokenView",
+          "line": 230,
+          "methods": []
+        },
+        {
+          "name": "LogoutView",
+          "line": 239,
+          "methods": [
+            "post:240"
+          ]
+        },
+        {
+          "name": "ApiLoginSerializer",
+          "line": 244,
+          "methods": []
+        },
+        {
+          "name": "ApiLogin",
+          "line": 255,
+          "methods": [
+            "post:262"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/login_log.py",
+      "declarations": [
+        {
+          "name": "LoginLogSerializer",
+          "line": 15,
+          "methods": []
+        },
+        {
+          "name": "LoginLogViewSet",
+          "line": 26,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/menu.py",
+      "declarations": [
+        {
+          "name": "MenuSerializer",
+          "line": 19,
+          "methods": [
+            "get_menuPermission:26",
+            "get_hasChild:34"
+          ]
+        },
+        {
+          "name": "MenuCreateSerializer",
+          "line": 46,
+          "methods": [
+            "create:52"
+          ]
+        },
+        {
+          "name": "WebRouterSerializer",
+          "line": 64,
+          "methods": []
+        },
+        {
+          "name": "MenuViewSet",
+          "line": 79,
+          "methods": [
+            "list:95",
+            "web_router:119",
+            "get_all_menu:133",
+            "move_up:146",
+            "move_down:161"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/menu_button.py",
+      "declarations": [
+        {
+          "name": "MenuButtonSerializer",
+          "line": 21,
+          "methods": []
+        },
+        {
+          "name": "MenuButtonCreateUpdateSerializer",
+          "line": 34,
+          "methods": []
+        },
+        {
+          "name": "MenuButtonViewSet",
+          "line": 45,
+          "methods": [
+            "list:60",
+            "menu_button_all_permission:73",
+            "batch_create:88"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/menu_field.py",
+      "declarations": [
+        {
+          "name": "MenuFieldSerializer",
+          "line": 14,
+          "methods": []
+        },
+        {
+          "name": "MenuFieldViewSet",
+          "line": 25,
+          "methods": [
+            "list:32",
+            "create:40",
+            "get_models:54",
+            "auto_match_fields:66"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/message_center.py",
+      "declarations": [
+        {
+          "name": "MessageCenterSerializer",
+          "line": 17,
+          "methods": [
+            "get_role_info:26",
+            "get_user_info:38",
+            "get_dept_info:52"
+          ]
+        },
+        {
+          "name": "MessageCenterTargetUserSerializer",
+          "line": 70,
+          "methods": []
+        },
+        {
+          "name": "MessageCenterTargetUserListSerializer",
+          "line": 81,
+          "methods": [
+            "get_is_read:90",
+            "get_role_info:98",
+            "get_user_info:110",
+            "get_dept_info:124"
+          ]
+        },
+        {
+          "name": "MessageCenterCreateSerializer",
+          "line": 142,
+          "methods": [
+            "save:147"
+          ]
+        },
+        {
+          "name": "MessageCenterViewSet",
+          "line": 178,
+          "methods": [
+            "get_queryset:192",
+            "retrieve:197",
+            "get_self_receive:212",
+            "get_newest_msg:228"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/operation_log.py",
+      "declarations": [
+        {
+          "name": "OperationLogSerializer",
+          "line": 15,
+          "methods": []
+        },
+        {
+          "name": "OperationLogCreateUpdateSerializer",
+          "line": 26,
+          "methods": []
+        },
+        {
+          "name": "OperationLogViewSet",
+          "line": 36,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/role.py",
+      "declarations": [
+        {
+          "name": "RoleSerializer",
+          "line": 26,
+          "methods": [
+            "get_users:33"
+          ]
+        },
+        {
+          "name": "RoleCreateUpdateSerializer",
+          "line": 43,
+          "methods": [
+            "validate:54"
+          ]
+        },
+        {
+          "name": "MenuPermissionSerializer",
+          "line": 69,
+          "methods": [
+            "get_menuPermission:75"
+          ]
+        },
+        {
+          "name": "MenuButtonPermissionSerializer",
+          "line": 90,
+          "methods": [
+            "get_isCheck:96"
+          ]
+        },
+        {
+          "name": "RoleViewSet",
+          "line": 111,
+          "methods": [
+            "set_role_users:127",
+            "get_role_users:147",
+            "remove_role_user:176",
+            "add_role_users:191"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/role_menu.py",
+      "declarations": [
+        {
+          "name": "RoleMenuPermissionSerializer",
+          "line": 14,
+          "methods": []
+        },
+        {
+          "name": "RoleMenuPermissionInitSerializer",
+          "line": 25,
+          "methods": []
+        },
+        {
+          "name": "RoleMenuPermissionCreateUpdateSerializer",
+          "line": 35,
+          "methods": []
+        },
+        {
+          "name": "RoleMenuPermissionViewSet",
+          "line": 46,
+          "methods": [
+            "save_auth:62"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/role_menu_button_permission.py",
+      "declarations": [
+        {
+          "name": "RoleMenuButtonPermissionSerializer",
+          "line": 20,
+          "methods": []
+        },
+        {
+          "name": "RoleMenuButtonPermissionCreateUpdateSerializer",
+          "line": 31,
+          "methods": []
+        },
+        {
+          "name": "RoleMenuSerializer",
+          "line": 44,
+          "methods": [
+            "get_isCheck:50"
+          ]
+        },
+        {
+          "name": "RoleMenuButtonSerializer",
+          "line": 63,
+          "methods": [
+            "get_isCheck:72",
+            "get_data_range:80",
+            "get_role_menu_btn_perm_id:86",
+            "get_dept:92",
+            "get_role_menu_btn_prem:98"
+          ]
+        },
+        {
+          "name": "RoleMenuFieldSerializer",
+          "line": 112,
+          "methods": [
+            "get_is_query:120",
+            "get_is_create:127",
+            "get_is_update:134"
+          ]
+        },
+        {
+          "name": "RoleMenuButtonPermissionViewSet",
+          "line": 146,
+          "methods": [
+            "get_role_menu:162",
+            "set_role_menu:173",
+            "get_role_menu_btn_field:194",
+            "set_role_menu_field:209",
+            "set_role_menu_btn:226",
+            "set_role_menu_btn_data_range:253",
+            "role_to_dept_all:268"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/system_config.py",
+      "declarations": [
+        {
+          "name": "SystemConfigCreateSerializer",
+          "line": 24,
+          "methods": [
+            "validate_key:35"
+          ]
+        },
+        {
+          "name": "SystemConfigSerializer",
+          "line": 48,
+          "methods": []
+        },
+        {
+          "name": "SystemConfigChinldernSerializer",
+          "line": 60,
+          "methods": [
+            "get_children:67"
+          ]
+        },
+        {
+          "name": "SystemConfigListSerializer",
+          "line": 78,
+          "methods": [
+            "update:83"
+          ]
+        },
+        {
+          "name": "SystemConfigSaveSerializer",
+          "line": 99,
+          "methods": []
+        },
+        {
+          "name": "SystemConfigFilter",
+          "line": 105,
+          "methods": []
+        },
+        {
+          "name": "SystemConfigViewSet",
+          "line": 116,
+          "methods": [
+            "save_content:127",
+            "get_association_table:141",
+            "get_table_data:148",
+            "get_relation_info:177"
+          ]
+        },
+        {
+          "name": "InitSettingsViewSet",
+          "line": 202,
+          "methods": [
+            "filter_system_config_values:209",
+            "get:223"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/system/views/user.py",
+      "declarations": [
+        {
+          "name": "recursion",
+          "line": 19,
+          "methods": []
+        },
+        {
+          "name": "UserSerializer",
+          "line": 31,
+          "methods": [
+            "get_dept_name_all:48",
+            "get_role_info:53"
+          ]
+        },
+        {
+          "name": "UserCreateSerializer",
+          "line": 65,
+          "methods": [
+            "validate_password:80",
+            "save:89"
+          ]
+        },
+        {
+          "name": "UserUpdateSerializer",
+          "line": 106,
+          "methods": [
+            "validate_is_active:118",
+            "save:126"
+          ]
+        },
+        {
+          "name": "UserInfoUpdateSerializer",
+          "line": 143,
+          "methods": [
+            "update:155"
+          ]
+        },
+        {
+          "name": "ExportUserProfileSerializer",
+          "line": 167,
+          "methods": [
+            "get_is_active:180"
+          ]
+        },
+        {
+          "name": "UserProfileImportSerializer",
+          "line": 198,
+          "methods": [
+            "save:201"
+          ]
+        },
+        {
+          "name": "UserViewSet",
+          "line": 221,
+          "methods": [
+            "user_info:274",
+            "update_user_info:311",
+            "change_password:319",
+            "login_change_password:347",
+            "reset_to_default_password:361",
+            "reset_password:376",
+            "list:396"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/aliyunoss.py",
+      "declarations": [
+        {
+          "name": "percentage",
+          "line": 11,
+          "methods": []
+        },
+        {
+          "name": "ali_oss_upload",
+          "line": 17,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/backends.py",
+      "declarations": [
+        {
+          "name": "CustomBackend",
+          "line": 15,
+          "methods": [
+            "authenticate:20"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/core_initialize.py",
+      "declarations": [
+        {
+          "name": "CoreInitialize",
+          "line": 12,
+          "methods": [
+            "__init__:21",
+            "init_base:31",
+            "save:58",
+            "run:88"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/crud_mixin.py",
+      "declarations": [
+        {
+          "name": "FastCrudMixin",
+          "line": 8,
+          "methods": [
+            "__handle_type:22",
+            "__get_field_attribute:35",
+            "__find_key:86",
+            "__update_nested_dict:108",
+            "__handle_crud:123",
+            "init_crud:144"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/exception.py",
+      "declarations": [
+        {
+          "name": "CustomAuthenticationFailed",
+          "line": 23,
+          "methods": []
+        },
+        {
+          "name": "CustomExceptionHandler",
+          "line": 27,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/field_permission.py",
+      "declarations": [
+        {
+          "name": "merge_permission",
+          "line": 10,
+          "methods": []
+        },
+        {
+          "name": "FieldPermissionMixin",
+          "line": 25,
+          "methods": [
+            "field_permission:27"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/filters.py",
+      "declarations": [
+        {
+          "name": "CoreModelFilterBankend",
+          "line": 28,
+          "methods": [
+            "filter_queryset:32"
+          ]
+        },
+        {
+          "name": "get_dept",
+          "line": 59,
+          "methods": []
+        },
+        {
+          "name": "DataLevelPermissionsFilter",
+          "line": 78,
+          "methods": [
+            "filter_queryset:91",
+            "_extracted_from_filter_queryset_33:127"
+          ]
+        },
+        {
+          "name": "CustomDjangoFilterBackend",
+          "line": 203,
+          "methods": [
+            "construct_search:213",
+            "find_filter_lookups:225",
+            "get_filterset_class:234",
+            "filter_queryset:391"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/git_utils.py",
+      "declarations": [
+        {
+          "name": "GitRepository",
+          "line": 6,
+          "methods": [
+            "__init__:11",
+            "initial:17",
+            "pull:32",
+            "branches:39",
+            "commits:47",
+            "tags:58",
+            "tags_exists:65",
+            "change_to_branch:72",
+            "change_to_commit:80",
+            "change_to_tag:90"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/import_export.py",
+      "declarations": [
+        {
+          "name": "import_to_data",
+          "line": 12,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/import_export_mixin.py",
+      "declarations": [
+        {
+          "name": "ImportSerializerMixin",
+          "line": 21,
+          "methods": [
+            "is_number:33",
+            "get_string_len:48",
+            "import_data:65",
+            "update_template:161"
+          ]
+        },
+        {
+          "name": "ExportSerializerMixin",
+          "line": 252,
+          "methods": [
+            "is_number:264",
+            "get_string_len:279",
+            "export_data:295"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/json_response.py",
+      "declarations": [
+        {
+          "name": "SuccessResponse",
+          "line": 13,
+          "methods": [
+            "__init__:19"
+          ]
+        },
+        {
+          "name": "DetailResponse",
+          "line": 32,
+          "methods": [
+            "__init__:38"
+          ]
+        },
+        {
+          "name": "ErrorResponse",
+          "line": 48,
+          "methods": [
+            "__init__:54"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/middleware.py",
+      "declarations": [
+        {
+          "name": "ApiLoggingMiddleware",
+          "line": 17,
+          "methods": [
+            "__init__:22",
+            "__handle_request:29",
+            "__handle_response:34",
+            "process_view:76",
+            "process_request:87",
+            "process_response:90"
+          ]
+        },
+        {
+          "name": "HealthCheckMiddleware",
+          "line": 103,
+          "methods": [
+            "__init__:107",
+            "__call__:111",
+            "healthz:119",
+            "readiness:125"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/models.py",
+      "declarations": [
+        {
+          "name": "SoftDeleteQuerySet",
+          "line": 21,
+          "methods": []
+        },
+        {
+          "name": "SoftDeleteManager",
+          "line": 25,
+          "methods": [
+            "__init__:28",
+            "filter:32",
+            "get_queryset:38",
+            "get_by_natural_key:43"
+          ]
+        },
+        {
+          "name": "SoftDeleteModel",
+          "line": 47,
+          "methods": [
+            "delete:60"
+          ]
+        },
+        {
+          "name": "CoreModelManager",
+          "line": 84,
+          "methods": [
+            "get_queryset:85",
+            "create:94"
+          ]
+        },
+        {
+          "name": "CoreModel",
+          "line": 104,
+          "methods": [
+            "get_request_user:128",
+            "get_request_user_id:133",
+            "get_request_user_name:138",
+            "get_request_user_username:143",
+            "common_insert_data:148",
+            "common_update_data:155",
+            "get_exclude_fields:178",
+            "get_all_fields:181",
+            "get_all_fields_names:184",
+            "get_need_fields_names:187",
+            "to_data:190",
+            "DATA:200",
+            "to_dict_data:203",
+            "DICT_DATA:209",
+            "insert:212",
+            "update:219"
+          ]
+        },
+        {
+          "name": "get_all_models_objects",
+          "line": 234,
+          "methods": []
+        },
+        {
+          "name": "get_model_from_app",
+          "line": 253,
+          "methods": []
+        },
+        {
+          "name": "get_custom_app_models",
+          "line": 273,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/pagination.py",
+      "declarations": [
+        {
+          "name": "CustomPagination",
+          "line": 18,
+          "methods": [
+            "paginate_queryset:24",
+            "get_paginated_response:60"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/permission.py",
+      "declarations": [
+        {
+          "name": "ValidationApi",
+          "line": 18,
+          "methods": []
+        },
+        {
+          "name": "AnonymousUserPermission",
+          "line": 36,
+          "methods": [
+            "has_permission:41"
+          ]
+        },
+        {
+          "name": "SuperuserPermission",
+          "line": 47,
+          "methods": [
+            "has_permission:52"
+          ]
+        },
+        {
+          "name": "AdminPermission",
+          "line": 60,
+          "methods": [
+            "has_permission:65"
+          ]
+        },
+        {
+          "name": "ReUUID",
+          "line": 76,
+          "methods": []
+        },
+        {
+          "name": "CustomPermission",
+          "line": 91,
+          "methods": [
+            "has_permission:94"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/request_util.py",
+      "declarations": [
+        {
+          "name": "get_request_user",
+          "line": 17,
+          "methods": []
+        },
+        {
+          "name": "get_request_ip",
+          "line": 34,
+          "methods": []
+        },
+        {
+          "name": "get_request_data",
+          "line": 48,
+          "methods": []
+        },
+        {
+          "name": "get_request_path",
+          "line": 70,
+          "methods": []
+        },
+        {
+          "name": "get_request_canonical_path",
+          "line": 99,
+          "methods": []
+        },
+        {
+          "name": "get_browser",
+          "line": 123,
+          "methods": []
+        },
+        {
+          "name": "get_os",
+          "line": 136,
+          "methods": []
+        },
+        {
+          "name": "get_verbose_name",
+          "line": 149,
+          "methods": []
+        },
+        {
+          "name": "get_ip_analysis",
+          "line": 172,
+          "methods": []
+        },
+        {
+          "name": "save_login_log",
+          "line": 205,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/serializers.py",
+      "declarations": [
+        {
+          "name": "CustomModelSerializer",
+          "line": 20,
+          "methods": [
+            "get_modifier_name:30",
+            "__init__:57",
+            "save:61",
+            "create:64",
+            "update:81",
+            "get_request_username:92",
+            "get_request_name:97",
+            "get_request_user_id:102",
+            "errors:108"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/string_util.py",
+      "declarations": [
+        {
+          "name": "random_str",
+          "line": 18,
+          "methods": []
+        },
+        {
+          "name": "has_md5",
+          "line": 30,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/swagger.py",
+      "declarations": [
+        {
+          "name": "get_summary",
+          "line": 15,
+          "methods": []
+        },
+        {
+          "name": "CustomSwaggerAutoSchema",
+          "line": 20,
+          "methods": [
+            "get_tags:21",
+            "get_summary_and_description:28"
+          ]
+        },
+        {
+          "name": "CustomOpenAPISchemaGenerator",
+          "line": 35,
+          "methods": [
+            "get_schema:36"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/tencentcos.py",
+      "declarations": [
+        {
+          "name": "percentage",
+          "line": 11,
+          "methods": []
+        },
+        {
+          "name": "tencent_cos_upload",
+          "line": 16,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/validator.py",
+      "declarations": [
+        {
+          "name": "CustomValidationError",
+          "line": 15,
+          "methods": [
+            "__init__:20"
+          ]
+        },
+        {
+          "name": "qs_exists",
+          "line": 24,
+          "methods": []
+        },
+        {
+          "name": "qs_filter",
+          "line": 31,
+          "methods": []
+        },
+        {
+          "name": "CustomUniqueValidator",
+          "line": 38,
+          "methods": [
+            "filter_queryset:43",
+            "exclude_current_instance:50",
+            "__call__:59",
+            "__repr__:72"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "django-vue3-admin-master/backend/dvadmin/utils/viewset.py",
+      "declarations": [
+        {
+          "name": "CustomModelViewSet",
+          "line": 28,
+          "methods": [
+            "filter_queryset:49",
+            "get_queryset:54",
+            "get_serializer_class:59",
+            "get_serializer:67",
+            "get_menu_field:88",
+            "create:102",
+            "list:108",
+            "retrieve:117",
+            "update:122",
+            "destroy:135",
+            "multiple_delete:147",
+            "get_by_ids:157"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/core/api.py",
+      "declarations": [
+        {
+          "name": "CoreSerializer",
+          "line": 16,
+          "methods": [
+            "get_fields:17",
+            "validate:27",
+            "field_permissions:34",
+            "to_internal_value:37",
+            "to_representation:45"
+          ]
+        },
+        {
+          "name": "serializer_for",
+          "line": 65,
+          "methods": []
+        },
+        {
+          "name": "ModelViewSet",
+          "line": 75,
+          "methods": [
+            "initial:78",
+            "get_queryset:83",
+            "filter_queryset:89",
+            "audit:125",
+            "create:131",
+            "list:137",
+            "retrieve:142",
+            "update:145",
+            "destroy:154",
+            "multiple_delete:159",
+            "get_by_ids:164",
+            "field_permission:168"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/core/health.py",
+      "declarations": [
+        {
+          "name": "healthz",
+          "line": 7,
+          "methods": []
+        },
+        {
+          "name": "readiness",
+          "line": 12,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/core/models.py",
+      "declarations": [
+        {
+          "name": "CoreQuerySet",
+          "line": 8,
+          "methods": [
+            "update:9"
+          ]
+        },
+        {
+          "name": "CoreManager",
+          "line": 15,
+          "methods": [
+            "create:16"
+          ]
+        },
+        {
+          "name": "CoreModel",
+          "line": 22,
+          "methods": []
+        },
+        {
+          "name": "SoftDeleteQuerySet",
+          "line": 39,
+          "methods": [
+            "delete:41"
+          ]
+        },
+        {
+          "name": "SoftDeleteManager",
+          "line": 51,
+          "methods": [
+            "get_queryset:52"
+          ]
+        },
+        {
+          "name": "SoftDeleteModel",
+          "line": 56,
+          "methods": [
+            "delete:65"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/core/permissions.py",
+      "declarations": [
+        {
+          "name": "matches",
+          "line": 9,
+          "methods": []
+        },
+        {
+          "name": "grants",
+          "line": 13,
+          "methods": []
+        },
+        {
+          "name": "whitelist",
+          "line": 19,
+          "methods": []
+        },
+        {
+          "name": "ApiPermission",
+          "line": 23,
+          "methods": [
+            "has_permission:24"
+          ]
+        },
+        {
+          "name": "AdminPermission",
+          "line": 28,
+          "methods": [
+            "has_permission:29"
+          ]
+        },
+        {
+          "name": "scoped_queryset",
+          "line": 33,
+          "methods": []
+        },
+        {
+          "name": "field_access",
+          "line": 59,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/core/resources.py",
+      "declarations": [
+        {
+          "name": "resource_options",
+          "line": 1,
+          "methods": []
+        },
+        {
+          "name": "relation_label",
+          "line": 5,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/core/responses.py",
+      "declarations": [
+        {
+          "name": "success",
+          "line": 9,
+          "methods": []
+        },
+        {
+          "name": "exception_handler",
+          "line": 13,
+          "methods": []
+        },
+        {
+          "name": "Pagination",
+          "line": 24,
+          "methods": [
+            "get_paginated_response:28",
+            "get_paginated_response_schema:32"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/core/schema.py",
+      "declarations": [
+        {
+          "name": "SystemSchema",
+          "line": 6,
+          "methods": [
+            "get_response_serializers:8"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/actions.py",
+      "declarations": [
+        {
+          "name": "resource_actions",
+          "line": 4,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/apps.py",
+      "declarations": [
+        {
+          "name": "SystemConfig",
+          "line": 3,
+          "methods": [
+            "ready:7"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/auth.py",
+      "declarations": [
+        {
+          "name": "config",
+          "line": 17,
+          "methods": []
+        },
+        {
+          "name": "Login",
+          "line": 26,
+          "methods": [
+            "post:30"
+          ]
+        },
+        {
+          "name": "Captcha",
+          "line": 65,
+          "methods": [
+            "get:69"
+          ]
+        },
+        {
+          "name": "PublicConfig",
+          "line": 75,
+          "methods": [
+            "get:79"
+          ]
+        },
+        {
+          "name": "PublicConfigValues",
+          "line": 87,
+          "methods": [
+            "get:91"
+          ]
+        },
+        {
+          "name": "AuditAPIView",
+          "line": 98,
+          "methods": [
+            "initial:99"
+          ]
+        },
+        {
+          "name": "Account",
+          "line": 108,
+          "methods": [
+            "get:111",
+            "patch:125",
+            "post:132"
+          ]
+        },
+        {
+          "name": "Password",
+          "line": 141,
+          "methods": [
+            "post:144"
+          ]
+        },
+        {
+          "name": "FirstPassword",
+          "line": 157,
+          "methods": [
+            "post:160"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/dictionaries.py",
+      "declarations": [
+        {
+          "name": "dictionary_value",
+          "line": 4,
+          "methods": []
+        },
+        {
+          "name": "dictionary_options",
+          "line": 14,
+          "methods": []
+        },
+        {
+          "name": "dictionary_key",
+          "line": 20,
+          "methods": []
+        },
+        {
+          "name": "initialize_dictionaries",
+          "line": 29,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/events.py",
+      "declarations": [
+        {
+          "name": "EventStreamRenderer",
+          "line": 13,
+          "methods": [
+            "render:17"
+          ]
+        },
+        {
+          "name": "MessageEvents",
+          "line": 22,
+          "methods": [
+            "get:26"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/excel.py",
+      "declarations": [
+        {
+          "name": "write_workbook",
+          "line": 35,
+          "methods": []
+        },
+        {
+          "name": "excel_response",
+          "line": 104,
+          "methods": []
+        },
+        {
+          "name": "ExcelActions",
+          "line": 115,
+          "methods": [
+            "excel_save:116",
+            "excel_query_request:119",
+            "excel_write_queryset:123",
+            "excel_rows:129",
+            "excel_columns:144",
+            "export:151",
+            "import_template:157",
+            "update_template:163",
+            "import_data:174",
+            "async_export:243",
+            "init_data:257"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/excel_fields.py",
+      "declarations": [
+        {
+          "name": "supports_import",
+          "line": 23,
+          "methods": []
+        },
+        {
+          "name": "relation_options",
+          "line": 27,
+          "methods": []
+        },
+        {
+          "name": "columns_for",
+          "line": 42,
+          "methods": []
+        },
+        {
+          "name": "multiple_text",
+          "line": 86,
+          "methods": []
+        },
+        {
+          "name": "encode",
+          "line": 92,
+          "methods": []
+        },
+        {
+          "name": "decode",
+          "line": 115,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/middleware.py",
+      "declarations": [
+        {
+          "name": "OperationLoggingMiddleware",
+          "line": 7,
+          "methods": [
+            "__init__:8",
+            "__call__:11"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/model_catalog.py",
+      "declarations": [
+        {
+          "name": "project_models",
+          "line": 5,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/notifications.py",
+      "declarations": [
+        {
+          "name": "notify_users",
+          "line": 6,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/serializers.py",
+      "declarations": [
+        {
+          "name": "AreaSerializer",
+          "line": 12,
+          "methods": [
+            "to_representation:13",
+            "validate:24"
+          ]
+        },
+        {
+          "name": "AccountSerializer",
+          "line": 32,
+          "methods": [
+            "get_role_info:38"
+          ]
+        },
+        {
+          "name": "DictionarySerializer",
+          "line": 47,
+          "methods": [
+            "validate:53"
+          ]
+        },
+        {
+          "name": "ConfigSerializer",
+          "line": 59,
+          "methods": [
+            "get_fields:65"
+          ]
+        },
+        {
+          "name": "OrderedSerializer",
+          "line": 72,
+          "methods": [
+            "create:73"
+          ]
+        },
+        {
+          "name": "MenuSerializer",
+          "line": 80,
+          "methods": []
+        },
+        {
+          "name": "RoleSerializer",
+          "line": 87,
+          "methods": []
+        },
+        {
+          "name": "MenuFieldSerializer",
+          "line": 96,
+          "methods": [
+            "validate:102"
+          ]
+        },
+        {
+          "name": "DeptSerializer",
+          "line": 116,
+          "methods": [
+            "create:125"
+          ]
+        },
+        {
+          "name": "UserSerializer",
+          "line": 132,
+          "methods": [
+            "to_representation:140",
+            "create:153",
+            "update:164"
+          ]
+        },
+        {
+          "name": "FileSerializer",
+          "line": 170,
+          "methods": [
+            "attributes:176",
+            "create:185",
+            "update:190"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/signals.py",
+      "declarations": [
+        {
+          "name": "receipt_changed",
+          "line": 8,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/tasks.py",
+      "declarations": [
+        {
+          "name": "export_file",
+          "line": 10,
+          "methods": []
+        },
+        {
+          "name": "demo_task",
+          "line": 36,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/backend/system/views.py",
+      "declarations": [
+        {
+          "name": "ResourceViewSet",
+          "line": 30,
+          "methods": [
+            "tree:32",
+            "batch_update:37"
+          ]
+        },
+        {
+          "name": "UserViewSet",
+          "line": 49,
+          "methods": [
+            "filter_queryset:54",
+            "reset_password:66",
+            "reset_to_default_password:78"
+          ]
+        },
+        {
+          "name": "MenuFieldViewSet",
+          "line": 88,
+          "methods": [
+            "get_models:93",
+            "auto_match_fields:100"
+          ]
+        },
+        {
+          "name": "department_ids",
+          "line": 111,
+          "methods": []
+        },
+        {
+          "name": "OrderedTreeViewSet",
+          "line": 119,
+          "methods": [
+            "move:124",
+            "move_up:137",
+            "move_down:141"
+          ]
+        },
+        {
+          "name": "DeptViewSet",
+          "line": 145,
+          "methods": [
+            "info:147"
+          ]
+        },
+        {
+          "name": "MenuViewSet",
+          "line": 160,
+          "methods": []
+        },
+        {
+          "name": "MenuButtonViewSet",
+          "line": 165,
+          "methods": [
+            "batch_create:171"
+          ]
+        },
+        {
+          "name": "DictionaryViewSet",
+          "line": 193,
+          "methods": [
+            "get_queryset:197"
+          ]
+        },
+        {
+          "name": "PeriodicViewSet",
+          "line": 204,
+          "methods": [
+            "run:209"
+          ]
+        },
+        {
+          "name": "RoleViewSet",
+          "line": 216,
+          "methods": [
+            "users:222",
+            "permissions:252"
+          ]
+        },
+        {
+          "name": "FileViewSet",
+          "line": 293,
+          "methods": [
+            "perform_destroy:297",
+            "destroy:301",
+            "multiple_delete:306"
+          ]
+        },
+        {
+          "name": "AreaViewSet",
+          "line": 312,
+          "methods": [
+            "children:317"
+          ]
+        },
+        {
+          "name": "MessageViewSet",
+          "line": 323,
+          "methods": [
+            "get_queryset:327",
+            "deliver:331",
+            "excel_save:343",
+            "create:350",
+            "retrieve:358",
+            "publish:365",
+            "recipients:370",
+            "get_self_receive:378",
+            "get_newest_msg:385"
+          ]
+        },
+        {
+          "name": "DownloadViewSet",
+          "line": 390,
+          "methods": [
+            "get_queryset:394"
+          ]
+        },
+        {
+          "name": "Inbox",
+          "line": 400,
+          "methods": [
+            "get:403",
+            "post:422"
+          ]
+        },
+        {
+          "name": "ConfigViewSet",
+          "line": 428,
+          "methods": [
+            "content:434",
+            "association_tables:452",
+            "relation_info:459",
+            "table_data:474"
+          ]
+        },
+        {
+          "name": "DictionaryData",
+          "line": 513,
+          "methods": [
+            "get:516"
+          ]
+        },
+        {
+          "name": "Metadata",
+          "line": 527,
+          "methods": [
+            "get:530"
+          ]
+        },
+        {
+          "name": "view_for",
+          "line": 641,
+          "methods": []
+        }
+      ]
+    },
+    {
+      "path": "djangovue3/packaging/launcher.py",
+      "declarations": [
+        {
+          "name": "child_args",
+          "line": 21,
+          "methods": []
+        },
+        {
+          "name": "service",
+          "line": 25,
+          "methods": []
+        },
+        {
+          "name": "desktop",
+          "line": 48,
+          "methods": []
+        }
+      ]
+    }
+  ],
+  "frontend": {
+    "original": [
+      "django-vue3-admin-master/web/src/api/login/index.ts",
+      "django-vue3-admin-master/web/src/api/menu/index.ts",
+      "django-vue3-admin-master/web/src/App.vue",
+      "django-vue3-admin-master/web/src/assets/iconfont/iconfont-01/iconfont.css",
+      "django-vue3-admin-master/web/src/assets/iconfont/iconfont-02/iconfont.css",
+      "django-vue3-admin-master/web/src/assets/iconfont/iconfont.css",
+      "django-vue3-admin-master/web/src/assets/style/reset.scss",
+      "django-vue3-admin-master/web/src/assets/style/tailwind.css",
+      "django-vue3-admin-master/web/src/components/auth/auth.vue",
+      "django-vue3-admin-master/web/src/components/auth/authAll.vue",
+      "django-vue3-admin-master/web/src/components/auth/auths.vue",
+      "django-vue3-admin-master/web/src/components/avatarSelector/index.vue",
+      "django-vue3-admin-master/web/src/components/calendar/index.vue",
+      "django-vue3-admin-master/web/src/components/cropper/index.vue",
+      "django-vue3-admin-master/web/src/components/dept-format/index.vue",
+      "django-vue3-admin-master/web/src/components/dvaSelect/index.vue",
+      "django-vue3-admin-master/web/src/components/editor/index.vue",
+      "django-vue3-admin-master/web/src/components/editor/toolbar.ts",
+      "django-vue3-admin-master/web/src/components/fileSelector/fileItem.vue",
+      "django-vue3-admin-master/web/src/components/fileSelector/index.vue",
+      "django-vue3-admin-master/web/src/components/fileSelector/types.ts",
+      "django-vue3-admin-master/web/src/components/foreignKey/index.vue",
+      "django-vue3-admin-master/web/src/components/iconSelector/index.vue",
+      "django-vue3-admin-master/web/src/components/iconSelector/list.vue",
+      "django-vue3-admin-master/web/src/components/importExcel/index.vue",
+      "django-vue3-admin-master/web/src/components/manyToMany/index.vue",
+      "django-vue3-admin-master/web/src/components/noticeBar/index.vue",
+      "django-vue3-admin-master/web/src/components/svgIcon/index.vue",
+      "django-vue3-admin-master/web/src/components/table/index.vue",
+      "django-vue3-admin-master/web/src/components/tableSelector/index.vue",
+      "django-vue3-admin-master/web/src/directive/authDirective.ts",
+      "django-vue3-admin-master/web/src/directive/customDirective.ts",
+      "django-vue3-admin-master/web/src/directive/index.ts",
+      "django-vue3-admin-master/web/src/directive/sizeDirective.ts",
+      "django-vue3-admin-master/web/src/i18n/index.ts",
+      "django-vue3-admin-master/web/src/i18n/lang/en.ts",
+      "django-vue3-admin-master/web/src/i18n/lang/zh-cn.ts",
+      "django-vue3-admin-master/web/src/i18n/lang/zh-tw.ts",
+      "django-vue3-admin-master/web/src/i18n/pages/formI18n/en.ts",
+      "django-vue3-admin-master/web/src/i18n/pages/formI18n/zh-cn.ts",
+      "django-vue3-admin-master/web/src/i18n/pages/formI18n/zh-tw.ts",
+      "django-vue3-admin-master/web/src/i18n/pages/login/en.ts",
+      "django-vue3-admin-master/web/src/i18n/pages/login/zh-cn.ts",
+      "django-vue3-admin-master/web/src/i18n/pages/login/zh-tw.ts",
+      "django-vue3-admin-master/web/src/layout/component/aside.vue",
+      "django-vue3-admin-master/web/src/layout/component/columnsAside.vue",
+      "django-vue3-admin-master/web/src/layout/component/header.vue",
+      "django-vue3-admin-master/web/src/layout/component/main.vue",
+      "django-vue3-admin-master/web/src/layout/footer/index.vue",
+      "django-vue3-admin-master/web/src/layout/index.vue",
+      "django-vue3-admin-master/web/src/layout/lockScreen/index.vue",
+      "django-vue3-admin-master/web/src/layout/logo/index.vue",
+      "django-vue3-admin-master/web/src/layout/main/classic.vue",
+      "django-vue3-admin-master/web/src/layout/main/columns.vue",
+      "django-vue3-admin-master/web/src/layout/main/defaults.vue",
+      "django-vue3-admin-master/web/src/layout/main/transverse.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/breadcrumb.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/closeFull.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/index.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/search.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/setings.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/user.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/breadcrumb/userNews.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/index.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/tagsView/contextmenu.vue",
+      "django-vue3-admin-master/web/src/layout/navBars/tagsView/tagsView.vue",
+      "django-vue3-admin-master/web/src/layout/navMenu/horizontal.vue",
+      "django-vue3-admin-master/web/src/layout/navMenu/subItem.vue",
+      "django-vue3-admin-master/web/src/layout/navMenu/vertical.vue",
+      "django-vue3-admin-master/web/src/layout/routerView/iframes.vue",
+      "django-vue3-admin-master/web/src/layout/routerView/link.vue",
+      "django-vue3-admin-master/web/src/layout/routerView/parent.vue",
+      "django-vue3-admin-master/web/src/layout/Scanned/api.ts",
+      "django-vue3-admin-master/web/src/layout/Scanned/index.vue",
+      "django-vue3-admin-master/web/src/layout/upgrade/index.vue",
+      "django-vue3-admin-master/web/src/main.ts",
+      "django-vue3-admin-master/web/src/plugin/permission/directive.permission.ts",
+      "django-vue3-admin-master/web/src/plugin/permission/func.permission.ts",
+      "django-vue3-admin-master/web/src/plugin/permission/index.ts",
+      "django-vue3-admin-master/web/src/plugin/permission/store.permission.ts",
+      "django-vue3-admin-master/web/src/router/backEnd.ts",
+      "django-vue3-admin-master/web/src/router/frontEnd.ts",
+      "django-vue3-admin-master/web/src/router/index.ts",
+      "django-vue3-admin-master/web/src/router/route.ts",
+      "django-vue3-admin-master/web/src/scan.ts",
+      "django-vue3-admin-master/web/src/settings.ts",
+      "django-vue3-admin-master/web/src/stores/btnPermission.ts",
+      "django-vue3-admin-master/web/src/stores/columnPermission.ts",
+      "django-vue3-admin-master/web/src/stores/dictionary.ts",
+      "django-vue3-admin-master/web/src/stores/frontendMenu.ts",
+      "django-vue3-admin-master/web/src/stores/index.ts",
+      "django-vue3-admin-master/web/src/stores/interface/index.ts",
+      "django-vue3-admin-master/web/src/stores/keepAliveNames.ts",
+      "django-vue3-admin-master/web/src/stores/messageCenter.ts",
+      "django-vue3-admin-master/web/src/stores/modules/dept.ts",
+      "django-vue3-admin-master/web/src/stores/requestOldRoutes.ts",
+      "django-vue3-admin-master/web/src/stores/routesList.ts",
+      "django-vue3-admin-master/web/src/stores/systemConfig.ts",
+      "django-vue3-admin-master/web/src/stores/tagsViewRoutes.ts",
+      "django-vue3-admin-master/web/src/stores/themeConfig.ts",
+      "django-vue3-admin-master/web/src/stores/userInfo.ts",
+      "django-vue3-admin-master/web/src/theme/app.scss",
+      "django-vue3-admin-master/web/src/theme/common/transition.scss",
+      "django-vue3-admin-master/web/src/theme/dark.scss",
+      "django-vue3-admin-master/web/src/theme/element.scss",
+      "django-vue3-admin-master/web/src/theme/fa/css/font-awesome.min.css",
+      "django-vue3-admin-master/web/src/theme/fastCrud.scss",
+      "django-vue3-admin-master/web/src/theme/iconSelector.scss",
+      "django-vue3-admin-master/web/src/theme/index.scss",
+      "django-vue3-admin-master/web/src/theme/loading.scss",
+      "django-vue3-admin-master/web/src/theme/media/chart.scss",
+      "django-vue3-admin-master/web/src/theme/media/cityLinkage.scss",
+      "django-vue3-admin-master/web/src/theme/media/date.scss",
+      "django-vue3-admin-master/web/src/theme/media/dialog.scss",
+      "django-vue3-admin-master/web/src/theme/media/error.scss",
+      "django-vue3-admin-master/web/src/theme/media/form.scss",
+      "django-vue3-admin-master/web/src/theme/media/home.scss",
+      "django-vue3-admin-master/web/src/theme/media/index.scss",
+      "django-vue3-admin-master/web/src/theme/media/layout.scss",
+      "django-vue3-admin-master/web/src/theme/media/login.scss",
+      "django-vue3-admin-master/web/src/theme/media/media.scss",
+      "django-vue3-admin-master/web/src/theme/media/pagination.scss",
+      "django-vue3-admin-master/web/src/theme/media/personal.scss",
+      "django-vue3-admin-master/web/src/theme/media/scrollbar.scss",
+      "django-vue3-admin-master/web/src/theme/media/tagsView.scss",
+      "django-vue3-admin-master/web/src/theme/mixins/index.scss",
+      "django-vue3-admin-master/web/src/theme/other.scss",
+      "django-vue3-admin-master/web/src/theme/tableTool.scss",
+      "django-vue3-admin-master/web/src/theme/waves.scss",
+      "django-vue3-admin-master/web/src/types/axios.d.ts",
+      "django-vue3-admin-master/web/src/types/global.d.ts",
+      "django-vue3-admin-master/web/src/types/layout.d.ts",
+      "django-vue3-admin-master/web/src/types/mitt.d.ts",
+      "django-vue3-admin-master/web/src/types/pinia.d.ts",
+      "django-vue3-admin-master/web/src/types/views.d.ts",
+      "django-vue3-admin-master/web/src/utils/arrayOperation.ts",
+      "django-vue3-admin-master/web/src/utils/authFunction.ts",
+      "django-vue3-admin-master/web/src/utils/baseUrl.ts",
+      "django-vue3-admin-master/web/src/utils/columnPermission.ts",
+      "django-vue3-admin-master/web/src/utils/commonCrud.ts",
+      "django-vue3-admin-master/web/src/utils/commonFunction.ts",
+      "django-vue3-admin-master/web/src/utils/cores.tsx",
+      "django-vue3-admin-master/web/src/utils/dictionary.ts",
+      "django-vue3-admin-master/web/src/utils/formatTime.ts",
+      "django-vue3-admin-master/web/src/utils/getStyleSheets.ts",
+      "django-vue3-admin-master/web/src/utils/loading.ts",
+      "django-vue3-admin-master/web/src/utils/menu.ts",
+      "django-vue3-admin-master/web/src/utils/message.ts",
+      "django-vue3-admin-master/web/src/utils/mitt.ts",
+      "django-vue3-admin-master/web/src/utils/other.ts",
+      "django-vue3-admin-master/web/src/utils/request.ts",
+      "django-vue3-admin-master/web/src/utils/service.ts",
+      "django-vue3-admin-master/web/src/utils/setIconfont.ts",
+      "django-vue3-admin-master/web/src/utils/storage.ts",
+      "django-vue3-admin-master/web/src/utils/theme.ts",
+      "django-vue3-admin-master/web/src/utils/tools.ts",
+      "django-vue3-admin-master/web/src/utils/toolsValidate.ts",
+      "django-vue3-admin-master/web/src/utils/upgrade.ts",
+      "django-vue3-admin-master/web/src/utils/wartermark.ts",
+      "django-vue3-admin-master/web/src/utils/websocket.ts",
+      "django-vue3-admin-master/web/src/views/interface/index.ts",
+      "django-vue3-admin-master/web/src/views/plugins/index.ts",
+      "django-vue3-admin-master/web/src/views/system/areas/api.ts",
+      "django-vue3-admin-master/web/src/views/system/areas/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/areas/index.vue",
+      "django-vue3-admin-master/web/src/views/system/columns/api.ts",
+      "django-vue3-admin-master/web/src/views/system/columns/components/ColumnsFormCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/columns/components/ColumnsTableCom/api.ts",
+      "django-vue3-admin-master/web/src/views/system/columns/components/ColumnsTableCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/columns/components/ItemCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/columns/components/ItemCom/types.ts",
+      "django-vue3-admin-master/web/src/views/system/columns/index.vue",
+      "django-vue3-admin-master/web/src/views/system/columns/types.ts",
+      "django-vue3-admin-master/web/src/views/system/config/api.ts",
+      "django-vue3-admin-master/web/src/views/system/config/components/addContent.vue",
+      "django-vue3-admin-master/web/src/views/system/config/components/addTabs.vue",
+      "django-vue3-admin-master/web/src/views/system/config/components/components/associationTable.vue",
+      "django-vue3-admin-master/web/src/views/system/config/components/components/crudTable.vue",
+      "django-vue3-admin-master/web/src/views/system/config/components/formContent.vue",
+      "django-vue3-admin-master/web/src/views/system/config/index.vue",
+      "django-vue3-admin-master/web/src/views/system/demo/api.ts",
+      "django-vue3-admin-master/web/src/views/system/demo/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/demo/index.vue",
+      "django-vue3-admin-master/web/src/views/system/dept/api.ts",
+      "django-vue3-admin-master/web/src/views/system/dept/components/DeptFormCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/dept/components/DeptTreeCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/dept/components/DeptUserCom/api.ts",
+      "django-vue3-admin-master/web/src/views/system/dept/components/DeptUserCom/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/dept/components/DeptUserCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/dept/index.vue",
+      "django-vue3-admin-master/web/src/views/system/dept/types.ts",
+      "django-vue3-admin-master/web/src/views/system/dictionary/api.ts",
+      "django-vue3-admin-master/web/src/views/system/dictionary/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/dictionary/index.vue",
+      "django-vue3-admin-master/web/src/views/system/dictionary/subDict/api.ts",
+      "django-vue3-admin-master/web/src/views/system/dictionary/subDict/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/dictionary/subDict/index.vue",
+      "django-vue3-admin-master/web/src/views/system/downloadCenter/api.ts",
+      "django-vue3-admin-master/web/src/views/system/downloadCenter/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/downloadCenter/index.vue",
+      "django-vue3-admin-master/web/src/views/system/error/401.vue",
+      "django-vue3-admin-master/web/src/views/system/error/404.vue",
+      "django-vue3-admin-master/web/src/views/system/fileList/api.ts",
+      "django-vue3-admin-master/web/src/views/system/fileList/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/fileList/index.vue",
+      "django-vue3-admin-master/web/src/views/system/home/index.vue",
+      "django-vue3-admin-master/web/src/views/system/log/loginLog/api.ts",
+      "django-vue3-admin-master/web/src/views/system/log/loginLog/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/log/loginLog/index.vue",
+      "django-vue3-admin-master/web/src/views/system/log/operationLog/api.ts",
+      "django-vue3-admin-master/web/src/views/system/log/operationLog/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/log/operationLog/index.vue",
+      "django-vue3-admin-master/web/src/views/system/login/api.ts",
+      "django-vue3-admin-master/web/src/views/system/login/component/account.vue",
+      "django-vue3-admin-master/web/src/views/system/login/component/changePwd.vue",
+      "django-vue3-admin-master/web/src/views/system/login/component/mobile.vue",
+      "django-vue3-admin-master/web/src/views/system/login/component/oauth2.vue",
+      "django-vue3-admin-master/web/src/views/system/login/component/scan.vue",
+      "django-vue3-admin-master/web/src/views/system/login/index.vue",
+      "django-vue3-admin-master/web/src/views/system/login/types.ts",
+      "django-vue3-admin-master/web/src/views/system/menu/api.ts",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuButtonCom/api.ts",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuButtonCom/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuButtonCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuFieldCom/api.ts",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuFieldCom/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuFieldCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuFormCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/menu/components/MenuTreeCom/index.vue",
+      "django-vue3-admin-master/web/src/views/system/menu/index.vue",
+      "django-vue3-admin-master/web/src/views/system/menu/types.ts",
+      "django-vue3-admin-master/web/src/views/system/messageCenter/api.ts",
+      "django-vue3-admin-master/web/src/views/system/messageCenter/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/messageCenter/index.vue",
+      "django-vue3-admin-master/web/src/views/system/personal/api.ts",
+      "django-vue3-admin-master/web/src/views/system/personal/index.vue",
+      "django-vue3-admin-master/web/src/views/system/role/api.ts",
+      "django-vue3-admin-master/web/src/views/system/role/components/addUsers/api.ts",
+      "django-vue3-admin-master/web/src/views/system/role/components/addUsers/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/role/components/addUsers/index.vue",
+      "django-vue3-admin-master/web/src/views/system/role/components/api.ts",
+      "django-vue3-admin-master/web/src/views/system/role/components/RoleDrawer.vue",
+      "django-vue3-admin-master/web/src/views/system/role/components/RoleMenuBtn.vue",
+      "django-vue3-admin-master/web/src/views/system/role/components/RoleMenuField.vue",
+      "django-vue3-admin-master/web/src/views/system/role/components/RoleMenuTree.vue",
+      "django-vue3-admin-master/web/src/views/system/role/components/RoleUsers.vue",
+      "django-vue3-admin-master/web/src/views/system/role/components/searchUsers/api.ts",
+      "django-vue3-admin-master/web/src/views/system/role/components/searchUsers/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/role/components/searchUsers/index.vue",
+      "django-vue3-admin-master/web/src/views/system/role/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/role/index.vue",
+      "django-vue3-admin-master/web/src/views/system/role/stores/RoleDrawerStores.ts",
+      "django-vue3-admin-master/web/src/views/system/role/stores/RoleMenuBtnStores.ts",
+      "django-vue3-admin-master/web/src/views/system/role/stores/RoleMenuFieldStores.ts",
+      "django-vue3-admin-master/web/src/views/system/role/stores/RoleMenuTreeStores.ts",
+      "django-vue3-admin-master/web/src/views/system/role/stores/RoleUsersStores.ts",
+      "django-vue3-admin-master/web/src/views/system/role/stores/RoleUserStores.ts",
+      "django-vue3-admin-master/web/src/views/system/role/types.ts",
+      "django-vue3-admin-master/web/src/views/system/user/api.ts",
+      "django-vue3-admin-master/web/src/views/system/user/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/user/index.vue",
+      "django-vue3-admin-master/web/src/views/system/whiteList/api.ts",
+      "django-vue3-admin-master/web/src/views/system/whiteList/crud.tsx",
+      "django-vue3-admin-master/web/src/views/system/whiteList/index.vue",
+      "django-vue3-admin-master/web/src/views/template/api.ts",
+      "django-vue3-admin-master/web/src/views/template/crud.tsx",
+      "django-vue3-admin-master/web/src/views/template/index.vue"
+    ],
+    "current": [
+      "djangovue3/web/src/api.ts",
+      "djangovue3/web/src/App.vue",
+      "djangovue3/web/src/appearance.css",
+      "djangovue3/web/src/appearance.ts",
+      "djangovue3/web/src/appearanceMessages.ts",
+      "djangovue3/web/src/authorization.ts",
+      "djangovue3/web/src/components/AppearanceDrawer.vue",
+      "djangovue3/web/src/components/ArrayInput.vue",
+      "djangovue3/web/src/components/AssociationSetting.vue",
+      "djangovue3/web/src/components/AvatarCrop.vue",
+      "djangovue3/web/src/components/Calendar.vue",
+      "djangovue3/web/src/components/ChartPanel.vue",
+      "djangovue3/web/src/components/ColoredTag.vue",
+      "djangovue3/web/src/components/DictionaryBadge.vue",
+      "djangovue3/web/src/components/editorToolbar.ts",
+      "djangovue3/web/src/components/ExcelImport.vue",
+      "djangovue3/web/src/components/FieldInput.vue",
+      "djangovue3/web/src/components/FilePicker.vue",
+      "djangovue3/web/src/components/FileThumbnail.vue",
+      "djangovue3/web/src/components/IconPicker.vue",
+      "djangovue3/web/src/components/IframePages.vue",
+      "djangovue3/web/src/components/MediaPreview.vue",
+      "djangovue3/web/src/components/MenuBranch.vue",
+      "djangovue3/web/src/components/MenuIcon.vue",
+      "djangovue3/web/src/components/MessageRecipients.vue",
+      "djangovue3/web/src/components/NoticeBar.vue",
+      "djangovue3/web/src/components/RemoteSelect.vue",
+      "djangovue3/web/src/components/ResourceTable.vue",
+      "djangovue3/web/src/components/RichText.vue",
+      "djangovue3/web/src/components/RolePermissions.vue",
+      "djangovue3/web/src/components/RoleUsers.vue",
+      "djangovue3/web/src/components/SettingsForm.vue",
+      "djangovue3/web/src/components/TableSelect.vue",
+      "djangovue3/web/src/components/TagsBar.vue",
+      "djangovue3/web/src/components/widgets.css",
+      "djangovue3/web/src/env.d.ts",
+      "djangovue3/web/src/i18n.ts",
+      "djangovue3/web/src/lunar-javascript.d.ts",
+      "djangovue3/web/src/main.ts",
+      "djangovue3/web/src/mobile.ts",
+      "djangovue3/web/src/navigation.ts",
+      "djangovue3/web/src/pages/ChartCrud.vue",
+      "djangovue3/web/src/pages/Components.vue",
+      "djangovue3/web/src/pages/FirstPassword.vue",
+      "djangovue3/web/src/pages/Home.vue",
+      "djangovue3/web/src/pages/Inbox.vue",
+      "djangovue3/web/src/pages/Login.vue",
+      "djangovue3/web/src/pages/NotFound.vue",
+      "djangovue3/web/src/pages/Profile.vue",
+      "djangovue3/web/src/pages/Resource.vue",
+      "djangovue3/web/src/pages/Terms.vue",
+      "djangovue3/web/src/pages/Unauthorized.vue",
+      "djangovue3/web/src/permission-grants.ts",
+      "djangovue3/web/src/plugins/index.ts",
+      "djangovue3/web/src/resource-config.ts",
+      "djangovue3/web/src/resource-query.ts",
+      "djangovue3/web/src/responsive.css",
+      "djangovue3/web/src/router.ts",
+      "djangovue3/web/src/store.ts",
+      "djangovue3/web/src/style.css",
+      "djangovue3/web/src/tag-color.ts",
+      "djangovue3/web/src/tree.ts"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "original_files_checked": 399,
+  "original_changed": [],
+  "current_baseline_files": 139,
+  "changed_baseline_files": [
+    "djangovue3/backend/application/build_version.py",
+    "djangovue3/backend/core/permissions.py",
+    "djangovue3/backend/system/auth.py",
+    "djangovue3/backend/system/management/commands/init_data.py",
+    "djangovue3/backend/system/models/permissions.py",
+    "djangovue3/backend/system/serializers.py",
+    "djangovue3/backend/system/tests/test_audit.py",
+    "djangovue3/backend/system/tests/test_excel.py",
+    "djangovue3/backend/system/tests/test_fifth_audit.py",
+    "djangovue3/backend/system/tests/test_platform.py",
+    "djangovue3/backend/system/tests/test_reaudit.py",
+    "djangovue3/backend/system/tests/test_third_audit.py",
+    "djangovue3/backend/system/views.py",
+    "djangovue3/web/src/App.vue",
+    "djangovue3/web/src/components/FieldInput.vue",
+    "djangovue3/web/src/components/IframePages.vue",
+    "djangovue3/web/src/components/ResourceTable.vue",
+    "djangovue3/web/src/components/TableSelect.vue",
+    "djangovue3/web/src/components/TagsBar.vue",
+    "djangovue3/web/src/pages/FirstPassword.vue",
+    "djangovue3/web/src/pages/Login.vue",
+    "djangovue3/web/src/pages/Profile.vue",
+    "djangovue3/web/src/router.ts",
+    "djangovue3/web/src/store.ts"
+  ],
+  "system_tests": {
+    "run": 82,
+    "passed": 80,
+    "skipped_default_extension_cases": 2
+  },
+  "extension_tests": {
+    "run": 7,
+    "passed": 7
+  },
+  "new_migration": "0017_model_identity",
+  "build_version": "1.0.0.1791524285900",
+  "current_document_links_valid": true,
+  "stable_ledger_ids": 236,
+  "rules_rows": 45,
+  "model_rows": 153,
+  "ui_rows": 157,
+  "temporary_services_stopped": [
+    8007,
+    8008,
+    6395,
+    6396
+  ],
+  "formal_health_final": {
+    "status": "ok"
+  },
+  "formal_readiness_final": {
+    "status": "ok",
+    "database": "sqlite"
+  },
+  "django_system_check": "no issues",
+  "migration_model_state_check": "no changes detected"
+}

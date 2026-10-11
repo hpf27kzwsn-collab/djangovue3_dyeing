@@ -1,0 +1,6 @@
+{
+  "method": "actual App.vue custom fetch function; dependency-isolated, browser re-connect separate",
+  "initial_token": "expired",
+  "reconnect_token": "refreshed",
+  "event_stream_accept_preserved": true
+}

@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:8007",
+  "formal_data_touched": false,
+  "checks": [
+    {
+      "avatarFileInputs": 1,
+      "case": "profile320",
+      "viewport": 320,
+      "width": 305
+    },
+    {
+      "case": "profile-empty-password",
+      "errors": [
+        "请填写原密码",
+        "请填写新密码",
+        "请确认新密码"
+      ]
+    },
+    {
+      "avatarSrc": "http://127.0.0.1:8007/media/files/2026/10/avatar.png",
+      "case": "avatar-crop-save320",
+      "viewport": 320,
+      "width": 305
+    },
+    {
+      "case": "menu-catalog320",
+      "dialogWidth": 320,
+      "labels": [
+        "描述",
+        "菜单名称",
+        "图标",
+        "排序",
+        "目录",
+        "路由地址",
+        "状态",
+        "菜单可见",
+        "上级菜单"
+      ],
+      "viewport": 320
+    },
+    {
+      "case": "menu-catalog-save320",
+      "saved": true
+    },
+    {
+      "case": "dept-default320-before-context-fix",
+      "dialogWidth": 320,
+      "labels": [
+        "部门编码",
+        "描述",
+        "部门名称",
+        "排序",
+        "负责人",
+        "联系电话",
+        "邮箱",
+        "状态",
+        "上级部门"
+      ],
+      "text": "添加部门编码描述部门名称排序负责人联系电话邮箱状态启用上级部门请选择复制粘贴0重置取消确定",
+      "viewport": 320,
+      "width": 320,
+      "result": "默认被updateContext覆盖；已修正，见after-fix/saved条目"
+    },
+    {
+      "case": "first-password-empty-320",
+      "errors": [
+        "请填写新密码",
+        "请确认新密码"
+      ]
+    },
+    {
+      "case": "dept-default-320-after-fix",
+      "parentText": "添加\n部门编码\n描述\n部门名称\n排序\n负责人\n联系电话\n邮箱\n状态\n启用\n上级部门\n总公司\n复制\n粘贴\n0\n重置\n取消\n确定",
+      "width": 320
+    },
+    {
+      "case": "dept-default-320-saved",
+      "saved": true,
+      "row": "\t\n4\n\t\n4\n\t\nsixth-mobile-dept\n\t\n手机默认部门验收\n\t\n1\n\t\n\t\n\t\n\t\n启用\n\t\n总公司\n\t"
+    },
+    {
+      "case": "menu-link-320",
+      "labels": [
+        "描述",
+        "菜单名称",
+        "图标",
+        "排序",
+        "目录",
+        "路由地址",
+        "外链",
+        "链接地址",
+        "内嵌页面",
+        "状态",
+        "页面缓存",
+        "菜单可见",
+        "固定标签",
+        "上级菜单"
+      ],
+      "errors": [
+        "请填写菜单名称",
+        "请填写路由地址",
+        "请填写链接地址"
+      ]
+    },
+    {
+      "case": "menu-link-320-saved",
+      "saved": true
+    },
+    {
+      "case": "profile-390-reload",
+      "dom": {
+        "avatarFile": true,
+        "imgSources": [
+          "http://127.0.0.1:8007/media/files/2026/10/avatar.png",
+          "http://127.0.0.1:8007/media/files/2026/10/avatar.png"
+        ],
+        "pageWidth": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "case": "menu-component-hints-390",
+      "options": [
+        "system/Resource",
+        "pages/ChartCrud",
+        "pages/Components",
+        "pages/FirstPassword",
+        "pages/Home",
+        "pages/Inbox",
+        "pages/LinkLanding",
+        "pages/Login",
+        "pages/NotFound",
+        "pages/Profile",
+        "pages/Resource",
+        "pages/Terms",
+        "pages/Unauthorized"
+      ],
+      "width": 390
+    },
+    {
+      "case": "menu-resource-conditional-390",
+      "errors": [
+        "请填写菜单名称",
+        "请填写路由地址",
+        "请填写组件名称",
+        "请填写接口资源"
+      ]
+    },
+    {
+      "case": "user-page-768",
+      "dom": {
+        "mainWidth": 752.6666870117188,
+        "pageWidth": 761,
+        "tableWidths": [
+          {
+            "outer": 713,
+            "scroll": 713
+          }
+        ],
+        "viewport": 768
+      }
+    },
+    {
+      "case": "dictionary-child-320-empty",
+      "errors": [
+        "请填写名称",
+        "请填写值"
+      ],
+      "width": 320
+    },
+    {
+      "case": "user-390-email-defaults",
+      "errors": [
+        "请填写用户名",
+        "请填写描述",
+        "请填写姓名",
+        "邮箱格式不正确",
+        "请填写部门",
+        "请填写角色"
+      ],
+      "labels": [
+        "密码",
+        "用户名",
+        "有效",
+        "描述",
+        "姓名",
+        "手机号",
+        "邮箱",
+        "头像",
+        "性别",
+        "用户类型",
+        "部门",
+        "角色",
+        "岗位"
+      ],
+      "gender": "",
+      "gender_source_check": "实际快照显示男；本条DOM父节点文本为空，不据其空字符串推断默认值",
+      "gender_source_check_verified_by": "sixth-implementation-front-probe.json user_form.gender.value=1"
+    },
+    {
+      "case": "login-390-empty",
+      "errors": [
+        "请填写账号",
+        "请填写密码"
+      ],
+      "dom": {
+        "pageWidth": 390,
+        "viewport": 390
+      }
+    }
+  ],
+  "screenshot": "docs/sixth-mobile-dept.png",
+  "screenshots": [
+    "sixth-mobile-profile.png",
+    "sixth-mobile-dept.png"
+  ],
+  "method": "actual in-app browser, isolated8007 only; source/API/DOM function probes reported separately",
+  "limitations": "no real Android/iOS keyboard; no all-layout/all-page combination; no actual credential changes in browser"
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-08",
+  "method": "extract actual Vue function bodies and execute with plain refs",
+  "all_buttons": {
+    "before": {
+      "1": {
+        "id": 1,
+        "data_range": 4,
+        "dept": [
+          9
+        ]
+      }
+    },
+    "after": {
+      "1": {
+        "id": 1,
+        "data_range": 3,
+        "dept": []
+      },
+      "2": {
+        "id": 2,
+        "data_range": 3,
+        "dept": []
+      }
+    }
+  },
+  "axios_multi_query": "/api/system/user/?role%5B%5D=11&role%5B%5D=12"
+}

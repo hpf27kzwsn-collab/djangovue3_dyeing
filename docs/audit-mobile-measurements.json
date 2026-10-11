@@ -1,0 +1,105 @@
+{
+  "permissions": [
+    {
+      "drawer": [
+        {
+          "left": 0,
+          "right": 390,
+          "width": 390
+        }
+      ],
+      "scroll": 390,
+      "width": 390
+    },
+    {
+      "drawer": [
+        {
+          "left": 0,
+          "right": 360,
+          "width": 360
+        }
+      ],
+      "scroll": 360,
+      "width": 360
+    },
+    {
+      "drawer": [
+        {
+          "left": 0,
+          "right": 414,
+          "width": 414
+        }
+      ],
+      "scroll": 414,
+      "width": 414
+    },
+    {
+      "drawer": [
+        {
+          "left": 0,
+          "right": 768,
+          "width": 768
+        }
+      ],
+      "scroll": 768,
+      "width": 768
+    },
+    {
+      "drawer": [
+        {
+          "left": 124,
+          "right": 1024,
+          "width": 900
+        }
+      ],
+      "scroll": 1024,
+      "width": 1024
+    }
+  ],
+  "layouts": [
+    {
+      "layout": "app-shell defaults",
+      "nav": true,
+      "rail": false,
+      "scroll": 390,
+      "sidebar": false,
+      "width": 390
+    },
+    {
+      "layout": "app-shell transverse",
+      "nav": true,
+      "rail": false,
+      "scroll": 390,
+      "sidebar": false,
+      "width": 390
+    },
+    {
+      "layout": "app-shell columns",
+      "nav": true,
+      "rail": false,
+      "scroll": 390,
+      "sidebar": false,
+      "width": 390
+    },
+    {
+      "layout": "app-shell classic",
+      "nav": true,
+      "rail": false,
+      "scroll": 390,
+      "sidebar": false,
+      "width": 390
+    }
+  ],
+  "config": {
+    "width": 390,
+    "left": 0,
+    "right": 390
+  },
+  "files": {
+    "width": 390,
+    "left": 12,
+    "right": 378,
+    "columns": 2
+  },
+  "loginRedirect": "目标路径及中文 search 查询已恢复"
+}

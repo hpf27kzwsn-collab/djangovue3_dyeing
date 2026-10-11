@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:8007",
+  "redis": "6395/3",
+  "method": "real Celery worker, HTTP API, xlsx workbook values and digest; isolated database only",
+  "checks": {
+    "post": {
+      "download_id": 1,
+      "task_id": "7a4bbaa2-acf9-48e5-935d-e4a68bab478b",
+      "task_status": 2,
+      "md5": "4256e814e55e716f29d4e9774ee3a4b8",
+      "headers": [
+        "序号",
+        "ID",
+        "描述",
+        "创建时间",
+        "修改时间",
+        "岗位名称",
+        "排序",
+        "岗位状态",
+        "创建人",
+        "修改人",
+        "数据归属部门",
+        "导出别名"
+      ],
+      "count": 1,
+      "sync_async_equal": true
+    },
+    "user": {
+      "download_id": 2,
+      "task_id": "d14989fd-b619-4fff-8ff5-5708a25f0d39",
+      "task_status": 2,
+      "md5": "de9d800fff778e151c351791600c03ed",
+      "headers": [
+        "序号",
+        "登录账号",
+        "用户名称",
+        "用户邮箱",
+        "手机号码",
+        "用户性别",
+        "账号状态",
+        "最后登录时间",
+        "部门",
+        "部门负责人"
+      ],
+      "count": 32,
+      "sync_async_equal": true
+    },
+    "business_keys": {
+      "saved": [
+        "admin",
+        "audit-role"
+      ],
+      "backfilled": [
+        "admin",
+        "audit-role"
+      ],
+      "reverse_group": 20
+    }
+  }
+}

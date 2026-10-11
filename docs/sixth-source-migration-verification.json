@@ -1,0 +1,12 @@
+{
+  "source_database_migrated": true,
+  "before_migration": "0011_area_audit",
+  "after_migration": "0017_model_identity",
+  "backup": "H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\sixth-source-backup\\db.sqlite3",
+  "preserved": {
+    "accounts": true,
+    "permissions": true,
+    "media": true
+  },
+  "test_database_merged": false
+}

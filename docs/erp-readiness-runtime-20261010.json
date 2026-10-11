@@ -1,0 +1,70 @@
+{
+  "python": "3.14.8",
+  "django": "5.2.18",
+  "database_engine": "django.db.backends.sqlite3",
+  "transaction_mode": "IMMEDIATE",
+  "registered_plugin_apps": [],
+  "system_models": {
+    "system.Dept": [
+      "dept_belong"
+    ],
+    "system.Role": [
+      "dept_belong"
+    ],
+    "system.Post": [
+      "dept_belong"
+    ],
+    "system.Users": [
+      "dept_belong"
+    ],
+    "system.Menu": [
+      "dept_belong"
+    ],
+    "system.MenuButton": [
+      "dept_belong"
+    ],
+    "system.MenuField": [
+      "dept_belong"
+    ],
+    "system.RoleMenuPermission": [
+      "dept_belong"
+    ],
+    "system.RoleMenuButtonPermission": [
+      "dept_belong"
+    ],
+    "system.FieldPermission": [
+      "dept_belong"
+    ],
+    "system.ApiWhiteList": [
+      "dept_belong"
+    ],
+    "system.Dictionary": [
+      "dept_belong"
+    ],
+    "system.Area": [
+      "dept_belong"
+    ],
+    "system.SystemConfig": [
+      "dept_belong"
+    ],
+    "system.FileList": [
+      "dept_belong"
+    ],
+    "system.OperationLog": [
+      "dept_belong"
+    ],
+    "system.LoginLog": [
+      "dept_belong"
+    ],
+    "system.MessageCenter": [
+      "dept_belong"
+    ],
+    "system.MessageCenterTargetUser": [
+      "dept_belong"
+    ],
+    "system.DownloadCenter": [
+      "dept_belong"
+    ]
+  },
+  "db_row_lock_supported": false
+}

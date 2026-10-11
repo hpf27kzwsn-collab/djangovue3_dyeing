@@ -1,0 +1,3475 @@
+{
+  "date": "2026-10-09",
+  "method": "actual source functions/template branches; actual Vue reactive/watch; API, storage and UI lifecycle dependencies isolated; not browser rendering",
+  "checks": {
+    "profile_avatar": {
+      "actual_field": {
+        "key": "avatar",
+        "kind": "avatar",
+        "options": []
+      },
+      "rendered_control": "AvatarCrop",
+      "expected_control": "AvatarCrop"
+    },
+    "user_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "password": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写密码"
+          }
+        ],
+        "value": "admin123456",
+        "kind": "password"
+      },
+      "last_login": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "username": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写用户名"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "is_active": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "date_joined": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "2026-10-09 06:26:51.580665+00:00",
+        "kind": "datetime"
+      },
+      "description": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写描述"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写姓名"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "mobile": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "email": {
+        "show": true,
+        "required": false,
+        "rules": [
+          {
+            "type": "email",
+            "message": "邮箱格式不正确",
+            "trigger": [
+              "blur",
+              "change"
+            ]
+          }
+        ],
+        "value": null,
+        "kind": "text"
+      },
+      "avatar": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "avatar"
+      },
+      "gender": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 1,
+        "kind": "select"
+      },
+      "user_type": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "select"
+      },
+      "pwd_change_count": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "number"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写部门"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "role": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写角色"
+          }
+        ],
+        "value": [],
+        "kind": "multi"
+      },
+      "post": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": [],
+        "kind": "multi"
+      },
+      "dept_path": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "role_names": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "post_names": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "dept_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "key": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写部门编码"
+          }
+        ],
+        "value": null,
+        "kind": "text"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写部门名称"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "sort": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "kind": "number"
+      },
+      "owner": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "phone": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "email": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "parent": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 1,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "post_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写岗位名称"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "code": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写岗位编码"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "sort": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 1,
+        "kind": "number"
+      },
+      "status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 1,
+        "kind": "select"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "role_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写角色名称"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "key": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写权限字符"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "sort": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写排序"
+          }
+        ],
+        "value": 1,
+        "kind": "number"
+      },
+      "status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "admin": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": false,
+        "kind": "boolean"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "menu_form": {
+      "id": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "name": {
+        "show": "computed",
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写菜单名称"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "icon": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "icon"
+      },
+      "sort": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "kind": "number"
+      },
+      "is_catalog": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": false,
+        "kind": "boolean"
+      },
+      "web_path": {
+        "show": "computed",
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写路由地址"
+          },
+          {}
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "component": {
+        "show": "computed",
+        "required": "computed",
+        "rules": "({form}    )=>condition(form)?[{required:true,message:`请填写${field.title}`},...(field.key==='link_url'?[{validator:(_rule    ,value       )=>value?.startsWith('/')||URL.canParse(value)&&['http:','https:'].includes(new URL(value).protocol)||new Error('请填写站内地址或 http/https 链接')}]:[])]:[]",
+        "value": "",
+        "kind": "autocomplete"
+      },
+      "component_name": {
+        "show": "computed",
+        "required": "computed",
+        "rules": "({form}    )=>condition(form)?[{required:true,message:`请填写${field.title}`},...(field.key==='link_url'?[{validator:(_rule    ,value       )=>value?.startsWith('/')||URL.canParse(value)&&['http:','https:'].includes(new URL(value).protocol)||new Error('请填写站内地址或 http/https 链接')}]:[])]:[]",
+        "value": "",
+        "kind": "text"
+      },
+      "resource": {
+        "show": "computed",
+        "required": "computed",
+        "rules": "({form}    )=>condition(form)?[{required:true,message:`请填写${field.title}`},...(field.key==='link_url'?[{validator:(_rule    ,value       )=>value?.startsWith('/')||URL.canParse(value)&&['http:','https:'].includes(new URL(value).protocol)||new Error('请填写站内地址或 http/https 链接')}]:[])]:[]",
+        "value": "",
+        "kind": "select"
+      },
+      "is_link": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": false,
+        "kind": "boolean"
+      },
+      "link_url": {
+        "show": "computed",
+        "required": "computed",
+        "rules": "({form}    )=>condition(form)?[{required:true,message:`请填写${field.title}`},...(field.key==='link_url'?[{validator:(_rule    ,value       )=>value?.startsWith('/')||URL.canParse(value)&&['http:','https:'].includes(new URL(value).protocol)||new Error('请填写站内地址或 http/https 链接')}]:[])]:[]",
+        "value": "",
+        "kind": "text"
+      },
+      "is_iframe": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": false,
+        "kind": "boolean"
+      },
+      "status": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "cache": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "boolean"
+      },
+      "visible": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "boolean"
+      },
+      "is_affix": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": false,
+        "kind": "boolean"
+      },
+      "creator": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "parent": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": "computed",
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "menu_button_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写按钮名称"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "value": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写权限标识"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "api": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写接口地址"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "method": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写请求方法"
+          }
+        ],
+        "value": 0,
+        "kind": "select"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "menu": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写菜单"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "column_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "model": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写模型"
+          }
+        ],
+        "value": "",
+        "kind": "select"
+      },
+      "field_name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写字段"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "title": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写字段标题"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "menu": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写菜单"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "role_menu_permission_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "role": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写角色"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "menu": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写菜单"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "role_menu_button_permission_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "data_range": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "select"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "role": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写角色"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "menu_button": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写按钮"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "dept": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": [],
+        "kind": "multi"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "field_permission_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "is_query": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "boolean"
+      },
+      "is_create": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "boolean"
+      },
+      "is_update": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "boolean"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "role": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写角色"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "field": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写字段"
+          }
+        ],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "api_white_list_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "url": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写接口地址"
+          }
+        ],
+        "value": "",
+        "kind": "api-path"
+      },
+      "method": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写请求方法"
+          }
+        ],
+        "value": 0,
+        "kind": "select"
+      },
+      "enable_datasource": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "boolean"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "dictionary_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "label": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写名称"
+          }
+        ],
+        "value": null,
+        "kind": "text"
+      },
+      "value": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写值"
+          }
+        ],
+        "value": null,
+        "kind": "text"
+      },
+      "is_value": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": false,
+        "kind": "boolean"
+      },
+      "type": {
+        "show": false,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写类型"
+          }
+        ],
+        "value": 0,
+        "kind": "select"
+      },
+      "color": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "color"
+      },
+      "sort": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写排序"
+          }
+        ],
+        "value": 1,
+        "kind": "number"
+      },
+      "status": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写状态"
+          }
+        ],
+        "value": true,
+        "kind": "select"
+      },
+      "remark": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "parent": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "area_form": {
+      "code": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写区域编码"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写名称"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "level": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": 1,
+        "kind": "number"
+      },
+      "pinyin": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "initials": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "enable": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "pcode": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "pcode_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "system_config_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "title": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写标题"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "key": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写配置键"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "value": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "json"
+      },
+      "sort": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 1,
+        "kind": "number"
+      },
+      "status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "form_item_type": {
+        "show": true,
+        "required": "computed",
+        "rules": "({form}    )=>form.parent!=null||context.value.parent?[{required:true,message:`请选择${field.title}`}]:[]",
+        "value": 0,
+        "kind": "select"
+      },
+      "data_options": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": [],
+        "kind": "json"
+      },
+      "rule": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": [],
+        "kind": "json"
+      },
+      "placeholder": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "setting": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": {},
+        "kind": "association"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "parent": {
+        "show": true,
+        "required": "computed",
+        "rules": "({form}    )=>form.parent!=null||context.value.parent?[{required:true,message:`请选择${field.title}`}]:[]",
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "file_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "name": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "url": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写文件"
+          }
+        ],
+        "value": "",
+        "kind": "file"
+      },
+      "size": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "number"
+      },
+      "mime_type": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "md5sum": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "upload_method": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "select"
+      },
+      "file_type": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": 3,
+        "kind": "select"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "operation_log_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "request_modular": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "request_msg": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "textarea"
+      },
+      "json_result": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": {},
+        "kind": "json"
+      },
+      "request_path": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写请求路径"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "request_method": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写请求方法"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "request_body": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": {},
+        "kind": "json"
+      },
+      "response_code": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 2000,
+        "kind": "number"
+      },
+      "request_ip": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "request_browser": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "request_os": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "duration": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "number"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "login_log_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "login_type": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 1,
+        "kind": "select"
+      },
+      "username": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写账号"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "ip": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "browser": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "os": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "select"
+      },
+      "msg": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "location": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "agent": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "textarea"
+      },
+      "continent": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "country": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "province": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "city": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "district": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "isp": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "area_code": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "country_english": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "country_code": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "longitude": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "latitude": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "message_center_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "target_type": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写消息类型"
+          }
+        ],
+        "value": 0,
+        "kind": "select"
+      },
+      "title": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写标题"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "content": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写内容"
+          }
+        ],
+        "value": "",
+        "kind": "richtext"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "target_user": {
+        "show": true,
+        "required": "computed",
+        "rules": "({form}    )=>form.target_type===target?[{required:true,type:'array',min:1,message:`请选择${field.title}`}]:[]",
+        "value": [],
+        "kind": "multi"
+      },
+      "target_dept": {
+        "show": true,
+        "required": "computed",
+        "rules": "({form}    )=>form.target_type===target?[{required:true,type:'array',min:1,message:`请选择${field.title}`}]:[]",
+        "value": [],
+        "kind": "multi"
+      },
+      "target_role": {
+        "show": true,
+        "required": "computed",
+        "rules": "({form}    )=>form.target_type===target?[{required:true,type:'array',min:1,message:`请选择${field.title}`}]:[]",
+        "value": [],
+        "kind": "multi"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "download_center_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "update_datetime": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "md5sum": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "task_name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写任务名称"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "task_status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "select"
+      },
+      "file_name": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "url": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "file"
+      },
+      "size": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "number"
+      },
+      "task_id": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "creator": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "modifier": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "dept_belong": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "creator_name": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "text"
+      },
+      "create_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "create_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__gte": {
+        "show": false,
+        "required": false
+      },
+      "update_datetime__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "periodic_task_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "name": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写任务名"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "task": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写Task Name"
+          }
+        ],
+        "value": "",
+        "kind": "select"
+      },
+      "args": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "[]",
+        "kind": "textarea"
+      },
+      "kwargs": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "{}",
+        "kind": "textarea"
+      },
+      "queue": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "exchange": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "routing_key": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "headers": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "{}",
+        "kind": "textarea"
+      },
+      "priority": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "expires": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "expire_seconds": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "one_off": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": false,
+        "kind": "boolean"
+      },
+      "start_time": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "enabled": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": true,
+        "kind": "boolean"
+      },
+      "last_run_at": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "total_run_count": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": 0,
+        "kind": "number"
+      },
+      "date_changed": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "description": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "",
+        "kind": "textarea"
+      },
+      "interval": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "crontab": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "solar": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "clocked": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "select"
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "interval_schedule_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "every": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写周期数"
+          }
+        ],
+        "value": null,
+        "kind": "number"
+      },
+      "period": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写间隔周期"
+          }
+        ],
+        "value": "",
+        "kind": "select"
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "crontab_schedule_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "timezone": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "Asia/Shanghai",
+        "kind": "select"
+      },
+      "minute": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "*",
+        "kind": "text"
+      },
+      "hour": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "*",
+        "kind": "text"
+      },
+      "day_of_month": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "*",
+        "kind": "text"
+      },
+      "month_of_year": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "*",
+        "kind": "text"
+      },
+      "day_of_week": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "*",
+        "kind": "text"
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "clocked_schedule_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "clocked_time": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写定时时间"
+          }
+        ],
+        "value": null,
+        "kind": "datetime"
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "solar_schedule_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "event": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写日程事件"
+          }
+        ],
+        "value": "",
+        "kind": "select"
+      },
+      "latitude": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写纬度"
+          }
+        ],
+        "value": null,
+        "kind": "decimal"
+      },
+      "longitude": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写经度"
+          }
+        ],
+        "value": null,
+        "kind": "decimal"
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "task_result_form": {
+      "id": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "number"
+      },
+      "task_id": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写Task ID"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "periodic_task_name": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "task_name": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "task_args": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "textarea"
+      },
+      "task_kwargs": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "textarea"
+      },
+      "status": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": "PENDING",
+        "kind": "text"
+      },
+      "worker": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "text"
+      },
+      "content_type": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写Result Content Type"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "content_encoding": {
+        "show": true,
+        "required": true,
+        "rules": [
+          {
+            "required": true,
+            "message": "请填写Result Encoding"
+          }
+        ],
+        "value": "",
+        "kind": "text"
+      },
+      "result": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "textarea"
+      },
+      "date_created": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "date_started": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "date_done": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "datetime"
+      },
+      "traceback": {
+        "show": true,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "textarea"
+      },
+      "meta": {
+        "show": false,
+        "required": false,
+        "rules": [],
+        "value": null,
+        "kind": "textarea"
+      },
+      "date_done__gte": {
+        "show": false,
+        "required": false
+      },
+      "date_done__lte": {
+        "show": false,
+        "required": false
+      },
+      "search": {
+        "show": false,
+        "required": false
+      }
+    },
+    "business_key_tree": {
+      "actual_query": {
+        "parent": 2,
+        "page": 1,
+        "limit": 10
+      },
+      "expected_parent": 2
+    },
+    "iframe_changed_menu": {
+      "expected": {
+        "url": "/terms/service",
+        "cache": false,
+        "title": "新标题"
+      },
+      "actual": [
+        {
+          "key": "/sixth-frame",
+          "title": "新标题",
+          "url": "/terms/service",
+          "cache": false,
+          "loading": true
+        }
+      ]
+    },
+    "iframe_after_navigation": [],
+    "tags_changed_menu": [
+      {
+        "path": "/",
+        "title": "home",
+        "affix": true,
+        "icon": "House"
+      },
+      {
+        "path": "/sixth-tag",
+        "fullPath": "/sixth-tag",
+        "title": "新标签",
+        "affix": true,
+        "icon": "User",
+        "menuId": 2
+      }
+    ],
+    "tags_deleted_menu": [
+      {
+        "path": "/",
+        "title": "home",
+        "affix": true,
+        "icon": "House"
+      }
+    ],
+    "menu_conditions": {
+      "catalog": {
+        "component": {
+          "show": false,
+          "rules": []
+        },
+        "component_name": {
+          "show": false,
+          "rules": []
+        },
+        "link_url": {
+          "show": false,
+          "rules": []
+        },
+        "resource": {
+          "show": false,
+          "rules": []
+        },
+        "is_iframe": {
+          "show": false,
+          "rules": []
+        },
+        "cache": {
+          "show": false,
+          "rules": []
+        },
+        "is_affix": {
+          "show": false,
+          "rules": []
+        }
+      },
+      "page": {
+        "component": {
+          "show": true,
+          "rules": [
+            {
+              "required": true,
+              "message": "请填写组件地址"
+            }
+          ]
+        },
+        "component_name": {
+          "show": true,
+          "rules": [
+            {
+              "required": true,
+              "message": "请填写组件名称"
+            }
+          ]
+        },
+        "link_url": {
+          "show": false,
+          "rules": []
+        },
+        "resource": {
+          "show": true,
+          "rules": [
+            {
+              "required": true,
+              "message": "请填写接口资源"
+            }
+          ]
+        },
+        "is_iframe": {
+          "show": false,
+          "rules": []
+        },
+        "cache": {
+          "show": true,
+          "rules": []
+        },
+        "is_affix": {
+          "show": true,
+          "rules": []
+        }
+      },
+      "link": {
+        "component": {
+          "show": false,
+          "rules": []
+        },
+        "component_name": {
+          "show": false,
+          "rules": []
+        },
+        "link_url": {
+          "show": true,
+          "rules": [
+            {
+              "required": true,
+              "message": "请填写链接地址"
+            },
+            {}
+          ]
+        },
+        "resource": {
+          "show": false,
+          "rules": []
+        },
+        "is_iframe": {
+          "show": true,
+          "rules": []
+        },
+        "cache": {
+          "show": true,
+          "rules": []
+        },
+        "is_affix": {
+          "show": true,
+          "rules": []
+        }
+      }
+    },
+    "password_rules": {
+      "first_blank_rejected": true,
+      "personal_same_rejected": true,
+      "complexity_limit_added": false
+    },
+    "dept_context_default": {
+      "parent": 1
+    }
+  }
+}

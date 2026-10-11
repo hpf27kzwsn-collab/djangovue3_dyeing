@@ -1,0 +1,16 @@
+{
+  "LauncherId": 20876,
+  "DatabaseCopySHA256": "0BF332104C415201D9D51118E6573AD1A1B9B1029FCBF7F16951F4334532439D",
+  "Backup": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\previous-final-audit-20261008",
+  "health": {
+    "/healthz": {
+      "status": "ok"
+    },
+    "/readiness": {
+      "status": "ok",
+      "database": "sqlite"
+    }
+  },
+  "frontend_index_sha256": "9f9507e855abff7a1fe97809733e49cf5ed2cf21970e41c8b535f5143a8ee0d9",
+  "executable_sha256": "3f6c3e0cb8b6aee1bd74a8c3865fee72f595c0904ceab4decec9ba214fae051b"
+}

@@ -1,0 +1,201 @@
+{
+  "completed_at": "2026-10-09T17:01:59.599483+08:00",
+  "batches": [
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "findings_implemented": [
+    "F36",
+    "F32-R2",
+    "F38",
+    "E01-R1",
+    "F37"
+  ],
+  "supplemental_implemented": [
+    "F39"
+  ],
+  "ledger_changed_ids": [
+    "PERM-16",
+    "NAV-01",
+    "NAV-07",
+    "NAV-10",
+    "NAV-13",
+    "NAV-14",
+    "XLSX-02",
+    "XLSX-04",
+    "CORE-14",
+    "MOBILE-09"
+  ],
+  "status_counts": {
+    "C": 31,
+    "D": 0,
+    "I": 60,
+    "O": 5,
+    "S": 115,
+    "U": 18,
+    "V": 2,
+    "X": 5
+  },
+  "tests": {
+    "system": {
+      "run": 85,
+      "passed": 80,
+      "skipped": 5,
+      "seconds": 31.832,
+      "log": "runtime/seventh-implementation-system-tests.log"
+    },
+    "extensions": {
+      "run": 10,
+      "passed": 10,
+      "skipped": 0,
+      "seconds": 6.919,
+      "log": "runtime/seventh-implementation-extensions.log"
+    },
+    "note": "两种配置有重复项，不把85与10相加为95个独立用例。默认跳过2个同名身份和3个新碰撞测试；扩展配置加载真实测试App。"
+  },
+  "front": "seventh-implementation-front-verification.json",
+  "baseline_front": [
+    "seventh-implementation-baseline-front-probe.json",
+    "seventh-implementation-baseline-front-regression.json"
+  ],
+  "worker": {
+    "report": "seventh-implementation-worker-verification.json",
+    "real_models_passed": 6
+  },
+  "browser": {
+    "report": "seventh-implementation-browser-verification.json",
+    "screenshot_available": false,
+    "transitional_resize_is_not_steady_geometry": true
+  },
+  "build": {
+    "version": "1.0.0.1791535142308",
+    "typecheck_and_vite": "runtime/seventh-implementation-build-final.log",
+    "package": "runtime/seventh-package-build-final.log"
+  },
+  "candidate": "seventh-candidate-verification.json",
+  "release": {
+    "verified_at": "2026-10-09T16:54:06.016189+08:00",
+    "base": "http://127.0.0.1:8000",
+    "health": {
+      "/healthz": {
+        "status": "ok"
+      },
+      "/readiness": {
+        "status": "ok",
+        "database": "sqlite"
+      }
+    },
+    "served_index_sha256": "1ccdb546e21ca568bf937caafa414127355dc14386d04b4be6d8c6d0b3b6f266",
+    "program_sha256": "c2b859a5c23d6cae71b2da87043089ccdd08a15a3ad7b6527ad8a3b75aa99a25",
+    "system_migrations": [
+      "0001_initial",
+      "0002_alter_systemconfig_form_item_type",
+      "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+      "0004_filelist_file_type_filelist_upload_method_and_more",
+      "0005_area_enable_area_initials_dictionary_remark_and_more",
+      "0006_alter_dictionary_type_alter_dictionary_value",
+      "0007_dictionary_dictionary_root_value_and_more",
+      "0008_alter_operationlog_json_result",
+      "0009_config_group_keys",
+      "0010_alter_post_status_alter_users_user_type",
+      "0011_area_audit",
+      "0012_receipt_audit",
+      "0013_alter_messagecentertargetuser_options_and_more",
+      "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+      "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+      "0016_menu_resource_image_icons",
+      "0017_model_identity"
+    ],
+    "preserved": {
+      "accounts": true,
+      "permissions": true,
+      "media": true
+    },
+    "media_count": 3,
+    "backup": "H:/Project_python/django-vue3-admin/djangovue3/packaging/previous-seventh-20261009",
+    "source_system_migrations": [
+      "0001_initial",
+      "0002_alter_systemconfig_form_item_type",
+      "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+      "0004_filelist_file_type_filelist_upload_method_and_more",
+      "0005_area_enable_area_initials_dictionary_remark_and_more",
+      "0006_alter_dictionary_type_alter_dictionary_value",
+      "0007_dictionary_dictionary_root_value_and_more",
+      "0008_alter_operationlog_json_result",
+      "0009_config_group_keys",
+      "0010_alter_post_status_alter_users_user_type",
+      "0011_area_audit",
+      "0012_receipt_audit",
+      "0013_alter_messagecentertargetuser_options_and_more",
+      "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+      "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+      "0016_menu_resource_image_icons",
+      "0017_model_identity"
+    ],
+    "new_schema_migration_required": false,
+    "build_version": "1.0.0.1791535142308"
+  },
+  "cleanup": {
+    "formal_services_retained": true,
+    "browser_test_tab_closed": true,
+    "remaining_ports": [
+      {
+        "LocalPort": 8000,
+        "OwningProcess": 9884
+      },
+      {
+        "LocalPort": 6389,
+        "OwningProcess": 13284
+      }
+    ],
+    "cleaned_process_ids": [
+      2832,
+      10636,
+      6308,
+      14044,
+      12972,
+      12212
+    ],
+    "test_files_preserved": true
+  },
+  "source": {
+    "report": "seventh-implementation-source-verification.json",
+    "original399_unchanged": true,
+    "changed_baseline_current": [
+      "djangovue3/backend/application/build_version.py",
+      "djangovue3/backend/core/api.py",
+      "djangovue3/backend/system/excel_fields.py",
+      "djangovue3/web/src/components/IframePages.vue",
+      "djangovue3/web/src/components/ResourceTable.vue",
+      "djangovue3/web/src/components/TagsBar.vue",
+      "djangovue3/web/src/pages/Resource.vue"
+    ]
+  },
+  "remaining_unverified": [
+    "NAV-02",
+    "FILE-14",
+    "MSG-11",
+    "XLSX-18",
+    "XLSX-19",
+    "TASK-04",
+    "TASK-09",
+    "COMP-18",
+    "CORE-15",
+    "MOBILE-01",
+    "MOBILE-02",
+    "MOBILE-03",
+    "MOBILE-04",
+    "MOBILE-05",
+    "MOBILE-06",
+    "MOBILE-07",
+    "MOBILE-10",
+    "MOBILE-11"
+  ],
+  "partial_unverified": {
+    "MOBILE-09": "缓存/关闭/全屏/iframe/全部布局及真机的完整组合仍待验；本轮I只覆盖F36/F37专项，不替代原U剩余范围。"
+  },
+  "scope": "已确认专项修复并发布；没有旧新全部双端实际操作或所有运行环境的等价证明。"
+}

@@ -1,0 +1,28 @@
+{
+  "base": "http://127.0.0.1:8007",
+  "menu": 39,
+  "changes": [
+    {
+      "button": 641,
+      "value": "after_sync:patch"
+    },
+    {
+      "button": 638,
+      "value": "after_sync:add"
+    },
+    {
+      "button": 640,
+      "value": "after_sync:list"
+    },
+    {
+      "button": 639,
+      "value": "after_sync:detail"
+    },
+    {
+      "field_grant": 273,
+      "is_create": false,
+      "is_update": false
+    }
+  ],
+  "purpose": "normal APIs update ordinary-role grants while its post page is cached; browser saves menu prefix to trigger account reload"
+}

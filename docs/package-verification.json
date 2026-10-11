@@ -1,0 +1,46 @@
+{
+  "login": 200,
+  "static_asset": "/static/assets/index-BxrSky84.js",
+  "download": {
+    "id": 3,
+    "description": "",
+    "create_datetime": "2026-10-08 16:15:36",
+    "update_datetime": "2026-10-08 16:15:36",
+    "md5sum": "1a7c80ce70647adab2f8e68bfab06d48",
+    "task_name": "岗位导出",
+    "task_status": 2,
+    "file_name": "export-3.xlsx",
+    "url": "http://127.0.0.1:8000/media/downloads/2026/10/export-3.xlsx",
+    "size": 8601,
+    "task_id": "f449fbcd-a4a8-45a9-9558-88a8a8327902",
+    "creator": 1,
+    "modifier": 1,
+    "dept_belong": 1,
+    "creator_name": "超级管理员"
+  },
+  "first_password": true,
+  "sse": "text/event-stream 200",
+  "download_md5_verified": true,
+  "public_config_password_excluded": true,
+  "xlsx_templates": {
+    "import_template": [
+      "序号",
+      "描述",
+      "岗位名称",
+      "岗位编码",
+      "排序",
+      "岗位状态"
+    ],
+    "update_template": [
+      "序号",
+      "更新主键(勿改)",
+      "描述",
+      "岗位名称",
+      "岗位编码",
+      "排序",
+      "岗位状态"
+    ]
+  },
+  "sync_async_rows_equal": true,
+  "download_size_verified": true
+}

@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-09",
+  "python": "3.14.8",
+  "django": "5.2.18",
+  "database": ":memory:",
+  "formal_database_touched": false,
+  "checks": {
+    "excluded_field_reintroduced": {
+      "status": 200,
+      "code_present": true,
+      "code": "AUDIT-ONLY"
+    },
+    "virtual_field_list": "测试岗位",
+    "virtual_field_export": {
+      "exception": "KeyError",
+      "detail": "'summary'"
+    },
+    "user_fixed_export_excluded_field": {
+      "exception": "KeyError",
+      "detail": "'mobile'"
+    },
+    "nested_boolean_lookup": {
+      "status": 400,
+      "data": {
+        "code": 400,
+        "msg": "[ErrorDetail(string='“true”的值应该为True或False', code='invalid')]",
+        "data": [
+          "“true”的值应该为True或False"
+        ]
+      }
+    },
+    "nested_boolean_in_lookup": {
+      "status": 400,
+      "data": {
+        "code": 400,
+        "msg": "[ErrorDetail(string='“true”的值应该为True或False', code='invalid')]",
+        "data": [
+          "“true”的值应该为True或False"
+        ]
+      }
+    },
+    "department_user_dependencies": {
+      "user_list_status": 200,
+      "department_info_status": 403,
+      "role_users_status": 200,
+      "department_tree_status": 403
+    },
+    "read_only_role_users_write_status": 403,
+    "read_only_role_permissions": {
+      "get_status": 200,
+      "put_status": 403
+    },
+    "non_primary_relation_reverse": {
+      "status": 400,
+      "data": {
+        "code": 400,
+        "msg": "[ErrorDetail(string='“AUDIT-ONLY”的值应该是一个整型', code='invalid')]",
+        "data": [
+          "“AUDIT-ONLY”的值应该是一个整型"
+        ]
+      }
+    },
+    "dictionary_association_table": {
+      "exception": "AttributeError",
+      "detail": "'DictionaryViewSet' object has no attribute 'action'"
+    },
+    "message_center_association_table": {
+      "exception": "AttributeError",
+      "detail": "'MessageViewSet' object has no attribute 'action'"
+    },
+    "root_boolean_in_status": 200,
+    "reverse_primary_key_status": 200,
+    "empty_array_row_save_status": 200
+  }
+}

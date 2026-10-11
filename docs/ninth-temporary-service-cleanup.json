@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-10T13:28:12.2195648+08:00",
+  "temporary_services": [
+    {
+      "ProcessId": 6528,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" worker ninth-a"
+    },
+    {
+      "ProcessId": 8664,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" worker ninth-b"
+    },
+    {
+      "ProcessId": 1860,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" worker ninth-a"
+    },
+    {
+      "ProcessId": 15724,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" worker ninth-b"
+    },
+    {
+      "ProcessId": 14712,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" serve \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth-static-web\" 8010"
+    },
+    {
+      "ProcessId": 8776,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" serve \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth-static-web\" 8010"
+    },
+    {
+      "ProcessId": 588,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" beat "
+    },
+    {
+      "ProcessId": 16036,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" beat "
+    },
+    {
+      "ProcessId": 17500,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" serve \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth-contract-web\" 8011"
+    },
+    {
+      "ProcessId": 17560,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" serve \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth-contract-web\" 8011"
+    },
+    {
+      "ProcessId": 17204,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" serve"
+    },
+    {
+      "ProcessId": 17884,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" \"H:\\Project_python\\django-vue3-admin\\djangovue3\\runtime\\ninth_local_env.py\" serve"
+    },
+    {
+      "ProcessId": 15992,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" -m http.server 8012 --bind 127.0.0.1"
+    },
+    {
+      "ProcessId": 18036,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\.venv\\Scripts\\python.exe\" -m http.server 8012 --bind 127.0.0.1"
+    },
+    {
+      "ProcessId": 2724,
+      "CommandLine": "\"H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\ninth-dist\\djangovue3\\djangovue3.exe\" --serve"
+    }
+  ],
+  "formal_8000_kept": true,
+  "independent_24h_processes_kept": true
+}

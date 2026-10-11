@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-10",
+  "method": "actual createCrudOptions/payload functions; Vue refs; dependencies isolated, not browser rendering",
+  "checks": {
+    "E01_R2": {
+      "entity": "identity_a_businesscredential",
+      "metadata_is_update": true,
+      "actual_edit_show": true,
+      "submitted_update": {
+        "password": "device-new",
+        "name": "测试设备"
+      },
+      "actual_create_show": true
+    },
+    "DP02": {
+      "empty_create_file_omitted": true,
+      "existing_update_file_retained": true,
+      "selected_file_submitted_as_multipart": true
+    },
+    "static_role_function": {
+      "ordinary_role": [
+        1,
+        2
+      ],
+      "multi_role_union": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "superuser_all": true,
+      "scope": "actual function; four-layout browser integration separate"
+    },
+    "extra_limit_source_review": {
+      "calendar_90_day_range_actual": true,
+      "calendar_cells": 98,
+      "file_upload_has_no_count_or_size_cap": true
+    }
+  }
+}

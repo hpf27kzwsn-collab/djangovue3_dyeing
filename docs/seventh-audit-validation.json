@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-09",
+  "system": {
+    "command": "manage.py test system --verbosity 1",
+    "run": 82,
+    "passed": 80,
+    "skipped": 2,
+    "seconds": 41.353,
+    "result": "OK",
+    "scope": "默认未加载扩展配置跳过2；这是现有用例覆盖范围。"
+  },
+  "extensions": {
+    "command": "manage.py test examples.catalogue system.tests.test_model_identity --settings=system.tests.extension_settings --verbosity 1",
+    "run": 7,
+    "result": "OK",
+    "seconds": 3.371,
+    "log": "runtime/seventh-audit-extension-tests.log",
+    "environment_note": "测试临时目录创建曾因沙箱权限失败；获自动审批后在工作区临时目录运行成功，不计产品缺陷。"
+  },
+  "frontend_types": {
+    "command": "node web/node_modules/vue-tsc/bin/vue-tsc.js --noEmit",
+    "exit_code": 0
+  },
+  "probes": {
+    "baseline": "seventh-audit-baseline-front-probe.json：25资源新鲜metadata及上轮专项复验；通过。",
+    "regression": "seventh-audit-baseline-front-regression.json：8类既有回归检查通过。",
+    "front": "seventh-audit-front-probe.json：断言预期失败现象存在，属于缺陷复现，不是正常功能验收通过。",
+    "backend": "seventh-audit-api-probe.json：SQLite内存库6个真实扩展模型及重复JWT刷新，包含确认失败反例与成功对照。",
+    "browser": "seventh-audit-browser-verification.json：隔离8007/6395，已发布前端，25资源入口及移动样本。"
+  },
+  "limits": [
+    "两测试配置有重复项，不相加为89个独立用例。",
+    "本轮未启动旧项目进行双端同操作验收。",
+    "未重新执行worker/beat、原生Excel/WPS、Android/iOS或性能基准。"
+  ]
+}

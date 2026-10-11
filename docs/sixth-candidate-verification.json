@@ -1,0 +1,82 @@
+{
+  "checks": {
+    "/healthz": {
+      "status": "ok"
+    },
+    "/readiness": {
+      "status": "ok",
+      "database": "sqlite"
+    },
+    "/api/config/": {
+      "code": 2000,
+      "msg": "success",
+      "data": {
+        "title": "ERP 管理平台",
+        "captcha": false,
+        "logo": "",
+        "subtitle": "组织、权限、系统数据与消息任务",
+        "copyright": "ERP 管理平台",
+        "keep_record": "",
+        "help_url": "",
+        "privacy_url": "/terms/privacy",
+        "clause_url": "/terms/service",
+        "first_password": true,
+        "version": "1.0.0.1791524285900"
+      }
+    }
+  },
+  "preserved": {
+    "accounts": true,
+    "permissions": true,
+    "media": true
+  },
+  "system_migrations": [
+    "0001_initial",
+    "0002_alter_systemconfig_form_item_type",
+    "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+    "0004_filelist_file_type_filelist_upload_method_and_more",
+    "0005_area_enable_area_initials_dictionary_remark_and_more",
+    "0006_alter_dictionary_type_alter_dictionary_value",
+    "0007_dictionary_dictionary_root_value_and_more",
+    "0008_alter_operationlog_json_result",
+    "0009_config_group_keys",
+    "0010_alter_post_status_alter_users_user_type",
+    "0011_area_audit",
+    "0012_receipt_audit",
+    "0013_alter_messagecentertargetuser_options_and_more",
+    "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+    "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+    "0016_menu_resource_image_icons",
+    "0017_model_identity"
+  ],
+  "model_identities": [
+    "system.Users",
+    "system.Dept",
+    "system.Post",
+    "system.Role",
+    "system.Menu",
+    "system.MenuButton",
+    "system.MenuField",
+    "system.RoleMenuPermission",
+    "system.RoleMenuButtonPermission",
+    "system.FieldPermission",
+    "system.ApiWhiteList",
+    "system.Dictionary",
+    "system.Area",
+    "system.SystemConfig",
+    "system.FileList",
+    "system.OperationLog",
+    "system.LoginLog",
+    "system.MessageCenter",
+    "system.DownloadCenter",
+    "django_celery_beat.PeriodicTask",
+    "django_celery_beat.IntervalSchedule",
+    "django_celery_beat.CrontabSchedule",
+    "django_celery_beat.ClockedSchedule",
+    "django_celery_beat.SolarSchedule",
+    "django_celery_results.TaskResult"
+  ],
+  "served_index_sha256": "f96096fc416d40b47a0250a31810eb5a5ede6ebf5f79451ace1296efd2f0c399",
+  "program_sha256": "1aad7983c19ce3a17cda7411ed470f5219fad303700dba63121d1baa3005654e",
+  "test_database_merged": false
+}

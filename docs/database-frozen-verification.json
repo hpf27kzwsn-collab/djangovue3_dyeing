@@ -1,0 +1,26 @@
+{
+  "sqlite": {
+    "readiness": {
+      "status": "ok",
+      "database": "sqlite"
+    },
+    "resources_metadata_and_list": 25,
+    "login": true,
+    "crud_and_xlsx": true,
+    "frontend_backend_version_equal": true,
+    "version": "1.0.0.1791633119992"
+  },
+  "postgresql": {
+    "readiness": {
+      "status": "ok",
+      "database": "postgresql"
+    },
+    "resources_metadata_and_list": 25,
+    "login": true,
+    "crud_and_xlsx": true,
+    "frontend_backend_version_equal": true,
+    "version": "1.0.0.1791633119992"
+  },
+  "exe_sha256": "fc28bcf646152904c8c3a6241c68e292a2464eed166bb2f4f480256417798c21",
+  "formal_database_modified": false
+}

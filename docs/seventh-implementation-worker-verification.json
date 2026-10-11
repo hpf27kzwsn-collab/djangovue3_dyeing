@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:8007",
+  "redis": "6395/3",
+  "method": "real Celery worker, HTTP generic CRUD, sync/async xlsx contents and md5; isolated database only",
+  "checks": {
+    "identity_a_users": {
+      "created": 1,
+      "download_id": 1,
+      "task_id": "8e91cfb3-2999-4f9c-8f99-d5f948ac22e3",
+      "status": 2,
+      "md5": "7c15af0f85fe8a0b370a8616d9b3a968",
+      "sync_async_equal": true,
+      "quantity": 31,
+      "headers": [
+        "序号",
+        "ID",
+        "描述",
+        "创建时间",
+        "修改时间",
+        "业务名称",
+        "数量",
+        "业务负责人",
+        "创建人",
+        "修改人",
+        "数据归属部门",
+        "业务父项",
+        "业务标签"
+      ]
+    },
+    "identity_a_loginlog": {
+      "created": 1,
+      "download_id": 2,
+      "task_id": "ff00b453-6e49-4615-9568-ac70d72b4122",
+      "status": 2,
+      "md5": "56f0e979c6e2f19e525d0aa0b3c4772f",
+      "sync_async_equal": true,
+      "quantity": 31,
+      "headers": [
+        "序号",
+        "ID",
+        "描述",
+        "创建时间",
+        "修改时间",
+        "业务名称",
+        "数量",
+        "业务负责人",
+        "创建人",
+        "修改人",
+        "数据归属部门",
+        "业务父项",
+        "业务标签"
+      ]
+    },
+    "identity_a_operationlog": {
+      "created": 1,
+      "download_id": 3,
+      "task_id": "e4648ba0-5b17-4b02-834a-e92c5f55a4ec",
+      "status": 2,
+      "md5": "39b20bd00209c8b9eb2192673c0ec2f0",
+      "sync_async_equal": true,
+      "quantity": 31,
+      "headers": [
+        "序号",
+        "ID",
+        "描述",
+        "创建时间",
+        "修改时间",
+        "业务名称",
+        "数量",
+        "业务负责人",
+        "创建人",
+        "修改人",
+        "数据归属部门",
+        "业务父项",
+        "业务标签"
+      ]
+    },
+    "identity_a_downloadcenter": {
+      "created": 1,
+      "download_id": 4,
+      "task_id": "ebbadddb-2990-4892-bf22-3f25439a1947",
+      "status": 2,
+      "md5": "115da2cf79ab1d8a340624647927efec",
+      "sync_async_equal": true,
+      "quantity": 31,
+      "headers": [
+        "序号",
+        "ID",
+        "描述",
+        "创建时间",
+        "修改时间",
+        "业务名称",
+        "数量",
+        "业务负责人",
+        "创建人",
+        "修改人",
+        "数据归属部门",
+        "业务父项",
+        "业务标签"
+      ]
+    },
+    "identity_a_taskresult": {
+      "created": 1,
+      "download_id": 5,
+      "task_id": "6d29f57c-284e-4466-92f0-efc976791136",
+      "status": 2,
+      "md5": "d515ecc21546d0e6a2dde5f8039e2d26",
+      "sync_async_equal": true,
+      "quantity": 31,
+      "headers": [
+        "序号",
+        "ID",
+        "描述",
+        "创建时间",
+        "修改时间",
+        "业务名称",
+        "数量",
+        "业务负责人",
+        "创建人",
+        "修改人",
+        "数据归属部门",
+        "业务父项",
+        "业务标签"
+      ]
+    },
+    "identity_a_plainentry": {
+      "created": 1,
+      "download_id": 6,
+      "task_id": "6dd5e238-8279-4308-8086-4fe67fe11b61",
+      "status": 2,
+      "md5": "66af69e715cee0860c561397cab34aaa",
+      "sync_async_equal": true,
+      "quantity": 31,
+      "headers": [
+        "序号",
+        "ID",
+        "描述",
+        "创建时间",
+        "修改时间",
+        "业务名称",
+        "数量",
+        "业务负责人",
+        "创建人",
+        "修改人",
+        "数据归属部门",
+        "业务父项",
+        "业务标签"
+      ]
+    }
+  }
+}

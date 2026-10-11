@@ -1,0 +1,30 @@
+Creating test database for alias 'default'...
+
+H:\Project_python\django-vue3-admin\djangovue3\.venv\Lib\site-packages\django\core\handlers\base.py:61: UserWarning: No directory at: H:\Project_python\django-vue3-admin\djangovue3\runtime\database-verification\sqlite\staticfiles\
+  mw_instance = middleware(adapted_handler)
+...........................................................................................................
+----------------------------------------------------------------------
+Ran 107 tests in 74.846s
+
+OK
+Destroying test database for alias 'default'...
+
+Found 107 test(s).
+System check identified no issues (0 silenced).
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。
+初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。

@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-10",
+  "method": "real Django APIClient, registered extension AppConfig, in-memory SQLite; no production writes",
+  "checks": {
+    "E01_R2": {
+      "model": "identity_a.BusinessCredential",
+      "declared_default": "device-initial",
+      "actual_metadata_default": "admin123456",
+      "metadata_is_update": true,
+      "api_update_status": 200,
+      "api_updated_value": "device-new",
+      "seed_field_definitions": [
+        "description",
+        "name"
+      ],
+      "association_fields": [
+        "id",
+        "description",
+        "creator",
+        "modifier",
+        "dept_belong",
+        "create_datetime",
+        "update_datetime",
+        "name"
+      ],
+      "ordinary_role_without_field_grant_status": 200,
+      "ordinary_role_password_present": true,
+      "ordinary_role_groups_present": true
+    },
+    "primary_key_policy": {
+      "metadata_readonly": false,
+      "metadata_is_update": true,
+      "patch_status": 400,
+      "detail": {
+        "code": 400,
+        "msg": "{'code': [ErrorDetail(string='主键标识不可修改，请新增记录', code='invalid')]}",
+        "data": {
+          "code": [
+            "主键标识不可修改，请新增记录"
+          ]
+        }
+      },
+      "old_record_retained": true
+    },
+    "optional_file_model_policy": {
+      "file_field_optional": true,
+      "file_excluded_from_serializer": true,
+      "api_create_status": 200,
+      "metadata_excel_import": false,
+      "template_status": 400,
+      "detail": {
+        "code": 400,
+        "msg": "[ErrorDetail(string='该模块只提供数据导出', code='invalid')]",
+        "data": [
+          "该模块只提供数据导出"
+        ]
+      },
+      "method": "Actual DRF view dispatch; fixture registered after URL generation, so this case does not use APIClient URL routing.",
+      "comparison": "Old ImportSerializerMixin accepts configured import_field_dict, without a whole-model FileField ban; not a claim that old FileList uploaded binaries from Excel."
+    },
+    "configuration16_json_roundtrip": {
+      "statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "zero_false_preserved": true,
+      "scope": "Actual APIs and persisted JSON; not all UI widgets/native applications."
+    }
+  }
+}

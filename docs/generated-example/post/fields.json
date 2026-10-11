@@ -1,0 +1,68 @@
+[
+  {
+    "key": "id",
+    "title": "ID",
+    "type": "BigAutoField",
+    "required": false
+  },
+  {
+    "key": "description",
+    "title": "描述",
+    "type": "CharField",
+    "required": false
+  },
+  {
+    "key": "creator",
+    "title": "创建人",
+    "type": "ForeignKey",
+    "required": false
+  },
+  {
+    "key": "modifier",
+    "title": "修改人",
+    "type": "ForeignKey",
+    "required": false
+  },
+  {
+    "key": "dept_belong",
+    "title": "数据归属部门",
+    "type": "ForeignKey",
+    "required": false
+  },
+  {
+    "key": "create_datetime",
+    "title": "创建时间",
+    "type": "DateTimeField",
+    "required": false
+  },
+  {
+    "key": "update_datetime",
+    "title": "修改时间",
+    "type": "DateTimeField",
+    "required": false
+  },
+  {
+    "key": "name",
+    "title": "岗位名称",
+    "type": "CharField",
+    "required": true
+  },
+  {
+    "key": "code",
+    "title": "岗位编码",
+    "type": "CharField",
+    "required": true
+  },
+  {
+    "key": "sort",
+    "title": "排序",
+    "type": "IntegerField",
+    "required": true
+  },
+  {
+    "key": "status",
+    "title": "状态",
+    "type": "BooleanField",
+    "required": true
+  }
+]

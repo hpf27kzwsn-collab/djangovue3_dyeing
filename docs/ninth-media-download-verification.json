@@ -1,0 +1,38 @@
+{
+  "downloads": [
+    {
+      "file": "ninth-h264.mp4",
+      "downloaded_path": "C:\\Users\\Admin\\Downloads\\ninth-h264_mo4et6b.mp4",
+      "sha256": "fef68d1c174c9fa8d8e58d36826b1709074f06481793e7c1a62891743107cfb8",
+      "matches_generated_file": true
+    },
+    {
+      "file": "ninth-vp9.webm",
+      "downloaded_path": "C:\\Users\\Admin\\Downloads\\ninth-vp9.webm",
+      "sha256": "36ade528204a56fb15e091383e788faa3a657efbe792afa22884723ceb0a7ae1",
+      "matches_generated_file": true
+    },
+    {
+      "file": "ninth-mp3.mp3",
+      "downloaded_path": "C:\\Users\\Admin\\Downloads\\ninth-mp3.mp3",
+      "sha256": "398505343ea53049f0e2c4c7bcace2e3a0d6716660e56cf533a099304c8dd95b",
+      "matches_generated_file": true
+    },
+    {
+      "file": "ninth-wav.wav",
+      "downloaded_path": "C:\\Users\\Admin\\Downloads\\ninth-wav.wav",
+      "sha256": "3f2313562279a18835749662f2efca0f3bbb3f8d34981f294d684bd9ff946cc2",
+      "matches_generated_file": true
+    }
+  ],
+  "avatar": {
+    "url": "http://127.0.0.1:8007/media/files/2026/10/avatar.png",
+    "format": "PNG",
+    "dimensions": [
+      256,
+      256
+    ],
+    "sha256": "a88f53fc7e4b122f79ea4f9c2959aba6dc70421980b252053b834d1a31bf0e62"
+  },
+  "method": "actual browser downloads compared byte hashes; real crop upload decoded from served PNG"
+}

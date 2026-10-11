@@ -1,0 +1,347 @@
+{
+  "method": "six actual component consumers at three widths; rendering/control inventory, not all props/emits/native upload flows",
+  "cases": [
+    {
+      "name": "滚动公告",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      },
+      "controls": [
+        "    - button \"关闭公告\":",
+        "    - button \"打开公告\":"
+      ]
+    },
+    {
+      "name": "日历",
+      "width": 320,
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "controls": [
+        "    - checkbox \"跨月保留选择\" [checked]",
+        "    - checkbox \"指定日期范围\"",
+        "    - button \"节假日设置\":",
+        "    - button \"上年\":",
+        "    - button \"上月\":",
+        "    - button \"今天\":",
+        "    - button \"下月\":",
+        "    - button \"下年\":",
+        "            - button \"27\":",
+        "            - button \"28\":",
+        "            - button \"29\":",
+        "            - button \"30\":",
+        "            - button \"1 国庆节\":",
+        "            - button \"2 国庆节\":",
+        "            - button \"3 国庆节\":",
+        "            - button \"4\":",
+        "            - button \"5\":",
+        "            - button \"6\":",
+        "            - button \"7\":",
+        "            - button \"8 寒露\":",
+        "            - button \"9\":",
+        "            - button \"10 今天\":",
+        "            - button \"11\":",
+        "            - button \"12\":"
+      ]
+    },
+    {
+      "name": "文件选择器",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      },
+      "controls": [
+        "    - button \"选择 / 上传图片\":",
+        "    - button \"选择 / 上传文件\":"
+      ]
+    },
+    {
+      "name": "富文本",
+      "width": 320,
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      },
+      "controls": [
+        "    - checkbox \"禁用编辑器\"",
+        "    - button \"正文\":",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button \"默认字号\":",
+        "    - button \"默认字体\":",
+        "    - button \"默认行高\":",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button \"视频\":",
+        "    - button:",
+        "    - button:",
+        "    - button:"
+      ]
+    },
+    {
+      "name": "关联与授权",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      },
+      "controls": [
+        "    - combobox"
+      ]
+    },
+    {
+      "name": "头像裁剪",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      },
+      "controls": [
+        "    - button \"Choose File\""
+      ]
+    },
+    {
+      "name": "滚动公告",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      },
+      "controls": [
+        "    - button \"关闭公告\":",
+        "    - button \"打开公告\":"
+      ]
+    },
+    {
+      "name": "日历",
+      "width": 390,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      },
+      "controls": [
+        "    - checkbox \"跨月保留选择\" [checked]",
+        "    - checkbox \"指定日期范围\"",
+        "    - button \"节假日设置\":",
+        "    - button \"上年\":",
+        "    - button \"上月\":",
+        "    - button \"今天\":",
+        "    - button \"下月\":",
+        "    - button \"下年\":",
+        "            - button \"27\":",
+        "            - button \"28\":",
+        "            - button \"29\":",
+        "            - button \"30\":",
+        "            - button \"1 国庆节\":",
+        "            - button \"2 国庆节\":",
+        "            - button \"3 国庆节\":",
+        "            - button \"4\":",
+        "            - button \"5\":",
+        "            - button \"6\":",
+        "            - button \"7\":",
+        "            - button \"8 寒露\":",
+        "            - button \"9\":",
+        "            - button \"10 今天\":",
+        "            - button \"11\":",
+        "            - button \"12\":"
+      ]
+    },
+    {
+      "name": "文件选择器",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      },
+      "controls": [
+        "    - button \"选择 / 上传图片\":",
+        "    - button \"选择 / 上传文件\":"
+      ]
+    },
+    {
+      "name": "富文本",
+      "width": 390,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      },
+      "controls": [
+        "    - checkbox \"禁用编辑器\"",
+        "    - button \"正文\":",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button \"默认字号\":",
+        "    - button \"默认字体\":",
+        "    - button \"默认行高\":",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button \"视频\":",
+        "    - button:",
+        "    - button:",
+        "    - button:"
+      ]
+    },
+    {
+      "name": "关联与授权",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      },
+      "controls": [
+        "    - combobox"
+      ]
+    },
+    {
+      "name": "头像裁剪",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      },
+      "controls": [
+        "    - button \"Choose File\""
+      ]
+    },
+    {
+      "name": "滚动公告",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      },
+      "controls": [
+        "    - button \"关闭公告\":",
+        "    - button \"打开公告\":"
+      ]
+    },
+    {
+      "name": "日历",
+      "width": 768,
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      },
+      "controls": [
+        "    - checkbox \"跨月保留选择\" [checked]",
+        "    - checkbox \"指定日期范围\"",
+        "    - button \"节假日设置\":",
+        "    - button \"上年\":",
+        "    - button \"上月\":",
+        "    - button \"今天\":",
+        "    - button \"下月\":",
+        "    - button \"下年\":",
+        "            - button \"27\":",
+        "            - button \"28\":",
+        "            - button \"29\":",
+        "            - button \"30\":",
+        "            - button \"1 国庆节\":",
+        "            - button \"2 国庆节\":",
+        "            - button \"3 国庆节\":",
+        "            - button \"4\":",
+        "            - button \"5\":",
+        "            - button \"6\":",
+        "            - button \"7\":",
+        "            - button \"8 寒露\":",
+        "            - button \"9\":",
+        "            - button \"10 今天\":",
+        "            - button \"11\":",
+        "            - button \"12\":"
+      ]
+    },
+    {
+      "name": "文件选择器",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      },
+      "controls": [
+        "    - button \"选择 / 上传图片\":",
+        "    - button \"选择 / 上传文件\":"
+      ]
+    },
+    {
+      "name": "富文本",
+      "width": 768,
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      },
+      "controls": [
+        "    - checkbox \"禁用编辑器\"",
+        "    - button \"正文\":",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button \"默认字号\":",
+        "    - button \"默认字体\":",
+        "    - button \"默认行高\":",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button:",
+        "    - button \"视频\":",
+        "    - button:",
+        "    - button:",
+        "    - button:"
+      ]
+    },
+    {
+      "name": "关联与授权",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      },
+      "controls": [
+        "    - combobox"
+      ]
+    },
+    {
+      "name": "头像裁剪",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      },
+      "controls": [
+        "    - button \"Choose File\""
+      ]
+    }
+  ]
+}

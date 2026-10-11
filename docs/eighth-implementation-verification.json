@@ -1,0 +1,345 @@
+{
+  "verified_at": "2026-10-10T05:04:07.343055+08:00",
+  "phase": "eighth-implementation-final",
+  "implementation_report": "第41至45批实施与验收.md",
+  "plan": "全盘对照审计与后续整改方案.md",
+  "build_version": "1.0.0.1791577969897",
+  "scope": "41–43 fixes complete; 44–45 partially accepted in specified scenarios; 46 native devices/apps unavailable",
+  "fixed_findings": [
+    {
+      "id": "E01-R2",
+      "status": "implemented",
+      "title": "认证字段名规则仍被应用于普通业务模型"
+    },
+    {
+      "id": "DP01",
+      "status": "implemented",
+      "title": "统一禁止修改所有业务主键，和元数据可编辑声明冲突"
+    },
+    {
+      "id": "DP02",
+      "status": "implemented",
+      "title": "可选FileField使整个业务模型被禁止xlsx导入"
+    },
+    {
+      "id": "F40",
+      "status": "implemented",
+      "title": "大页关联预取超过SQLite SQL参数上限",
+      "evidence": [
+        "eighth-implementation-xlsx-benchmark.json",
+        "eighth-implementation-verification.json"
+      ]
+    },
+    {
+      "id": "F41",
+      "status": "implemented",
+      "title": "消息连接库复制初始Authorization，刷新后仍用旧访问令牌",
+      "evidence": [
+        "eighth-implementation-sse-contract.json",
+        "eighth-implementation-sse-browser.json"
+      ]
+    }
+  ],
+  "status_counts": {
+    "C": 31,
+    "D": 0,
+    "I": 64,
+    "O": 5,
+    "S": 111,
+    "U": 14,
+    "V": 5,
+    "X": 6
+  },
+  "source_manifest": {
+    "hashes_rechecked": true,
+    "counts": {
+      "original": {
+        "selected": 399,
+        "changed": 0
+      },
+      "current": {
+        "selected": 139,
+        "changed": 9
+      }
+    }
+  },
+  "tests": [
+    {
+      "configuration": "default",
+      "discovered": 94,
+      "passed": 80,
+      "skipped": 14,
+      "seconds": 35.62,
+      "log": "runtime/eighth-implementation-system-tests-final.log"
+    },
+    {
+      "configuration": "extension apps",
+      "discovered": 19,
+      "passed": 19,
+      "skipped": 0,
+      "seconds": 21.293,
+      "log": "runtime/eighth-implementation-extensions-final.log"
+    }
+  ],
+  "test_counts_overlap": true,
+  "frontend": {
+    "contract_groups": 4,
+    "menu_tag_groups": 9,
+    "baseline_regression_groups": 8,
+    "typecheck_and_production_build_passed": true,
+    "build_log": "runtime/eighth-implementation-build-final.log",
+    "existing_chunk_warning_retained": true
+  },
+  "browser": {
+    "resources": 75,
+    "independent_pages": 24,
+    "component_consumers": 18,
+    "total_layout_cases": 117,
+    "viewport_widths": [
+      320,
+      390,
+      768
+    ],
+    "no_whole_page_horizontal_overflow_in_recorded_stable_cases": true,
+    "configuration_16_values_persisted": true,
+    "selector_clear_reselect_saved": true,
+    "native_device_evidence": false,
+    "all_form_operation_combinations_completed": false,
+    "screenshots": [
+      "eighth-implementation-business-fields.jpg",
+      "eighth-implementation-business-key.jpg",
+      "eighth-implementation-mobile-file.jpg",
+      "eighth-implementation-mobile-business-selector.jpg",
+      "eighth-implementation-calendar-mobile.jpg",
+      "eighth-implementation-sse-read.jpg"
+    ]
+  },
+  "runtime": {
+    "real_worker_model_exports": 6,
+    "real_clock_events": 3,
+    "two_worker_task_results": 8,
+    "sse_browser_checks": {
+      "initial_stream_200": true,
+      "server_disconnect_access_expiry_refresh_reconnect": true,
+      "refresh_expiry_returns_login": true,
+      "unread_1_then_read_0": true,
+      "live_subscriber_count": 1,
+      "after_logout_subscriber_count": 0
+    },
+    "24_hour_run_completed": false,
+    "real_dst_crossing_completed": false,
+    "os_suspend_resume_completed": false
+  },
+  "xlsx_optimized": {
+    "method": "same HTTP fixtures after export serializer reuse; sampled combined server+workers RSS, not incremental allocation",
+    "date": "2026-10-10",
+    "results": [
+      {
+        "rows": 1000,
+        "measurements": [
+          {
+            "operation": "sync_export_1000",
+            "seconds": 1.012,
+            "peak_sampled_combined_rss_mib": 485.57
+          },
+          {
+            "operation": "async_export_1000",
+            "seconds": 1.021,
+            "peak_sampled_combined_rss_mib": 502.33
+          }
+        ],
+        "download_id": 14,
+        "task_id": "41f6d111-ca43-457c-a9f2-e0c09b7e7892",
+        "sync_async_rows_equal": true
+      },
+      {
+        "rows": 10000,
+        "measurements": [
+          {
+            "operation": "sync_export_10000",
+            "seconds": 5.577,
+            "peak_sampled_combined_rss_mib": 563.34
+          },
+          {
+            "operation": "async_export_10000",
+            "seconds": 5.509,
+            "peak_sampled_combined_rss_mib": 645.11
+          }
+        ],
+        "download_id": 15,
+        "task_id": "23212a2f-2be6-4837-b2db-cb6004e8d61c",
+        "sync_async_rows_equal": true
+      },
+      {
+        "rows": 100000,
+        "measurements": [
+          {
+            "operation": "sync_export_100000",
+            "seconds": 55.76,
+            "peak_sampled_combined_rss_mib": 1124.33
+          },
+          {
+            "operation": "async_export_100000",
+            "seconds": 53.854,
+            "peak_sampled_combined_rss_mib": 1753.35
+          }
+        ],
+        "download_id": 16,
+        "task_id": "668d0b2d-1a9c-4edc-b603-75104a7ef92e",
+        "sync_async_rows_equal": true
+      }
+    ],
+    "measured_pids": [
+      16332,
+      7320,
+      13256,
+      18692,
+      19372,
+      7164
+    ]
+  },
+  "sqlite": {
+    "large_page_parameter_failure_fixed": true,
+    "long_write_concurrent_new_request_database_locked_observed": true,
+    "concurrency_success_samples_are_not_all_load_guarantees": true
+  },
+  "release": {
+    "verified_at": "2026-10-10T05:02:07.838297+08:00",
+    "base": "http://127.0.0.1:8000",
+    "health": {
+      "/healthz": {
+        "status": "ok"
+      },
+      "/readiness": {
+        "status": "ok",
+        "database": "sqlite"
+      }
+    },
+    "served_index_sha256": "fdbfb353041230eb15f584d7894a60aca4ddc3bb81d14876b5fe80eb0779be65",
+    "program_sha256": "6119be54931a835988956ff44ff5b3a82bb0194fb75ffafb2e86514f9863f645",
+    "system_migrations": [
+      "0001_initial",
+      "0002_alter_systemconfig_form_item_type",
+      "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+      "0004_filelist_file_type_filelist_upload_method_and_more",
+      "0005_area_enable_area_initials_dictionary_remark_and_more",
+      "0006_alter_dictionary_type_alter_dictionary_value",
+      "0007_dictionary_dictionary_root_value_and_more",
+      "0008_alter_operationlog_json_result",
+      "0009_config_group_keys",
+      "0010_alter_post_status_alter_users_user_type",
+      "0011_area_audit",
+      "0012_receipt_audit",
+      "0013_alter_messagecentertargetuser_options_and_more",
+      "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+      "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+      "0016_menu_resource_image_icons",
+      "0017_model_identity"
+    ],
+    "preserved": {
+      "accounts": true,
+      "permissions": true,
+      "media": true
+    },
+    "media_count": 3,
+    "backup": "H:/Project_python/django-vue3-admin/djangovue3/packaging/previous-eighth-20261010",
+    "source_system_migrations": [
+      "0001_initial",
+      "0002_alter_systemconfig_form_item_type",
+      "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+      "0004_filelist_file_type_filelist_upload_method_and_more",
+      "0005_area_enable_area_initials_dictionary_remark_and_more",
+      "0006_alter_dictionary_type_alter_dictionary_value",
+      "0007_dictionary_dictionary_root_value_and_more",
+      "0008_alter_operationlog_json_result",
+      "0009_config_group_keys",
+      "0010_alter_post_status_alter_users_user_type",
+      "0011_area_audit",
+      "0012_receipt_audit",
+      "0013_alter_messagecentertargetuser_options_and_more",
+      "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+      "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+      "0016_menu_resource_image_icons",
+      "0017_model_identity"
+    ],
+    "new_schema_migration_required": false,
+    "build_version": "1.0.0.1791577969897"
+  },
+  "candidate_fixture_archive_modules": [],
+  "cleanup": {
+    "verified_at": "2026-10-10T05:04:07.335270+08:00",
+    "stopped_owned_process_ids": [
+      17920,
+      2288,
+      16332,
+      7320,
+      13256,
+      18692,
+      19372,
+      7164,
+      292,
+      17188
+    ],
+    "closed_ports": [
+      8007,
+      8008,
+      8009,
+      6395
+    ],
+    "formal_port": 8000,
+    "formal_process": 7204,
+    "browser_created_tab_closed": true,
+    "browser_viewport_reset": true,
+    "method": "exact owned paths and Redis listener checked before stopping; second TCP/process inspection confirmed exits",
+    "initial_immediate_check": "listeners briefly remained during process exit; second inspection showed only formal 8000"
+  },
+  "remaining": [
+    "NAV-02",
+    "FILE-14",
+    "MSG-11",
+    "XLSX-18",
+    "TASK-09",
+    "COMP-18",
+    "MOBILE-02",
+    "MOBILE-03",
+    "MOBILE-04",
+    "MOBILE-05",
+    "MOBILE-06",
+    "MOBILE-07",
+    "MOBILE-10",
+    "MOBILE-11",
+    "MOBILE-09部分操作链"
+  ],
+  "no_new_arbitrary_limits_or_swallowed_exceptions": true,
+  "execution_errors_resolved": [
+    "incorrect test module / host / benchmark route / template header / absolute URL",
+    "sandbox frontend subprocess start",
+    "selector fixture missing declared display columns",
+    "hidden switch input selector",
+    "lost browser batch rerun and saved",
+    "final evidence query used type instead of actual form_item_type; corrected and passed"
+  ],
+  "evidence_files": {
+    "eighth-implementation-front-contracts.json": "4b2e58ca688fc60df08828e859444b086fc746d844fda4af0ec150467ead1a3e",
+    "eighth-implementation-front-verification.json": "44acaaf72cedf338a1fefccc3c655a9c3db6f467084bec8a524eb87bd4e98f8d",
+    "eighth-implementation-baseline-front-regression.json": "56172501deee684e1619d05a8cc2344926ad41740f31b317ee577776e689805d",
+    "eighth-implementation-baseline-front-probe.json": "42be460b178a4f1b3b43b2defd05e8567addb779fb69027720bee4af5f6b38ef",
+    "eighth-implementation-mobile-matrix.json": "c222c84b8d97999353fca3f672e356b888627db2bfd6b5864809ae35784688dc",
+    "eighth-implementation-independent-pages.json": "4cb914c6f43cb72d6fd622dc94892f5a9a8f613ca4aadfe260b5d5f6365f0332",
+    "eighth-implementation-components-mobile.json": "1f4f8f687bb8594897b549a8510a92cb5a2a25b6af39e9b071484564d1ab97cc",
+    "eighth-implementation-mobile-config-save.json": "831b5f1083cb77e4620a1fc9342e0c44e327c4f62211340d8c81a2cdb0c74eeb",
+    "eighth-implementation-calendar-actions.json": "5c9c16d643f935647b7f41b1b4aa86994c6fb1f9250340ccd4196eb481565be4",
+    "eighth-implementation-worker-final-verification.json": "baf7acf059a3c17b8d5e276a5ea5318435a13f910410a6508ba070dfa91b5758",
+    "eighth-implementation-sse-contract.json": "4df9c27f2ea143544f29fa12bbf47040d418d9dd1d2aef1cfff7da28b85342b7",
+    "eighth-implementation-sse-browser.json": "2252122840dc98da121865d9090e7522fd53130693d8566302b36188ee3426bc",
+    "eighth-implementation-runtime-verification.json": "17dbc7a9b16e14396febe64dbc5e3049acc13ee545232f696d98ebed9fa7f135",
+    "eighth-implementation-xlsx-benchmark.json": "c2ca9f4acd5441e628d810d2bcddeab15c0423633f6a922797bf6265053b5936",
+    "eighth-implementation-xlsx-optimized.json": "d1579e59bfbf6b8258d109cbd3ffc789b5db3bc2656c093fcf963b6700666914",
+    "eighth-implementation-ledger.json": "5076b7a984ffc0b42992a9f9b2072cb5abd5e4e545e4150499711269fd263c3c",
+    "eighth-implementation-source-manifest.json": "bb58ec9fb193ed1c4313fefc4e0923ee2125539bc2d74a96c82188324877841e",
+    "eighth-candidate-verification.json": "63968dd0a73664c972573366410eba345108b42188826a3c40738c8ad30ebf59",
+    "eighth-release-verification.json": "0e06dac6a3c51bf3a87926189fffae1b751ae308e06f8298f6301c5ecbb8c7a2",
+    "eighth-release-update.json": "da9f215476485ab8485e36b07687650e5930f2317c835fa6ba7ce846ed3ca321",
+    "eighth-implementation-cleanup.json": "cf363d51c7a0c996bf22d75a8f716fcce48146c72fb59bfdf86c61142c88c22a"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-09",
+  "time": "2026-10-09T12:26:27.090500",
+  "method": "source/field/form/action inventory, selected real API and Vue probes, existing tests, isolated browser DOM/dimension samples",
+  "product_code_modified": false,
+  "business_databases_modified_by_audit": false,
+  "dependencies_modified": false,
+  "formal": {
+    "program_sha256": "2795ae85cc86d12b72941169fdbe16ffa01c5b394b2708796030e95b279656df",
+    "index_sha256": "ab19c388333931795903a26a4a9b272d7e78e6ddaaa8f6cab3d8ffba8786037c",
+    "health": {
+      "status": "ok"
+    },
+    "restarted": false,
+    "replaced": false,
+    "matches_previous_release": true
+  },
+  "temporary_8007_closed": true,
+  "source_inputs": {
+    "time": "2026-10-09T12:26:24.877847",
+    "original_unchanged": true,
+    "current_unchanged": true,
+    "current_files": 139,
+    "original_files": 399
+  },
+  "findings": {
+    "count": 10,
+    "priorities": {
+      "P2": 7,
+      "P1": 3
+    },
+    "groups": [
+      "F11-R1",
+      "F05-R1",
+      "F29",
+      "F30",
+      "F31",
+      "F32",
+      "F33",
+      "F34",
+      "F35",
+      "E01"
+    ]
+  },
+  "ledger": {
+    "entries": 236,
+    "status_counts": {
+      "D": 22,
+      "S": 121,
+      "C": 31,
+      "I": 31,
+      "O": 5,
+      "X": 5,
+      "U": 19,
+      "V": 2
+    }
+  },
+  "forms": {
+    "crud_columns": 157,
+    "explicit_crud_rules": 45,
+    "independent_vue_files": 8
+  },
+  "tests": {
+    "system": {
+      "count": 71,
+      "passed": true,
+      "log": "runtime/sixth-audit-system-tests.log"
+    },
+    "example": {
+      "count": 4,
+      "passed": true,
+      "log": "runtime/sixth-audit-example-tests-approved.log"
+    },
+    "prior_frontend_assertion_groups": [
+      "F07",
+      "F08",
+      "F10",
+      "F11",
+      "F12",
+      "F14",
+      "F21",
+      "F27"
+    ],
+    "new_probes": "observed discrepancies retained, not reported as passed"
+  },
+  "environment_or_invocation_failures": [
+    "initial example tests used default settings without installing example app; corrected invocation",
+    "sandbox temporary generator path writes denied; corrected settings and approved test execution passed 4",
+    "browser screenshot capture unavailable; DOM/dimensions only",
+    "isolated browser Redis6395 not running; no SSE acceptance claimed"
+  ],
+  "not_reverified_this_turn": [
+    "production build",
+    "real worker/beat",
+    "native Excel/WPS",
+    "Android/iOS keyboard/media",
+    "all 4 layouts across all pages at 320/390/768",
+    "SSE reconnect/token refresh/sleep",
+    "long-load/performance/DST"
+  ],
+  "evidence": [
+    "sixth-audit-api-probe.json",
+    "sixth-audit-front-probe.json",
+    "sixth-audit-front-regression.json",
+    "sixth-audit-browser-verification.json",
+    "sixth-audit-metadata.json",
+    "sixth-audit-backend-inventory.json",
+    "sixth-audit-front-inventory.json",
+    "sixth-audit-independent-forms.json",
+    "sixth-audit-source-manifest.json",
+    "sixth-audit-ledger.json"
+  ],
+  "document_verification": {
+    "updated_entry_and_history_files_checked": 12,
+    "local_links_checked": 2179,
+    "missing": [],
+    "stable_ledger_ids_preserved": true
+  }
+}

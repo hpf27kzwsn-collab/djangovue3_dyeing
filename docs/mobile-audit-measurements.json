@@ -1,0 +1,30 @@
+[
+  {
+    "clientWidth": 360,
+    "documentWidth": 435,
+    "drawerLeft": -540,
+    "drawerWidth": 900,
+    "innerWidth": 360
+  },
+  {
+    "clientWidth": 390,
+    "documentWidth": 450,
+    "drawerLeft": -510,
+    "drawerWidth": 900,
+    "innerWidth": 390
+  },
+  {
+    "clientWidth": 768,
+    "documentWidth": 768,
+    "drawerLeft": -132,
+    "drawerWidth": 900,
+    "innerWidth": 768
+  },
+  {
+    "clientWidth": 1024,
+    "documentWidth": 1024,
+    "drawerLeft": 124,
+    "drawerWidth": 900,
+    "innerWidth": 1024
+  }
+]

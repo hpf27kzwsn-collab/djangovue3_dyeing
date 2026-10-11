@@ -1,0 +1,131 @@
+{
+  "checked_at": "2026-10-10T13:37:21.009642+08:00",
+  "default_tests": {
+    "total": 97,
+    "passed": 83,
+    "configuration_skipped": 14,
+    "seconds": 32.183,
+    "log": "runtime/ninth-local-env/backend-tests-final.log"
+  },
+  "extension_tests": {
+    "total": 19,
+    "passed": 19,
+    "seconds": 20.745,
+    "log": "runtime/ninth-local-env/extension-tests-final.log"
+  },
+  "frontend_typecheck_and_build": {
+    "passed": true,
+    "log": "runtime/ninth-local-env/frontend-final-build.log"
+  },
+  "browser_record_count": 129,
+  "browser_explicit_status_counts": {
+    "replay_required": 2,
+    "observations_without_status_field": 28,
+    "passed": 96,
+    "failed_output_size": 1,
+    "failed_child_form_fields": 1,
+    "skipped_user_manual_scope": 1
+  },
+  "browser_evidence": "ninth-local-browser.json",
+  "source_counts": {
+    "original": {
+      "selected": 399,
+      "changed": 0
+    },
+    "current": {
+      "selected": 139,
+      "changed": 10
+    }
+  },
+  "release": {
+    "verified_at": "2026-10-10T13:35:24.399492+08:00",
+    "base": "http://127.0.0.1:8000",
+    "health": {
+      "/healthz": {
+        "status": "ok"
+      },
+      "/readiness": {
+        "status": "ok",
+        "database": "sqlite"
+      }
+    },
+    "served_index_sha256": "54967708ee1172c6e31521468e88c6639710d5465c1fffde701641dcdff72c6b",
+    "program_sha256": "ab4d11b57dcffa18d095947c5562124d8f83b716cd598a05b2dbc3458ca6887a",
+    "system_migrations": [
+      "0001_initial",
+      "0002_alter_systemconfig_form_item_type",
+      "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+      "0004_filelist_file_type_filelist_upload_method_and_more",
+      "0005_area_enable_area_initials_dictionary_remark_and_more",
+      "0006_alter_dictionary_type_alter_dictionary_value",
+      "0007_dictionary_dictionary_root_value_and_more",
+      "0008_alter_operationlog_json_result",
+      "0009_config_group_keys",
+      "0010_alter_post_status_alter_users_user_type",
+      "0011_area_audit",
+      "0012_receipt_audit",
+      "0013_alter_messagecentertargetuser_options_and_more",
+      "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+      "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+      "0016_menu_resource_image_icons",
+      "0017_model_identity",
+      "0018_catalog_paths"
+    ],
+    "preserved": {
+      "accounts": true,
+      "permissions": true,
+      "media": true
+    },
+    "media_count": 3,
+    "backup": "H:/Project_python/django-vue3-admin/djangovue3/packaging/previous-ninth-final-20261010",
+    "source_system_migrations": [
+      "0001_initial",
+      "0002_alter_systemconfig_form_item_type",
+      "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+      "0004_filelist_file_type_filelist_upload_method_and_more",
+      "0005_area_enable_area_initials_dictionary_remark_and_more",
+      "0006_alter_dictionary_type_alter_dictionary_value",
+      "0007_dictionary_dictionary_root_value_and_more",
+      "0008_alter_operationlog_json_result",
+      "0009_config_group_keys",
+      "0010_alter_post_status_alter_users_user_type",
+      "0011_area_audit",
+      "0012_receipt_audit",
+      "0013_alter_messagecentertargetuser_options_and_more",
+      "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+      "0015_alter_loginlog_browser_alter_loginlog_os_and_more",
+      "0016_menu_resource_image_icons",
+      "0017_model_identity",
+      "0018_catalog_paths"
+    ],
+    "new_schema_migration_required": true,
+    "build_version": "1.0.0.1791610292239"
+  },
+  "soak_snapshot": {
+    "run_id": "ninth-local-24h-20261010T053046",
+    "status": "running",
+    "started_at": "2026-10-10T05:30:46.013748+00:00",
+    "scheduled_finish": "2026-10-11T05:30:46.013748+00:00",
+    "checked_at": "2026-10-10T05:37:16.636665+00:00",
+    "elapsed_seconds": 390.623,
+    "task_result_count": 6,
+    "duplicate_slots": {},
+    "failed_tasks": [],
+    "restart_checks": [
+      {
+        "type": "DatabaseScheduler process restart",
+        "at": "2026-10-10T05:35:46.609260+00:00",
+        "processes": {
+          "current": 15336,
+          "at": "2026-10-10T13:35:46.5876012+08:00",
+          "previous": [
+            18040,
+            12196
+          ]
+        }
+      }
+    ]
+  },
+  "manual_scenarios": "skipped at explicit user request; never passed",
+  "verification_scope": "finite local UI/API/database/runtime cases; no universal equivalence claim"
+}

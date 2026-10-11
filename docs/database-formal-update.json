@@ -1,0 +1,8 @@
+{
+  "backup": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\previous-database-20261010",
+  "launcher_pid": 14820,
+  "release": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\dist\\djangovue3",
+  "default_database": "sqlite",
+  "test_database_merged": false,
+  "database_copy_sha256_equal": true
+}

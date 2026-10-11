@@ -1,0 +1,43 @@
+{
+  "name": "djangovue3",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 8080",
+    "build": "vue-tsc --noEmit && vite build",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "latest",
+    "@fast-crud/fast-crud": "latest",
+    "@fast-crud/ui-element": "latest",
+    "@fast-crud/ui-interface": "latest",
+    "@iconify/vue": "latest",
+    "@microsoft/fetch-event-source": "2.0.1",
+    "@wangeditor/editor": "latest",
+    "axios": "latest",
+    "cropperjs": "latest",
+    "date-holidays": "^3.37.0",
+    "echarts": "^6.1.0",
+    "element-plus": "latest",
+    "lodash-es": "latest",
+    "lunar-javascript": "^1.7.7",
+    "pinia": "latest",
+    "sortablejs": "latest",
+    "vue": "latest",
+    "vue-i18n": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/sortablejs": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "typescript": "npm:@typescript/typescript6@latest",
+    "vite": "latest",
+    "vue-tsc": "latest"
+  },
+  "overrides": {
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+  }
+}

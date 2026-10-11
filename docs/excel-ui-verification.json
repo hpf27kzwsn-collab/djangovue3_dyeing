@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-08",
+  "page": "/system/post",
+  "panel": "岗位 · xlsx 导入",
+  "measurements": [
+    {"viewport": {"width": 360, "height": 740}, "dialog": {"left": 12, "right": 348, "width": 336, "bottom": 519.3333, "clientWidth": 336, "scrollWidth": 336}, "footer": [{"text": "关闭", "left": 28, "right": 174, "bottom": 503.3333}, {"text": "提交导入", "left": 186, "right": 332, "bottom": 503.3333}]},
+    {"viewport": {"width": 390, "height": 844}, "dialog": {"left": 12, "right": 378, "width": 366, "clientWidth": 366, "scrollWidth": 366}, "footer": [{"text": "关闭", "left": 28, "right": 189, "bottom": 518.9271}, {"text": "提交导入", "left": 201, "right": 362, "bottom": 518.9271}]},
+    {"viewport": {"width": 1580, "height": 1252}, "dialog": {"left": 470, "right": 1110, "width": 640, "bottom": 518.1250}}
+  ],
+  "xlsx_download": "岗位新增模板.xlsx",
+  "empty_template_upload_result": {"created": 0, "updated": 0, "skipped": 1},
+  "screenshot": "浏览器截图工具未能捕获，本轮无新截图",
+  "native_excel_wps_verified": false,
+  "android_ios_verified": false
+}

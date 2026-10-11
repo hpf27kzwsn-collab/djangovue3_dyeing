@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-10-10T13:39:07.119302+08:00",
+  "status": "passed",
+  "fixed_ids": 236,
+  "local_links_checked": 495,
+  "source_hashes_match": true,
+  "formal_health_ok": true,
+  "soak_status": "running",
+  "soak_success_count": 8,
+  "soak_contiguous_slots": [
+    1,
+    8
+  ],
+  "soak_two_workers": true,
+  "beat_restart_recorded": true,
+  "soak_completion_not_claimed": true,
+  "scheduled_finish": "2026-10-11T05:30:46.013748+00:00"
+}

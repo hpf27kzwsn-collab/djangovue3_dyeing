@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-09",
+  "method": "actual source watch callback; no browser or formal API",
+  "checks": {
+    "shared_tag_query": {
+      "last_visited": "/system/user?dept=27",
+      "tab_link": "/system/user",
+      "stored_tab": {
+        "path": "/system/user",
+        "title": "用户",
+        "affix": false,
+        "icon": ""
+      }
+    },
+    "version_generation": {
+      "original_actual_function_writes": [
+        {
+          "file": "public/version-build",
+          "value": "3.2.0.1000"
+        },
+        {
+          "file": "public/version-build",
+          "value": "3.2.0.2000"
+        }
+      ],
+      "original_build_not_executed": true,
+      "current_public_version_literal": "1.0.0",
+      "current_front_package": "1.0.0"
+    }
+  }
+}

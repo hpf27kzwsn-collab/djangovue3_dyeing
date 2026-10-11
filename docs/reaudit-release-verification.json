@@ -1,0 +1,40 @@
+{
+  "verified_at": "2026-10-08T21:09:30.657076+08:00",
+  "base": "http://127.0.0.1:8000",
+  "health": {
+    "/healthz": {
+      "status": "ok"
+    },
+    "/readiness": {
+      "status": "ok",
+      "database": "sqlite"
+    }
+  },
+  "served_index_sha256": "dbf2ee2d40cd247e6f218bbf852bf0e8113851e2ede9d5cfc1f3c87983e4bfb3",
+  "program_sha256": "7ab87936de90844240d77d9fb341122447ad47f24e9e2aa23f1cce3bef54e957",
+  "system_migrations": [
+    "0001_initial",
+    "0002_alter_systemconfig_form_item_type",
+    "0003_loginlog_agent_loginlog_area_code_loginlog_city_and_more",
+    "0004_filelist_file_type_filelist_upload_method_and_more",
+    "0005_area_enable_area_initials_dictionary_remark_and_more",
+    "0006_alter_dictionary_type_alter_dictionary_value",
+    "0007_dictionary_dictionary_root_value_and_more",
+    "0008_alter_operationlog_json_result",
+    "0009_config_group_keys",
+    "0010_alter_post_status_alter_users_user_type",
+    "0011_area_audit",
+    "0012_receipt_audit",
+    "0013_alter_messagecentertargetuser_options_and_more",
+    "0014_alter_dept_email_alter_dept_key_alter_dept_owner_and_more",
+    "0015_alter_loginlog_browser_alter_loginlog_os_and_more"
+  ],
+  "preserved": {
+    "accounts": true,
+    "permissions": true,
+    "media": true
+  },
+  "media_count": 3,
+  "backup": "H:/Project_python/django-vue3-admin/djangovue3/packaging/previous-reaudit-20261008",
+  "source_database_migrated": false
+}

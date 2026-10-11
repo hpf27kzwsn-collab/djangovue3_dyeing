@@ -1,0 +1,389 @@
+{
+  "run_id": "ninth-local-24h-20261010T045924",
+  "status": "failed_restart_duplicate",
+  "started_at": "2026-10-10T04:59:24.613202+00:00",
+  "scheduled_finish": "2026-10-11T04:59:24.613202+00:00",
+  "planned_seconds": 86400,
+  "interval_seconds": 60,
+  "method": "real clock, DatabaseScheduler, two actual Celery workers; isolated SQLite/Redis; no clock acceleration",
+  "periodic_task": 1,
+  "restart_checks": [
+    {
+      "type": "DatabaseScheduler process restart",
+      "at": "2026-10-10T05:04:25.239120+00:00",
+      "processes": {
+        "current": 12116,
+        "at": "2026-10-10T13:04:25.2130934+08:00",
+        "previous": [
+          11552,
+          17296
+        ]
+      }
+    }
+  ],
+  "results": [
+    {
+      "task_id": "ae185928-2f6b-4a97-a5ce-78da50b243e0",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 31,
+        "executed_at": "2026-10-10T05:30:27.547177+00:00"
+      },
+      "date_done": "2026-10-10T05:30:27.549723+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "b0952db2-0ee1-4631-af13-ada6098ee971",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 30,
+        "executed_at": "2026-10-10T05:29:27.550456+00:00"
+      },
+      "date_done": "2026-10-10T05:29:27.552720+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "ec3537e0-25d4-43fd-9a76-a06f7c9670e5",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 29,
+        "executed_at": "2026-10-10T05:28:27.548841+00:00"
+      },
+      "date_done": "2026-10-10T05:28:27.551196+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "5b828f4b-742e-4625-9424-5291f05f76df",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 28,
+        "executed_at": "2026-10-10T05:27:27.555489+00:00"
+      },
+      "date_done": "2026-10-10T05:27:27.562644+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "cbfb3ecb-8a61-408c-85d6-5100704b0cdb",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 27,
+        "executed_at": "2026-10-10T05:26:27.548215+00:00"
+      },
+      "date_done": "2026-10-10T05:26:27.550521+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "92b8532a-7f85-42a5-bb9a-9285274ce513",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 26,
+        "executed_at": "2026-10-10T05:25:27.545831+00:00"
+      },
+      "date_done": "2026-10-10T05:25:27.548181+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "7c18eba9-3b44-4f47-b1fb-24a295fa7534",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 25,
+        "executed_at": "2026-10-10T05:24:27.540989+00:00"
+      },
+      "date_done": "2026-10-10T05:24:27.543239+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "8267e5cf-7001-42d4-899d-a193fe7e8d0f",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 24,
+        "executed_at": "2026-10-10T05:23:27.535882+00:00"
+      },
+      "date_done": "2026-10-10T05:23:27.538407+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "878de3ba-1b2b-43ae-81e5-85c15026bbb6",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 23,
+        "executed_at": "2026-10-10T05:22:27.528326+00:00"
+      },
+      "date_done": "2026-10-10T05:22:27.530704+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "78caacad-8afa-4129-8023-36c691967f9d",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 22,
+        "executed_at": "2026-10-10T05:21:27.533656+00:00"
+      },
+      "date_done": "2026-10-10T05:21:27.539210+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "297b93e9-e4e8-4e57-8774-fd7853a0f80e",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 21,
+        "executed_at": "2026-10-10T05:20:27.527058+00:00"
+      },
+      "date_done": "2026-10-10T05:20:27.531553+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "8c5c35c0-f2dc-4026-a518-f642e71d1c2d",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 20,
+        "executed_at": "2026-10-10T05:19:27.520286+00:00"
+      },
+      "date_done": "2026-10-10T05:19:27.522511+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "a91a24ca-34f1-4878-a8a5-6c720e0440b8",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 19,
+        "executed_at": "2026-10-10T05:18:27.499042+00:00"
+      },
+      "date_done": "2026-10-10T05:18:27.501459+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "062fcdcf-1d05-42b3-801d-a7c418d36dec",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 18,
+        "executed_at": "2026-10-10T05:17:27.494599+00:00"
+      },
+      "date_done": "2026-10-10T05:17:27.496903+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "0c40417d-abba-44fc-b795-132672741443",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 17,
+        "executed_at": "2026-10-10T05:16:27.493307+00:00"
+      },
+      "date_done": "2026-10-10T05:16:27.495538+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "102f44b7-2a7f-4186-ac45-e8ea6e1703ca",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 16,
+        "executed_at": "2026-10-10T05:15:27.492141+00:00"
+      },
+      "date_done": "2026-10-10T05:15:27.494776+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "ef9da097-7c14-408e-b1dd-c769eca872c4",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 15,
+        "executed_at": "2026-10-10T05:14:27.491411+00:00"
+      },
+      "date_done": "2026-10-10T05:14:27.493987+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "cfe806df-fee2-4610-a0c1-a4b65815c164",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 14,
+        "executed_at": "2026-10-10T05:13:27.490400+00:00"
+      },
+      "date_done": "2026-10-10T05:13:27.493166+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "5cea5d06-2d5c-4a31-9760-0879f08149ac",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 13,
+        "executed_at": "2026-10-10T05:12:27.490411+00:00"
+      },
+      "date_done": "2026-10-10T05:12:27.492821+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "1df2aaf8-e6a9-4402-99f4-ee2e12993217",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 12,
+        "executed_at": "2026-10-10T05:11:27.489743+00:00"
+      },
+      "date_done": "2026-10-10T05:11:27.492129+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "f4f98267-9f1c-4271-b436-4c61ec3b0583",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 11,
+        "executed_at": "2026-10-10T05:10:27.495864+00:00"
+      },
+      "date_done": "2026-10-10T05:10:27.501747+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "9c0671e0-2e54-4694-a089-153f172c0a1e",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 10,
+        "executed_at": "2026-10-10T05:09:27.484387+00:00"
+      },
+      "date_done": "2026-10-10T05:09:27.486815+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "4cd6869e-1f30-42a3-b0d9-d63977ce2e61",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 9,
+        "executed_at": "2026-10-10T05:08:27.472249+00:00"
+      },
+      "date_done": "2026-10-10T05:08:27.475333+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "32302815-159e-4d3a-b914-275ea669bdb6",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 8,
+        "executed_at": "2026-10-10T05:07:27.469939+00:00"
+      },
+      "date_done": "2026-10-10T05:07:27.472264+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "0c8d44e0-5923-4702-a70b-572f747c5ca8",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 7,
+        "executed_at": "2026-10-10T05:06:27.468796+00:00"
+      },
+      "date_done": "2026-10-10T05:06:27.471252+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "0f11f44c-daa4-4f54-8e98-a63e5331e5fa",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 6,
+        "executed_at": "2026-10-10T05:05:27.467777+00:00"
+      },
+      "date_done": "2026-10-10T05:05:27.470080+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "d2bf2953-badf-4423-8e0e-3ff886a598f5",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 5,
+        "executed_at": "2026-10-10T05:04:27.492759+00:00"
+      },
+      "date_done": "2026-10-10T05:04:27.495060+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "57d42e26-c49f-4e68-91f1-7d84ca831be1",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 5,
+        "executed_at": "2026-10-10T05:04:24.644137+00:00"
+      },
+      "date_done": "2026-10-10T05:04:24.646356+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "89397c78-3e44-4ed7-aab7-c8c801f33b3b",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 4,
+        "executed_at": "2026-10-10T05:03:24.644041+00:00"
+      },
+      "date_done": "2026-10-10T05:03:24.646594+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "192b7fb2-13cb-415d-8885-7e1eb26a8278",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 3,
+        "executed_at": "2026-10-10T05:02:24.642875+00:00"
+      },
+      "date_done": "2026-10-10T05:02:24.645919+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "f53c548d-5db9-4ed1-9efd-39fd6a110790",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 2,
+        "executed_at": "2026-10-10T05:01:24.649138+00:00"
+      },
+      "date_done": "2026-10-10T05:01:24.668293+00:00",
+      "worker": "ninth-soak-b@PS2019VSHFTOJJ"
+    },
+    {
+      "task_id": "2859f247-d4f0-4dae-a6ca-0349c247418c",
+      "status": "SUCCESS",
+      "result": {
+        "run_id": "ninth-local-24h-20261010T045924",
+        "slot": 1,
+        "executed_at": "2026-10-10T05:00:24.671008+00:00"
+      },
+      "date_done": "2026-10-10T05:00:24.675315+00:00",
+      "worker": "ninth-soak-a@PS2019VSHFTOJJ"
+    }
+  ],
+  "elapsed_seconds": 1871.2,
+  "checked_at": "2026-10-10T05:30:35.813345+00:00",
+  "task_result_count": 32,
+  "duplicate_slots": {
+    "5": 2
+  },
+  "failed_tasks": [],
+  "failed_at": "2026-10-10T05:30:39.375536+00:00",
+  "reason": "beat默认按时间保存last_run_at；在第5分钟投递后重启，重新读取的旧状态导致第5分钟重复执行。",
+  "finding": "F48",
+  "runtime_archive": "runtime/ninth-soak-restart-failed-env"
+}

@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-10",
+  "status": "audit_complete_with_confirmed_pending_findings",
+  "findings": [
+    "E01-R2",
+    "DP01",
+    "DP02"
+  ],
+  "status_counts": {
+    "C": 31,
+    "D": 6,
+    "I": 58,
+    "O": 5,
+    "S": 111,
+    "U": 17,
+    "V": 2,
+    "X": 6
+  },
+  "fixed_ids_unchanged": true,
+  "product_source_unchanged": true,
+  "original_source_unchanged": true,
+  "default_tests": {
+    "run": 85,
+    "passed": 80,
+    "skipped": 5,
+    "seconds": 31.84,
+    "log": "runtime/eighth-audit-system-tests-complete.log"
+  },
+  "extension_tests": {
+    "run": 10,
+    "passed": 10,
+    "seconds": 6.46,
+    "log": "runtime/eighth-audit-extensions-resolved.log",
+    "overlap_with_default": true
+  },
+  "frontend_typecheck": "passed",
+  "regressions": [
+    "eighth-audit-front-verification.json",
+    "eighth-audit-baseline-front-probe.json",
+    "eighth-audit-baseline-front-regression.json"
+  ],
+  "api_probe": "eighth-audit-api-probe.json",
+  "front_probe": "eighth-audit-front-contract-probe.json",
+  "browser": "eighth-audit-browser-verification.json",
+  "production_edits": false,
+  "production_restarted": false,
+  "production_release": {
+    "health": {
+      "status": "not_listening_at_audit_start",
+      "evidence": "WinError 10061 observed; no restart in read-only audit"
+    },
+    "program_sha256": "c2b859a5c23d6cae71b2da87043089ccdd08a15a3ad7b6527ad8a3b75aa99a25",
+    "index_sha256": "1ccdb546e21ca568bf937caafa414127355dc14386d04b4be6d8c6d0b3b6f266"
+  },
+  "ports_after_cleanup": {
+    "8000": "not_listening",
+    "8007": "not_listening",
+    "6395": "not_listening"
+  },
+  "browser_created_tab_closed": true,
+  "viewport_reset": true,
+  "pending_verification_ids": [
+    "NAV-02",
+    "FILE-14",
+    "MSG-11",
+    "XLSX-18",
+    "XLSX-19",
+    "TASK-04",
+    "TASK-09",
+    "COMP-18",
+    "MOBILE-01",
+    "MOBILE-02",
+    "MOBILE-03",
+    "MOBILE-04",
+    "MOBILE-05",
+    "MOBILE-06",
+    "MOBILE-07",
+    "MOBILE-10",
+    "MOBILE-11",
+    "MOBILE-09"
+  ],
+  "future_business_scope": "CORE-15 reclassified U→X; not a product fix",
+  "historical_output_note": "Three seventh frontend JSON outputs were rewritten by prior helper defaults on rerun; eighth copies saved. Seventh consolidated implementation/release reports, ledger and audit failure proofs retained.",
+  "evidence_capture_rerun": {
+    "reason": "First run logs contained stdout but not full stderr summary; reran to retain complete outcome.",
+    "sandbox_extension_attempt": {
+      "run": 10,
+      "errors": 3,
+      "cause": "PermissionError creating/writing test temporary fixture directories under restricted execution",
+      "log": "runtime/eighth-audit-extensions-complete.log"
+    },
+    "resolved": "Same 10 tests passed under approved execution; no product edits."
+  },
+  "document_check": "eighth-audit-document-verification.json",
+  "final_product_source_check_after_test_rerun": "all 399 original and139 current baseline hashes still identical"
+}

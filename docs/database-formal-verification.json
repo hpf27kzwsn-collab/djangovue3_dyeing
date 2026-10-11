@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0.1791633119992",
+  "readiness": {
+    "status": "ok",
+    "database": "sqlite"
+  },
+  "accounts_permissions_menus_fields_preserved": true,
+  "media_preserved": true,
+  "media_count": 3,
+  "system_migration": "0019_windows_parity_cleanup",
+  "frontend_backend_version_equal": true,
+  "test_database_merged": false,
+  "formal_database_switched": false,
+  "program_sha256": "fc28bcf646152904c8c3a6241c68e292a2464eed166bb2f4f480256417798c21",
+  "backup": "H:\\Project_python\\django-vue3-admin\\djangovue3\\packaging\\previous-database-20261010"
+}

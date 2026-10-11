@@ -1,0 +1,999 @@
+- complementary:
+  - button "系统管理":
+    - generic: 系统管理
+  - button "本机 iframe 验收":
+    - generic: 本机 iframe 验收
+  - button "任务管理":
+    - generic: 任务管理
+  - button "组件示例":
+    - generic: 组件示例
+  - button "图表 CRUD 示例":
+    - generic: 图表 CRUD 示例
+- complementary:
+  - generic: D
+  - generic: ERP 管理平台
+  - menubar:
+    - menuitem "首页":
+      - generic: 首页
+    - menuitem "用户":
+      - generic: 用户
+    - menuitem "部门":
+      - generic: 部门
+    - menuitem "岗位":
+      - generic: 岗位
+    - menuitem "角色":
+      - generic: 角色
+    - menuitem "菜单":
+      - generic: 菜单
+    - menuitem "接口白名单":
+      - generic: 接口白名单
+    - menuitem "字典":
+      - generic: 字典
+    - menuitem "区域":
+      - generic: 区域
+    - menuitem "系统配置":
+      - generic: 系统配置
+    - menuitem "附件":
+      - generic: 附件
+    - menuitem "操作日志":
+      - generic: 操作日志
+    - menuitem "登录日志":
+      - generic: 登录日志
+    - menuitem "消息":
+      - generic: 消息
+    - menuitem "下载任务":
+      - generic: 下载任务
+    - menuitem "模型接入示例":
+      - generic: 模型接入示例
+    - menuitem "twin":
+      - generic: twin
+    - menuitem "users":
+      - generic: users
+    - menuitem "login log":
+      - generic: login log
+    - menuitem "operation log":
+      - generic: operation log
+    - menuitem "download center":
+      - generic: download center
+    - menuitem "task result":
+      - generic: task result
+    - menuitem "plain entry":
+      - generic: plain entry
+    - menuitem "business credential":
+      - generic: business credential
+    - menuitem "file entry":
+      - generic: file entry
+    - menuitem "excluded file entry":
+      - generic: excluded file entry
+    - menuitem "required file entry":
+      - generic: required file entry
+    - menuitem "business key":
+      - generic: business key
+    - menuitem "key reference":
+      - generic: key reference
+    - menuitem "key identity":
+      - generic: key identity
+    - menuitem "key identity reference":
+      - generic: key identity reference
+    - menuitem "twin":
+      - generic: twin
+- button "折叠菜单":
+- navigation "面包屑":
+  - link "首页":
+    - text: 首页
+  - text: /
+  - link "系统管理"
+  - text: /
+  - link "登录日志"
+- combobox
+- generic: 搜索菜单
+- button "全屏":
+- button "我的消息":
+- button "简":
+  - generic: 简
+- button "主题设置":
+- button "个人中心":
+  - generic: 超级管理员
+- navigation:
+  - button "首页":
+    - text: 首页
+  - button "岗位 ×":
+    - text: 岗位
+    - generic: ×
+  - button "登录日志 ↻ ×":
+    - text: 登录日志
+    - generic: ↻
+    - generic: ×
+- main:
+  - heading "登录日志" [level=2]
+  - button "导出":
+    - generic: 导出
+  - button "异步导出":
+    - generic: 异步导出
+  - button "初始化数据":
+    - generic: 初始化数据
+  - button "已选 0 项":
+    - generic: 已选 0 项
+  - generic "账号":
+    - generic: 账号
+    - textbox "账号"
+  - generic "IP":
+    - generic: IP
+    - textbox "IP"
+  - generic "浏览器":
+    - generic: 浏览器
+    - textbox "浏览器"
+  - generic "操作系统":
+    - generic: 操作系统
+    - textbox "操作系统"
+  - generic "成功":
+    - generic: 成功
+    - combobox "成功"
+    - generic: 请选择
+  - generic "创建时间（起）":
+    - generic: 创建时间（起）
+    - combobox "创建时间（起）"
+  - generic "创建时间（止）":
+    - generic: 创建时间（止）
+    - combobox "创建时间（止）"
+  - generic "修改时间（起）":
+    - generic: 修改时间（起）
+    - combobox "修改时间（起）"
+  - generic "修改时间（止）":
+    - generic: 修改时间（止）
+    - combobox "修改时间（止）"
+  - generic "关键词":
+    - generic: 关键词
+    - textbox "关键词"
+  - button "查询":
+    - generic: 查询
+  - button "重置":
+    - generic: 重置
+  - button "刷新":
+  - button "查询显示":
+  - button "紧凑模式":
+  - button "列设置":
+  - table:
+    - rowgroup:
+      - row "选择所有行 序号 ID 按 ID 排序 登录方式 按 登录方式 排序 账号 按 账号 排序 IP 按 IP 排序 浏览器 按 浏览器 排序 操作系统 按 操作系统 排序 成功 按 成功 排序 结果 按 结果 排序 地点 按 地点 排序 客户端信息 按 客户端信息 排序 洲 按 洲 排序 国家 按 国家 排序 省份 按 省份 排序 城市 按 城市 排序 区县 按 区县 排序 运营商 按 运营商 排序 区域编码 按 区域编码 排序 国家英文名 按 国家英文名 排序 国家代码 按 国家代码 排序 经度 按 经度 排序 纬度 按 纬度 排序 操作":
+        - columnheader "选择所有行":
+          - generic "选择所有行":
+            - checkbox "选择所有行"
+        - columnheader "序号":
+          - generic: 序号
+        - columnheader "ID 按 ID 排序":
+          - text: ID
+          - button "按 ID 排序"
+        - columnheader "登录方式 按 登录方式 排序":
+          - text: 登录方式
+          - button "按 登录方式 排序"
+        - columnheader "账号 按 账号 排序":
+          - text: 账号
+          - button "按 账号 排序"
+        - columnheader "IP 按 IP 排序":
+          - text: IP
+          - button "按 IP 排序"
+        - columnheader "浏览器 按 浏览器 排序":
+          - text: 浏览器
+          - button "按 浏览器 排序"
+        - columnheader "操作系统 按 操作系统 排序":
+          - text: 操作系统
+          - button "按 操作系统 排序"
+        - columnheader "成功 按 成功 排序":
+          - text: 成功
+          - button "按 成功 排序"
+        - columnheader "结果 按 结果 排序":
+          - text: 结果
+          - button "按 结果 排序"
+        - columnheader "地点 按 地点 排序":
+          - text: 地点
+          - button "按 地点 排序"
+        - columnheader "客户端信息 按 客户端信息 排序":
+          - text: 客户端信息
+          - button "按 客户端信息 排序"
+        - columnheader "洲 按 洲 排序":
+          - text: 洲
+          - button "按 洲 排序"
+        - columnheader "国家 按 国家 排序":
+          - text: 国家
+          - button "按 国家 排序"
+        - columnheader "省份 按 省份 排序":
+          - text: 省份
+          - button "按 省份 排序"
+        - columnheader "城市 按 城市 排序":
+          - text: 城市
+          - button "按 城市 排序"
+        - columnheader "区县 按 区县 排序":
+          - text: 区县
+          - button "按 区县 排序"
+        - columnheader "运营商 按 运营商 排序":
+          - text: 运营商
+          - button "按 运营商 排序"
+        - columnheader "区域编码 按 区域编码 排序":
+          - text: 区域编码
+          - button "按 区域编码 排序"
+        - columnheader "国家英文名 按 国家英文名 排序":
+          - text: 国家英文名
+          - button "按 国家英文名 排序"
+        - columnheader "国家代码 按 国家代码 排序":
+          - text: 国家代码
+          - button "按 国家代码 排序"
+        - columnheader "经度 按 经度 排序":
+          - text: 经度
+          - button "按 经度 排序"
+        - columnheader "纬度 按 纬度 排序":
+          - text: 纬度
+          - button "按 纬度 排序"
+        - columnheader "操作":
+          - generic: 操作
+  - table:
+    - rowgroup:
+      - row "选择当前行 1 46 账号密码 superadmin 127.0.0.1 Chrome Windows 启用 登录成功 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "1":
+          - generic: "1"
+        - cell "46":
+          - generic: "46"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "启用":
+          - generic: 启用
+        - cell "登录成功":
+          - generic: 登录成功
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 2 45 账号密码 superadminsuperadmin 127.0.0.1 Chrome Windows 停用 账号或密码错误 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "2":
+          - generic: "2"
+        - cell "45":
+          - generic: "45"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadminsuperadmin":
+          - generic: superadminsuperadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "停用":
+          - generic: 停用
+        - cell "账号或密码错误":
+          - generic: 账号或密码错误
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 3 44 账号密码 superadmin 127.0.0.1 Chrome Windows 启用 登录成功 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "3":
+          - generic: "3"
+        - cell "44":
+          - generic: "44"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "启用":
+          - generic: 启用
+        - cell "登录成功":
+          - generic: 登录成功
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 4 43 账号密码 superadmin 127.0.0.1 Chrome Windows 启用 登录成功 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "4":
+          - generic: "4"
+        - cell "43":
+          - generic: "43"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "启用":
+          - generic: 启用
+        - cell "登录成功":
+          - generic: 登录成功
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 5 42 账号密码 superadmin 127.0.0.1 Chrome Windows 启用 登录成功 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "5":
+          - generic: "5"
+        - cell "42":
+          - generic: "42"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "启用":
+          - generic: 启用
+        - cell "登录成功":
+          - generic: 登录成功
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 6 41 账号密码 superadmin 127.0.0.1 Chrome Windows 启用 登录成功 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "6":
+          - generic: "6"
+        - cell "41":
+          - generic: "41"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "启用":
+          - generic: 启用
+        - cell "登录成功":
+          - generic: 登录成功
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 7 40 账号密码 superadmin 127.0.0.1 Chrome Windows 停用 账号或密码错误 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "7":
+          - generic: "7"
+        - cell "40":
+          - generic: "40"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "停用":
+          - generic: 停用
+        - cell "账号或密码错误":
+          - generic: 账号或密码错误
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 8 39 账号密码 superadmin 127.0.0.1 Chrome Windows 停用 账号或密码错误 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "8":
+          - generic: "8"
+        - cell "39":
+          - generic: "39"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "停用":
+          - generic: 停用
+        - cell "账号或密码错误":
+          - generic: 账号或密码错误
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 9 38 账号密码 superadmin 127.0.0.1 Chrome Windows 启用 登录成功 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "9":
+          - generic: "9"
+        - cell "38":
+          - generic: "38"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "superadmin":
+          - generic: superadmin
+        - cell "127.0.0.1":
+          - generic: 127.0.0.1
+        - cell "Chrome":
+          - generic: Chrome
+        - cell "Windows":
+          - generic: Windows
+        - cell "启用":
+          - generic: 启用
+        - cell "登录成功":
+          - generic: 登录成功
+        - cell
+        - cell "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36":
+          - generic: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 10 37 账号密码 ninth-list-29 启用 本机列表样本29 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "10":
+          - generic: "10"
+        - cell "37":
+          - generic: "37"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-29":
+          - generic: ninth-list-29
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本29":
+          - generic: 本机列表样本29
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 11 36 账号密码 ninth-list-28 启用 本机列表样本28 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "11":
+          - generic: "11"
+        - cell "36":
+          - generic: "36"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-28":
+          - generic: ninth-list-28
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本28":
+          - generic: 本机列表样本28
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 12 35 账号密码 ninth-list-27 启用 本机列表样本27 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "12":
+          - generic: "12"
+        - cell "35":
+          - generic: "35"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-27":
+          - generic: ninth-list-27
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本27":
+          - generic: 本机列表样本27
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 13 34 账号密码 ninth-list-26 启用 本机列表样本26 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "13":
+          - generic: "13"
+        - cell "34":
+          - generic: "34"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-26":
+          - generic: ninth-list-26
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本26":
+          - generic: 本机列表样本26
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 14 33 账号密码 ninth-list-25 启用 本机列表样本25 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "14":
+          - generic: "14"
+        - cell "33":
+          - generic: "33"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-25":
+          - generic: ninth-list-25
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本25":
+          - generic: 本机列表样本25
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 15 32 账号密码 ninth-list-24 启用 本机列表样本24 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "15":
+          - generic: "15"
+        - cell "32":
+          - generic: "32"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-24":
+          - generic: ninth-list-24
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本24":
+          - generic: 本机列表样本24
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 16 31 账号密码 ninth-list-23 启用 本机列表样本23 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "16":
+          - generic: "16"
+        - cell "31":
+          - generic: "31"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-23":
+          - generic: ninth-list-23
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本23":
+          - generic: 本机列表样本23
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 17 30 账号密码 ninth-list-22 启用 本机列表样本22 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "17":
+          - generic: "17"
+        - cell "30":
+          - generic: "30"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-22":
+          - generic: ninth-list-22
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本22":
+          - generic: 本机列表样本22
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 18 29 账号密码 ninth-list-21 启用 本机列表样本21 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "18":
+          - generic: "18"
+        - cell "29":
+          - generic: "29"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-21":
+          - generic: ninth-list-21
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本21":
+          - generic: 本机列表样本21
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 19 28 账号密码 ninth-list-20 启用 本机列表样本20 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "19":
+          - generic: "19"
+        - cell "28":
+          - generic: "28"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-20":
+          - generic: ninth-list-20
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本20":
+          - generic: 本机列表样本20
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+      - row "选择当前行 20 27 账号密码 ninth-list-19 启用 本机列表样本19 查看":
+        - cell "选择当前行":
+          - generic "选择当前行":
+            - checkbox "选择当前行"
+        - cell "20":
+          - generic: "20"
+        - cell "27":
+          - generic: "27"
+        - cell "账号密码":
+          - generic: 账号密码
+        - cell "ninth-list-19":
+          - generic: ninth-list-19
+        - cell
+        - cell
+        - cell
+        - cell "启用":
+          - generic: 启用
+        - cell "本机列表样本19":
+          - generic: 本机列表样本19
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell
+        - cell "查看":
+          - generic "操作":
+            - button "查看":
+              - generic: 查看
+  - generic: 共 46 条
+  - combobox
+  - generic: 20条/页
+  - button "上一页" [disabled]:
+  - list:
+    - listitem "第 1 页": "1"
+    - listitem "第 2 页": "2"
+    - listitem "第 3 页": "3"
+  - button "下一页":
+  - generic: 前往
+  - spinbutton "页": "1"
+  - generic: 页
+- generic: ERP 管理平台 · 1.0.0

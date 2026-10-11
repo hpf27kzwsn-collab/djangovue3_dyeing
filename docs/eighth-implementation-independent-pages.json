@@ -1,0 +1,221 @@
+{
+  "method": "actual visible heading and stable DOM geometry; no credentials changed",
+  "pages": [
+    {
+      "path": "/profile",
+      "title": "个人中心",
+      "width": 320,
+      "geometry": {
+        "root": 305,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/inbox",
+      "title": "我的接收",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/components",
+      "title": "组件示例",
+      "width": 320,
+      "geometry": {
+        "root": 313,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/chart-crud",
+      "title": "登录日志",
+      "width": 320,
+      "geometry": {
+        "root": 313,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/first-password",
+      "title": "超级管理员",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/terms/privacy",
+      "title": "隐私政策",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/terms/service",
+      "title": "服务条款",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/login",
+      "title": "欢迎登录",
+      "width": 320,
+      "geometry": {
+        "root": 320,
+        "viewport": 320
+      }
+    },
+    {
+      "path": "/profile",
+      "title": "个人中心",
+      "width": 390,
+      "geometry": {
+        "root": 375,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/inbox",
+      "title": "我的接收",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/components",
+      "title": "组件示例",
+      "width": 390,
+      "geometry": {
+        "root": 377,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/chart-crud",
+      "title": "登录日志",
+      "width": 390,
+      "geometry": {
+        "root": 383,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/first-password",
+      "title": "超级管理员",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/terms/privacy",
+      "title": "隐私政策",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/terms/service",
+      "title": "服务条款",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/login",
+      "title": "欢迎登录",
+      "width": 390,
+      "geometry": {
+        "root": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "path": "/profile",
+      "title": "个人中心",
+      "width": 768,
+      "geometry": {
+        "root": 753,
+        "viewport": 768
+      }
+    },
+    {
+      "path": "/inbox",
+      "title": "我的接收",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      }
+    },
+    {
+      "path": "/components",
+      "title": "组件示例",
+      "width": 768,
+      "geometry": {
+        "root": 755,
+        "viewport": 768
+      }
+    },
+    {
+      "path": "/chart-crud",
+      "title": "登录日志",
+      "width": 768,
+      "geometry": {
+        "root": 755,
+        "viewport": 768
+      }
+    },
+    {
+      "path": "/first-password",
+      "title": "超级管理员",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      }
+    },
+    {
+      "path": "/terms/privacy",
+      "title": "隐私政策",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      }
+    },
+    {
+      "path": "/terms/service",
+      "title": "服务条款",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      }
+    },
+    {
+      "path": "/login",
+      "title": "欢迎登录",
+      "width": 768,
+      "geometry": {
+        "root": 768,
+        "viewport": 768
+      }
+    }
+  ]
+}

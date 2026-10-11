@@ -1,0 +1,91 @@
+{
+  "database": ":memory:",
+  "versions": {
+    "python": "3.14.8",
+    "django": "5.2.18",
+    "openpyxl": "3.1.5"
+  },
+  "import_route": {
+    "post": "import_data"
+  },
+  "batch_buttons": {
+    "generated": [
+      "post:add",
+      "post:delete",
+      "post:edit",
+      "post:patch",
+      "post:list",
+      "post:detail",
+      "post:copy",
+      "post:import-data-post",
+      "post:export-get"
+    ],
+    "extra_actions_missing": [
+      "post:async-export-post",
+      "post:batch-update-put",
+      "post:field-permission-get",
+      "post:get-by-ids-post",
+      "post:import-template-get",
+      "post:init-data-get",
+      "post:multiple-delete-delete",
+      "post:tree-get",
+      "post:update-template-get"
+    ],
+    "import_url": "/api/system/post/import/"
+  },
+  "dictionary_child": {
+    "is_value": false,
+    "public_options": []
+  },
+  "dictionary_parent_delete": {
+    "deleted_objects": 2,
+    "child_still_exists": false
+  },
+  "user_relation_search": {
+    "matching_user_expected_by_old_dept_name_search": 2,
+    "actual_total": 0
+  },
+  "user_queryset": {
+    "includes_superuser": true
+  },
+  "account_last_login_field": false,
+  "profile_duplicate_mobile_accepted": true,
+  "generic_user_password_update": {
+    "password_changed": true,
+    "pwd_change_count": 5
+  },
+  "department_delete": {
+    "user_department_after_delete": null
+  },
+  "relation_metadata": [
+    {
+      "key": "creator",
+      "remote": null,
+      "options_count": 3
+    },
+    {
+      "key": "dept",
+      "remote": null,
+      "options_count": 0
+    },
+    {
+      "key": "role",
+      "remote": null,
+      "options_count": 1
+    },
+    {
+      "key": "post",
+      "remote": null,
+      "options_count": 1
+    }
+  ],
+  "decimal_metadata_kind": "text",
+  "string_primary_key_batch_update": {
+    "error": "KeyError",
+    "missing_key": "'id'"
+  },
+  "soft_delete_audit": {
+    "is_deleted": true,
+    "modification_time_unchanged": true
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "status": "passed",
+  "method": "database assertions after actual browser submissions; uploaded file byte hashes",
+  "settings": [
+    {
+      "id": 65,
+      "key": "newfield0",
+      "form_item_type": 0,
+      "value": "新增文本验收",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增00输入器"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "key": "newfield1",
+      "form_item_type": 1,
+      "value": "2026-10-10 12:13:14",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增01输入器"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "key": "newfield2",
+      "form_item_type": 2,
+      "value": "2026-10-11",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增02输入器"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "key": "newfield3",
+      "form_item_type": 3,
+      "value": "新增多行\n验收",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增03输入器"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "key": "newfield4",
+      "form_item_type": 4,
+      "value": 0,
+      "data_options": [
+        {
+          "label": "零",
+          "value": 0
+        },
+        {
+          "label": "一",
+          "value": 1
+        }
+      ],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增04输入器"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "key": "newfield5",
+      "form_item_type": 5,
+      "value": [
+        0
+      ],
+      "data_options": [
+        {
+          "label": "零",
+          "value": 0
+        },
+        {
+          "label": "一",
+          "value": 1
+        }
+      ],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增05输入器"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "key": "newfield6",
+      "form_item_type": 6,
+      "value": 0,
+      "data_options": [
+        {
+          "label": "零",
+          "value": 0
+        },
+        {
+          "label": "一",
+          "value": 1
+        }
+      ],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增06输入器"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "key": "newfield7",
+      "form_item_type": 7,
+      "value": "http://127.0.0.1:8007/media/files/2026/10/ninth-quadrants_3qvLQWH.png",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增07输入器"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "key": "newfield8",
+      "form_item_type": 8,
+      "value": "http://127.0.0.1:8007/media/files/2026/10/ninth-wav_TP4Vp74.wav",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增08输入器"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "key": "newfield9",
+      "form_item_type": 9,
+      "value": false,
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增09输入器"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "key": "newfield10",
+      "form_item_type": 10,
+      "value": 0,
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增10输入器"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "key": "newfield11",
+      "form_item_type": 11,
+      "value": [
+        {
+          "title": "新增零值",
+          "key": "new-zero",
+          "value": "0"
+        }
+      ],
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增11输入器"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "key": "newfield12",
+      "form_item_type": 12,
+      "value": [
+        "http://127.0.0.1:8007/media/files/2026/10/ninth-image-29.png",
+        "http://127.0.0.1:8007/media/files/2026/10/ninth-image-19.png"
+      ],
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增12输入器"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "key": "newfield13",
+      "form_item_type": 13,
+      "value": "NINTH-ROOT",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增13输入器"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "key": "newfield14",
+      "form_item_type": 14,
+      "value": [
+        "NINTH-ROOT",
+        "NINTH-20"
+      ],
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增14输入器"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "key": "newfield15",
+      "form_item_type": 15,
+      "value": "12:13:14",
+      "data_options": [],
+      "rule": [
+        {
+          "required": true,
+          "message": "请填写新增15输入器"
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": 7,
+      "sha256": "0e60389d49be5b0c2ed0b71edffbf44a43ef2bdb13453715a2362bb52ea4b522",
+      "url": "http://127.0.0.1:8007/media/files/2026/10/ninth-quadrants_3qvLQWH.png"
+    },
+    {
+      "kind": 8,
+      "sha256": "3f2313562279a18835749662f2efca0f3bbb3f8d34981f294d684bd9ff946cc2",
+      "url": "http://127.0.0.1:8007/media/files/2026/10/ninth-wav_TP4Vp74.wav"
+    }
+  ],
+  "permissions": {
+    "menus": [
+      "system",
+      "post"
+    ],
+    "button": "post:list",
+    "data_range": 4,
+    "departments": [
+      "ninth-dept"
+    ],
+    "fields": [
+      {
+        "field__field_name": "description",
+        "is_query": true,
+        "is_create": true,
+        "is_update": false
+      },
+      {
+        "field__field_name": "name",
+        "is_query": true,
+        "is_create": true,
+        "is_update": true
+      },
+      {
+        "field__field_name": "code",
+        "is_query": true,
+        "is_create": true,
+        "is_update": true
+      },
+      {
+        "field__field_name": "sort",
+        "is_query": true,
+        "is_create": true,
+        "is_update": true
+      },
+      {
+        "field__field_name": "status",
+        "is_query": true,
+        "is_create": true,
+        "is_update": true
+      }
+    ]
+  },
+  "old_tree_multi": [
+    "NINTH-CHILD",
+    "NINTH-20"
+  ]
+}

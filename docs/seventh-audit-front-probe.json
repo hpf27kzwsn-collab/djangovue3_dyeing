@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-09",
+  "method": "Actual Vue watch/nextTick and extracted source functions; actual Axios interceptors with isolated HTTP adapter. No browser rendering claim.",
+  "checks": {
+    "share_control": {
+      "current": "/system/user",
+      "tabs": [
+        {
+          "path": "/",
+          "title": "home",
+          "affix": true,
+          "icon": "House"
+        },
+        {
+          "path": "/system/user",
+          "fullPath": "/system/user?dept=3",
+          "title": "用户",
+          "affix": false,
+          "icon": "User",
+          "menuId": 2
+        }
+      ],
+      "events": [
+        [
+          "tabs",
+          [
+            "/",
+            "/system/user"
+          ]
+        ],
+        [
+          "refresh",
+          "/system/user?dept=3"
+        ]
+      ]
+    },
+    "share_true_to_false": {
+      "current": "/system/user?dept=3",
+      "tabs": [
+        {
+          "path": "/",
+          "title": "home",
+          "affix": true,
+          "icon": "House"
+        },
+        {
+          "path": "/system/user",
+          "fullPath": "/system/user?dept=3",
+          "title": "用户",
+          "affix": false,
+          "icon": "User",
+          "menuId": 2
+        }
+      ],
+      "active_count": 0,
+      "error": {
+        "name": "TypeError",
+        "message": "Cannot read properties of undefined (reading 'fullPath')"
+      }
+    },
+    "share_false_to_true": {
+      "route": "/system/user?dept=4",
+      "tabs": [
+        {
+          "path": "/",
+          "title": "home",
+          "affix": true,
+          "icon": "House"
+        },
+        {
+          "path": "/system/user",
+          "fullPath": "/system/user?dept=3",
+          "title": "用户",
+          "affix": false,
+          "icon": "User",
+          "menuId": 2
+        }
+      ],
+      "refresh_event": [
+        "refresh",
+        "/system/user?dept=3"
+      ]
+    },
+    "menu_path_change": {
+      "tabs": [
+        {
+          "path": "/",
+          "title": "home",
+          "affix": true,
+          "icon": "House"
+        },
+        {
+          "path": "/system/user",
+          "fullPath": "/system/user?dept=3",
+          "title": "用户",
+          "affix": false,
+          "icon": "User",
+          "menuId": 2
+        },
+        {
+          "path": "/erp-users",
+          "fullPath": "/erp-users?dept=3",
+          "title": "ERP用户",
+          "affix": false,
+          "icon": "User",
+          "menuId": 2
+        }
+      ],
+      "expected_old_path_removed": true
+    },
+    "affix_menu_path_change": {
+      "tabs": [
+        {
+          "path": "/",
+          "title": "home",
+          "affix": true,
+          "icon": "House"
+        },
+        {
+          "path": "/system/user",
+          "title": "用户",
+          "affix": true,
+          "icon": "User",
+          "menuId": 2,
+          "fullPath": "/system/user?dept=3"
+        },
+        {
+          "path": "/erp-users",
+          "title": "用户",
+          "affix": true,
+          "icon": "User",
+          "menuId": 2,
+          "fullPath": "/erp-users?dept=3"
+        }
+      ]
+    },
+    "permission_prefix_reload": {
+      "current_menu_prefix": "after",
+      "retained_prefix": "before",
+      "can_add": false,
+      "expected": true
+    },
+    "concurrent_refresh": {
+      "refresh_calls": 2,
+      "outcomes": [
+        "fulfilled",
+        "fulfilled"
+      ],
+      "redirect": "",
+      "remaining_access": "valid",
+      "note": "Negative finding: current backend has no blacklist application. Both refreshes succeed; no logout. Previous blacklist adapter assumption was rejected by actual backend evidence."
+    }
+  }
+}

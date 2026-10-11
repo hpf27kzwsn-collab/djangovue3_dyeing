@@ -1,0 +1,12 @@
+{
+  "database": "postgresql",
+  "application_role": "switch_application",
+  "real_worker_export": true,
+  "xlsx_rows": 31,
+  "sync_async_equal": true,
+  "real_beat_clocked_once": true,
+  "export_task_id": "76adb5b4-3bce-41e2-8986-69aa9ad50c24",
+  "scheduled_task_id": "eb17aa7c-bf88-4833-a808-6d8e4550dea5",
+  "redis_isolated_port": 6398,
+  "formal_database_modified": false
+}

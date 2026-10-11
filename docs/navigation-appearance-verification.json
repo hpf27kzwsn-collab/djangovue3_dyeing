@@ -1,0 +1,8 @@
+{
+  "new_browser": "single-sidebar",
+  "existing_columns": "single-sidebar",
+  "existing_classic_split": "single-sidebar",
+  "other_preferences_preserved": true,
+  "subsequent_columns_choice_preserved": true,
+  "reset": "single-sidebar"
+}

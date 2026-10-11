@@ -1,0 +1,39 @@
+{
+  "method": "actual in-app browser, real short-lived JWT, isolated 8009 restart, live Redis notifications",
+  "checks": {
+    "initial_stream_200": true,
+    "server_disconnect_access_expiry_refresh_reconnect": true,
+    "refresh_expiry_returns_login": true,
+    "unread_1_then_read_0": true,
+    "live_subscriber_count": 1,
+    "after_logout_subscriber_count": 0
+  },
+  "reconnect_http_lines": [
+    "INFO:     127.0.0.1:8109 - \"GET /api/events/ HTTP/1.1\" 401 Unauthorized",
+    "INFO:     127.0.0.1:8109 - \"GET /api/account/ HTTP/1.1\" 401 Unauthorized",
+    "INFO:     127.0.0.1:8109 - \"POST /api/token/refresh/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8109 - \"GET /api/account/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8109 - \"GET /api/events/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8176 - \"GET /api/system/message_center/get_newest_msg/ HTTP/1.1\" 401 Unauthorized",
+    "INFO:     127.0.0.1:8176 - \"POST /api/token/refresh/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8176 - \"GET /api/system/message_center/get_newest_msg/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8248 - \"GET /api/config/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8247 - \"GET /api/inbox/?page=1&search=&read= HTTP/1.1\" 401 Unauthorized",
+    "INFO:     127.0.0.1:8247 - \"POST /api/token/refresh/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8247 - \"GET /api/inbox/?page=1&search=&read= HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8247 - \"POST /api/inbox/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8247 - \"GET /api/inbox/?page=1&search=&read= HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8278 - \"GET /api/config/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8277 - \"GET /api/config/ HTTP/1.1\" 200 OK"
+  ],
+  "expired_refresh_http_lines": [
+    "INFO:     127.0.0.1:8427 - \"GET /api/events/ HTTP/1.1\" 401 Unauthorized",
+    "INFO:     127.0.0.1:8427 - \"GET /api/account/ HTTP/1.1\" 401 Unauthorized",
+    "INFO:     127.0.0.1:8427 - \"POST /api/token/refresh/ HTTP/1.1\" 401 Unauthorized",
+    "INFO:     127.0.0.1:8427 - \"GET /login HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8430 - \"GET /api/config/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8427 - \"GET /api/config/ HTTP/1.1\" 200 OK",
+    "INFO:     127.0.0.1:8430 - \"GET /api/config/ HTTP/1.1\" 200 OK"
+  ],
+  "remaining": "OS suspend/resume not executed; no native device available; hiding/viewport changes do not substitute"
+}

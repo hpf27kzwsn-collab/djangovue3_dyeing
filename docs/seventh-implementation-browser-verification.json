@@ -1,0 +1,279 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:8007",
+  "checks": [
+    {
+      "name": "mobile_refresh_shared",
+      "url": "http://127.0.0.1:8007/system/user?dept=3",
+      "errors": []
+    },
+    {
+      "name": "mobile_shared_to_unshared_refresh",
+      "url": "http://127.0.0.1:8007/system/user?dept=3",
+      "dom": {
+        "active": [
+          "用户↻×"
+        ],
+        "clientWidth": 375,
+        "scrollWidth": 375
+      },
+      "errors": []
+    },
+    {
+      "name": "tag_visibility",
+      "viewport": 320,
+      "active": {
+        "left": 88.33333587646484,
+        "right": 192.55208587646484,
+        "width": 104.21875
+      },
+      "clientWidth": 305,
+      "more": {
+        "left": 242.6666717529297,
+        "right": 300.6666717529297,
+        "width": 58
+      },
+      "nav": {
+        "left": 0,
+        "right": 238.6666717529297,
+        "width": 238.6666717529297
+      },
+      "scrollLeft": 0,
+      "scrollWidth": 305
+    },
+    {
+      "name": "tag_visibility",
+      "viewport": 390,
+      "active": {
+        "left": 88.33333587646484,
+        "right": 192.55208587646484,
+        "width": 104.21875
+      },
+      "clientWidth": 375,
+      "more": {
+        "left": 312.66668701171875,
+        "right": 370.6666870117187,
+        "width": 58
+      },
+      "nav": {
+        "left": 0,
+        "right": 308.66668701171875,
+        "width": 308.66668701171875
+      },
+      "scrollLeft": 0,
+      "scrollWidth": 375
+    },
+    {
+      "name": "tag_visibility",
+      "viewport": 768,
+      "active": {
+        "left": 88.33333587646484,
+        "right": 192.55208587646484,
+        "width": 104.21875
+      },
+      "clientWidth": 753,
+      "more": {
+        "left": 690.6666870117188,
+        "right": 748.6666870117188,
+        "width": 58
+      },
+      "nav": {
+        "left": 0,
+        "right": 686.6666870117188,
+        "width": 686.6666870117188
+      },
+      "scrollLeft": 0,
+      "scrollWidth": 753
+    },
+    {
+      "name": "ordinary_cached_page_before",
+      "url": "http://127.0.0.1:8007/permission-post",
+      "snapshot": "\n  - heading \"岗位\" [level=2]\n  - button \"已选 0 项\":\n    - generic: 已选 0 项\n  - generic \"岗位名称\":\n    - generic: 岗位名称\n    - textbox \"岗位名称\"\n  - generic \"岗位编码\":\n    - generic: 岗位编码\n    - textbox \"岗位编码\"\n  - generic \"岗位状态\":\n    - generic: 岗位状态\n    - combobox \"岗位状态\"\n    - generic: 请选择\n  - generic \"创建时间（起）\":\n    - generic: 创建时间（起）\n    - combobox \"创建时间（起）\"\n  - generic \"创建时间（止）\":\n    - generic: 创建时间（止）\n    - combobox \"创建时间（止）\"\n  - generic \"修改时间（起）\":\n    - generic: 修改时间（起）\n    - combobox \"修改时间（起）\"\n  - generic \"修改时间（止）\":\n    - generic: 修改时间（止）\n    - combobox \"修改时间（止）\"\n  - generic \"关键词\":\n    - generic: 关键词\n    - textbox \"关键词\"\n  - button \"查询\":\n    - generic: 查询\n  - button \"重置\":\n    - generic: 重置\n  - button \"添加\":\n    - generic: 添加\n  - button \"刷新\":\n  - button \"查询显示\":\n  - button \"紧凑模式\":\n  - button \"列设置\":\n  - table:\n    - rowgroup:\n      - row \"选择所有行 序号 ID 按 ID 排序 岗位名称 按 岗位名称 排序 岗位编码 按 岗位编码 排序 排序 按 排序 排序 岗位状态 按 岗位状态 排序 操作\":\n        - columnheader \"选择所有行\":\n          - generic \"选择所有行\":\n            - checkbox \"选择所有行\"\n        - columnheader \"序号\":\n          - generic: 序号\n        - columnheader \"ID 按 ID 排序\":\n          - text: ID\n          - button \"按 ID 排序\"\n        - columnheader \"岗位名称 按 岗位名称 排序\":\n          - text: 岗位名称\n          - button \"按 岗位名称 排序\"\n        - columnheader \"岗位编码 按 岗位编码 排序\":\n          - text: 岗位编码\n          - button \"按 岗位编码 排序\"\n        - columnheader \"排序 按 排序 排序\":\n          - text: 排序\n          - button \"按 排序 排序\"\n        - columnheader \"岗位状态 按 岗位状态 排序\":\n          - text: 岗位状态\n          - button \"按 岗位状态 排序\"\n        - columnheader \"操作\":\n          - generic: 操作\n  - table:\n    - rowgroup:\n      - row \"选择当前行 1 1 验收岗位 impl-post 1 在职\":\n        - cell \"选择当前行\":\n          - generic \"选择当前行\":\n            - checkbox \"选择当前行\"\n        - cell \"1\":\n          - generic: \"1\"\n        - cell \"1\":\n          - generic: \"1\"\n        - cell \"验收岗位\":\n          - generic: 验收岗位\n        - cell \"impl-post\":\n          - generic: impl-post\n        - cell \"1\":\n          - generic: \"1\"\n        - cell \"在职\":\n          - generic: 在职\n        - cell:\n          - generic \"操作\":\n            - button:\n  - generic: 共 1 条\n  - combobox\n  - generic: 20条/页\n  - button \"上一页\" [disabled]:\n  - list:\n    - listitem \"第 1 页\": \"1\"\n  "
+    },
+    {
+      "name": "ordinary_cached_permission_reload",
+      "url": "http://127.0.0.1:8007/permission-post",
+      "new_button_available": true,
+      "dialog": ":\n    - generic: 添加\n    - button \"关闭此对话框\":\n    - generic: 描述\n    - textbox \"描述\"\n    - generic: \"*岗位名称\"\n    - textbox \"*岗位名称\"\n    - generic: 排序\n    - button \"减少数值\":\n    - button \"增加数值\":\n    - spinbutton \"排序\": \"1\"\n    - generic: 岗位状态\n    - combobox \"岗位状态\"\n    - generic: 在职\n    - button \"复制\":\n      - generic: 复制\n    - button \"粘贴\":\n      - generic: 粘贴\n    - superscript: \"0\"\n    - button \"重置\":\n      - generic: 重置\n    - button \"取消\":\n      - generic: 取消\n    - button \"确定\":\n      - generic: 确定\n  - generic: 共 1 条\n  - combobox\n  - generic: 20条/页\n  - button \"上一页\" [disabled]:\n  - list:\n    - listitem \"第 1 页\": \"1\"\n  - button \"下一页\" [disabled]:\n  - generic: 前往\n  - spinbutton \"页\": \"1\"\n  - generic: 页\n- generic: ERP 管理平台 · 1.0.0",
+      "errors": []
+    },
+    {
+      "name": "menu_address_affix_migration",
+      "tags": [
+        {
+          "active": false,
+          "text": "首页"
+        },
+        {
+          "active": false,
+          "text": "角色×"
+        },
+        {
+          "active": false,
+          "text": "权限刷新岗位"
+        },
+        {
+          "active": true,
+          "text": "菜单↻×"
+        }
+      ],
+      "url": "http://127.0.0.1:8007/system/menu"
+    },
+    {
+      "name": "mobile_form_final",
+      "forms": [
+        {
+          "className": "el-form el-form--default el-form--label-top fs-form fs-form-flex",
+          "labels": [
+            {
+              "style": null,
+              "text": "描述"
+            },
+            {
+              "style": null,
+              "text": "菜单名称"
+            },
+            {
+              "style": null,
+              "text": "图标"
+            }
+          ]
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "name": "fixed_tag_new_address",
+      "url": "http://127.0.0.1:8007/permission-post-renamed",
+      "tag_count": 1
+    },
+    {
+      "name": "final_cached_role_fields",
+      "url": "http://127.0.0.1:8007/permission-post-renamed",
+      "form": [
+        {
+          "className": "el-form el-form--default el-form--label-top fs-form fs-form-flex",
+          "labels": [
+            "描述",
+            "岗位名称",
+            "排序",
+            "岗位状态"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mobile_form_320",
+      "clientWidth": 320,
+      "dialogs": [
+        {
+          "left": 0,
+          "right": 320,
+          "width": 320
+        }
+      ],
+      "forms": [
+        {
+          "className": "el-form el-form--default el-form--label-top fs-form fs-form-flex",
+          "width": 224
+        }
+      ],
+      "scrollWidth": 320
+    },
+    {
+      "name": "desktop_form_1280",
+      "forms": [
+        {
+          "className": "el-form el-form--default el-form--label-right fs-form fs-form-flex",
+          "labels": [
+            {
+              "style": "width: 140px;",
+              "text": "描述"
+            },
+            {
+              "style": "width: 140px;",
+              "text": "岗位名称"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transitional_resize_sample",
+      "viewport": 320,
+      "active": {
+        "left": 171.125,
+        "right": 303.8854217529297,
+        "width": 132.7604217529297
+      },
+      "clientWidth": 305,
+      "more": null,
+      "nav": {
+        "left": 0,
+        "right": 304.66668701171875,
+        "width": 304.66668701171875
+      },
+      "scrollLeft": 0,
+      "scrollWidth": 444,
+      "observation": "Viewport changed while initial slide-right transition was still active; this is not a stable-layout pass/fail measurement."
+    },
+    {
+      "name": "transitional_resize_sample",
+      "viewport": 390,
+      "active": {
+        "left": 171.125,
+        "right": 303.8854217529297,
+        "width": 132.7604217529297
+      },
+      "clientWidth": 375,
+      "more": null,
+      "nav": {
+        "left": 0,
+        "right": 374.6666870117187,
+        "width": 374.6666870117187
+      },
+      "scrollLeft": 0,
+      "scrollWidth": 444,
+      "observation": "Viewport changed while initial slide-right transition was still active; this is not a stable-layout pass/fail measurement."
+    },
+    {
+      "name": "transitional_resize_sample",
+      "viewport": 768,
+      "active": {
+        "left": 171.125,
+        "right": 303.8854217529297,
+        "width": 132.7604217529297
+      },
+      "clientWidth": 753,
+      "more": null,
+      "nav": {
+        "left": 0,
+        "right": 752.6666870117188,
+        "width": 752.6666870117188
+      },
+      "scrollLeft": 0,
+      "scrollWidth": 761,
+      "observation": "Viewport changed while initial slide-right transition was still active; this is not a stable-layout pass/fail measurement."
+    },
+    {
+      "name": "long_list_initial_390",
+      "source": "Recorded DOM geometry from the first 390px browser check in this implementation turn",
+      "nav": {
+        "left": 0,
+        "right": 324
+      },
+      "active": {
+        "left": 219.61459350585935,
+        "right": 323.8333435058594
+      },
+      "more": {
+        "left": 328,
+        "right": 386
+      },
+      "scrollLeft": 2697.333251953125,
+      "clientWidth": 390
+    }
+  ],
+  "screenshots": [],
+  "screenshot_status": "Unavailable: tab.screenshot and getScreenshot both returned Unable to capture screenshot; showing the browser did not resolve it. No historical images presented as current proof."
+}

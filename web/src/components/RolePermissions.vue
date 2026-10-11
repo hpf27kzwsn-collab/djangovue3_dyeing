@@ -1,0 +1,38 @@
+<script setup lang="ts">
+import {computed,onMounted,ref,reactive,watch} from 'vue'
+import {selectButton} from '../permission-grants'
+import {ElMessage} from 'element-plus'
+import {api} from '../api'
+import {toTree} from '../tree'
+const props=defineProps<{modelValue:boolean;role:any;editable:boolean}>(),emit=defineEmits(['update:modelValue'])
+const data=ref<any>(), selected=ref<number[]>([]), buttons=ref<Record<number,any>>({}), fields=ref<Record<number,any>>({}),menuFilter=ref<number>(),menuTree=ref()
+const menuNodes=computed(()=>toTree(data.value.menus.map((row:any)=>({...row,disabled:!props.editable})),'id','parent_id'))
+const departmentNodes=computed(()=>{const allowed=data.value.buttons.some((button:any)=>button.assignable_departments===null)?null:new Set(data.value.buttons.flatMap((button:any)=>button.assignable_departments));return toTree(data.value.departments.map((row:any)=>({...row,disabled:allowed!==null&&!allowed.has(row.id)})),'id','parent_id')})
+const preset=reactive({data_range:Number(localStorage.getItem('role_default_data_range')??0),dept:JSON.parse(localStorage.getItem('role_default_custom_dept')??'[]') as number[]})
+watch(preset,value=>{localStorage.setItem('role_default_data_range',String(value.data_range));localStorage.setItem('role_default_custom_dept',JSON.stringify(value.dept))},{deep:true})
+function departmentsFor(button:any){return toTree(data.value.departments.map((row:any)=>({...row,disabled:button.assignable_departments!==null&&!button.assignable_departments.includes(row.id)})),'id','parent_id')}
+const menuIds=computed(()=>{if(!menuFilter.value)return data.value.menus.map((x:any)=>x.id);const ids=[menuFilter.value];for(let n=0;n<ids.length;n++)ids.push(...data.value.menus.filter((x:any)=>x.parent_id===ids[n]).map((x:any)=>x.id));return ids})
+const visibleButtons=computed(()=>data.value.buttons.filter((x:any)=>menuIds.value.includes(x.menu_id)))
+const visibleFields=computed(()=>data.value.fields.filter((x:any)=>menuIds.value.includes(x.menu_id)))
+onMounted(async()=>{
+ data.value=(await api(`/api/system/role/${props.role.id}/permissions/`)).data
+ selected.value=data.value.selected_menus
+ for(const row of data.value.selected_buttons)buttons.value[row.id]=row
+ for(const row of data.value.selected_fields)fields.value[row.field_id]={id:row.field_id,...row}
+})
+function toggleButton(id:number,checked:any){const allowed=data.value.buttons.find((button:any)=>button.id===id).assignable_departments;selectButton(buttons.value,id,checked,{data_range:preset.data_range,dept:allowed===null?preset.dept:preset.dept.filter(id=>allowed.includes(id))})}
+function toggleField(id:number,checked:any){if(checked)fields.value[id] ||= {id,is_query:true,is_create:true,is_update:true};else delete fields.value[id]}
+function allButtons(checked:boolean){for(const row of visibleButtons.value)toggleButton(row.id,checked)}
+function fieldColumn(key:string,checked:any){for(const row of visibleFields.value){fields.value[row.id] ||= {id:row.id,is_query:false,is_create:false,is_update:false};fields.value[row.id][key]=checked}}
+async function save(){await api(`/api/system/role/${props.role.id}/permissions/`,{method:'PUT',data:{menus:selected.value,buttons:Object.values(buttons.value),fields:Object.values(fields.value)}});ElMessage.success('权限已保存');emit('update:modelValue',false)}
+</script>
+<template><el-drawer :model-value="modelValue" :title="role.name+' · 权限配置'" size="min(900px, 100vw)" @update:model-value="(value:boolean)=>emit('update:modelValue',value)">
+ <template v-if="data"><el-tree-select v-model="menuFilter" :data="menuNodes" :props="{label:'name'}" node-key="id" check-strictly clearable filterable placeholder="筛选菜单及下级"/>
+ <el-tabs><el-tab-pane label="菜单"><div v-if="editable" class="grant-tools"><el-button @click="selected=data.menus.map((x:any)=>x.id);menuTree.setCheckedKeys(selected)">全部菜单</el-button><el-button @click="selected=[];menuTree.setCheckedKeys([])">取消选择</el-button></div><el-tree ref="menuTree" :data="menuNodes" :props="{label:'name'}" node-key="id" show-checkbox check-strictly :default-checked-keys="selected" @check="(_:any,result:any)=>selected=result.checkedKeys"/></el-tab-pane>
+ <el-tab-pane label="按钮与数据范围"><div v-if="editable" class="grant-tools preset-tools"><span>新增勾选的默认范围</span><el-select :disabled="!editable" v-model="preset.data_range"><el-option v-for="(label,value) in ['本人','本部门及以下','本部门','全部','指定部门']" :key="value" :label="label" :value="value"/></el-select><el-tree-select v-if="preset.data_range===4" v-model="preset.dept" :data="departmentNodes" :props="{label:'name'}" node-key="id" multiple check-strictly show-checkbox placeholder="默认指定部门"/></div><div v-if="editable" class="grant-tools"><el-button @click="allButtons(true)">选中当前按钮</el-button><el-button @click="allButtons(false)">取消当前按钮</el-button></div>
+  <div v-for="button in visibleButtons" :key="button.id" class="grant-row"><el-checkbox :disabled="!editable" :model-value="Boolean(buttons[button.id])" @update:model-value="(value:any)=>toggleButton(button.id,value)">{{data.menus.find((x:any)=>x.id===button.menu_id)?.name}} / {{button.name}}</el-checkbox><template v-if="buttons[button.id]"><el-select :disabled="!editable" v-model="buttons[button.id].data_range" aria-label="数据范围"><el-option v-for="(label,value) in ['本人','本部门及以下','本部门','全部','指定部门']" :key="value" :label="label" :value="value"/></el-select><el-tree-select :disabled="!editable" v-if="buttons[button.id].data_range===4" v-model="buttons[button.id].dept" :data="departmentsFor(button)" :props="{label:'name',disabled:'disabled'}" node-key="id" multiple check-strictly show-checkbox placeholder="指定部门"/></template></div>
+ </el-tab-pane><el-tab-pane label="字段权限"><div v-if="editable" class="grant-tools"><el-checkbox :disabled="!editable" v-for="(label,key) in {is_query:'全部查询',is_create:'全部新增',is_update:'全部修改'}" :key="key" :model-value="visibleFields.length>0&&visibleFields.every((x:any)=>fields[x.id]?.[key])" @update:model-value="(value:any)=>fieldColumn(key,value)">{{label}}</el-checkbox></div>
+  <div v-for="field in visibleFields" :key="field.id" class="grant-row"><el-checkbox :disabled="!editable" :model-value="Boolean(fields[field.id])" @update:model-value="(value:any)=>toggleField(field.id,value)">{{data.menus.find((x:any)=>x.id===field.menu_id)?.name}} / {{field.title}}</el-checkbox><div v-if="fields[field.id]" class="field-grants"><el-checkbox :disabled="!editable" v-model="fields[field.id].is_query">查询</el-checkbox><el-checkbox :disabled="!editable" v-model="fields[field.id].is_create">新增</el-checkbox><el-checkbox :disabled="!editable" v-model="fields[field.id].is_update">修改</el-checkbox></div></div>
+ </el-tab-pane></el-tabs></template><template #footer><el-button @click="emit('update:modelValue',false)">取消</el-button><el-button v-if="editable" type="primary" @click="save">保存权限</el-button></template>
+</el-drawer></template>
+<style scoped>.preset-tools .el-select{width:200px}.preset-tools .el-tree-select{width:260px}@media(max-width:600px){.preset-tools .el-select,.preset-tools .el-tree-select{width:100%}}.grant-tools{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.grant-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--el-border-color-light)}.grant-row>.el-checkbox{flex:1;min-width:220px;height:auto}.grant-row .el-select{width:170px}.grant-row .el-tree-select{width:240px}.field-grants{display:flex;gap:12px;flex-wrap:wrap}.field-grants .el-checkbox{margin:0}@media(max-width:600px){.grant-row>.el-checkbox{flex-basis:100%;min-width:0;white-space:normal}.grant-row :deep(.el-checkbox__label){white-space:normal;overflow-wrap:anywhere}.grant-row .el-select{width:100%}.field-grants{width:100%}}</style>

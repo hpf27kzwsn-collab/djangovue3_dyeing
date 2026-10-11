@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-09",
+  "base": "http://127.0.0.1:8007",
+  "formal_data_touched": false,
+  "screenshot": "capture unavailable; retained DOM and dimension evidence",
+  "menu320": {
+    "viewport": 320,
+    "pageWidth": 320,
+    "dialogWidth": 296,
+    "catalog_checked": true,
+    "fields_still_present": [
+      "组件地址",
+      "组件名称",
+      "外链",
+      "链接地址",
+      "内嵌页面",
+      "页面缓存",
+      "固定标签"
+    ],
+    "saved": false
+  },
+  "profile320": {
+    "avatarFileInputs": 0,
+    "avatarTextInput": "text",
+    "pageTitle": "个人中心",
+    "pageWidth": 305,
+    "viewport": 320
+  }
+}

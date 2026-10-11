@@ -1,0 +1,23 @@
+{
+  "formal_services_retained": true,
+  "browser_test_tab_closed": true,
+  "remaining_ports": [
+    {
+      "LocalPort": 8000,
+      "OwningProcess": 9884
+    },
+    {
+      "LocalPort": 6389,
+      "OwningProcess": 13284
+    }
+  ],
+  "cleaned_process_ids": [
+    2832,
+    10636,
+    6308,
+    14044,
+    12972,
+    12212
+  ],
+  "test_files_preserved": true
+}

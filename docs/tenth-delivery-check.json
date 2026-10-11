@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-10T16:04:17.689102+08:00",
+  "status": "passed",
+  "local_links_checked": 1347,
+  "original_unchanged": true,
+  "source_fingerprints_match": true,
+  "closed_groups": 6,
+  "affected_rows": 7,
+  "windows_rows": 224,
+  "current_contract_differences": 30,
+  "formal_version": "1.0.0.1791618793779",
+  "soak_status": "running",
+  "soak_results": 153,
+  "soak_finish": "2026-10-11T05:30:46.013748+00:00",
+  "soak_completion_not_claimed": true,
+  "manual_scenarios_skipped": true
+}

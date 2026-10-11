@@ -1,0 +1,119 @@
+{
+  "all_system_tables": {
+    "system_apiwhitelist": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_area": {
+      "rows": 3445,
+      "exact_equal": true
+    },
+    "system_dept": {
+      "rows": 1,
+      "exact_equal": true
+    },
+    "system_dictionary": {
+      "rows": 16,
+      "exact_equal": true
+    },
+    "system_downloadcenter": {
+      "rows": 3,
+      "exact_equal": true
+    },
+    "system_fieldpermission": {
+      "rows": 219,
+      "exact_equal": true
+    },
+    "system_filelist": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_loginlog": {
+      "rows": 3,
+      "exact_equal": true
+    },
+    "system_menu": {
+      "rows": 29,
+      "exact_equal": true
+    },
+    "system_menubutton": {
+      "rows": 475,
+      "exact_equal": true
+    },
+    "system_menufield": {
+      "rows": 221,
+      "equal_after_qualified_identity": true,
+      "primary_keys_and_other_columns_equal": true
+    },
+    "system_messagecenter": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_messagecenter_target_dept": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_messagecenter_target_role": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_messagecenter_target_user": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_messagecentertargetuser": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_operationlog": {
+      "rows": 3,
+      "exact_equal": true
+    },
+    "system_post": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_role": {
+      "rows": 1,
+      "exact_equal": true
+    },
+    "system_rolemenubuttonpermission": {
+      "rows": 444,
+      "exact_equal": true
+    },
+    "system_rolemenubuttonpermission_dept": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_rolemenupermission": {
+      "rows": 26,
+      "exact_equal": true
+    },
+    "system_systemconfig": {
+      "rows": 15,
+      "exact_equal": true
+    },
+    "system_users": {
+      "rows": 1,
+      "exact_equal": true
+    },
+    "system_users_groups": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_users_post": {
+      "rows": 0,
+      "exact_equal": true
+    },
+    "system_users_role": {
+      "rows": 1,
+      "exact_equal": true
+    },
+    "system_users_user_permissions": {
+      "rows": 0,
+      "exact_equal": true
+    }
+  },
+  "only_business_change": "MenuField.model app_label.ModelName; original IDs and grants retained",
+  "comparison": "columns selected explicitly by identical names; actual model primary keys, not SELECT * column position or assumed id"
+}

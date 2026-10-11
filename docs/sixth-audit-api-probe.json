@@ -1,0 +1,571 @@
+{
+  "date": "2026-10-09",
+  "python": "3.14.8",
+  "django": "5.2.18",
+  "database": ":memory:",
+  "business_databases_touched": false,
+  "redis_contacted": false,
+  "checks": {
+    "menu_empty_component": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 30,
+          "description": "",
+          "create_datetime": "2026-10-09 12:13:22",
+          "update_datetime": "2026-10-09 12:13:22",
+          "name": "审计普通菜单",
+          "icon": "",
+          "sort": 5,
+          "is_catalog": false,
+          "web_path": "/sixth-empty",
+          "component": "",
+          "component_name": "",
+          "resource": "",
+          "is_link": false,
+          "link_url": "",
+          "is_iframe": false,
+          "status": true,
+          "cache": false,
+          "visible": true,
+          "is_affix": false,
+          "creator": 1,
+          "modifier": 1,
+          "dept_belong": 1,
+          "parent": null,
+          "creator_name": "超级管理员",
+          "creator_label": "超级管理员",
+          "modifier_label": "超级管理员",
+          "dept_belong_label": "总公司",
+          "parent_label": ""
+        }
+      }
+    },
+    "menu_empty_link": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 31,
+          "description": "",
+          "create_datetime": "2026-10-09 12:13:22",
+          "update_datetime": "2026-10-09 12:13:22",
+          "name": "审计链接菜单",
+          "icon": "",
+          "sort": 6,
+          "is_catalog": false,
+          "web_path": "/sixth-link",
+          "component": "",
+          "component_name": "",
+          "resource": "",
+          "is_link": true,
+          "link_url": "",
+          "is_iframe": false,
+          "status": true,
+          "cache": false,
+          "visible": true,
+          "is_affix": false,
+          "creator": 1,
+          "modifier": 1,
+          "dept_belong": 1,
+          "parent": null,
+          "creator_name": "超级管理员",
+          "creator_label": "超级管理员",
+          "modifier_label": "超级管理员",
+          "dept_belong_label": "总公司",
+          "parent_label": ""
+        }
+      }
+    },
+    "menu_relative_path": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 32,
+          "description": "",
+          "create_datetime": "2026-10-09 12:13:22",
+          "update_datetime": "2026-10-09 12:13:22",
+          "name": "审计相对路径",
+          "icon": "",
+          "sort": 7,
+          "is_catalog": true,
+          "web_path": "sixth-relative",
+          "component": "",
+          "component_name": "",
+          "resource": "",
+          "is_link": false,
+          "link_url": "",
+          "is_iframe": false,
+          "status": true,
+          "cache": false,
+          "visible": true,
+          "is_affix": false,
+          "creator": 1,
+          "modifier": 1,
+          "dept_belong": 1,
+          "parent": null,
+          "creator_name": "超级管理员",
+          "creator_label": "超级管理员",
+          "modifier_label": "超级管理员",
+          "dept_belong_label": "总公司",
+          "parent_label": ""
+        }
+      }
+    },
+    "department_default_parent": {
+      "actor_department": 2,
+      "result": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "新增成功",
+          "data": {
+            "id": 3,
+            "key": "sixth-no-parent",
+            "description": "",
+            "create_datetime": "2026-10-09 12:13:22",
+            "update_datetime": "2026-10-09 12:13:22",
+            "name": "未选父部门",
+            "sort": 71,
+            "owner": null,
+            "phone": null,
+            "email": null,
+            "status": true,
+            "creator": 2,
+            "modifier": 2,
+            "dept_belong": 3,
+            "parent": null,
+            "creator_name": "sixth-actor",
+            "creator_label": "sixth-actor",
+            "modifier_label": "sixth-actor",
+            "dept_belong_label": "未选父部门",
+            "parent_label": ""
+          }
+        }
+      }
+    },
+    "department_empty_key": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 4,
+          "key": null,
+          "description": "",
+          "create_datetime": "2026-10-09 12:13:22",
+          "update_datetime": "2026-10-09 12:13:22",
+          "name": "空部门编码",
+          "sort": 1,
+          "owner": null,
+          "phone": null,
+          "email": null,
+          "status": true,
+          "creator": 2,
+          "modifier": 2,
+          "dept_belong": 4,
+          "parent": 2,
+          "creator_name": "sixth-actor",
+          "creator_label": "sixth-actor",
+          "modifier_label": "sixth-actor",
+          "dept_belong_label": "空部门编码",
+          "parent_label": "审计父部门"
+        }
+      }
+    },
+    "dept_sparse_sort": {
+      "before": [
+        10,
+        20,
+        90
+      ],
+      "expected_original": [
+        20,
+        10,
+        90
+      ],
+      "result": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "排序已更新",
+          "data": null
+        }
+      },
+      "after": [
+        1,
+        0,
+        2
+      ]
+    },
+    "menu_sparse_sort": {
+      "before": [
+        10,
+        20,
+        90
+      ],
+      "expected_original": [
+        20,
+        10,
+        90
+      ],
+      "result": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "排序已更新",
+          "data": null
+        }
+      },
+      "after": [
+        1,
+        0,
+        2
+      ]
+    },
+    "business_key_tree": {
+      "parent_id": 2,
+      "parent_business_key": "sixth-parent",
+      "roots": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "success",
+          "data": [
+            {
+              "id": 1,
+              "key": "company",
+              "description": "",
+              "create_datetime": "2026-10-09 12:13:20",
+              "update_datetime": "2026-10-09 12:13:20",
+              "name": "总公司",
+              "sort": 1,
+              "owner": null,
+              "phone": null,
+              "email": null,
+              "status": true,
+              "creator": null,
+              "modifier": null,
+              "dept_belong": 1,
+              "parent": null,
+              "creator_name": "",
+              "creator_label": "",
+              "modifier_label": "",
+              "dept_belong_label": "总公司",
+              "parent_label": "",
+              "has_children": false
+            },
+            {
+              "id": 5,
+              "key": null,
+              "description": "",
+              "create_datetime": "2026-10-09 12:13:22",
+              "update_datetime": "2026-10-09 12:13:22",
+              "name": "独立排序父级",
+              "sort": 1,
+              "owner": null,
+              "phone": null,
+              "email": null,
+              "status": true,
+              "creator": null,
+              "modifier": null,
+              "dept_belong": null,
+              "parent": null,
+              "creator_name": "",
+              "creator_label": "",
+              "modifier_label": "",
+              "dept_belong_label": "",
+              "parent_label": "",
+              "has_children": true
+            },
+            {
+              "id": 2,
+              "key": "sixth-parent",
+              "description": "",
+              "create_datetime": "2026-10-09 12:13:22",
+              "update_datetime": "2026-10-09 12:13:22",
+              "name": "审计父部门",
+              "sort": 70,
+              "owner": null,
+              "phone": null,
+              "email": null,
+              "status": true,
+              "creator": null,
+              "modifier": null,
+              "dept_belong": null,
+              "parent": null,
+              "creator_name": "",
+              "creator_label": "",
+              "modifier_label": "",
+              "dept_belong_label": "",
+              "parent_label": "",
+              "has_children": true
+            },
+            {
+              "id": 3,
+              "key": "sixth-no-parent",
+              "description": "",
+              "create_datetime": "2026-10-09 12:13:22",
+              "update_datetime": "2026-10-09 12:13:22",
+              "name": "未选父部门",
+              "sort": 71,
+              "owner": null,
+              "phone": null,
+              "email": null,
+              "status": true,
+              "creator": 2,
+              "modifier": 2,
+              "dept_belong": 3,
+              "parent": null,
+              "creator_name": "sixth-actor",
+              "creator_label": "sixth-actor",
+              "modifier_label": "sixth-actor",
+              "dept_belong_label": "未选父部门",
+              "parent_label": "",
+              "has_children": false
+            }
+          ],
+          "page": 1,
+          "limit": 10,
+          "total": 4,
+          "is_next": false,
+          "is_previous": false
+        }
+      },
+      "current_frontend_children": {
+        "exception": "ValueError",
+        "detail": "Field 'id' expected a number but got 'sixth-parent'."
+      },
+      "actual_primary_key_children": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "success",
+          "data": [
+            {
+              "id": 4,
+              "key": null,
+              "description": "",
+              "create_datetime": "2026-10-09 12:13:22",
+              "update_datetime": "2026-10-09 12:13:22",
+              "name": "空部门编码",
+              "sort": 1,
+              "owner": null,
+              "phone": null,
+              "email": null,
+              "status": true,
+              "creator": 2,
+              "modifier": 2,
+              "dept_belong": 4,
+              "parent": 2,
+              "creator_name": "sixth-actor",
+              "creator_label": "sixth-actor",
+              "modifier_label": "sixth-actor",
+              "dept_belong_label": "空部门编码",
+              "parent_label": "审计父部门",
+              "has_children": false
+            },
+            {
+              "id": 9,
+              "key": "sixth-child",
+              "description": "",
+              "create_datetime": "2026-10-09 12:13:22",
+              "update_datetime": "2026-10-09 12:13:22",
+              "name": "树子节点",
+              "sort": 1,
+              "owner": null,
+              "phone": null,
+              "email": null,
+              "status": true,
+              "creator": null,
+              "modifier": null,
+              "dept_belong": null,
+              "parent": 2,
+              "creator_name": "",
+              "creator_label": "",
+              "modifier_label": "",
+              "dept_belong_label": "",
+              "parent_label": "审计父部门",
+              "has_children": false
+            }
+          ],
+          "page": 1,
+          "limit": 10,
+          "total": 2,
+          "is_next": false,
+          "is_previous": false
+        }
+      }
+    },
+    "same_named_models": {
+      "catalog": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "success",
+          "data": [
+            {
+              "app": "sixth_a",
+              "title": "audit twin",
+              "key": "AuditTwin",
+              "entity": null
+            },
+            {
+              "app": "sixth_b",
+              "title": "audit twin",
+              "key": "AuditTwin",
+              "entity": null
+            }
+          ]
+        }
+      },
+      "match": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "字段匹配完成",
+          "data": null
+        }
+      },
+      "matched_fields": [
+        "id",
+        "shared",
+        "only_a"
+      ],
+      "grant_a": {
+        "id": {
+          "is_query": false,
+          "is_create": false,
+          "is_update": false
+        },
+        "shared": {
+          "is_query": true,
+          "is_create": true,
+          "is_update": true
+        },
+        "only_a": {
+          "is_query": false,
+          "is_create": false,
+          "is_update": false
+        }
+      },
+      "grant_b": {
+        "id": {
+          "is_query": false,
+          "is_create": false,
+          "is_update": false
+        },
+        "shared": {
+          "is_query": true,
+          "is_create": true,
+          "is_update": true
+        },
+        "only_a": {
+          "is_query": false,
+          "is_create": false,
+          "is_update": false
+        }
+      }
+    },
+    "dictionary_blank_root": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 17,
+          "description": "",
+          "create_datetime": "2026-10-09 12:13:22",
+          "update_datetime": "2026-10-09 12:13:22",
+          "label": "",
+          "value": "",
+          "is_value": false,
+          "type": 0,
+          "color": null,
+          "sort": 1,
+          "status": true,
+          "remark": null,
+          "creator": 1,
+          "modifier": 1,
+          "dept_belong": 1,
+          "parent": null,
+          "creator_name": "超级管理员",
+          "creator_label": "超级管理员",
+          "modifier_label": "超级管理员",
+          "dept_belong_label": "总公司",
+          "parent_label": ""
+        }
+      }
+    },
+    "dictionary_blank_number_child": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "新增成功",
+        "data": {
+          "id": 19,
+          "description": "",
+          "create_datetime": "2026-10-09 12:13:22",
+          "update_datetime": "2026-10-09 12:13:22",
+          "label": "",
+          "value": "",
+          "is_value": true,
+          "type": 1,
+          "color": null,
+          "sort": 1,
+          "status": true,
+          "remark": null,
+          "creator": 1,
+          "modifier": 1,
+          "dept_belong": 1,
+          "parent": 18,
+          "creator_name": "超级管理员",
+          "creator_label": "超级管理员",
+          "modifier_label": "超级管理员",
+          "dept_belong_label": "总公司",
+          "parent_label": "数字字典审计"
+        }
+      }
+    },
+    "dictionary_public_after_blank_number": {
+      "exception": "ValueError",
+      "detail": "could not convert string to float: ''"
+    },
+    "first_password_empty": {
+      "result": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "首次登录密码已修改",
+          "data": null
+        }
+      },
+      "empty_password_accepted": true,
+      "change_count": 1
+    },
+    "personal_password_empty": {
+      "result": {
+        "status": 200,
+        "body": {
+          "code": 2000,
+          "msg": "密码已修改",
+          "data": null
+        }
+      },
+      "empty_password_accepted": true
+    },
+    "personal_same_password": {
+      "status": 200,
+      "body": {
+        "code": 2000,
+        "msg": "密码已修改",
+        "data": null
+      }
+    }
+  }
+}

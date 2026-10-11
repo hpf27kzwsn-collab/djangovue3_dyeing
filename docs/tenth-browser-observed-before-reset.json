@@ -1,0 +1,19 @@
+{
+  "method": "CUA actions and read-only DOM observations from this turn; reconstructed from recorded tool results after CUA kernel timeout. Subsequent live records are stored separately.",
+  "checks": [
+    {"id":"TW-UI01","case":"图片多选跨页后20条/页","rows":20,"total":36,"chosen":2,"page":1},
+    {"id":"TW-UI01","case":"图片50条/页","rows":36,"total":36,"chosen":2},
+    {"id":"TW-UI01","case":"通用文件库30条/页，仅可见对话框","rows":30,"total":44},
+    {"id":"TW-UI02","case":"关闭当前非末位组件示例进入右邻部门","url":"http://127.0.0.1:8007/system/dept"},
+    {"id":"TW-UI02","case":"关闭当前末位角色进入最后岗位","url":"http://127.0.0.1:8007/system/post"},
+    {"id":"TW-UI03","case":"部门展开","svg_charts":2,"summary":"本机验收部门 · 35 人"},
+    {"id":"TW-UI03","case":"整体折叠","svg_charts":0,"summary_count":0,"resource_body_top_before":614,"resource_body_top_after":398,"restore_button":"显示部门概况"},
+    {"id":"TW-UI03","case":"恢复图表重绘","svg_charts":2,"summary":"本机验收部门 · 35 人"},
+    {"id":"TW-UI04","case":"操作日志无删除和批量删除入口，详情可查看","view":true,"json_details":true,"delete":false,"batch_delete":false},
+    {"id":"TW-UI04","case":"操作日志查询本机字典新值并导出xlsx","download":"C:/Users/Admin/Downloads/操作日志导出.xlsx"}
+  ],
+  "observation_corrections": [
+    "Initial combined file-grid count included a hidden image dialog. Corrected by inspecting only the visible file dialog: 30 rows out of 44.",
+    "Initial query preservation scenario had an intervening base-path post tab, so the correct adjacent destination was that base-path tab. The query-adjacent scenario was subsequently performed and recorded in tenth-browser-live-records.json."
+  ]
+}
