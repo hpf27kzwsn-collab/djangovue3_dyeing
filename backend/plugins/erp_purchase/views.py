@@ -6,6 +6,10 @@ from . import models, services
 
 
 class PurchaseViewSet(BusinessViewSet):
+    @action(methods=['post'],detail=True)
+    def close(self,request,pk=None):return self.performed(services.close,parameters(self,{'reason':serializers.CharField()}))
+    @action(methods=['post'],detail=True)
+    def reopen(self,request,pk=None):return self.performed(services.reopen,parameters(self,{'reason':serializers.CharField()}))
     @action(methods=['post'], detail=True)
     def confirm(self, request, pk=None):
         fields = {'employee': serializers.PrimaryKeyRelatedField(queryset=Employee.objects.all())} if self.queryset.model is models.PurchaseRequest else {}

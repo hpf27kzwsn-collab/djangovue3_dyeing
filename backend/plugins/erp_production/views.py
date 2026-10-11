@@ -29,6 +29,26 @@ class StageInput(ActionInput):
 
 
 class WorkCardViewSet(BusinessViewSet):
+    @action(methods=['post'],detail=True)
+    def reopen(self,request,pk=None):
+        from .lifecycle_services import reopen_card
+        return self.performed(reopen_card,parameters(self,reason()))
+    @action(methods=['post'],detail=True)
+    def pause(self,request,pk=None):
+        from .lifecycle_services import pause
+        return self.performed(pause,{'paused':True,**parameters(self,reason())})
+    @action(methods=['post'],detail=True)
+    def resume(self,request,pk=None):
+        from .lifecycle_services import pause
+        return self.performed(pause,{'paused':False,**parameters(self,reason())})
+    @action(methods=['post'],detail=True)
+    def complete(self,request,pk=None):
+        from .lifecycle_services import complete_card
+        return self.performed(complete_card,parameters(self,{'at':date(),**reason()}))
+    @action(methods=['post'],detail=True)
+    def close(self,request,pk=None):
+        from .lifecycle_services import close_card
+        return self.performed(close_card,parameters(self,{'at':date(),**reason()}))
     @action(methods=['post'], detail=True)
     def prepare(self, request, pk=None):
         return self.performed(services.prepare, parameters(self, {

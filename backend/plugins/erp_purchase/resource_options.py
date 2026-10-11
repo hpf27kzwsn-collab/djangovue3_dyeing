@@ -77,3 +77,7 @@ RESOURCE_OPTIONS['PurchaseOrder']['label_field'] = 'number'
 RESOURCE_OPTIONS['PurchaseOrderLine']['label_field'] = 'line_number'
 RESOURCE_OPTIONS['PurchaseReturn']['label_field'] = 'number'
 RESOURCE_OPTIONS['PurchaseReturnLine']['label_field'] = 'id'
+
+from plugins.erp_production.workflows import action,reason
+for name,states in {'PurchaseRequest':['confirmed'],'PurchaseOrder':['confirmed','partial_received','received'],'PurchaseReturn':['confirmed','received']}.items():
+    WORKFLOWS[name]['actions'] += [action('close','按实际情况结案',states,[reason]),action('reopen','重新办理',['closed'],[reason])]

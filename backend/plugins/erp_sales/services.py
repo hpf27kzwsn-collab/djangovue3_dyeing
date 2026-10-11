@@ -9,11 +9,14 @@ from . import models as m
 
 PARENTS = {m.CommercialPriceLine: ('price_document', ''), m.SalesOrderLine: ('order', ''),
            m.SalesLineRequirement: ('order_line', 'order'), m.SalesOrderChangeLine: ('change', '')}
+PARENTS.update({m.DeliveryLine:('delivery',''),m.SalesReturnLine:('return_order',''),m.CustomerComplaintLine:('complaint','')})
 OWNED = {m.CommercialPrice: {'status'}, m.CommercialPriceLine: {'is_confirmed'},
          m.SalesOrder: {'status', 'confirmed_by', 'confirmed_at', 'closed_at'},
          m.SalesOrderLine: {'adopted_price_snapshot', 'is_closed'}, m.SalesLineRequirement: set(),
          m.SalesOrderChange: {'status', 'confirmed_by', 'confirmed_at'},
          m.SalesOrderChangeLine: {'before_values'}}
+OWNED.update({m.Delivery:{'status','delivered_at'},m.DeliveryLine:{'price_adoption_snapshot'},
+    m.SalesReturn:{'status'},m.SalesReturnLine:set(),m.CustomerComplaint:{'status'},m.CustomerComplaintLine:set()})
 
 
 def editable(item):
@@ -22,10 +25,13 @@ def editable(item):
         item = getattr(item, key)
         for part in path.split('.') if path else []:
             item = getattr(item, part)
-    require_state(item, ['draft'])
+    require_state(item,['open','handling'] if isinstance(item,m.CustomerComplaint) else ['draft'])
 
 
 def validate(item):
+    if isinstance(item,m.DeliveryLine):
+        from .fulfillment_services import validate_line
+        validate_line(item)
     if isinstance(item, m.CommercialPriceLine):
         if item.valid_from is not None and item.valid_to is not None and item.valid_to <= item.valid_from:
             raise ValidationError({'valid_to': '失效时间必须晚于生效时间。'})
@@ -110,7 +116,7 @@ def confirm_change(item, actor, employee):
         line.before_values = snapshot(source)
         if line.new_quantity is not None:
             allocated = sum((row.unit.convert_quantity(row.allocated_quantity, source.ordered_unit)
-                for row in WorkCardOrderAllocation.objects.filter(order_line=source).exclude(work_card__status='cancelled')), Decimal('0'))
+                for row in WorkCardOrderAllocation.objects.filter(order_line=source,original_allocation__isnull=True).exclude(work_card__status='cancelled')), Decimal('0'))
             if line.new_quantity <= 0 or line.new_quantity < allocated:
                 raise ValidationError({'new_quantity': '新订货数量必须大于零且不小于现有有效工卡分配量。'})
             source.ordered_quantity = line.new_quantity
@@ -124,4 +130,38 @@ def confirm_change(item, actor, employee):
     item.status, item.confirmed_by, item.confirmed_at = 'confirmed', employee, timezone.now()
     persist(item, actor)
     record(item, 'confirm', before, actor, item.reason)
+    return item
+
+
+@transaction.atomic
+def finish_order(item,actor,at,reason,close=False):
+    item=locked(item);require_state(item,['confirmed','running','completed'] if close else ['confirmed','running'])
+    if at<item.confirmed_at:raise ValidationError({'at':'完成或结案不能早于订单确认。'})
+    lines=require_rows(m.SalesOrderLine.objects.filter(order=item))
+    if m.DeliveryLine.objects.filter(order_line__order=item,delivery__status__in=['draft','confirmed','issued']).exists():
+        raise ValidationError({'delivery':'还有未完成或未取消的交付单。'})
+    if m.SalesReturnLine.objects.filter(original_delivery_line__order_line__order=item,return_order__status__in=['draft','confirmed','received']).exists():
+        raise ValidationError({'return_order':'还有未结束的客户退货。'})
+    from .fulfillment_services import reopened_quantity
+    for line in lines:
+        deliveries=m.DeliveryLine.objects.filter(order_line=line,delivery__status='delivered',delivery__warehouse_issue__status='posted')
+        actual=sum((row.unit.convert_quantity(row.quantity,line.ordered_unit) for row in deliveries),Decimal('0'))
+        if not close and actual<line.ordered_quantity+reopened_quantity(line):raise ValidationError({'quantity':'订单完成须有足量的客户实际交付；提前终止采用有原因的结案。'})
+        if any(at<row.delivery.delivered_at for row in deliveries):raise ValidationError({'at':'完成或结案不能早于客户实际交付。'})
+        if close:line.is_closed=True;persist(line,actor)
+    from plugins.erp_production.models import WorkCardOrderAllocation
+    if WorkCardOrderAllocation.objects.filter(order_line__order=item).exclude(work_card__status__in=['completed','closed','cancelled']).exists():
+        raise ValidationError({'work_card':'还有有效的未完成工卡需求。'})
+    before=snapshot(item);item.status='closed' if close else 'completed'
+    if close:item.closed_at=at
+    persist(item,actor);record(item,'close' if close else 'complete',before,actor,reason)
+    return item
+
+
+@transaction.atomic
+def reopen_order(item,actor,reason):
+    item=locked(item);require_state(item,['completed','closed'])
+    before=snapshot(item);item.status,item.closed_at='running',None
+    for line in m.SalesOrderLine.objects.filter(order=item):line.is_closed=False;persist(line,actor)
+    persist(item,actor);record(item,'reopen',before,actor,reason)
     return item

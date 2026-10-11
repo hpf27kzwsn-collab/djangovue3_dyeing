@@ -13,6 +13,7 @@ backend/staticfiles/
 web/node_modules/
 web/dist/
 data-backups/
+legacy-data/
 .env
 database.ini
 *.database.ini

@@ -53,6 +53,43 @@ VIEWSETS = {'CommercialPrice': 'plugins.erp_sales.views.CommercialPriceViewSet',
  'SalesOrderChange': 'plugins.erp_sales.views.SalesOrderChangeViewSet',
  'SalesOrderChangeLine': 'plugins.erp_base.business_api.BusinessViewSet'}
 
+# Fulfillment resource fields
+MODEL_FIELDS.update({'Delivery': 'number document_at customer address_snapshot status delivered_at warehouse_issue',
+ 'DeliveryLine': 'package_allocation price_unit price_adoption_snapshot manual_price_reason delivery line_number '
+                 'order_line quantity unit unit_price_snapshot',
+ 'SalesReturn': 'number customer returned_at reason status',
+ 'SalesReturnLine': 'original_issue_line reopen_order_demand reopen_reason return_order original_delivery_line '
+                    'quantity unit receipt_line',
+ 'CustomerComplaint': 'number customer complained_at content status',
+ 'CustomerComplaintLine': 'complaint line_number work_card package material order_line delivery_line quantity '
+                          'unit content handling_text disposition'})
+RELATIONS.update({'Delivery': {'customer': ('erp_base_party', 'name'), 'warehouse_issue': ('erp_warehouse_stockissue', 'number')},
+ 'DeliveryLine': {'package_allocation': ('erp_warehouse_packageorderallocation', 'id'),
+                  'price_unit': ('erp_base_unit', 'name'),
+                  'delivery': ('erp_sales_delivery', 'number'),
+                  'order_line': ('erp_sales_salesorderline', 'line_number'),
+                  'unit': ('erp_base_unit', 'name')},
+ 'SalesReturn': {'customer': ('erp_base_party', 'name')},
+ 'SalesReturnLine': {'original_issue_line': ('erp_warehouse_stockissueline', 'line_number'),
+                     'return_order': ('erp_sales_salesreturn', 'number'),
+                     'original_delivery_line': ('erp_sales_deliveryline', 'line_number'),
+                     'unit': ('erp_base_unit', 'name'),
+                     'receipt_line': ('erp_warehouse_stockreceiptline', 'line_number')},
+ 'CustomerComplaint': {'customer': ('erp_base_party', 'name')},
+ 'CustomerComplaintLine': {'complaint': ('erp_sales_customercomplaint', 'number'),
+                           'work_card': ('erp_production_workcard', 'number'),
+                           'package': ('erp_warehouse_package', 'code'),
+                           'material': ('erp_base_material', 'id'),
+                           'order_line': ('erp_sales_salesorderline', 'line_number'),
+                           'delivery_line': ('erp_sales_deliveryline', 'line_number'),
+                           'unit': ('erp_base_unit', 'name'),
+                           'disposition': ('erp_production_qualitydisposition', 'id')}})
+VIEWSETS.update({'Delivery': 'plugins.erp_sales.fulfillment_views.DeliveryViewSet',
+ 'DeliveryLine': 'plugins.erp_base.business_api.BusinessViewSet',
+ 'SalesReturn': 'plugins.erp_sales.fulfillment_views.SalesReturnViewSet',
+ 'SalesReturnLine': 'plugins.erp_base.business_api.BusinessViewSet',
+ 'CustomerComplaint': 'plugins.erp_sales.fulfillment_views.CustomerComplaintViewSet',
+ 'CustomerComplaintLine': 'plugins.erp_base.business_api.BusinessViewSet'})
 RESOURCE_OPTIONS = options('erp_sales', MODEL_FIELDS, RELATIONS, VIEWSETS)
 RESOURCE_OPTIONS['CommercialPrice']['label_field'] = 'number'
 RESOURCE_OPTIONS['CommercialPriceLine']['label_field'] = 'version'
@@ -107,3 +144,10 @@ WORKFLOWS = {'CommercialPrice': {'editable_states': ['draft'],
  'SalesOrderChangeLine': {}}
 for name, workflow in WORKFLOWS.items():
     RESOURCE_OPTIONS[name]["workflow"] = workflow
+
+from .fulfillment_workflows import WORKFLOWS as FULFILLMENT_WORKFLOWS
+for name, workflow in FULFILLMENT_WORKFLOWS.items():
+    RESOURCE_OPTIONS[name]["workflow"] = workflow
+
+from plugins.erp_production.workflows import action,at,reason
+WORKFLOWS['SalesOrder']['actions'] += [action('complete','确认实际交付完成',['confirmed','running'],[at,reason]),action('close','订单结案',['confirmed','running','completed'],[at,reason]),action('reopen','重新打开订单',['completed','closed'],[reason])]

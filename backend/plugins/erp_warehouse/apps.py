@@ -8,4 +8,3 @@ class ErpWarehouseConfig(AppConfig):
     label = 'erp_warehouse'
     verbose_name = '仓储管理'
     resource_options = RESOURCE_OPTIONS
-    exclude_models = ['LotTransformation', 'LotTransformationLine', 'Package', 'PackageOrderAllocation', 'LabelPrint']

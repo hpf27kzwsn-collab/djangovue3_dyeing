@@ -8,12 +8,13 @@ import ResourceTable from '../../components/ResourceTable.vue'
 import FieldInput from '../../components/FieldInput.vue'
 import DocumentEditor from './DocumentEditor.vue'
 import ActionRows from './ActionRows.vue'
+import ActionChanges from './ActionChanges.vue'
 const props=defineProps<{entity:string;context?:Record<string,any>;contextLabel?:string;contextState?:string;readonly?:boolean}>()
 const account=useAccount(),meta=ref<any>(),table=ref(),selected=ref<any>(),open=ref(false),activeTab=ref(''),editor=ref(false)
 const actionOpen=ref(false),currentAction=ref<any>(),actionRow=ref<any>(),actionData=ref<Record<string,any>>({}),actionForm=ref(),saving=ref(false)
 const workflow=computed(()=>meta.value?.workflow??{})
 const tabs=computed(()=>(workflow.value.children??[]).filter((child:any)=>account.can(child.entity+':list')))
-const frozen=(row:any)=>props.readonly||workflow.value.readonly||Boolean(workflow.value.editable_states&&!workflow.value.editable_states.includes(row[workflow.value.state_field??'status']))
+const frozen=(row:any)=>props.readonly||workflow.value.readonly||Boolean(workflow.value.freeze_when?.some((key:string)=>row[key]))||Boolean(workflow.value.editable_states&&!workflow.value.editable_states.includes(row[workflow.value.state_field??'status']))
 function state(row:any){return workflow.value.state_from_parent?props.contextState:row[workflow.value.state_field??'status']}
 function childReadonly(child:any){return child.parent_states?!child.parent_states.includes(state(selected.value)):frozen(selected.value)}
 function actionField(field:any){return field.params_from_row?{...field,remote:{...field.remote,params:Object.fromEntries(Object.entries(field.params_from_row).map(([key,source])=>[key,actionRow.value[String(source)]]))}}:field}
@@ -26,7 +27,7 @@ const actions=computed(()=>{
   const result:any[]=[]
   if(tabs.value.length)result.push({key:'children',text:'明细与关联',permission:props.entity+':detail',click:(row:any)=>{selected.value=row;activeTab.value=tabs.value[0].entity;open.value=true}})
   if((workflow.value.children??[]).some((child:any)=>child.atomic))result.push({key:'document',text:'整单编辑',permission:props.entity+':save-document-post',show:(row:any)=>!frozen(row),click:(row:any)=>{selected.value=row;editor.value=true}})
-  for(const action of workflow.value.actions??[])result.push({key:action.key,text:action.title,permission:props.entity+':'+action.key+'-post',show:(row:any)=>action.states.includes(state(row))&&!(props.entity==='erp_sampling_sampleconfirmation'&&action.key==='send'&&row.sent_at!==null),click:async(row:any)=>{
+  for(const action of workflow.value.actions??[])result.push({key:action.key,text:action.title,permission:props.entity+':'+action.key+'-post',show:(row:any)=>action.states.includes(state(row))&&!(action.hide_when??[]).some((key:string)=>row[key])&&!(props.entity==='erp_sampling_sampleconfirmation'&&action.key==='send'&&row.sent_at!==null),click:async(row:any)=>{
     if(action.inputs.length){currentAction.value=action;actionRow.value=row;actionData.value=Object.fromEntries(action.inputs.filter((f:any)=>f.kind==='datetime').map((f:any)=>[f.key,new Date().toISOString()]));actionOpen.value=true}
     else{await api(`/api/system/${props.entity}/${row.id}/${action.key}/`,{method:'POST',data:{}});ElMessage.success('操作成功');await table.value.refresh()}
   }})
@@ -50,7 +51,7 @@ watch(()=>[props.entity,account.menus,account.buttons],async()=>{
     </el-drawer>
     <el-drawer v-model="editor" :title="meta?.title+' · 整单编辑'" size="min(1500px, 98vw)" destroy-on-close><DocumentEditor v-if="editor" :meta="meta" :row="selected" @saved="editor=false;table.refresh()"/></el-drawer>
     <el-dialog v-model="actionOpen" :title="currentAction?.title" width="min(900px,95vw)" destroy-on-close><el-form v-if="actionOpen" ref="actionForm" :model="actionData" label-width="150px">
-      <el-form-item v-for="field in currentAction.inputs" :key="field.key" :prop="field.key" :label="field.title" :rules="[{required:field.required,message:'请填写'+field.title}]"><ActionRows v-if="field.kind==='rows'" v-model="actionData[field.key]" :field="field" :form="actionData"/><FieldInput v-else v-model="actionData[field.key]" :field="actionField(field)"/></el-form-item>
+      <el-form-item v-for="field in currentAction.inputs" :key="field.key" :prop="field.key" :label="field.title" :rules="[{required:field.required,message:'请填写'+field.title}]"><ActionRows v-if="field.kind==='rows'" v-model="actionData[field.key]" :field="field" :form="actionData" :row="actionRow"/><ActionChanges v-else-if="field.kind==='changes'" v-model="actionData[field.key]" :field="field"/><FieldInput v-else v-model="actionData[field.key]" :field="actionField(field)"/></el-form-item>
     </el-form><template #footer><el-button @click="actionOpen=false">取消</el-button><el-button type="primary" :loading="saving" @click="submitAction">确认操作</el-button></template></el-dialog>
   </div>
 </template>

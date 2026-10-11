@@ -7,8 +7,8 @@ APPS = [
     'plugins.erp_production.apps.ErpProductionConfig',
     'plugins.erp_warehouse.apps.ErpWarehouseConfig',
 ]
-URLS = []  # [('inventory', 'plugins.inventory.urls')]
-# 基础信息已接入页面和业务保存；其余应用在对应批次实现业务动作时登记。
+URLS = [('erp','plugins.erp_base.urls')]
+# 六模块基础资料、单据动作、查询和旧新对照统一登记。
 MODEL_EXCLUDE_APPS = [
     'auth', 'contenttypes', 'sessions', 'captcha',
     'django_celery_beat', 'django_celery_results',

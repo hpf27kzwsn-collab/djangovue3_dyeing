@@ -8,6 +8,47 @@ from plugins.erp_base import choices
 from .calculations import calculate_adopted_dosage, calculate_elapsed_minutes
 
 
+class PhysicalBatchExecution(ErpModel):
+    """一次同缸物理执行；工卡执行只保存对应成员实际分配量。"""
+    batch = models.ForeignKey('erp_production.DyeBatch', verbose_name='缸批', on_delete=models.PROTECT, related_name='physical_executions')
+    process = models.ForeignKey('erp_base.Process', verbose_name='实际工序', on_delete=models.PROTECT, related_name='physical_executions')
+    machine = models.ForeignKey('erp_base.Machine', verbose_name='实际机台', on_delete=models.PROTECT, related_name='physical_executions')
+    execution_number = models.PositiveIntegerField('物理执行轮次')
+    operator = models.ForeignKey('erp_base.Employee', verbose_name='操作人员', on_delete=models.PROTECT, related_name='physical_executions')
+    shift = models.ForeignKey('erp_base.Shift', verbose_name='班次', null=True, blank=True, on_delete=models.PROTECT, related_name='physical_executions')
+    started_at = models.DateTimeField('实际开工时间')
+    ended_at = models.DateTimeField('实际完工时间', null=True, blank=True)
+    output_mass_kg = models.DecimalField('本缸实际产出kg', max_digits=20, decimal_places=6, null=True, blank=True)
+    status = models.CharField('执行状态', max_length=24, choices=choices.ExecutionStatus.choices, default='running')
+
+    class Meta:
+        db_table = 'erp_production_physicalbatchexecution'
+        verbose_name = verbose_name_plural = '同缸物理执行'
+        ordering = ['-id']
+        constraints = [
+            models.UniqueConstraint(fields=['batch','process','execution_number'], name='erp_physical_execution_round_uniq'),
+            models.UniqueConstraint(fields=['batch','process'], condition=Q(status='running'), name='erp_physical_execution_running_uniq'),
+            models.CheckConstraint(condition=Q(ended_at__isnull=True)|Q(ended_at__gte=F('started_at')), name='erp_physical_execution_time_order'),
+            models.CheckConstraint(condition=Q(output_mass_kg__isnull=True)|Q(output_mass_kg__gte=0), name='erp_physical_execution_mass_nonnegative'),
+            models.CheckConstraint(condition=Q(status__in=choices.ExecutionStatus.values), name='erp_physical_execution_status_valid'),
+        ]
+
+
+class PhysicalExecutionCorrection(ErpModel):
+    physical_execution = models.ForeignKey(PhysicalBatchExecution, verbose_name='原物理执行', on_delete=models.PROTECT, related_name='corrections')
+    corrected_at = models.DateTimeField('更正时间')
+    approved_by = models.ForeignKey('erp_base.Employee', verbose_name='确认员工', on_delete=models.PROTECT)
+    reason = models.TextField('更正依据')
+    before_values = models.JSONField('原有效整缸事实')
+    after_values = models.JSONField('更正后整缸事实')
+    member_changes = models.JSONField('逐工卡更正对照')
+
+    class Meta:
+        db_table = 'erp_production_physicalexecutioncorrection'
+        verbose_name = verbose_name_plural = '整缸执行更正'
+        ordering = ['-id']
+
+
 class WorkCard(ErpModel):
     """生产工卡。"""
 
@@ -192,10 +233,23 @@ class WorkCard(ErpModel):
         ]
 
 
+    def clean(self):
+        super().clean()
+        ancestor=self.original_work_card
+        seen={self.pk} if self.pk is not None else set()
+        while ancestor is not None:
+            if ancestor.pk in seen:raise ValidationError({'original_work_card':'原工卡关联不能形成循环。'})
+            seen.add(ancestor.pk);ancestor=ancestor.original_work_card
+
+
 class WorkCardOrderAllocation(ErpModel):
     """订单工卡数量分配。"""
 
     adopted_order_snapshot = models.JSONField('下达时订单事实', default=dict, blank=True)
+    original_allocation = models.ForeignKey('self',verbose_name='原工卡需求分配',on_delete=models.PROTECT,null=True,blank=True,related_name='rework_allocations')
+    released_unfulfilled_quantity = models.DecimalField('明确释放未完成需求量',max_digits=20,decimal_places=6,default=0)
+    demand_release_at = models.DateTimeField('需求释放时间',null=True,blank=True)
+    demand_release_reason = models.TextField('需求释放依据',blank=True)
 
     # 原物理来源：JobCombineOrder.SheetSeries
     work_card = models.ForeignKey(
@@ -403,6 +457,9 @@ class DyeBatchAllocation(ErpModel):
 
 class WorkCardOperation(ErpModel):
     """工卡计划工序。"""
+
+    is_skipped = models.BooleanField('已明确跳过', default=False)
+    skip_reason = models.TextField('跳过原因', blank=True)
 
     # 原物理来源：JobProcess.SheetSeries
     work_card = models.ForeignKey(
@@ -658,6 +715,10 @@ class ScheduleAssignment(ErpModel):
 
 class OperationExecution(ErpModel):
     """实际工序执行。"""
+
+    physical_execution = models.ForeignKey('erp_production.PhysicalBatchExecution',
+        verbose_name='同缸物理执行', null=True, blank=True, on_delete=models.PROTECT,
+        related_name='member_executions')
 
     # 原物理来源：WProcess.JobSheetNo; WProcess.ProcessNo
     operation = models.ForeignKey(
@@ -926,6 +987,9 @@ class ExecutionMeasurement(ErpModel):
 
 class ExecutionCorrection(ErpModel):
     """报工更正。"""
+
+    before_values = models.JSONField('更正前有效事实', default=dict, blank=True)
+    after_values = models.JSONField('更正后有效事实', default=dict, blank=True)
 
     execution = models.ForeignKey(
         'erp_production.OperationExecution',
@@ -1593,6 +1657,9 @@ class WeighingLine(ErpModel):
 class WeighingRecord(ErpModel):
     """一次实际称量。"""
 
+    void_reason = models.TextField('作废原因', blank=True)
+    voided_at = models.DateTimeField('作废时间', null=True, blank=True)
+
     line = models.ForeignKey(
         'erp_production.WeighingLine',
         verbose_name='称料明细',
@@ -1661,6 +1728,15 @@ class WeighingRecord(ErpModel):
 
 class QualityInspection(ErpModel):
     """生产检验单。"""
+
+    is_void = models.BooleanField('检验已取消采用', default=False)
+    voided_at = models.DateTimeField('取消采用时间', null=True, blank=True)
+    void_reason = models.TextField('取消采用原因', blank=True)
+
+    inspected_quantity = models.DecimalField('明确检验范围量', max_digits=20,
+        decimal_places=6, null=True, blank=True)
+    quantity_unit = models.ForeignKey('erp_base.Unit', verbose_name='检验范围单位',
+        null=True, blank=True, on_delete=models.PROTECT, related_name='inspection_scopes')
 
     lot = models.ForeignKey('erp_warehouse.InventoryLot', verbose_name='检验库存批次',
         null=True, blank=True, on_delete=models.PROTECT, related_name='quality_inspections')
@@ -1838,6 +1914,10 @@ class InspectionResultLine(ErpModel):
 
 class QualityDisposition(ErpModel):
     """质量处置和放行。"""
+
+    status = models.CharField('采用状态', max_length=24, default='active', choices=choices.AdoptionStatus.choices)
+    supersedes = models.ForeignKey('self', verbose_name='被替换处置', null=True,
+        blank=True, on_delete=models.PROTECT, related_name='replacement_dispositions')
 
     inspection = models.ForeignKey(
         'erp_production.QualityInspection',

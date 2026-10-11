@@ -62,6 +62,12 @@ class ApprovalStatus(models.TextChoices):
     CONFIRMED = 'confirmed', '已确认'
     CANCELLED = 'cancelled', '取消'
 
+class PurchaseRequestStatus(models.TextChoices):
+    DRAFT = 'draft', '草稿'
+    CONFIRMED = 'confirmed', '已确认'
+    CLOSED = 'closed', '结案'
+    CANCELLED = 'cancelled', '取消'
+
 class PriceDocumentKind(models.TextChoices):
     QUOTATION = 'quotation', '报价'
     AGREED = 'agreed', '确价'

@@ -8,5 +8,3 @@ class ErpSalesConfig(AppConfig):
     label = 'erp_sales'
     verbose_name = '销售管理'
     resource_options = RESOURCE_OPTIONS
-    exclude_models = ['Delivery', 'DeliveryLine', 'SalesReturn', 'SalesReturnLine',
-                      'CustomerComplaint', 'CustomerComplaintLine']

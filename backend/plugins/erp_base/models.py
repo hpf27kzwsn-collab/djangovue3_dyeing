@@ -131,6 +131,8 @@ class Employee(ErpModel):
     name = models.CharField(
         '员工姓名',
         max_length=60,
+        blank=True,
+        null=True,
     )
 
     # 原物理来源：h_Employee.NameE
@@ -238,6 +240,8 @@ class Shift(ErpModel):
     name = models.CharField(
         '名称',
         max_length=60,
+        blank=True,
+        null=True,
     )
 
     business_unit = models.ForeignKey(
@@ -287,6 +291,8 @@ class Party(ErpModel):
     name = models.CharField(
         '中文名称',
         max_length=128,
+        blank=True,
+        null=True,
     )
 
     # 原物理来源：p_Customer.NameE
@@ -614,7 +620,8 @@ class BusinessChoice(ErpModel):
     # 原物理来源：p_FieldValid.SortValue
     sort = models.IntegerField(
         '排序值',
-        default=0,
+        blank=True,
+        null=True,
     )
 
     # 原物理来源：p_FieldValid.IsStop
@@ -1424,13 +1431,15 @@ class Machine(ErpModel):
         max_length=64,
         blank=True,
         null=True,
-        unique=True,
+
     )
 
     # 原物理来源：p_Machine.Name
     name = models.CharField(
         '机台名称',
         max_length=60,
+        blank=True,
+        null=True,
     )
 
     factory = models.ForeignKey(
@@ -1438,6 +1447,8 @@ class Machine(ErpModel):
         verbose_name='工厂',
         on_delete=models.PROTECT,
         related_name="%(app_label)s_%(class)s_factory_set",
+        blank=True,
+        null=True,
     )
 
     # 原物理来源：p_Machine.BusinessUnitID
@@ -1483,6 +1494,7 @@ class Machine(ErpModel):
         '原容量描述',
         max_length=255,
         blank=True,
+        null=True,
     )
 
     # 原物理来源：p_Machine.MinVatQty
@@ -1974,3 +1986,6 @@ class LabelTemplate(ErpModel):
             models.UniqueConstraint(fields=['code', 'version'], name='erp_base_labeltemplate_identity_uniq'),
             models.CheckConstraint(condition=Q(version__gt=0), name='erp_base_labeltemplate_version_positive'),
         ]
+
+
+from .legacy_models import LegacyImportBatch,LegacySourceTable,LegacyObjectMap,LegacyImportIssue

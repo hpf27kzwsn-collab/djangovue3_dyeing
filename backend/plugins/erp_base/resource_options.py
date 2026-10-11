@@ -108,3 +108,6 @@ for name, fields in MODEL_FIELDS.items():
 for name, entity in [('Party', 'erp_base_party'), ('BusinessChoice', 'erp_base_businesschoice'), ('StorageLocation', 'erp_base_storagelocation')]:
     RESOURCE_OPTIONS[name]['fields']['parent'] = {'remote': {'entity': entity, 'pk': 'id', 'label': 'name'}}
 RESOURCE_OPTIONS['ColorStandard']['fields']['source_sample'] = {'column': {'show': False}}
+from .legacy_resources import MODEL_FIELDS as LEGACY_FIELDS,RESOURCE_OPTIONS as LEGACY_OPTIONS
+MODEL_FIELDS.update(LEGACY_FIELDS)
+RESOURCE_OPTIONS.update(LEGACY_OPTIONS)

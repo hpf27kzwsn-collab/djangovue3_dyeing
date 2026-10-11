@@ -119,7 +119,7 @@ class CommercialOrderTests(TestCase):
         role = Role.objects.get(key='erp_business_manager')
         grant = RoleMenuButtonPermission.objects.filter(role=role, menu_button__value='erp_sales_salesorder:confirm-post').get()
         grant.delete()
-        column = FieldPermission.objects.filter(role=role, field__field_name='manual_price_reason').get()
+        column = FieldPermission.objects.filter(role=role, field__model='erp_sales.SalesOrderLine',field__field_name='manual_price_reason').get()
         column.is_update = False
         column.save()
         call_command('init_data', verbosity=0)

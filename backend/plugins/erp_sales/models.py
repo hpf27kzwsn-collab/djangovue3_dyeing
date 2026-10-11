@@ -837,6 +837,11 @@ class Delivery(ErpModel):
 class DeliveryLine(ErpModel):
     """送货明细。"""
 
+    package_allocation = models.ForeignKey('erp_warehouse.PackageOrderAllocation',verbose_name='实际包装订单分配',on_delete=models.PROTECT,null=True,blank=True)
+    price_unit = models.ForeignKey('erp_base.Unit',verbose_name='采用计价单位',on_delete=models.PROTECT,null=True,blank=True)
+    price_adoption_snapshot = models.JSONField('交付价格采用依据',default=dict,blank=True)
+    manual_price_reason = models.TextField('交付人工定价原因',blank=True)
+
     # 原物理来源：ProdOutDetail.SheetSeries
     delivery = models.ForeignKey(
         'erp_sales.Delivery',
@@ -940,6 +945,10 @@ class SalesReturn(ErpModel):
 
 class SalesReturnLine(ErpModel):
     """客户退回明细。"""
+
+    original_issue_line = models.ForeignKey('erp_warehouse.StockIssueLine',verbose_name='原实际客户出库行',on_delete=models.PROTECT,null=True,blank=True)
+    reopen_order_demand = models.BooleanField('退回后重新打开订单需求',default=False)
+    reopen_reason = models.TextField('重新打开需求依据',blank=True)
 
     return_order = models.ForeignKey(
         'erp_sales.SalesReturn',

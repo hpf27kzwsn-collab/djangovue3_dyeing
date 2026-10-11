@@ -141,6 +141,8 @@ class StockReceipt(ErpModel):
 class StockReceiptLine(ErpModel):
     """入库明细。"""
 
+    source_execution = models.ForeignKey('erp_production.OperationExecution',verbose_name='实际产出执行来源',on_delete=models.PROTECT,null=True,blank=True)
+
     quantity_source = models.CharField('实际数量来源', max_length=24, default='manual', choices=[
         ('manual', '人工实录'), ('scale', '实称记录'), ('correction', '已批准更正'),
         ('legacy_confirmed', '核实旧事实'), ('legacy_unverified', '旧事实待核实')])
@@ -1081,6 +1083,11 @@ class StockAdjustmentLine(ErpModel):
 
 
 class LotTransformation(ErpModel):
+    is_confirmed = models.BooleanField('谱系已确认', default=False)
+    confirmed_at = models.DateTimeField('谱系确认时间', null=True, blank=True)
+    is_void = models.BooleanField('谱系已取消采用',default=False)
+    voided_at = models.DateTimeField('谱系取消时间',null=True,blank=True)
+    void_reason = models.TextField('谱系取消依据',blank=True)
     """半成品和生产批次转换。"""
 
     number = models.CharField(
@@ -1191,6 +1198,10 @@ class LotTransformationLine(ErpModel):
 
 class Package(ErpModel):
     """包装单元和细码。"""
+
+    source_execution = models.ForeignKey('erp_production.OperationExecution', verbose_name='包装前实际产出执行', on_delete=models.PROTECT, null=True, blank=True)
+    packaging_execution = models.OneToOneField('erp_production.OperationExecution',verbose_name='实际包装节点执行',on_delete=models.PROTECT,null=True,blank=True,related_name='packed_package')
+    calculation_snapshot = models.JSONField('包装采用计算快照', default=dict, blank=True)
 
     code = models.CharField(
         '内部包装号',
@@ -1407,6 +1418,19 @@ class Package(ErpModel):
         raise ValidationError({'net_mass_basis': '必须明确选择净重计算方法。'})
 
 
+class PackageDispositionAllocation(ErpModel):
+    package = models.ForeignKey(Package, verbose_name='包装单元', on_delete=models.CASCADE, related_name='quality_coverages')
+    disposition = models.ForeignKey('erp_production.QualityDisposition', verbose_name='放行数量处置', on_delete=models.PROTECT, related_name='package_coverages')
+    quantity = models.DecimalField('覆盖数量', max_digits=20, decimal_places=6)
+    unit = models.ForeignKey('erp_base.Unit', verbose_name='覆盖单位', on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'erp_warehouse_packagedispositionallocation'
+        verbose_name = verbose_name_plural = '包装放行数量覆盖'
+        constraints = [models.UniqueConstraint(fields=['package','disposition'],name='erp_package_disposition_uniq'),
+            models.CheckConstraint(condition=Q(quantity__gt=0),name='erp_package_disposition_qty_positive')]
+
+
 class PackageOrderAllocation(ErpModel):
     """包装订单数量分配。"""
 
@@ -1457,6 +1481,13 @@ class PackageOrderAllocation(ErpModel):
 class LabelPrint(ErpModel):
     """标签打印记录。"""
 
+    requested_at = models.DateTimeField('打印请求时间', null=True, blank=True)
+    status = models.CharField('打印结果', max_length=24, choices=[('requested','已请求'),('succeeded','已确认成功'),('failed','已确认失败')],default='requested')
+    confirmed_at = models.DateTimeField('结果确认时间',null=True,blank=True)
+    confirmation_source = models.CharField('结果来源',max_length=24,choices=[('manual','人工确认'),('device','设备回执')],null=True,blank=True)
+    previous_print = models.ForeignKey('self',verbose_name='原打印请求',on_delete=models.PROTECT,null=True,blank=True,related_name='reprints')
+    template_snapshot = models.JSONField('采用模板及标签内容',default=dict,blank=True)
+
     package = models.ForeignKey(
         'erp_warehouse.Package',
         verbose_name='包装单元',
@@ -1473,6 +1504,7 @@ class LabelPrint(ErpModel):
 
     printed_at = models.DateTimeField(
         '打印时间',
+        null=True, blank=True,
     )
 
     copies = models.IntegerField(

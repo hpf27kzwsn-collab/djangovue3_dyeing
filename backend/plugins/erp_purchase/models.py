@@ -66,8 +66,8 @@ class PurchaseRequest(ErpModel):
     status = models.CharField(
         '申请状态',
         max_length=24,
-        choices=choices.ApprovalStatus.choices,
-        default=choices.ApprovalStatus.DRAFT,
+        choices=choices.PurchaseRequestStatus.choices,
+        default=choices.PurchaseRequestStatus.DRAFT,
     )
 
     # 原物理来源：PurApplyMain.Approver
@@ -93,7 +93,7 @@ class PurchaseRequest(ErpModel):
         verbose_name_plural = '采购申请'
         ordering = ["-id"]
         constraints = [
-            models.CheckConstraint(condition=Q(status__in=choices.ApprovalStatus.values), name='erp_purchase_purchaserequest_status_valid'),
+            models.CheckConstraint(condition=Q(status__in=choices.PurchaseRequestStatus.values), name='erp_purchase_purchaserequest_status_valid'),
         ]
         indexes = [
             models.Index(fields=['status', 'document_at'], name='pur_purchaserequest_1'),

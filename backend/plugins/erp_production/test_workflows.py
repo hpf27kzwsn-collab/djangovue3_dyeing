@@ -241,3 +241,15 @@ class ProductionConcurrencyTests(TransactionTestCase):
                 machine=base.Machine.objects.get(pk=self.machine.pk),planned_start=start,planned_end=start+timedelta(hours=1))
         self.assertEqual(sorted(self.race(schedule)),['rejected','saved'])
         self.assertEqual(m.ScheduleAssignment.objects.count(),1)
+
+    @skipUnlessDBFeature('has_select_for_update')
+    def test_two_actual_starts_cannot_occupy_one_machine(self):
+        from . import execution_services as actual
+        for card in self.cards:s.release(card,self.actor,at=timezone.now())
+        employee=base.Employee.objects.create(code='ACTUAL',name='现场员工')
+        start=timezone.now()+timedelta(hours=1)
+        def begin(key):
+            actual.start(m.WorkCardOperation.objects.get(work_card_id=key),Users.objects.get(pk=self.actor.pk),
+                at=start,employee=base.Employee.objects.get(pk=employee.pk),machine=base.Machine.objects.get(pk=self.machine.pk))
+        self.assertEqual(sorted(self.race(begin)),['rejected','saved'])
+        self.assertEqual(m.OperationExecution.objects.filter(status='running').count(),1)

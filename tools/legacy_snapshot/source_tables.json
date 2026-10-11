@@ -1,0 +1,562 @@
+[
+  {
+    "table": "ArticleIn",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ArticleInDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ArticleOut",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ArticleOutDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ArticleStockBook",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "CustomerTS",
+    "modules": [
+      "sales"
+    ]
+  },
+  {
+    "table": "CustomerTSDetail",
+    "modules": [
+      "sales"
+    ]
+  },
+  {
+    "table": "DyeDipsRecord",
+    "modules": [
+      "sampling"
+    ]
+  },
+  {
+    "table": "DyeLabColor",
+    "modules": [
+      "sampling"
+    ]
+  },
+  {
+    "table": "DyeLabMain",
+    "modules": [
+      "sampling"
+    ]
+  },
+  {
+    "table": "DyeRecipe",
+    "modules": [
+      "production",
+      "sampling"
+    ]
+  },
+  {
+    "table": "DyeRecipeDetail",
+    "modules": [
+      "sampling"
+    ]
+  },
+  {
+    "table": "DyeRecipePhase",
+    "modules": [
+      "sampling"
+    ]
+  },
+  {
+    "table": "FixedPrice",
+    "modules": [
+      "sales"
+    ]
+  },
+  {
+    "table": "FixedPriceDetail",
+    "modules": [
+      "sales"
+    ]
+  },
+  {
+    "table": "GrayIn",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayInDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayMaterial",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayMaterialDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayOut",
+    "modules": [
+      "purchase",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayOutDetail",
+    "modules": [
+      "purchase",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayStock",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayStockAdjust",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayStockAdjustDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayStockAllot",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayStockBook",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "GrayStockCheck",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "JobAssign",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "JobAtte",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "JobCombine",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "JobCombineOrder",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "JobProcess",
+    "modules": [
+      "base",
+      "production"
+    ]
+  },
+  {
+    "table": "JobSheet",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "JobShiftEmp",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "OrderAtte",
+    "modules": [
+      "production",
+      "sales"
+    ]
+  },
+  {
+    "table": "OrderColor",
+    "modules": [
+      "base",
+      "sales"
+    ]
+  },
+  {
+    "table": "OrderMain",
+    "modules": [
+      "sales"
+    ]
+  },
+  {
+    "table": "P_ColorNum",
+    "modules": [
+      "base",
+      "sampling"
+    ]
+  },
+  {
+    "table": "ProcessSchedule",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "ProdIn",
+    "modules": [
+      "sales",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdInRecord",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdOut",
+    "modules": [
+      "sales",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdOutDetail",
+    "modules": [
+      "sales",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdStock",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdStockAllot",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdStockBook",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdStockCheck",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "ProdStockCheckDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "PurApplyDetail",
+    "modules": [
+      "purchase"
+    ]
+  },
+  {
+    "table": "PurApplyMain",
+    "modules": [
+      "purchase"
+    ]
+  },
+  {
+    "table": "PurDetail",
+    "modules": [
+      "purchase"
+    ]
+  },
+  {
+    "table": "PurMain",
+    "modules": [
+      "purchase"
+    ]
+  },
+  {
+    "table": "Quote",
+    "modules": [
+      "sales"
+    ]
+  },
+  {
+    "table": "QuoteDetail",
+    "modules": [
+      "sales"
+    ]
+  },
+  {
+    "table": "RecordYield",
+    "modules": [
+      "production",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiIn",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiInDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiOut",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiOutDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiStock",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiStockAdjust",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiStockAdjustDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "SemiStockBook",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffAllot",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffAllotDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffIn",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffInDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffOut",
+    "modules": [
+      "purchase",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffOutDetail",
+    "modules": [
+      "purchase",
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffStockAdjust",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffStockAdjustDetail",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffStockBook",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "StuffWeight",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "StuffWeightDetail",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "StuffWeightPhase",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "SwipeLabelPrint",
+    "modules": [
+      "warehouse"
+    ]
+  },
+  {
+    "table": "WDefect",
+    "modules": [
+      "production"
+    ]
+  },
+  {
+    "table": "WProcess",
+    "modules": [
+      "base",
+      "production"
+    ]
+  },
+  {
+    "table": "h_Employee",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_Article",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_Customer",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_DyeCurve",
+    "modules": [
+      "sampling"
+    ]
+  },
+  {
+    "table": "p_DyeCurveDetail",
+    "modules": [
+      "sampling"
+    ]
+  },
+  {
+    "table": "p_Fabric_Cust",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_FieldValid",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_Gray",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_Machine",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_Process",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_Shift",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_StorageUnitID",
+    "modules": [
+      "base"
+    ]
+  },
+  {
+    "table": "p_Stuff",
+    "modules": [
+      "base"
+    ]
+  }
+]

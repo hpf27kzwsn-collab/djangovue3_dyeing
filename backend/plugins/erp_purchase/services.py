@@ -92,3 +92,26 @@ def refresh_order(order, actor):
     totals = [(received_quantity(line), line.quantity) for line in m.PurchaseOrderLine.objects.filter(order=order)]
     order.status = 'received' if all(actual >= planned for actual, planned in totals) else 'partial_received' if any(actual > 0 for actual, planned in totals) else 'confirmed'
     return persist(order, actor)
+
+
+@transaction.atomic
+def close(item,actor,reason):
+    item=locked(item)
+    states={m.PurchaseRequest:['confirmed'],m.PurchaseOrder:['confirmed','partial_received','received'],m.PurchaseReturn:['confirmed','received']}
+    require_state(item,states[type(item)])
+    if isinstance(item,m.PurchaseOrder):
+        from plugins.erp_warehouse.models import StockReceiptLine
+        if StockReceiptLine.objects.filter(purchase_order_line__order=item,receipt__status__in=['draft','confirmed']).exists():
+            raise ValidationError({'receipt':'还有未过账或未取消的采购收货。'})
+    if isinstance(item,m.PurchaseReturn):require_state(locked(item.warehouse_issue),['posted'])
+    before=snapshot(item);item.status='closed';persist(item,actor);record(item,'close',before,actor,reason)
+    return item
+
+
+@transaction.atomic
+def reopen(item,actor,reason):
+    item=locked(item);require_state(item,['closed'])
+    before=snapshot(item);item.status='confirmed';persist(item,actor)
+    if isinstance(item,m.PurchaseOrder):refresh_order(item,actor)
+    record(item,'reopen',before,actor,reason)
+    return item

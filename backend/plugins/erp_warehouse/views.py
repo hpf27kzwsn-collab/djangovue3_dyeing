@@ -35,3 +35,11 @@ class StockCountViewSet(BusinessViewSet):
 
 class InventoryReadViewSet(BusinessViewSet):
     http_method_names = ['get', 'head', 'options']
+
+
+class LotTransformationViewSet(BusinessViewSet):
+    @action(methods=['post'],detail=True)
+    def void(self,request,pk=None):return self.performed(services.void_transformation,parameters(self,{'at':serializers.DateTimeField(),'reason':serializers.CharField()}))
+    @action(methods=['post'],detail=True)
+    def confirm(self,request,pk=None):
+        return self.performed(services.confirm_transformation,parameters(self,{'at':serializers.DateTimeField()}))

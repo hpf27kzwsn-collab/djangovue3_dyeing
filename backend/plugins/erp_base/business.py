@@ -1,6 +1,7 @@
 """业务服务共用的事务、事实快照和校验；状态规则由各模块明确实现。"""
 import copy
 import json
+from datetime import datetime,time
 from django.core.exceptions import ValidationError
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db import transaction
@@ -8,8 +9,14 @@ from django.db.models.deletion import RestrictedError
 from .models import BusinessAction
 
 
+class FactsEncoder(DjangoJSONEncoder):
+    def default(self,value):
+        if isinstance(value,(datetime,time)):return value.isoformat()
+        return super().default(value)
+
+
 def snapshot(item):
-    return json.loads(json.dumps({f.name: f.value_from_object(item) for f in item._meta.fields}, cls=DjangoJSONEncoder))
+    return json.loads(json.dumps({f.name: f.value_from_object(item) for f in item._meta.fields}, cls=FactsEncoder))
 
 
 def persist(item, actor=None):

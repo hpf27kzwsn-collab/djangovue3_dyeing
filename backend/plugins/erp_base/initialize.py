@@ -10,7 +10,7 @@ from .resource_options import MODEL_FIELDS
 CHILD_MODELS = {'PartyRole', 'PartyContact', 'PartyAddress', 'YarnSpecification',
                 'ChemicalSpecification', 'CustomerMaterial', 'StorageLocation',
                 'MachineProcess', 'RouteVersion', 'RouteStep'}
-ACTION_NAMES = {'approve-post': '审核', 'activate-post': '启用', 'retire-post': '停用', 'clone-post': '复制新版本'}
+ACTION_NAMES = {'approve-post': '审核', 'activate-post': '启用', 'retire-post': '停用', 'clone-post': '复制新版本','rows-get':'完整原始数据','compare-get':'逐字段旧新对照'}
 
 
 @transaction.atomic
@@ -28,6 +28,7 @@ def load():
         menu.parent = catalog
         menu.web_path = '/erp/base/' + model._meta.model_name
         menu.component = 'plugins/erp/MasterData'
+        if name.startswith('Legacy'):menu.component='plugins/erp/LegacyArchive'
         menu.resource = entity
         menu.sort = sort
         menu.visible = name not in CHILD_MODELS
@@ -35,7 +36,7 @@ def load():
         for action, title in ACTION_NAMES.items():
             MenuButton.objects.filter(value=entity + ':' + action).update(name=title)
         for index, (role, created) in enumerate(roles):
-            if not created:
+            if not created or name.startswith('Legacy'):
                 continue
             for directory in (root, catalog, menu):
                 RoleMenuPermission.objects.get_or_create(role=role, menu=directory)
@@ -52,6 +53,13 @@ def load():
                     writable = False
                 FieldPermission.objects.get_or_create(role=role, field=column,
                     defaults={'is_query': True, 'is_create': writable, 'is_update': writable})
+    legacy_role,legacy_created=Role.objects.get_or_create(key='erp_legacy_viewer',defaults={'name':'完整旧资料与导入对照查询'})
+    if legacy_created:
+        for directory in (root,catalog):RoleMenuPermission.objects.get_or_create(role=legacy_role,menu=directory)
+        for menu in Menu.objects.filter(component_name__startswith='erp_base_legacy'):
+            RoleMenuPermission.objects.get_or_create(role=legacy_role,menu=menu)
+            for button in MenuButton.objects.filter(menu=menu,method=0):RoleMenuButtonPermission.objects.get_or_create(role=legacy_role,menu_button=button,defaults={'data_range':3})
+            for column in MenuField.objects.filter(menu=menu):FieldPermission.objects.get_or_create(role=legacy_role,field=column,defaults={'is_query':True,'is_create':False,'is_update':False})
     # 选择部门、登录账号和附件时使用平台已有接口，只授予所需操作。
     for index, (role, created) in enumerate(roles):
         if not created:

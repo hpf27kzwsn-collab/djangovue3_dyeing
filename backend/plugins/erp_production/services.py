@@ -12,12 +12,19 @@ from . import models as m
 
 PARENTS = {m.WorkCardOrderAllocation: ('work_card', ''), m.WorkCardOperation: ('work_card', ''),
     m.OperationParameter: ('operation', 'work_card'), m.WorkCardRequirement: ('work_card', ''),
-    m.DyeBatchWorkCard: ('batch', ''), m.DyeBatchAllocation: ('batch_work_card', 'batch')}
-READONLY = {m.ScheduleAssignment, m.ProductionRecipe, m.MaterialPlanStage, m.MaterialPlanLine}
-OWNED = {m.WorkCard: {'status', 'released_at', 'completed_at', 'closed_at'},
-    m.WorkCardOrderAllocation: {'adopted_order_snapshot'}, m.DyeBatch: {'status'}, m.DyeBatchWorkCard: set(),
-    m.DyeBatchAllocation: set(), m.WorkCardOperation: {'process', 'sequence', 'route_step', 'is_required', 'planned_minutes', 'predecessor'},
-    m.OperationParameter: set(), m.WorkCardRequirement: {'source_order_requirement'}}
+    m.DyeBatchWorkCard: ('batch', ''), m.DyeBatchAllocation: ('batch_work_card', 'batch'),
+    m.ExecutionWorker: ('execution', ''), m.ExecutionMeasurement: ('execution', ''),
+    m.WeighingOrder: ('batch', ''), m.WeighingStage: ('order', ''), m.WeighingLine: ('stage', 'order'),
+    m.InspectionResultLine: ('inspection', '')}
+READONLY = {m.ScheduleAssignment, m.ProductionRecipe, m.MaterialPlanStage, m.MaterialPlanLine,
+    m.OperationExecution, m.ExecutionCorrection, m.PhysicalBatchExecution, m.PhysicalExecutionCorrection,m.WeighingRecord, m.QualityDisposition}
+OWNED = {m.WorkCard: {'status', 'released_at', 'completed_at', 'closed_at','is_paused'},
+    m.WorkCardOrderAllocation: {'adopted_order_snapshot','original_allocation','released_unfulfilled_quantity','demand_release_at','demand_release_reason'}, m.DyeBatch: {'status'}, m.DyeBatchWorkCard: set(),
+    m.DyeBatchAllocation: set(), m.WorkCardOperation: {'process', 'sequence', 'route_step', 'is_required', 'planned_minutes', 'predecessor', 'is_skipped','skip_reason'},
+    m.OperationParameter: set(), m.WorkCardRequirement: {'source_order_requirement'},
+    m.ExecutionWorker:set(),m.ExecutionMeasurement:set(),m.WeighingOrder:{'status'},m.WeighingStage:set(),
+    m.WeighingLine:{'status'},m.QualityInspection:{'result','package','is_void','voided_at','void_reason'},m.InspectionResultLine:set(),
+    m.QualityDefect:{'status'},m.ReworkOrder:{'status','rework_work_card'}}
 for model in READONLY:
     OWNED[model] = {f.name for f in model._meta.fields}
 
@@ -25,6 +32,22 @@ for model in READONLY:
 def editable(item):
     if type(item) in READONLY or isinstance(item, m.WorkCardOperation):
         raise ValidationError({'id': '此对象由生产业务操作维护。'})
+    if isinstance(item,(m.ExecutionWorker,m.ExecutionMeasurement)):
+        require_state(item.execution,['running'])
+        return
+    if isinstance(item,m.WeighingOrder):
+        require_state(item,['draft']);return
+    if isinstance(item,(m.WeighingStage,m.WeighingLine)):
+        order=item.order if isinstance(item,m.WeighingStage) else item.stage.order
+        require_state(order,['draft']);return
+    if isinstance(item,(m.QualityInspection,m.InspectionResultLine)):
+        inspection=item if isinstance(item,m.QualityInspection) else item.inspection
+        if inspection.is_void:raise ValidationError({'inspection':'已取消采用的检验保留原事实，不再编辑。'})
+        require_state(inspection,['pending'],'result');return
+    if isinstance(item,m.QualityDefect):
+        require_state(item,['open','handling']);return
+    if isinstance(item,m.ReworkOrder):
+        require_state(item,['draft']);return
     if type(item) in PARENTS:
         key, path = PARENTS[type(item)]
         item = getattr(item, key)
@@ -41,6 +64,12 @@ def editable(item):
 def parent_editable(model, item):
     if model is m.WorkCardOperation:
         raise ValidationError({'operation': '计划工序由展开路线维护。'})
+    if model in [m.ExecutionWorker,m.ExecutionMeasurement]:
+        require_state(item,['running']);return
+    if model is m.WeighingOrder:
+        require_state(item,['planned','scheduled','running']);return
+    if model is m.InspectionResultLine:
+        require_state(item,['pending'],'result');return
     editable(item)
 
 
@@ -51,6 +80,22 @@ def converted_sum(rows, quantity, unit, target):
 def validate(item):
     if type(item) in READONLY or isinstance(item, m.WorkCardOperation):
         raise ValidationError({'id': '此对象由生产业务操作创建。'})
+    if isinstance(item,m.QualityInspection):
+        from .quality_services import validate_scope
+        validate_scope(item)
+    if isinstance(item,m.QualityDefect):
+        if item.inspection_id is not None and item.inspection.work_card_id!=item.work_card_id:
+            raise ValidationError({'inspection':'质量异常检验必须属于本工卡。'})
+        if item.execution_id is not None and item.execution.operation.work_card_id!=item.work_card_id:
+            raise ValidationError({'execution':'质量异常执行必须属于本工卡。'})
+    if isinstance(item,m.WeighingOrder):
+        if item.kind=='normal' and item.production_recipe_id is None:
+            raise ValidationError({'production_recipe':'常规料单必须明确采用配方。'})
+        if item.production_recipe_id is not None:
+            require_state(item.production_recipe,['active'])
+            if m.WeighingOrder.objects.filter(production_recipe=item.production_recipe,kind='normal').exclude(status='cancelled').exclude(pk=item.pk).exists() and item.kind=='normal':
+                raise ValidationError({'production_recipe':'此采用已存在常规料单。'})
+        if item.kind!='normal' and not item.reason.strip():raise ValidationError({'reason':'特殊料单必须明确实际依据。'})
     if isinstance(item, m.WorkCard):
         require_state(item.route_version, ['active'])
         validate_effective(item.route_version, item.document_at)
@@ -96,9 +141,18 @@ def check_order_allocation(item, work_card=None):
         raise ValidationError({'order_line': '订单行已经结束。'})
     if source.material_id != card.material_id or source.color_standard_id != card.color_standard_id:
         raise ValidationError({'order_line': '订单行物料与色标准必须和工卡一致。'})
-    used = converted_sum(m.WorkCardOrderAllocation.objects.filter(order_line=source).exclude(work_card__status='cancelled').exclude(pk=item.pk), 'allocated_quantity', 'unit', source.ordered_unit)
-    if used + item.unit.convert_quantity(item.allocated_quantity, source.ordered_unit) > source.ordered_quantity:
+    roots=m.WorkCardOrderAllocation.objects.filter(order_line=source,original_allocation__isnull=True).exclude(work_card__status='cancelled').exclude(pk=item.pk)
+    used=sum((row.unit.convert_quantity(row.allocated_quantity-row.released_unfulfilled_quantity,source.ordered_unit) for row in roots),Decimal('0'))
+    from plugins.erp_sales.fulfillment_services import reopened_quantity
+    if item.original_allocation_id is None and used + item.unit.convert_quantity(item.allocated_quantity, source.ordered_unit) > source.ordered_quantity+reopened_quantity(source):
         raise ValidationError({'allocated_quantity': '各有效工卡分配不能超过订单需求。'})
+    if item.original_allocation_id is not None:
+        original=item.original_allocation
+        ancestor=card.original_work_card;ancestors=[]
+        while ancestor is not None:ancestors.append(ancestor.pk);ancestor=ancestor.original_work_card
+        if original.original_allocation_id is not None or original.work_card_id not in ancestors or original.order_line_id!=source.pk:raise ValidationError({'original_allocation':'返修须沿用原工卡链同一订单的首层需求分配。'})
+        inherited=converted_sum(m.WorkCardOrderAllocation.objects.filter(original_allocation=original).exclude(work_card__status='cancelled').exclude(pk=item.pk),'allocated_quantity','unit',original.unit)
+        if inherited+item.unit.convert_quantity(item.allocated_quantity,original.unit)>original.allocated_quantity-original.released_unfulfilled_quantity:raise ValidationError({'allocated_quantity':'返修承接合计不能超过原分配的有效需求。'})
     total = converted_sum(m.WorkCardOrderAllocation.objects.filter(work_card=card).exclude(pk=item.pk), 'allocated_quantity', 'unit', card.quantity_unit)
     if total + item.unit.convert_quantity(item.allocated_quantity, card.quantity_unit) > card.planned_quantity:
         raise ValidationError({'allocated_quantity': '订单分配不能超过工卡计划量。'})
@@ -326,6 +380,8 @@ def cancel(item, actor, reason):
     else:
         if m.OperationExecution.objects.filter(batch=item).exists():
             raise ValidationError({'execution': '已有执行事实不能取消缸批。'})
+        if m.WeighingOrder.objects.filter(batch=item).exclude(status='cancelled').exists():
+            raise ValidationError({'weighing_order':'已有有效料单不能取消缸批。'})
         slots = m.ScheduleAssignment.objects.filter(batch=item, status__in=['planned', 'released'])
         for adoption in m.ProductionRecipe.objects.select_for_update().filter(batch=item, status='active'):
             before = snapshot(adoption)
@@ -370,7 +426,7 @@ def adopt_recipe(item, actor, recipe_version, at, dry_mass_kg, stages):
     if kg.dimension != 'mass' or kg.factor_to_base != 1 or kg.base_unit_id is not None or litre.dimension != 'volume' or litre.factor_to_base != 1 or litre.base_unit_id is not None:
         raise ValidationError({'unit': '计算基准kg、L必须配置为对应物理基准单位。'})
     for previous in m.ProductionRecipe.objects.select_for_update().filter(batch=item, status='active'):
-        if m.WeighingOrder.objects.filter(production_recipe=previous).exists():
+        if m.WeighingOrder.objects.filter(production_recipe=previous).exclude(status='cancelled').exists():
             raise ValidationError({'recipe_version': '旧采用已生成料单，不能覆盖；加料或后处理使用独立料单。'})
         before = snapshot(previous)
         previous.status = 'replaced'

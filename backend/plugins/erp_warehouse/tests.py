@@ -13,6 +13,18 @@ from plugins.erp_purchase import models as purchase
 from . import models as m, services
 
 
+def production_source(material,factory,unit,actor):
+    from plugins.erp_production import models as production, services as planning
+    route=base.Route.objects.create(code='STOCK-RT',name='库存测试实际生产路线')
+    version=base.RouteVersion.objects.create(route=route,status='active')
+    process=base.Process.objects.create(code='STOCK-GX',name='库存测试实际加工')
+    step=base.RouteStep.objects.create(route_version=version,sequence=1,process=process,is_required=True)
+    card=production.WorkCard.objects.create(number='STOCK-WC',document_at=timezone.now(),factory=factory,material=material,
+        route_version=version,planned_quantity=1000,quantity_unit=unit,manual_creation_reason='库存测试独立生产任务')
+    planning.prepare(card,actor,[step]);planning.release(card,actor,at=timezone.now())
+    return card
+
+
 class InventoryFixtures(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -29,6 +41,7 @@ class InventoryFixtures(TestCase):
         cls.loc = base.StorageLocation.objects.create(warehouse=cls.wh, code='B1', name='库位一', kind='bin')
         cls.loc2 = base.StorageLocation.objects.create(warehouse=cls.wh2, code='B2', name='库位二', kind='bin')
         cls.lot = m.InventoryLot.objects.create(code='L1', material=cls.material, owner=cls.owner)
+        cls.work_card = production_source(cls.material,cls.factory,cls.kg,cls.root)
 
     def setUp(self):
         self.client = APIClient()
@@ -57,7 +70,7 @@ class InventoryFixtures(TestCase):
     def issue(self, quantity, number='OUT1', lot=None):
         item = m.StockIssue.objects.create(number=number, document_at=timezone.now(), kind='production', warehouse=self.wh)
         m.StockIssueLine.objects.create(issue=item, line_number=1, lot=self.lot if lot is None else lot,
-            location=self.loc, quantity=Decimal(quantity), unit=self.kg, quality_state='released')
+            location=self.loc, quantity=Decimal(quantity), unit=self.kg, quality_state='released',work_card=self.work_card)
         self.post('StockIssue', item.pk, 'confirm')
         return item
 
@@ -80,7 +93,7 @@ class InventoryWorkflowTests(InventoryFixtures):
         self.post('StockReceipt', receipt.pk, 'post', {'at': timezone.now().isoformat()})
         issue = self.issue('40')
         m.StockIssueLine.objects.create(issue=issue, line_number=2, lot=self.lot, location=self.loc,
-                                        quantity=80, unit=self.kg, quality_state='released')
+                                        quantity=80, unit=self.kg, quality_state='released',work_card=self.work_card)
         self.post('StockIssue', issue.pk, 'post', {'at': timezone.now().isoformat()}, 400)
         self.assertEqual(self.stock(), 100)
         self.assertEqual(m.InventoryMovement.objects.filter(issue_line__issue=issue).count(), 0)
@@ -218,6 +231,7 @@ class InventoryConcurrencyTests(TransactionTestCase):
         owner = base.Party.objects.create(code='OWN', name='货权主体')
         material = base.Material.objects.create(code='Y1', name='纱线', kind='yarn', stock_unit=self.kg)
         factory = base.Factory.objects.create(code='F1', name='工厂')
+        self.work_card=production_source(material,factory,self.kg,self.actor)
         self.wh = base.Warehouse.objects.create(code='W1', name='原料仓', kind='raw', factory=factory)
         self.loc = base.StorageLocation.objects.create(warehouse=self.wh, code='B1', kind='bin')
         self.lot = m.InventoryLot.objects.create(code='L1', owner=owner, material=material)
@@ -259,7 +273,7 @@ class InventoryConcurrencyTests(TransactionTestCase):
         for number in ['OUT1', 'OUT2']:
             issue = m.StockIssue.objects.create(number=number, document_at=timezone.now(), kind='production', warehouse=self.wh)
             m.StockIssueLine.objects.create(issue=issue, line_number=1, lot=self.lot, location=self.loc,
-                quantity=70, unit=self.kg, quality_state='released')
+                quantity=70, unit=self.kg, quality_state='released',work_card=self.work_card)
             services.confirm(issue, self.actor)
             keys.append(issue.pk)
         self.assertEqual(sorted(self.race(m.StockIssue, keys)), ['insufficient', 'posted'])

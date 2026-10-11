@@ -192,7 +192,58 @@ WORKFLOWS = {'InventoryLot': {},
                                               'required': True}]}]},
  'StockAdjustmentLine': {}}
 
+MODEL_FIELDS['LotTransformation']='number work_card execution occurred_at reason is_confirmed confirmed_at'
+MODEL_FIELDS['LotTransformationLine']='transformation direction lot quantity unit receipt_line issue_line'
+RELATIONS['LotTransformation']={'work_card':('erp_production_workcard','number'),'execution':('erp_production_operationexecution','execution_number')}
+RELATIONS['LotTransformationLine']={'transformation':('erp_warehouse_lottransformation','number'),
+    'lot':('erp_warehouse_inventorylot','code'),'unit':('erp_base_unit','name'),
+    'receipt_line':('erp_warehouse_stockreceiptline','line_number'),'issue_line':('erp_warehouse_stockissueline','line_number')}
+VIEWSETS['LotTransformation']='plugins.erp_warehouse.views.LotTransformationViewSet'
+VIEWSETS['LotTransformationLine']='plugins.erp_base.business_api.BusinessViewSet'
+# Fulfillment resource fields
+MODEL_FIELDS.update({'Package': 'source_execution calculation_snapshot code barcode display_number lot work_card batch packed_at '
+            'packer piece_quantity tube_specification tube_unit_tare_kg outer_packaging outer_tare_kg '
+            'gross_mass_kg net_mass_kg net_mass_basis fixed_piece_mass_kg length_m label_template label_remarks '
+            'status',
+ 'PackageOrderAllocation': 'package work_card_allocation quantity unit',
+ 'PackageDispositionAllocation': 'package disposition quantity unit',
+ 'LabelPrint': 'requested_at status confirmed_at confirmation_source previous_print template_snapshot package '
+               'template printed_at copies kind reason operator'})
+RELATIONS.update({'Package': {'source_execution': ('erp_production_operationexecution', 'execution_number'),
+             'lot': ('erp_warehouse_inventorylot', 'code'),
+             'work_card': ('erp_production_workcard', 'number'),
+             'batch': ('erp_production_dyebatch', 'id'),
+             'packer': ('erp_base_employee', 'name'),
+             'tube_specification': ('erp_base_packagingspecification', 'id'),
+             'outer_packaging': ('erp_base_packagingspecification', 'id'),
+             'label_template': ('erp_base_labeltemplate', 'name')},
+ 'PackageOrderAllocation': {'package': ('erp_warehouse_package', 'code'),
+                            'work_card_allocation': ('erp_production_workcardorderallocation', 'id'),
+                            'unit': ('erp_base_unit', 'name')},
+ 'PackageDispositionAllocation': {'package': ('erp_warehouse_package', 'code'),
+                                  'disposition': ('erp_production_qualitydisposition', 'id'),
+                                  'unit': ('erp_base_unit', 'name')},
+ 'LabelPrint': {'previous_print': ('erp_warehouse_labelprint', 'id'),
+                'package': ('erp_warehouse_package', 'code'),
+                'template': ('erp_base_labeltemplate', 'name'),
+                'operator': ('erp_base_employee', 'name')}})
+VIEWSETS.update({'Package': 'plugins.erp_warehouse.packing_views.PackageViewSet',
+ 'PackageOrderAllocation': 'plugins.erp_base.business_api.BusinessViewSet',
+ 'PackageDispositionAllocation': 'plugins.erp_base.business_api.BusinessViewSet',
+ 'LabelPrint': 'plugins.erp_warehouse.packing_views.LabelPrintViewSet'})
+MODEL_FIELDS['Package']+=' packaging_execution'
+MODEL_FIELDS['StockReceiptLine']+=' source_execution'
+RELATIONS['StockReceiptLine']['source_execution']=('erp_production_operationexecution','execution_number')
+MODEL_FIELDS['LotTransformation']+=' is_void voided_at void_reason'
+RELATIONS['Package']['packaging_execution']=('erp_production_operationexecution','execution_number')
 RESOURCE_OPTIONS = options('erp_warehouse', MODEL_FIELDS, RELATIONS, VIEWSETS)
+RESOURCE_OPTIONS['LotTransformation']['workflow']={'state_field':'is_confirmed','editable_states':[False],
+    'children':[{'entity':'erp_warehouse_lottransformationline','title':'实际投入产出','key':'transformation','atomic':True}],
+    'actions':[{'key':'confirm','title':'确认批次谱系','states':[False],'inputs':[{'key':'at','title':'确认时间','kind':'datetime','options':[],'required':True}]}]}
+RESOURCE_OPTIONS['LotTransformation']['workflow']['freeze_when']=['is_void']
+RESOURCE_OPTIONS['LotTransformation']['workflow']['actions'][0]['hide_when']=['is_void']
+RESOURCE_OPTIONS['LotTransformation']['workflow']['actions'].append({'key':'void','title':'取消谱系采用','states':[False,True],'hide_when':['is_void'],
+    'inputs':[{'key':'at','title':'取消时间','kind':'datetime','options':[],'required':True},{'key':'reason','title':'实际依据','kind':'textarea','options':[],'required':True}]})
 for name, workflow in WORKFLOWS.items():
     RESOURCE_OPTIONS[name]["workflow"] = workflow
 RESOURCE_OPTIONS['InventoryLot']['label_field'] = 'code'
@@ -208,3 +259,7 @@ RESOURCE_OPTIONS['StockCount']['label_field'] = 'number'
 RESOURCE_OPTIONS['StockCountLine']['label_field'] = 'id'
 RESOURCE_OPTIONS['StockAdjustment']['label_field'] = 'number'
 RESOURCE_OPTIONS['StockAdjustmentLine']['label_field'] = 'line_number'
+
+from .packing_workflows import WORKFLOWS as FULFILLMENT_WORKFLOWS
+for name, workflow in FULFILLMENT_WORKFLOWS.items():
+    RESOURCE_OPTIONS[name]["workflow"] = workflow

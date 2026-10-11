@@ -52,6 +52,19 @@ class PurchaseWorkflowTests(TestCase):
         payload = {'order': order.pk, 'line_number': 1, 'request_line': source.pk,
             'material': self.material.pk, 'quantity': '100', 'unit': self.kg.pk}
         self.assertEqual(self.client.post(self.url('PurchaseOrderLine'), payload, format='json').status_code, 400)
+
         self.client.post(self.url('PurchaseRequest', request.pk, 'confirm'), {'employee': self.employee.pk}, format='json')
         payload['material'] = self.other.pk
         self.assertEqual(self.client.post(self.url('PurchaseOrderLine'), payload, format='json').status_code, 400)
+
+    def test_explicit_request_and_partial_order_close_reopen_keep_quantities(self):
+        from . import services
+        request,line=self.request_line();services.confirm(request,self.root,self.employee)
+        services.close(request,self.root,reason='原申请结束，不生成收货')
+        request.refresh_from_db();self.assertEqual(request.status,'closed');self.assertEqual(line.quantity,100)
+        services.reopen(request,self.root,reason='继续采购');request.refresh_from_db();self.assertEqual(request.status,'confirmed')
+        order=m.PurchaseOrder.objects.create(number='PO-CLOSE',document_at=timezone.now(),supplier=self.supplier,status='confirmed')
+        row=m.PurchaseOrderLine.objects.create(order=order,line_number=1,material=self.material,quantity=100,unit=self.kg)
+        services.close(order,self.root,reason='双方终止未到货需求');order.refresh_from_db();self.assertEqual(order.status,'closed')
+        self.assertEqual(row.quantity,100);self.assertEqual(services.received_quantity(row),0)
+        services.reopen(order,self.root,reason='恢复采购');order.refresh_from_db();self.assertEqual(order.status,'confirmed')

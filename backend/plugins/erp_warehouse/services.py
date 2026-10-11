@@ -10,25 +10,32 @@ from . import models as m
 
 PARENTS = {m.StockReceiptLine: ('receipt', ''), m.StockIssueLine: ('issue', ''),
            m.StockTransferLine: ('transfer', ''), m.StockCountLine: ('count', ''),
-           m.StockAdjustmentLine: ('adjustment', '')}
+           m.StockAdjustmentLine: ('adjustment', ''),m.LotTransformationLine:('transformation','')}
+PARENTS.update({m.PackageOrderAllocation:('package',''),m.PackageDispositionAllocation:('package','')})
 LINES = {m.StockReceipt: (m.StockReceiptLine, 'receipt'), m.StockIssue: (m.StockIssueLine, 'issue'),
          m.StockTransfer: (m.StockTransferLine, 'transfer'), m.StockAdjustment: (m.StockAdjustmentLine, 'adjustment')}
-OWNED = {m.InventoryLot: {'production_batch'}, m.StockReceipt: {'status', 'posted_at'},
+OWNED = {m.InventoryLot: set(), m.StockReceipt: {'status', 'posted_at'},
     m.StockIssue: {'status', 'posted_at'}, m.StockTransfer: {'status', 'posted_at'},
     m.StockAdjustment: {'status', 'posted_at', 'count'}, m.StockCount: {'status', 'snapshot_at', 'counted_at'},
-    m.StockReceiptLine: {'work_card', 'package', 'quantity_source'},
-    m.StockIssueLine: {'work_card', 'weighing_line', 'delivery_line', 'package', 'measurement_record', 'quantity_source'},
+    m.StockReceiptLine: {'quantity_source'},
+    m.StockIssueLine: {'quantity_source'},
     m.StockTransferLine: {'package'}, m.StockCountLine: {'book_quantity', 'package'},
-    m.StockAdjustmentLine: {'disposition', 'package'},
+    m.StockAdjustmentLine: {'package'},m.LotTransformation:{'is_confirmed','confirmed_at','is_void','voided_at','void_reason'},m.LotTransformationLine:set(),
     m.InventoryMovement: {f.name for f in m.InventoryMovement._meta.fields},
     m.StockBalance: {f.name for f in m.StockBalance._meta.fields}}
+OWNED.update({m.Package:{'status','packed_at','packer','net_mass_kg','calculation_snapshot','packaging_execution'},
+    m.PackageOrderAllocation:set(),m.PackageDispositionAllocation:set(),m.LabelPrint:{f.name for f in m.LabelPrint._meta.fields}})
 
 
 def editable(item):
-    if isinstance(item, (m.InventoryMovement, m.StockBalance)):
+    if isinstance(item, (m.InventoryMovement, m.StockBalance,m.LabelPrint)):
         raise ValidationError({'id': '库存余额和流水由过账维护。'})
+    if isinstance(item,(m.LotTransformation,m.LotTransformationLine)):
+        root=item if isinstance(item,m.LotTransformation) else item.transformation
+        if root.is_confirmed or root.is_void:raise ValidationError({'transformation':'已确认或已取消采用的批次谱系不能改写。'})
+        return
     if isinstance(item, m.InventoryLot):
-        if m.StockReceiptLine.objects.filter(lot=item).exists() or m.StockIssueLine.objects.filter(lot=item).exists():
+        if m.StockReceiptLine.objects.filter(lot=item).exists() or m.StockIssueLine.objects.filter(lot=item).exists() or m.Package.objects.filter(lot=item).exists():
             raise ValidationError({'lot': '批次已有业务来源，不能修改批次身份和货权。'})
         return
     if isinstance(item, m.StockCountLine):
@@ -47,6 +54,15 @@ def parent_editable(model, item):
 
 
 def validate(item):
+    if isinstance(item,m.LabelPrint):raise ValidationError({'print':'打印记录通过明确请求和确认生成。'})
+    if isinstance(item,m.PackageOrderAllocation):
+        from .packing_services import validate_allocation
+        validate_allocation(item)
+    if isinstance(item,m.PackageDispositionAllocation):
+        from .packing_services import validate_coverage
+        validate_coverage(item)
+    if isinstance(item,m.StockIssueLine) and item.measurement_record_id is not None:
+        item.quantity_source=item.measurement_record.source
     if isinstance(item, m.StockCountLine):
         balance = m.StockBalance.objects.filter(lot=item.lot, location=item.location,
                                                quality_state=item.quality_state, package=item.package).first()
@@ -136,10 +152,41 @@ def receipt_rules(item, rows):
                 raise ValidationError({'quantity': '累计退料不能超过原实际出库数量。'})
         if item.kind in ['semi_output', 'finished_output'] and row.work_card_id is None:
             raise ValidationError({'work_card': '生产产出必须关联实际工卡。'})
+        if item.kind=='semi_output':
+            from plugins.erp_production import execution_services as actual
+            from plugins.erp_base.models import Unit
+            if row.source_execution_id is None:raise ValidationError({'source_execution':'半成品实际产出须采用明确执行。'})
+            require_state(row.source_execution,['completed'])
+            if row.source_execution.operation.work_card_id!=row.work_card_id:raise ValidationError({'source_execution':'半成品执行来源与工卡不一致。'})
+            if row.lot.material_id!=row.work_card.material_id:raise ValidationError({'lot':'半成品物料须对应实际生产工卡。'})
+            fact=actual.effective(row.source_execution)
+            from django.utils.dateparse import parse_datetime
+            if item.document_at<parse_datetime(fact['ended_at']):raise ValidationError({'document_at':'半成品收货不能早于本轮实际完工。'})
+            if row.unit.dimension=='mass':
+                if fact['output_mass_kg'] is None:raise ValidationError({'source_execution':'本轮未记录实际产出kg。'})
+                maximum=Unit.objects.get(code='kg').convert_quantity(Decimal(fact['output_mass_kg']),row.unit)
+            else:
+                if fact['output_quantity'] is None or row.source_execution.output_unit_id is None:raise ValidationError({'source_execution':'本轮未记录该维度的实际产出量。'})
+                maximum=row.source_execution.output_unit.convert_quantity(Decimal(fact['output_quantity']),row.unit)
+            previous=sum((r.quantity for r in m.StockReceiptLine.objects.filter(source_execution=row.source_execution,receipt__kind='semi_output',receipt__status='posted').exclude(receipt=item)),Decimal('0'))
+            current=sum((r.quantity for r in rows if r.source_execution_id==row.source_execution_id),Decimal('0'))
+            if previous+current>maximum:raise ValidationError({'quantity':'半成品有效收货累计不能超过本轮实际产出。'})
         if item.kind == 'finished_output':
             if row.package_id is None or row.work_card.status not in ['completed', 'closed']:
                 raise ValidationError({'package': '成品入库必须关联完成包装的生产工卡和包装单元。'})
-            require_state(row.package, ['packed'])
+            from .packing_services import package_quantity
+            require_state(row.package, ['packed','received'])
+            if row.package.lot_id!=row.lot_id or row.package.work_card_id!=row.work_card_id or row.quality_state!='released':raise ValidationError({'package':'成品入库必须对应放行包装的批次和工卡。'})
+            if item.document_at<row.package.packed_at or item.document_at<row.work_card.completed_at:raise ValidationError({'document_at':'成品收货不能早于实际包装及生产完成。'})
+            prior=sum((r.quantity for r in m.StockReceiptLine.objects.filter(package=row.package,receipt__kind='finished_output',receipt__status='posted').exclude(receipt=item)),Decimal('0'))
+            current=sum((r.quantity for r in rows if r.package_id==row.package_id),Decimal('0'))
+            if prior+current>package_quantity(row.package,row.unit):raise ValidationError({'quantity':'分批成品入库累计不能超过实际包装量。'})
+        if item.kind=='sales_return':
+            from plugins.erp_sales.models import SalesReturnLine
+            from plugins.erp_sales.fulfillment_services import return_scope
+            source=SalesReturnLine.objects.get(receipt_line=row)
+            require_state(source.return_order,['confirmed','received'])
+            return_scope(source)
     for key in sorted(totals):
         source = locked(purchase.PurchaseOrderLine.objects.get(pk=key))
         if received_quantity(source) + totals[key] > source.quantity:
@@ -148,6 +195,20 @@ def receipt_rules(item, rows):
 
 def issue_rules(item, rows):
     for row in rows:
+        if item.kind=='production':
+            if row.work_card_id is None:raise ValidationError({'work_card':'生产领料必须明确实际工卡。'})
+            require_state(row.work_card,['released','running'])
+            if row.work_card.factory_id!=item.warehouse.factory_id:raise ValidationError({'work_card':'领料工卡和仓库工厂不一致。'})
+        if item.kind=='chemical':
+            if row.weighing_line_id is None:raise ValidationError({'weighing_line':'化工领料必须明确本次料单阶段及明细。'})
+            from plugins.erp_production.weighing_services import validate_issue
+            validate_issue(row)
+        if item.kind=='delivery':
+            from plugins.erp_sales.models import Delivery
+            from plugins.erp_sales.fulfillment_services import check_issue
+            delivery=Delivery.objects.get(warehouse_issue=item)
+            require_state(delivery,['confirmed','issued'])
+            check_issue(delivery,require_rows(delivery.erp_sales_deliveryline_delivery_set.all()),item)
         if row.quantity_source == 'legacy_unverified':
             raise ValidationError({'quantity_source': '数量来源未核实，不能过账。'})
         if item.kind in ['production', 'chemical', 'delivery', 'subcontract'] and row.quality_state != 'released':
@@ -172,6 +233,7 @@ def issue_rules(item, rows):
 
 @transaction.atomic
 def confirm(item, actor):
+    lock_source_documents(item)
     item = locked(item)
     require_state(item, ['draft'])
     before = snapshot(item)
@@ -185,6 +247,33 @@ def confirm(item, actor):
     persist(item, actor)
     record(item, 'confirm', before, actor)
     return item
+
+
+def lock_source_documents(item):
+    from plugins.erp_sales import models as sales
+    if isinstance(item,m.StockIssue):
+        list(sales.Delivery.objects.select_for_update().filter(warehouse_issue=item).order_by('pk'))
+    if isinstance(item,m.StockReceipt):
+        list(sales.SalesReturn.objects.select_for_update().filter(pk__in=sales.SalesReturnLine.objects.filter(receipt_line__receipt=item).values('return_order_id')).order_by('pk'))
+    if isinstance(item,m.StockIssue):order_ids=m.StockIssueLine.objects.filter(issue=item,delivery_line__isnull=False).values('delivery_line__order_line__order_id')
+    elif isinstance(item,m.StockReceipt):order_ids=m.StockReceiptLine.objects.filter(receipt=item,original_issue_line__delivery_line__isnull=False).values('original_issue_line__delivery_line__order_line__order_id')
+    else:order_ids=[]
+    list(sales.SalesOrder.objects.select_for_update().filter(pk__in=order_ids).order_by('pk'))
+
+
+def lock_business_sources(item,rows):
+    from plugins.erp_production import models as production
+    if isinstance(item,m.StockIssue):
+        order_ids=[row.weighing_line.stage.order_id for row in rows if row.weighing_line_id is not None]
+    elif isinstance(item,m.StockReceipt):
+        order_ids=[row.original_issue_line.weighing_line.stage.order_id for row in rows if row.original_issue_line_id is not None and row.original_issue_line.weighing_line_id is not None]
+    else:order_ids=[]
+    list(production.WeighingOrder.objects.select_for_update().filter(pk__in=order_ids).order_by('pk'))
+    if isinstance(item,m.StockAdjustment):
+        dispositions=[row.disposition_id for row in rows if row.disposition_id is not None]
+        list(production.QualityInspection.objects.select_for_update().filter(pk__in=production.QualityDisposition.objects.filter(pk__in=dispositions).values('inspection_id')).order_by('pk'))
+        list(production.QualityDisposition.objects.select_for_update().filter(pk__in=dispositions).order_by('pk'))
+    list(m.Package.objects.select_for_update().filter(pk__in=[row.package_id for row in rows if row.package_id is not None]).order_by('pk'))
 
 
 def refresh_sources(item, actor):
@@ -201,10 +290,32 @@ def refresh_sources(item, actor):
         ids = []
     for source in purchase.PurchaseOrder.objects.filter(pk__in=ids).order_by('pk'):
         refresh_order(source, actor)
+    if isinstance(item,m.StockIssue):
+        weighing_ids=m.StockIssueLine.objects.filter(issue=item,weighing_line__isnull=False).values_list('weighing_line__stage__order_id',flat=True)
+    elif isinstance(item,m.StockReceipt):
+        weighing_ids=m.StockReceiptLine.objects.filter(receipt=item,original_issue_line__weighing_line__isnull=False).values_list('original_issue_line__weighing_line__stage__order_id',flat=True)
+    else:weighing_ids=[]
+    from plugins.erp_production.models import WeighingOrder
+    from plugins.erp_production.weighing_services import refresh
+    for order in WeighingOrder.objects.filter(pk__in=weighing_ids).order_by('pk'):refresh(order,actor)
+    from plugins.erp_sales import models as sales,fulfillment_services as fulfillment
+    if isinstance(item,m.StockIssue):
+        for delivery in sales.Delivery.objects.filter(warehouse_issue=item):fulfillment.refresh_delivery(delivery,actor)
+    if isinstance(item,m.StockReceipt):
+        for returned in sales.SalesReturn.objects.filter(pk__in=sales.SalesReturnLine.objects.filter(receipt_line__receipt=item).values('return_order_id')):fulfillment.refresh_return(returned,actor)
+    model,key=LINES[type(item)]
+    for package in m.Package.objects.filter(pk__in=model.objects.filter(**{key:item}).values('package_id')).order_by('pk'):
+        before=snapshot(package)
+        returned=m.StockReceiptLine.objects.filter(package=package,receipt__kind='sales_return',receipt__status='posted').exists()
+        issued=m.StockIssueLine.objects.filter(package=package,issue__kind='delivery',issue__status='posted').exists()
+        received=m.StockReceiptLine.objects.filter(package=package,receipt__kind='finished_output',receipt__status='posted').exists()
+        package.status='returned' if returned else 'issued' if issued else 'received' if received else 'packed'
+        if before['status']!=package.status:persist(package,actor);record(package,'refresh_stock',before,actor)
 
 
 @transaction.atomic
 def post(item, actor, at):
+    lock_source_documents(item)
     if isinstance(item, m.StockIssue) and item.kind == 'purchase_return':
         from plugins.erp_purchase.models import PurchaseReturn
         list(PurchaseReturn.objects.select_for_update().filter(warehouse_issue=item).order_by('pk'))
@@ -217,10 +328,11 @@ def post(item, actor, at):
     before = snapshot(item)
     if at < item.document_at:
         raise ValidationError({'at': '库存生效时间不得早于单据日期。'})
-    count = item.count if isinstance(item, m.StockAdjustment) else None
-    lock_warehouses(warehouse_ids(item), count)
     model, key = LINES[type(item)]
     rows = require_rows(model.objects.filter(**{key: item}))
+    lock_business_sources(item,rows)
+    count = item.count if isinstance(item, m.StockAdjustment) else None
+    lock_warehouses(warehouse_ids(item), count)
     list(m.InventoryLot.objects.select_for_update().filter(pk__in=[r.lot_id for r in rows]).order_by('pk'))
     if isinstance(item, m.StockReceipt):
         receipt_rules(item, rows)
@@ -270,11 +382,14 @@ def post(item, actor, at):
 
 def quality_rules(row):
     disposition = locked(row.disposition)
+    require_state(disposition,['active'])
     target = {'release': 'released', 'concession': 'released', 'rework': 'held',
               'downgrade': 'released', 'scrap': 'scrap', 'hold': 'held'}[disposition.kind]
     if row.new_quality_state != target:
         raise ValidationError({'new_quality_state': '目标库存质量状态与处置结论不一致。'})
     inspection = disposition.inspection
+    if inspection.is_void:raise ValidationError({'disposition':'该检验已取消采用。'})
+    if row.adjustment.document_at<disposition.approved_at:raise ValidationError({'document_at':'质量调整不能早于实际数量处置。'})
     if inspection.kind == 'incoming' and inspection.lot_id != row.lot_id:
         raise ValidationError({'disposition': '来料处置只能处理所检批次。'})
     if inspection.kind != 'incoming' and (row.package_id is None or row.package.work_card_id != inspection.work_card_id):
@@ -289,7 +404,50 @@ def quality_rules(row):
 
 
 @transaction.atomic
+def confirm_transformation(item,actor,at):
+    item=locked(item)
+    if item.is_confirmed or item.is_void:raise ValidationError({'transformation':'此谱系不能再次确认。'})
+    if item.work_card_id is None or item.execution_id is None:raise ValidationError({'execution':'新转化须明确真实工卡及实际执行。'})
+    item.execution=locked(item.execution)
+    require_state(item.execution,['completed'])
+    if item.execution.operation.work_card_id!=item.work_card_id:raise ValidationError({'execution':'执行与工卡不一致。'})
+    rows=require_rows(m.LotTransformationLine.objects.filter(transformation=item))
+    if {row.direction for row in rows}!={'input','output'}:raise ValidationError({'lines':'转化必须明确实际投入及产出批次。'})
+    for row in rows:
+        if row.direction=='input':
+            if row.issue_line_id is None or row.receipt_line_id is not None:raise ValidationError({'issue_line':'投入只关联实际领用行。'})
+            source=row.issue_line;require_state(source.issue,['posted'])
+        else:
+            if row.receipt_line_id is None or row.issue_line_id is not None:raise ValidationError({'receipt_line':'产出只关联实际产出收货行。'})
+            source=row.receipt_line;require_state(source.receipt,['posted'])
+            if source.source_execution_id!=item.execution_id:
+                raise ValidationError({'execution':'谱系产出须对应本次真实执行的产出收货。'})
+        if source.lot_id!=row.lot_id or source.work_card_id!=item.work_card_id or row.unit.convert_quantity(row.quantity,source.unit)!=source.quantity:
+            raise ValidationError({'quantity':'谱系批次、工卡、数量单位必须完整对应实际收发行。'})
+        document=source.issue if row.direction=='input' else source.receipt
+        if at<document.posted_at:raise ValidationError({'at':'谱系确认不能早于所引用实际收发过账。'})
+    if at < item.occurred_at:raise ValidationError({'at':'确认时间不能早于转化发生。'})
+    before=snapshot(item);item.is_confirmed,item.confirmed_at=True,at;persist(item,actor);record(item,'confirm_lineage',before,actor)
+    return item
+
+
+@transaction.atomic
+def void_transformation(item,actor,at,reason):
+    item=locked(item)
+    if item.is_void:raise ValidationError({'transformation':'此谱系已取消采用。'})
+    if at<item.occurred_at or item.confirmed_at is not None and at<item.confirmed_at:raise ValidationError({'at':'取消不能早于谱系发生及确认时间。'})
+    before=snapshot(item);item.is_void,item.voided_at,item.void_reason=True,at,reason;persist(item,actor);record(item,'void_lineage',before,actor,reason)
+    return item
+
+
+@transaction.atomic
 def reverse(item, actor, at, reason):
+    lock_source_documents(item)
+    from plugins.erp_sales import models as sales
+    from plugins.erp_production.models import QualityInspection
+    if isinstance(item,m.StockReceipt) and sales.SalesReturnLine.objects.filter(receipt_line__receipt=item,return_order__status='closed').exists():raise ValidationError({'return_order':'先重新办理已结案的客户退回，再更正实际收回。'})
+    if isinstance(item,m.StockIssue) and sales.Delivery.objects.filter(warehouse_issue=item,status='delivered').exists():raise ValidationError({'delivery':'请先更正原客户交付事实，再冲销其出库。'})
+    if isinstance(item,m.StockReceipt) and QualityInspection.objects.filter(receipt_line__receipt=item,is_void=False).exclude(result='pending').exists():raise ValidationError({'inspection':'请先取消对应来料或退回检验的采用。'})
     if isinstance(item, m.StockIssue) and item.kind == 'purchase_return':
         from plugins.erp_purchase.models import PurchaseReturn
         list(PurchaseReturn.objects.select_for_update().filter(warehouse_issue=item).order_by('pk'))
@@ -300,11 +458,15 @@ def reverse(item, actor, at, reason):
         return item
     require_state(item, ['posted'])
     before = snapshot(item)
-    lock_warehouses(warehouse_ids(item))
     model, key = LINES[type(item)]
+    lock_business_sources(item,list(model.objects.filter(**{key:item})))
+    lock_warehouses(warehouse_ids(item))
     source = {m.StockReceipt: 'receipt_line', m.StockIssue: 'issue_line',
               m.StockTransfer: 'transfer_line', m.StockAdjustment: 'adjustment_line'}[type(item)]
     rows = list(m.InventoryMovement.objects.filter(**{source+'__'+key: item}, reverses__isnull=True).order_by('-pk'))
+    if isinstance(item,(m.StockReceipt,m.StockIssue)):
+        reference='receipt_line__receipt' if isinstance(item,m.StockReceipt) else 'issue_line__issue'
+        if m.LotTransformationLine.objects.filter(**{reference:item},transformation__is_confirmed=True,transformation__is_void=False).exists():raise ValidationError({'transformation':'请先取消引用本实际收发的谱系采用，保留原谱系历史。'})
     list(m.InventoryLot.objects.select_for_update().filter(pk__in=[r.lot_id for r in rows]).order_by('pk'))
     original_ids = [r.pk for r in rows]
     reversed_ids = m.InventoryMovement.objects.filter(reverses__isnull=False).values_list('reverses_id', flat=True)

@@ -9,6 +9,3 @@ class ErpProductionConfig(AppConfig):
     verbose_name = '生产管理'
 
     resource_options = RESOURCE_OPTIONS
-    exclude_models = ['OperationExecution', 'ExecutionWorker', 'ExecutionMeasurement',
-        'ExecutionCorrection', 'WeighingOrder', 'WeighingStage', 'WeighingLine', 'WeighingRecord',
-        'QualityInspection', 'InspectionResultLine', 'QualityDisposition', 'QualityDefect', 'ReworkOrder']
