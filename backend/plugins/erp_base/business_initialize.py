@@ -8,18 +8,24 @@ from plugins.erp_sales.resource_options import MODEL_FIELDS as SALES
 from plugins.erp_sampling.resource_options import MODEL_FIELDS as SAMPLING
 from plugins.erp_purchase.resource_options import MODEL_FIELDS as PURCHASE
 from plugins.erp_warehouse.resource_options import MODEL_FIELDS as WAREHOUSE
+from plugins.erp_production.resource_options import MODEL_FIELDS as PRODUCTION
 from .business_api import policy_for
 
 DOMAINS = [('erp_sales', '销售管理', SALES), ('erp_sampling', '打样管理', SAMPLING),
-           ('erp_purchase', '采购管理', PURCHASE), ('erp_warehouse', '仓储管理', WAREHOUSE)]
+           ('erp_purchase', '采购管理', PURCHASE), ('erp_warehouse', '仓储管理', WAREHOUSE),
+           ('erp_production', '生产管理', PRODUCTION)]
 MAIN = {'CommercialPrice', 'SalesOrder', 'SalesOrderChange', 'SampleRequest', 'Recipe', 'ProcessCurveVersion',
         'PurchaseRequest', 'PurchaseOrder', 'PurchaseReturn', 'InventoryLot', 'StockReceipt', 'StockIssue',
-        'StockTransfer', 'StockCount', 'StockAdjustment', 'InventoryMovement', 'StockBalance'}
+        'StockTransfer', 'StockCount', 'StockAdjustment', 'InventoryMovement', 'StockBalance',
+        'WorkCard', 'DyeBatch', 'ScheduleAssignment', 'ProductionRecipe'}
 TITLES = {'confirm-post': '确认', 'receive-post': '收样', 'assign-post': '分配人员',
           'start-post': '开工', 'complete-post': '完成', 'send-post': '送版', 'reply-post': '客户回复',
           'approve-post': '审核', 'activate-post': '启用', 'retire-post': '停用',
           'clone-post': '复制新版本', 'save-document-post': '保存表头与明细',
-          'post-post': '库存过账', 'reverse-post': '冲销', 'begin-post': '开始盘点', 'adjust-post': '应用盘点差异'}
+          'post-post': '库存过账', 'reverse-post': '冲销', 'begin-post': '开始盘点', 'adjust-post': '应用盘点差异',
+          'prepare-post': '展开路线', 'release-post': '下达', 'cancel-post': '取消',
+          'schedule-post': '人工排程', 'reschedule-post': '改排', 'publish-post': '发布安排',
+          'adopt-recipe-post': '采用生产配方'}
 
 
 @transaction.atomic
@@ -30,7 +36,9 @@ def load():
              ('erp_purchase_manager', '采购业务办理', {'erp_purchase'}),
              ('erp_purchase_viewer', '采购业务查询', set()),
              ('erp_warehouse_manager', '仓储业务办理', {'erp_warehouse'}),
-             ('erp_warehouse_viewer', '仓储业务查询', set())]
+             ('erp_warehouse_viewer', '仓储业务查询', set()),
+             ('erp_production_manager', '生产业务办理', {'erp_production'}),
+             ('erp_production_viewer', '生产业务查询', set())]
     roles = [(Role.objects.get_or_create(key=key, defaults={'name': name}), writable) for key, name, writable in specs]
     for sort, (app, title, fields) in enumerate(DOMAINS, 2):
         catalog, _ = Menu.objects.get_or_create(component_name=app, defaults={

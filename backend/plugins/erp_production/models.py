@@ -11,6 +11,8 @@ from .calculations import calculate_adopted_dosage, calculate_elapsed_minutes
 class WorkCard(ErpModel):
     """生产工卡。"""
 
+    manual_creation_reason = models.TextField('无订单建卡原因', blank=True)
+
     # 原物理来源：JobSheet.SheetNo
     number = models.CharField(
         '缸号',
@@ -192,6 +194,8 @@ class WorkCard(ErpModel):
 
 class WorkCardOrderAllocation(ErpModel):
     """订单工卡数量分配。"""
+
+    adopted_order_snapshot = models.JSONField('下达时订单事实', default=dict, blank=True)
 
     # 原物理来源：JobCombineOrder.SheetSeries
     work_card = models.ForeignKey(
@@ -580,6 +584,10 @@ class WorkCardRequirement(ErpModel):
 
 class ScheduleAssignment(ErpModel):
     """排产记录。"""
+
+    change_reason = models.TextField('改排或取消原因', blank=True)
+    previous_assignment = models.ForeignKey('self', verbose_name='原安排', null=True,
+        blank=True, on_delete=models.PROTECT, related_name='replacement_assignments')
 
     batch = models.ForeignKey(
         'erp_production.DyeBatch',
@@ -1057,6 +1065,9 @@ class ProductionRecipe(ErpModel):
 class MaterialPlanStage(ErpModel):
     """生产用料阶段。"""
 
+    bath_density_kg_per_litre = models.DecimalField('浴液密度kg/L', max_digits=20,
+        decimal_places=6, null=True, blank=True)
+
     production_recipe = models.ForeignKey(
         'erp_production.ProductionRecipe',
         verbose_name='生产采用配方',
@@ -1187,6 +1198,8 @@ class MaterialPlanStage(ErpModel):
 
 class MaterialPlanLine(ErpModel):
     """生产用料计划。"""
+
+    calculation_snapshot = models.JSONField('计划计算依据', default=dict, blank=True)
 
     stage = models.ForeignKey(
         'erp_production.MaterialPlanStage',

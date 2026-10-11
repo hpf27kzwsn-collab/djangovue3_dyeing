@@ -94,6 +94,13 @@ def lock_line(line):
     return locked(line.request), locked(line)
 
 
+def refresh_line(line, actor):
+    trial = m.SampleTrial.objects.filter(sample_line=line, status__in=['running', 'completed']).order_by('-trial_number').first()
+    confirmation = m.SampleConfirmation.objects.filter(sample_line=line, trial=trial, sent_at__isnull=False).order_by('-sent_at', '-pk').first()
+    line.status = 'running' if confirmation is None else 'sent' if confirmation.result == 'pending' else confirmation.result
+    persist(line, actor)
+
+
 @transaction.atomic
 def receive(item, actor, at):
     item = locked(item)
@@ -124,7 +131,7 @@ def assign(item, actor, employee):
 def start_trial(item, actor, at):
     request, line = lock_line(item.sample_line)
     item = locked(item)
-    require_state(line, ['assigned', 'running', 'rejected'])
+    require_state(line, ['assigned', 'running', 'rejected', 'sent'])
     require_state(item, ['planned'])
     if item.operator_id is None:
         raise ValidationError({'operator': '请明确本轮试验操作人员。'})
@@ -165,8 +172,7 @@ def send(item, actor, at):
     before = snapshot(item)
     item.sent_at = at
     persist(item, actor)
-    line.status = 'sent'
-    persist(line, actor)
+    refresh_line(line, actor)
     refresh_request(request, actor)
     record(item, 'send', before, actor)
     return item
@@ -195,8 +201,7 @@ def reply(item, actor, result, at, customer_reply):
         persist(color, actor)
     item.result, item.confirmed_at, item.customer_reply = result, at, customer_reply
     persist(item, actor)
-    line.status = result
-    persist(line, actor)
+    refresh_line(line, actor)
     refresh_request(request, actor)
     record(item, 'reply', before, actor, customer_reply)
     return item
