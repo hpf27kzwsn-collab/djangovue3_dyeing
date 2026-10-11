@@ -1,6 +1,10 @@
-param([ValidateSet('redis','worker','beat')][string]$Service='worker')
+﻿param([ValidateSet('redis','worker','beat')][string]$Service='worker')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
+if ($Service -ne 'redis') {
+  . (Join-Path $PSScriptRoot 'python-env.ps1')
+  $projectPython = Initialize-ProjectPython
+}
 Push-Location (Join-Path $projectRoot 'backend')
 try {
   switch ($Service) {
@@ -10,8 +14,8 @@ try {
       try { & $redisExecutable.FullName 'redis.conf' }
       finally { Pop-Location }
     }
-    'worker' { & (Join-Path $projectRoot '.venv\Scripts\python.exe') -m celery -A application.celery worker --pool=solo --loglevel=info }
-    'beat' { & (Join-Path $projectRoot '.venv\Scripts\python.exe') -m celery -A application.celery beat --loglevel=info --pidfile= --schedule=celerybeat-schedule }
+    'worker' { & $projectPython -m celery -A application.celery worker --pool=solo --loglevel=info }
+    'beat' { & $projectPython -m celery -A application.celery beat --loglevel=info --pidfile= --schedule=celerybeat-schedule }
   }
 }
 finally { Pop-Location }

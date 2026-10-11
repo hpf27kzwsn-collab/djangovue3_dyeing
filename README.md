@@ -24,7 +24,7 @@
 在 PowerShell 进入项目根目录：
 
 ```powershell
-Set-Location H:\Project_python\django-vue3-admin\djangovue3
+Set-Location H:\Project_python\django-vue3-admin\djangovue3_dyeing
 .\scripts\start.ps1
 ```
 
@@ -55,12 +55,13 @@ Redis 默认 127.0.0.1:6389，Celery 使用第 3 个逻辑库。业务数据、�
 
 ## 复制到其他目录或电脑
 
-复制源码、依赖清单和必要运行文件即可使用，不需要打包。目标目录重建 `.venv`，避免沿用虚拟环境中记录的旧路径；目标电脑也可以使用其已安装的 Python 3.14.8。
+复制源码、依赖清单和必要运行文件即可使用，不需要打包。请一并携带 `runtime/python`。启动、初始化、构建、worker 和 beat 脚本会根据自身位置识别项目根目录，先自动检查 Python 环境：目录改变时重建 `.venv` 的配置、解释器、激活脚本及 pip/Celery 等命令入口，保留兼容的已安装依赖；依赖缺失或版本不同才按锁定清单安装。环境就绪后再次启动不会重复重建。
 
 ```powershell
-# 在复制后的项目根目录执行；使用随项目提供的 Python
-.\runtime\python\python.exe -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
+# 可单独检查/修复环境，不启动服务、不修改业务数据库
+.\scripts\ensure-python.ps1
+# 也可直接启动，脚本会先完成上述检查
+.\scripts\start.ps1
 ```
 
 运行现成网页时保留 web/dist；修改前端或需要重新构建时安装前端依赖：
@@ -73,6 +74,8 @@ Pop-Location
 ```
 
 携带已有数据时保留 backend/db.sqlite3、backend/media 和实际 database.ini。SQLite 相对路径随项目位置生效；PostgreSQL 仍需可连接的服务器。源码服务、worker 和 beat 使用同一配置。
+
+复制到另一台兼容的 Windows 电脑时，没有 `.venv` 也会自动创建，但首次安装依赖需要网络或可用的本地包源。携带完整 `.venv` 且 Python 主次版本一致时，移动目录无需重新下载依赖。此机制在运行脚本时生效；直接运行复制后的 `.venv/Scripts/python.exe` 或使用 IDE 前，请先执行 `ensure-python.ps1`，并把 IDE 解释器设为新目录下的 `.venv/Scripts/python.exe`。环境准备失败时脚本停止启动；不自动迁移端口、Redis、Git 远程仓库或数据库中的业务配置。
 
 运行所需的本机 runtime 文件是 python、redis、redis.conf；前端构建另外需要 node。历史验证目录、downloads、docs、data-backups、`.venv`、web/node_modules 均不是需要逐份分发的业务源码。`.env.example` 只是变量说明，不自动加载。
 
@@ -87,6 +90,14 @@ Pop-Location
 密码隐藏输入。修改配置后重启网页、worker、beat；切换不会自动搬迁已有数据。建库、初始化、双向搬迁见 [数据库说明](H:/Project_python/django-vue3-admin/djangovue3/docs/数据库切换实施与使用说明.md)。
 
 ## ERP 接入与文档
+
+本染色项目已接入六个 ERP 模型应用：基础信息、销售、采购、打样、生产、仓储，共 98 个模型、851 个专属字段；全部模型含公共字段“旧系统id”。12 个初始迁移和 13 个字段修订迁移已应用到本项目数据库。源码入口、计算规则和验证结果见 [ERP模型实施说明](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/ERP模型实施说明.md)。
+
+按旧字段复刻的规则、已修正内容及无法直接复刻的合理处理见 [旧系统字段复刻与差异处理说明](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段复刻与差异处理说明.md)，全部字段设置见 [旧系统字段逐项对照](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段逐项对照.md)。
+
+后续接口、页面、业务流程、数据迁移及分批验收安排见 [染色ERP后续开发方案](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/染色ERP后续开发方案.md)。
+
+目前是模型阶段，ERP 业务表为空；业务服务、接口和菜单按实施说明继续接入。
 
 按普通 Django app 编写业务模型及迁移，在 backend/application/plugins.py 登记应用和路由；前端扩展放在 web/src/plugins。通用资源提供 CRUD、筛选、角色/API/数据范围/字段权限及 xlsx 模板导入导出；订单、库存、财务流程需继续开发。数据库切换不等同于企业隔离。
 
