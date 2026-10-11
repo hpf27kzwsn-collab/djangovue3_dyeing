@@ -44,6 +44,15 @@ RESOURCE_OPTIONS = {
     for name, fields in MODEL_FIELDS.items()
 }
 RESOURCE_OPTIONS['RouteVersion']['viewset'] = 'plugins.erp_base.views.RouteVersionViewSet'
+RESOURCE_OPTIONS['BusinessAction'] = {
+    'workflow': {'readonly': True},
+    'viewset': 'plugins.erp_base.business_api.BusinessActionViewSet',
+    'crud_fields': ['id', 'entity', 'object_id', 'action', 'reason', 'before', 'after', 'creator', 'create_datetime', 'legacy_id'],
+    'fields': {'legacy_id': {'column': {'show': False}}},
+}
+RESOURCE_OPTIONS['ColorStandard']['fields']['source_sample'] = {
+    'remote': {'entity': 'erp_sampling_sampleline', 'pk': 'id', 'label': 'line_number'},
+}
 RESOURCE_OPTIONS['RouteVersion']['label_field'] = 'version'
 RESOURCE_OPTIONS['RouteStep']['label_field'] = 'sequence'
 for name, fields in MODEL_FIELDS.items():

@@ -1,6 +1,6 @@
 import axios, { type AxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
-export interface Result<T = any> {code: number; msg: string; data: T; page: number; limit: number; total: number}
+export interface Result<T = any> {code: number; msg: string; data: T; page: number; limit: number; total: number; is_next?:boolean; is_previous?:boolean}
 const client = axios.create()
 client.interceptors.request.use(config => {
   const token = localStorage.getItem('access')

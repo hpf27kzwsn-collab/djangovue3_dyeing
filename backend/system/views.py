@@ -646,6 +646,7 @@ class Metadata(APIView):
             fields = [by_key[key] for key in options['crud_fields'] if key in by_key]
         return success({'entity': entity, 'title': str(model._meta.verbose_name), 'pk': model._meta.pk.name,
                         'fields': fields, 'crud_options':options.get('crud_options',{}), 'excel_import': supports_import(model),
+                        **({'workflow': options['workflow']} if 'workflow' in options else {}),
                         **({'resources':[{'entity':name,'title':str(value._meta.verbose_name)} for name,value in ENTITIES.items()]} if model == MenuButton else {})})
 
 

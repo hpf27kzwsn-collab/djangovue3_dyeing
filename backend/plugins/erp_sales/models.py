@@ -199,6 +199,12 @@ class SalesOrder(ErpModel):
 class SalesOrderLine(ErpModel):
     """订单颜色规格明细。"""
 
+    price_source = models.ForeignKey('erp_sales.CommercialPriceLine', verbose_name='采用价格明细',
+        on_delete=models.PROTECT, null=True, blank=True, related_name='adopted_order_lines')
+    manual_price_reason = models.TextField('手工定价原因', blank=True)
+    adopted_price_snapshot = models.DecimalField('来源价格精确快照', max_digits=20, decimal_places=6,
+                                                null=True, blank=True)
+
     # 原物理来源：OrderColor.SheetSeries
     order = models.ForeignKey(
         'erp_sales.SalesOrder',
@@ -533,6 +539,8 @@ class SalesOrderChange(ErpModel):
 
 class SalesOrderChangeLine(ErpModel):
     """订单变更明细。"""
+
+    before_values = models.JSONField('变更前订单事实', default=dict, blank=True)
 
     change = models.ForeignKey(
         'erp_sales.SalesOrderChange',

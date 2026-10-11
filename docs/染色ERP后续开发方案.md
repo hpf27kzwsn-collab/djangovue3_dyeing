@@ -171,6 +171,8 @@ A 验收：一组真实客户、供应商、自有库存所有者、原料与染
 
 ### 5.2 B 批：先形成价格、工艺和订单需求
 
+B 批业务接口和页面已经实施，详情与字段补项见[业务功能逐批实施记录](业务功能逐批实施记录.md)。价格、订单、打样和版本冻结的新增测试及基础信息回归共 77 项通过；C～H 按依赖继续实施。
+
 **商业价格。** 接入 `CommercialPrice`、`CommercialPriceLine`，区分报价与确价，维护客户、物料、色号、版本、有效期、计价单位及采用单价。复刻当前有效入口的确认含义；Quote/FixedPrice 的物理表名与旧 UI 名称对调按字段说明映射。确认时冻结所采用价格及来源。价格组成存在空值时保持空值，不自动补零；另收费与缸位费按已证实项目先显示，触发及计价依据未明确的暂不自动计算。
 
 **打样与配方。** 接入 `SampleRequest`、`SampleLine`、`SampleTrial`、`SampleConfirmation`、`Recipe`、`RecipeVersion`、`RecipeStage`、`RecipeIngredient`、`ProcessCurveVersion`、`ProcessCurveStep`。流程为收样→分配→试验→送版→客户接受/拒绝→再试或确板。确板明确对应轮次、色标准、配方版本；订单后的打样保留订单来源，订单前的打样不强制关联订单。

@@ -12,7 +12,6 @@ URLS = []  # [('inventory', 'plugins.inventory.urls')]
 MODEL_EXCLUDE_APPS = [
     'auth', 'contenttypes', 'sessions', 'captcha',
     'django_celery_beat', 'django_celery_results',
-    'erp_sales', 'erp_purchase',
-    'erp_sampling', 'erp_production', 'erp_warehouse',
+    'erp_purchase', 'erp_production', 'erp_warehouse',
 ]
-INITIALIZERS = ['plugins.erp_base.initialize.load']
+INITIALIZERS = ['plugins.erp_base.initialize.load', 'plugins.erp_base.business_initialize.load']

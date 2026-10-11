@@ -21,6 +21,22 @@ class ErpModel(CoreModel):
         ordering = ["-id"]
 
 
+class BusinessAction(ErpModel):
+    """业务动作发生时保存事实快照，不覆盖原操作记录。"""
+    entity = models.CharField('业务对象', max_length=100)
+    object_id = models.BigIntegerField('对象ID')
+    action = models.CharField('动作', max_length=64)
+    reason = models.TextField('原因', blank=True)
+    before = models.JSONField('操作前事实')
+    after = models.JSONField('操作后事实')
+
+    class Meta:
+        db_table = 'erp_base_businessaction'
+        verbose_name = verbose_name_plural = '业务操作记录'
+        ordering = ['-id']
+        indexes = [models.Index(fields=['entity', 'object_id'], name='erp_business_action_source')]
+
+
 class BusinessUnit(ErpModel):
     """经营单位。"""
 

@@ -59,7 +59,7 @@ class MasterDataApiTests(TestCase):
                 self.assertEqual(expected, actual)
                 self.assertTrue(expected <= {field.name for field in model._meta.fields})
                 self.assertEqual(self.client.get(self.url(name)).status_code, 200)
-        self.assertEqual(self.client.get('/api/system/erp_sales_salesorder/').status_code, 404)
+        self.assertEqual(self.client.get('/api/system/erp_sales_salesorder/').status_code, 200)
 
     def test_legacy_identity_and_route_status_are_read_only(self):
         self.create('Party', {'code': 'P2', 'name': '客户二', 'legacy_id': '0002'}, 400)
@@ -199,8 +199,8 @@ class MasterDataApiTests(TestCase):
         FieldPermission.objects.filter(role=role, field__model=m.Party._meta.label, field__field_name='name').update(is_update=False)
         call_command('init_data', verbosity=0)
         self.patch('Party', self.party.pk, {'name': '不可修改'}, 400)
-        self.assertEqual(Menu.objects.filter(resource__startswith='erp_base_', visible=True).count(), 16)
-        self.assertEqual(Menu.objects.filter(resource__startswith='erp_base_').count(), 26)
+        self.assertEqual(Menu.objects.filter(parent__component_name='erp_base', resource__startswith='erp_base_', visible=True).count(), 16)
+        self.assertEqual(Menu.objects.filter(parent__component_name='erp_base', resource__startswith='erp_base_').count(), 26)
 
     def test_related_field_data_scope_prevents_cross_department_link(self):
         dept = Dept.objects.create(key='restricted', name='受限部门')
