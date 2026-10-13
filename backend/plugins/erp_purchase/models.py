@@ -476,3 +476,17 @@ class PurchaseReturnLine(ErpModel):
         constraints = [
             models.CheckConstraint(condition=Q(quantity__gt=0), name='erp_purchase_purchasereturnline_quantity_positive'),
         ]
+
+
+from .source_models import (
+    SourceDyeArticlePurDetail,
+    SourceDyeArticlePurMain,
+    SourceDyeFabricPurDetail,
+    SourceDyeFabricPurMain,
+    SourceDyePurApplyDetail,
+    SourceDyePurApplyMain,
+    SourceDyePurDetail,
+    SourceDyePurMain,
+    SourceDyeStuffPurDetail,
+    SourceDyeStuffPurMain,
+)

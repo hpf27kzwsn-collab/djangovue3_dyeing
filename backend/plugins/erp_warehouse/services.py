@@ -1,3 +1,4 @@
+from plugins.erp_quality import models as q
 """库存只由实际收发、调拨、调整和等量反向冲销生效。"""
 from decimal import Decimal
 from django.core.exceptions import ValidationError
@@ -271,8 +272,8 @@ def lock_business_sources(item,rows):
     list(production.WeighingOrder.objects.select_for_update().filter(pk__in=order_ids).order_by('pk'))
     if isinstance(item,m.StockAdjustment):
         dispositions=[row.disposition_id for row in rows if row.disposition_id is not None]
-        list(production.QualityInspection.objects.select_for_update().filter(pk__in=production.QualityDisposition.objects.filter(pk__in=dispositions).values('inspection_id')).order_by('pk'))
-        list(production.QualityDisposition.objects.select_for_update().filter(pk__in=dispositions).order_by('pk'))
+        list(q.QualityInspection.objects.select_for_update().filter(pk__in=q.QualityDisposition.objects.filter(pk__in=dispositions).values('inspection_id')).order_by('pk'))
+        list(q.QualityDisposition.objects.select_for_update().filter(pk__in=dispositions).order_by('pk'))
     list(m.Package.objects.select_for_update().filter(pk__in=[row.package_id for row in rows if row.package_id is not None]).order_by('pk'))
 
 
@@ -444,7 +445,7 @@ def void_transformation(item,actor,at,reason):
 def reverse(item, actor, at, reason):
     lock_source_documents(item)
     from plugins.erp_sales import models as sales
-    from plugins.erp_production.models import QualityInspection
+    from plugins.erp_quality.models import QualityInspection
     if isinstance(item,m.StockReceipt) and sales.SalesReturnLine.objects.filter(receipt_line__receipt=item,return_order__status='closed').exists():raise ValidationError({'return_order':'先重新办理已结案的客户退回，再更正实际收回。'})
     if isinstance(item,m.StockIssue) and sales.Delivery.objects.filter(warehouse_issue=item,status='delivered').exists():raise ValidationError({'delivery':'请先更正原客户交付事实，再冲销其出库。'})
     if isinstance(item,m.StockReceipt) and QualityInspection.objects.filter(receipt_line__receipt=item,is_void=False).exclude(result='pending').exists():raise ValidationError({'inspection':'请先取消对应来料或退回检验的采用。'})

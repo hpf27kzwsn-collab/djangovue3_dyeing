@@ -1,3 +1,4 @@
+from plugins.erp_quality import models as q
 """包装实物、数量放行和打印请求；库存仍由收发单据生效。"""
 from decimal import Decimal, ROUND_HALF_UP
 from django.core.exceptions import ValidationError
@@ -80,11 +81,11 @@ def pack(item,actor,at,employee,machine=None):
     before=snapshot(item);item.net_mass_kg=net
     coverages=require_rows(m.PackageDispositionAllocation.objects.filter(package=item))
     ids=[row.disposition_id for row in coverages]
-    list(production.QualityDisposition.objects.select_for_update().filter(pk__in=ids).order_by('pk'))
+    list(q.QualityDisposition.objects.select_for_update().filter(pk__in=ids).order_by('pk'))
     kg=base.Unit.objects.get(code='kg')
     if converted_sum(coverages,'quantity','unit',kg)!=net:raise ValidationError({'quality_coverages':'放行覆盖kg合计必须等于本包装实际净重。'})
     for row in coverages:
-        row.package=item;row.disposition=production.QualityDisposition.objects.get(pk=row.disposition_id)
+        row.package=item;row.disposition=q.QualityDisposition.objects.get(pk=row.disposition_id)
         validate_coverage(row)
         prior=converted_sum(m.PackageDispositionAllocation.objects.filter(disposition=row.disposition).exclude(package__status__in=['draft','void']),'quantity','unit',row.disposition.unit)
         if prior+row.unit.convert_quantity(row.quantity,row.disposition.unit)>row.disposition.quantity:raise ValidationError({'quantity':'累计包装采用不能超过本笔实际放行数量。'})

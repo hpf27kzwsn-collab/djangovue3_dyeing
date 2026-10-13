@@ -192,3 +192,6 @@ WORKFLOWS = {'SampleRequest': {'editable_states': ['draft'],
  'ProcessCurveStep': {}}
 for name, workflow in WORKFLOWS.items():
     RESOURCE_OPTIONS[name]["workflow"] = workflow
+
+from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
+RESOURCE_OPTIONS.update(SOURCE_RESOURCES)

@@ -49,13 +49,17 @@ class DocumentInput(serializers.Serializer):
 
 
 def policy_for(model):
+    from .source_documents import SourceRecord
+    if issubclass(model,SourceRecord):
+        from .source_api import OWNED
+        return {'owned':{model:OWNED}}
     from plugins.erp_sales.services import POLICY as sales
     from plugins.erp_sampling.services import POLICY as sampling
     from plugins.erp_purchase.services import POLICY as purchase
     from plugins.erp_warehouse.services import POLICY as warehouse
     from plugins.erp_production.services import POLICY as production
     return {'erp_sales': sales, 'erp_sampling': sampling, 'erp_purchase': purchase,
-            'erp_warehouse': warehouse, 'erp_production': production}[model._meta.app_label]
+            'erp_warehouse': warehouse, 'erp_production': production, 'erp_quality': production}[model._meta.app_label]
 
 
 class BusinessSerializer(CoreSerializer):

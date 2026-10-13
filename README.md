@@ -91,7 +91,7 @@ Pop-Location
 
 ## ERP 接入与文档
 
-本染色项目已接入六个 ERP 模型应用：基础信息、销售、采购、打样、生产、仓储，共 98 个模型、851 个专属字段；全部模型含公共字段“旧系统id”。12 个初始迁移和 13 个字段修订迁移已应用到本项目数据库。源码入口、计算规则和验证结果见 [ERP模型实施说明](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/ERP模型实施说明.md)。
+本染色项目已接入基础信息、销售、采购、打样、生产、仓储、质量七个 ERP 应用，共659个模型，均含【旧erpID】。其中新增553个原表模型、11,412个旧字段及158组明确主从关系，用于完整承接旧基础及业务记录；完整业务联动和全部历史导入继续按方案实施。当前进度、字段清单及待补事项见 [七模块模型实施记录](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/染色ERP七模块模型实施记录.md)。
 
 按旧字段复刻的规则、已修正内容及无法直接复刻的合理处理见 [旧系统字段复刻与差异处理说明](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段复刻与差异处理说明.md)，全部字段设置见 [旧系统字段逐项对照](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段逐项对照.md)。
 

@@ -1,3 +1,5 @@
+from plugins.erp_quality import services as quality
+from plugins.erp_quality import models as q
 from datetime import timedelta
 from decimal import Decimal
 from django.core.exceptions import ValidationError
@@ -6,7 +8,7 @@ from plugins.erp_base import models as base
 from plugins.erp_warehouse import models as wh, services as stock
 from plugins.erp_base.business import write
 from . import test_workflows as planning_tests
-from . import models as m, services as planning, execution_services as actual, quality_services as quality, weighing_services as weighing
+from . import models as m, services as planning, execution_services as actual, weighing_services as weighing
 
 
 class ActualProductionTests(TestCase):
@@ -138,30 +140,30 @@ class ActualProductionTests(TestCase):
     def test_quality_scope_disposition_cap_and_explicit_concession(self):
         card,operation,execution,employee=self.setup_execution()
         self.complete(execution,output_mass_kg=Decimal('80'))
-        inspection=write(m.QualityInspection,{'number':'Q','work_card':card,'execution':execution,'kind':'in_process',
+        inspection=write(q.QualityInspection,{'number':'Q','work_card':card,'execution':execution,'kind':'in_process',
             'inspected_at':self.now+timedelta(hours=28),'inspected_quantity':Decimal('50'),'quantity_unit':self.kg},None,planning.POLICY)
-        write(m.InspectionResultLine,{'inspection':inspection,'item_code':'COLOR','item_name_snapshot':'实际对色','value_text':'偏深','result':'fail'},None,planning.POLICY)
+        write(q.InspectionResultLine,{'inspection':inspection,'item_code':'COLOR','item_name_snapshot':'实际对色','value_text':'偏深','result':'fail'},None,planning.POLICY)
         with self.assertRaises(ValidationError):quality.judge(inspection,self.actor,result='pass',employee=employee)
         quality.judge(inspection,self.actor,result='fail',employee=employee)
         with self.assertRaises(ValidationError):quality.dispose(inspection,self.actor,kind='release',quantity=Decimal('50'),unit=self.kg,reason='普通放行',employee=employee,at=self.now+timedelta(hours=29))
         quality.dispose(inspection,self.actor,kind='concession',quantity=Decimal('30'),unit=self.kg,reason='客户接受',employee=employee,at=self.now+timedelta(hours=29))
         with self.assertRaises(ValidationError):quality.dispose(inspection,self.actor,kind='rework',quantity=Decimal('30'),unit=self.kg,reason='超范围',employee=employee,at=self.now+timedelta(hours=29))
-        self.assertEqual(m.QualityDisposition.objects.count(),1)
+        self.assertEqual(q.QualityDisposition.objects.count(),1)
         with self.assertRaises(ValidationError):actual.correct(execution,self.actor,at=self.now+timedelta(hours=30),employee=employee,reason='改量',changes={'output_mass_kg':Decimal('70')})
         quality.void(inspection,self.actor,reason='实际检验来源录错',at=self.now+timedelta(hours=30))
         inspection.refresh_from_db();self.assertTrue(inspection.is_void);self.assertEqual(inspection.result,'fail')
-        self.assertEqual(m.QualityDisposition.objects.get().status,'cancelled')
+        self.assertEqual(q.QualityDisposition.objects.get().status,'cancelled')
         actual.correct(execution,self.actor,at=self.now+timedelta(hours=31),employee=employee,reason='实绩重核',changes={'output_mass_kg':Decimal('70')})
 
     def test_incoming_quality_release_changes_quality_through_real_stock_adjustment(self):
         warehouse,location,lot,receipt=self.warehouse(self.material,100,'pending')
         employee=self.employee()
-        inspection=write(m.QualityInspection,{'number':'IN-Q','lot':lot,'receipt_line':receipt,'kind':'incoming',
+        inspection=write(q.QualityInspection,{'number':'IN-Q','lot':lot,'receipt_line':receipt,'kind':'incoming',
             'inspected_at':self.now+timedelta(hours=1),'inspected_quantity':Decimal('60'),'quantity_unit':self.kg},None,planning.POLICY)
-        write(m.InspectionResultLine,{'inspection':inspection,'item_code':'A','item_name_snapshot':'实际来料检查','value_text':'符合','result':'pass'},None,planning.POLICY)
+        write(q.InspectionResultLine,{'inspection':inspection,'item_code':'A','item_name_snapshot':'实际来料检查','value_text':'符合','result':'pass'},None,planning.POLICY)
         quality.judge(inspection,self.actor,result='pass',employee=employee)
         quality.dispose(inspection,self.actor,kind='release',quantity=Decimal('60'),unit=self.kg,reason='实际合格范围',employee=employee,at=self.now+timedelta(hours=2))
-        disposition=m.QualityDisposition.objects.get(inspection=inspection)
+        disposition=q.QualityDisposition.objects.get(inspection=inspection)
         adjustment=wh.StockAdjustment.objects.create(number='ADJ',document_at=self.now+timedelta(hours=2),warehouse=warehouse,reason='来料实际放行')
         wh.StockAdjustmentLine.objects.create(adjustment=adjustment,line_number=1,lot=lot,location=location,
             quality_state='pending',new_quality_state='released',quantity_delta=60,disposition=disposition)
@@ -197,10 +199,10 @@ class ActualProductionTests(TestCase):
 
     def test_rework_creates_independent_card_without_rewriting_original(self):
         card,operation,execution,employee=self.setup_execution();self.complete(execution,output_mass_kg=Decimal('80'))
-        inspection=m.QualityInspection.objects.create(number='Q',work_card=card,execution=execution,kind='in_process',result='fail',
+        inspection=q.QualityInspection.objects.create(number='Q',work_card=card,execution=execution,kind='in_process',result='fail',
             inspected_at=self.now+timedelta(hours=28),inspected_quantity=80,quantity_unit=self.kg)
         quality.dispose(inspection,self.actor,kind='rework',quantity=Decimal('20'),unit=self.kg,reason='重新加工',employee=employee,at=self.now+timedelta(hours=29))
-        disposition=m.QualityDisposition.objects.get()
+        disposition=q.QualityDisposition.objects.get()
         order=m.ReworkOrder.objects.create(number='RW',original_work_card=card,disposition=disposition,quantity=20,unit=self.kg,reason='重新加工')
         quality.release_rework(order,self.actor,number='WC-RW',route_version=self.version,at=self.now+timedelta(hours=30))
         order.refresh_from_db();execution.refresh_from_db()
@@ -225,8 +227,8 @@ class ActualProductionTests(TestCase):
             'name':'实测温度','value_text':'60'},format='json')
         self.assertEqual(response.status_code,200,response.data)
         self.complete(execution,output_mass_kg=Decimal('80'))
-        inspection=write(m.QualityInspection,{'number':'Q','work_card':card,'execution':execution,'kind':'in_process',
+        inspection=write(q.QualityInspection,{'number':'Q','work_card':card,'execution':execution,'kind':'in_process',
             'inspected_at':self.now+timedelta(hours=28),'inspected_quantity':Decimal('80'),'quantity_unit':self.kg},None,planning.POLICY)
-        response=self.client.post('/api/system/erp_production_inspectionresultline/',{'inspection':inspection.pk,
+        response=self.client.post('/api/system/erp_quality_inspectionresultline/',{'inspection':inspection.pk,
             'item_code':'A','item_name_snapshot':'实测检验','value_text':'符合','result':'pass'},format='json')
         self.assertEqual(response.status_code,200,response.data)

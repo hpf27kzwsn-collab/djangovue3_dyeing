@@ -83,7 +83,7 @@ RELATIONS.update({'Delivery': {'customer': ('erp_base_party', 'name'), 'warehous
                            'order_line': ('erp_sales_salesorderline', 'line_number'),
                            'delivery_line': ('erp_sales_deliveryline', 'line_number'),
                            'unit': ('erp_base_unit', 'name'),
-                           'disposition': ('erp_production_qualitydisposition', 'id')}})
+                           'disposition': ('erp_quality_qualitydisposition', 'id')}})
 VIEWSETS.update({'Delivery': 'plugins.erp_sales.fulfillment_views.DeliveryViewSet',
  'DeliveryLine': 'plugins.erp_base.business_api.BusinessViewSet',
  'SalesReturn': 'plugins.erp_sales.fulfillment_views.SalesReturnViewSet',
@@ -151,3 +151,6 @@ for name, workflow in FULFILLMENT_WORKFLOWS.items():
 
 from plugins.erp_production.workflows import action,at,reason
 WORKFLOWS['SalesOrder']['actions'] += [action('complete','确认实际交付完成',['confirmed','running'],[at,reason]),action('close','订单结案',['confirmed','running','completed'],[at,reason]),action('reopen','重新打开订单',['completed','closed'],[reason])]
+
+from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
+RESOURCE_OPTIONS.update(SOURCE_RESOURCES)

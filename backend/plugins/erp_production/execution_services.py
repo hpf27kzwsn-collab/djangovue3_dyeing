@@ -1,3 +1,4 @@
+from plugins.erp_quality import models as q
 """实际报工与更正；采用计划不产生实际时间、产量或领料。"""
 from decimal import Decimal
 from django.core.exceptions import ValidationError
@@ -209,7 +210,7 @@ def correct(item,actor,reason,at,employee,changes):
 
 def save_correction(item,actor,reason,at,employee,changes):
     require_state(item.operation.work_card,['running'])
-    if m.QualityInspection.objects.filter(execution=item,is_void=False).exclude(result='pending').exists():
+    if q.QualityInspection.objects.filter(execution=item,is_void=False).exclude(result='pending').exists():
         raise ValidationError({'inspection':'此实绩已形成有效检验判定，请先取消对应检验采用并保留历史。'})
     if warehouse.LotTransformation.objects.filter(execution=item,is_confirmed=True,is_void=False).exists() or warehouse.Package.objects.filter(work_card=item.operation.work_card).exclude(status__in=['draft','void']).exists() or warehouse.StockReceiptLine.objects.filter(work_card=item.operation.work_card,receipt__status='posted').exists():
         raise ValidationError({'execution':'实绩已被产出或包装采用，请先冲销对应下游业务。'})

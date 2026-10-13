@@ -5,6 +5,7 @@ from system.catalog import ENTITIES, HIDDEN_ENTITIES
 from system.models import *
 from system.views import view_for
 from system.actions import resource_actions
+from plugins.erp_base.source_documents import SourceRecord
 
 
 class Command(BaseCommand):
@@ -32,6 +33,20 @@ class Command(BaseCommand):
             if role_created:
                 RoleMenuPermission.objects.get_or_create(role=role, menu=menu)
             actions = resource_actions(entity, view_for(entity, model))
+            if issubclass(model, SourceRecord):
+                existing={button.value for button in MenuButton.objects.filter(menu=menu)}
+                MenuButton.objects.bulk_create([MenuButton(value=f'{entity}:{key}',name=title,menu=menu,method=verb,api=api)
+                    for key,title,verb,api in actions if f'{entity}:{key}' not in existing])
+                columns=list(MenuField.objects.filter(menu=menu,model=model._meta.label))
+                existing={column.field_name for column in columns}
+                MenuField.objects.bulk_create([MenuField(menu=menu,model=model._meta.label,field_name=field.name,title=str(field.verbose_name))
+                    for field in model._meta.fields if field.name not in existing and field.name not in AUDIT_FIELDS and not isinstance(field,models.AutoField)])
+                if role_created:
+                    buttons=MenuButton.objects.filter(menu=menu)
+                    RoleMenuButtonPermission.objects.bulk_create([RoleMenuButtonPermission(role=role,menu_button=button,data_range=3) for button in buttons])
+                    columns=MenuField.objects.filter(menu=menu,model=model._meta.label)
+                    FieldPermission.objects.bulk_create([FieldPermission(role=role,field=column) for column in columns])
+                continue
             for key, title, verb, api in actions:
                 button, _ = MenuButton.objects.get_or_create(value=f'{entity}:{key}', defaults={'name':title, 'menu':menu, 'method':verb, 'api':api})
                 if role_created:

@@ -1,5 +1,6 @@
 """业务服务共用的事务、事实快照和校验；状态规则由各模块明确实现。"""
 import copy
+import base64
 import json
 from datetime import datetime,time
 from django.core.exceptions import ValidationError
@@ -12,6 +13,7 @@ from .models import BusinessAction
 class FactsEncoder(DjangoJSONEncoder):
     def default(self,value):
         if isinstance(value,(datetime,time)):return value.isoformat()
+        if isinstance(value,(bytes,bytearray,memoryview)):return {'encoding':'base64','data':base64.b64encode(value).decode('ascii')}
         return super().default(value)
 
 

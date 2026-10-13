@@ -111,3 +111,6 @@ RESOURCE_OPTIONS['ColorStandard']['fields']['source_sample'] = {'column': {'show
 from .legacy_resources import MODEL_FIELDS as LEGACY_FIELDS,RESOURCE_OPTIONS as LEGACY_OPTIONS
 MODEL_FIELDS.update(LEGACY_FIELDS)
 RESOURCE_OPTIONS.update(LEGACY_OPTIONS)
+
+from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
+RESOURCE_OPTIONS.update(SOURCE_RESOURCES)

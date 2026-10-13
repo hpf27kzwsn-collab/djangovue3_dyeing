@@ -1,3 +1,4 @@
+from plugins.erp_quality import models as q
 """价格、打样、采购、排程、返修与批次谱系的只读查询。"""
 from decimal import Decimal
 from plugins.erp_sales import models as sales
@@ -102,12 +103,12 @@ def rework(reader,filters):
     from .reports import page
     count,items=page(reader.source(production.ReworkOrder,['number','original_work_card','rework_work_card','quantity','unit','status','reason','create_datetime']),filters,'create_datetime','status')
     cards=reader.labels(production.WorkCard,'number',[key for row in items for key in [row.original_work_card_id,row.rework_work_card_id]])
-    inspections=list(reader.source(production.QualityInspection,['number','work_card','kind','result','is_void','inspected_at']).filter(work_card_id__in=[row.rework_work_card_id for row in items],kind='reinspection',is_void=False).order_by('inspected_at','pk'))
+    inspections=list(reader.source(q.QualityInspection,['number','work_card','kind','result','is_void','inspected_at']).filter(work_card_id__in=[row.rework_work_card_id for row in items],kind='reinspection',is_void=False).order_by('inspected_at','pk'))
     latest={row.work_card_id:row for row in inspections};result=[]
     for row in items:
         inspection=latest.get(row.rework_work_card_id)
         result.append({'number':row.number,'original':cards[row.original_work_card_id],'card':None if row.rework_work_card_id is None else cards[row.rework_work_card_id],'quantity':str(row.quantity),'unit':reader.unit(row.unit_id).name,'status':choices(production.ReworkOrder,'status',row.status),'reason':row.reason,
-            'inspection':None if inspection is None else inspection.number,'result':None if inspection is None else choices(production.QualityInspection,'result',inspection.result)})
+            'inspection':None if inspection is None else inspection.number,'result':None if inspection is None else choices(q.QualityInspection,'result',inspection.result)})
     return count,result
 
 

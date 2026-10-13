@@ -9,11 +9,13 @@ from plugins.erp_sampling.resource_options import MODEL_FIELDS as SAMPLING
 from plugins.erp_purchase.resource_options import MODEL_FIELDS as PURCHASE
 from plugins.erp_warehouse.resource_options import MODEL_FIELDS as WAREHOUSE
 from plugins.erp_production.resource_options import MODEL_FIELDS as PRODUCTION
+from plugins.erp_quality.resource_options import MODEL_FIELDS as QUALITY
 from .business_api import policy_for
+from .source_documents import SourceRecord
 
 DOMAINS = [('erp_sales', '销售管理', SALES), ('erp_sampling', '打样管理', SAMPLING),
            ('erp_purchase', '采购管理', PURCHASE), ('erp_warehouse', '仓储管理', WAREHOUSE),
-           ('erp_production', '生产管理', PRODUCTION)]
+           ('erp_production', '生产管理', PRODUCTION), ('erp_quality', '质量管理', QUALITY)]
 MAIN = {'CommercialPrice', 'SalesOrder', 'SalesOrderChange', 'SampleRequest', 'Recipe', 'ProcessCurveVersion',
         'PurchaseRequest', 'PurchaseOrder', 'PurchaseReturn', 'InventoryLot', 'StockReceipt', 'StockIssue',
         'StockTransfer', 'StockCount', 'StockAdjustment', 'InventoryMovement', 'StockBalance',
@@ -58,7 +60,7 @@ def load():
              ('erp_production_manager', '生产业务办理', {'erp_production'}),
              ('erp_production_viewer', '生产业务查询', set()),
              ('erp_production_operator', '生产实际报工', {'erp_production','erp_warehouse'}),
-             ('erp_quality_manager', '质量检验与处置', {'erp_production','erp_warehouse'}),
+             ('erp_quality_manager', '质量检验与处置', {'erp_quality','erp_warehouse'}),
              ('erp_reports_viewer','ERP业务报表查询',set())]
     roles = [(Role.objects.get_or_create(key=key, defaults={'name': name}), writable) for key, name, writable in specs]
     for sort, (app, title, fields) in enumerate(DOMAINS, 2):
@@ -87,6 +89,7 @@ def load():
         for menu in Menu.objects.filter(component_name__in=['erp', *[d[0] for d in DOMAINS]]):
             RoleMenuPermission.objects.get_or_create(role=role, menu=menu)
         for entity, model in ENTITIES.items():
+            if issubclass(model, SourceRecord):continue
             if model.__name__.startswith('Legacy'):continue
             if not model._meta.app_label.startswith('erp_') and entity not in ['dept', 'user', 'file']:
                 continue

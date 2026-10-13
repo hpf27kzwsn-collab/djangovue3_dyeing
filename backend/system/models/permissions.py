@@ -45,6 +45,7 @@ class MenuField(CoreModel):
 
     class Meta:
         verbose_name = '菜单字段'
+        indexes=[models.Index(fields=['model','field_name'],name='sys_menufield_model_field_idx')]
 
 
 class RoleMenuPermission(CoreModel):
@@ -74,6 +75,7 @@ class FieldPermission(CoreModel):
 
     class Meta:
         verbose_name = '字段权限'
+        indexes=[models.Index(fields=['role','field'],name='sys_fieldpermission_role_field')]
 
 
 class ApiWhiteList(CoreModel):

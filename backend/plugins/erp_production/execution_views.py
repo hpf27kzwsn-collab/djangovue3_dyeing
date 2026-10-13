@@ -1,10 +1,12 @@
+from plugins.erp_quality import models as q
 from decimal import Decimal
 from rest_framework import serializers
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from plugins.erp_base.business_api import BusinessViewSet, BusinessSerializer, ActionInput, parameters
 from plugins.erp_base import models as base
-from . import models as m, execution_services as execution, quality_services as quality, weighing_services as weighing
+from . import models as m, execution_services as execution, weighing_services as weighing
+from plugins.erp_quality import services as quality
 
 
 def related(model, required=True, **extra):
@@ -193,28 +195,13 @@ class WeighingRecordViewSet(ActualFactsViewSet):
     def void(self,request,pk=None):return self.performed(weighing.void,parameters(self,{'at':serializers.DateTimeField(),'reason':serializers.CharField()}))
 
 
-class QualityInspectionViewSet(BusinessViewSet):
-    @action(methods=['post'],detail=True)
-    def void(self,request,pk=None):return self.performed(quality.void,parameters(self,{'at':serializers.DateTimeField(),'reason':serializers.CharField()}))
-    @action(methods=['post'],detail=True)
-    def judge(self,request,pk=None):return self.performed(quality.judge,parameters(self,{
-        'result':serializers.ChoiceField(choices=['pass','fail']),'employee':related(base.Employee)}))
-    @action(methods=['post'],detail=True)
-    def dispose(self,request,pk=None):return self.performed(quality.dispose,parameters(self,{
-        'kind':serializers.ChoiceField(choices=['release','concession','rework','downgrade','scrap','hold']),
-        'quantity':serializers.DecimalField(max_digits=20,decimal_places=6,min_value=Decimal('.000001')),
-        'unit':related(base.Unit),'reason':serializers.CharField(),'employee':related(base.Employee),
-        'at':serializers.DateTimeField(),'supersedes':related(m.QualityDisposition,False,allow_null=True,default=None)}))
 
 
-class QualityDefectViewSet(BusinessViewSet):
-    @action(methods=['post'],detail=True)
-    def close(self,request,pk=None):return self.performed(quality.close_defect,parameters(self,{'handling':serializers.CharField()}))
 
 
 class ReworkOrderViewSet(BusinessViewSet):
     @action(methods=['post'],detail=True)
-    def close(self,request,pk=None):return self.performed(quality.close_rework,parameters(self,{'inspection':related(m.QualityInspection),'reason':serializers.CharField()}))
+    def close(self,request,pk=None):return self.performed(quality.close_rework,parameters(self,{'inspection':related(q.QualityInspection),'reason':serializers.CharField()}))
     @action(methods=['post'],detail=True)
     def release(self,request,pk=None):return self.performed(quality.release_rework,parameters(self,{
         'number':serializers.CharField(max_length=50),'route_version':related(base.RouteVersion),'at':serializers.DateTimeField(),

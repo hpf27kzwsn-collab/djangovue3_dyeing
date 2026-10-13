@@ -1,3 +1,4 @@
+from plugins.erp_quality import models as q
 """跨模块查询使用各来源的查询、字段和数据范围权限。"""
 import csv,io
 from decimal import Decimal
@@ -145,8 +146,8 @@ def materials(reader,filters):
 
 
 def quality(reader,filters):
-    count,inspections=page(reader.source(production.QualityInspection,['number','kind','work_card','result','is_void','inspected_at','inspected_quantity','quantity_unit']),filters,'inspected_at','result')
-    dispositions=list(reader.source(production.QualityDisposition,['inspection','kind','quantity','unit','status']).filter(inspection_id__in=[row.pk for row in inspections]))
+    count,inspections=page(reader.source(q.QualityInspection,['number','kind','work_card','result','is_void','inspected_at','inspected_quantity','quantity_unit']),filters,'inspected_at','result')
+    dispositions=list(reader.source(q.QualityDisposition,['inspection','kind','quantity','unit','status']).filter(inspection_id__in=[row.pk for row in inspections]))
     result=[]
     for inspection in inspections:
         entries=[row for row in dispositions if row.inspection_id==inspection.pk]
@@ -209,7 +210,7 @@ LABELS={
 }
 ENUMS={
  'orders':{},'production':{'status':(production.WorkCard,'status'),'execution_status':(production.OperationExecution,'status')},
- 'materials':{},'quality':{'kind':(production.QualityInspection,'kind'),'result':(production.QualityInspection,'result'),'disposition':(production.QualityDisposition,'kind'),'adoption':(production.QualityDisposition,'status')},
+ 'materials':{},'quality':{'kind':(q.QualityInspection,'kind'),'result':(q.QualityInspection,'result'),'disposition':(q.QualityDisposition,'kind'),'adoption':(q.QualityDisposition,'status')},
  'stock':{'quality':(warehouse.StockBalance,'quality_state')},'packages':{'status':(warehouse.Package,'status')},
 }
 for spec in REPORTS.values():

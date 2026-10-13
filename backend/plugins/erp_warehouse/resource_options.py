@@ -72,7 +72,7 @@ RELATIONS = {'InventoryLot': {'material': ('erp_base_material', 'name'),
                          'location': ('erp_base_storagelocation', 'name'),
                          'package': ('erp_warehouse_package', 'code'),
                          'count_line': ('erp_warehouse_stockcountline', 'id'),
-                         'disposition': ('erp_production_qualitydisposition', 'id')}}
+                         'disposition': ('erp_quality_qualitydisposition', 'id')}}
 
 VIEWSETS = {'InventoryLot': 'plugins.erp_base.business_api.BusinessViewSet',
  'StockReceipt': 'plugins.erp_warehouse.views.StockDocumentViewSet',
@@ -221,7 +221,7 @@ RELATIONS.update({'Package': {'source_execution': ('erp_production_operationexec
                             'work_card_allocation': ('erp_production_workcardorderallocation', 'id'),
                             'unit': ('erp_base_unit', 'name')},
  'PackageDispositionAllocation': {'package': ('erp_warehouse_package', 'code'),
-                                  'disposition': ('erp_production_qualitydisposition', 'id'),
+                                  'disposition': ('erp_quality_qualitydisposition', 'id'),
                                   'unit': ('erp_base_unit', 'name')},
  'LabelPrint': {'previous_print': ('erp_warehouse_labelprint', 'id'),
                 'package': ('erp_warehouse_package', 'code'),
@@ -263,3 +263,6 @@ RESOURCE_OPTIONS['StockAdjustmentLine']['label_field'] = 'line_number'
 from .packing_workflows import WORKFLOWS as FULFILLMENT_WORKFLOWS
 for name, workflow in FULFILLMENT_WORKFLOWS.items():
     RESOURCE_OPTIONS[name]["workflow"] = workflow
+
+from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
+RESOURCE_OPTIONS.update(SOURCE_RESOURCES)

@@ -1,3 +1,4 @@
+from plugins.erp_quality import models as q
 """工卡、组缸、人工排程和配方采用；数量与时间均保存明确来源。"""
 from decimal import Decimal, ROUND_HALF_UP
 from django.core.exceptions import ValidationError
@@ -15,16 +16,16 @@ PARENTS = {m.WorkCardOrderAllocation: ('work_card', ''), m.WorkCardOperation: ('
     m.DyeBatchWorkCard: ('batch', ''), m.DyeBatchAllocation: ('batch_work_card', 'batch'),
     m.ExecutionWorker: ('execution', ''), m.ExecutionMeasurement: ('execution', ''),
     m.WeighingOrder: ('batch', ''), m.WeighingStage: ('order', ''), m.WeighingLine: ('stage', 'order'),
-    m.InspectionResultLine: ('inspection', '')}
+    q.InspectionResultLine: ('inspection', '')}
 READONLY = {m.ScheduleAssignment, m.ProductionRecipe, m.MaterialPlanStage, m.MaterialPlanLine,
-    m.OperationExecution, m.ExecutionCorrection, m.PhysicalBatchExecution, m.PhysicalExecutionCorrection,m.WeighingRecord, m.QualityDisposition}
+    m.OperationExecution, m.ExecutionCorrection, m.PhysicalBatchExecution, m.PhysicalExecutionCorrection,m.WeighingRecord, q.QualityDisposition}
 OWNED = {m.WorkCard: {'status', 'released_at', 'completed_at', 'closed_at','is_paused'},
     m.WorkCardOrderAllocation: {'adopted_order_snapshot','original_allocation','released_unfulfilled_quantity','demand_release_at','demand_release_reason'}, m.DyeBatch: {'status'}, m.DyeBatchWorkCard: set(),
     m.DyeBatchAllocation: set(), m.WorkCardOperation: {'process', 'sequence', 'route_step', 'is_required', 'planned_minutes', 'predecessor', 'is_skipped','skip_reason'},
     m.OperationParameter: set(), m.WorkCardRequirement: {'source_order_requirement'},
     m.ExecutionWorker:set(),m.ExecutionMeasurement:set(),m.WeighingOrder:{'status'},m.WeighingStage:set(),
-    m.WeighingLine:{'status'},m.QualityInspection:{'result','package','is_void','voided_at','void_reason'},m.InspectionResultLine:set(),
-    m.QualityDefect:{'status'},m.ReworkOrder:{'status','rework_work_card'}}
+    m.WeighingLine:{'status'},q.QualityInspection:{'result','package','is_void','voided_at','void_reason'},q.InspectionResultLine:set(),
+    q.QualityDefect:{'status'},m.ReworkOrder:{'status','rework_work_card'}}
 for model in READONLY:
     OWNED[model] = {f.name for f in model._meta.fields}
 
@@ -40,11 +41,11 @@ def editable(item):
     if isinstance(item,(m.WeighingStage,m.WeighingLine)):
         order=item.order if isinstance(item,m.WeighingStage) else item.stage.order
         require_state(order,['draft']);return
-    if isinstance(item,(m.QualityInspection,m.InspectionResultLine)):
-        inspection=item if isinstance(item,m.QualityInspection) else item.inspection
+    if isinstance(item,(q.QualityInspection,q.InspectionResultLine)):
+        inspection=item if isinstance(item,q.QualityInspection) else item.inspection
         if inspection.is_void:raise ValidationError({'inspection':'已取消采用的检验保留原事实，不再编辑。'})
         require_state(inspection,['pending'],'result');return
-    if isinstance(item,m.QualityDefect):
+    if isinstance(item,q.QualityDefect):
         require_state(item,['open','handling']);return
     if isinstance(item,m.ReworkOrder):
         require_state(item,['draft']);return
@@ -68,7 +69,7 @@ def parent_editable(model, item):
         require_state(item,['running']);return
     if model is m.WeighingOrder:
         require_state(item,['planned','scheduled','running']);return
-    if model is m.InspectionResultLine:
+    if model is q.InspectionResultLine:
         require_state(item,['pending'],'result');return
     editable(item)
 
@@ -80,10 +81,10 @@ def converted_sum(rows, quantity, unit, target):
 def validate(item):
     if type(item) in READONLY or isinstance(item, m.WorkCardOperation):
         raise ValidationError({'id': '此对象由生产业务操作创建。'})
-    if isinstance(item,m.QualityInspection):
-        from .quality_services import validate_scope
+    if isinstance(item,q.QualityInspection):
+        from plugins.erp_quality.services import validate_scope
         validate_scope(item)
-    if isinstance(item,m.QualityDefect):
+    if isinstance(item,q.QualityDefect):
         if item.inspection_id is not None and item.inspection.work_card_id!=item.work_card_id:
             raise ValidationError({'inspection':'质量异常检验必须属于本工卡。'})
         if item.execution_id is not None and item.execution.operation.work_card_id!=item.work_card_id:

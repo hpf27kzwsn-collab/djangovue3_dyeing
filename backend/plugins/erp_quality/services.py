@@ -4,9 +4,10 @@ from django.core.exceptions import ValidationError
 from django.db import transaction
 from plugins.erp_base.business import locked, persist, record, snapshot, require_state, require_rows
 from plugins.erp_warehouse import models as warehouse
-from . import models as m
-from .execution_services import effective
-from .services import converted_sum
+from plugins.erp_production import models as m
+from . import models as q
+from plugins.erp_production.execution_services import effective
+from plugins.erp_production.services import converted_sum
 
 
 def validate_scope(item):
@@ -58,10 +59,10 @@ def judge(item,actor,result,employee):
     else:locked(item.work_card)
     item=locked(item);require_state(item,['pending'],'result')
     validate_scope(item)
-    require_rows(m.InspectionResultLine.objects.filter(inspection=item))
-    if m.InspectionResultLine.objects.filter(inspection=item,result='pending').exists():
+    require_rows(q.InspectionResultLine.objects.filter(inspection=item))
+    if q.InspectionResultLine.objects.filter(inspection=item,result='pending').exists():
         raise ValidationError({'lines':'请先完成全部实际检验项目判定。'})
-    if result=='pass' and m.InspectionResultLine.objects.filter(inspection=item,result='fail').exists():
+    if result=='pass' and q.InspectionResultLine.objects.filter(inspection=item,result='fail').exists():
         raise ValidationError({'result':'有不合格项目不能判为全部合格；让步通过单独处置记录。'})
     before=snapshot(item);item.result,item.inspector=result,employee
     persist(item,actor);record(item,'judge',before,actor)
@@ -88,10 +89,10 @@ def dispose(item,actor,kind,quantity,unit,reason,employee,at,supersedes=None):
             raise ValidationError({'supersedes':'原处置已有有效返修任务。'})
         if warehouse.PackageDispositionAllocation.objects.filter(disposition=previous).exclude(package__status__in=['draft','void']).exists():raise ValidationError({'supersedes':'原处置已经用于实际包装，请先处理原包装。'})
         before=snapshot(previous);previous.status='replaced';persist(previous,actor);record(previous,'replace',before,actor,reason)
-    used=converted_sum(m.QualityDisposition.objects.filter(inspection=item,status='active'),'quantity','unit',item.quantity_unit)
+    used=converted_sum(q.QualityDisposition.objects.filter(inspection=item,status='active'),'quantity','unit',item.quantity_unit)
     if used+unit.convert_quantity(quantity,item.quantity_unit)>item.inspected_quantity:
         raise ValidationError({'quantity':'有效处置合计不能超过本次明确检验量。'})
-    disposition=persist(m.QualityDisposition(inspection=item,kind=kind,quantity=quantity,unit=unit,reason=reason,
+    disposition=persist(q.QualityDisposition(inspection=item,kind=kind,quantity=quantity,unit=unit,reason=reason,
         approved_by=employee,approved_at=at,supersedes=supersedes,dept_belong_id=item.dept_belong_id),actor)
     record(disposition,'dispose',{'exists':False},actor,reason)
     record(item,'dispose',snapshot(item),actor,reason)
@@ -105,7 +106,7 @@ def void(item,actor,reason,at):
     item=locked(item)
     if item.is_void:raise ValidationError({'inspection':'此检验已取消采用。'})
     if at < item.inspected_at:raise ValidationError({'at':'取消采用不能早于检验时间。'})
-    dispositions=list(m.QualityDisposition.objects.select_for_update().filter(inspection=item,status='active').order_by('pk'))
+    dispositions=list(q.QualityDisposition.objects.select_for_update().filter(inspection=item,status='active').order_by('pk'))
     if warehouse.PackageDispositionAllocation.objects.filter(disposition__in=dispositions).exclude(package__status__in=['draft','void']).exists():raise ValidationError({'inspection':'检验放行仍被实际包装采用，请先处理原包装。'})
     if warehouse.StockAdjustmentLine.objects.filter(disposition__in=dispositions,adjustment__status__in=['confirmed','posted']).exists() or m.ReworkOrder.objects.filter(disposition__in=dispositions).exclude(status='cancelled').exists():
         raise ValidationError({'inspection':'有效库存处置或返修仍引用此检验，请先处理对应业务。'})
@@ -122,7 +123,7 @@ def close_rework(item,actor,inspection,reason):
     inspection=locked(inspection)
     if inspection.work_card_id!=item.rework_work_card_id or inspection.kind!='reinspection' or inspection.result!='pass' or inspection.is_void:
         raise ValidationError({'inspection':'返修结案必须对应本返修工卡的有效合格复检。'})
-    if not m.QualityDisposition.objects.filter(inspection=inspection,status='active',kind__in=['release','concession','downgrade']).exists():
+    if not q.QualityDisposition.objects.filter(inspection=inspection,status='active',kind__in=['release','concession','downgrade']).exists():
         raise ValidationError({'inspection':'合格复检还需明确实际放行处置。'})
     before=snapshot(item);item.status='closed';persist(item,actor);record(item,'close',before,actor,reason)
     return item
@@ -144,13 +145,13 @@ def release_rework(item,actor,number,route_version,at,allocations=None):
         color_number_snapshot=original.color_number_snapshot,route_version=route_version,planned_quantity=item.quantity,
         quantity_unit=item.unit,original_work_card=original,manual_creation_reason=item.reason,dept_belong_id=original.dept_belong_id),actor)
     from plugins.erp_base.models import RouteStep
-    from .services import prepare, release
+    from plugins.erp_production.services import prepare, release
     old_allocations=list(m.WorkCardOrderAllocation.objects.filter(work_card=original))
     if old_allocations:
         if not allocations:raise ValidationError({'allocations':'订单返修须明确承接原工卡各订单的实际数量。'})
         if len({row['original'].pk for row in allocations})!=len(allocations):raise ValidationError({'allocations':'同一原需求只填写一次。'})
         if sum((row['unit'].convert_quantity(row['quantity'],item.unit) for row in allocations),Decimal('0'))!=item.quantity:raise ValidationError({'allocations':'承接订单分配合计必须等于本次返修量。'})
-        from .services import check_order_allocation
+        from plugins.erp_production.services import check_order_allocation
         for row in allocations:
             if row['original'].work_card_id!=original.pk:raise ValidationError({'allocations':'承接来源必须属于原工卡。'})
             root=row['original'] if row['original'].original_allocation_id is None else row['original'].original_allocation

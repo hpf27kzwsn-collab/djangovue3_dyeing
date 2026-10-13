@@ -1,10 +1,12 @@
+from plugins.erp_quality import services as quality
+from plugins.erp_quality import models as q
 from datetime import timedelta
 from decimal import Decimal
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 from plugins.erp_base import models as base
 from plugins.erp_base.business import write
-from plugins.erp_production import models as production,services as planning,execution_services as actual,quality_services as quality,lifecycle_services as lifecycle
+from plugins.erp_production import models as production,services as planning,execution_services as actual,lifecycle_services as lifecycle
 from plugins.erp_production import test_workflows as fixtures
 from plugins.erp_sales import models as sales,fulfillment_services as fulfillment
 from . import models as m,services as stock,packing_services as packing
@@ -30,12 +32,12 @@ class PackingDeliveryTests(TestCase):
             actual.start(operation,self.actor,at=self.now+timedelta(hours=start),employee=employee,machine=self.machine)
             execution=production.OperationExecution.objects.get(operation=operation)
             actual.complete(execution,self.actor,at=self.now+timedelta(hours=finish),**self.output('80'))
-        inspection=write(production.QualityInspection,{'number':'Q','work_card':card,'execution':execution,'kind':'final',
+        inspection=write(q.QualityInspection,{'number':'Q','work_card':card,'execution':execution,'kind':'final',
             'inspected_at':self.now+timedelta(hours=5),'inspected_quantity':Decimal('80'),'quantity_unit':self.kg},None,planning.POLICY)
-        write(production.InspectionResultLine,{'inspection':inspection,'item_code':'COLOR','item_name_snapshot':'实际对色','result':'pass'},None,planning.POLICY)
+        write(q.InspectionResultLine,{'inspection':inspection,'item_code':'COLOR','item_name_snapshot':'实际对色','result':'pass'},None,planning.POLICY)
         quality.judge(inspection,self.actor,result='pass',employee=employee)
         quality.dispose(inspection,self.actor,kind='release',quantity=Decimal('80'),unit=self.kg,reason='实际终检放行',employee=employee,at=self.now+timedelta(hours=6))
-        disposition=production.QualityDisposition.objects.get()
+        disposition=q.QualityDisposition.objects.get()
         owner=base.Party.objects.create(code='OWN',name='本企业')
         lot=m.InventoryLot.objects.create(code='OUT',material=self.material,owner=owner)
         package=m.Package.objects.create(code='PK',barcode='BARCODE',lot=lot,work_card=card,source_execution=execution,
@@ -169,7 +171,7 @@ class PackingDeliveryTests(TestCase):
             reason='更正实际可放行范围',employee=employee,at=self.now+timedelta(hours=7),supersedes=disposition)
         quality.dispose(disposition.inspection,self.actor,kind='rework',quantity=Decimal('20'),unit=self.kg,
             reason='其中20需要重新处理',employee=employee,at=self.now+timedelta(hours=7))
-        rework_disposition=production.QualityDisposition.objects.get(kind='rework')
+        rework_disposition=q.QualityDisposition.objects.get(kind='rework')
         order=production.ReworkOrder.objects.create(number='RW',original_work_card=card,disposition=rework_disposition,quantity=20,unit=self.kg,reason='原订单返修')
         with self.assertRaises(ValidationError):quality.release_rework(order,self.actor,number='RW-CARD',route_version=self.version,at=self.now+timedelta(hours=8))
         quality.release_rework(order,self.actor,number='RW-CARD',route_version=self.version,at=self.now+timedelta(hours=8),
@@ -184,7 +186,7 @@ class PackingDeliveryTests(TestCase):
         card,employee,package,allocation,disposition,warehouse,location=self.prepare()
         quality.dispose(disposition.inspection,self.actor,kind='rework',quantity=Decimal('20'),unit=self.kg,
             reason='整笔20实际返修',employee=employee,at=self.now+timedelta(hours=7),supersedes=disposition)
-        source=production.QualityDisposition.objects.get(status='active')
+        source=q.QualityDisposition.objects.get(status='active')
         order=production.ReworkOrder.objects.create(number='RW',original_work_card=card,disposition=source,quantity=20,unit=self.kg,reason='重新松筒')
         route=base.Route.objects.create(code='RW',name='明确返修路线')
         version=base.RouteVersion.objects.create(route=route,version=1,status='active')
@@ -195,9 +197,9 @@ class PackingDeliveryTests(TestCase):
         actual.start(node,self.actor,at=self.now+timedelta(hours=9),employee=employee,machine=self.machine)
         execution=production.OperationExecution.objects.get(operation=node)
         actual.complete(execution,self.actor,at=self.now+timedelta(hours=10),**self.output('20'))
-        inspection=write(production.QualityInspection,{'number':'RECHECK','work_card':order.rework_work_card,'execution':execution,'kind':'reinspection',
+        inspection=write(q.QualityInspection,{'number':'RECHECK','work_card':order.rework_work_card,'execution':execution,'kind':'reinspection',
             'previous_inspection':disposition.inspection,'inspected_at':self.now+timedelta(hours=11),'inspected_quantity':Decimal('20'),'quantity_unit':self.kg},None,planning.POLICY)
-        write(production.InspectionResultLine,{'inspection':inspection,'item_code':'RECHECK','item_name_snapshot':'实际复检','result':'pass'},None,planning.POLICY)
+        write(q.InspectionResultLine,{'inspection':inspection,'item_code':'RECHECK','item_name_snapshot':'实际复检','result':'pass'},None,planning.POLICY)
         quality.judge(inspection,self.actor,result='pass',employee=employee)
         quality.dispose(inspection,self.actor,kind='release',quantity=Decimal('20'),unit=self.kg,reason='实际复检放行',employee=employee,at=self.now+timedelta(hours=12))
         with self.assertRaises(ValidationError):quality.close_rework(order,self.actor,inspection=inspection,reason='生产未确认完成')
