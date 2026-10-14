@@ -87,11 +87,12 @@ def compare_table(table):
     return {'table':table.schema_name+'.'+table.table_name,'rows':count,'field_comparisons':comparisons}
 
 
-def link_relations(batch):
+def link_relations(batch, table_names=None):
     """原配置/数据库声明的关系，只有确切唯一匹配才建立FK；原码一直保留。"""
     totals={};quote=connection.ops.quote_name
     for spec in entries():
         if spec['handling']!='business_model':continue
+        if table_names is not None and spec['table'] not in table_names:continue
         child=apps.get_model(spec['module'],spec['model'])
         for relation in spec['relations']:
             parent=apps.get_model(relation['target']);column=child._meta.get_field(relation['field']).column

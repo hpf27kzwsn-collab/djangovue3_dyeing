@@ -63,5 +63,7 @@ class SourceRecordViewSet(BusinessViewSet):
     @action(methods=['post'],detail=True)
     def calculate(self,request,pk=None):
         from .business_api import parameters
-        data=parameters(self,{'method':serializers.ChoiceField(choices=['fields','amount_to_price',*services.PACK_METHODS])})
+        entries = services.ENTRY_METHODS.get(self.get_queryset().model.SOURCE_TABLE, {})
+        data=parameters(self,{'method':serializers.ChoiceField(choices=[
+            'fields','amount_to_price',*services.PACK_METHODS,*['entry:'+entry for entry in entries]])})
         return self.performed(services.calculate,data)

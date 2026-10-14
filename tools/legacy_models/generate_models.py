@@ -55,6 +55,7 @@ def generate(schema_path,registry_path):
     columns=defaultdict(list)
     owners=runpy.run_path(str(ROOT/'backend/plugins/erp_base/source_ownership.py'))['OWNERS']
     formulas=runpy.run_path(str(ROOT/'backend/plugins/erp_base/source_calculations.py'))
+    entry_formulas=runpy.run_path(str(ROOT/'backend/plugins/erp_base/source_calculation_entries.py'))['ENTRY_METHODS']
     for column in source['fields']:columns[(column['schema_name'],column['table_name'])].append(column)
     grouping=defaultdict(list)
     for table in registry['tables']:
@@ -107,6 +108,8 @@ def generate(schema_path,registry_path):
                 methods=[{'value':key,'label':value} for key,value in formulas['PACK_METHODS'].items()]
             if table['table']=='StuffInDetail':
                 methods.append({'value':'amount_to_price','label':'原金额反算单价'})
+            methods.extend({'value':'entry:'+entry,'label':'原入口：'+title}
+                           for entry,title in entry_formulas.get(table['table'],{}).items())
             if methods:
                 options['workflow']['actions'].append({'key':'calculate','title':'按原公式计算','states':['draft',None],
                     'inputs':[{'key':'method','title':'计算方法','kind':'select','required':True,'options':methods}]})

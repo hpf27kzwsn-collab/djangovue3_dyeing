@@ -9,6 +9,8 @@ from .business import locked, persist, record, snapshot
 from .source_ownership import OWNERS
 from .source_calculations import field_values,packaging_values,aggregate_values,price_from_amount,PRODUCTS,SPECIAL_TABLES,PACK_METHODS,AGGREGATES
 from .source_sequences import allocate
+from .source_calculation_entries import ENTRY_METHODS
+from .source_entry_calculations import entry_values
 
 OWNED = {'legacy_id', 'source_batch', 'source_row', 'approval_stage', 'confirmed_at',
          'confirmed_by', 'approved_at', 'approved_by'}
@@ -251,6 +253,8 @@ def calculate(item, actor, method):
         if item.SOURCE_TABLE != 'StuffInDetail':
             raise ValidationError({'method': '金额反算单价仅适用于原染化料入库明细。'})
         values = price_from_amount(item)
+    elif method.startswith('entry:'):
+        values = entry_values(item, method[len('entry:'):])
     else:
         if item.SOURCE_TABLE != 'RecordYield' or method not in PACK_METHODS:
             raise ValidationError({'method': '所选原入口公式不适用于本条记录。'})

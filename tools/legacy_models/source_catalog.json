@@ -40229,7 +40229,24 @@
         "OirDosage": "OirDosage",
         "AdjustDosage": "AdjustDosage"
       },
-      "relations": [],
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "原关联：StuffWeightPhase",
+          "target": "erp_production.SourceDyeStuffWeightPhase",
+          "source_fields": [
+            "SheetSeries",
+            "PhaseNo"
+          ],
+          "target_fields": [
+            "SheetSeries",
+            "PhaseNo"
+          ],
+          "evidence": [
+            "有效称料阶段明细入口SQL的StuffWeightPhase与StuffWeightDetail复合键连接"
+          ]
+        }
+      ],
       "document": false
     },
     {

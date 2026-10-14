@@ -2,16 +2,16 @@
 
 生成依据：保存的有效入口配置及原完整配置快照。日期：2026-10-14。
 
-台账中的“待逐项对照”表示证据已登记，不表示代码已复刻。空值、注释SQL和原公式均保留证据；旧SQL不执行。
+台账中的“待逐项对照”表示证据已登记，不表示代码已复刻。空值、注释SQL和原公式均保留证据；旧SQL不执行。连接阶段和物料明细的入口同时列实际连接模型，公式证据另标记物理目标，查询别名不会冒充阶段字段。
 
-| 原入口 | 原表/模型 | 主入口 | 公式数 | 钩子SQL数 | 状态 |
+| 原入口 | 原表/模型（含明确连接明细） | 主入口 | 公式数 | 钩子SQL数 | 状态 |
 |---|---|---|---:|---:|---|
 | AddJobShiftEmpEdit | JobShiftEmp / erp_production.SourceDyeJobShiftEmp | AddWProcessEdit | 0 | 0 | 待逐项对照 |
 | AddStuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 4 | 7 | 待逐项对照 |
-| AddStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | AddStuffWeight | 6 | 0 | 待逐项对照 |
+| AddStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | AddStuffWeight | 6 | 0 | 待逐项对照 |
 | AddWProcessEdit | WProcess / erp_production.SourceDyeWProcess | None | 1 | 0 | 待逐项对照 |
 | AfterNormalStuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 2 | 8 | 待逐项对照 |
-| AfterNormalStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | AfterNormalStuffWeight | 6 | 0 | 待逐项对照 |
+| AfterNormalStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | AfterNormalStuffWeight | 6 | 0 | 待逐项对照 |
 | ArticleIn | ArticleIn / erp_warehouse.SourceDyeArticleIn | None | 0 | 3 | 待逐项对照 |
 | ArticleInDetail | ArticleInDetail / erp_warehouse.SourceDyeArticleInDetail | ArticleIn | 2 | 0 | 待逐项对照 |
 | ArticleOut | ArticleOut / erp_warehouse.SourceDyeArticleOut | None | 0 | 0 | 待逐项对照 |
@@ -20,7 +20,7 @@
 | ArticlePurApplyMain | PurApplyMain / erp_purchase.SourceDyePurApplyMain | None | 0 | 3 | 待逐项对照 |
 | ArticlePurDetail | PurDetail / erp_purchase.SourceDyePurDetail | ArticlePurMain | 1 | 0 | 待逐项对照 |
 | BulkDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 1 | 0 | 待逐项对照 |
-| BulkDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | BulkDyeRecipe | 1 | 0 | 待逐项对照 |
+| BulkDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | BulkDyeRecipe | 1 | 0 | 待逐项对照 |
 | ChengBen_Gray | p_Gray / erp_base.SourceDyePGray | None | 0 | 1 | 待逐项对照 |
 | ChengBen_Kind | p_Gray / erp_base.SourceDyePGray | None | 0 | 1 | 待逐项对照 |
 | CusReturnSemiIn | SemiIn / erp_warehouse.SourceDyeSemiIn | None | 0 | 1 | 待逐项对照 |
@@ -51,13 +51,13 @@
 | DyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 0 | 0 | 待逐项对照 |
 | DyeRecipeDetail | DyeRecipeDetail / erp_sampling.SourceDyeDyeRecipeDetail | DyeRecipePhase | 0 | 0 | 待逐项对照 |
 | DyeRecipePhase | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | DyeRecipe | 0 | 0 | 待逐项对照 |
-| DyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | DyeRecipe | 1 | 0 | 待逐项对照 |
+| DyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | DyeRecipe | 1 | 0 | 待逐项对照 |
 | FabricArticleIn | ArticleIn / erp_warehouse.SourceDyeArticleIn | None | 0 | 4 | 待逐项对照 |
 | FabricArticleInDetail | ArticleInDetail / erp_warehouse.SourceDyeArticleInDetail | FabricArticleIn | 2 | 0 | 待逐项对照 |
 | FabricArticleOut | ArticleOut / erp_warehouse.SourceDyeArticleOut | None | 0 | 0 | 待逐项对照 |
 | FabricArticleOutDetail | ArticleOutDetail / erp_warehouse.SourceDyeArticleOutDetail | FabricArticleOut | 1 | 0 | 待逐项对照 |
 | FinishDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 1 | 0 | 待逐项对照 |
-| FinishDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | FinishDyeRecipe | 1 | 0 | 待逐项对照 |
+| FinishDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | FinishDyeRecipe | 1 | 0 | 待逐项对照 |
 | FixedPrice | Quote / erp_sales.SourceDyeQuote | None | 1 | 1 | 待逐项对照 |
 | FixedPriceDetail | QuoteDetail / erp_sales.SourceDyeQuoteDetail | FixedPrice | 1 | 0 | 待逐项对照 |
 | GrayAllotIn | GrayIn / erp_warehouse.SourceDyeGrayIn | None | 0 | 0 | 待逐项对照 |
@@ -130,8 +130,8 @@
 | NoexistsRecipeJobSheet | JobSheet / erp_production.SourceDyeJobSheet |  | 0 | 0 | 待逐项对照 |
 | NormalStuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 2 | 8 | 待逐项对照 |
 | NormalStuffWeight_Wash | StuffWeight / erp_production.SourceDyeStuffWeight | None | 2 | 3 | 待逐项对照 |
-| NormalStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | NormalStuffWeight | 6 | 0 | 待逐项对照 |
-| NormalStuffWeightPhaseDetail_Wash | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | NormalStuffWeight_Wash | 4 | 0 | 待逐项对照 |
+| NormalStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | NormalStuffWeight | 6 | 0 | 待逐项对照 |
+| NormalStuffWeightPhaseDetail_Wash | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | NormalStuffWeight_Wash | 4 | 0 | 待逐项对照 |
 | OrderAtte | OrderAtte / erp_sales.SourceDyeOrderAtte | OrderColor | 0 | 0 | 待逐项对照 |
 | OrderAtte1 | OrderAtte / erp_sales.SourceDyeOrderAtte |  | 0 | 0 | 待逐项对照 |
 | OrderAtteChange | OrderAtte / erp_sales.SourceDyeOrderAtte | OrderMainChange | 0 | 0 | 待逐项对照 |
@@ -144,7 +144,7 @@
 | OrderMainChange | OrderMain / erp_sales.SourceDyeOrderMain |  | 0 | 4 | 待逐项对照 |
 | OrderMainSup | OrderMain / erp_sales.SourceDyeOrderMain |  | 0 | 4 | 待逐项对照 |
 | OtherDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 0 | 0 | 待逐项对照 |
-| OtherDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | OtherDyeRecipe | 1 | 0 | 待逐项对照 |
+| OtherDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | OtherDyeRecipe | 1 | 0 | 待逐项对照 |
 | p_Article | p_Article / erp_base.SourceDyePArticle | None | 0 | 2 | 待逐项对照 |
 | p_Customer | p_Customer / erp_base.SourceDyePCustomer | None | 1 | 3 | 待逐项对照 |
 | p_Defect | p_FieldValid / erp_base.SourceDyePFieldValid | None | 0 | 0 | 待逐项对照 |
@@ -178,7 +178,7 @@
 | PackBag | p_FieldValid / erp_base.SourceDyePFieldValid | None | 0 | 0 | 待逐项对照 |
 | PackBag_QF | p_FieldValid / erp_base.SourceDyePFieldValid | None | 0 | 0 | 待逐项对照 |
 | PrepareDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 0 | 0 | 待逐项对照 |
-| PrepareDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | PrepareDyeRecipe | 1 | 0 | 待逐项对照 |
+| PrepareDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | PrepareDyeRecipe | 1 | 0 | 待逐项对照 |
 | PrintJobAssign | JobAssign / erp_production.SourceDyeJobAssign | PrintJobSheet | 0 | 0 | 待逐项对照 |
 | PrintJobAtte | JobAtte / erp_production.SourceDyeJobAtte | PrintJobSheet | 0 | 0 | 待逐项对照 |
 | PrintJobCombine | JobCombine / erp_production.SourceDyeJobCombine | PrintJobSheet | 0 | 0 | 待逐项对照 |
@@ -196,7 +196,7 @@
 | ProcessScheduleGX | ProcessSchedule / erp_production.SourceDyeProcessSchedule | None | 0 | 0 | 待逐项对照 |
 | ProcessScheduleRS | ProcessSchedule / erp_production.SourceDyeProcessSchedule | None | 0 | 1 | 待逐项对照 |
 | ProcessStuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 1 | 5 | 待逐项对照 |
-| ProcessStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | ProcessStuffWeight | 3 | 0 | 待逐项对照 |
+| ProcessStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | ProcessStuffWeight | 3 | 0 | 待逐项对照 |
 | ProdIn | ProdIn / erp_warehouse.SourceDyeProdIn | None | 4 | 4 | 待逐项对照 |
 | ProdIn_ht | ProdIn / erp_warehouse.SourceDyeProdIn | None | 5 | 2 | 待逐项对照 |
 | ProdInEdit | ProdIn / erp_warehouse.SourceDyeProdIn | None | 5 | 0 | 待逐项对照 |
@@ -248,9 +248,9 @@
 | RecordYield | RecordYield / erp_warehouse.SourceDyeRecordYield | None | 0 | 0 | 待逐项对照 |
 | RequireClass | p_FieldValid / erp_base.SourceDyePFieldValid | None | 1 | 1 | 待逐项对照 |
 | ReworkDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 0 | 0 | 待逐项对照 |
-| ReworkDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | ReworkDyeRecipe | 1 | 0 | 待逐项对照 |
+| ReworkDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | ReworkDyeRecipe | 1 | 0 | 待逐项对照 |
 | ReworkStuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 3 | 7 | 待逐项对照 |
-| ReworkStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | ReworkStuffWeight | 5 | 0 | 待逐项对照 |
+| ReworkStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | ReworkStuffWeight | 5 | 0 | 待逐项对照 |
 | SaleJobAssign | JobAssign / erp_production.SourceDyeJobAssign | SaleJobSheet | 0 | 0 | 待逐项对照 |
 | SaleJobAtte | JobAtte / erp_production.SourceDyeJobAtte | SaleJobSheet | 0 | 0 | 待逐项对照 |
 | SaleJobCombine | JobCombine / erp_production.SourceDyeJobCombine | SaleJobSheet | 0 | 0 | 待逐项对照 |
@@ -258,7 +258,7 @@
 | SaleJobProcess | JobProcess / erp_production.SourceDyeJobProcess | SaleJobSheet | 0 | 0 | 待逐项对照 |
 | SaleJobSheet | JobSheet / erp_production.SourceDyeJobSheet | None | 5 | 5 | 待逐项对照 |
 | SelfStuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 2 | 4 | 待逐项对照 |
-| SelfStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | SelfStuffWeight | 4 | 0 | 待逐项对照 |
+| SelfStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | SelfStuffWeight | 4 | 0 | 待逐项对照 |
 | SemiIn | SemiIn / erp_warehouse.SourceDyeSemiIn | None | 0 | 1 | 待逐项对照 |
 | SemiInBack | SemiIn / erp_warehouse.SourceDyeSemiIn | None | 0 | 1 | 待逐项对照 |
 | SemiInDetail | SemiInDetail / erp_warehouse.SourceDyeSemiInDetail | SemiIn | 1 | 0 | 待逐项对照 |
@@ -284,7 +284,7 @@
 | SmallStuffOut | StuffOut / erp_warehouse.SourceDyeStuffOut | None | 0 | 0 | 待逐项对照 |
 | SmallStuffOutDetail | StuffOutDetail / erp_warehouse.SourceDyeStuffOutDetail | SmallStuffOut | 1 | 0 | 待逐项对照 |
 | StandardDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 0 | 0 | 待逐项对照 |
-| StandardDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | StandardDyeRecipe | 1 | 0 | 待逐项对照 |
+| StandardDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | StandardDyeRecipe | 1 | 0 | 待逐项对照 |
 | StuffAllot | StuffAllot / erp_warehouse.SourceDyeStuffAllot | None | 0 | 0 | 待逐项对照 |
 | StuffAllotDetail | StuffAllotDetail / erp_warehouse.SourceDyeStuffAllotDetail | StuffAllot | 1 | 0 | 待逐项对照 |
 | StuffIn | StuffIn / erp_warehouse.SourceDyeStuffIn | None | 1 | 4 | 待逐项对照 |
@@ -299,7 +299,7 @@
 | StuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 1 | 0 | 待逐项对照 |
 | StuffWeightDetail | StuffWeightDetail / erp_production.SourceDyeStuffWeightDetail | None | 0 | 0 | 待逐项对照 |
 | StuffWeightPhase | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | None | 0 | 0 | 待逐项对照 |
-| StuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | StuffWeight | 2 | 0 | 待逐项对照 |
+| StuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | StuffWeight | 2 | 0 | 待逐项对照 |
 | SwipeLabelPrint | SwipeLabelPrint / erp_warehouse.SourceDyeSwipeLabelPrint | None | 0 | 0 | 待逐项对照 |
 | TrialDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 1 | 1 | 待逐项对照 |
 | TrialDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | TrialDyeRecipe | 0 | 0 | 待逐项对照 |
@@ -319,9 +319,9 @@
 | TwiJobSheet | JobSheet / erp_production.SourceDyeJobSheet | None | 5 | 5 | 待逐项对照 |
 | vwProdStockCheck | ProdStockCheck / erp_warehouse.SourceDyeProdStockCheck | None | 0 | 0 | 待逐项对照 |
 | WashDyeRecipe | DyeRecipe / erp_sampling.SourceDyeDyeRecipe | None | 0 | 0 | 待逐项对照 |
-| WashDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase | WashDyeRecipe | 1 | 0 | 待逐项对照 |
+| WashDyeRecipePhaseDetail | DyeRecipePhase / erp_sampling.SourceDyeDyeRecipePhase；连接：erp_sampling.SourceDyeDyeRecipeDetail | WashDyeRecipe | 1 | 0 | 待逐项对照 |
 | WashProcessStuffWeight | StuffWeight / erp_production.SourceDyeStuffWeight | None | 1 | 4 | 待逐项对照 |
-| WashProcessStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase | WashProcessStuffWeight | 3 | 0 | 待逐项对照 |
+| WashProcessStuffWeightPhaseDetail | StuffWeightPhase / erp_production.SourceDyeStuffWeightPhase；连接：erp_production.SourceDyeStuffWeightDetail | WashProcessStuffWeight | 3 | 0 | 待逐项对照 |
 | WDefect | WDefect / erp_quality.SourceDyeWDefect | None | 0 | 0 | 待逐项对照 |
 | WDefectJudgeBack | WDefect / erp_quality.SourceDyeWDefect | None | 0 | 1 | 待逐项对照 |
 | WDefectJudgeInterior | WDefect / erp_quality.SourceDyeWDefect | None | 0 | 1 | 待逐项对照 |

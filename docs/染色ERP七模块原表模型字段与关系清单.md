@@ -10,6 +10,18 @@
 
 原码和可选关联字段并存。关联只按已声明数据库外键或原界面明确主从配置建立；原码缺父项或匹配多项时仍可承接原行，等待对照。重复条码、原负数、小数件数、空值及倒序时间不设额外拒收规则。
 
+## 2026-10-14关系增补
+
+下方保留原11,412个物理字段清单；本轮增加以下三项明确关系，未改原列。当前原表关系总数161组。
+
+| 明细模型 | 新关联 | 目标模型 | 原列对应 | 依据 |
+|---|---|---|---|---|
+| `erp_sales.SourceDyeCustomerTSDetail` | `source_parent_1` | `erp_sales.SourceDyeCustomerTS` | `Sheetseries → SheetSeries` | 有效入口主从声明 |
+| `erp_warehouse.SourceDyeGrayMaterialDetail` | `source_parent_1` | `erp_warehouse.SourceDyeGrayMaterial` | `Sheetseries → SheetSeries` | 有效入口主从声明 |
+| `erp_production.SourceDyeStuffWeightDetail` | `source_parent_1` | `erp_production.SourceDyeStuffWeightPhase` | `SheetSeries＋PhaseNo → SheetSeries＋PhaseNo` | 有效称料阶段明细SQL连接 |
+
+阶段/物料的公式归属及各入口差异见《旧ERP复刻异常与合理实现说明》E12～E14；界面查询别名仍与物理列分别记录。
+
 ## 基础信息
 
 新增原表模型 207 个，原字段 2955 个。

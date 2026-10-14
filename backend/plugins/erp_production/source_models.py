@@ -3680,7 +3680,7 @@ class SourceDyeStuffWeightDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'PhaseNo': 'old_phase_no', 'StuffNo': 'old_stuff_no', 'StuffID': 'old_stuff_id', 'LotNo': 'old_lot_no', 'StuffType': 'old_stuff_type', 'Price': 'old_price', 'WeightUnit': 'old_weight_unit', 'Dosage': 'old_dosage', 'RecipeUnit': 'old_recipe_unit', 'NeedQty': 'old_need_qty', 'RealQty': 'old_real_qty', 'NeedMoney': 'old_need_money', 'RealMoney': 'old_real_money', 'OutTime': 'old_out_time', 'IsConfirmed': 'old_is_confirmed', 'DetailNote': 'old_detail_note', 'AddScale': 'old_add_scale', 'Status': 'old_status', 'AddQty': 'old_add_qty', 'OriNeedQty': 'old_ori_need_qty', 'OutDate': 'old_out_date', 'AddDosage': 'old_add_dosage', 'AddNeedQty': 'old_add_need_qty', 'Money': 'old_money', 'CarryIndex': 'old_carry_index', 'StepName': 'old_step_name', 'StepNo': 'old_step_no', 'IsFinished': 'old_is_finished', 'AutoSysIDs': 'old_auto_sys_ids', 'OirDosage': 'old_oir_dosage', 'AdjustDosage': 'old_adjust_dosage'}
     SOURCE_KEY=('SheetSeries', 'PhaseNo', 'StuffNo')
     SOURCE_DOCUMENT=False
-    SOURCE_RELATIONS=[]
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关联：StuffWeightPhase', 'target': 'erp_production.SourceDyeStuffWeightPhase', 'source_fields': ['SheetSeries', 'PhaseNo'], 'target_fields': ['SheetSeries', 'PhaseNo'], 'evidence': ['有效称料阶段明细入口SQL的StuffWeightPhase与StuffWeightDetail复合键连接']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
@@ -3715,6 +3715,7 @@ class SourceDyeStuffWeightDetail(SourceRecord):
     old_auto_sys_ids=models.CharField('AutoSysIDs', null=True, blank=True, max_length=10)
     old_oir_dosage=models.DecimalField('OirDosage', null=True, blank=True, max_digits=15, decimal_places=6)
     old_adjust_dosage=models.DecimalField('AdjustDosage', null=True, blank=True, max_digits=15, decimal_places=6)
+    source_parent_1=models.ForeignKey('erp_production.SourceDyeStuffWeightPhase', verbose_name='原关联：StuffWeightPhase', null=True, blank=True, on_delete=models.PROTECT, related_name='+')
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffweightdetail'
