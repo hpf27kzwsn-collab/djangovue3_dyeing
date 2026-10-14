@@ -61,6 +61,32 @@ def import_table(table,actor,sample_rows=None):
     return count
 
 
+def compare_table(table):
+    """流式逐行逐字段核对，不用抽样或合计代替原值对照。"""
+    model=source_model(table)
+    count=0;comparisons=0
+    names=['source_row','legacy_id','approval_stage',*model.SOURCE_FIELDS.values()]
+    with source_path(table).open(encoding='utf-8') as stream:
+        while chunk:=list(islice(stream,500)):
+            originals=[json.loads(line) for line in chunk]
+            records={record['source_row']:record for record in model.objects.filter(
+                source_batch=table.batch,source_row__in=[row['row'] for row in originals]).values(*names)}
+            if len(records)!=len(originals):raise ValueError('原行身份集合不一致：'+table.table_name)
+            for original in originals:
+                current=records[original['row']]
+                if current['legacy_id']!=identity(table,original):raise ValueError(f"旧erpID不一致：{table.table_name} 第{original['row']}行")
+                if current['approval_stage'] is not None:raise ValueError(f"历史行出现新办理阶段：{table.table_name} 第{original['row']}行")
+                for name,expected in original_values(model,original).items():
+                    actual=current[name]
+                    if isinstance(actual,memoryview):actual=bytes(actual)
+                    if actual!=expected:raise ValueError(f"原字段不一致：{table.table_name} 第{original['row']}行 {name}")
+                    comparisons+=1
+                count+=1
+    stored=model.objects.filter(source_batch=table.batch).count()
+    if count!=table.row_count or stored!=count:raise ValueError('来源总行数与已承接原行数不一致：'+table.table_name)
+    return {'table':table.schema_name+'.'+table.table_name,'rows':count,'field_comparisons':comparisons}
+
+
 def link_relations(batch):
     """原配置/数据库声明的关系，只有确切唯一匹配才建立FK；原码一直保留。"""
     totals={};quote=connection.ops.quote_name

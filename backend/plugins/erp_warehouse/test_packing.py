@@ -62,8 +62,14 @@ class PackingDeliveryTests(TestCase):
         stock.confirm(receipt,self.actor);stock.post(receipt,self.actor,self.now+timedelta(hours=10))
         return receipt
 
-    def delivered(self):
+    def delivered(self,exact_price=None):
         values=self.packed();card,employee,package,allocation,disposition,warehouse,location=values
+        if exact_price is not None:
+            document=sales.CommercialPrice.objects.create(number='PRECISE',kind='agreed',customer=self.party,status='confirmed')
+            price=sales.CommercialPriceLine.objects.create(price_document=document,line_number=1,material=self.material,
+                unit_price=exact_price,unit=self.kg,is_confirmed=True)
+            self.line.price_source=price;self.line.adopted_price_snapshot=exact_price
+            self.line.unit_price=None;self.line.manual_price_reason='';self.line.save()
         self.receive(package,warehouse,location,80,'IN')
         issue=m.StockIssue.objects.create(number='OUT',document_at=self.now+timedelta(hours=11),kind='delivery',warehouse=warehouse,destination_party=self.party)
         delivery=sales.Delivery.objects.create(number='DEL',document_at=self.now+timedelta(hours=11),customer=self.party,warehouse_issue=issue)
@@ -74,6 +80,14 @@ class PackingDeliveryTests(TestCase):
         delivery.refresh_from_db();self.assertEqual(delivery.status,'issued')
         fulfillment.deliver(delivery,self.actor,at=self.now+timedelta(hours=13))
         return values,delivery,line,row
+
+    def test_delivery_preserves_adopted_six_decimal_price_with_null_original_price(self):
+        values,delivery,line,source=self.delivered(exact_price=Decimal('1.234567'))
+        line.refresh_from_db()
+        self.assertEqual(line.adopted_price_snapshot,Decimal('1.234567'))
+        self.assertIsNone(line.unit_price_snapshot)
+        self.assertEqual(line.price_adoption_snapshot['unit_price'],'1.234567')
+        self.assertIsNone(line.price_adoption_snapshot['original_unit_price'])
 
     def test_packing_exact_tare_scope_and_no_inventory_until_receipt(self):
         card,employee,package,allocation,disposition,warehouse,location=self.prepare()

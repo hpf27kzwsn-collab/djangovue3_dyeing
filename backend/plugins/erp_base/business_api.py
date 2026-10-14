@@ -1,6 +1,5 @@
 from types import SimpleNamespace
 from django.core.exceptions import ValidationError as ModelValidationError
-from django.db import transaction
 from rest_framework import serializers
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
@@ -10,6 +9,9 @@ from core.responses import success
 from system.catalog import ENTITIES
 from system.views import ResourceViewSet
 from . import business
+from .business_policies import policy_for,document_children
+from .document_services import save_document
+from .source_documents import SourceRecord
 
 
 class ActionInput(serializers.Serializer):
@@ -46,20 +48,6 @@ class ChildChanges(serializers.Serializer):
 class DocumentInput(serializers.Serializer):
     head = serializers.DictField()
     children = serializers.DictField(child=ChildChanges())
-
-
-def policy_for(model):
-    from .source_documents import SourceRecord
-    if issubclass(model,SourceRecord):
-        from .source_api import OWNED
-        return {'owned':{model:OWNED}}
-    from plugins.erp_sales.services import POLICY as sales
-    from plugins.erp_sampling.services import POLICY as sampling
-    from plugins.erp_purchase.services import POLICY as purchase
-    from plugins.erp_warehouse.services import POLICY as warehouse
-    from plugins.erp_production.services import POLICY as production
-    return {'erp_sales': sales, 'erp_sampling': sampling, 'erp_purchase': purchase,
-            'erp_warehouse': warehouse, 'erp_production': production, 'erp_quality': production}[model._meta.app_label]
 
 
 class BusinessSerializer(CoreSerializer):
@@ -118,28 +106,22 @@ class BusinessViewSet(ResourceViewSet):
         return success(self.get_serializer(item).data, '操作成功')
 
     @action(methods=['post'], detail=True)
-    @transaction.atomic
     def save_document(self, request, pk=None):
-        """一次提交本层表头和明细；新增、修改、删除均在父锁内完成。"""
+        """校验参数及权限；整单保存交给明确的主从服务。"""
         payload = DocumentInput(data=request.data)
         payload.is_valid(raise_exception=True)
         payload = payload.validated_data
-        item = business.locked(self.get_object())
-        policy = policy_for(type(item))
-        policy['editable'](item)
+        item = self.get_object()
         head = self.get_serializer(item, data=payload['head'], partial=True)
         head.is_valid(raise_exception=True)
-        item = head.save(modifier=request.user)
-        allowed = {name for name, model in ENTITIES.items() if model in policy['parents']
-                   and policy['parents'][model][1] == ''
-                   and model._meta.get_field(policy['parents'][model][0]).related_model is type(item)}
-        if set(payload['children']) - allowed:
+        allowed = document_children(type(item))
+        if set(payload['children']) - {name for name,model in ENTITIES.items() if model in allowed}:
             raise serializers.ValidationError({'children': '明细类型不属于本表头。'})
+        prepared = {}
         for entity, changes in payload['children'].items():
             model = ENTITIES[entity]
-            parent_key, root_path = policy_for(model)['parents'][model]
-            if root_path or model._meta.get_field(parent_key).related_model is not type(item):
-                raise serializers.ValidationError({'children': '明细类型不属于本表头。'})
+            parent_key = allowed[model]
+            prepared[model] = {'upsert': [], 'delete': changes['delete']}
             scope = SimpleNamespace(user=request.user, method='PATCH', path=f'/api/system/{entity}/{{id}}/')
             for row in changes['upsert']:
                 data = dict(row)
@@ -152,19 +134,24 @@ class BusinessViewSet(ResourceViewSet):
                 previous = get_object_or_404(scoped_queryset(model.objects.all(), scope), pk=key, **{parent_key: item}) if key is not None else None
                 if parent_key in data:
                     raise serializers.ValidationError({parent_key: '所属表头由整单保存确定，不接收明细中的父关联。'})
-                if previous is None:
-                    data[parent_key] = item.pk
-                serializer = serializer_for(model, BusinessSerializer)(previous, data=data, partial=previous is not None, context={'request': request})
+                serializer_class = BusinessSerializer
+                if issubclass(model,SourceRecord):
+                    from .source_api import SourceRecordSerializer
+                    serializer_class = SourceRecordSerializer
+                # 归属由整单服务写入；验证新明细时只注入实际父项，不接收用户指定父项。
+                if previous is None:data[parent_key] = item.pk
+                serializer = serializer_for(model, serializer_class)(previous, data=data, partial=previous is not None, context={'request': request})
                 serializer.is_valid(raise_exception=True)
-                audit = {'modifier': request.user} if previous is not None else {'creator': request.user, 'modifier': request.user, 'dept_belong_id': item.dept_belong_id}
-                serializer.save(**audit)
+                values = dict(serializer.validated_data)
+                values.pop(parent_key,None)
+                prepared[model]['upsert'].append({'instance':previous,'data':values})
             if changes['delete']:
                 scope.method, scope.path = 'DELETE', f'/api/system/{entity}/{{id}}/'
                 if not ApiPermission().has_permission(scope, None):
                     raise serializers.ValidationError({'children': '没有明细删除权限。'})
                 for key in changes['delete']:
                     get_object_or_404(scoped_queryset(model.objects.all(), scope), pk=key, **{parent_key: item})
-                business.delete(scoped_queryset(model.objects.all(), scope).filter(pk__in=changes['delete'], **{parent_key: item}), policy_for(model))
+        item = save_document(item,request.user,head.validated_data,prepared)
         return success(self.get_serializer(item).data, '表头与明细已保存')
 
 

@@ -55,7 +55,7 @@ VIEWSETS = {'CommercialPrice': 'plugins.erp_sales.views.CommercialPriceViewSet',
 
 # Fulfillment resource fields
 MODEL_FIELDS.update({'Delivery': 'number document_at customer address_snapshot status delivered_at warehouse_issue',
- 'DeliveryLine': 'package_allocation price_unit price_adoption_snapshot manual_price_reason delivery line_number '
+ 'DeliveryLine': 'package_allocation price_unit adopted_price_snapshot price_adoption_snapshot manual_price_reason delivery line_number '
                  'order_line quantity unit unit_price_snapshot',
  'SalesReturn': 'number customer returned_at reason status',
  'SalesReturnLine': 'original_issue_line reopen_order_demand reopen_reason return_order original_delivery_line '

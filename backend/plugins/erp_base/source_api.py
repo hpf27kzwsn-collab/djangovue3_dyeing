@@ -1,21 +1,19 @@
 """原形业务模型明确录入及草稿、确认、审核；不重演历史库存。"""
-from django.db import transaction
-from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
-from core.api import CoreSerializer
 from core.responses import success
-from system.views import ResourceViewSet
-from .business import record,snapshot,persist
+from . import source_services as services
+from .source_services import OWNED
+from .business_api import BusinessViewSet,BusinessSerializer
 
-OWNED={'legacy_id','source_batch','source_row','approval_stage','confirmed_at','confirmed_by','approved_at','approved_by'}
 
-
-class SourceRecordSerializer(CoreSerializer):
+class SourceRecordSerializer(BusinessSerializer):
     def get_fields(self):
         fields=super().get_fields()
         for name in OWNED:fields[name].read_only=True
+        for name in self.Meta.model.SOURCE_DEFAULTS:fields[name].required=False
+        if self.Meta.model.SOURCE_TABLE=='RecordYield':fields['old_guid'].required=False
         for field in fields.values():
             if isinstance(field,serializers.CharField):field.trim_whitespace=False
         return fields
@@ -26,44 +24,44 @@ class SourceRecordSerializer(CoreSerializer):
         return super().to_internal_value(data)
 
     def create(self,validated_data):
-        item=self.Meta.model(**validated_data)
-        item.approval_stage='draft' if item.SOURCE_DOCUMENT else None
-        return persist(item)
+        actor=validated_data.pop('modifier',None)
+        return services.write(self.Meta.model,validated_data,actor=actor)
 
     def update(self,instance,validated_data):
-        if instance.approval_stage in ['confirmed','approved']:raise ValidationError('请先重新办理，再修改该单据。')
-        for key,value in validated_data.items():setattr(instance,key,value)
-        return persist(instance)
+        actor=validated_data.pop('modifier',None)
+        return services.write(self.Meta.model,validated_data,instance,actor=actor)
 
 
-class SourceRecordViewSet(ResourceViewSet):
-    @transaction.atomic
-    def advance(self,expected,target):
-        current=self.get_object()
-        item=type(current).objects.select_for_update().get(pk=current.pk)
-        if not item.SOURCE_DOCUMENT:raise ValidationError('此对象不是独立办理的业务单据。')
-        if item.approval_stage!=expected:raise ValidationError('当前办理阶段不允许此动作。')
-        before=snapshot(item);item.approval_stage=target
-        if target=='confirmed':item.confirmed_at=timezone.now();item.confirmed_by=self.request.user
-        if target=='approved':item.approved_at=timezone.now();item.approved_by=self.request.user
-        persist(item,self.request.user);record(item,target,before,self.request.user)
+class SourceRecordViewSet(BusinessViewSet):
+    def performed(self,service,values):
+        item=service(self.get_object(),self.request.user,**values)
         return success(self.get_serializer(item).data)
 
     @action(methods=['post'],detail=True)
-    def confirm(self,request,pk=None):return self.advance('draft','confirmed')
+    def confirm(self,request,pk=None):return self.performed(services.confirm,{})
 
     @action(methods=['post'],detail=True)
-    def approve(self,request,pk=None):return self.advance('confirmed','approved')
+    def approve(self,request,pk=None):return self.performed(services.approve,{})
 
     @action(methods=['post'],detail=True)
-    @transaction.atomic
     def reopen(self,request,pk=None):
         from .business_api import parameters
         from rest_framework import serializers
         data=parameters(self,{'reason':serializers.CharField()})
-        current=self.get_object()
-        item=type(current).objects.select_for_update().get(pk=current.pk)
-        if item.approval_stage not in ['confirmed','approved']:raise ValidationError('此单据当前不在确认或审核阶段。')
-        before=snapshot(item);item.approval_stage='draft';persist(item,request.user)
-        record(item,'reopen',before,request.user,data['reason'])
-        return success(self.get_serializer(item).data)
+        return self.performed(services.reopen,data)
+
+    def destroy(self,request,*args,**kwargs):
+        item=self.get_object()
+        services.delete(self.get_queryset().filter(pk=item.pk),request.user)
+        return success([], '删除成功')
+
+    @action(methods=['delete'],detail=False)
+    def multiple_delete(self,request):
+        services.delete(self.get_queryset().filter(pk__in=request.data['keys']),request.user)
+        return success([], '删除成功')
+
+    @action(methods=['post'],detail=True)
+    def calculate(self,request,pk=None):
+        from .business_api import parameters
+        data=parameters(self,{'method':serializers.ChoiceField(choices=['fields','amount_to_price',*services.PACK_METHODS])})
+        return self.performed(services.calculate,data)

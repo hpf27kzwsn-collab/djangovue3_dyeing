@@ -69,7 +69,7 @@ class FullSourceModelTests(TestCase):
     def test_every_business_model_has_legacy_identity_and_static_fields(self):
         models=[model for model in apps.get_models() if model._meta.app_label.startswith('erp_')]
         originals=[model for model in models if issubclass(model,SourceRecord)]
-        self.assertEqual(len(models),659);self.assertEqual(len(originals),553)
+        self.assertEqual(len(models),660);self.assertEqual(len(originals),553)
         self.assertEqual(sum(len(model.SOURCE_FIELDS) for model in originals),11412)
         for model in models:self.assertEqual(str(model._meta.get_field('legacy_id').verbose_name),'旧erpID')
         self.assertEqual(QualityInspection._meta.app_label,'erp_quality')

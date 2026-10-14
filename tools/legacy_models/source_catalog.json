@@ -4840,7 +4840,22 @@
         "Remarks": "投诉问题",
         "SheetDate": "日期"
       },
-      "relations": [],
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "原关联：CustomerTS",
+          "target": "erp_sales.SourceDyeCustomerTS",
+          "source_fields": [
+            "Sheetseries"
+          ],
+          "target_fields": [
+            "SheetSeries"
+          ],
+          "evidence": [
+            "2026-10-11有效入口CustomerTSDetail的MasterDataTableName及RelaFieldNames"
+          ]
+        }
+      ],
       "document": false
     },
     {
@@ -9960,7 +9975,22 @@
         "Modifyer": "修改人",
         "ModifyDate": "修改时间"
       },
-      "relations": [],
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "原关联：GrayMaterial",
+          "target": "erp_warehouse.SourceDyeGrayMaterial",
+          "source_fields": [
+            "Sheetseries"
+          ],
+          "target_fields": [
+            "SheetSeries"
+          ],
+          "evidence": [
+            "2026-10-11有效入口GrayMaterialDetail的MasterDataTableName及RelaFieldNames"
+          ]
+        }
+      ],
       "document": false
     },
     {

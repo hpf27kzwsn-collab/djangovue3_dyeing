@@ -49,12 +49,16 @@ def confirm_delivery(item,actor):
         require_state(source.order,['confirmed','running','completed'])
         if row.manual_price_reason.strip():
             if row.unit_price_snapshot is None or row.price_unit_id is None:raise ValidationError({'unit_price_snapshot':'人工价格须明确价格、计价单位及原因。'})
+            row.adopted_price_snapshot=row.unit_price_snapshot
             row.price_adoption_snapshot={'kind':'manual','reason':row.manual_price_reason,'unit_price':str(row.unit_price_snapshot),'price_unit':row.price_unit_id}
         else:
-            if source.unit_price is None or source.price_unit_id is None:raise ValidationError({'order_line':'来源订单尚未明确价格及计价单位。'})
+            actual_price=source.adopted_price_snapshot if source.price_source_id is not None else source.unit_price
+            if actual_price is None or source.price_unit_id is None:raise ValidationError({'order_line':'来源订单尚未明确实际采用价格及计价单位。'})
             row.unit_price_snapshot=source.unit_price;row.price_unit=source.price_unit
+            row.adopted_price_snapshot=actual_price
             row.price_adoption_snapshot={'kind':'order','order_line':source.pk,'price_source':source.price_source_id,
-                'unit_price':str(source.unit_price),'price_unit':source.price_unit_id,'manual_price_reason':source.manual_price_reason}
+                'unit_price':str(actual_price),'original_unit_price':None if source.unit_price is None else str(source.unit_price),
+                'price_unit':source.price_unit_id,'manual_price_reason':source.manual_price_reason}
         persist(row,actor)
     check_issue(item,rows,issue)
     item.status='confirmed';persist(item,actor);record(item,'confirm',before,actor)

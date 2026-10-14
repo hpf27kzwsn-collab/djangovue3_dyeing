@@ -835,6 +835,8 @@ class Delivery(ErpModel):
 
 
 class DeliveryLine(ErpModel):
+    adopted_price_snapshot = models.DecimalField('实际采用单价精确快照', max_digits=20,
+                                               decimal_places=6, null=True, blank=True)
     """送货明细。"""
 
     package_allocation = models.ForeignKey('erp_warehouse.PackageOrderAllocation',verbose_name='实际包装订单分配',on_delete=models.PROTECT,null=True,blank=True)

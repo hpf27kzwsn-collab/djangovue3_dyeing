@@ -9,6 +9,9 @@ class SourceDyeArticlePurDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ApplySheetNo': 'old_apply_sheet_no', 'SupplierID': 'old_supplier_id', 'ArticleKindID': 'old_article_kind_id', 'ArticleID': 'old_article_id', 'Unit': 'old_unit', 'Price': 'old_price', 'NeedQty': 'old_need_qty', 'Qty': 'old_qty', 'Amount': 'old_amount', 'UseID': 'old_use_id', 'DlvDate': 'old_dlv_date', 'Remarks': 'old_remarks', 'PackQty': 'old_pack_qty', 'PackUnit': 'old_pack_unit', 'FinishDate': 'old_finish_date'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=36)
     old_apply_sheet_no=models.CharField('ApplySheetNo', null=True, blank=True, max_length=20)
@@ -39,6 +42,9 @@ class SourceDyeArticlePurMain(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'DeptID': 'old_dept_id', 'PurKindID': 'old_pur_kind_id', 'BusinessUnitID': 'old_business_unit_id', 'CurrencyID': 'old_currency_id', 'ExchangeRate': 'old_exchange_rate', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'CreateDate': 'old_create_date', 'Creater': 'old_creater', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'BuyerID': 'old_buyer_id', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -74,6 +80,9 @@ class SourceDyeFabricPurDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ApplySheetNo': 'old_apply_sheet_no', 'FabricID': 'old_fabric_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'Structure': 'old_structure', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'DesignNo': 'old_design_no', 'Price': 'old_price', 'PriceUnit': 'old_price_unit', 'Rolls': 'old_rolls', 'Qty': 'old_qty', 'Fee': 'old_fee', 'Amount': 'old_amount', 'DlvDate': 'old_dlv_date', 'CheckNo': 'old_check_no', 'OrderDn': 'old_order_dn', 'OrderUp': 'old_order_up', 'ToPlace': 'old_to_place', 'WeightDn': 'old_weight_dn', 'WeightUp': 'old_weight_up', 'Remarks': 'old_remarks'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=36)
     old_apply_sheet_no=models.CharField('ApplySheetNo', null=True, blank=True, max_length=20)
@@ -111,6 +120,9 @@ class SourceDyeFabricPurMain(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'PurKindID': 'old_pur_kind_id', 'SupplierID': 'old_supplier_id', 'BuyerID': 'old_buyer_id', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'ContractNo': 'old_contract_no', 'DlvMannerID': 'old_dlv_manner_id', 'SumAmount': 'old_sum_amount', 'SumFee': 'old_sum_fee', 'SettleID': 'old_settle_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'CreateDate': 'old_create_date', 'Creater': 'old_creater', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('SheetNo', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -150,6 +162,9 @@ class SourceDyePurApplyDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'OrderNo': 'old_order_no', 'FabricID': 'old_fabric_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'Structure': 'old_structure', 'FabricID2': 'old_fabric_id2', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'DesignNo': 'old_design_no', 'FirstDlvDate': 'old_first_dlv_date', 'GrayQty': 'old_gray_qty', 'RollAvgQty': 'old_roll_avg_qty', 'GrayPrice': 'old_gray_price', 'PriceUnit': 'old_price_unit', 'Amount': 'old_amount', 'GrayMoney': 'old_gray_money', 'GrayWeight': 'old_gray_weight', 'GrayWidth': 'old_gray_width', 'GrayDlvDate': 'old_gray_dlv_date', 'ProdQty': 'old_prod_qty', 'ProdDlvDate': 'old_prod_dlv_date', 'ProdWeight': 'old_prod_weight', 'ProdWidth': 'old_prod_width', 'Loss': 'old_loss', 'Remarks': 'old_remarks', 'GrayWeightDn': 'old_gray_weight_dn', 'GrayWidthDn': 'old_gray_width_dn', 'ProdWeightDn': 'old_prod_weight_dn', 'ProdWidthDn': 'old_prod_width_dn', 'ArticleID': 'old_article_id', 'ArticleName': 'old_article_name', 'ArticleKindID': 'old_article_kind_id', 'StuffID': 'old_stuff_id', 'StuffName': 'old_stuff_name', 'StuffKindID': 'old_stuff_kind_id', 'ArticleUnit': 'old_article_unit', 'StuffUnit': 'old_stuff_unit', 'Price': 'old_price', 'Qty': 'old_qty', 'remarks2': 'old_remarks2'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：PurApplyMain', 'target': 'erp_purchase.SourceDyePurApplyMain', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ArticlePurApplyDetail → ArticlePurApplyMain', '原界面主从 StuffPurApplyDetail → StuffPurApplyMain', '原界面主从 PurApplyDetail → PurApplyMain']}]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=20)
     old_order_no=models.CharField('订单号', null=True, blank=True, max_length=20)
@@ -206,6 +221,9 @@ class SourceDyePurApplyMain(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'PurKindID': 'old_pur_kind_id', 'SupplierID': 'old_supplier_id', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'SalerID': 'old_saler_id', 'BuyerID': 'old_buyer_id', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'CreateDate': 'old_create_date', 'Creater': 'old_creater', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'StepNo': 'old_step_no', 'DeptID': 'old_dept_id', 'FactID': 'old_fact_id', 'DlvMannerID': 'old_dlv_manner_id', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'Applicant': 'old_applicant'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -245,6 +263,9 @@ class SourceDyePurDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ApplySheetNo': 'old_apply_sheet_no', 'FabricID': 'old_fabric_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'Structure': 'old_structure', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'DesignNo': 'old_design_no', 'Price': 'old_price', 'PriceUnit': 'old_price_unit', 'Rolls': 'old_rolls', 'Qty': 'old_qty', 'Fee': 'old_fee', 'Amount': 'old_amount', 'DlvDate': 'old_dlv_date', 'OrderDn': 'old_order_dn', 'OrderUp': 'old_order_up', 'ToPlace': 'old_to_place', 'WeightDn': 'old_weight_dn', 'WeightUp': 'old_weight_up', 'Remarks': 'old_remarks', 'CheckNo': 'old_check_no', 'ArticleID': 'old_article_id', 'ArticleName': 'old_article_name', 'ArticleKindID': 'old_article_kind_id', 'ArticleUnit': 'old_article_unit', 'StuffID': 'old_stuff_id', 'StuffName': 'old_stuff_name', 'StuffKindID': 'old_stuff_kind_id', 'StuffUnit': 'old_stuff_unit', 'GrayID': 'old_gray_id'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ArticlePurMain', 'target': 'erp_purchase.SourceDyeArticlePurMain', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ArticlePurDetail → ArticlePurMain']}, {'field': 'source_parent_2', 'title': '原关系：PurMain', 'target': 'erp_purchase.SourceDyePurMain', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 PurDetail → PurMain']}, {'field': 'source_parent_3', 'title': '原关系：StuffPurMain', 'target': 'erp_purchase.SourceDyeStuffPurMain', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 StuffPurDetail → StuffPurMain']}]
+    SOURCE_DEFAULTS={'old_apply_sheet_no': ('literal', ''), 'old_fabric_id': ('literal', ''), 'old_spec': ('literal', ''), 'old_lot_no': ('literal', ''), 'old_structure': ('literal', ''), 'old_color_id': ('literal', ''), 'old_color_num': ('literal', ''), 'old_design_no': ('literal', ''), 'old_price': ('literal', 0), 'old_price_unit': ('literal', 0), 'old_rolls': ('literal', 0), 'old_qty': ('literal', 0), 'old_fee': ('literal', 0), 'old_amount': ('literal', 0), 'old_dlv_date': ('literal', '1900-01-01'), 'old_order_dn': ('literal', 0), 'old_order_up': ('literal', 0), 'old_to_place': ('literal', ''), 'old_weight_dn': ('literal', 0), 'old_weight_up': ('literal', 0), 'old_remarks': ('literal', '')}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=20)
     old_apply_sheet_no=models.CharField('审购单号', null=True, blank=True, max_length=20)
@@ -294,6 +315,9 @@ class SourceDyePurMain(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'PurKindID': 'old_pur_kind_id', 'SupplierID': 'old_supplier_id', 'Factory': 'old_factory', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'BuyerID': 'old_buyer_id', 'ContractNo': 'old_contract_no', 'OrderNo': 'old_order_no', 'DlvDate': 'old_dlv_date', 'DlvMannerID': 'old_dlv_manner_id', 'SumAmount': 'old_sum_amount', 'SumFee': 'old_sum_fee', 'SettleID': 'old_settle_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'CreateDate': 'old_create_date', 'Creater': 'old_creater', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'StepNo': 'old_step_no'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={'old_sheet_no': ('literal', ''), 'old_sheet_date': ('literal', '1900-01-01'), 'old_sheet_kind': ('literal', 0), 'old_pur_kind_id': ('literal', ''), 'old_supplier_id': ('literal', ''), 'old_business_unit_id': ('literal', ''), 'old_saler_group_id': ('literal', ''), 'old_buyer_id': ('literal', ''), 'old_contract_no': ('literal', ''), 'old_order_no': ('literal', ''), 'old_dlv_date': ('literal', '1900-01-01'), 'old_dlv_manner_id': ('literal', ''), 'old_sum_amount': ('literal', 0), 'old_sum_fee': ('literal', 0), 'old_settle_id': ('literal', ''), 'old_sheet_status': ('literal', ''), 'old_right_status': ('literal', 0), 'old_print_times': ('literal', 0), 'old_revisions': ('literal', 0), 'old_remarks': ('literal', ''), 'old_create_date': ('literal', '1900-01-01'), 'old_creater': ('literal', ''), 'old_modify_date': ('literal', '1900-01-01'), 'old_modifyer': ('literal', '')}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -334,6 +358,9 @@ class SourceDyeStuffPurDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ApplySheetNo': 'old_apply_sheet_no', 'SupplierID': 'old_supplier_id', 'StuffID': 'old_stuff_id', 'LotNo': 'old_lot_no', 'Price': 'old_price', 'NeedQty': 'old_need_qty', 'Qty': 'old_qty', 'Amount': 'old_amount', 'PackQty': 'old_pack_qty', 'PackUnit': 'old_pack_unit', 'DlvDate': 'old_dlv_date', 'FinishDate': 'old_finish_date', 'Remarks': 'old_remarks', 'PriceUnit': 'old_price_unit'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=36)
     old_apply_sheet_no=models.CharField('ApplySheetNo', null=True, blank=True, max_length=20)
@@ -363,6 +390,9 @@ class SourceDyeStuffPurMain(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'DeptID': 'old_dept_id', 'SheetKind': 'old_sheet_kind', 'PurKindID': 'old_pur_kind_id', 'BuyerID': 'old_buyer_id', 'BusinessUnitID': 'old_business_unit_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'CreateDate': 'old_create_date', 'Creater': 'old_creater', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)

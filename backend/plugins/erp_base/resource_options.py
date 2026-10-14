@@ -114,3 +114,7 @@ RESOURCE_OPTIONS.update(LEGACY_OPTIONS)
 
 from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
 RESOURCE_OPTIONS.update(SOURCE_RESOURCES)
+RESOURCE_OPTIONS['SourceIdentitySequence'] = {
+    'viewset': 'plugins.erp_base.business_api.BusinessActionViewSet',
+    'crud_fields': ['id','namespace','last_number','legacy_id','create_datetime','update_datetime'],
+}

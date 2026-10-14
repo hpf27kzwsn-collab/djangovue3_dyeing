@@ -15,7 +15,7 @@ OWNED = {m.CommercialPrice: {'status'}, m.CommercialPriceLine: {'is_confirmed'},
          m.SalesOrderLine: {'adopted_price_snapshot', 'is_closed'}, m.SalesLineRequirement: set(),
          m.SalesOrderChange: {'status', 'confirmed_by', 'confirmed_at'},
          m.SalesOrderChangeLine: {'before_values'}}
-OWNED.update({m.Delivery:{'status','delivered_at'},m.DeliveryLine:{'price_adoption_snapshot'},
+OWNED.update({m.Delivery:{'status','delivered_at'},m.DeliveryLine:{'price_adoption_snapshot','adopted_price_snapshot'},
     m.SalesReturn:{'status'},m.SalesReturnLine:set(),m.CustomerComplaint:{'status'},m.CustomerComplaintLine:set()})
 
 
