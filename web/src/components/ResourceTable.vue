@@ -47,11 +47,25 @@ function payload(form:any,operation='is_create') {
     if((operation==='is_update' && entity==='user' && field.key==='password') || (field.kind==='file' && !(form[field.key] instanceof File))) continue
     data[field.key]=form[field.key]
   }
+  if(operation==='is_create'&&form._entry){
+    const entry=props.meta.workflow.entries.find((value:any)=>value.value===form._entry)
+    data._entry=form._entry
+    if(form._use_entry_defaults!==false)for(const key of entry.generated_fields)if(data[key]===null||data[key]==='')delete data[key]
+  }
   if(Object.values(data).some(x=>x instanceof File)) {const upload=new FormData();for(const [key,value] of Object.entries(data)) if(value!==null) upload.append(key,value as any);return upload}
   return data
 }
 function createCrudOptions() {
   const columns:any={_selected:{column:{type:'selection',width:48,reserveSelection:true},form:{show:false},search:{show:false}},_index:{title:'序号',column:{width:70,formatter:({index}:any)=>(crudBinding.value.pagination!.currentPage-1)*crudBinding.value.pagination!.pageSize+index+1},form:{show:false},search:{show:false}}}
+  if(props.meta.workflow?.entries?.length){
+    const entries=props.meta.workflow.entries
+    columns._entry={title:'业务类型',type:'dict-select',dict:dict({data:entries,value:'value',label:'label'}),
+      column:{show:false},search:{show:false},form:{value:entries.length===1?entries[0].value:undefined},
+      addForm:{show:true},editForm:{show:false},viewForm:{show:false}}
+    columns._use_entry_defaults={title:'使用自动编号和默认值',column:{show:false},search:{show:false},
+      form:{value:true,component:{name:'el-switch',vModel:'modelValue'}},
+      addForm:{show:compute(({form}:any)=>Boolean(form._entry))},editForm:{show:false},viewForm:{show:false}}
+  }
   for(const field of props.meta.fields) {
     const isOptions=['select','multi'].includes(field.kind)
     columns[field.key]={title:field.title,type:isOptions?'dict-select':field.kind==='number'?'number':'text',

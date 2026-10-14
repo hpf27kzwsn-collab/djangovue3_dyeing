@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Data.SqlTypes;
 
 public static class ErpReadOnlySnapshot {
     static void Text(TextWriter writer,string text) {
@@ -18,6 +19,11 @@ public static class ErpReadOnlySnapshot {
     }
     static void Value(TextWriter writer,object value) {
         if(value==DBNull.Value) {writer.Write("null");return;}
+        if(value is SqlDecimal) {
+            var number=(SqlDecimal)value;
+            if(number.IsNull) writer.Write("null");else Text(writer,number.ToString());
+            return;
+        }
         if(value is bool) {writer.Write((bool)value?"true":"false");return;}
         if(value is byte[]) {Text(writer,Convert.ToBase64String((byte[])value));return;}
         if(value is DateTime) {Text(writer,((DateTime)value).ToString("O",CultureInfo.InvariantCulture));return;}
@@ -42,7 +48,11 @@ public static class ErpReadOnlySnapshot {
                 long row=0;index.WriteLine("0,0");
                 var values=new object[reader.FieldCount];
                 while(reader.Read()) {
-                    reader.GetValues(values);row++;
+                    for(int c=0;c<reader.FieldCount;c++) {
+                        string type=reader.GetDataTypeName(c);
+                        values[c]=(type=="decimal"||type=="numeric")?reader.GetProviderSpecificValue(c):reader.GetValue(c);
+                    }
+                    row++;
                     writer.Write("{\"row\":");writer.Write(row.ToString(CultureInfo.InvariantCulture));writer.Write(",\"key\":");
                     if(keys.Length==0) writer.Write("null");
                     else {writer.Write('{');for(int k=0;k<keys.Length;k++) {if(k>0)writer.Write(',');Text(writer,keys[k]);writer.Write(':');Value(writer,values[reader.GetOrdinal(keys[k])]);}writer.Write('}');}

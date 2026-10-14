@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from django.db import transaction, models
+from django.db import transaction, models, connection
 from core.api import AUDIT_FIELDS
 from system.catalog import ENTITIES, HIDDEN_ENTITIES
 from system.models import *
@@ -85,3 +85,9 @@ class Command(BaseCommand):
         from django.utils.module_loading import import_string
         for initializer in INITIALIZERS:
             import_string(initializer)()
+        if connection.vendor == 'postgresql':
+            # 完整ERP初始化批量增加菜单、字段和授权；及时更新统计，避免空表估算产生权限笛卡尔扫描。
+            with connection.cursor() as cursor:
+                for table in ['system_users', 'system_role', 'system_users_role', 'system_menu', 'system_menubutton',
+                    'system_rolemenupermission', 'system_rolemenubuttonpermission', 'system_menufield', 'system_fieldpermission']:
+                    cursor.execute('ANALYZE ' + connection.ops.quote_name(table))

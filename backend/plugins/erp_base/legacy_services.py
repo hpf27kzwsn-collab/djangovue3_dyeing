@@ -15,6 +15,13 @@ def digest(path):
 def source_path(table):return settings.BASE_DIR.parent/Path(table.file_path)
 
 
+def stored_path(path):
+    """同盘来源随项目移动，跨盘来源保留实际绝对路径。"""
+    base = settings.BASE_DIR.parent.resolve()
+    path = Path(path).resolve()
+    return os.path.relpath(path, base) if path.anchor.lower() == base.anchor.lower() else str(path)
+
+
 @transaction.atomic
 def register_snapshot(path,actor):
     manifest_path=Path(path).resolve();manifest=json.loads(manifest_path.read_text(encoding='utf-8-sig'))
@@ -27,13 +34,13 @@ def register_snapshot(path,actor):
         if not source.is_relative_to(root):raise ValueError('来源文件必须位于本批资料目录内。')
         if source.stat().st_size!=table['bytes'] or digest(source)!=table['sha256']:raise ValueError('来源文件字节数或摘要不一致：'+table['table'])
     batch=persist(LegacyImportBatch(number=root.name,database_name=manifest['database'],started_at=parse_datetime(manifest['started_at']),
-        finished_at=parse_datetime(manifest['finished_at']),manifest_sha256=manifest_digest,source_directory=os.path.relpath(root,settings.BASE_DIR.parent),table_count=len(tables),
+        finished_at=parse_datetime(manifest['finished_at']),manifest_sha256=manifest_digest,source_directory=stored_path(root),table_count=len(tables),
         row_count=sum(table['rows'] for table in tables),byte_count=sum(table['bytes'] for table in tables),verified_at=timezone.now(),
         note='按表 READ COMMITTED 提取，保留全部来源字段与原主键；无主键行不伪造旧系统id。文件核对不代表已完成正式切换一致性验收。'),actor)
     for table in tables:
         persist(LegacySourceTable(batch=batch,schema_name=table['schema'],table_name=table['table'],modules=table['modules'],
             columns=table['columns'],primary_key=table['primary_key'],row_count=table['rows'],byte_count=table['bytes'],
-            sha256=table['sha256'],file_path=os.path.relpath(root/table['file'],settings.BASE_DIR.parent)),actor)
+            sha256=table['sha256'],file_path=stored_path(root/table['file'])),actor)
     record(batch,'register_snapshot',{'exists':False},actor)
     return batch
 

@@ -199,6 +199,9 @@ FUNCTIONS={'orders':orders,'production':production_progress,'materials':material
 
 from .report_queries import EXTRA_REPORTS,EXTRA_FUNCTIONS
 REPORTS.update(EXTRA_REPORTS);FUNCTIONS.update(EXTRA_FUNCTIONS)
+from .source_inventory_queries import definitions
+SOURCE_REPORTS,SOURCE_FUNCTIONS=definitions()
+REPORTS.update(SOURCE_REPORTS);FUNCTIONS.update(SOURCE_FUNCTIONS)
 
 LABELS={
  'orders':{'material':(base.Material,'name')},
@@ -234,7 +237,8 @@ class BusinessReport(APIView):
     def get(self,request,report):
         spec=REPORTS[report]
         parameters=ReportInput(data=request.query_params);parameters.is_valid(raise_exception=True)
-        reader=Reader(request);reader.load_units()
+        reader=Reader(request)
+        if spec.get('uses_units',True):reader.load_units()
         count,rows=FUNCTIONS[report](reader,parameters.validated_data);rows=display_rows(reader,report,rows)
         return success({'title':spec['title'],'columns':[{'key':key,'title':title} for key,title in spec['columns']],'count':count,'rows':rows})
 
@@ -242,7 +246,9 @@ class BusinessReport(APIView):
 class BusinessReportExport(BusinessReport):
     def get(self,request,report):
         spec=REPORTS[report];parameters=ReportInput(data=request.query_params);parameters.is_valid(raise_exception=True)
-        reader=Reader(request);reader.load_units();data=parameters.validated_data;data['page_size']=200;data['page']=1
+        reader=Reader(request)
+        if spec.get('uses_units',True):reader.load_units()
+        data=parameters.validated_data;data['page_size']=200;data['page']=1
         output=io.StringIO(newline='');writer=csv.writer(output);writer.writerow([title for key,title in spec['columns']])
         while True:
             count,rows=FUNCTIONS[report](reader,data);rows=display_rows(reader,report,rows)

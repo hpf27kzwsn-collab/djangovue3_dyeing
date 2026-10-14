@@ -1,0 +1,4410 @@
+{
+  "completed": true,
+  "business_models": 553,
+  "erp_models": 662,
+  "original_columns": 11412,
+  "declared_relations": 161,
+  "original_rows": 68367103,
+  "original_field_comparisons": 734853905,
+  "original_fields_verified": true,
+  "all_relations_completed": true,
+  "development_history_adopted": true,
+  "extraction_isolation": "READ COMMITTED per table; not a production cutover snapshot",
+  "tests": {
+    "overall_total": 316,
+    "overall_passed_in_default_configuration": 302,
+    "default_configuration_skipped": 14,
+    "extension_configuration_total_passed": 15,
+    "new_business_services_passed": 77,
+    "frontend_build": "passed",
+    "migration_state": "no changes detected"
+  },
+  "api": {
+    "models": 662,
+    "checks": 702,
+    "masters_preserved": {
+      "BusinessChoice": 734,
+      "Shift": 33,
+      "Employee": 274,
+      "Party": 182,
+      "Machine": 120
+    },
+    "actual_original_history_rows": 68367103,
+    "database": "erp_full_trial_20261014",
+    "access": "Django APIClient actual database",
+    "all_tables_and_legacy_ids_present": true
+  },
+  "preserved": {
+    "existing_account_role_and_permission_flags_preserved": {
+      "system.users": 1,
+      "system.role": 17,
+      "system.fieldpermission": 45079,
+      "system.rolemenubuttonpermission": 24829,
+      "system.rolemenupermission": 1865
+    },
+    "masters_preserved": {
+      "BusinessChoice": 734,
+      "Shift": 33,
+      "Employee": 274,
+      "Party": 182,
+      "Machine": 120
+    }
+  },
+  "tables": [
+    {
+      "table": "AAA",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "AAKC1",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "BackDyeRecipePhase",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "RCDDZJB",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "SHIFT",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "jxtkckh",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ACGroup",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "AUTHDEVICE",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "AddDyeWProcessStep",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ArrivalNotice",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ArrivalNoticeDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "ArticleDeptApply",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.109
+    },
+    {
+      "table": "ArticleDeptApplyDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ArticleIn",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "ArticleInDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ArticleOut",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ArticleOutApply",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ArticleOutApplyDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ArticleOutDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ArticlePurDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ArticlePurMain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "ArticleStock",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ArticleStockAdjustDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ArticleStockBook",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "AttParam",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "AuditedExc",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "BalancingConditions",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "Biotemplate",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CHECKEXACT",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CHECKINOUT",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ClockShift",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ColorCard",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ColorCardDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ColorCardFlow",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ColorShiftEmp",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ColoringCheck",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CookIn",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "CookInDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CptLabRecipe",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CptLabRecipeDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "Cur_Smp_PrescriptEntry",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CusAddPrice",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "CusAddPriceDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CusExtraCharge",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "CustomerNoLimit",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "DP_WorkQty",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DefectiveOut",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DefectiveOutDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DefectiveOutRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DeptUsedSchs",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DyeCheck",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "DyeColor",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DyeDipsRecordEmp",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "DyeDipsRecordNote",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "DyeLabAtte",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "DyeLabColorRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "DyeProcessPrice",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "DyeProduceItem",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DyeRecipeJob",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "DyeReprint",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "DyeStuffOut",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "DyeStuffOutDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "EXCNOTES",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "EmpShiftClock",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "Emp_Room",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "EnableCard",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "EnergyRecords",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "FabricPurDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "FabricPurMain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "FaceTemp",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "FixedPriceAtte",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "FixedPriceProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "GrayBalance",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.046
+    },
+    {
+      "table": "GrayBalanceDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "GrayInDefect",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "GrayInRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "GrayOutRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "GrayRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "GrayReturnApply",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "GrayReturnApplyDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "GrayStock",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "GrayStockCheck",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "HOLIDAYS",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "Human",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "InspectionLogDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "InspectionProject",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "JobColor",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "JobExceptions",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "JobGrayRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "JobMain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "JobPreRegist",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "JobProcessPre",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "JobSheetMasrkCar",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "JobSheetNoRushOrder",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "JobSheetOther",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "JobSheetSchedule",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "JobShiftEmpBak",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "JobStartRollNo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "KQ",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "KQ_Query",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "LabDips",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "LeaveClass",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "LeaveClass1",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "LossBill",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "MachineCarePlan",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "MachineCarePlanDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "MachineCareProject",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "MachineCaseDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "MachineFaultArticleInfo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "MachineFaultComment",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "Machines",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "MoveShiftBill",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "NUM_RUN",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "NUM_RUN_DEIL",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "NoLimit",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ODMIn",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ODMInDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ODMInRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ODMOut",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "ODMOutDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.03
+    },
+    {
+      "table": "ODMOutRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderAssign",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderAssign2",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "OrderCombine",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderDlvApply",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "OrderDlvApplyLock",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderDlvApplySheet",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderFee",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderInfo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderInfoProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderPriceProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OrderProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "OrderProcessPre",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "OtherIn",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OtherInDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "OutGoingBill",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OutGoingBillDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "OutPlan",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.048
+    },
+    {
+      "table": "OutPlanDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "PPasteDosage",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PPasteDosageDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PStuffWeight",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "PStuffWeightDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PStuffWeightPhase",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "PTSampleRegist",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "PTSampleRegistAtte",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PTSampleRegistDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PackQty",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PackQty1",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PackWorkQty1",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PlanDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.164
+    },
+    {
+      "table": "PlanMain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "PrePlanOrder",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PriceAdjust",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "PriceAdjustDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PrintColorSeparate",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PrintColorSeparateDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PrintColorSeparateRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PrintDipsRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PrintLabAttach",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PrintLabAtte",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PrintLabMain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PrintRecipe",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PrintRecipeColor",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PrintRecipeDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PrintScreen",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PrintScreenDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PrintScreenRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PrintingTest",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "PrintingTestColor",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "PrintingTestDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PrintingTestStuff",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "ProcessCraft",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "ProcessCraftJobNo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ProcessCraftOrderNo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ProcessSchedulebak",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ProdInPDARecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ProdInPriceProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ProdOutPDARecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ProdOutPriceAtte",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ProdOutPriceProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.105
+    },
+    {
+      "table": "ProdOutRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ProdStockAdjust",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "ProdStockAdjustDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ProdStockAllot",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "ProdStockCheck",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ProdStockCheckDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ProdStorageAdjust",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ProdStorageAdjustDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "ProdStorageAdjustRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ProdTest",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "PurApplyDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "QualityAccident",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "QualityDeduction",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "QualityRegister",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "Quote",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "QuoteAtte",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "QuoteDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "QuotePriceProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "RCORDERCOLOR",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "RCORDERMAIN",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "RecordDefect",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ReportItem",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "SHIFT",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "SampleChoice",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "SampleIn",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "SampleInDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "SampleOut",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "SampleOutDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "SampleStockBook",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "SchClass",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "SemiAxisBook",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "SemiAxisRemain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "SemiInRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "SemiOutRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "SemiOutWorkApply",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "SemiOutWorkApplyDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "SemiStock",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ShiftPlan",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ShiftPlanDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "Smp_PrescriptEntry",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "StaffEstablishing",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "StandCraft",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "StandCraftBeforeDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "StandCraftDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "StandCraftJobNo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "SterotypeTech",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffChange",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffDeptApply",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "StuffDeptApplyDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffOutApply",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffOutApplyDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffPurDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffPurMain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.03
+    },
+    {
+      "table": "StuffStock",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffWeightJobSheetNo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "StuffWeightPrint",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "TBSMSALLOT",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "TBSMSINFO",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "TEMPLATE",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "Test_Detail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "Test_Main",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "USER_SPEDAY",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "USER_TEMP_SCH",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "UrgentInStruct",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "UrgentInStructDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "UserACMachines",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "UserUsedSClasses",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "UsersMachines",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "WProcessBak",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "WProcessStep",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "WProcessStepBak",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "WVehicle",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "WareHouseProdCount",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "WashTheTankDye",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "ZDAddPrice",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ZDAddPriceDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "acholiday",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "compensatedetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "compensatemain",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "e_Energy_day",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "e_YardMeterGether",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "h_Contract",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "h_EmpDeptPerm",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "h_Employee2",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.115
+    },
+    {
+      "table": "h_EmployeeIORecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "h_PositionChange",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "h_RewardPunish",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "p_AuxRule",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "p_AuxRuleDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "p_BalanceType",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_CommMethod",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "p_CommModule",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "p_CommissionRatio",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "p_CraftPParam",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_CustAddress",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "p_CustCategory",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_CustLinker",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "p_CustRelation",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_DyeProgram",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_DyeProgramDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "p_Fabric",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_Fabric_Fact",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_Fabric_Other",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_FeelCode",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_FieldValidSubCust",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "p_GrayBak",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_ITOnRest",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_ITWatch",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_Lable",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_MachineColor",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_MachinePart",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "p_MachinePoint",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "p_MachinePort",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_MachineProcess",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_MachineProd",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_MachineShift",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_MeterAlarm",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_MeterMachine",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_PDesign",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_PDesignDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_PDesignSet",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_PriceListAtte",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_PriceListVat",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "p_ProcessArea",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_ProcessChemical",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_ProcessCraft",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_ProcessCraft1",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "table": "p_ProcessDefect",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_ProcessPCraft",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_ProcessPrice",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "p_Product",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_ShiftMachine",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "p_TestItem",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_Vehicle",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "p_WareHouse",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "s_AutoID",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "s_CorpTitle",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "s_FlowRecord",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.048
+    },
+    {
+      "table": "s_Revision",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "s_RevisionDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "s_SaveMessRule",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.033
+    },
+    {
+      "table": "s_SaveMessRuleDetail",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "s_SheetNo",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "ye.dye",
+      "rows": 0,
+      "field_comparisons": 0,
+      "imported_rows": 0,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "table": "BaseCase",
+      "rows": 1,
+      "field_comparisons": 13,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "CusBasicsPrice",
+      "rows": 1,
+      "field_comparisons": 17,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "DefectiveIn",
+      "rows": 1,
+      "field_comparisons": 12,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "DefectiveInDetail",
+      "rows": 1,
+      "field_comparisons": 20,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "DyeDipsRecord",
+      "rows": 1,
+      "field_comparisons": 71,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "GrayStockAllot",
+      "rows": 1,
+      "field_comparisons": 47,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "GrayStorageAdjust",
+      "rows": 1,
+      "field_comparisons": 25,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "GrayStorageAdjustDetail",
+      "rows": 1,
+      "field_comparisons": 21,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "QuoteItemPrice",
+      "rows": 1,
+      "field_comparisons": 19,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "SwipeEmpEdit",
+      "rows": 1,
+      "field_comparisons": 13,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "SwipeEmpEditDetail",
+      "rows": 1,
+      "field_comparisons": 28,
+      "imported_rows": 1,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "Attachment",
+      "rows": 2,
+      "field_comparisons": 26,
+      "imported_rows": 2,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "BaseCaseDetail",
+      "rows": 2,
+      "field_comparisons": 16,
+      "imported_rows": 2,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PackWorkSumQty",
+      "rows": 2,
+      "field_comparisons": 8,
+      "imported_rows": 2,
+      "elapsed_seconds": 0.035
+    },
+    {
+      "table": "QuotePriceAtte",
+      "rows": 2,
+      "field_comparisons": 16,
+      "imported_rows": 2,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "ShiftArrange",
+      "rows": 2,
+      "field_comparisons": 32,
+      "imported_rows": 2,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "p_MachineFaultClass",
+      "rows": 2,
+      "field_comparisons": 12,
+      "imported_rows": 2,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "DefectiveInRecord",
+      "rows": 3,
+      "field_comparisons": 60,
+      "imported_rows": 3,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "HS_JobsheetNo",
+      "rows": 3,
+      "field_comparisons": 36,
+      "imported_rows": 3,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "JingShaRegister",
+      "rows": 3,
+      "field_comparisons": 45,
+      "imported_rows": 3,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "MachineCareRecords",
+      "rows": 3,
+      "field_comparisons": 63,
+      "imported_rows": 3,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "PackWorkQty",
+      "rows": 3,
+      "field_comparisons": 57,
+      "imported_rows": 3,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "PackWorkQtyDetail",
+      "rows": 3,
+      "field_comparisons": 18,
+      "imported_rows": 3,
+      "elapsed_seconds": 0.034
+    },
+    {
+      "table": "ColorChangeRisk",
+      "rows": 4,
+      "field_comparisons": 80,
+      "imported_rows": 4,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "GetClothNotice",
+      "rows": 4,
+      "field_comparisons": 60,
+      "imported_rows": 4,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "MachineCase",
+      "rows": 4,
+      "field_comparisons": 60,
+      "imported_rows": 4,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "APPUploadFilesInfoDel",
+      "rows": 5,
+      "field_comparisons": 60,
+      "imported_rows": 5,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "FixedCanDetail",
+      "rows": 5,
+      "field_comparisons": 70,
+      "imported_rows": 5,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "FixedCanRecord",
+      "rows": 5,
+      "field_comparisons": 75,
+      "imported_rows": 5,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "KindLimit",
+      "rows": 5,
+      "field_comparisons": 70,
+      "imported_rows": 5,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "p_AtteType",
+      "rows": 5,
+      "field_comparisons": 70,
+      "imported_rows": 5,
+      "elapsed_seconds": 0.048
+    },
+    {
+      "table": "JingShaRegisterDetail",
+      "rows": 6,
+      "field_comparisons": 174,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "Limit",
+      "rows": 6,
+      "field_comparisons": 72,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "MachineFaultFilter",
+      "rows": 6,
+      "field_comparisons": 30,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "RequestLimit",
+      "rows": 6,
+      "field_comparisons": 96,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "ShiftArrangeDetail",
+      "rows": 6,
+      "field_comparisons": 42,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "WeightTechInfo",
+      "rows": 6,
+      "field_comparisons": 48,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "p_FieldMemo",
+      "rows": 6,
+      "field_comparisons": 48,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "p_MachineFaultStatus",
+      "rows": 6,
+      "field_comparisons": 48,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.049
+    },
+    {
+      "table": "p_PriceList",
+      "rows": 6,
+      "field_comparisons": 48,
+      "imported_rows": 6,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "APPUploadFilesInfo",
+      "rows": 7,
+      "field_comparisons": 70,
+      "imported_rows": 7,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "A_ProdRecord",
+      "rows": 7,
+      "field_comparisons": 35,
+      "imported_rows": 7,
+      "elapsed_seconds": 0.036
+    },
+    {
+      "table": "InspectionLog",
+      "rows": 7,
+      "field_comparisons": 126,
+      "imported_rows": 7,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "GetClothNoticeDetail",
+      "rows": 8,
+      "field_comparisons": 96,
+      "imported_rows": 8,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "p_Meter",
+      "rows": 8,
+      "field_comparisons": 296,
+      "imported_rows": 8,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "p_PriceListColor",
+      "rows": 8,
+      "field_comparisons": 32,
+      "imported_rows": 8,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "jxtbzyq",
+      "rows": 9,
+      "field_comparisons": 27,
+      "imported_rows": 9,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "p_PriceListProcess",
+      "rows": 9,
+      "field_comparisons": 36,
+      "imported_rows": 9,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "ACUnlockComb",
+      "rows": 10,
+      "field_comparisons": 70,
+      "imported_rows": 10,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "MaterialPriceAdjust",
+      "rows": 10,
+      "field_comparisons": 200,
+      "imported_rows": 10,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "table": "s_Flow",
+      "rows": 10,
+      "field_comparisons": 280,
+      "imported_rows": 10,
+      "elapsed_seconds": 0.041
+    },
+    {
+      "table": "ArticleStockAdjust",
+      "rows": 11,
+      "field_comparisons": 198,
+      "imported_rows": 11,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "MaterialPriceAdjustDetail",
+      "rows": 11,
+      "field_comparisons": 121,
+      "imported_rows": 11,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "p_CommPort",
+      "rows": 11,
+      "field_comparisons": 143,
+      "imported_rows": 11,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "table": "p_Dept",
+      "rows": 11,
+      "field_comparisons": 143,
+      "imported_rows": 11,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "C",
+      "rows": 12,
+      "field_comparisons": 24,
+      "imported_rows": 12,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "ProdLoading",
+      "rows": 12,
+      "field_comparisons": 684,
+      "imported_rows": 12,
+      "elapsed_seconds": 0.042
+    },
+    {
+      "table": "p_ShiftArrange",
+      "rows": 12,
+      "field_comparisons": 156,
+      "imported_rows": 12,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "p_StuffStorageUnitID",
+      "rows": 13,
+      "field_comparisons": 39,
+      "imported_rows": 13,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "DEPARTMENTS",
+      "rows": 14,
+      "field_comparisons": 238,
+      "imported_rows": 14,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "StuffStockAdjust",
+      "rows": 15,
+      "field_comparisons": 270,
+      "imported_rows": 15,
+      "elapsed_seconds": 0.041
+    },
+    {
+      "table": "s_FlowStep",
+      "rows": 16,
+      "field_comparisons": 416,
+      "imported_rows": 16,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "table": "MachineFault",
+      "rows": 18,
+      "field_comparisons": 828,
+      "imported_rows": 18,
+      "elapsed_seconds": 0.062
+    },
+    {
+      "table": "WidthGramWeight",
+      "rows": 18,
+      "field_comparisons": 144,
+      "imported_rows": 18,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "table": "p_Process",
+      "rows": 18,
+      "field_comparisons": 990,
+      "imported_rows": 18,
+      "elapsed_seconds": 0.043
+    },
+    {
+      "table": "xxtcbkc20221023",
+      "rows": 19,
+      "field_comparisons": 171,
+      "imported_rows": 19,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "SHLEIXING",
+      "rows": 20,
+      "field_comparisons": 60,
+      "imported_rows": 20,
+      "elapsed_seconds": 0.037
+    },
+    {
+      "table": "FixedPrice",
+      "rows": 20,
+      "field_comparisons": 640,
+      "imported_rows": 20,
+      "elapsed_seconds": 0.042
+    },
+    {
+      "table": "p_DyeCurve",
+      "rows": 21,
+      "field_comparisons": 420,
+      "imported_rows": 21,
+      "elapsed_seconds": 0.041
+    },
+    {
+      "table": "h_Leave",
+      "rows": 23,
+      "field_comparisons": 529,
+      "imported_rows": 23,
+      "elapsed_seconds": 0.042
+    },
+    {
+      "table": "DyeDipsRecordDetail",
+      "rows": 26,
+      "field_comparisons": 546,
+      "imported_rows": 26,
+      "elapsed_seconds": 0.042
+    },
+    {
+      "table": "DyeDipsRecordPhase",
+      "rows": 26,
+      "field_comparisons": 260,
+      "imported_rows": 26,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "table": "s_FlowStepEmp",
+      "rows": 26,
+      "field_comparisons": 364,
+      "imported_rows": 26,
+      "elapsed_seconds": 0.043
+    },
+    {
+      "table": "FeelOfferMain",
+      "rows": 29,
+      "field_comparisons": 348,
+      "imported_rows": 29,
+      "elapsed_seconds": 0.042
+    },
+    {
+      "table": "GrayStockSpecUp",
+      "rows": 29,
+      "field_comparisons": 754,
+      "imported_rows": 29,
+      "elapsed_seconds": 0.043
+    },
+    {
+      "table": "GrayStockSpecUpDetail",
+      "rows": 29,
+      "field_comparisons": 1015,
+      "imported_rows": 29,
+      "elapsed_seconds": 0.045
+    },
+    {
+      "table": "GrayStorageAdjustRecord",
+      "rows": 32,
+      "field_comparisons": 416,
+      "imported_rows": 32,
+      "elapsed_seconds": 0.042
+    },
+    {
+      "table": "p_Shift",
+      "rows": 33,
+      "field_comparisons": 726,
+      "imported_rows": 33,
+      "elapsed_seconds": 0.045
+    },
+    {
+      "table": "p_CraftParam",
+      "rows": 34,
+      "field_comparisons": 238,
+      "imported_rows": 34,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "table": "TBKEY",
+      "rows": 36,
+      "field_comparisons": 72,
+      "imported_rows": 36,
+      "elapsed_seconds": 0.039
+    },
+    {
+      "table": "yunfeibiaozhun",
+      "rows": 39,
+      "field_comparisons": 195,
+      "imported_rows": 39,
+      "elapsed_seconds": 0.056
+    },
+    {
+      "table": "MachineCaseProject",
+      "rows": 40,
+      "field_comparisons": 360,
+      "imported_rows": 40,
+      "elapsed_seconds": 0.043
+    },
+    {
+      "table": "zhijianwenti",
+      "rows": 44,
+      "field_comparisons": 1056,
+      "imported_rows": 44,
+      "elapsed_seconds": 0.046
+    },
+    {
+      "table": "GWName",
+      "rows": 45,
+      "field_comparisons": 945,
+      "imported_rows": 45,
+      "elapsed_seconds": 0.047
+    },
+    {
+      "table": "OutWorkApply",
+      "rows": 46,
+      "field_comparisons": 736,
+      "imported_rows": 46,
+      "elapsed_seconds": 0.045
+    },
+    {
+      "table": "OutWorkApplyDetail",
+      "rows": 46,
+      "field_comparisons": 1104,
+      "imported_rows": 46,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "table": "CusBasicsPriceDetail",
+      "rows": 48,
+      "field_comparisons": 816,
+      "imported_rows": 48,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "table": "ProdStock",
+      "rows": 49,
+      "field_comparisons": 980,
+      "imported_rows": 49,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "table": "MachineFaultRecord",
+      "rows": 50,
+      "field_comparisons": 500,
+      "imported_rows": 50,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "table": "p_Fabric_Cust",
+      "rows": 50,
+      "field_comparisons": 350,
+      "imported_rows": 50,
+      "elapsed_seconds": 0.043
+    },
+    {
+      "table": "cbbz1109",
+      "rows": 51,
+      "field_comparisons": 102,
+      "imported_rows": 51,
+      "elapsed_seconds": 0.041
+    },
+    {
+      "table": "SemiStockSpecUp",
+      "rows": 53,
+      "field_comparisons": 1113,
+      "imported_rows": 53,
+      "elapsed_seconds": 0.048
+    },
+    {
+      "table": "h_EmpRole",
+      "rows": 53,
+      "field_comparisons": 159,
+      "imported_rows": 53,
+      "elapsed_seconds": 0.041
+    },
+    {
+      "table": "JobCombine",
+      "rows": 61,
+      "field_comparisons": 488,
+      "imported_rows": 61,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "table": "SemiStockSpecUpDetail",
+      "rows": 67,
+      "field_comparisons": 2412,
+      "imported_rows": 67,
+      "elapsed_seconds": 0.05
+    },
+    {
+      "table": "ckpd20221027",
+      "rows": 68,
+      "field_comparisons": 612,
+      "imported_rows": 68,
+      "elapsed_seconds": 0.042
+    },
+    {
+      "table": "Stuff_Step",
+      "rows": 70,
+      "field_comparisons": 350,
+      "imported_rows": 70,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "table": "PS20221218",
+      "rows": 80,
+      "field_comparisons": 160,
+      "imported_rows": 80,
+      "elapsed_seconds": 0.043
+    },
+    {
+      "table": "zhenzhibaobiao",
+      "rows": 84,
+      "field_comparisons": 2604,
+      "imported_rows": 84,
+      "elapsed_seconds": 0.052
+    },
+    {
+      "table": "StuffAllot",
+      "rows": 87,
+      "field_comparisons": 2088,
+      "imported_rows": 87,
+      "elapsed_seconds": 0.054
+    },
+    {
+      "table": "p_AtteSub",
+      "rows": 102,
+      "field_comparisons": 1326,
+      "imported_rows": 102,
+      "elapsed_seconds": 0.045
+    },
+    {
+      "table": "ProdIn_to",
+      "rows": 110,
+      "field_comparisons": 2860,
+      "imported_rows": 110,
+      "elapsed_seconds": 0.053
+    },
+    {
+      "table": "CustomerTS",
+      "rows": 114,
+      "field_comparisons": 1596,
+      "imported_rows": 114,
+      "elapsed_seconds": 0.053
+    },
+    {
+      "table": "p_DyeCurveDetail",
+      "rows": 119,
+      "field_comparisons": 1071,
+      "imported_rows": 119,
+      "elapsed_seconds": 0.048
+    },
+    {
+      "table": "p_Machine",
+      "rows": 120,
+      "field_comparisons": 6600,
+      "imported_rows": 120,
+      "elapsed_seconds": 0.061
+    },
+    {
+      "table": "h_EmpAppNotice",
+      "rows": 130,
+      "field_comparisons": 780,
+      "imported_rows": 130,
+      "elapsed_seconds": 0.049
+    },
+    {
+      "table": "ProcessSchedule",
+      "rows": 139,
+      "field_comparisons": 5421,
+      "imported_rows": 139,
+      "elapsed_seconds": 0.066
+    },
+    {
+      "table": "TightTubePlan",
+      "rows": 143,
+      "field_comparisons": 1859,
+      "imported_rows": 143,
+      "elapsed_seconds": 0.056
+    },
+    {
+      "table": "TightTubePlanDetail",
+      "rows": 146,
+      "field_comparisons": 4088,
+      "imported_rows": 146,
+      "elapsed_seconds": 0.057
+    },
+    {
+      "table": "p_ShiftEmp",
+      "rows": 156,
+      "field_comparisons": 1404,
+      "imported_rows": 156,
+      "elapsed_seconds": 0.048
+    },
+    {
+      "table": "USERINFO",
+      "rows": 159,
+      "field_comparisons": 10812,
+      "imported_rows": 159,
+      "elapsed_seconds": 0.07
+    },
+    {
+      "table": "GrayStockAdjust",
+      "rows": 167,
+      "field_comparisons": 3674,
+      "imported_rows": 167,
+      "elapsed_seconds": 0.066
+    },
+    {
+      "table": "GrayRecordCutLogs",
+      "rows": 173,
+      "field_comparisons": 2768,
+      "imported_rows": 173,
+      "elapsed_seconds": 0.06
+    },
+    {
+      "table": "p_FieldValidSub",
+      "rows": 175,
+      "field_comparisons": 2100,
+      "imported_rows": 175,
+      "elapsed_seconds": 0.057
+    },
+    {
+      "table": "p_Customer",
+      "rows": 182,
+      "field_comparisons": 12376,
+      "imported_rows": 182,
+      "elapsed_seconds": 0.078
+    },
+    {
+      "table": "SHOUPITONGZHIDAN",
+      "rows": 204,
+      "field_comparisons": 1836,
+      "imported_rows": 204,
+      "elapsed_seconds": 0.056
+    },
+    {
+      "table": "p_ArticleStorageUnitID",
+      "rows": 208,
+      "field_comparisons": 624,
+      "imported_rows": 208,
+      "elapsed_seconds": 0.05
+    },
+    {
+      "table": "p_Cook",
+      "rows": 208,
+      "field_comparisons": 5408,
+      "imported_rows": 208,
+      "elapsed_seconds": 0.068
+    },
+    {
+      "table": "NHTJ",
+      "rows": 210,
+      "field_comparisons": 5040,
+      "imported_rows": 210,
+      "elapsed_seconds": 0.063
+    },
+    {
+      "table": "USER_OF_RUN",
+      "rows": 231,
+      "field_comparisons": 1386,
+      "imported_rows": 231,
+      "elapsed_seconds": 0.062
+    },
+    {
+      "table": "cpdqkc20221024",
+      "rows": 244,
+      "field_comparisons": 3660,
+      "imported_rows": 244,
+      "elapsed_seconds": 0.058
+    },
+    {
+      "table": "xxtzzp20221024",
+      "rows": 259,
+      "field_comparisons": 3626,
+      "imported_rows": 259,
+      "elapsed_seconds": 0.061
+    },
+    {
+      "table": "tmp20221104",
+      "rows": 264,
+      "field_comparisons": 264,
+      "imported_rows": 264,
+      "elapsed_seconds": 0.05
+    },
+    {
+      "table": "AEE",
+      "rows": 265,
+      "field_comparisons": 5300,
+      "imported_rows": 265,
+      "elapsed_seconds": 0.058
+    },
+    {
+      "table": "h_Employee",
+      "rows": 274,
+      "field_comparisons": 26852,
+      "imported_rows": 274,
+      "elapsed_seconds": 0.113
+    },
+    {
+      "table": "p_Stuff",
+      "rows": 329,
+      "field_comparisons": 13160,
+      "imported_rows": 329,
+      "elapsed_seconds": 0.09
+    },
+    {
+      "table": "CustomerTSDetail",
+      "rows": 373,
+      "field_comparisons": 4103,
+      "imported_rows": 373,
+      "elapsed_seconds": 0.076
+    },
+    {
+      "table": "PurMain",
+      "rows": 377,
+      "field_comparisons": 10179,
+      "imported_rows": 377,
+      "elapsed_seconds": 0.096
+    },
+    {
+      "table": "cksgz20221024",
+      "rows": 387,
+      "field_comparisons": 6579,
+      "imported_rows": 387,
+      "elapsed_seconds": 0.071
+    },
+    {
+      "table": "p_Article",
+      "rows": 399,
+      "field_comparisons": 11571,
+      "imported_rows": 399,
+      "elapsed_seconds": 0.098
+    },
+    {
+      "table": "ckpd20221024bak",
+      "rows": 406,
+      "field_comparisons": 4872,
+      "imported_rows": 406,
+      "elapsed_seconds": 0.067
+    },
+    {
+      "table": "PurApplyMain",
+      "rows": 407,
+      "field_comparisons": 10582,
+      "imported_rows": 407,
+      "elapsed_seconds": 0.103
+    },
+    {
+      "table": "ckpd20221024",
+      "rows": 409,
+      "field_comparisons": 4908,
+      "imported_rows": 409,
+      "elapsed_seconds": 0.066
+    },
+    {
+      "table": "AA",
+      "rows": 419,
+      "field_comparisons": 3352,
+      "imported_rows": 419,
+      "elapsed_seconds": 0.065
+    },
+    {
+      "table": "ADD",
+      "rows": 420,
+      "field_comparisons": 6720,
+      "imported_rows": 420,
+      "elapsed_seconds": 0.071
+    },
+    {
+      "table": "prodin1029",
+      "rows": 424,
+      "field_comparisons": 11024,
+      "imported_rows": 424,
+      "elapsed_seconds": 0.095
+    },
+    {
+      "table": "ABC",
+      "rows": 439,
+      "field_comparisons": 3951,
+      "imported_rows": 439,
+      "elapsed_seconds": 0.067
+    },
+    {
+      "table": "itbak20221120",
+      "rows": 444,
+      "field_comparisons": 7992,
+      "imported_rows": 444,
+      "elapsed_seconds": 0.087
+    },
+    {
+      "table": "itbak20221121",
+      "rows": 444,
+      "field_comparisons": 7992,
+      "imported_rows": 444,
+      "elapsed_seconds": 0.083
+    },
+    {
+      "table": "ITMANAGE",
+      "rows": 452,
+      "field_comparisons": 8136,
+      "imported_rows": 452,
+      "elapsed_seconds": 0.089
+    },
+    {
+      "table": "pbpd20230422",
+      "rows": 512,
+      "field_comparisons": 2560,
+      "imported_rows": 512,
+      "elapsed_seconds": 0.068
+    },
+    {
+      "table": "ransetongji",
+      "rows": 515,
+      "field_comparisons": 6695,
+      "imported_rows": 515,
+      "elapsed_seconds": 0.099
+    },
+    {
+      "table": "JobInWareEdit",
+      "rows": 558,
+      "field_comparisons": 10602,
+      "imported_rows": 558,
+      "elapsed_seconds": 0.118
+    },
+    {
+      "table": "WDefectPenalty",
+      "rows": 571,
+      "field_comparisons": 6852,
+      "imported_rows": 571,
+      "elapsed_seconds": 0.099
+    },
+    {
+      "table": "JobOutWareEdit",
+      "rows": 576,
+      "field_comparisons": 11520,
+      "imported_rows": 576,
+      "elapsed_seconds": 0.125
+    },
+    {
+      "table": "PurDetail",
+      "rows": 580,
+      "field_comparisons": 19140,
+      "imported_rows": 580,
+      "elapsed_seconds": 0.122
+    },
+    {
+      "table": "p_Gray",
+      "rows": 648,
+      "field_comparisons": 34344,
+      "imported_rows": 648,
+      "elapsed_seconds": 0.159
+    },
+    {
+      "table": "EnergyConsumption",
+      "rows": 664,
+      "field_comparisons": 9296,
+      "imported_rows": 664,
+      "elapsed_seconds": 0.12
+    },
+    {
+      "table": "StuffIn",
+      "rows": 701,
+      "field_comparisons": 22432,
+      "imported_rows": 701,
+      "elapsed_seconds": 0.163
+    },
+    {
+      "table": "p_FieldValid",
+      "rows": 827,
+      "field_comparisons": 20675,
+      "imported_rows": 827,
+      "elapsed_seconds": 0.139
+    },
+    {
+      "table": "p_StorageUnitID",
+      "rows": 833,
+      "field_comparisons": 3332,
+      "imported_rows": 833,
+      "elapsed_seconds": 0.088
+    },
+    {
+      "table": "FixedPriceDetail",
+      "rows": 847,
+      "field_comparisons": 44044,
+      "imported_rows": 847,
+      "elapsed_seconds": 0.17
+    },
+    {
+      "table": "GrayStockAdjustDetail",
+      "rows": 873,
+      "field_comparisons": 28809,
+      "imported_rows": 873,
+      "elapsed_seconds": 0.162
+    },
+    {
+      "table": "StuffAllotDetail",
+      "rows": 1054,
+      "field_comparisons": 16864,
+      "imported_rows": 1054,
+      "elapsed_seconds": 0.135
+    },
+    {
+      "table": "TightTube",
+      "rows": 1194,
+      "field_comparisons": 16716,
+      "imported_rows": 1194,
+      "elapsed_seconds": 0.186
+    },
+    {
+      "table": "TightTubeDetail",
+      "rows": 1197,
+      "field_comparisons": 34713,
+      "imported_rows": 1197,
+      "elapsed_seconds": 0.235
+    },
+    {
+      "table": "GrayPostionUp",
+      "rows": 1297,
+      "field_comparisons": 42801,
+      "imported_rows": 1297,
+      "elapsed_seconds": 0.262
+    },
+    {
+      "table": "p_ShiftArrangeDetail",
+      "rows": 1460,
+      "field_comparisons": 21900,
+      "imported_rows": 1460,
+      "elapsed_seconds": 0.228
+    },
+    {
+      "table": "SemiStockAdjust",
+      "rows": 1481,
+      "field_comparisons": 32582,
+      "imported_rows": 1481,
+      "elapsed_seconds": 0.274
+    },
+    {
+      "table": "ProdInPriceAtte",
+      "rows": 1642,
+      "field_comparisons": 11494,
+      "imported_rows": 1642,
+      "elapsed_seconds": 0.176
+    },
+    {
+      "table": "ZJHXMXBB",
+      "rows": 2121,
+      "field_comparisons": 31815,
+      "imported_rows": 2121,
+      "elapsed_seconds": 0.228
+    },
+    {
+      "table": "StuffInDetail",
+      "rows": 2128,
+      "field_comparisons": 42560,
+      "imported_rows": 2128,
+      "elapsed_seconds": 0.248
+    },
+    {
+      "table": "FeelOfferDetail",
+      "rows": 2388,
+      "field_comparisons": 31044,
+      "imported_rows": 2388,
+      "elapsed_seconds": 0.23
+    },
+    {
+      "table": "SemiPostionUp",
+      "rows": 2406,
+      "field_comparisons": 79398,
+      "imported_rows": 2406,
+      "elapsed_seconds": 0.46
+    },
+    {
+      "table": "WWorkTime",
+      "rows": 2949,
+      "field_comparisons": 20643,
+      "imported_rows": 2949,
+      "elapsed_seconds": 0.335
+    },
+    {
+      "table": "WWorkRecord",
+      "rows": 3058,
+      "field_comparisons": 27522,
+      "imported_rows": 3058,
+      "elapsed_seconds": 0.504
+    },
+    {
+      "table": "CarryMaterial",
+      "rows": 3320,
+      "field_comparisons": 43160,
+      "imported_rows": 3320,
+      "elapsed_seconds": 0.444
+    },
+    {
+      "table": "ransechugangtongji",
+      "rows": 3749,
+      "field_comparisons": 56235,
+      "imported_rows": 3749,
+      "elapsed_seconds": 0.435
+    },
+    {
+      "table": "GrayMaterial",
+      "rows": 3895,
+      "field_comparisons": 50635,
+      "imported_rows": 3895,
+      "elapsed_seconds": 0.523
+    },
+    {
+      "table": "ProdLoadingDetail",
+      "rows": 3989,
+      "field_comparisons": 303164,
+      "imported_rows": 3989,
+      "elapsed_seconds": 0.823
+    },
+    {
+      "table": "GrayIn",
+      "rows": 4032,
+      "field_comparisons": 274176,
+      "imported_rows": 4032,
+      "elapsed_seconds": 0.937
+    },
+    {
+      "table": "StuffStockAdjustDetail",
+      "rows": 4053,
+      "field_comparisons": 52689,
+      "imported_rows": 4053,
+      "elapsed_seconds": 0.438
+    },
+    {
+      "table": "ProdOut",
+      "rows": 4964,
+      "field_comparisons": 268056,
+      "imported_rows": 4964,
+      "elapsed_seconds": 1.196
+    },
+    {
+      "table": "EnergyConsumptionDetail",
+      "rows": 5242,
+      "field_comparisons": 47178,
+      "imported_rows": 5242,
+      "elapsed_seconds": 0.492
+    },
+    {
+      "table": "DXCHANLIANG",
+      "rows": 5645,
+      "field_comparisons": 22580,
+      "imported_rows": 5645,
+      "elapsed_seconds": 0.351
+    },
+    {
+      "table": "GrayOut",
+      "rows": 6013,
+      "field_comparisons": 228494,
+      "imported_rows": 6013,
+      "elapsed_seconds": 1.103
+    },
+    {
+      "table": "GrayOutDetail",
+      "rows": 6023,
+      "field_comparisons": 258989,
+      "imported_rows": 6023,
+      "elapsed_seconds": 0.901
+    },
+    {
+      "table": "DyeLabMain",
+      "rows": 6502,
+      "field_comparisons": 253578,
+      "imported_rows": 6502,
+      "elapsed_seconds": 1.299
+    },
+    {
+      "table": "WDefect",
+      "rows": 11026,
+      "field_comparisons": 628482,
+      "imported_rows": 11026,
+      "elapsed_seconds": 2.895
+    },
+    {
+      "table": "SemiIn",
+      "rows": 12380,
+      "field_comparisons": 321880,
+      "imported_rows": 12380,
+      "elapsed_seconds": 2.052
+    },
+    {
+      "table": "JobAssign",
+      "rows": 14934,
+      "field_comparisons": 522690,
+      "imported_rows": 14934,
+      "elapsed_seconds": 2.536
+    },
+    {
+      "table": "s_FlowTask",
+      "rows": 15285,
+      "field_comparisons": 427980,
+      "imported_rows": 15285,
+      "elapsed_seconds": 2.538
+    },
+    {
+      "table": "GetJobSheetReceive",
+      "rows": 15732,
+      "field_comparisons": 534888,
+      "imported_rows": 15732,
+      "elapsed_seconds": 2.621
+    },
+    {
+      "table": "OrderMain",
+      "rows": 17032,
+      "field_comparisons": 1294432,
+      "imported_rows": 17032,
+      "elapsed_seconds": 4.467
+    },
+    {
+      "table": "DyeLabColor",
+      "rows": 20974,
+      "field_comparisons": 985778,
+      "imported_rows": 20974,
+      "elapsed_seconds": 3.095
+    },
+    {
+      "table": "SemiStockAdjustDetail",
+      "rows": 28294,
+      "field_comparisons": 848820,
+      "imported_rows": 28294,
+      "elapsed_seconds": 4.435
+    },
+    {
+      "table": "SwipeLabelPrint",
+      "rows": 41461,
+      "field_comparisons": 1202369,
+      "imported_rows": 41461,
+      "elapsed_seconds": 7.742
+    },
+    {
+      "table": "P_ColorNum",
+      "rows": 41706,
+      "field_comparisons": 2710890,
+      "imported_rows": 41706,
+      "elapsed_seconds": 7.611
+    },
+    {
+      "table": "GrayInDetail",
+      "rows": 46424,
+      "field_comparisons": 2553320,
+      "imported_rows": 46424,
+      "elapsed_seconds": 8.573
+    },
+    {
+      "table": "GrayStockBook",
+      "rows": 53208,
+      "field_comparisons": 2607192,
+      "imported_rows": 53208,
+      "elapsed_seconds": 13.641
+    },
+    {
+      "table": "JobSheetReceive",
+      "rows": 58162,
+      "field_comparisons": 2326480,
+      "imported_rows": 58162,
+      "elapsed_seconds": 14.043
+    },
+    {
+      "table": "shda",
+      "rows": 58930,
+      "field_comparisons": 2003620,
+      "imported_rows": 58930,
+      "elapsed_seconds": 9.54
+    },
+    {
+      "table": "SemiOut",
+      "rows": 61740,
+      "field_comparisons": 1420020,
+      "imported_rows": 61740,
+      "elapsed_seconds": 10.554
+    },
+    {
+      "table": "OrderAtte",
+      "rows": 62895,
+      "field_comparisons": 503160,
+      "imported_rows": 62895,
+      "elapsed_seconds": 6.3
+    },
+    {
+      "table": "DyeRecipe",
+      "rows": 65678,
+      "field_comparisons": 3875002,
+      "imported_rows": 65678,
+      "elapsed_seconds": 16.514
+    },
+    {
+      "table": "GrayMaterialDetail",
+      "rows": 74109,
+      "field_comparisons": 2149161,
+      "imported_rows": 74109,
+      "elapsed_seconds": 16.909
+    },
+    {
+      "table": "CarryMaterialDetail",
+      "rows": 74959,
+      "field_comparisons": 2023893,
+      "imported_rows": 74959,
+      "elapsed_seconds": 12.09
+    },
+    {
+      "table": "JobSheetRegister",
+      "rows": 75653,
+      "field_comparisons": 3026120,
+      "imported_rows": 75653,
+      "elapsed_seconds": 16.997
+    },
+    {
+      "table": "SemiOutDetail",
+      "rows": 76073,
+      "field_comparisons": 3042920,
+      "imported_rows": 76073,
+      "elapsed_seconds": 14.074
+    },
+    {
+      "table": "ProdIn",
+      "rows": 78114,
+      "field_comparisons": 6327234,
+      "imported_rows": 78114,
+      "elapsed_seconds": 28.674
+    },
+    {
+      "table": "DyeStartDateTime",
+      "rows": 78179,
+      "field_comparisons": 625432,
+      "imported_rows": 78179,
+      "elapsed_seconds": 10.064
+    },
+    {
+      "table": "OrderColor",
+      "rows": 80053,
+      "field_comparisons": 11047314,
+      "imported_rows": 80053,
+      "elapsed_seconds": 32.331
+    },
+    {
+      "table": "dyeCheckout",
+      "rows": 80778,
+      "field_comparisons": 3231120,
+      "imported_rows": 80778,
+      "elapsed_seconds": 15.858
+    },
+    {
+      "table": "JobAtte",
+      "rows": 89328,
+      "field_comparisons": 625296,
+      "imported_rows": 89328,
+      "elapsed_seconds": 9.295
+    },
+    {
+      "table": "JobCombineOrder",
+      "rows": 91455,
+      "field_comparisons": 1554735,
+      "imported_rows": 91455,
+      "elapsed_seconds": 15.281
+    },
+    {
+      "table": "JobSheet",
+      "rows": 92538,
+      "field_comparisons": 18137448,
+      "imported_rows": 92538,
+      "elapsed_seconds": 62.366
+    },
+    {
+      "table": "SemiInDetail",
+      "rows": 135140,
+      "field_comparisons": 6216440,
+      "imported_rows": 135140,
+      "elapsed_seconds": 24.91
+    },
+    {
+      "table": "ProdOutDetail",
+      "rows": 190463,
+      "field_comparisons": 16760744,
+      "imported_rows": 190463,
+      "elapsed_seconds": 64.091
+    },
+    {
+      "table": "ProdInRecord",
+      "rows": 191018,
+      "field_comparisons": 6685630,
+      "imported_rows": 191018,
+      "elapsed_seconds": 43.963
+    },
+    {
+      "table": "DyeRecipePhase",
+      "rows": 197837,
+      "field_comparisons": 1978370,
+      "imported_rows": 197837,
+      "elapsed_seconds": 29.334
+    },
+    {
+      "table": "SemiStockBook",
+      "rows": 215462,
+      "field_comparisons": 10773100,
+      "imported_rows": 215462,
+      "elapsed_seconds": 56.126
+    },
+    {
+      "table": "StuffOut",
+      "rows": 243535,
+      "field_comparisons": 7549585,
+      "imported_rows": 243535,
+      "elapsed_seconds": 57.067
+    },
+    {
+      "table": "StuffWeight",
+      "rows": 248051,
+      "field_comparisons": 21580437,
+      "imported_rows": 248051,
+      "elapsed_seconds": 108.365
+    },
+    {
+      "table": "ProdStockBook",
+      "rows": 268577,
+      "field_comparisons": 9937349,
+      "imported_rows": 268577,
+      "elapsed_seconds": 55.46
+    },
+    {
+      "table": "hypf",
+      "rows": 355675,
+      "field_comparisons": 4623775,
+      "imported_rows": 355675,
+      "elapsed_seconds": 35.257
+    },
+    {
+      "table": "StuffCombineSheets",
+      "rows": 367306,
+      "field_comparisons": 1101918,
+      "imported_rows": 367306,
+      "elapsed_seconds": 25.746
+    },
+    {
+      "table": "RecordYield",
+      "rows": 377215,
+      "field_comparisons": 62994905,
+      "imported_rows": 377215,
+      "elapsed_seconds": 190.881
+    },
+    {
+      "table": "WProcess",
+      "rows": 389052,
+      "field_comparisons": 23343120,
+      "imported_rows": 389052,
+      "elapsed_seconds": 131.854
+    },
+    {
+      "table": "JobProcess",
+      "rows": 473531,
+      "field_comparisons": 80973801,
+      "imported_rows": 473531,
+      "elapsed_seconds": 180.472
+    },
+    {
+      "table": "JobShiftEmp",
+      "rows": 533166,
+      "field_comparisons": 5864826,
+      "imported_rows": 533166,
+      "elapsed_seconds": 46.745
+    },
+    {
+      "table": "StuffWeightPhase",
+      "rows": 537050,
+      "field_comparisons": 6981650,
+      "imported_rows": 537050,
+      "elapsed_seconds": 47.537
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "rows": 541217,
+      "field_comparisons": 7577038,
+      "imported_rows": 541217,
+      "elapsed_seconds": 50.045
+    },
+    {
+      "table": "RecordEmp",
+      "rows": 577705,
+      "field_comparisons": 1155410,
+      "imported_rows": 577705,
+      "elapsed_seconds": 30.368
+    },
+    {
+      "table": "StuffOutDetail",
+      "rows": 1097595,
+      "field_comparisons": 19756710,
+      "imported_rows": 1097595,
+      "elapsed_seconds": 109.154
+    },
+    {
+      "table": "StuffStockBook",
+      "rows": 1103776,
+      "field_comparisons": 24283072,
+      "imported_rows": 1103776,
+      "elapsed_seconds": 242.581
+    },
+    {
+      "table": "StuffWeightDetail",
+      "rows": 1204177,
+      "field_comparisons": 38533664,
+      "imported_rows": 1204177,
+      "elapsed_seconds": 177.732
+    },
+    {
+      "table": "z_RevisionKey",
+      "rows": 3126513,
+      "field_comparisons": 25012104,
+      "imported_rows": 3126513,
+      "elapsed_seconds": 366.066
+    },
+    {
+      "table": "z_RevisionDetail",
+      "rows": 54372853,
+      "field_comparisons": 271864265,
+      "imported_rows": 54372853,
+      "elapsed_seconds": 4231.427
+    }
+  ],
+  "relation_counts": {
+    "ArrivalNoticeDetail": {
+      "source_parent_1": 0
+    },
+    "ArticleInDetail": {
+      "source_parent_1": 0
+    },
+    "ArticleOutDetail": {
+      "source_parent_1": 0
+    },
+    "ArticleStockAdjustDetail": {
+      "source_parent_1": 0
+    },
+    "BaseCaseDetail": {
+      "source_parent_1": 2
+    },
+    "compensatedetail": {
+      "source_parent_1": 0
+    },
+    "CookInDetail": {
+      "source_parent_1": 0
+    },
+    "CusAddPriceDetail": {
+      "source_parent_1": 0
+    },
+    "CusBasicsPriceDetail": {
+      "source_parent_1": 48
+    },
+    "CusExtraCharge": {
+      "source_parent_1": 0
+    },
+    "CustomerTSDetail": {
+      "source_parent_1": 373
+    },
+    "DefectiveInDetail": {
+      "source_parent_1": 1
+    },
+    "DefectiveOutDetail": {
+      "source_parent_1": 0
+    },
+    "DefectiveOutRecord": {
+      "source_parent_1": 0
+    },
+    "DyeDipsRecordEmp": {
+      "source_parent_1": 0
+    },
+    "DyeDipsRecordPhase": {
+      "source_parent_1": 4,
+      "source_parent_2": 26
+    },
+    "DyeLabAtte": {
+      "source_parent_1": 0
+    },
+    "DyeLabColor": {
+      "source_parent_1": 20974
+    },
+    "DyeLabColorRecord": {
+      "source_parent_1": 0
+    },
+    "DyeRecipeDetail": {
+      "source_parent_1": 541217
+    },
+    "DyeRecipeJob": {
+      "source_parent_1": 0
+    },
+    "DyeRecipePhase": {
+      "source_parent_1": 197837
+    },
+    "EnergyConsumptionDetail": {
+      "source_parent_1": 5242
+    },
+    "FeelOfferDetail": {
+      "source_parent_1": 2388
+    },
+    "FixedPriceAtte": {
+      "source_parent_1": 0,
+      "source_parent_2": 0
+    },
+    "FixedPriceDetail": {
+      "source_parent_1": 847
+    },
+    "FixedPriceProcess": {
+      "source_parent_1": 0
+    },
+    "GetClothNoticeDetail": {
+      "source_parent_1": 8
+    },
+    "GrayBalanceDetail": {
+      "source_parent_1": 0
+    },
+    "GrayInDetail": {
+      "source_parent_1": 46424
+    },
+    "GrayInRecord": {
+      "source_parent_1": 0
+    },
+    "GrayMaterialDetail": {
+      "source_parent_1": 74109
+    },
+    "GrayOutDetail": {
+      "source_parent_1": 6023
+    },
+    "GrayOutRecord": {
+      "source_parent_1": 0
+    },
+    "GrayReturnApplyDetail": {
+      "source_parent_1": 0
+    },
+    "GrayStockAdjustDetail": {
+      "source_parent_1": 873
+    },
+    "GrayStockSpecUpDetail": {
+      "source_parent_1": 29
+    },
+    "GrayStorageAdjustDetail": {
+      "source_parent_1": 1
+    },
+    "GrayStorageAdjustRecord": {
+      "source_parent_1": 32
+    },
+    "h_EmployeeIORecord": {
+      "source_parent_1": 0
+    },
+    "InspectionLogDetail": {
+      "source_parent_1": 0
+    },
+    "JobAssign": {
+      "source_parent_1": 14934
+    },
+    "JobAtte": {
+      "source_parent_1": 89325
+    },
+    "JobCombine": {
+      "source_parent_1": 0
+    },
+    "JobCombineOrder": {
+      "source_parent_1": 91452
+    },
+    "JobExceptions": {
+      "source_parent_1": 0
+    },
+    "JobGrayRecord": {
+      "source_parent_1": 0
+    },
+    "JobPreRegist": {
+      "source_parent_1": 0
+    },
+    "JobProcess": {
+      "source_parent_1": 473515
+    },
+    "JobProcessPre": {
+      "source_parent_1": 0
+    },
+    "JobShiftEmp": {
+      "source_parent_1": 533166,
+      "source_parent_2": 533166
+    },
+    "MachineCarePlanDetail": {
+      "source_parent_1": 0
+    },
+    "MachineCaseDetail": {
+      "source_parent_1": 0
+    },
+    "MachineCaseProject": {
+      "source_parent_1": 40
+    },
+    "ODMInDetail": {
+      "source_parent_1": 0
+    },
+    "ODMInRecord": {
+      "source_parent_1": 0
+    },
+    "ODMOutDetail": {
+      "source_parent_1": 0
+    },
+    "ODMOutRecord": {
+      "source_parent_1": 0
+    },
+    "OrderAssign": {
+      "source_parent_1": 0
+    },
+    "OrderAssign2": {
+      "source_parent_1": 0
+    },
+    "OrderAtte": {
+      "source_parent_1": 62895,
+      "source_parent_2": 62895
+    },
+    "OrderColor": {
+      "source_parent_1": 80053
+    },
+    "OrderDlvApplySheet": {
+      "source_parent_1": 0
+    },
+    "OrderInfoProcess": {
+      "source_parent_1": 0
+    },
+    "OrderProcess": {
+      "source_parent_1": 0
+    },
+    "OrderProcessPre": {
+      "source_parent_1": 0
+    },
+    "OtherInDetail": {
+      "source_parent_1": 0
+    },
+    "OutGoingBillDetail": {
+      "source_parent_1": 0
+    },
+    "OutPlanDetail": {
+      "source_parent_1": 0
+    },
+    "OutWorkApplyDetail": {
+      "source_parent_1": 46
+    },
+    "p_CustAddress": {
+      "source_parent_1": 0
+    },
+    "p_CustCategory": {
+      "source_parent_1": 0
+    },
+    "p_CustLinker": {
+      "source_parent_1": 0
+    },
+    "p_CustRelation": {
+      "source_parent_1": 0
+    },
+    "p_DyeCurveDetail": {
+      "source_parent_1": 119
+    },
+    "p_Fabric_Cust": {
+      "source_parent_1": 49
+    },
+    "p_Fabric_Fact": {
+      "source_parent_1": 0
+    },
+    "p_Fabric_Other": {
+      "source_parent_1": 0
+    },
+    "p_FeelCode": {
+      "source_parent_1": 0
+    },
+    "p_FieldValidSub": {
+      "source_parent_1": 175
+    },
+    "p_FieldValidSubCust": {
+      "source_parent_1": 0
+    },
+    "p_MachineColor": {
+      "source_parent_1": 0
+    },
+    "p_MachinePart": {
+      "source_parent_1": 0
+    },
+    "p_MachinePoint": {
+      "source_parent_1": 0
+    },
+    "p_MachineProcess": {
+      "source_parent_1": 0
+    },
+    "p_MachineProd": {
+      "source_parent_1": 0
+    },
+    "p_MeterMachine": {
+      "source_parent_1": 0
+    },
+    "p_PriceListColor": {
+      "source_parent_1": 8
+    },
+    "p_PriceListProcess": {
+      "source_parent_1": 9
+    },
+    "p_PriceListVat": {
+      "source_parent_1": 0
+    },
+    "p_ProcessArea": {
+      "source_parent_1": 0
+    },
+    "p_ProcessChemical": {
+      "source_parent_1": 0
+    },
+    "p_ProcessCraft": {
+      "source_parent_1": 0
+    },
+    "p_ProcessDefect": {
+      "source_parent_1": 0
+    },
+    "p_ProcessPCraft": {
+      "source_parent_1": 0
+    },
+    "p_ProcessPrice": {
+      "source_parent_1": 0
+    },
+    "p_ShiftEmp": {
+      "source_parent_1": 127
+    },
+    "PlanDetail": {
+      "source_parent_1": 0
+    },
+    "PPasteDosageDetail": {
+      "source_parent_1": 0
+    },
+    "PriceAdjustDetail": {
+      "source_parent_1": 0
+    },
+    "PrintColorSeparateRecord": {
+      "source_parent_1": 0
+    },
+    "PrintingTestColor": {
+      "source_parent_1": 0
+    },
+    "PrintingTestDetail": {
+      "source_parent_1": 0
+    },
+    "PrintingTestStuff": {
+      "source_parent_1": 0
+    },
+    "ProcessCraftJobNo": {
+      "source_parent_1": 0
+    },
+    "ProcessCraftOrderNo": {
+      "source_parent_1": 0
+    },
+    "ProdInPriceAtte": {
+      "source_parent_1": 1642
+    },
+    "ProdInPriceProcess": {
+      "source_parent_1": 0
+    },
+    "ProdInRecord": {
+      "source_parent_1": 191017
+    },
+    "ProdLoadingDetail": {
+      "source_parent_1": 3989
+    },
+    "ProdOutDetail": {
+      "source_parent_1": 190463
+    },
+    "ProdOutPriceAtte": {
+      "source_parent_1": 0
+    },
+    "ProdOutRecord": {
+      "source_parent_1": 0
+    },
+    "ProdStockAdjustDetail": {
+      "source_parent_1": 0
+    },
+    "ProdStorageAdjustDetail": {
+      "source_parent_1": 0
+    },
+    "ProdStorageAdjustRecord": {
+      "source_parent_1": 0
+    },
+    "PStuffWeightPhase": {
+      "source_parent_1": 0
+    },
+    "PTSampleRegistAtte": {
+      "source_parent_1": 0
+    },
+    "PTSampleRegistDetail": {
+      "source_parent_1": 0
+    },
+    "PurApplyDetail": {
+      "source_parent_1": 0
+    },
+    "PurDetail": {
+      "source_parent_1": 0,
+      "source_parent_2": 580,
+      "source_parent_3": 0
+    },
+    "QuoteAtte": {
+      "source_parent_1": 0
+    },
+    "QuoteDetail": {
+      "source_parent_1": 0
+    },
+    "QuoteItemPrice": {
+      "source_parent_1": 1
+    },
+    "QuotePriceProcess": {
+      "source_parent_1": 0
+    },
+    "RecordDefect": {
+      "source_parent_1": 0
+    },
+    "RecordEmp": {
+      "source_parent_1": 0
+    },
+    "RecordYield": {
+      "source_parent_1": 377045
+    },
+    "s_FlowStep": {
+      "source_parent_1": 16
+    },
+    "s_FlowStepEmp": {
+      "source_parent_1": 26,
+      "source_parent_2": 26
+    },
+    "SampleInDetail": {
+      "source_parent_1": 0
+    },
+    "SampleOutDetail": {
+      "source_parent_1": 0
+    },
+    "SemiInDetail": {
+      "source_parent_1": 135140
+    },
+    "SemiInRecord": {
+      "source_parent_1": 0
+    },
+    "SemiOutDetail": {
+      "source_parent_1": 76073
+    },
+    "SemiOutRecord": {
+      "source_parent_1": 0
+    },
+    "SemiOutWorkApplyDetail": {
+      "source_parent_1": 0
+    },
+    "SemiStockAdjustDetail": {
+      "source_parent_1": 28294
+    },
+    "SemiStockSpecUpDetail": {
+      "source_parent_1": 67
+    },
+    "ShiftPlanDetail": {
+      "source_parent_1": 0
+    },
+    "StandCraftDetail": {
+      "source_parent_1": 0
+    },
+    "StandCraftJobNo": {
+      "source_parent_1": 0
+    },
+    "StuffAllotDetail": {
+      "source_parent_1": 1054
+    },
+    "StuffInDetail": {
+      "source_parent_1": 2128
+    },
+    "StuffOutDetail": {
+      "source_parent_1": 1097595
+    },
+    "StuffStockAdjustDetail": {
+      "source_parent_1": 4053
+    },
+    "StuffWeightDetail": {
+      "source_parent_1": 1204175
+    },
+    "StuffWeightPhase": {
+      "source_parent_1": 537050
+    },
+    "Test_Detail": {
+      "source_parent_1": 0
+    },
+    "WDefectPenalty": {
+      "source_parent_1": 0,
+      "source_parent_2": 0
+    },
+    "WProcessStep": {
+      "source_parent_1": 0
+    },
+    "z_RevisionDetail": {
+      "source_parent_1": 54372853
+    },
+    "ZDAddPriceDetail": {
+      "source_parent_1": 0
+    }
+  },
+  "relation_links": 61061719,
+  "database_name": "erp_full_trial_20261014",
+  "database_relative_data_directory": "runtime/postgresql-data",
+  "original_sqlite_backup": "data-backups/before-full-history-20261014.sqlite3",
+  "live_runtime": {
+    "host": "http://127.0.0.1:8001",
+    "database": "erp_full_trial_20261014",
+    "database_vendor": "postgresql",
+    "data_directory_follows_project_root": true,
+    "max_locks_per_transaction": "1024",
+    "http_checks": 23,
+    "frontend_assets": 15
+  },
+  "completion_scope": "Complete original business-table data, original-field comparison, declared unique relationship fill and development database adoption; not a claim that every old workflow is reproduced.",
+  "all_old_business_workflows_reproduced": false
+}

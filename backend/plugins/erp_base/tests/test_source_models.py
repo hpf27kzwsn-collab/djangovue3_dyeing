@@ -12,7 +12,7 @@ from plugins.erp_production.source_models import SourceDyeWProcess
 from plugins.erp_quality.models import QualityInspection
 from django.db import migrations,models
 from django.db.migrations.state import ProjectState
-from plugins.erp_base.source_migrations import CreateSourceModels
+from plugins.erp_base.source_migrations import CreateSourceModels,AddSourceIndexes
 from plugins.erp_sampling.source_models import SourceDyeColorCardDetail
 from system.models import Role,Menu,MenuField,FieldPermission,RoleMenuButtonPermission
 from plugins.erp_base.source_models import SourceDyeSFlow,SourceDyeSFlowStep,SourceDyeSFlowStepEmp
@@ -22,6 +22,18 @@ from plugins.erp_quality.source_models import SourceDyeWDefectPenalty
 
 
 class SourceMigrationStateTests(SimpleTestCase):
+    def test_batch_has_the_same_functional_index_state_as_standard_operations(self):
+        from django.db.models.functions import Upper, RTrim
+        initial = migrations.CreateModel(name='SourceOne', fields=[('id', models.BigAutoField(primary_key=True)),
+            ('original_code', models.CharField(max_length=20))])
+        standard = ProjectState(); initial.state_forwards('migration_test', standard)
+        batched = standard.clone(); batched.apps
+        operations = [migrations.AddIndex(model_name='sourceone',
+            index=models.Index(Upper(RTrim('original_code')), name='test_ci_source_code'))]
+        for operation in operations: operation.state_forwards('migration_test', standard)
+        AddSourceIndexes(operations).state_forwards('migration_test', batched)
+        self.assertEqual(standard, batched)
+
     def test_batch_has_the_same_model_state_as_standard_create_operations(self):
         operations=[migrations.CreateModel(name=name,fields=[('id',models.BigAutoField(primary_key=True)),('original_amount',models.DecimalField(max_digits=38,decimal_places=8,null=True))]) for name in ['SourceOne','SourceTwo']]
         standard=ProjectState();batched=ProjectState()
@@ -34,6 +46,18 @@ class SourceMigrationStateTests(SimpleTestCase):
 
 
 class FullSourceModelTests(TestCase):
+    def test_original_relations_ignore_ascii_case_and_trailing_spaces_without_changing_codes(self):
+        now = timezone.now()
+        batch = LegacyImportBatch.objects.create(number='CASE-SOURCE', database_name='Textile_GXHFRS',
+            started_at=now, finished_at=now, manifest_sha256='a'*64, source_directory='test-only',
+            table_count=2, row_count=2, byte_count=0, verified_at=now)
+        root = SourceDyeSFlow.objects.create(source_batch=batch, source_row=1, old_flow_id='RouteA')
+        child = SourceDyeSFlowStep.objects.create(source_batch=batch, source_row=1, old_flow_id='routea  ', old_step_no=1)
+        link_relations(batch, ['s_FlowStep'])
+        child.refresh_from_db()
+        self.assertEqual(child.source_parent_1_id, root.pk)
+        self.assertEqual(child.old_flow_id, 'routea  ')
+
     def test_defect_responsibility_quantities_and_penalty_values_are_business_facts(self):
         item=SourceDyeWDefectPenalty.objects.create(old_sheet_series='D-1',old_wdefect_no='DEF-1',old_row_no=1,
             old_emp_id='OLD-E',old_rolls=Decimal('-6'),old_qty=Decimal('1.5'),old_penalty=Decimal('-100'),old_reward=None)
@@ -69,7 +93,7 @@ class FullSourceModelTests(TestCase):
     def test_every_business_model_has_legacy_identity_and_static_fields(self):
         models=[model for model in apps.get_models() if model._meta.app_label.startswith('erp_')]
         originals=[model for model in models if issubclass(model,SourceRecord)]
-        self.assertEqual(len(models),660);self.assertEqual(len(originals),553)
+        self.assertEqual(len(models),662);self.assertEqual(len(originals),553)
         self.assertEqual(sum(len(model.SOURCE_FIELDS) for model in originals),11412)
         for model in models:self.assertEqual(str(model._meta.get_field('legacy_id').verbose_name),'旧erpID')
         self.assertEqual(QualityInspection._meta.app_label,'erp_quality')

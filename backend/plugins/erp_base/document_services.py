@@ -13,7 +13,7 @@ def write_row(model, data, item, actor, department):
         values.update(creator=actor, dept_belong_id=department)
     if issubclass(model, SourceRecord):
         values.pop('modifier')
-        return source_services.write(model, values, item, actor)
+        return source_services.write(model, values, item, actor, apply_effects=False)
     return write(model, values, item, policy_for(model))
 
 
@@ -48,7 +48,10 @@ def save_document(item, actor, head, children):
             if rows.count() != len(set(keys)):
                 raise ValidationError({'children': '待删除明细不属于本表头。'})
             if original:
-                source_services.delete(rows,actor)
+                source_services.delete(rows,actor,apply_effects=False)
             else:
                 delete(rows, policy_for(child))
+    if original:
+        source_services.finish(source_services.chain(item), actor)
+        item.refresh_from_db()
     return item

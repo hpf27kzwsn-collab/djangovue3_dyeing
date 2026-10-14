@@ -6,13 +6,23 @@ from core.responses import success
 from . import source_services as services
 from .source_services import OWNED
 from .business_api import BusinessViewSet,BusinessSerializer
+from .source_entry_registry import ENTRY_RULES, entry_options
+from .source_entry_services import entry_for
 
 
 class SourceRecordSerializer(BusinessSerializer):
+    _entry = serializers.CharField(write_only=True, required=False)
+    entry_name = serializers.ReadOnlyField()
+
     def get_fields(self):
         fields=super().get_fields()
         for name in OWNED:fields[name].read_only=True
         for name in self.Meta.model.SOURCE_DEFAULTS:fields[name].required=False
+        entries = ENTRY_RULES.get(self.Meta.model._meta.label, {})
+        fields['_entry'] = serializers.ChoiceField(choices=list(entries), write_only=True, required=False)
+        for entry in entries.values():
+            for old in [*entry['number_fields'], *entry['default_fields']]:
+                fields[self.Meta.model.SOURCE_FIELDS[old]].required = False
         if self.Meta.model.SOURCE_TABLE=='RecordYield':fields['old_guid'].required=False
         for field in fields.values():
             if isinstance(field,serializers.CharField):field.trim_whitespace=False
@@ -38,6 +48,15 @@ class SourceRecordViewSet(BusinessViewSet):
         return success(self.get_serializer(item).data)
 
     @action(methods=['post'],detail=True)
+    def issue_materials(self,request,pk=None):
+        from .business_api import parameters
+        from .source_material_issue import issue
+        values=parameters(self,{'finished_at':serializers.DateTimeField(),
+            'evidence_kind':serializers.ChoiceField(choices=['weighing_finished','process_started']),
+            'evidence_reference':serializers.CharField(trim_whitespace=False)})
+        return self.performed(issue,values)
+
+    @action(methods=['post'],detail=True)
     def confirm(self,request,pk=None):return self.performed(services.confirm,{})
 
     @action(methods=['post'],detail=True)
@@ -52,12 +71,12 @@ class SourceRecordViewSet(BusinessViewSet):
 
     def destroy(self,request,*args,**kwargs):
         item=self.get_object()
-        services.delete(self.get_queryset().filter(pk=item.pk),request.user)
+        services.delete_documents(self.get_queryset().filter(pk=item.pk),request.user)
         return success([], '删除成功')
 
     @action(methods=['delete'],detail=False)
     def multiple_delete(self,request):
-        services.delete(self.get_queryset().filter(pk__in=request.data['keys']),request.user)
+        services.delete_documents(self.get_queryset().filter(pk__in=request.data['keys']),request.user)
         return success([], '删除成功')
 
     @action(methods=['post'],detail=True)

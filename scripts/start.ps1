@@ -4,6 +4,8 @@ $projectRoot = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'python-env.ps1')
 $projectPython = Initialize-ProjectPython
 $env:PYTHONUTF8 = '1'
+& $projectPython (Join-Path $projectRoot 'tools\project_postgresql.py')
+if ($LASTEXITCODE -ne 0) { throw '本项目开发数据库启动失败' }
 Push-Location (Join-Path $projectRoot 'backend')
 try { & $projectPython -m uvicorn application.asgi:application --host 127.0.0.1 --port $Port }
 finally { Pop-Location }

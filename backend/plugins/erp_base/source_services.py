@@ -11,6 +11,9 @@ from .source_calculations import field_values,packaging_values,aggregate_values,
 from .source_sequences import allocate
 from .source_calculation_entries import ENTRY_METHODS
 from .source_entry_calculations import entry_values
+from . import source_entry_services as entries
+from . import source_stock_services as stock
+from . import source_workflow_services as workflow
 
 OWNED = {'legacy_id', 'source_batch', 'source_row', 'approval_stage', 'confirmed_at',
          'confirmed_by', 'approved_at', 'approved_by'}
@@ -41,8 +44,16 @@ def lock_chain(item):
     return [locked(parent) for parent in chain(item)]
 
 
+def require_origin_edit(item):
+    from .source_context import SourceDocumentContext
+    context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
+    if context is not None and 'derived_from' in context.effects:
+        raise ValidationError({'parent': '此记录由来源单据办理生成，请修改实际来源单据。'})
+
+
 def editable(items):
     for item in items:
+        require_origin_edit(item)
         if item.approval_stage in ['confirmed', 'approved']:
             raise ValidationError({'approval_stage': '所属单据已经确认或审核，请先重新办理。'})
 
@@ -131,8 +142,16 @@ def refresh_totals(items, actor):
                 record(item, 'refresh_totals', before, actor, '采用原子表汇总公式')
 
 
+def finish(items, actor):
+    refresh_totals(items, actor)
+    stock.refresh_chain(items, actor)
+    workflow.refresh_chain(items, actor)
+
+
 @transaction.atomic
-def write(model, data, instance=None, actor=None):
+def write(model, data, instance=None, actor=None, apply_effects=True):
+    data = dict(data)
+    selected_entry = data.pop('_entry', None)
     denied = managed_fields(model).intersection(data)
     if denied:
         raise ValidationError({key: '由来源导入或明确办理动作维护。' for key in denied})
@@ -159,6 +178,9 @@ def write(model, data, instance=None, actor=None):
     if item.source_batch_id is None and item.legacy_id is None:
         assign_owner_values(item, data)
         assign_reference_values(item,data)
+    entry = entries.resolve_entry(item, selected_entry, chain(item)[:-1])
+    if instance is None and entry is not None:
+        entries.apply_new_rules(item, data, actor, entry)
     if instance is None:
         item.approval_stage = 'draft' if item.SOURCE_DOCUMENT and not parents(item) else None
         allocate(item, actor)
@@ -169,32 +191,89 @@ def write(model, data, instance=None, actor=None):
             owner_chain = chain(item)
             item.dept_belong_id = actor.dept_id if len(owner_chain) == 1 else owner_chain[0].dept_belong_id
     result = persist(item)
+    if entry is not None:
+        entries.save_context(item, actor, entry)
     if actor is not None:
         record(item, 'create' if instance is None else 'edit', before, actor)
-    refresh_totals(chain(item), actor)
+    if apply_effects:
+        finish(chain(item), actor)
     return result
 
 
 @transaction.atomic
-def delete(queryset,actor=None):
+def delete_documents(queryset, actor):
+    """删除明确选择的新主从单据；真实外部引用及历史原行继续由原规则保护。"""
+    def owned(item):
+        descendants = []
+        for child in child_rows(item):
+            editable(lock_chain(child))
+            if child.source_batch_id is not None or child.legacy_id is not None:
+                raise ValidationError({'legacy_id': '所属明细含历史来源记录，不能删除该原行。'})
+            descendants.extend(owned(child))
+            descendants.append(child)
+        return descendants
+    for item in queryset.order_by('pk'):
+        editable(lock_chain(item))
+        if not item.SOURCE_DOCUMENT:
+            delete(type(item).objects.filter(pk=item.pk), actor)
+            continue
+        if item.source_batch_id is not None or item.legacy_id is not None:
+            raise ValidationError({'legacy_id': '历史来源单据保留原行，不从普通删除入口删除。'})
+        from .source_context import SourceDocumentContext
+        context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
+        if context is not None:
+            from .source_stock_job_services import removing
+            removing(item, context, actor)
+            stock.clear_effects(context, actor)
+        descendants = owned(item)
+        for child in descendants:
+            delete(type(child).objects.filter(pk=child.pk), actor, apply_effects=False)
+        delete(type(item).objects.filter(pk=item.pk), actor)
+
+
+@transaction.atomic
+def delete(queryset,actor=None,apply_effects=True):
     affected = {}
+    removed = []
     for item in queryset.order_by('pk'):
         editable(lock_chain(item))
         if item.source_batch_id is not None or item.legacy_id is not None:
             raise ValidationError({'legacy_id': '历史来源记录保留原行，不从普通删除入口删除。'})
+        if item.SOURCE_TABLE == 'StuffWeight':
+            outgoing = apps.get_model('erp_warehouse.SourceDyeStuffOut')
+            if outgoing.objects.filter(old_weight_sheet_no__iexact=item.old_sheet_no).exists():
+                raise ValidationError({'source': '此称料单已有实际出库，按原规则保留来源称料单。'})
+        removed.append(item)
         for parent in chain(item)[:-1]:
             affected[(parent._meta.label, parent.pk)] = parent
+        from .source_context import SourceDocumentContext
+        context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
+        if context is not None:
+            from .source_stock_job_services import removing
+            removing(item, context, actor)
+            stock.clear_effects(context, actor)
+            context.delete()
+    # 自动分配的细码由来源出库单维护，先撤回本次生成行，再删除实际明细并统一重建。
+    for parent in affected.values():
+        if parent.SOURCE_TABLE in stock.STOCK_TABLES:
+            context = SourceDocumentContext.objects.filter(entity=parent._meta.label, object_id=parent.pk).first()
+            if context is not None:
+                stock.clear_effects(context, actor)
     try:
         queryset.delete()
     except ProtectedError as error:
         raise ValidationError({'parent': '此记录仍被明细或其他业务引用，请先处理相应业务。'}) from error
-    refresh_totals(list(affected.values()), actor)
+    if apply_effects:
+        finish(list(affected.values()), actor)
+        for item in removed:
+            workflow.refresh_removed(item, actor)
 
 
 @transaction.atomic
 def advance(item, actor, expected, target):
     objects = lock_chain(item)
     item = objects[-1]
+    require_origin_edit(item)
     if not item.SOURCE_DOCUMENT or len(objects) > 1:
         raise ValidationError({'approval_stage': '关联明细由所属表头办理，请从表头确认或审核。'})
     if item.approval_stage != expected:
@@ -207,7 +286,11 @@ def advance(item, actor, expected, target):
         item.confirmed_at, item.confirmed_by = at, actor
     elif target == 'approved':
         item.approved_at, item.approved_by = at, actor
+        if entries.entry_for(item) is not None and 'RightStatus' in item.SOURCE_FIELDS:
+            setattr(item, item.SOURCE_FIELDS['RightStatus'], 10)
     persist(item, actor)
+    stock.refresh(item, actor)
+    workflow.refresh_chain([item], actor)
     record(item, target, before, actor)
     return item
 
@@ -224,6 +307,10 @@ def approve(item, actor):
 def reopen(item, actor, reason):
     objects = lock_chain(item)
     item = objects[-1]
+    from .source_context import SourceDocumentContext
+    context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
+    if context is not None and 'derived_from' in context.effects:
+        raise ValidationError({'parent': '此记录由来源单据办理生成，请从实际来源单据重新办理。'})
     if len(objects) > 1:
         raise ValidationError({'approval_stage': '请从所属表头重新办理。'})
     if item.approval_stage not in ['confirmed', 'approved']:
@@ -234,7 +321,11 @@ def reopen(item, actor, reason):
     item.approval_stage = 'draft'
     item.confirmed_at = item.approved_at = None
     item.confirmed_by = item.approved_by = None
+    if entries.entry_for(item) is not None and 'RightStatus' in item.SOURCE_FIELDS:
+        setattr(item, item.SOURCE_FIELDS['RightStatus'], 0)
     persist(item, actor)
+    stock.refresh(item, actor)
+    workflow.refresh_chain([item], actor)
     record(item, 'reopen', before, actor, reason)
     return item
 
@@ -265,4 +356,6 @@ def calculate(item, actor, method):
     persist(item, actor)
     record(item, 'calculate', before, actor, '采用原入口公式：' + method)
     refresh_totals(chain(item), actor)
+    stock.refresh_chain(chain(item), actor)
+    workflow.refresh_chain(chain(item), actor)
     return item

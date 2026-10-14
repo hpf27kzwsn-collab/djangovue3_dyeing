@@ -1,5 +1,6 @@
 """静态旧业务字段；由tools/legacy_models生成，逐表来源见source_catalog.json。"""
 from django.db import models
+from django.db.models.functions import Upper,RTrim
 from plugins.erp_base.source_documents import SourceRecord
 
 
@@ -9,9 +10,11 @@ class SourceDboProdin1029(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'JobSheetNo': 'old_job_sheet_no', 'SheetDate': 'old_sheet_date', 'CustomerID': 'old_customer_id', 'StockUnit': 'old_stock_unit', 'ProdID': 'old_prod_id', 'FabricID': 'old_fabric_id', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'CustColorNum': 'old_cust_color_num', 'Spec': 'old_spec', 'StorageUnitID': 'old_storage_unit_id', 'Area': 'old_area', 'SumRolls': 'old_sum_rolls', 'SumWeightQty': 'old_sum_weight_qty', 'SumGaryWeight': 'old_sum_gary_weight', 'SumLengthQty': 'old_sum_length_qty', 'AtteFee': 'old_atte_fee', 'VatFee': 'old_vat_fee', 'Width': 'old_width', 'Weight': 'old_weight', 'BarCode': 'old_bar_code', 'RollNo': 'old_roll_no', 'GrayQty': 'old_gray_qty', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty'}
     SOURCE_KEY=()
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=20)
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -51,9 +54,11 @@ class SourceDyeAProdRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'Row1': 'old_row1', 'Row3': 'old_row3', 'Rolls': 'old_rolls'}
     SOURCE_KEY=()
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=30)
     old_detail_no=models.CharField('DetailNo', null=True, blank=True, max_length=30)
     old_row1=models.IntegerField('Row1', null=True, blank=True)
@@ -72,9 +77,11 @@ class SourceDyeArticleDeptApply(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'RightStatus': 'old_right_status'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('SheetNo', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -89,7 +96,7 @@ class SourceDyeArticleDeptApply(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articledeptapply'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_d9a652328869012d')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_d9a652328869012d'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_d9a652328869012d')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ArticleDeptApply，待确认）'
         ordering=["-id"]
 
@@ -99,9 +106,11 @@ class SourceDyeArticleDeptApplyDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'DeptSheetNo': 'old_dept_sheet_no', 'Name': 'old_name', 'ArticleID': 'old_article_id', 'ArticleKindID': 'old_article_kind_id', 'Unit': 'old_unit', 'Qty': 'old_qty', 'Amount': 'old_amount', 'Remarks': 'old_remarks', 'DeptID': 'old_dept_id', 'ApplySheetNo': 'old_apply_sheet_no'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_dept_sheet_no': 'Chinese_PRC_CI_AS', 'old_name': 'Chinese_PRC_CI_AS', 'old_article_id': 'Chinese_PRC_CI_AS', 'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_unit': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_apply_sheet_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=20)
     old_dept_sheet_no=models.CharField('DeptSheetNo', null=True, blank=True, max_length=30)
@@ -117,7 +126,7 @@ class SourceDyeArticleDeptApplyDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articledeptapplydetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_308a57b83ddf18fe')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_308a57b83ddf18fe'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_308a57b83ddf18fe')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ArticleDeptApplyDetail，待确认）'
         ordering=["-id"]
 
@@ -127,9 +136,11 @@ class SourceDyeArticleIn(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'InKindID': 'old_in_kind_id', 'BuyerID': 'old_buyer_id', 'WareHouseID': 'old_ware_house_id', 'SupplierID': 'old_supplier_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'StepNo': 'old_step_no', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'BusinessUnitID': 'old_business_unit_id', 'Keeper': 'old_keeper', 'Reason': 'old_reason', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'Settle': 'old_settle', 'deliverynum': 'old_deliverynum', 'APMoney': 'old_apmoney', 'APQty': 'old_apqty', 'UnClearQty': 'old_un_clear_qty', 'UnClearMoney': 'old_un_clear_money', 'UnClearInvoiceQty': 'old_un_clear_invoice_qty', 'UnClearInvoiceMoney': 'old_un_clear_invoice_money', 'DiscountMoney': 'old_discount_money', 'SumAmount': 'old_sum_amount', 'InvoiceClearStatus': 'old_invoice_clear_status', 'MoneyClearStatus': 'old_money_clear_status', 'DeptID': 'old_dept_id', 'FactID': 'old_fact_id', 'invoice': 'old_invoice'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_in_kind_id': 'Chinese_PRC_CI_AS', 'old_buyer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_reason': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_settle': 'Chinese_PRC_CI_AS', 'old_deliverynum': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_invoice': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -171,7 +182,7 @@ class SourceDyeArticleIn(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articlein'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_c110dbf537133bdd')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_c110dbf537133bdd'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_c110dbf537133bdd')]
         verbose_name=verbose_name_plural='辅料入库单'
         ordering=["-id"]
 
@@ -181,9 +192,11 @@ class SourceDyeArticleInDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ArticleID': 'old_article_id', 'ArticleKindID': 'old_article_kind_id', 'Spec': 'old_spec', 'InQty': 'old_in_qty', 'Price': 'old_price', 'TaxRate': 'old_tax_rate', 'TaxPrice': 'old_tax_price', 'TaxMoney': 'old_tax_money', 'Total': 'old_total', 'PurDetailNo': 'old_pur_detail_no', 'APDetailNo': 'old_apdetail_no', 'InvoiceNo': 'old_invoice_no', 'FactDlvNo': 'old_fact_dlv_no', 'Remarks': 'old_remarks', 'PackQty': 'old_pack_qty', 'PackUnit': 'old_pack_unit', 'Discount': 'old_discount', 'DiscountMoney': 'old_discount_money', 'OriDetailNo': 'old_ori_detail_no', 'Amount': 'old_amount', 'StorageUnitIDs': 'old_storage_unit_ids', 'batch': 'old_batch'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_article_id': 'Chinese_PRC_CI_AS', 'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_invoice_no': 'Chinese_PRC_CI_AS', 'old_fact_dlv_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_pack_unit': 'Chinese_PRC_CI_AS', 'old_ori_detail_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_batch': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ArticleIn', 'target': 'erp_warehouse.SourceDyeArticleIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 FabricArticleInDetail → FabricArticleIn', '原界面主从 ArticleInDetail → ArticleIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_article_id=models.CharField('物料编码', null=True, blank=True, max_length=200)
@@ -212,7 +225,7 @@ class SourceDyeArticleInDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articleindetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_577555f5b7fb1708')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_577555f5b7fb1708'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_577555f5b7fb1708')]
         verbose_name=verbose_name_plural='辅料入库明细'
         ordering=["-id"]
 
@@ -222,9 +235,11 @@ class SourceDyeArticleOut(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'WareHouseID': 'old_ware_house_id', 'ProjectNo': 'old_project_no', 'EmpID': 'old_emp_id', 'OutKindID': 'old_out_kind_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessUnitID': 'old_business_unit_id', 'DeptID': 'old_dept_id', 'UseID': 'old_use_id', 'CustomerID': 'old_customer_id', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'SupplierID': 'old_supplier_id', 'leaders': 'old_leaders', 'purpose': 'old_purpose', 'FactID': 'old_fact_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_project_no': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_out_kind_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_use_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_leaders': 'Chinese_PRC_CI_AS', 'old_purpose': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -256,7 +271,7 @@ class SourceDyeArticleOut(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articleout'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e3022bdb2fbd5b44')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e3022bdb2fbd5b44'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_e3022bdb2fbd5b44')]
         verbose_name=verbose_name_plural='辅料出库单'
         ordering=["-id"]
 
@@ -266,9 +281,11 @@ class SourceDyeArticleOutApply(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'Applyer': 'old_applyer', 'ApplyDept': 'old_apply_dept', 'ApplyFactory': 'old_apply_factory', 'SheetDate': 'old_sheet_date', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'Remarks': 'old_remarks', 'UseInfo': 'old_use_info'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_applyer': 'Chinese_PRC_CI_AS', 'old_apply_dept': 'Chinese_PRC_CI_AS', 'old_apply_factory': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_use_info': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('SheetNo', null=False, blank=True, max_length=20)
     old_applyer=models.CharField('Applyer', null=True, blank=True, max_length=20)
@@ -286,7 +303,7 @@ class SourceDyeArticleOutApply(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articleoutapply'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_a49f6fe152966950')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_a49f6fe152966950'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_a49f6fe152966950')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ArticleOutApply，待确认）'
         ordering=["-id"]
 
@@ -296,9 +313,11 @@ class SourceDyeArticleOutApplyDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'Name': 'old_name', 'ArticleID': 'old_article_id', 'ArticleKindID': 'old_article_kind_id', 'Spec': 'old_spec', 'Unit': 'old_unit', 'Qty': 'old_qty', 'Amount': 'old_amount', 'Price': 'old_price', 'Remarks': 'old_remarks', 'StorageUnitIDs': 'old_storage_unit_ids', 'KCQty': 'old_kcqty'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_name': 'Chinese_PRC_CI_AS', 'old_article_id': 'Chinese_PRC_CI_AS', 'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_unit': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=20)
     old_name=models.CharField('Name', null=True, blank=True, max_length=50)
@@ -315,7 +334,7 @@ class SourceDyeArticleOutApplyDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articleoutapplydetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_9b486388bacde7d1')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_9b486388bacde7d1'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_9b486388bacde7d1')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ArticleOutApplyDetail，待确认）'
         ordering=["-id"]
 
@@ -325,9 +344,11 @@ class SourceDyeArticleOutDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ArticleID': 'old_article_id', 'ArticleKindID': 'old_article_kind_id', 'MachineID': 'old_machine_id', 'OutQty': 'old_out_qty', 'Price': 'old_price', 'Total': 'old_total', 'InDetailNo': 'old_in_detail_no', 'Remarks': 'old_remarks', 'ProjectNo': 'old_project_no', 'SupplierID': 'old_supplier_id', 'EmpID': 'old_emp_id', 'StorageUnitIDs': 'old_storage_unit_ids', 'Spec': 'old_spec'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_article_id': 'Chinese_PRC_CI_AS', 'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_project_no': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ArticleOut', 'target': 'erp_warehouse.SourceDyeArticleOut', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 FabricArticleOutDetail → FabricArticleOut', '原界面主从 ArticleOutDetail → ArticleOut']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_article_id=models.CharField('物料编码', null=True, blank=True, max_length=20)
@@ -347,7 +368,7 @@ class SourceDyeArticleOutDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articleoutdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_ebcb5d1bfcbf544b')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_ebcb5d1bfcbf544b'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_ebcb5d1bfcbf544b')]
         verbose_name=verbose_name_plural='辅料出库明细'
         ordering=["-id"]
 
@@ -357,9 +378,11 @@ class SourceDyeArticleStock(SourceRecord):
     SOURCE_FIELDS={'StockDate': 'old_stock_date', 'ArticleKindID': 'old_article_kind_id', 'ArticleID': 'old_article_id', 'WareHouseID': 'old_ware_house_id', 'PreMonthQty': 'old_pre_month_qty', 'Price': 'old_price', 'PreMonthMoney': 'old_pre_month_money', 'CarryDate': 'old_carry_date', 'Remarks': 'old_remarks', 'BusinessUnitID': 'old_business_unit_id', 'InDetailNo': 'old_in_detail_no'}
     SOURCE_KEY=('StockDate', 'ArticleKindID', 'ArticleID', 'WareHouseID', 'InDetailNo')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_article_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_stock_date=models.DateTimeField('StockDate', null=False, blank=False)
     old_article_kind_id=models.CharField('ArticleKindID', null=False, blank=True, max_length=20)
     old_article_id=models.CharField('ArticleID', null=False, blank=True, max_length=20)
@@ -374,7 +397,7 @@ class SourceDyeArticleStock(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articlestock'
-        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_article_kind_id', 'old_article_id', 'old_ware_house_id', 'old_in_detail_no'],name='src_6149c5a260e54fe4')]
+        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_article_kind_id', 'old_article_id', 'old_ware_house_id', 'old_in_detail_no'],name='src_6149c5a260e54fe4'),models.Index(models.F('source_batch'),models.F('old_stock_date'),Upper(RTrim(models.F('old_article_kind_id'))),Upper(RTrim(models.F('old_article_id'))),Upper(RTrim(models.F('old_ware_house_id'))),Upper(RTrim(models.F('old_in_detail_no'))),name='src_ci_6149c5a260e54fe4')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ArticleStock，待确认）'
         ordering=["-id"]
 
@@ -384,9 +407,11 @@ class SourceDyeArticleStockAdjust(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'WareHouseID': 'old_ware_house_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'BusinessUnitID': 'old_business_unit_id', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -408,7 +433,7 @@ class SourceDyeArticleStockAdjust(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articlestockadjust'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_52620b6efd7c1f6b')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_52620b6efd7c1f6b'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_52620b6efd7c1f6b')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ArticleStockAdjust，待确认）'
         ordering=["-id"]
 
@@ -418,9 +443,11 @@ class SourceDyeArticleStockAdjustDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ArticleKindID': 'old_article_kind_id', 'ArticleID': 'old_article_id', 'PaperQty': 'old_paper_qty', 'RealQty': 'old_real_qty', 'AdjustQty': 'old_adjust_qty', 'Price': 'old_price', 'Remarks': 'old_remarks', 'PaperMoney': 'old_paper_money', 'RealMoney': 'old_real_money', 'AdjustMoney': 'old_adjust_money', 'InDetailNo': 'old_in_detail_no'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_article_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ArticleStockAdjust', 'target': 'erp_warehouse.SourceDyeArticleStockAdjust', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ArticleStockAdjustDetail → ArticleStockAdjust']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('明细单号', null=False, blank=True, max_length=36)
     old_article_kind_id=models.CharField('机物料种类', null=True, blank=True, max_length=20)
@@ -438,7 +465,7 @@ class SourceDyeArticleStockAdjustDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_articlestockadjustdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_72eaaa786083758a')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_72eaaa786083758a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_72eaaa786083758a')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ArticleStockAdjustDetail，待确认）'
         ordering=["-id"]
 
@@ -448,9 +475,11 @@ class SourceDyeArticleStockBook(SourceRecord):
     SOURCE_FIELDS={'BookNo': 'old_book_no', 'BookDate': 'old_book_date', 'AccDate': 'old_acc_date', 'BookKind': 'old_book_kind', 'ArticleKindID': 'old_article_kind_id', 'ArticleID': 'old_article_id', 'SupplierID': 'old_supplier_id', 'WareHouseID': 'old_ware_house_id', 'StorageUnitIDs': 'old_storage_unit_ids', 'SheetNo': 'old_sheet_no', 'DetailNo': 'old_detail_no', 'InQty': 'old_in_qty', 'OutQty': 'old_out_qty', 'Price': 'old_price', 'Remarks': 'old_remarks', 'BusinessUnitID': 'old_business_unit_id', 'DeptID': 'old_dept_id', 'SheetSeries': 'old_sheet_series', 'StockFlag': 'old_stock_flag', 'InMoney': 'old_in_money', 'OutMoney': 'old_out_money', 'CurrDate': 'old_curr_date', 'InDetailNo': 'old_in_detail_no', 'OriDetailNo': 'old_ori_detail_no'}
     SOURCE_KEY=('BookNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_article_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_stock_flag': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS', 'old_ori_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=('old_book_no',)
+    SOURCE_IDENTITY_RULES={'old_book_no': (1, 1)}
     old_book_no=models.BigIntegerField('BookNo', null=False, blank=False)
     old_book_date=models.DateTimeField('BookDate', null=True, blank=True)
     old_acc_date=models.DateTimeField('AccDate', null=True, blank=True)
@@ -488,9 +517,11 @@ class SourceDyeCarryMaterial(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'CustomerID': 'old_customer_id', 'ProdID': 'old_prod_id', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'RightStatus': 'old_right_status'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=50)
     old_sheet_no=models.CharField('表单号', null=True, blank=True, max_length=50)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -507,7 +538,7 @@ class SourceDyeCarryMaterial(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_carrymaterial'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_cdcf306646401500')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_cdcf306646401500'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_cdcf306646401500')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（CarryMaterial，待确认）'
         ordering=["-id"]
 
@@ -517,9 +548,11 @@ class SourceDyeCarryMaterialDetail(SourceRecord):
     SOURCE_FIELDS={'Sheetseries': 'old_sheetseries', 'DetailNo': 'old_detail_no', 'CustomerID': 'old_customer_id', 'JobSheetNo': 'old_job_sheet_no', 'ProdID': 'old_prod_id', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'LotNo': 'old_lot_no', 'OrderQty': 'old_order_qty', 'Qty': 'old_qty', 'Rolls': 'old_rolls', 'Area': 'old_area', 'CustSelfNo': 'old_cust_self_no', 'ContractNo': 'old_contract_no', 'Semi_Owner': 'old_semi_owner', 'InSheetKind': 'old_in_sheet_kind', 'ReceSheetNo': 'old_rece_sheet_no', 'WeightQty': 'old_weight_qty', 'SupplierID': 'old_supplier_id', 'JobColorID': 'old_job_color_id', 'FixedQty': 'old_fixed_qty', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'PDRolls': 'old_pdrolls', 'PDQty': 'old_pdqty', 'PreField1': 'old_pre_field1'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheetseries': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_semi_owner': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_job_color_id': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheetseries=models.CharField('表单号', null=False, blank=True, max_length=50)
     old_detail_no=models.CharField('明细单号', null=False, blank=True, max_length=50)
     old_customer_id=models.CharField('客户', null=True, blank=True, max_length=30)
@@ -550,7 +583,7 @@ class SourceDyeCarryMaterialDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_carrymaterialdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_2a01b4e0239eed01')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_2a01b4e0239eed01'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_2a01b4e0239eed01')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（CarryMaterialDetail，待确认）'
         ordering=["-id"]
 
@@ -560,9 +593,11 @@ class SourceDyeCookInDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'CookID': 'old_cook_id', 'ArticleKindID': 'old_article_kind_id', 'InQty': 'old_in_qty', 'Price': 'old_price', 'TaxRate': 'old_tax_rate', 'TaxPrice': 'old_tax_price', 'TaxMoney': 'old_tax_money', 'Total': 'old_total', 'PurDetailNo': 'old_pur_detail_no', 'APDetailNo': 'old_apdetail_no', 'InvoiceNo': 'old_invoice_no', 'FactDlvNo': 'old_fact_dlv_no', 'Remarks': 'old_remarks', 'PackQty': 'old_pack_qty', 'PackUnit': 'old_pack_unit', 'Discount': 'old_discount', 'DiscountMoney': 'old_discount_money', 'OriDetailNo': 'old_ori_detail_no', 'Amount': 'old_amount'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_cook_id': 'Chinese_PRC_CI_AS', 'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_invoice_no': 'Chinese_PRC_CI_AS', 'old_fact_dlv_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_pack_unit': 'Chinese_PRC_CI_AS', 'old_ori_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：CookIn', 'target': 'erp_base.SourceDyeCookIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 CookInDetail → CookIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_cook_id=models.CharField('物料编码', null=True, blank=True, max_length=200)
@@ -588,7 +623,7 @@ class SourceDyeCookInDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_cookindetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_171d6bba5b5da6e0')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_171d6bba5b5da6e0'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_171d6bba5b5da6e0')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（CookInDetail，待确认）'
         ordering=["-id"]
 
@@ -598,9 +633,11 @@ class SourceDyeDyeStuffOut(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'BusinessUnitID': 'old_business_unit_id', 'WareHouseID': 'old_ware_house_id', 'DeptID': 'old_dept_id', 'CustomerID': 'old_customer_id', 'Keeper': 'old_keeper', 'EmpID': 'old_emp_id', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'WeightSheetNo': 'old_weight_sheet_no', 'InDetailNo': 'old_in_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'OutDate': 'old_out_date', 'MachineID': 'old_machine_id', 'FactID': 'old_fact_id', 'SQSheetNo': 'old_sqsheet_no', 'Status': 'old_status'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_sheet_status': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_weight_sheet_no': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_sqsheet_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('SheetNo', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -634,7 +671,7 @@ class SourceDyeDyeStuffOut(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_dyestuffout'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e4010771efa123b6')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e4010771efa123b6'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_e4010771efa123b6')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（DyeStuffOut，待确认）'
         ordering=["-id"]
 
@@ -644,9 +681,11 @@ class SourceDyeDyeStuffOutDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'PurDetailNo': 'old_pur_detail_no', 'StuffID': 'old_stuff_id', 'Price': 'old_price', 'TaxPrice': 'old_tax_price', 'TaxRate': 'old_tax_rate', 'TaxMoney': 'old_tax_money', 'Amount': 'old_amount', 'Qty': 'old_qty', 'APDetailNo': 'old_apdetail_no', 'LotNo': 'old_lot_no', 'DlvQty': 'old_dlv_qty', 'Remarks': 'old_remarks', 'InDetailNo': 'old_in_detail_no', 'PhaseNo': 'old_phase_no', 'PhaseID': 'old_phase_id', 'StuffNo': 'old_stuff_no', 'Unit': 'old_unit'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS', 'old_phase_id': 'Chinese_PRC_CI_AS', 'old_unit': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=40)
     old_pur_detail_no=models.CharField('PurDetailNo', null=True, blank=True, max_length=20)
@@ -669,7 +708,7 @@ class SourceDyeDyeStuffOutDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_dyestuffoutdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_f0fe767f0ccd79c5')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_f0fe767f0ccd79c5'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_f0fe767f0ccd79c5')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（DyeStuffOutDetail，待确认）'
         ordering=["-id"]
 
@@ -679,9 +718,11 @@ class SourceDyeGrayBalance(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'BusinessUnitID': 'old_business_unit_id', 'WareHouseID': 'old_ware_house_id', 'SheetKind': 'old_sheet_kind', 'Keeper': 'old_keeper', 'PrintTimes': 'old_print_times', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('单号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -703,7 +744,7 @@ class SourceDyeGrayBalance(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graybalance'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_8b9c07b225e63d1a')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_8b9c07b225e63d1a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_8b9c07b225e63d1a')]
         verbose_name=verbose_name_plural='财务结算与成本相关表（GrayBalance，待确认）'
         ordering=["-id"]
 
@@ -713,9 +754,11 @@ class SourceDyeGrayBalanceDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ReceSheetNo': 'old_rece_sheet_no', 'GrayID': 'old_gray_id', 'WareHouseID': 'old_ware_house_id', 'StorageUnitIDs': 'old_storage_unit_ids', 'Piece': 'old_piece', 'WeightQty': 'old_weight_qty', 'GrainQty': 'old_grain_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'Remarks': 'old_remarks', 'LastBookDate': 'old_last_book_date', 'CustomerID': 'old_customer_id', 'LotNo': 'old_lot_no'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayBalance', 'target': 'erp_warehouse.SourceDyeGrayBalance', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 GrayBalanceDetail → GrayBalance']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细单号', null=False, blank=True, max_length=20)
     old_rece_sheet_no=models.CharField('入库明细号', null=False, blank=True, max_length=20)
@@ -735,7 +778,7 @@ class SourceDyeGrayBalanceDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graybalancedetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_4d1cf9fabb7ccdf7')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_4d1cf9fabb7ccdf7'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_4d1cf9fabb7ccdf7')]
         verbose_name=verbose_name_plural='财务结算与成本相关表（GrayBalanceDetail，待确认）'
         ordering=["-id"]
 
@@ -745,9 +788,11 @@ class SourceDyeGrayIn(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'BusinessUnitID': 'old_business_unit_id', 'WareHouseID': 'old_ware_house_id', 'SalerGroupID': 'old_saler_group_id', 'IsInputRecord': 'old_is_input_record', 'SheetKind': 'old_sheet_kind', 'GrayKindID': 'old_gray_kind_id', 'SupplierID': 'old_supplier_id', 'FactDlvNo': 'old_fact_dlv_no', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'CustomerID': 'old_customer_id', 'FactID': 'old_fact_id', 'Driver': 'old_driver', 'CarNo': 'old_car_no', 'ShiftID': 'old_shift_id', 'GeterID': 'old_geter_id', 'GetDate': 'old_get_date', 'CheckerID': 'old_checker_id', 'DefectDate': 'old_defect_date', 'DefectShiftID': 'old_defect_shift_id', 'SalerID': 'old_saler_id', 'DetailCustName': 'old_detail_cust_name', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'TakeOver': 'old_take_over', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5', 'Driver1': 'old_driver1', 'Driver2': 'old_driver2', 'Driver3': 'old_driver3', 'Sender': 'old_sender', 'Discharger1': 'old_discharger1', 'Discharger2': 'old_discharger2', 'Water': 'old_water', 'Ingredients': 'old_ingredients', 'Toosoft': 'old_toosoft', 'Isdecrement': 'old_isdecrement', 'Loss': 'old_loss', 'PackageHtt': 'old_package_htt', 'Width': 'old_width', 'HandFeel': 'old_hand_feel', 'Receiver': 'old_receiver', 'DlvRolls': 'old_dlv_rolls', 'DlvWeightQty': 'old_dlv_weight_qty', 'CustomerCode': 'old_customer_code', 'DlvAddress': 'old_dlv_address', 'KTYY': 'old_ktyy', 'WLLX': 'old_wllx', 'combo1': 'old_combo1', 'SPYSPC': 'old_spyspc', 'SemiOutSheetNo': 'old_semi_out_sheet_no', 'A_A': 'old_a_a'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_fact_dlv_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_driver': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_geter_id': 'Chinese_PRC_CI_AS', 'old_checker_id': 'Chinese_PRC_CI_AS', 'old_defect_shift_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_take_over': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS', 'old_driver1': 'Chinese_PRC_CI_AS', 'old_driver2': 'Chinese_PRC_CI_AS', 'old_driver3': 'Chinese_PRC_CI_AS', 'old_sender': 'Chinese_PRC_CI_AS', 'old_discharger1': 'Chinese_PRC_CI_AS', 'old_discharger2': 'Chinese_PRC_CI_AS', 'old_water': 'Chinese_PRC_CI_AS', 'old_ingredients': 'Chinese_PRC_CI_AS', 'old_toosoft': 'Chinese_PRC_CI_AS', 'old_isdecrement': 'Chinese_PRC_CI_AS', 'old_loss': 'Chinese_PRC_CI_AS', 'old_package_htt': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_hand_feel': 'Chinese_PRC_CI_AS', 'old_receiver': 'Chinese_PRC_CI_AS', 'old_customer_code': 'Chinese_PRC_CI_AS', 'old_dlv_address': 'Chinese_PRC_CI_AS', 'old_ktyy': 'Chinese_PRC_CI_AS', 'old_wllx': 'Chinese_PRC_CI_AS', 'old_combo1': 'Chinese_PRC_CI_AS', 'old_spyspc': 'Chinese_PRC_CI_AS', 'old_semi_out_sheet_no': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -819,7 +864,7 @@ class SourceDyeGrayIn(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayin'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_2e23e5cebb387f53')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_2e23e5cebb387f53'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_2e23e5cebb387f53')]
         verbose_name=verbose_name_plural='坯布入库单'
         ordering=["-id"]
 
@@ -829,9 +874,11 @@ class SourceDyeGrayInDefect(SourceRecord):
     SOURCE_FIELDS={'ReceSheetNo': 'old_rece_sheet_no', 'DefectNo': 'old_defect_no', 'DefectID': 'old_defect_id', 'Qty': 'old_qty'}
     SOURCE_KEY=('ReceSheetNo', 'DefectNo')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_defect_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_rece_sheet_no=models.CharField('ReceSheetNo', null=False, blank=True, max_length=20)
     old_defect_no=models.IntegerField('DefectNo', null=False, blank=False)
     old_defect_id=models.CharField('DefectID', null=True, blank=True, max_length=10)
@@ -839,7 +886,7 @@ class SourceDyeGrayInDefect(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayindefect'
-        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no', 'old_defect_no'],name='src_6b8cef2c93ce2f0b')]
+        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no', 'old_defect_no'],name='src_6b8cef2c93ce2f0b'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rece_sheet_no'))),models.F('old_defect_no'),name='src_ci_6b8cef2c93ce2f0b')]
         verbose_name=verbose_name_plural='质量检验与异常相关表（GrayInDefect，待确认）'
         ordering=["-id"]
 
@@ -849,9 +896,11 @@ class SourceDyeGrayInDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'ReceSheetNo': 'old_rece_sheet_no', 'Spec': 'old_spec', 'StorageUnitIDs': 'old_storage_unit_ids', 'Rolls': 'old_rolls', 'Packs': 'old_packs', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'Weight': 'old_weight', 'Width': 'old_width', 'DlvRolls': 'old_dlv_rolls', 'DlvPacks': 'old_dlv_packs', 'DlvQty': 'old_dlv_qty', 'CheckNo': 'old_check_no', 'PurDetailNo': 'old_pur_detail_no', 'APDetailNo': 'old_apdetail_no', 'OriReceSheetNo': 'old_ori_rece_sheet_no', 'Remarks': 'old_remarks', 'ColorID': 'old_color_id', 'RollAvgQty': 'old_roll_avg_qty', 'WeftDensity': 'old_weft_density', 'WarpDensity': 'old_warp_density', 'CheckResult': 'old_check_result', 'GradeID': 'old_grade_id', 'OriJobsheetNo': 'old_ori_jobsheet_no', 'MachineID': 'old_machine_id', 'ProcessID': 'old_process_id', 'DetailsCustomer': 'old_details_customer', 'GrayID': 'old_gray_id', 'LotNo': 'old_lot_no', 'PreField1': 'old_pre_field1', 'PreField2': 'old_pre_field2', 'PreField3': 'old_pre_field3', 'PreField4': 'old_pre_field4', 'PreField5': 'old_pre_field5', 'PCS': 'old_pcs', 'FixedQty': 'old_fixed_qty', 'ColorNum': 'old_color_num', 'ColorLv': 'old_color_lv', 'Yardage': 'old_yardage', 'CustJobNo': 'old_cust_job_no', 'GUnit': 'old_gunit', 'InputCode': 'old_input_code', 'Area': 'old_area', 'GrayApplyNo': 'old_gray_apply_no', 'YarnCategory': 'old_yarn_category', 'TrunReceSheetNo': 'old_trun_rece_sheet_no', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'ProdID': 'old_prod_id', 'InSheetKind': 'old_in_sheet_kind', 'JobSheetNo': 'old_job_sheet_no'}
     SOURCE_KEY=('ReceSheetNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_ori_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_check_result': 'Chinese_PRC_CI_AS', 'old_grade_id': 'Chinese_PRC_CI_AS', 'old_ori_jobsheet_no': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_details_customer': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_pre_field2': 'Chinese_PRC_CI_AS', 'old_pre_field3': 'Chinese_PRC_CI_AS', 'old_pre_field4': 'Chinese_PRC_CI_AS', 'old_pre_field5': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_lv': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS', 'old_input_code': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_gray_apply_no': 'Chinese_PRC_CI_AS', 'old_yarn_category': 'Chinese_PRC_CI_AS', 'old_trun_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayIn', 'target': 'erp_warehouse.SourceDyeGrayIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 PurGrayInDetail → PurGrayIn', '原界面主从 TuiHuoGrayInDetail → TuiHuoGrayIn', '原界面主从 SemiToGrayInDetail → SemiToGrayIn', '原界面主从 KeTuiGrayInDetail → KeTuiGrayIn', '原界面主从 GrayAllotInDetail → GrayAllotIn', '原界面主从 JiaNianGrayInDetail → JiaNianGrayIn', '原界面主从 GrayInWorkDetail → GrayInWork', '原界面主从 GrayInDetail → GrayIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_rece_sheet_no=models.CharField('入库明细号', null=False, blank=True, max_length=20)
     old_spec=models.CharField('规格', null=True, blank=True, max_length=128)
@@ -911,7 +960,7 @@ class SourceDyeGrayInDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayindetail'
-        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no'],name='src_6ba0eb6b305ead41')]
+        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no'],name='src_6ba0eb6b305ead41'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rece_sheet_no'))),name='src_ci_6ba0eb6b305ead41')]
         verbose_name=verbose_name_plural='坯布入库明细'
         ordering=["-id"]
 
@@ -921,9 +970,11 @@ class SourceDyeGrayInRecord(SourceRecord):
     SOURCE_FIELDS={'ReceSheetNo': 'old_rece_sheet_no', 'RollNo': 'old_roll_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'DlvQty': 'old_dlv_qty', 'StorageUnitID': 'old_storage_unit_id', 'Defects': 'old_defects', 'Status': 'old_status', 'BarCode': 'old_bar_code', 'AssignedNo': 'old_assigned_no', 'JobSheetNo': 'old_job_sheet_no', 'OriReceSheetNo': 'old_ori_rece_sheet_no', 'RollNo2': 'old_roll_no2', 'GUnit': 'old_gunit', 'OriBarCode': 'old_ori_bar_code', 'Remark': 'old_remark', 'GraySpec': 'old_gray_spec', 'Num': 'old_num', 'CBz': 'old_cbz', 'Rolls': 'old_rolls', 'Packs': 'old_packs', 'InputDetailCode': 'old_input_detail_code', 'Kg': 'old_kg', 'CustQty': 'old_cust_qty', 'TubeWeight': 'old_tube_weight'}
     SOURCE_KEY=('ReceSheetNo', 'RollNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_defects': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_ori_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_roll_no2': 'Chinese_PRC_CI_AS', 'old_ori_bar_code': 'Chinese_PRC_CI_AS', 'old_remark': 'Chinese_PRC_CI_AS', 'old_gray_spec': 'Chinese_PRC_CI_AS', 'old_cbz': 'Chinese_PRC_CI_AS', 'old_input_detail_code': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayInDetail', 'target': 'erp_warehouse.SourceDyeGrayInDetail', 'source_fields': ['ReceSheetNo'], 'target_fields': ['ReceSheetNo'], 'evidence': ['原界面主从 TuiHuoGrayInRecord → TuiHuoGrayInDetail', '原界面主从 GrayInRecord → GrayInDetail', '原界面主从 JiaNianGrayInRecord → JiaNianGrayInDetail', '原界面主从 KeTuiGrayInRecord → KeTuiGrayInDetail', '原界面主从 PurGrayInRecord → PurGrayInDetail', '原界面主从 GrayAllotInRecord → GrayAllotInDetail', '原界面主从 GrayInWorkRecord → GrayInWorkDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_rece_sheet_no=models.CharField('入库明细号', null=False, blank=True, max_length=20)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
     old_length_qty=models.DecimalField('长度', null=True, blank=True, max_digits=10, decimal_places=2)
@@ -953,7 +1004,7 @@ class SourceDyeGrayInRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayinrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no', 'old_roll_no'],name='src_6233e63e7e409470')]
+        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no', 'old_roll_no'],name='src_6233e63e7e409470'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rece_sheet_no'))),Upper(RTrim(models.F('old_roll_no'))),name='src_ci_6233e63e7e409470')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayInRecord，待确认）'
         ordering=["-id"]
 
@@ -963,9 +1014,11 @@ class SourceDyeGrayMaterial(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'CustomerID': 'old_customer_id', 'ProdID': 'old_prod_id', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'RightStatus': 'old_right_status'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=50)
     old_sheet_no=models.CharField('表单号', null=True, blank=True, max_length=50)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -982,7 +1035,7 @@ class SourceDyeGrayMaterial(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graymaterial'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_a81f50041470599c')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_a81f50041470599c'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_a81f50041470599c')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（GrayMaterial，待确认）'
         ordering=["-id"]
 
@@ -992,9 +1045,11 @@ class SourceDyeGrayMaterialDetail(SourceRecord):
     SOURCE_FIELDS={'Sheetseries': 'old_sheetseries', 'DetailNo': 'old_detail_no', 'CustomerID': 'old_customer_id', 'JobSheetNo': 'old_job_sheet_no', 'ProdID': 'old_prod_id', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'LotNo': 'old_lot_no', 'OrderQty': 'old_order_qty', 'Qty': 'old_qty', 'Rolls': 'old_rolls', 'Area': 'old_area', 'CustSelfNo': 'old_cust_self_no', 'ContractNo': 'old_contract_no', 'CustFabricName': 'old_cust_fabric_name', 'SumAssignedRolls': 'old_sum_assigned_rolls', 'SumAssignedWeightQty': 'old_sum_assigned_weight_qty', 'ColorRemarks': 'old_color_remarks', 'Remarks': 'old_remarks', 'DyeDate': 'old_dye_date', 'OrderSheetDate': 'old_order_sheet_date', 'DetailCustName': 'old_detail_cust_name', 'FenTou': 'old_fen_tou', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheetseries': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_cust_fabric_name': 'Chinese_PRC_CI_AS', 'old_color_remarks': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_dye_date': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_fen_tou': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关联：GrayMaterial', 'target': 'erp_warehouse.SourceDyeGrayMaterial', 'source_fields': ['Sheetseries'], 'target_fields': ['SheetSeries'], 'evidence': ['2026-10-11有效入口GrayMaterialDetail的MasterDataTableName及RelaFieldNames']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheetseries=models.CharField('表单号', null=False, blank=True, max_length=50)
     old_detail_no=models.CharField('明细单号', null=False, blank=True, max_length=50)
     old_customer_id=models.CharField('客户', null=True, blank=True, max_length=30)
@@ -1028,7 +1083,7 @@ class SourceDyeGrayMaterialDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graymaterialdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_d58c3ed50f2b475e')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_d58c3ed50f2b475e'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_d58c3ed50f2b475e')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（GrayMaterialDetail，待确认）'
         ordering=["-id"]
 
@@ -1038,9 +1093,11 @@ class SourceDyeGrayOut(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'GrayKindID': 'old_gray_kind_id', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'WareHouseID': 'old_ware_house_id', 'CustomerID': 'old_customer_id', 'SalerID': 'old_saler_id', 'FactID': 'old_fact_id', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'SupplierID': 'old_supplier_id', 'CarNo': 'old_car_no', 'Driver': 'old_driver', 'ToPlace': 'old_to_place', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'FabricID': 'old_fabric_id', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5', 'Rolls': 'old_rolls', 'WProcessNo': 'old_wprocess_no', 'CheckNo': 'old_check_no'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_driver': 'Chinese_PRC_CI_AS', 'old_to_place': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS', 'old_wprocess_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={'old_sheet_no': ('literal', ''), 'old_sheet_date': ('literal', '1900-01-01'), 'old_sheet_kind': ('literal', 0), 'old_gray_kind_id': ('literal', ''), 'old_business_unit_id': ('literal', ''), 'old_saler_group_id': ('literal', ''), 'old_ware_house_id': ('literal', ''), 'old_customer_id': ('literal', ''), 'old_fact_id': ('literal', ''), 'old_stock_unit': ('literal', 0), 'old_sheet_status': ('literal', 0), 'old_right_status': ('literal', 0), 'old_print_times': ('literal', 0), 'old_revisions': ('literal', 0), 'old_remarks': ('literal', ''), 'old_creater': ('literal', ''), 'old_create_date': ('literal', '1900-01-01'), 'old_modifyer': ('literal', ''), 'old_modify_date': ('literal', '1900-01-01')}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -1082,7 +1139,7 @@ class SourceDyeGrayOut(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayout'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_1a6a13e96cc191be')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_1a6a13e96cc191be'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_1a6a13e96cc191be')]
         verbose_name=verbose_name_plural='坯布出库单'
         ordering=["-id"]
 
@@ -1092,9 +1149,11 @@ class SourceDyeGrayOutDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'AssignedNo': 'old_assigned_no', 'ReceSheetNo': 'old_rece_sheet_no', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'Rolls': 'old_rolls', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'Weight': 'old_weight', 'Width': 'old_width', 'CheckNo': 'old_check_no', 'Remarks': 'old_remarks', 'Packs': 'old_packs', 'PCS': 'old_pcs', 'FixedQty': 'old_fixed_qty', 'GrayID': 'old_gray_id', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'ColorE': 'old_color_e', 'ColorDepthID': 'old_color_depth_id', 'JobSheetNo': 'old_job_sheet_no', 'StorageUnitIDs': 'old_storage_unit_ids', 'MachineID': 'old_machine_id', 'CustJobNo': 'old_cust_job_no', 'BasicQty': 'old_basic_qty', 'LWRate': 'old_lwrate', 'JobSheetSeries': 'old_job_sheet_series', 'FabricID': 'old_fabric_id', 'DetailCustName': 'old_detail_cust_name', 'Area': 'old_area', 'PreField1': 'old_pre_field1', 'PreField2': 'old_pre_field2', 'PreField3': 'old_pre_field3', 'PreField4': 'old_pre_field4', 'PreField5': 'old_pre_field5', 'SupplierID': 'old_supplier_id', 'InSheetKind': 'old_in_sheet_kind', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'InputCode': 'old_input_code'}
     SOURCE_KEY=('AssignedNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_e': 'Chinese_PRC_CI_AS', 'old_color_depth_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_series': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_pre_field2': 'Chinese_PRC_CI_AS', 'old_pre_field3': 'Chinese_PRC_CI_AS', 'old_pre_field4': 'Chinese_PRC_CI_AS', 'old_pre_field5': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_input_code': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayOut', 'target': 'erp_warehouse.SourceDyeGrayOut', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 GrayOutDetailTurn → GrayOutTurn', '原界面主从 GrayOutDetail → GrayOut', '原界面主从 TSGrayOutDetail → TSGrayOut', '原界面主从 GrayOutDetailJob → GrayOutJob', '原界面主从 GrayAllotOutDetail → GrayAllotOut', '原界面主从 GrayOutDetailShenHe → GrayOutShenHe', '原界面主从 GrayOutSaleDetail → GrayOutSale', '原界面主从 GrayOutWorkDetail → GrayOutWork']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_assigned_no=models.CharField('投胚流水号', null=False, blank=True, max_length=20)
     old_rece_sheet_no=models.CharField('入库明细号', null=True, blank=True, max_length=20)
@@ -1142,7 +1201,7 @@ class SourceDyeGrayOutDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayoutdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_assigned_no'],name='src_c25656a797fc5f2a')]
+        indexes=[models.Index(fields=['source_batch', 'old_assigned_no'],name='src_c25656a797fc5f2a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_assigned_no'))),name='src_ci_c25656a797fc5f2a')]
         verbose_name=verbose_name_plural='坯布出库明细'
         ordering=["-id"]
 
@@ -1152,9 +1211,11 @@ class SourceDyeGrayOutRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'AssignedNo': 'old_assigned_no', 'RollNo': 'old_roll_no', 'BarCode': 'old_bar_code', 'ReceSheetNo': 'old_rece_sheet_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'Status': 'old_status', 'Remarks': 'old_remarks', 'GUnit': 'old_gunit', 'Rolls': 'old_rolls', 'JobSheetNo': 'old_job_sheet_no', 'Packs': 'old_packs'}
     SOURCE_KEY=('AssignedNo', 'RollNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayOutDetail', 'target': 'erp_warehouse.SourceDyeGrayOutDetail', 'source_fields': ['AssignedNo'], 'target_fields': ['AssignedNo'], 'evidence': ['原界面主从 GrayOutRecord → GrayOutDetail', '原界面主从 GrayOutSaleRecord → GrayOutSaleDetail', '原界面主从 GrayOutRecordShenHe → GrayOutDetailShenHe', '原界面主从 GrayOutRecordTurn → GrayOutDetailTurn', '原界面主从 GrayOutRecordMatch → GrayOutDetail', '原界面主从 GrayOutWorkRecord → GrayOutWorkDetail', '原界面主从 GrayOutRecordJob → GrayOutDetailJob', '原界面主从 TSGrayOutRecordMatch → TSGrayOutDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('工卡流水', null=True, blank=True, max_length=20)
     old_assigned_no=models.CharField('投胚流水号', null=False, blank=True, max_length=20)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
@@ -1173,7 +1234,7 @@ class SourceDyeGrayOutRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayoutrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_assigned_no', 'old_roll_no'],name='src_693e7060e2dd1e79')]
+        indexes=[models.Index(fields=['source_batch', 'old_assigned_no', 'old_roll_no'],name='src_693e7060e2dd1e79'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_assigned_no'))),Upper(RTrim(models.F('old_roll_no'))),name='src_ci_693e7060e2dd1e79')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayOutRecord，待确认）'
         ordering=["-id"]
 
@@ -1183,9 +1244,11 @@ class SourceDyeGrayPostionUp(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'JobSheetNo': 'old_job_sheet_no', 'SupplierID': 'old_supplier_id', 'CustomerID': 'old_customer_id', 'InSheetKind': 'old_in_sheet_kind', 'ProdID': 'old_prod_id', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'PreField1': 'old_pre_field1', 'FixedQty': 'old_fixed_qty', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'Rolls': 'old_rolls', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Packs': 'old_packs', 'PCS': 'old_pcs', 'Area': 'old_area', 'NewArea': 'old_new_area', 'SheetStatus': 'old_sheet_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'InDetailNo': 'old_in_detail_no'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_new_area': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=36)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -1222,7 +1285,7 @@ class SourceDyeGrayPostionUp(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graypostionup'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_f1651c2ae6f057f2')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_f1651c2ae6f057f2'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_f1651c2ae6f057f2')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayPostionUp，待确认）'
         ordering=["-id"]
 
@@ -1232,9 +1295,11 @@ class SourceDyeGrayRecord(SourceRecord):
     SOURCE_FIELDS={'BarCode': 'old_bar_code', 'JobSheetNo': 'old_job_sheet_no', 'Qty': 'old_qty', 'CurrTime': 'old_curr_time', 'Geter': 'old_geter', 'StorageUnitID': 'old_storage_unit_id', 'IsInput': 'old_is_input'}
     SOURCE_KEY=('BarCode',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_bar_code': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_geter': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_bar_code=models.CharField('条码', null=False, blank=True, max_length=50)
     old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=50)
     old_qty=models.DecimalField('数量', null=True, blank=True, max_digits=10, decimal_places=2)
@@ -1245,7 +1310,7 @@ class SourceDyeGrayRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_011c31554a9a7218')]
+        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_011c31554a9a7218'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_bar_code'))),name='src_ci_011c31554a9a7218')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayRecord，待确认）'
         ordering=["-id"]
 
@@ -1255,9 +1320,11 @@ class SourceDyeGrayRecordCutLogs(SourceRecord):
     SOURCE_FIELDS={'ID': 'old_id', 'Kind': 'old_kind', 'OriReceSheetNoList': 'old_ori_rece_sheet_no_list', 'NewReceSheetNoList': 'old_new_rece_sheet_no_list', 'OriRollNoList': 'old_ori_roll_no_list', 'NewRollNoList': 'old_new_roll_no_list', 'OriBarCodeList': 'old_ori_bar_code_list', 'NewBarCodeList': 'old_new_bar_code_list', 'OriQtyList': 'old_ori_qty_list', 'NewQtyList': 'old_new_qty_list', 'JobSheetNo': 'old_job_sheet_no', 'Operator': 'old_operator', 'OperateDate': 'old_operate_date', 'Status': 'old_status', 'Remarks': 'old_remarks', 'DataTableName': 'old_data_table_name'}
     SOURCE_KEY=('OperateDate', 'ID')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_id': 'Chinese_PRC_CI_AS', 'old_ori_rece_sheet_no_list': 'Chinese_PRC_CI_AS', 'old_new_rece_sheet_no_list': 'Chinese_PRC_CI_AS', 'old_ori_roll_no_list': 'Chinese_PRC_CI_AS', 'old_new_roll_no_list': 'Chinese_PRC_CI_AS', 'old_ori_bar_code_list': 'Chinese_PRC_CI_AS', 'old_new_bar_code_list': 'Chinese_PRC_CI_AS', 'old_ori_qty_list': 'Chinese_PRC_CI_AS', 'old_new_qty_list': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_operator': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_id=models.CharField('ID', null=False, blank=True, max_length=50)
     old_kind=models.IntegerField('Kind', null=False, blank=False)
     old_ori_rece_sheet_no_list=models.CharField('OriReceSheetNoList', null=True, blank=True, max_length=2000)
@@ -1277,7 +1344,7 @@ class SourceDyeGrayRecordCutLogs(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_grayrecordcutlogs'
-        indexes=[models.Index(fields=['source_batch', 'old_operate_date', 'old_id'],name='src_d9bfb89d5030414d')]
+        indexes=[models.Index(fields=['source_batch', 'old_operate_date', 'old_id'],name='src_d9bfb89d5030414d'),models.Index(models.F('source_batch'),models.F('old_operate_date'),Upper(RTrim(models.F('old_id'))),name='src_ci_d9bfb89d5030414d')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayRecordCutLogs，待确认）'
         ordering=["-id"]
 
@@ -1287,9 +1354,11 @@ class SourceDyeGrayStock(SourceRecord):
     SOURCE_FIELDS={'StockDate': 'old_stock_date', 'BusinessUnitID': 'old_business_unit_id', 'ColorID': 'old_color_id', 'CustomerID': 'old_customer_id', 'WareHouseID': 'old_ware_house_id', 'GrayKindID': 'old_gray_kind_id', 'SalerGroupID': 'old_saler_group_id', 'SupplierID': 'old_supplier_id', 'BusinessKind': 'old_business_kind', 'GrayID': 'old_gray_id', 'StockKind': 'old_stock_kind', 'SalerID': 'old_saler_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'PreMonthPacks': 'old_pre_month_packs', 'PreMonthRolls': 'old_pre_month_rolls', 'Price': 'old_price', 'CarryDate': 'old_carry_date', 'Remarks': 'old_remarks', 'PreMonthWeightQty': 'old_pre_month_weight_qty', 'PreMonthLengthQty': 'old_pre_month_length_qty', 'StorageUnitIDs': 'old_storage_unit_ids', 'ReceSheetNo': 'old_rece_sheet_no', 'PreField1': 'old_pre_field1', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'FixedQty': 'old_fixed_qty'}
     SOURCE_KEY=('StockDate', 'ColorID', 'CustomerID', 'WareHouseID', 'SupplierID', 'GrayID', 'SalerID', 'Spec', 'LotNo', 'ReceSheetNo', 'PreField1', 'PurchaseOrders', 'A_A', 'A_B', 'FixedQty')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_stock_date=models.DateTimeField('StockDate', null=False, blank=False)
     old_business_unit_id=models.CharField('BusinessUnitID', null=True, blank=True, max_length=10)
     old_color_id=models.CharField('ColorID', null=False, blank=True, max_length=20)
@@ -1321,7 +1390,7 @@ class SourceDyeGrayStock(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystock'
-        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_color_id', 'old_customer_id', 'old_ware_house_id', 'old_supplier_id', 'old_gray_id', 'old_saler_id', 'old_spec', 'old_lot_no', 'old_rece_sheet_no', 'old_pre_field1', 'old_purchase_orders', 'old_a_a', 'old_a_b', 'old_fixed_qty'],name='src_a92ae489977eedcb')]
+        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_color_id', 'old_customer_id', 'old_ware_house_id', 'old_supplier_id', 'old_gray_id', 'old_saler_id', 'old_spec', 'old_lot_no', 'old_rece_sheet_no', 'old_pre_field1', 'old_purchase_orders', 'old_a_a', 'old_a_b', 'old_fixed_qty'],name='src_a92ae489977eedcb'),models.Index(models.F('source_batch'),models.F('old_stock_date'),Upper(RTrim(models.F('old_color_id'))),Upper(RTrim(models.F('old_customer_id'))),Upper(RTrim(models.F('old_ware_house_id'))),Upper(RTrim(models.F('old_supplier_id'))),Upper(RTrim(models.F('old_gray_id'))),Upper(RTrim(models.F('old_saler_id'))),Upper(RTrim(models.F('old_spec'))),Upper(RTrim(models.F('old_lot_no'))),Upper(RTrim(models.F('old_rece_sheet_no'))),Upper(RTrim(models.F('old_pre_field1'))),Upper(RTrim(models.F('old_purchase_orders'))),Upper(RTrim(models.F('old_a_a'))),Upper(RTrim(models.F('old_a_b'))),models.F('old_fixed_qty'),name='src_ci_a92ae489977eedcb')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStock，待确认）'
         ordering=["-id"]
 
@@ -1331,9 +1400,11 @@ class SourceDyeGrayStockAdjust(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'BusinessUnitID': 'old_business_unit_id', 'BusinessKind': 'old_business_kind', 'GrayKindID': 'old_gray_kind_id', 'SalerGroupID': 'old_saler_group_id', 'CustomerID': 'old_customer_id', 'WareHouseID': 'old_ware_house_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -1359,7 +1430,7 @@ class SourceDyeGrayStockAdjust(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystockadjust'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_25f9b4cb95644fb0')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_25f9b4cb95644fb0'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_25f9b4cb95644fb0')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStockAdjust，待确认）'
         ordering=["-id"]
 
@@ -1369,9 +1440,11 @@ class SourceDyeGrayStockAdjustDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'CheckNo': 'old_check_no', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'PaperRolls': 'old_paper_rolls', 'RealRolls': 'old_real_rolls', 'AdjustRolls': 'old_adjust_rolls', 'Price': 'old_price', 'StockUnit': 'old_stock_unit', 'Remarks': 'old_remarks', 'GrayID': 'old_gray_id', 'PaperLength': 'old_paper_length', 'PaperWeight': 'old_paper_weight', 'RealLengthQty': 'old_real_length_qty', 'RealWeightQty': 'old_real_weight_qty', 'AdjustLengthQty': 'old_adjust_length_qty', 'AdjustWeightQty': 'old_adjust_weight_qty', 'StorageUnitIDs': 'old_storage_unit_ids', 'ReceSheetNo': 'old_rece_sheet_no', 'CustomerID': 'old_customer_id', 'AdjustPacks': 'old_adjust_packs', 'PaperPacks': 'old_paper_packs', 'RealPacks': 'old_real_packs', 'InSheetKind': 'old_in_sheet_kind', 'PreField1': 'old_pre_field1', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'FixedQty': 'old_fixed_qty'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayStockAdjust', 'target': 'erp_warehouse.SourceDyeGrayStockAdjust', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 GrayStockAdjustDetail → GrayStockAdjust']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('调整明细单号', null=False, blank=True, max_length=36)
     old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=50)
@@ -1409,7 +1482,7 @@ class SourceDyeGrayStockAdjustDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystockadjustdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_ac4856e3db1c9b2a')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_ac4856e3db1c9b2a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_ac4856e3db1c9b2a')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStockAdjustDetail，待确认）'
         ordering=["-id"]
 
@@ -1419,9 +1492,11 @@ class SourceDyeGrayStockAllot(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'GrayKindID': 'old_gray_kind_id', 'FromSaleGroupID': 'old_from_sale_group_id', 'ToSalerGroupID': 'old_to_saler_group_id', 'FromWareHouseID': 'old_from_ware_house_id', 'FromCustomerID': 'old_from_customer_id', 'ToCustomerID': 'old_to_customer_id', 'FromReceSheetNo': 'old_from_rece_sheet_no', 'ToWareHouseID': 'old_to_ware_house_id', 'Rolls': 'old_rolls', 'Packs': 'old_packs', 'WeightQty': 'old_weight_qty', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'FromBusinessUnitID': 'old_from_business_unit_id', 'ToBusinessUnitID': 'old_to_business_unit_id', 'FromSalerID': 'old_from_saler_id', 'ToSalerID': 'old_to_saler_id', 'FromLotNo': 'old_from_lot_no', 'ToLotNo': 'old_to_lot_no', 'FromSpec': 'old_from_spec', 'ToSpec': 'old_to_spec', 'FromPrice': 'old_from_price', 'ToPrice': 'old_to_price', 'FromStructure': 'old_from_structure', 'ToStructure': 'old_to_structure', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'FromGrayID': 'old_from_gray_id', 'ToGrayID': 'old_to_gray_id', 'StockUnit': 'old_stock_unit', 'FromSheetKind': 'old_from_sheet_kind', 'LengthQty': 'old_length_qty', 'ToReceSheetNo': 'old_to_rece_sheet_no', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'AssignedNo': 'old_assigned_no'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_from_sale_group_id': 'Chinese_PRC_CI_AS', 'old_to_saler_group_id': 'Chinese_PRC_CI_AS', 'old_from_ware_house_id': 'Chinese_PRC_CI_AS', 'old_from_customer_id': 'Chinese_PRC_CI_AS', 'old_to_customer_id': 'Chinese_PRC_CI_AS', 'old_from_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_to_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_from_business_unit_id': 'Chinese_PRC_CI_AS', 'old_to_business_unit_id': 'Chinese_PRC_CI_AS', 'old_from_saler_id': 'Chinese_PRC_CI_AS', 'old_to_saler_id': 'Chinese_PRC_CI_AS', 'old_from_lot_no': 'Chinese_PRC_CI_AS', 'old_to_lot_no': 'Chinese_PRC_CI_AS', 'old_from_spec': 'Chinese_PRC_CI_AS', 'old_to_spec': 'Chinese_PRC_CI_AS', 'old_from_structure': 'Chinese_PRC_CI_AS', 'old_to_structure': 'Chinese_PRC_CI_AS', 'old_from_gray_id': 'Chinese_PRC_CI_AS', 'old_to_gray_id': 'Chinese_PRC_CI_AS', 'old_to_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -1472,7 +1547,7 @@ class SourceDyeGrayStockAllot(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystockallot'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_4a7f0e98c49a1424')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_4a7f0e98c49a1424'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_4a7f0e98c49a1424')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStockAllot，待确认）'
         ordering=["-id"]
 
@@ -1482,9 +1557,11 @@ class SourceDyeGrayStockBook(SourceRecord):
     SOURCE_FIELDS={'BookNo': 'old_book_no', 'BookKind': 'old_book_kind', 'GrayKindID': 'old_gray_kind_id', 'BusinessUnitID': 'old_business_unit_id', 'BusinessKind': 'old_business_kind', 'GradeID': 'old_grade_id', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'SupplierID': 'old_supplier_id', 'CustomerID': 'old_customer_id', 'FactID': 'old_fact_id', 'WareHouseID': 'old_ware_house_id', 'StorageUnitIDs': 'old_storage_unit_ids', 'GrayID': 'old_gray_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'CheckNo': 'old_check_no', 'SheetNo': 'old_sheet_no', 'DetailNo': 'old_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'InRolls': 'old_in_rolls', 'InPacks': 'old_in_packs', 'OutRolls': 'old_out_rolls', 'OutPacks': 'old_out_packs', 'Price': 'old_price', 'Remarks': 'old_remarks', 'BookDate': 'old_book_date', 'AccDate': 'old_acc_date', 'ReceSheetNo': 'old_rece_sheet_no', 'Memo': 'old_memo', 'StockFlag': 'old_stock_flag', 'StockKind': 'old_stock_kind', 'SheetKind': 'old_sheet_kind', 'InLengthQty': 'old_in_length_qty', 'InWeightQty': 'old_in_weight_qty', 'OutWeightQty': 'old_out_weight_qty', 'OutLengthQty': 'old_out_length_qty', 'SheetSeries': 'old_sheet_series', 'InMoney': 'old_in_money', 'OutMoney': 'old_out_money', 'CurrDate': 'old_curr_date', 'InSheetKind': 'old_in_sheet_kind', 'PreField1': 'old_pre_field1', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'FixedQty': 'old_fixed_qty'}
     SOURCE_KEY=('BookNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_grade_id': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_memo': 'Chinese_PRC_CI_AS', 'old_stock_flag': 'Chinese_PRC_CI_AS', 'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={'old_acc_date': ('literal', '1900-01-01'), 'old_rece_sheet_no': ('literal', '')}
     SOURCE_IDENTITIES=('old_book_no',)
+    SOURCE_IDENTITY_RULES={'old_book_no': (1, 1)}
     old_book_no=models.BigIntegerField('BookNo', null=False, blank=False)
     old_book_kind=models.IntegerField('BookKind', null=True, blank=True)
     old_gray_kind_id=models.CharField('GrayKindID', null=True, blank=True, max_length=10)
@@ -1547,9 +1624,11 @@ class SourceDyeGrayStockCheck(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'GrayKindID': 'old_gray_kind_id', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'WareHouseID': 'old_ware_house_id', 'CustomerID': 'old_customer_id', 'FactID': 'old_fact_id', 'CheckNo': 'old_check_no', 'JobDetailNo': 'old_job_detail_no', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'PaperRolls': 'old_paper_rolls', 'PaperPacks': 'old_paper_packs', 'PaperQty': 'old_paper_qty', 'AdjustPacks': 'old_adjust_packs', 'AdjustQty': 'old_adjust_qty', 'AdjustRolls': 'old_adjust_rolls', 'Price': 'old_price', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'FlowID': 'old_flow_id', 'StepNo': 'old_step_no', 'ReceSheetNo': 'old_rece_sheet_no', 'BusinessKind': 'old_business_kind', 'SalerID': 'old_saler_id', 'GrayID': 'old_gray_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_job_detail_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_flow_id': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('SheetNo', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -1590,7 +1669,7 @@ class SourceDyeGrayStockCheck(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystockcheck'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_d0666e21cb375622')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_d0666e21cb375622'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_d0666e21cb375622')]
         verbose_name=verbose_name_plural='质量检验与异常相关表（GrayStockCheck，待确认）'
         ordering=["-id"]
 
@@ -1600,9 +1679,11 @@ class SourceDyeGrayStockSpecUp(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'GrayKindID': 'old_gray_kind_id', 'BusinessUnitID': 'old_business_unit_id', 'WareHouseID': 'old_ware_house_id', 'SalerID': 'old_saler_id', 'FactID': 'old_fact_id', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'CarNo': 'old_car_no', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'FabricID': 'old_fabric_id', 'SalerGroupID': 'old_saler_group_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -1632,7 +1713,7 @@ class SourceDyeGrayStockSpecUp(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystockspecup'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e08fbd4e7a3510bd')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e08fbd4e7a3510bd'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_e08fbd4e7a3510bd')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStockSpecUp，待确认）'
         ordering=["-id"]
 
@@ -1642,9 +1723,11 @@ class SourceDyeGrayStockSpecUpDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'AssignedNo': 'old_assigned_no', 'ReceSheetNo': 'old_rece_sheet_no', 'PCS': 'old_pcs', 'Rolls': 'old_rolls', 'Packs': 'old_packs', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'Price': 'old_price', 'CheckNo': 'old_check_no', 'Remarks': 'old_remarks', 'Area': 'old_area', 'StorageUnitIDs': 'old_storage_unit_ids', 'WareHouseID': 'old_ware_house_id', 'CustomerID': 'old_customer_id', 'InSheetKind': 'old_in_sheet_kind', 'GrayID': 'old_gray_id', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'FixedQty': 'old_fixed_qty', 'SupplierID': 'old_supplier_id', 'PreField1': 'old_pre_field1', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'UPCustomerID': 'old_upcustomer_id', 'UPInSheetKind': 'old_upin_sheet_kind', 'UPGrayID': 'old_upgray_id', 'UPLotNo': 'old_uplot_no', 'UPColorID': 'old_upcolor_id', 'UPFixedQty': 'old_upfixed_qty', 'UPPreField1': 'old_uppre_field1', 'UPPurchaseOrders': 'old_uppurchase_orders', 'UPA_A': 'old_upa_a', 'UPA_B': 'old_upa_b'}
     SOURCE_KEY=('AssignedNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_upcustomer_id': 'Chinese_PRC_CI_AS', 'old_upin_sheet_kind': 'Chinese_PRC_CI_AS', 'old_upgray_id': 'Chinese_PRC_CI_AS', 'old_uplot_no': 'Chinese_PRC_CI_AS', 'old_upcolor_id': 'Chinese_PRC_CI_AS', 'old_uppre_field1': 'Chinese_PRC_CI_AS', 'old_uppurchase_orders': 'Chinese_PRC_CI_AS', 'old_upa_a': 'Chinese_PRC_CI_AS', 'old_upa_b': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayStockSpecUp', 'target': 'erp_warehouse.SourceDyeGrayStockSpecUp', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 GrayStockSpecUpDetail → GrayStockSpecUp']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_assigned_no=models.CharField('出库明细号', null=False, blank=True, max_length=20)
     old_rece_sheet_no=models.CharField('入库明细号', null=True, blank=True, max_length=20)
@@ -1684,7 +1767,7 @@ class SourceDyeGrayStockSpecUpDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystockspecupdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_assigned_no'],name='src_923fa2221d507ce1')]
+        indexes=[models.Index(fields=['source_batch', 'old_assigned_no'],name='src_923fa2221d507ce1'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_assigned_no'))),name='src_ci_923fa2221d507ce1')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStockSpecUpDetail，待确认）'
         ordering=["-id"]
 
@@ -1694,9 +1777,11 @@ class SourceDyeGrayStorageAdjust(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetKind': 'old_sheet_kind', 'SheetDate': 'old_sheet_date', 'StepNo': 'old_step_no', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status', 'SalerID': 'old_saler_id', 'CustomerID': 'old_customer_id', 'WareHouseID': 'old_ware_house_id', 'ToWareHouseID': 'old_to_ware_house_id', 'PrintTimes': 'old_print_times', 'CarryerID': 'old_carryer_id', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'Approved': 'old_approved', 'ApproveDate': 'old_approve_date', 'Remarks': 'old_remarks', 'CarryerID1': 'old_carryer_id1', 'CarryerID2': 'old_carryer_id2', 'CarryerID3': 'old_carryer_id3', 'CarryerID4': 'old_carryer_id4'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_to_ware_house_id': 'Chinese_PRC_CI_AS', 'old_carryer_id': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_carryer_id1': 'Chinese_PRC_CI_AS', 'old_carryer_id2': 'Chinese_PRC_CI_AS', 'old_carryer_id3': 'Chinese_PRC_CI_AS', 'old_carryer_id4': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('单据号', null=True, blank=True, max_length=20)
     old_sheet_kind=models.IntegerField('单据类型', null=True, blank=True)
@@ -1725,7 +1810,7 @@ class SourceDyeGrayStorageAdjust(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystorageadjust'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_ecfe8671902330af')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_ecfe8671902330af'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_ecfe8671902330af')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStorageAdjust，待确认）'
         ordering=["-id"]
 
@@ -1735,9 +1820,11 @@ class SourceDyeGrayStorageAdjustDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ReceSheetNo': 'old_rece_sheet_no', 'FromReceSheetNo': 'old_from_rece_sheet_no', 'GrayID': 'old_gray_id', 'LotNo': 'old_lot_no', 'Spec': 'old_spec', 'StorageUnitIDs': 'old_storage_unit_ids', 'ToStorageUnitIDs': 'old_to_storage_unit_ids', 'Rolls': 'old_rolls', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'Remarks': 'old_remarks', 'Area': 'old_area', 'ToArea': 'old_to_area', 'CustJobNo': 'old_cust_job_no', 'InSheetKind': 'old_in_sheet_kind', 'PreField1': 'old_pre_field1', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b'}
     SOURCE_KEY=('SheetSeries', 'DetailNo', 'FromReceSheetNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_from_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_to_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_to_area': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayStorageAdjust', 'target': 'erp_warehouse.SourceDyeGrayStorageAdjust', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 GrayStorageAdjustDetail → GrayStorageAdjust']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细号', null=False, blank=True, max_length=36)
     old_rece_sheet_no=models.CharField('入库明细号', null=True, blank=True, max_length=100)
@@ -1763,7 +1850,7 @@ class SourceDyeGrayStorageAdjustDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystorageadjustdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_from_rece_sheet_no'],name='src_edb4dbf998f001b0')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_from_rece_sheet_no'],name='src_edb4dbf998f001b0'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),Upper(RTrim(models.F('old_from_rece_sheet_no'))),name='src_ci_edb4dbf998f001b0')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStorageAdjustDetail，待确认）'
         ordering=["-id"]
 
@@ -1773,9 +1860,11 @@ class SourceDyeGrayStorageAdjustRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'RollNo': 'old_roll_no', 'ReceSheetNo': 'old_rece_sheet_no', 'FromReceSheetNo': 'old_from_rece_sheet_no', 'BarCode': 'old_bar_code', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'ToStorageUnitID': 'old_to_storage_unit_id', 'Remarks': 'old_remarks', 'RollNo2': 'old_roll_no2', 'Rolls': 'old_rolls'}
     SOURCE_KEY=('SheetSeries', 'DetailNo', 'RollNo', 'FromReceSheetNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_from_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_to_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_roll_no2': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：GrayStorageAdjustDetail', 'target': 'erp_warehouse.SourceDyeGrayStorageAdjustDetail', 'source_fields': ['SheetSeries', 'DetailNo', 'FromReceSheetNo'], 'target_fields': ['SheetSeries', 'DetailNo', 'FromReceSheetNo'], 'evidence': ['原界面主从 GrayStorageAdjustRecord → GrayStorageAdjustDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细号', null=False, blank=True, max_length=36)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
@@ -1793,7 +1882,7 @@ class SourceDyeGrayStorageAdjustRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_graystorageadjustrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_roll_no', 'old_from_rece_sheet_no'],name='src_a8a6595d6ae3f633')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_roll_no', 'old_from_rece_sheet_no'],name='src_a8a6595d6ae3f633'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),Upper(RTrim(models.F('old_roll_no'))),Upper(RTrim(models.F('old_from_rece_sheet_no'))),name='src_ci_a8a6595d6ae3f633')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayStorageAdjustRecord，待确认）'
         ordering=["-id"]
 
@@ -1803,9 +1892,11 @@ class SourceDyeODMIn(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetKind': 'old_sheet_kind', 'SheetType': 'old_sheet_type', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'SheetDate': 'old_sheet_date', 'CustomerID': 'old_customer_id', 'BusinessUnitID': 'old_business_unit_id', 'Keeper': 'old_keeper', 'Driver': 'old_driver', 'CarNo': 'old_car_no', 'CarryerID': 'old_carryer_id', 'WareHouseID': 'old_ware_house_id', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Remarks': 'old_remarks', 'StockUnit': 'old_stock_unit', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_driver': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_carryer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_kind=models.IntegerField('单据类型', null=True, blank=True)
@@ -1835,7 +1926,7 @@ class SourceDyeODMIn(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_odmin'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_752366991d1e2142')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_752366991d1e2142'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_752366991d1e2142')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ODMIn，待确认）'
         ordering=["-id"]
 
@@ -1845,9 +1936,11 @@ class SourceDyeODMInDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'OutDetailNo': 'old_out_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'InRolls': 'old_in_rolls', 'InLengthQty': 'old_in_length_qty', 'InWeightQty': 'old_in_weight_qty', 'Remarks': 'old_remarks', 'ColorID': 'old_color_id', 'CustomerID': 'old_customer_id', 'ColorNum': 'old_color_num', 'GrayID': 'old_gray_id', 'WarpDensity': 'old_warp_density', 'WeftDensity': 'old_weft_density', 'StockUnit': 'old_stock_unit', 'OutSheetNo': 'old_out_sheet_no', 'Weight': 'old_weight', 'CustSelfProduct': 'old_cust_self_product'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_out_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_warp_density': 'Chinese_PRC_CI_AS', 'old_weft_density': 'Chinese_PRC_CI_AS', 'old_out_sheet_no': 'Chinese_PRC_CI_AS', 'old_cust_self_product': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ODMIn', 'target': 'erp_warehouse.SourceDyeODMIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ODMInDetail → ODMIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_out_detail_no=models.CharField('出库单明细号', null=True, blank=True, max_length=20)
@@ -1870,7 +1963,7 @@ class SourceDyeODMInDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_odmindetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_a7f684940b96b0c0')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_a7f684940b96b0c0'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_a7f684940b96b0c0')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ODMInDetail，待确认）'
         ordering=["-id"]
 
@@ -1880,9 +1973,11 @@ class SourceDyeODMInRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'RollNo': 'old_roll_no', 'DetailNo': 'old_detail_no', 'BarCode': 'old_bar_code', 'Rolls': 'old_rolls', 'ReceSheetNo': 'old_rece_sheet_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'Status': 'old_status', 'Remarks': 'old_remarks', 'WProcessNo': 'old_wprocess_no', 'MachineID': 'old_machine_id', 'Kind': 'old_kind'}
     SOURCE_KEY=('RollNo', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_wprocess_no': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ODMInDetail', 'target': 'erp_warehouse.SourceDyeODMInDetail', 'source_fields': ['SheetSeries', 'DetailNo'], 'target_fields': ['SheetSeries', 'DetailNo'], 'evidence': ['原界面主从 ODMInRecord → ODMInDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('工卡流水', null=True, blank=True, max_length=50)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细流水号', null=False, blank=True, max_length=36)
@@ -1901,7 +1996,7 @@ class SourceDyeODMInRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_odminrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_roll_no', 'old_detail_no'],name='src_4d93c19815c1c813')]
+        indexes=[models.Index(fields=['source_batch', 'old_roll_no', 'old_detail_no'],name='src_4d93c19815c1c813'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_roll_no'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_4d93c19815c1c813')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ODMInRecord，待确认）'
         ordering=["-id"]
 
@@ -1911,9 +2006,11 @@ class SourceDyeODMOut(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetKind': 'old_sheet_kind', 'SheetType': 'old_sheet_type', 'BusinessUnitID': 'old_business_unit_id', 'CustomerID': 'old_customer_id', 'Keeper': 'old_keeper', 'CarNo': 'old_car_no', 'FactID': 'old_fact_id', 'Driver': 'old_driver', 'OutKindID': 'old_out_kind_id', 'OutTime': 'old_out_time', 'PackID': 'old_pack_id', 'ProcessID': 'old_process_id', 'CarryerID': 'old_carryer_id', 'Remarks': 'old_remarks', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'SheetDate': 'old_sheet_date', 'DlvDate': 'old_dlv_date', 'CreateDate': 'old_create_date', 'Creater': 'old_creater', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'StockUnit': 'old_stock_unit', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_driver': 'Chinese_PRC_CI_AS', 'old_out_kind_id': 'Chinese_PRC_CI_AS', 'old_pack_id': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_carryer_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_kind=models.IntegerField('单据类型', null=True, blank=True)
@@ -1950,7 +2047,7 @@ class SourceDyeODMOut(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_odmout'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_822b8f637c3c9430')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_822b8f637c3c9430'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_822b8f637c3c9430')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ODMOut，待确认）'
         ordering=["-id"]
 
@@ -1960,9 +2057,11 @@ class SourceDyeODMOutDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'GrayID': 'old_gray_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'WeftDensity': 'old_weft_density', 'WarpDensity': 'old_warp_density', 'OutRolls': 'old_out_rolls', 'OutLengthQty': 'old_out_length_qty', 'OutWeightQty': 'old_out_weight_qty', 'Remarks': 'old_remarks', 'ColorNum': 'old_color_num', 'CustomerID': 'old_customer_id', 'GWidth': 'old_gwidth', 'Width': 'old_width', 'StockUnit': 'old_stock_unit', 'Weight': 'old_weight', 'CustSelfProduct': 'old_cust_self_product'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_gray_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_weft_density': 'Chinese_PRC_CI_AS', 'old_warp_density': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_gwidth': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_cust_self_product': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ODMOut', 'target': 'erp_warehouse.SourceDyeODMOut', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ODMOutDetail → ODMOut']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=50)
@@ -1987,7 +2086,7 @@ class SourceDyeODMOutDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_odmoutdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_028cfea78d1a80a4')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_028cfea78d1a80a4'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_028cfea78d1a80a4')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ODMOutDetail，待确认）'
         ordering=["-id"]
 
@@ -1997,9 +2096,11 @@ class SourceDyeODMOutRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'RollNo': 'old_roll_no', 'DetailNo': 'old_detail_no', 'BarCode': 'old_bar_code', 'Rolls': 'old_rolls', 'ReceSheetNo': 'old_rece_sheet_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'Status': 'old_status', 'Remarks': 'old_remarks', 'WProcessNo': 'old_wprocess_no', 'MachineID': 'old_machine_id', 'Kind': 'old_kind'}
     SOURCE_KEY=('RollNo', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_wprocess_no': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ODMOutDetail', 'target': 'erp_warehouse.SourceDyeODMOutDetail', 'source_fields': ['SheetSeries', 'DetailNo'], 'target_fields': ['SheetSeries', 'DetailNo'], 'evidence': ['原界面主从 ODMOutRecord → ODMOutDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('工卡流水', null=True, blank=True, max_length=50)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细流水号', null=False, blank=True, max_length=36)
@@ -2018,7 +2119,7 @@ class SourceDyeODMOutRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_odmoutrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_roll_no', 'old_detail_no'],name='src_ca7167b7d545de61')]
+        indexes=[models.Index(fields=['source_batch', 'old_roll_no', 'old_detail_no'],name='src_ca7167b7d545de61'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_roll_no'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_ca7167b7d545de61')]
         verbose_name=verbose_name_plural='其他或待确认相关表（ODMOutRecord，待确认）'
         ordering=["-id"]
 
@@ -2028,9 +2129,11 @@ class SourceDyeOtherIn(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'InKindID': 'old_in_kind_id', 'BuyerID': 'old_buyer_id', 'WareHouseID': 'old_ware_house_id', 'SupplierID': 'old_supplier_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'StepNo': 'old_step_no', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'BusinessUnitID': 'old_business_unit_id', 'Keeper': 'old_keeper', 'Reason': 'old_reason', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'Settle': 'old_settle', 'deliverynum': 'old_deliverynum', 'APMoney': 'old_apmoney', 'APQty': 'old_apqty', 'UnClearQty': 'old_un_clear_qty', 'UnClearMoney': 'old_un_clear_money', 'UnClearInvoiceQty': 'old_un_clear_invoice_qty', 'UnClearInvoiceMoney': 'old_un_clear_invoice_money', 'DiscountMoney': 'old_discount_money', 'SumAmount': 'old_sum_amount', 'InvoiceClearStatus': 'old_invoice_clear_status', 'MoneyClearStatus': 'old_money_clear_status'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_in_kind_id': 'Chinese_PRC_CI_AS', 'old_buyer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_reason': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_settle': 'Chinese_PRC_CI_AS', 'old_deliverynum': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -2069,7 +2172,7 @@ class SourceDyeOtherIn(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_otherin'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_64085f856a5a0b13')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_64085f856a5a0b13'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_64085f856a5a0b13')]
         verbose_name=verbose_name_plural='其他或待确认相关表（OtherIn，待确认）'
         ordering=["-id"]
 
@@ -2079,9 +2182,11 @@ class SourceDyeOtherInDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'CookID': 'old_cook_id', 'ArticleKindID': 'old_article_kind_id', 'InQty': 'old_in_qty', 'Price': 'old_price', 'TaxRate': 'old_tax_rate', 'TaxPrice': 'old_tax_price', 'TaxMoney': 'old_tax_money', 'Total': 'old_total', 'PurDetailNo': 'old_pur_detail_no', 'APDetailNo': 'old_apdetail_no', 'InvoiceNo': 'old_invoice_no', 'FactDlvNo': 'old_fact_dlv_no', 'Remarks': 'old_remarks', 'PackQty': 'old_pack_qty', 'PackUnit': 'old_pack_unit', 'Discount': 'old_discount', 'DiscountMoney': 'old_discount_money', 'OriDetailNo': 'old_ori_detail_no', 'Amount': 'old_amount'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_cook_id': 'Chinese_PRC_CI_AS', 'old_article_kind_id': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_invoice_no': 'Chinese_PRC_CI_AS', 'old_fact_dlv_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_pack_unit': 'Chinese_PRC_CI_AS', 'old_ori_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：OtherIn', 'target': 'erp_warehouse.SourceDyeOtherIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 OtherInDetail → OtherIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_cook_id=models.CharField('物料编码', null=True, blank=True, max_length=200)
@@ -2107,7 +2212,7 @@ class SourceDyeOtherInDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_otherindetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_5c95a1e6f9bce79e')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_5c95a1e6f9bce79e'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_5c95a1e6f9bce79e')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（OtherInDetail，待确认）'
         ordering=["-id"]
 
@@ -2117,9 +2222,11 @@ class SourceDyeOutGoingBill(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'ShiftCode': 'old_shift_code', 'StartTime': 'old_start_time', 'EndTime': 'old_end_time', 'Creator': 'old_creator', 'CreateDate': 'old_create_date', 'Modifier': 'old_modifier', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'RightStatus': 'old_right_status', 'Remark': 'old_remark'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_shift_code': 'Chinese_PRC_CI_AS', 'old_creator': 'Chinese_PRC_CI_AS', 'old_modifier': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_remark': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('单号', null=False, blank=True, max_length=50)
     old_shift_code=models.CharField('班别', null=True, blank=True, max_length=50)
     old_start_time=models.DateTimeField('放行开始时间', null=True, blank=True)
@@ -2135,7 +2242,7 @@ class SourceDyeOutGoingBill(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_outgoingbill'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_df7b00dc8cfdf9f0')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_df7b00dc8cfdf9f0'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_df7b00dc8cfdf9f0')]
         verbose_name=verbose_name_plural='其他或待确认相关表（OutGoingBill，待确认）'
         ordering=["-id"]
 
@@ -2145,9 +2252,11 @@ class SourceDyeOutGoingBillDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'EmpID': 'old_emp_id', 'Note': 'old_note'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_note': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：OutGoingBill', 'target': 'erp_warehouse.SourceDyeOutGoingBill', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 OutGoingBillDetail → OutGoingBill']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=50)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=50)
     old_emp_id=models.CharField('EmpID', null=True, blank=True, max_length=50)
@@ -2156,7 +2265,7 @@ class SourceDyeOutGoingBillDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_outgoingbilldetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_c0e3cf07b838f5c5')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_c0e3cf07b838f5c5'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_c0e3cf07b838f5c5')]
         verbose_name=verbose_name_plural='其他或待确认相关表（OutGoingBillDetail，待确认）'
         ordering=["-id"]
 
@@ -2166,9 +2275,11 @@ class SourceDyeOutPlan(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'BusinessUnitID': 'old_business_unit_id', 'PriorityID': 'old_priority_id', 'OutKindID': 'old_out_kind_id', 'CreditNo': 'old_credit_no', 'ShipDate': 'old_ship_date', 'BoxDate': 'old_box_date', 'BoxTypeID': 'old_box_type_id', 'ForwarderID': 'old_forwarder_id', 'Linker': 'old_linker', 'LinkerInfo': 'old_linker_info', 'Fee1': 'old_fee1', 'Fee2': 'old_fee2', 'Fee3': 'old_fee3', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'CustomerID': 'old_customer_id', 'SalerID': 'old_saler_id', 'CustomsCheckNo': 'old_customs_check_no', 'ToPlace': 'old_to_place', 'DetailCustName': 'old_detail_cust_name', 'StorageUnitID': 'old_storage_unit_id', 'StepNo': 'old_step_no', 'SalerGroupID': 'old_saler_group_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_priority_id': 'Chinese_PRC_CI_AS', 'old_out_kind_id': 'Chinese_PRC_CI_AS', 'old_credit_no': 'Chinese_PRC_CI_AS', 'old_box_type_id': 'Chinese_PRC_CI_AS', 'old_forwarder_id': 'Chinese_PRC_CI_AS', 'old_linker': 'Chinese_PRC_CI_AS', 'old_linker_info': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_customs_check_no': 'Chinese_PRC_CI_AS', 'old_to_place': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={'old_sheet_no': ('literal', ''), 'old_sheet_date': ('literal', '1900-01-01'), 'old_sheet_kind': ('literal', 0), 'old_business_unit_id': ('literal', ''), 'old_priority_id': ('literal', ''), 'old_out_kind_id': ('literal', ''), 'old_credit_no': ('literal', ''), 'old_ship_date': ('literal', '1900-01-01'), 'old_box_date': ('literal', '1900-01-01'), 'old_box_type_id': ('literal', ''), 'old_forwarder_id': ('literal', ''), 'old_linker': ('literal', ''), 'old_linker_info': ('literal', ''), 'old_fee1': ('literal', 0), 'old_fee2': ('literal', 0), 'old_fee3': ('literal', 0), 'old_sheet_status': ('literal', 0), 'old_right_status': ('literal', 0), 'old_print_times': ('literal', 0), 'old_revisions': ('literal', 0), 'old_remarks': ('literal', ''), 'old_creater': ('literal', ''), 'old_create_date': ('literal', '1900-01-01'), 'old_modifyer': ('literal', ''), 'old_modify_date': ('literal', '1900-01-01')}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -2206,7 +2317,7 @@ class SourceDyeOutPlan(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_outplan'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_48a641fd766bb168')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_48a641fd766bb168'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_48a641fd766bb168')]
         verbose_name=verbose_name_plural='生产工单与排程相关表（OutPlan，待确认）'
         ordering=["-id"]
 
@@ -2216,9 +2327,11 @@ class SourceDyeOutPlanDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'FabricID': 'old_fabric_id', 'Spec': 'old_spec', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'ColorE': 'old_color_e', 'Rolls': 'old_rolls', 'OutQty': 'old_out_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'CheckNo': 'old_check_no', 'Remarks': 'old_remarks', 'JobDetailNo': 'old_job_detail_no', 'Structure': 'old_structure', 'JobSheetNo': 'old_job_sheet_no', 'ProdID': 'old_prod_id', 'CustColorNum': 'old_cust_color_num', 'toaddress': 'old_toaddress', 'WeightQty': 'old_weight_qty', 'CurrStatus': 'old_curr_status'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_e': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_detail_no': 'Chinese_PRC_CI_AS', 'old_structure': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_toaddress': 'Chinese_PRC_CI_AS', 'old_curr_status': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：OutPlan', 'target': 'erp_warehouse.SourceDyeOutPlan', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 OutPlanDetail → OutPlan']}]
     SOURCE_DEFAULTS={'old_fabric_id': ('literal', ''), 'old_spec': ('literal', ''), 'old_color_id': ('literal', ''), 'old_color_num': ('literal', ''), 'old_color_e': ('literal', ''), 'old_rolls': ('literal', 0), 'old_out_qty': ('literal', 0), 'old_price': ('literal', 0), 'old_amount': ('literal', 0), 'old_check_no': ('literal', ''), 'old_remarks': ('literal', '')}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=20)
     old_fabric_id=models.CharField('客户规格', null=True, blank=True, max_length=20)
@@ -2244,7 +2357,7 @@ class SourceDyeOutPlanDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_outplandetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_0a576686c5b23e71')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_0a576686c5b23e71'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_0a576686c5b23e71')]
         verbose_name=verbose_name_plural='生产工单与排程相关表（OutPlanDetail，待确认）'
         ordering=["-id"]
 
@@ -2254,9 +2367,11 @@ class SourceDyePackQty(SourceRecord):
     SOURCE_FIELDS={'JobSheetNo': 'old_job_sheet_no', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'Qty': 'old_qty', 'EndTime': 'old_end_time', 'ProcessID': 'old_process_id'}
     SOURCE_KEY=()
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_end_time': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
     old_shift_id=models.CharField('ShiftID', null=True, blank=True, max_length=50)
     old_emp_id=models.CharField('EmpID', null=True, blank=True, max_length=50)
@@ -2276,9 +2391,11 @@ class SourceDyePackQty1(SourceRecord):
     SOURCE_FIELDS={'JobSheetNo': 'old_job_sheet_no', 'ShiftID': 'old_shift_id', 'CurrRolls': 'old_curr_rolls', 'CurrKg': 'old_curr_kg'}
     SOURCE_KEY=()
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
     old_shift_id=models.CharField('ShiftID', null=True, blank=True, max_length=50)
     old_curr_rolls=models.IntegerField('CurrRolls', null=True, blank=True)
@@ -2296,9 +2413,11 @@ class SourceDyePackWorkQty(SourceRecord):
     SOURCE_FIELDS={'ID': 'old_id', 'OrderSheetNo': 'old_order_sheet_no', 'CustomerID': 'old_customer_id', 'ProdID': 'old_prod_id', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'JobSheetNo': 'old_job_sheet_no', 'ProcessID': 'old_process_id', 'ShiftName': 'old_shift_name', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'YEARS': 'old_years', 'StartTime': 'old_start_time', 'DAYS': 'old_days', 'CurrRolls': 'old_curr_rolls', 'CurrKg': 'old_curr_kg', 'Qty': 'old_qty', 'Price': 'old_price', 'WorkMoney': 'old_work_money'}
     SOURCE_KEY=('ID',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_id': 'Chinese_PRC_CI_AS', 'old_order_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_shift_name': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_years': 'Chinese_PRC_CI_AS', 'old_start_time': 'Chinese_PRC_CI_AS', 'old_days': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_id=models.CharField('ID', null=False, blank=True, max_length=50)
     old_order_sheet_no=models.CharField('OrderSheetNo', null=True, blank=True, max_length=50)
     old_customer_id=models.CharField('CustomerID', null=True, blank=True, max_length=50)
@@ -2321,7 +2440,7 @@ class SourceDyePackWorkQty(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_packworkqty'
-        indexes=[models.Index(fields=['source_batch', 'old_id'],name='src_de2d770fdd1dc4ba')]
+        indexes=[models.Index(fields=['source_batch', 'old_id'],name='src_de2d770fdd1dc4ba'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_id'))),name='src_ci_de2d770fdd1dc4ba')]
         verbose_name=verbose_name_plural='生产工单与排程相关表（PackWorkQty，待确认）'
         ordering=["-id"]
 
@@ -2331,9 +2450,11 @@ class SourceDyePackWorkQty1(SourceRecord):
     SOURCE_FIELDS={'ID': 'old_id', 'OrderSheetNo': 'old_order_sheet_no', 'CustomerID': 'old_customer_id', 'ProdID': 'old_prod_id', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'JobSheetNo': 'old_job_sheet_no', 'ProcessID': 'old_process_id', 'ShiftName': 'old_shift_name', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'YEARS': 'old_years', 'StartTime': 'old_start_time', 'DAYS': 'old_days', 'CurrRolls': 'old_curr_rolls', 'CurrKg': 'old_curr_kg', 'Qty': 'old_qty', 'Price': 'old_price', 'WorkMoney': 'old_work_money'}
     SOURCE_KEY=('ID',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_id': 'Chinese_PRC_CI_AS', 'old_order_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_shift_name': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_years': 'Chinese_PRC_CI_AS', 'old_start_time': 'Chinese_PRC_CI_AS', 'old_days': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_id=models.CharField('ID', null=False, blank=True, max_length=50)
     old_order_sheet_no=models.CharField('OrderSheetNo', null=True, blank=True, max_length=50)
     old_customer_id=models.CharField('CustomerID', null=True, blank=True, max_length=50)
@@ -2356,7 +2477,7 @@ class SourceDyePackWorkQty1(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_packworkqty1'
-        indexes=[models.Index(fields=['source_batch', 'old_id'],name='src_a84176d192defd72')]
+        indexes=[models.Index(fields=['source_batch', 'old_id'],name='src_a84176d192defd72'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_id'))),name='src_ci_a84176d192defd72')]
         verbose_name=verbose_name_plural='生产工单与排程相关表（PackWorkQty1，待确认）'
         ordering=["-id"]
 
@@ -2366,9 +2487,11 @@ class SourceDyePackWorkQtyDetail(SourceRecord):
     SOURCE_FIELDS={'JobSheetNo': 'old_job_sheet_no', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'Qty': 'old_qty', 'EndTime': 'old_end_time', 'ProcessID': 'old_process_id'}
     SOURCE_KEY=()
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_end_time': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
     old_shift_id=models.CharField('ShiftID', null=True, blank=True, max_length=50)
     old_emp_id=models.CharField('EmpID', null=True, blank=True, max_length=50)
@@ -2388,9 +2511,11 @@ class SourceDyePackWorkSumQty(SourceRecord):
     SOURCE_FIELDS={'JobSheetNo': 'old_job_sheet_no', 'ShiftID': 'old_shift_id', 'CurrRolls': 'old_curr_rolls', 'CurrKg': 'old_curr_kg'}
     SOURCE_KEY=()
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
     old_shift_id=models.CharField('ShiftID', null=True, blank=True, max_length=50)
     old_curr_rolls=models.IntegerField('CurrRolls', null=True, blank=True)
@@ -2408,9 +2533,11 @@ class SourceDyeProdIn(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'JobSheetNo': 'old_job_sheet_no', 'SheetDate': 'old_sheet_date', 'IsInputRecord': 'old_is_input_record', 'SheetKind': 'old_sheet_kind', 'CustomerID': 'old_customer_id', 'BusinessUnitID': 'old_business_unit_id', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'ProdID': 'old_prod_id', 'LotNo': 'old_lot_no', 'Spec': 'old_spec', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'StorageUnitID': 'old_storage_unit_id', 'WareHouseID': 'old_ware_house_id', 'Rolls': 'old_rolls', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'Total': 'old_total', 'TubeWeight': 'old_tube_weight', 'ProcessPrice': 'old_process_price', 'ProcessMemo': 'old_process_memo', 'AtteMemo': 'old_atte_memo', 'AtteFee': 'old_atte_fee', 'VatFee': 'old_vat_fee', 'RealLoss': 'old_real_loss', 'Loss': 'old_loss', 'AdjustedLoss': 'old_adjusted_loss', 'Weight': 'old_weight', 'Width': 'old_width', 'WidthKindID': 'old_width_kind_id', 'WeightUnit': 'old_weight_unit', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'DetailsCustomer': 'old_details_customer', 'BaseBoard': 'old_base_board', 'CustJobNo': 'old_cust_job_no', 'SumAssignedLengthQty': 'old_sum_assigned_length_qty', 'ColorDepthID': 'old_color_depth_id', 'Keeper': 'old_keeper', 'WarpDensity': 'old_warp_density', 'WeftDensity': 'old_weft_density', 'FabricID': 'old_fabric_id', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5', 'PhaseID': 'old_phase_id', 'GaryWeight': 'old_gary_weight', 'CustColorNum': 'old_cust_color_num', 'CheckNo': 'old_check_no', 'CustSelfNo': 'old_cust_self_no', 'Area': 'old_area', 'ShipMentType': 'old_ship_ment_type', 'PlasticBags': 'old_plastic_bags', 'ColorE': 'old_color_e', 'ColorRemarks': 'old_color_remarks', 'packremarks': 'old_packremarks', 'JXTDDH': 'old_jxtddh', 'ProdInOriSheetNo': 'old_prod_in_ori_sheet_no', 'YarnCategory': 'old_yarn_category', 'NetKg': 'old_net_kg', 'ContractNo': 'old_contract_no', 'ProdOutSheetSeries': 'old_prod_out_sheet_series'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_process_memo': 'Chinese_PRC_CI_AS', 'old_atte_memo': 'Chinese_PRC_CI_AS', 'old_loss': 'Chinese_PRC_CI_AS', 'old_weight': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_width_kind_id': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_details_customer': 'Chinese_PRC_CI_AS', 'old_base_board': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS', 'old_color_depth_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_warp_density': 'Chinese_PRC_CI_AS', 'old_weft_density': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS', 'old_phase_id': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_ship_ment_type': 'Chinese_PRC_CI_AS', 'old_color_e': 'Chinese_PRC_CI_AS', 'old_color_remarks': 'Chinese_PRC_CI_AS', 'old_packremarks': 'Chinese_PRC_CI_AS', 'old_jxtddh': 'Chinese_PRC_CI_AS', 'old_prod_in_ori_sheet_no': 'Chinese_PRC_CI_AS', 'old_yarn_category': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_prod_out_sheet_series': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=50)
@@ -2495,7 +2622,7 @@ class SourceDyeProdIn(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodin'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_49c3be2561ca203d')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_49c3be2561ca203d'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_49c3be2561ca203d')]
         verbose_name=verbose_name_plural='成品入库单'
         ordering=["-id"]
 
@@ -2505,9 +2632,11 @@ class SourceDyeProdInTo(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'JobSheetNo': 'old_job_sheet_no', 'SheetDate': 'old_sheet_date', 'CustomerID': 'old_customer_id', 'StockUnit': 'old_stock_unit', 'ProdID': 'old_prod_id', 'FabricID': 'old_fabric_id', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'CustColorNum': 'old_cust_color_num', 'Spec': 'old_spec', 'StorageUnitID': 'old_storage_unit_id', 'Area': 'old_area', 'SumRolls': 'old_sum_rolls', 'SumWeightQty': 'old_sum_weight_qty', 'SumGaryWeight': 'old_sum_gary_weight', 'SumLengthQty': 'old_sum_length_qty', 'AtteFee': 'old_atte_fee', 'VatFee': 'old_vat_fee', 'Width': 'old_width', 'Weight': 'old_weight', 'BarCode': 'old_bar_code', 'RollNo': 'old_roll_no', 'GrayQty': 'old_gray_qty', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty'}
     SOURCE_KEY=('BarCode',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=20)
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -2537,7 +2666,7 @@ class SourceDyeProdInTo(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodin_to'
-        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_1ff961c59381f1f5')]
+        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_1ff961c59381f1f5'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_bar_code'))),name='src_ci_1ff961c59381f1f5')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdIn_to，待确认）'
         ordering=["-id"]
 
@@ -2547,9 +2676,11 @@ class SourceDyeProdInPDARecord(SourceRecord):
     SOURCE_FIELDS={'BarCode': 'old_bar_code', 'CurrTime': 'old_curr_time', 'Geter': 'old_geter', 'StorageUnitID': 'old_storage_unit_id', 'Status': 'old_status'}
     SOURCE_KEY=('BarCode',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_bar_code': 'Chinese_PRC_CI_AS', 'old_geter': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_bar_code=models.CharField('BarCode', null=False, blank=True, max_length=50)
     old_curr_time=models.DateTimeField('CurrTime', null=True, blank=True)
     old_geter=models.CharField('Geter', null=True, blank=True, max_length=10)
@@ -2558,7 +2689,7 @@ class SourceDyeProdInPDARecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodinpdarecord'
-        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_7bf425de5efbca5d')]
+        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_7bf425de5efbca5d'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_bar_code'))),name='src_ci_7bf425de5efbca5d')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdInPDARecord，待确认）'
         ordering=["-id"]
 
@@ -2568,9 +2699,11 @@ class SourceDyeProdInPriceAtte(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'AtteCode': 'old_atte_code', 'Price': 'old_price', 'PriceUnit': 'old_price_unit', 'FieldType': 'old_field_type', 'AtteValue': 'old_atte_value', 'Description': 'old_description'}
     SOURCE_KEY=('SheetSeries', 'FieldType', 'AtteCode')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_atte_code': 'Chinese_PRC_CI_AS', 'old_field_type': 'Chinese_PRC_CI_AS', 'old_atte_value': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdIn', 'target': 'erp_warehouse.SourceDyeProdIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ProdInPriceAtte → ProdIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_atte_code=models.CharField('要求代码', null=False, blank=True, max_length=10)
     old_price=models.DecimalField('单价', null=True, blank=True, max_digits=8, decimal_places=2)
@@ -2582,7 +2715,7 @@ class SourceDyeProdInPriceAtte(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodinpriceatte'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_field_type', 'old_atte_code'],name='src_e73f1b8e8f433659')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_field_type', 'old_atte_code'],name='src_e73f1b8e8f433659'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_field_type'))),Upper(RTrim(models.F('old_atte_code'))),name='src_ci_e73f1b8e8f433659')]
         verbose_name=verbose_name_plural='财务结算与成本相关表（ProdInPriceAtte，待确认）'
         ordering=["-id"]
 
@@ -2592,9 +2725,11 @@ class SourceDyeProdInPriceProcess(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'ProcessID': 'old_process_id', 'Price': 'old_price', 'Remarks': 'old_remarks'}
     SOURCE_KEY=('SheetSeries', 'ProcessID')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdIn', 'target': 'erp_warehouse.SourceDyeProdIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ProdInPriceProcess → ProdIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_process_id=models.CharField('工序', null=False, blank=True, max_length=50)
     old_price=models.DecimalField('单价', null=True, blank=True, max_digits=8, decimal_places=2)
@@ -2603,7 +2738,7 @@ class SourceDyeProdInPriceProcess(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodinpriceprocess'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_process_id'],name='src_31f0d1ee2898cae8')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_process_id'],name='src_31f0d1ee2898cae8'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_process_id'))),name='src_ci_31f0d1ee2898cae8')]
         verbose_name=verbose_name_plural='财务结算与成本相关表（ProdInPriceProcess，待确认）'
         ordering=["-id"]
 
@@ -2613,9 +2748,11 @@ class SourceDyeProdInRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'RollNo': 'old_roll_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'Status': 'old_status', 'OutDetailNo': 'old_out_detail_no', 'BarCode': 'old_bar_code', 'GradeID': 'old_grade_id', 'GrayQty': 'old_gray_qty', 'AdjustQty': 'old_adjust_qty', 'RealQty': 'old_real_qty', 'Meter': 'old_meter', 'Yard': 'old_yard', 'Note': 'old_note', 'GrayBarCode': 'old_gray_bar_code', 'RollNo3': 'old_roll_no3', 'GUnit': 'old_gunit', 'PUnit': 'old_punit', 'ProdBarCode': 'old_prod_bar_code', 'InPacks': 'old_in_packs', 'InRolls': 'old_in_rolls', 'EmptyPlus': 'old_empty_plus', 'LabelLength': 'old_label_length', 'NetKg': 'old_net_kg', 'PackBag': 'old_pack_bag', 'TubeWeight': 'old_tube_weight', 'ProdCode': 'old_prod_code', 'LabelWareHouse': 'old_label_ware_house', 'LabelRemarks': 'old_label_remarks', 'WindingID': 'old_winding_id', 'CheckNo': 'old_check_no', 'ColorRemarks': 'old_color_remarks', 'OutDetatilNo': 'old_out_detatil_no', 'FenTou': 'old_fen_tou'}
     SOURCE_KEY=('SheetSeries', 'RollNo', 'BarCode')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_out_detail_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_grade_id': 'Chinese_PRC_CI_AS', 'old_note': 'Chinese_PRC_CI_AS', 'old_gray_bar_code': 'Chinese_PRC_CI_AS', 'old_roll_no3': 'Chinese_PRC_CI_AS', 'old_prod_bar_code': 'Chinese_PRC_CI_AS', 'old_prod_code': 'Chinese_PRC_CI_AS', 'old_label_ware_house': 'Chinese_PRC_CI_AS', 'old_label_remarks': 'Chinese_PRC_CI_AS', 'old_winding_id': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_color_remarks': 'Chinese_PRC_CI_AS', 'old_out_detatil_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdIn', 'target': 'erp_warehouse.SourceDyeProdIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ProdInRecordWork → ProdInWork', '原界面主从 ProdInRecord_ht → ProdIn_ht', '原界面主从 ProdInRecord → ProdIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
     old_length_qty=models.DecimalField('长度', null=True, blank=True, max_digits=10, decimal_places=2)
@@ -2655,7 +2792,7 @@ class SourceDyeProdInRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodinrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_roll_no', 'old_bar_code'],name='src_2db02b5e8e60d6eb')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_roll_no', 'old_bar_code'],name='src_2db02b5e8e60d6eb'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_roll_no'))),Upper(RTrim(models.F('old_bar_code'))),name='src_ci_2db02b5e8e60d6eb')]
         verbose_name=verbose_name_plural='成品入库卷记录'
         ordering=["-id"]
 
@@ -2665,9 +2802,11 @@ class SourceDyeProdLoading(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'IsInputRecord': 'old_is_input_record', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'CustomerID': 'old_customer_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'FactID': 'old_fact_id', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'Discount': 'old_discount', 'PriceCheck': 'old_price_check', 'PriceChecker': 'old_price_checker', 'PriceCheckIdea': 'old_price_check_idea', 'PriceCheckTime': 'old_price_check_time', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'WareHouseID': 'old_ware_house_id', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5', 'Driver1': 'old_driver1', 'Driver2': 'old_driver2', 'Driver3': 'old_driver3', 'Discharger1': 'old_discharger1', 'Discharger2': 'old_discharger2', 'Driver': 'old_driver', 'CarNo': 'old_car_no', 'Keeper': 'old_keeper', 'DlvRolls': 'old_dlv_rolls', 'DlvLengthQty': 'old_dlv_length_qty', 'DlvWeightQty': 'old_dlv_weight_qty', 'DlvAddress': 'old_dlv_address', 'Phone': 'old_phone', 'CustomerCode': 'old_customer_code', 'WLLX': 'old_wllx', 'combo1': 'old_combo1', 'FHYSPC': 'old_fhyspc', 'RoundTrip': 'old_round_trip', 'Contacter': 'old_contacter', 'ContactNumber': 'old_contact_number', 'ContractNumber': 'old_contract_number', 'DHSD_FEI': 'old_dhsd_fei', 'TY_FEI': 'old_ty_fei'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_price_checker': 'Chinese_PRC_CI_AS', 'old_price_check_idea': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS', 'old_driver1': 'Chinese_PRC_CI_AS', 'old_driver2': 'Chinese_PRC_CI_AS', 'old_driver3': 'Chinese_PRC_CI_AS', 'old_discharger1': 'Chinese_PRC_CI_AS', 'old_discharger2': 'Chinese_PRC_CI_AS', 'old_driver': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_dlv_address': 'Chinese_PRC_CI_AS', 'old_phone': 'Chinese_PRC_CI_AS', 'old_customer_code': 'Chinese_PRC_CI_AS', 'old_wllx': 'Chinese_PRC_CI_AS', 'old_combo1': 'Chinese_PRC_CI_AS', 'old_fhyspc': 'Chinese_PRC_CI_AS', 'old_round_trip': 'Chinese_PRC_CI_AS', 'old_contacter': 'Chinese_PRC_CI_AS', 'old_contact_number': 'Chinese_PRC_CI_AS', 'old_contract_number': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -2728,7 +2867,7 @@ class SourceDyeProdLoading(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodloading'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_973c9940ca0a83b5')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_973c9940ca0a83b5'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_973c9940ca0a83b5')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdLoading，待确认）'
         ordering=["-id"]
 
@@ -2738,9 +2877,11 @@ class SourceDyeProdLoadingDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'LineNumber': 'old_line_number', 'CustomerIDName': 'old_customer_idname', 'Spec': 'old_spec', 'Structure': 'old_structure', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'OutRolls': 'old_out_rolls', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'Weight': 'old_weight', 'Width': 'old_width', 'CheckNo': 'old_check_no', 'ARDetailNo': 'old_ardetail_no', 'Remarks': 'old_remarks', 'JobSheetNo': 'old_job_sheet_no', 'ProdID': 'old_prod_id', 'StockUnit': 'old_stock_unit', 'Total': 'old_total', 'ProcessPrice': 'old_process_price', 'AtteFee': 'old_atte_fee', 'VatFee': 'old_vat_fee', 'ProcessMemo': 'old_process_memo', 'Atte': 'old_atte', 'InSheetNo': 'old_in_sheet_no', 'InPrice': 'old_in_price', 'InProcessPrice': 'old_in_process_price', 'InAtteFee': 'old_in_atte_fee', 'InVatFee': 'old_in_vat_fee', 'Rolls': 'old_rolls', 'WidthDn': 'old_width_dn', 'WidthUp': 'old_width_up', 'WeightDn': 'old_weight_dn', 'WeightUp': 'old_weight_up', 'WeightUnit': 'old_weight_unit', 'WidthKindID': 'old_width_kind_id', 'PreRolls': 'old_pre_rolls', 'DetailsCustomer': 'old_details_customer', 'OrderSheetDate': 'old_order_sheet_date', 'AttPrice': 'old_att_price', 'ColorAddPrice': 'old_color_add_price', 'ColorAddFee': 'old_color_add_fee', 'SumAssignedLengthQty': 'old_sum_assigned_length_qty', 'CustJobNo': 'old_cust_job_no', 'ColorDepthID': 'old_color_depth_id', 'WarpDensity': 'old_warp_density', 'WeftDensity': 'old_weft_density', 'FabricID': 'old_fabric_id', 'GrayQty': 'old_gray_qty', 'Jobattes1': 'old_jobattes1', 'Jobattes2': 'old_jobattes2', 'CustColorNum': 'old_cust_color_num', 'PriceUnit': 'old_price_unit', 'PhaseID': 'old_phase_id', 'Jobattes3': 'old_jobattes3', 'Jobattes4': 'old_jobattes4', 'Jobattes5': 'old_jobattes5', 'Jobattes6': 'old_jobattes6', 'Jobattes7': 'old_jobattes7', 'Jobattes8': 'old_jobattes8', 'ContractNo': 'old_contract_no', 'CustGrayID': 'old_cust_gray_id', 'GRealLoss': 'old_greal_loss', 'ColorE': 'old_color_e', 'ColorRemarks': 'old_color_remarks', 'OrderSheetNo': 'old_order_sheet_no', 'Model1': 'old_model1', 'PackRemarks': 'old_pack_remarks', 'jobattes9': 'old_jobattes9', 'jobattes10': 'old_jobattes10', 'OutDetailNo': 'old_out_detail_no', 'ProdBarCode': 'old_prod_bar_code'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_line_number': 'Chinese_PRC_CI_AS', 'old_customer_idname': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_structure': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_weight': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_ardetail_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_process_memo': 'Chinese_PRC_CI_AS', 'old_atte': 'Chinese_PRC_CI_AS', 'old_in_sheet_no': 'Chinese_PRC_CI_AS', 'old_weight_unit': 'Chinese_PRC_CI_AS', 'old_width_kind_id': 'Chinese_PRC_CI_AS', 'old_details_customer': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS', 'old_color_depth_id': 'Chinese_PRC_CI_AS', 'old_warp_density': 'Chinese_PRC_CI_AS', 'old_weft_density': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_jobattes2': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_phase_id': 'Chinese_PRC_CI_AS', 'old_jobattes5': 'Chinese_PRC_CI_AS', 'old_jobattes6': 'Chinese_PRC_CI_AS', 'old_jobattes7': 'Chinese_PRC_CI_AS', 'old_jobattes8': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_cust_gray_id': 'Chinese_PRC_CI_AS', 'old_color_e': 'Chinese_PRC_CI_AS', 'old_color_remarks': 'Chinese_PRC_CI_AS', 'old_order_sheet_no': 'Chinese_PRC_CI_AS', 'old_model1': 'Chinese_PRC_CI_AS', 'old_pack_remarks': 'Chinese_PRC_CI_AS', 'old_jobattes9': 'Chinese_PRC_CI_AS', 'old_out_detail_no': 'Chinese_PRC_CI_AS', 'old_prod_bar_code': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdLoading', 'target': 'erp_warehouse.SourceDyeProdLoading', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ProdLoadingDetail → ProdLoading', '原界面主从 ProdLoadApproveDetail → ProdLoadApprove']}]
     SOURCE_DEFAULTS={'old_sheet_series': ('literal', ''), 'old_spec': ('literal', ''), 'old_structure': ('literal', ''), 'old_lot_no': ('literal', ''), 'old_color_id': ('literal', ''), 'old_color_num': ('literal', ''), 'old_out_rolls': ('literal', 0), 'old_weight_qty': ('literal', 0), 'old_length_qty': ('literal', 0), 'old_price': ('literal', 0), 'old_amount': ('literal', 0), 'old_check_no': ('literal', ''), 'old_ardetail_no': ('literal', ''), 'old_remarks': ('literal', '')}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=36)
     old_line_number=models.CharField('行号', null=True, blank=True, max_length=20)
@@ -2821,7 +2962,7 @@ class SourceDyeProdLoadingDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodloadingdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_dc01c7a0bc2316fe')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_dc01c7a0bc2316fe'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_dc01c7a0bc2316fe')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdLoadingDetail，待确认）'
         ordering=["-id"]
 
@@ -2831,9 +2972,11 @@ class SourceDyeProdOut(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'IsInputRecord': 'old_is_input_record', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'CustomerID': 'old_customer_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'FactID': 'old_fact_id', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'Discount': 'old_discount', 'PriceCheck': 'old_price_check', 'PriceChecker': 'old_price_checker', 'PriceCheckIdea': 'old_price_check_idea', 'PriceCheckTime': 'old_price_check_time', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'WareHouseID': 'old_ware_house_id', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5', 'Driver1': 'old_driver1', 'Driver2': 'old_driver2', 'Driver3': 'old_driver3', 'Discharger1': 'old_discharger1', 'Discharger2': 'old_discharger2', 'Driver': 'old_driver', 'CarNo': 'old_car_no', 'Keeper': 'old_keeper', 'DlvRolls': 'old_dlv_rolls', 'DlvLengthQty': 'old_dlv_length_qty', 'DlvWeightQty': 'old_dlv_weight_qty', 'DlvAddress': 'old_dlv_address', 'Phone': 'old_phone', 'CustomerCode': 'old_customer_code', 'WLLX': 'old_wllx', 'combo1': 'old_combo1', 'FHYSPC': 'old_fhyspc', 'UpCheckNo': 'old_up_check_no', 'UpLabelRemarks': 'old_up_label_remarks', 'UpLabelWareHouse': 'old_up_label_ware_house'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_price_checker': 'Chinese_PRC_CI_AS', 'old_price_check_idea': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS', 'old_driver1': 'Chinese_PRC_CI_AS', 'old_driver2': 'Chinese_PRC_CI_AS', 'old_driver3': 'Chinese_PRC_CI_AS', 'old_discharger1': 'Chinese_PRC_CI_AS', 'old_discharger2': 'Chinese_PRC_CI_AS', 'old_driver': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_dlv_address': 'Chinese_PRC_CI_AS', 'old_phone': 'Chinese_PRC_CI_AS', 'old_customer_code': 'Chinese_PRC_CI_AS', 'old_wllx': 'Chinese_PRC_CI_AS', 'old_combo1': 'Chinese_PRC_CI_AS', 'old_fhyspc': 'Chinese_PRC_CI_AS', 'old_up_check_no': 'Chinese_PRC_CI_AS', 'old_up_label_remarks': 'Chinese_PRC_CI_AS', 'old_up_label_ware_house': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -2891,7 +3034,7 @@ class SourceDyeProdOut(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodout'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e76d918302e49bb8')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e76d918302e49bb8'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_e76d918302e49bb8')]
         verbose_name=verbose_name_plural='成品出库单'
         ordering=["-id"]
 
@@ -2901,9 +3044,11 @@ class SourceDyeProdOutDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'Spec': 'old_spec', 'Structure': 'old_structure', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'OutRolls': 'old_out_rolls', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'Weight': 'old_weight', 'Width': 'old_width', 'CheckNo': 'old_check_no', 'ARDetailNo': 'old_ardetail_no', 'Remarks': 'old_remarks', 'JobSheetNo': 'old_job_sheet_no', 'ProdID': 'old_prod_id', 'StockUnit': 'old_stock_unit', 'Total': 'old_total', 'ProcessPrice': 'old_process_price', 'AtteFee': 'old_atte_fee', 'VatFee': 'old_vat_fee', 'ProcessMemo': 'old_process_memo', 'Atte': 'old_atte', 'InSheetNo': 'old_in_sheet_no', 'InPrice': 'old_in_price', 'InProcessPrice': 'old_in_process_price', 'InAtteFee': 'old_in_atte_fee', 'InVatFee': 'old_in_vat_fee', 'Rolls': 'old_rolls', 'WidthDn': 'old_width_dn', 'WidthUp': 'old_width_up', 'WeightDn': 'old_weight_dn', 'WeightUp': 'old_weight_up', 'WeightUnit': 'old_weight_unit', 'WidthKindID': 'old_width_kind_id', 'PreRolls': 'old_pre_rolls', 'DetailsCustomer': 'old_details_customer', 'OrderSheetDate': 'old_order_sheet_date', 'AttPrice': 'old_att_price', 'ColorAddPrice': 'old_color_add_price', 'ColorAddFee': 'old_color_add_fee', 'SumAssignedLengthQty': 'old_sum_assigned_length_qty', 'CustJobNo': 'old_cust_job_no', 'ColorDepthID': 'old_color_depth_id', 'WarpDensity': 'old_warp_density', 'WeftDensity': 'old_weft_density', 'FabricID': 'old_fabric_id', 'GrayQty': 'old_gray_qty', 'Jobattes1': 'old_jobattes1', 'Jobattes2': 'old_jobattes2', 'CustColorNum': 'old_cust_color_num', 'PriceUnit': 'old_price_unit', 'PhaseID': 'old_phase_id', 'Jobattes3': 'old_jobattes3', 'Jobattes4': 'old_jobattes4', 'Jobattes5': 'old_jobattes5', 'Jobattes6': 'old_jobattes6', 'Jobattes7': 'old_jobattes7', 'Jobattes8': 'old_jobattes8', 'ContractNo': 'old_contract_no', 'CustGrayID': 'old_cust_gray_id', 'GRealLoss': 'old_greal_loss', 'ColorE': 'old_color_e', 'ColorRemarks': 'old_color_remarks', 'OrderSheetNo': 'old_order_sheet_no', 'Model1': 'old_model1', 'PackRemarks': 'old_pack_remarks', 'jobattes9': 'old_jobattes9', 'jobattes10': 'old_jobattes10', 'BarCode': 'old_bar_code', 'RollNo': 'old_roll_no', 'RealQty': 'old_real_qty', 'ProdBarCode': 'old_prod_bar_code', 'OutPacks': 'old_out_packs', 'NetKg': 'old_net_kg', 'PackBag': 'old_pack_bag', 'TubeWeight': 'old_tube_weight', 'ProdCode': 'old_prod_code', 'CustSelfNo': 'old_cust_self_no', 'YarnCategory': 'old_yarn_category', 'LabelWareHouse': 'old_label_ware_house', 'LabelRemarks': 'old_label_remarks', 'WindingID': 'old_winding_id', 'GradeID': 'old_grade_id', 'FenTou': 'old_fen_tou'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_structure': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_weight': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_ardetail_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_process_memo': 'Chinese_PRC_CI_AS', 'old_atte': 'Chinese_PRC_CI_AS', 'old_in_sheet_no': 'Chinese_PRC_CI_AS', 'old_weight_unit': 'Chinese_PRC_CI_AS', 'old_width_kind_id': 'Chinese_PRC_CI_AS', 'old_details_customer': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS', 'old_color_depth_id': 'Chinese_PRC_CI_AS', 'old_warp_density': 'Chinese_PRC_CI_AS', 'old_weft_density': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_jobattes1': 'Chinese_PRC_CI_AS', 'old_jobattes2': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_phase_id': 'Chinese_PRC_CI_AS', 'old_jobattes3': 'Chinese_PRC_CI_AS', 'old_jobattes4': 'Chinese_PRC_CI_AS', 'old_jobattes5': 'Chinese_PRC_CI_AS', 'old_jobattes6': 'Chinese_PRC_CI_AS', 'old_jobattes7': 'Chinese_PRC_CI_AS', 'old_jobattes8': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_cust_gray_id': 'Chinese_PRC_CI_AS', 'old_color_e': 'Chinese_PRC_CI_AS', 'old_color_remarks': 'Chinese_PRC_CI_AS', 'old_order_sheet_no': 'Chinese_PRC_CI_AS', 'old_model1': 'Chinese_PRC_CI_AS', 'old_pack_remarks': 'Chinese_PRC_CI_AS', 'old_jobattes9': 'Chinese_PRC_CI_AS', 'old_jobattes10': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_prod_bar_code': 'Chinese_PRC_CI_AS', 'old_prod_code': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_yarn_category': 'Chinese_PRC_CI_AS', 'old_label_ware_house': 'Chinese_PRC_CI_AS', 'old_label_remarks': 'Chinese_PRC_CI_AS', 'old_winding_id': 'Chinese_PRC_CI_AS', 'old_grade_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdOut', 'target': 'erp_warehouse.SourceDyeProdOut', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ProdOutDetail → ProdOut', '原界面主从 ProdOutDetailUpdate → ProdOutUpdate']}]
     SOURCE_DEFAULTS={'old_sheet_series': ('literal', ''), 'old_spec': ('literal', ''), 'old_structure': ('literal', ''), 'old_lot_no': ('literal', ''), 'old_color_id': ('literal', ''), 'old_color_num': ('literal', ''), 'old_out_rolls': ('literal', 0), 'old_weight_qty': ('literal', 0), 'old_length_qty': ('literal', 0), 'old_price': ('literal', 0), 'old_amount': ('literal', 0), 'old_check_no': ('literal', ''), 'old_ardetail_no': ('literal', ''), 'old_remarks': ('literal', '')}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_spec=models.CharField('捻度(H/S)', null=True, blank=True, max_length=500)
@@ -2996,7 +3141,7 @@ class SourceDyeProdOutDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodoutdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_1b7df9115e62a065'),models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_3ed5380494e7c8ed')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_1b7df9115e62a065'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_1b7df9115e62a065'),models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_3ed5380494e7c8ed'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_3ed5380494e7c8ed')]
         verbose_name=verbose_name_plural='成品出库明细'
         ordering=["-id"]
 
@@ -3006,9 +3151,11 @@ class SourceDyeProdOutPDARecord(SourceRecord):
     SOURCE_FIELDS={'BarCode': 'old_bar_code', 'CurrTime': 'old_curr_time', 'Geter': 'old_geter', 'Status': 'old_status'}
     SOURCE_KEY=('BarCode',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_bar_code': 'Chinese_PRC_CI_AS', 'old_geter': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_bar_code=models.CharField('BarCode', null=False, blank=True, max_length=50)
     old_curr_time=models.DateTimeField('CurrTime', null=True, blank=True)
     old_geter=models.CharField('Geter', null=True, blank=True, max_length=10)
@@ -3016,7 +3163,7 @@ class SourceDyeProdOutPDARecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodoutpdarecord'
-        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_3266e499599da8cc')]
+        indexes=[models.Index(fields=['source_batch', 'old_bar_code'],name='src_3266e499599da8cc'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_bar_code'))),name='src_ci_3266e499599da8cc')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdOutPDARecord，待确认）'
         ordering=["-id"]
 
@@ -3026,9 +3173,11 @@ class SourceDyeProdOutPriceAtte(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'AtteCode': 'old_atte_code', 'Price': 'old_price', 'PriceUnit': 'old_price_unit', 'InPrice': 'old_in_price', 'FieldType': 'old_field_type', 'AtteValue': 'old_atte_value', 'Description': 'old_description'}
     SOURCE_KEY=('SheetSeries', 'DetailNo', 'FieldType', 'AtteCode')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_atte_code': 'Chinese_PRC_CI_AS', 'old_field_type': 'Chinese_PRC_CI_AS', 'old_atte_value': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdOutDetail', 'target': 'erp_warehouse.SourceDyeProdOutDetail', 'source_fields': ['SheetSeries', 'DetailNo'], 'target_fields': ['SheetSeries', 'DetailNo'], 'evidence': ['原界面主从 ProdOutPriceAtte → ProdOutDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细号', null=False, blank=True, max_length=36)
     old_atte_code=models.CharField('事项代码', null=False, blank=True, max_length=10)
@@ -3042,7 +3191,7 @@ class SourceDyeProdOutPriceAtte(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodoutpriceatte'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_field_type', 'old_atte_code'],name='src_d66dcc17f27212ae')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_field_type', 'old_atte_code'],name='src_d66dcc17f27212ae'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),Upper(RTrim(models.F('old_field_type'))),Upper(RTrim(models.F('old_atte_code'))),name='src_ci_d66dcc17f27212ae')]
         verbose_name=verbose_name_plural='财务结算与成本相关表（ProdOutPriceAtte，待确认）'
         ordering=["-id"]
 
@@ -3052,9 +3201,11 @@ class SourceDyeProdOutPriceProcess(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ProcessID': 'old_process_id', 'Price': 'old_price', 'Remarks': 'old_remarks', 'InPrice': 'old_in_price'}
     SOURCE_KEY=('SheetSeries', 'DetailNo', 'ProcessID')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=36)
     old_process_id=models.CharField('ProcessID', null=False, blank=True, max_length=50)
@@ -3064,7 +3215,7 @@ class SourceDyeProdOutPriceProcess(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodoutpriceprocess'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_process_id'],name='src_562a2f01d8a9577c')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_process_id'],name='src_562a2f01d8a9577c'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),Upper(RTrim(models.F('old_process_id'))),name='src_ci_562a2f01d8a9577c')]
         verbose_name=verbose_name_plural='财务结算与成本相关表（ProdOutPriceProcess，待确认）'
         ordering=["-id"]
 
@@ -3074,9 +3225,11 @@ class SourceDyeProdOutRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'RollNo': 'old_roll_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'Status': 'old_status', 'OutDetailNo': 'old_out_detail_no', 'BarCode': 'old_bar_code', 'GradeID': 'old_grade_id', 'GrayQty': 'old_gray_qty', 'AdjustQty': 'old_adjust_qty', 'DetailNo': 'old_detail_no', 'RealQty': 'old_real_qty', 'Meter': 'old_meter', 'Yard': 'old_yard', 'GrayBarCode': 'old_gray_bar_code', 'RollNo3': 'old_roll_no3', 'GUnit': 'old_gunit', 'PUnit': 'old_punit', 'Rolls': 'old_rolls', 'GKg': 'old_gkg', 'GPound': 'old_gpound', 'PKg': 'old_pkg', 'PPound': 'old_ppound'}
     SOURCE_KEY=('SheetSeries', 'RollNo', 'BarCode', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_out_detail_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_grade_id': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_gray_bar_code': 'Chinese_PRC_CI_AS', 'old_roll_no3': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdOutDetail', 'target': 'erp_warehouse.SourceDyeProdOutDetail', 'source_fields': ['SheetSeries', 'DetailNo'], 'target_fields': ['SheetSeries', 'DetailNo'], 'evidence': ['原界面主从 ProdOutRecord → ProdOutDetail', '原界面主从 ProdOutRecordUpdate → ProdOutDetailUpdate']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('出库单流水号', null=False, blank=True, max_length=20)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
     old_length_qty=models.DecimalField('成品长度', null=True, blank=True, max_digits=10, decimal_places=2)
@@ -3105,7 +3258,7 @@ class SourceDyeProdOutRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodoutrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_roll_no', 'old_bar_code', 'old_detail_no'],name='src_3c04fb62f2e0cca8')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_roll_no', 'old_bar_code', 'old_detail_no'],name='src_3c04fb62f2e0cca8'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_roll_no'))),Upper(RTrim(models.F('old_bar_code'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_3c04fb62f2e0cca8')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdOutRecord，待确认）'
         ordering=["-id"]
 
@@ -3115,9 +3268,11 @@ class SourceDyeProdStock(SourceRecord):
     SOURCE_FIELDS={'StockDate': 'old_stock_date', 'BusinessUnitID': 'old_business_unit_id', 'CustomerID': 'old_customer_id', 'FactID': 'old_fact_id', 'WareHouseID': 'old_ware_house_id', 'SalerGroupID': 'old_saler_group_id', 'ProdID': 'old_prod_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'JobSheetNo': 'old_job_sheet_no', 'SalerID': 'old_saler_id', 'BusinessKind': 'old_business_kind', 'PreMonthRolls': 'old_pre_month_rolls', 'Price': 'old_price', 'CarryDate': 'old_carry_date', 'Remarks': 'old_remarks', 'PreMonthLengthQty': 'old_pre_month_length_qty', 'PreMonthWeightQty': 'old_pre_month_weight_qty'}
     SOURCE_KEY=()
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_stock_date=models.DateTimeField('StockDate', null=False, blank=False)
     old_business_unit_id=models.CharField('BusinessUnitID', null=True, blank=True, max_length=10)
     old_customer_id=models.CharField('CustomerID', null=False, blank=True, max_length=10)
@@ -3151,9 +3306,11 @@ class SourceDyeProdStockAdjust(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'BusinessUnitID': 'old_business_unit_id', 'BusinessKind': 'old_business_kind', 'SalerGroupID': 'old_saler_group_id', 'CustomerID': 'old_customer_id', 'WareHouseID': 'old_ware_house_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('单号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('日期', null=True, blank=True)
@@ -3178,7 +3335,7 @@ class SourceDyeProdStockAdjust(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstockadjust'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0d805c41c31eb647')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0d805c41c31eb647'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_0d805c41c31eb647')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdStockAdjust，待确认）'
         ordering=["-id"]
 
@@ -3188,9 +3345,11 @@ class SourceDyeProdStockAdjustDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'CheckNo': 'old_check_no', 'ProdID': 'old_prod_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'PaperRolls': 'old_paper_rolls', 'RealRolls': 'old_real_rolls', 'AdjustRolls': 'old_adjust_rolls', 'Price': 'old_price', 'StockUnit': 'old_stock_unit', 'Remarks': 'old_remarks', 'PaperLength': 'old_paper_length', 'PaperWeight': 'old_paper_weight', 'RealWeightQty': 'old_real_weight_qty', 'RealLengthQty': 'old_real_length_qty', 'AdjustLengthQty': 'old_adjust_length_qty', 'AdjustWeightQty': 'old_adjust_weight_qty', 'CustomerID': 'old_customer_id'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdStockAdjust', 'target': 'erp_warehouse.SourceDyeProdStockAdjust', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ProdStockAdjustDetail → ProdStockAdjust']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细号', null=False, blank=True, max_length=36)
     old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=50)
@@ -3217,7 +3376,7 @@ class SourceDyeProdStockAdjustDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstockadjustdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_c03d1e21c3799ca7')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_c03d1e21c3799ca7'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_c03d1e21c3799ca7')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdStockAdjustDetail，待确认）'
         ordering=["-id"]
 
@@ -3227,9 +3386,11 @@ class SourceDyeProdStockAllot(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'FromSaleGroupID': 'old_from_sale_group_id', 'ToSalerGroupID': 'old_to_saler_group_id', 'FromWareHouseID': 'old_from_ware_house_id', 'ToReceSheetNo': 'old_to_rece_sheet_no', 'FromCustomerID': 'old_from_customer_id', 'ToCustomerID': 'old_to_customer_id', 'FromJobDetailNo': 'old_from_job_detail_no', 'ToJobDetailNo': 'old_to_job_detail_no', 'FromCheckNo': 'old_from_check_no', 'ToCheckNo': 'old_to_check_no', 'FromReceSheetNo': 'old_from_rece_sheet_no', 'ToWareHouseID': 'old_to_ware_house_id', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'Rolls': 'old_rolls', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'FromBusinessUnitID': 'old_from_business_unit_id', 'ToBusinessUnitID': 'old_to_business_unit_id', 'FromFabricID': 'old_from_fabric_id', 'ToFabricID': 'old_to_fabric_id', 'FromLotNo': 'old_from_lot_no', 'ToLotNo': 'old_to_lot_no', 'FromPrice': 'old_from_price', 'ToPrice': 'old_to_price', 'FromSalerID': 'old_from_saler_id', 'ToSalerID': 'old_to_saler_id', 'FromSpec': 'old_from_spec', 'ToSpec': 'old_to_spec', 'FromStructure': 'old_from_structure', 'ToStructure': 'old_to_structure', 'StockUnit': 'old_stock_unit', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_from_sale_group_id': 'Chinese_PRC_CI_AS', 'old_to_saler_group_id': 'Chinese_PRC_CI_AS', 'old_from_ware_house_id': 'Chinese_PRC_CI_AS', 'old_to_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_from_customer_id': 'Chinese_PRC_CI_AS', 'old_to_customer_id': 'Chinese_PRC_CI_AS', 'old_from_job_detail_no': 'Chinese_PRC_CI_AS', 'old_to_job_detail_no': 'Chinese_PRC_CI_AS', 'old_from_check_no': 'Chinese_PRC_CI_AS', 'old_to_check_no': 'Chinese_PRC_CI_AS', 'old_from_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_to_ware_house_id': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_from_business_unit_id': 'Chinese_PRC_CI_AS', 'old_to_business_unit_id': 'Chinese_PRC_CI_AS', 'old_from_fabric_id': 'Chinese_PRC_CI_AS', 'old_to_fabric_id': 'Chinese_PRC_CI_AS', 'old_from_lot_no': 'Chinese_PRC_CI_AS', 'old_to_lot_no': 'Chinese_PRC_CI_AS', 'old_from_saler_id': 'Chinese_PRC_CI_AS', 'old_to_saler_id': 'Chinese_PRC_CI_AS', 'old_from_spec': 'Chinese_PRC_CI_AS', 'old_to_spec': 'Chinese_PRC_CI_AS', 'old_from_structure': 'Chinese_PRC_CI_AS', 'old_to_structure': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -3282,7 +3443,7 @@ class SourceDyeProdStockAllot(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstockallot'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_70696acacc98f59f')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_70696acacc98f59f'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_70696acacc98f59f')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdStockAllot，待确认）'
         ordering=["-id"]
 
@@ -3292,9 +3453,11 @@ class SourceDyeProdStockBook(SourceRecord):
     SOURCE_FIELDS={'BookNo': 'old_book_no', 'BookKind': 'old_book_kind', 'BookDate': 'old_book_date', 'BusinessUnitID': 'old_business_unit_id', 'CustomerID': 'old_customer_id', 'FactID': 'old_fact_id', 'WareHouseID': 'old_ware_house_id', 'StorageUnitIDs': 'old_storage_unit_ids', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'SalerGroupID': 'old_saler_group_id', 'CheckNo': 'old_check_no', 'SheetNo': 'old_sheet_no', 'DetailNo': 'old_detail_no', 'InRolls': 'old_in_rolls', 'OutRolls': 'old_out_rolls', 'Price': 'old_price', 'Remarks': 'old_remarks', 'BusinessKind': 'old_business_kind', 'ProdID': 'old_prod_id', 'JobSheetNo': 'old_job_sheet_no', 'SalerID': 'old_saler_id', 'InLengthQty': 'old_in_length_qty', 'InWeightQty': 'old_in_weight_qty', 'InGrayQty': 'old_in_gray_qty', 'OutLengthQty': 'old_out_length_qty', 'OutWeightQty': 'old_out_weight_qty', 'OutGrayQty': 'old_out_gray_qty', 'StockFlag': 'old_stock_flag', 'SheetSeries': 'old_sheet_series', 'InMoney': 'old_in_money', 'OutMoney': 'old_out_money', 'InNetKg': 'old_in_net_kg', 'OutNetKg': 'old_out_net_kg', 'CurrDate': 'old_curr_date'}
     SOURCE_KEY=('BookNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_stock_flag': 'Chinese_PRC_CI_AS', 'old_sheet_series': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=('old_book_no',)
+    SOURCE_IDENTITY_RULES={'old_book_no': (1, 1)}
     old_book_no=models.BigIntegerField('BookNo', null=False, blank=False)
     old_book_kind=models.IntegerField('BookKind', null=True, blank=True)
     old_book_date=models.DateTimeField('BookDate', null=True, blank=True)
@@ -3345,9 +3508,11 @@ class SourceDyeProdStockCheck(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'BusinessUnitID': 'old_business_unit_id', 'SalerGroupID': 'old_saler_group_id', 'WareHouseID': 'old_ware_house_id', 'ProdKindID': 'old_prod_kind_id', 'CustomerID': 'old_customer_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessKind': 'old_business_kind'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_prod_kind_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -3371,7 +3536,7 @@ class SourceDyeProdStockCheck(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstockcheck'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_3177ffe1184a1954')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_3177ffe1184a1954'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_3177ffe1184a1954')]
         verbose_name=verbose_name_plural='质量检验与异常相关表（ProdStockCheck，待确认）'
         ordering=["-id"]
 
@@ -3381,9 +3546,11 @@ class SourceDyeProdStockCheckDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'CheckNo': 'old_check_no', 'ProdID': 'old_prod_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'PaperRolls': 'old_paper_rolls', 'PaperQty': 'old_paper_qty', 'RealQty': 'old_real_qty', 'RealRolls': 'old_real_rolls', 'AdjustQty': 'old_adjust_qty', 'AdjustRolls': 'old_adjust_rolls', 'Price': 'old_price', 'StockUnit': 'old_stock_unit', 'Remarks': 'old_remarks'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=True, blank=True, max_length=36)
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
@@ -3405,7 +3572,7 @@ class SourceDyeProdStockCheckDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstockcheckdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_754849f745a78393')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_754849f745a78393'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_754849f745a78393')]
         verbose_name=verbose_name_plural='质量检验与异常相关表（ProdStockCheckDetail，待确认）'
         ordering=["-id"]
 
@@ -3415,9 +3582,11 @@ class SourceDyeProdStorageAdjust(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetKind': 'old_sheet_kind', 'SheetDate': 'old_sheet_date', 'StepNo': 'old_step_no', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status', 'SalerID': 'old_saler_id', 'CustomerID': 'old_customer_id', 'WareHouseID': 'old_ware_house_id', 'ToWareHouseID': 'old_to_ware_house_id', 'PrintTimes': 'old_print_times', 'CarryerID': 'old_carryer_id', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'Remarks': 'old_remarks'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_to_ware_house_id': 'Chinese_PRC_CI_AS', 'old_carryer_id': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('单据号', null=True, blank=True, max_length=20)
     old_sheet_kind=models.IntegerField('单据类型', null=True, blank=True)
@@ -3441,7 +3610,7 @@ class SourceDyeProdStorageAdjust(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstorageadjust'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e3b2f1046526d26a')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_e3b2f1046526d26a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_e3b2f1046526d26a')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdStorageAdjust，待确认）'
         ordering=["-id"]
 
@@ -3451,9 +3620,11 @@ class SourceDyeProdStorageAdjustDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'FromInSheetNo': 'old_from_in_sheet_no', 'CheckNo': 'old_check_no', 'JobSheetNo': 'old_job_sheet_no', 'LotNo': 'old_lot_no', 'Spec': 'old_spec', 'StorageUnitIDs': 'old_storage_unit_ids', 'ToStorageUnitIDs': 'old_to_storage_unit_ids', 'Rolls': 'old_rolls', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'Remarks': 'old_remarks', 'StockUnit': 'old_stock_unit', 'ProdID': 'old_prod_id', 'CustSelfProduct': 'old_cust_self_product', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'CustColorNum': 'old_cust_color_num', 'OrderSheetDate': 'old_order_sheet_date', 'Weight': 'old_weight', 'Width': 'old_width', 'Structure': 'old_structure'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_from_in_sheet_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_to_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_cust_self_product': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_weight': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_structure': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdStorageAdjust', 'target': 'erp_warehouse.SourceDyeProdStorageAdjust', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ProdStorageAdjustDetail → ProdStorageAdjust']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细号', null=False, blank=True, max_length=36)
     old_from_in_sheet_no=models.CharField('(调出)入库单号', null=True, blank=True, max_length=50)
@@ -3481,7 +3652,7 @@ class SourceDyeProdStorageAdjustDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstorageadjustdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_5f7fab14cf173ea0')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_5f7fab14cf173ea0'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_5f7fab14cf173ea0')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdStorageAdjustDetail，待确认）'
         ordering=["-id"]
 
@@ -3491,9 +3662,11 @@ class SourceDyeProdStorageAdjustRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'RollNo': 'old_roll_no', 'FromInSheetNo': 'old_from_in_sheet_no', 'BarCode': 'old_bar_code', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'ToStorageUnitID': 'old_to_storage_unit_id', 'Remarks': 'old_remarks', 'GrayBarCode': 'old_gray_bar_code', 'GrayQty': 'old_gray_qty', 'GUnit': 'old_gunit', 'PUnit': 'old_punit', 'Yard': 'old_yard', 'RollNo3': 'old_roll_no3'}
     SOURCE_KEY=('SheetSeries', 'DetailNo', 'BarCode')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_from_in_sheet_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_to_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_gray_bar_code': 'Chinese_PRC_CI_AS', 'old_roll_no3': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ProdStorageAdjustDetail', 'target': 'erp_warehouse.SourceDyeProdStorageAdjustDetail', 'source_fields': ['SheetSeries', 'DetailNo'], 'target_fields': ['SheetSeries', 'DetailNo'], 'evidence': ['原界面主从 ProdStorageAdjustRecord → ProdStorageAdjustDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('明细号', null=False, blank=True, max_length=36)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
@@ -3514,7 +3687,7 @@ class SourceDyeProdStorageAdjustRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_prodstorageadjustrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_bar_code'],name='src_8b6801ee9135db2f')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no', 'old_bar_code'],name='src_8b6801ee9135db2f'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),Upper(RTrim(models.F('old_bar_code'))),name='src_ci_8b6801ee9135db2f')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（ProdStorageAdjustRecord，待确认）'
         ordering=["-id"]
 
@@ -3524,9 +3697,11 @@ class SourceDyeRecordYield(SourceRecord):
     SOURCE_FIELDS={'Guid': 'old_guid', 'BarCode': 'old_bar_code', 'MachineID': 'old_machine_id', 'RollNo': 'old_roll_no', 'Unit': 'old_unit', 'Rolls': 'old_rolls', 'Kg': 'old_kg', 'Meter': 'old_meter', 'Pound': 'old_pound', 'Yard': 'old_yard', 'RealQty': 'old_real_qty', 'StorageUnitID': 'old_storage_unit_id', 'DefectCount': 'old_defect_count', 'Dots': 'old_dots', 'Status': 'old_status', 'GradeID': 'old_grade_id', 'PackTime': 'old_pack_time', 'EmpID': 'old_emp_id', 'TubeWeight': 'old_tube_weight', 'Tubes': 'old_tubes', 'Thick': 'old_thick', 'Width': 'old_width', 'PackID': 'old_pack_id', 'Bowing': 'old_bowing', 'Remarks': 'old_remarks', 'JobSheetNo': 'old_job_sheet_no', 'AddQty': 'old_add_qty', 'SampleQty': 'old_sample_qty', 'CutQty': 'old_cut_qty', 'CutTimes': 'old_cut_times', 'FullWidth': 'old_full_width', 'T1': 'old_t1', 'T2': 'old_t2', 'T3': 'old_t3', 'T4': 'old_t4', 'T5': 'old_t5', 'Q1': 'old_q1', 'Q2': 'old_q2', 'Q3': 'old_q3', 'Q4': 'old_q4', 'Q5': 'old_q5', 'Q6': 'old_q6', 'Q7': 'old_q7', 'Q8': 'old_q8', 'Q9': 'old_q9', 'Q10': 'old_q10', 'Q11': 'old_q11', 'Q12': 'old_q12', 'Q13': 'old_q13', 'Q14': 'old_q14', 'Q15': 'old_q15', 'LotNo': 'old_lot_no', 'ColorNum': 'old_color_num', 'InSheetNo': 'old_in_sheet_no', 'CustQty': 'old_cust_qty', 'CustomerID': 'old_customer_id', 'LabelID': 'old_label_id', 'Weight': 'old_weight', 'ColorDiff': 'old_color_diff', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'GradeReasonID': 'old_grade_reason_id', 'StandardWidth': 'old_standard_width', 'DetailCustName': 'old_detail_cust_name', 'OriDetailCustomer': 'old_ori_detail_customer', 'OrderSheetNo': 'old_order_sheet_no', 'OriOderSheetNo': 'old_ori_oder_sheet_no', 'QCResultID': 'old_qcresult_id', 'MainNo': 'old_main_no', 'DetailNo': 'old_detail_no', 'ProdID': 'old_prod_id', 'DefectEmpID': 'old_defect_emp_id', 'GrayBarCode': 'old_gray_bar_code', 'CheckNo': 'old_check_no', 'InScanTime': 'old_in_scan_time', 'InScaner': 'old_in_scaner', 'OutScanTime': 'old_out_scan_time', 'OutScaner': 'old_out_scaner', 'OutPlanSheetNo': 'old_out_plan_sheet_no', 'OutPlanDetailNo': 'old_out_plan_detail_no', 'DlvSheetNo': 'old_dlv_sheet_no', 'NetKg': 'old_net_kg', 'SumAssignedWeightQty': 'old_sum_assigned_weight_qty', 'SumAssignedRolls': 'old_sum_assigned_rolls', 'Scroll': 'old_scroll', 'PackBag': 'old_pack_bag', 'AddWeight': 'old_add_weight', 'CustomerGrayName': 'old_customer_gray_name', 'ColorID': 'old_color_id', 'Spec': 'old_spec', 'WidthSpec': 'old_width_spec', 'WeightSpec': 'old_weight_spec', 'Qty': 'old_qty', 'CountUnit': 'old_count_unit', 'JobDetailNo': 'old_job_detail_no', 'PrintTimes': 'old_print_times', 'CustSelfNo': 'old_cust_self_no', 'RedoLengthQty': 'old_redo_length_qty', 'ProcessID': 'old_process_id', 'Addkg': 'old_addkg', 'ShiftID': 'old_shift_id', 'BusinessUnitID': 'old_business_unit_id', 'Kind': 'old_kind', 'SpecDefects': 'old_spec_defects', 'GrayWeight': 'old_gray_weight', 'CombineSheetNos': 'old_combine_sheet_nos', 'ContractNo': 'old_contract_no', 'LotCheckNo': 'old_lot_check_no', 'DefectProcessID': 'old_defect_process_id', 'RollNoType': 'old_roll_no_type', 'StyleNo': 'old_style_no', 'RedoWeightQty': 'old_redo_weight_qty', 'LotDetailNo': 'old_lot_detail_no', 'SortNo': 'old_sort_no', 'SkeWing1': 'old_ske_wing1', 'SkeWing2': 'old_ske_wing2', 'RePeatcnt': 'old_re_peatcnt', 'RepeatFrontL': 'old_repeat_front_l', 'RepeatFrontM': 'old_repeat_front_m', 'RepeatFrontR': 'old_repeat_front_r', 'RepeatMiddleL': 'old_repeat_middle_l', 'RepeatMiddleM': 'old_repeat_middle_m', 'RepeatMiddleR': 'old_repeat_middle_r', 'RepeatEndL': 'old_repeat_end_l', 'RepeatEndM': 'old_repeat_end_m', 'RepeatEndR': 'old_repeat_end_r', 'RightStatus': 'old_right_status', 'YardAvgdots': 'old_yard_avgdots', 'OrderWeight': 'old_order_weight', 'PAWeight': 'old_paweight', 'PAYard': 'old_payard', 'PAMeter': 'old_pameter', 'WidthUnit': 'old_width_unit', 'OrderWidth': 'old_order_width', 'CustColorNum': 'old_cust_color_num', 'DB2Code': 'old_db2_code', 'AddWeigth': 'old_add_weigth', 'LabelWeight': 'old_label_weight', 'LabelLength': 'old_label_length', 'LabelRemarks': 'old_label_remarks', 'FabricLoss': 'old_fabric_loss', 'ShipMentType': 'old_ship_ment_type', 'WeightQty': 'old_weight_qty', 'ProdCode': 'old_prod_code', 'Model1': 'old_model1', 'ColorRemarks': 'old_color_remarks', 'ColorE': 'old_color_e', 'WeightUnit': 'old_weight_unit', 'WeightKindID': 'old_weight_kind_id', 'WidthKindID': 'old_width_kind_id', 'ProdName': 'old_prod_name', 'FabricNO2': 'old_fabric_no2', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'ProdUnit': 'old_prod_unit', 'LabelWareHouse': 'old_label_ware_house', 'WindingID': 'old_winding_id', 'LTSheetNo': 'old_ltsheet_no', 'FenTou': 'old_fen_tou', 'SheetDate': 'old_sheet_date', 'PreField1': 'old_pre_field1', 'Long_CM': 'old_long_cm', 'Wide_CM': 'old_wide_cm', 'High_CM': 'old_high_cm', 'Whether': 'old_whether', 'FixedQty': 'old_fixed_qty', 'FabricKindID': 'old_fabric_kind_id'}
     SOURCE_KEY=('JobSheetNo', 'CheckNo', 'RollNo', 'Guid')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_guid': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_unit': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_grade_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_pack_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_q1': 'Chinese_PRC_CI_AS', 'old_q2': 'Chinese_PRC_CI_AS', 'old_q3': 'Chinese_PRC_CI_AS', 'old_q4': 'Chinese_PRC_CI_AS', 'old_q5': 'Chinese_PRC_CI_AS', 'old_q6': 'Chinese_PRC_CI_AS', 'old_q7': 'Chinese_PRC_CI_AS', 'old_q8': 'Chinese_PRC_CI_AS', 'old_q9': 'Chinese_PRC_CI_AS', 'old_q10': 'Chinese_PRC_CI_AS', 'old_q11': 'Chinese_PRC_CI_AS', 'old_q12': 'Chinese_PRC_CI_AS', 'old_q13': 'Chinese_PRC_CI_AS', 'old_q14': 'Chinese_PRC_CI_AS', 'old_q15': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_in_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_label_id': 'Chinese_PRC_CI_AS', 'old_weight': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_grade_reason_id': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_ori_detail_customer': 'Chinese_PRC_CI_AS', 'old_order_sheet_no': 'Chinese_PRC_CI_AS', 'old_ori_oder_sheet_no': 'Chinese_PRC_CI_AS', 'old_qcresult_id': 'Chinese_PRC_CI_AS', 'old_main_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_defect_emp_id': 'Chinese_PRC_CI_AS', 'old_gray_bar_code': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_in_scaner': 'Chinese_PRC_CI_AS', 'old_out_scaner': 'Chinese_PRC_CI_AS', 'old_out_plan_sheet_no': 'Chinese_PRC_CI_AS', 'old_out_plan_detail_no': 'Chinese_PRC_CI_AS', 'old_dlv_sheet_no': 'Chinese_PRC_CI_AS', 'old_scroll': 'Chinese_PRC_CI_AS', 'old_add_weight': 'Chinese_PRC_CI_AS', 'old_customer_gray_name': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_width_spec': 'Chinese_PRC_CI_AS', 'old_weight_spec': 'Chinese_PRC_CI_AS', 'old_count_unit': 'Chinese_PRC_CI_AS', 'old_job_detail_no': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_kind': 'Chinese_PRC_CI_AS', 'old_spec_defects': 'Chinese_PRC_CI_AS', 'old_combine_sheet_nos': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_lot_check_no': 'Chinese_PRC_CI_AS', 'old_defect_process_id': 'Chinese_PRC_CI_AS', 'old_roll_no_type': 'Chinese_PRC_CI_AS', 'old_style_no': 'Chinese_PRC_CI_AS', 'old_lot_detail_no': 'Chinese_PRC_CI_AS', 'old_sort_no': 'Chinese_PRC_CI_AS', 'old_ske_wing1': 'Chinese_PRC_CI_AS', 'old_ske_wing2': 'Chinese_PRC_CI_AS', 'old_re_peatcnt': 'Chinese_PRC_CI_AS', 'old_order_weight': 'Chinese_PRC_CI_AS', 'old_width_unit': 'Chinese_PRC_CI_AS', 'old_order_width': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_db2_code': 'Chinese_PRC_CI_AS', 'old_add_weigth': 'Chinese_PRC_CI_AS', 'old_label_weight': 'Chinese_PRC_CI_AS', 'old_label_length': 'Chinese_PRC_CI_AS', 'old_label_remarks': 'Chinese_PRC_CI_AS', 'old_ship_ment_type': 'Chinese_PRC_CI_AS', 'old_prod_code': 'Chinese_PRC_CI_AS', 'old_model1': 'Chinese_PRC_CI_AS', 'old_color_remarks': 'Chinese_PRC_CI_AS', 'old_color_e': 'Chinese_PRC_CI_AS', 'old_weight_unit': 'Chinese_PRC_CI_AS', 'old_weight_kind_id': 'Chinese_PRC_CI_AS', 'old_width_kind_id': 'Chinese_PRC_CI_AS', 'old_prod_name': 'Chinese_PRC_CI_AS', 'old_fabric_no2': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_label_ware_house': 'Chinese_PRC_CI_AS', 'old_winding_id': 'Chinese_PRC_CI_AS', 'old_ltsheet_no': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_fabric_kind_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：JobSheet', 'target': 'erp_production.SourceDyeJobSheet', 'source_fields': ['JobSheetNo'], 'target_fields': ['SheetNo'], 'evidence': ['原界面主从 JobRecordDetail → JobRecord']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_guid=models.CharField('唯一标识符', null=False, blank=True, max_length=38)
     old_bar_code=models.CharField('条码', null=True, blank=True, max_length=100)
     old_machine_id=models.CharField('机台', null=True, blank=True, max_length=20)
@@ -3698,7 +3873,7 @@ class SourceDyeRecordYield(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_recordyield'
-        indexes=[models.Index(fields=['source_batch', 'old_guid'],name='src_43742016e7db612b'),models.Index(fields=['source_batch', 'old_job_sheet_no', 'old_check_no', 'old_roll_no', 'old_guid'],name='src_b983d6ccd9959c1a')]
+        indexes=[models.Index(fields=['source_batch', 'old_guid'],name='src_43742016e7db612b'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_guid'))),name='src_ci_43742016e7db612b'),models.Index(fields=['source_batch', 'old_job_sheet_no', 'old_check_no', 'old_roll_no', 'old_guid'],name='src_b983d6ccd9959c1a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_job_sheet_no'))),Upper(RTrim(models.F('old_check_no'))),Upper(RTrim(models.F('old_roll_no'))),Upper(RTrim(models.F('old_guid'))),name='src_ci_b983d6ccd9959c1a')]
         verbose_name=verbose_name_plural='产量/卷记录'
         ordering=["-id"]
 
@@ -3708,9 +3883,11 @@ class SourceDyeSemiAxisBook(SourceRecord):
     SOURCE_FIELDS={'AxisNo': 'old_axis_no', 'SequenceNo': 'old_sequence_no', 'Flag': 'old_flag', 'ReceSheetNo': 'old_rece_sheet_no', 'CustomerID': 'old_customer_id', 'ProdID': 'old_prod_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'CheckNo': 'old_check_no', 'JobSheetNo': 'old_job_sheet_no', 'Vats': 'old_vats', 'Rolls': 'old_rolls', 'Qty': 'old_qty', 'StockUnit': 'old_stock_unit', 'CurrTime': 'old_curr_time', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'Status': 'old_status', 'Place': 'old_place', 'Remarks': 'old_remarks', 'SheetSeries': 'old_sheet_series'}
     SOURCE_KEY=('AxisNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_axis_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_place': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_sheet_series': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_axis_no=models.CharField('AxisNo', null=False, blank=True, max_length=20)
     old_sequence_no=models.BigIntegerField('SequenceNo', null=True, blank=True)
     old_flag=models.IntegerField('Flag', null=True, blank=True)
@@ -3735,7 +3912,7 @@ class SourceDyeSemiAxisBook(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semiaxisbook'
-        indexes=[models.Index(fields=['source_batch', 'old_axis_no'],name='src_da2f7c68ce7de6f5')]
+        indexes=[models.Index(fields=['source_batch', 'old_axis_no'],name='src_da2f7c68ce7de6f5'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_axis_no'))),name='src_ci_da2f7c68ce7de6f5')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiAxisBook，待确认）'
         ordering=["-id"]
 
@@ -3745,9 +3922,11 @@ class SourceDyeSemiAxisRemain(SourceRecord):
     SOURCE_FIELDS={'AxisNo': 'old_axis_no', 'SequenceNo': 'old_sequence_no', 'ReceSheetNo': 'old_rece_sheet_no', 'CustomerID': 'old_customer_id', 'ProdID': 'old_prod_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'CheckNo': 'old_check_no', 'JobSheetNo': 'old_job_sheet_no', 'Qty': 'old_qty', 'StockUnit': 'old_stock_unit', 'CurrTime': 'old_curr_time', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'Place': 'old_place', 'Remarks': 'old_remarks'}
     SOURCE_KEY=('AxisNo',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_axis_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_place': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_axis_no=models.CharField('AxisNo', null=False, blank=True, max_length=20)
     old_sequence_no=models.BigIntegerField('SequenceNo', null=True, blank=True)
     old_rece_sheet_no=models.CharField('ReceSheetNo', null=True, blank=True, max_length=20)
@@ -3767,7 +3946,7 @@ class SourceDyeSemiAxisRemain(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semiaxisremain'
-        indexes=[models.Index(fields=['source_batch', 'old_axis_no'],name='src_5c316c5e8c88a23a')]
+        indexes=[models.Index(fields=['source_batch', 'old_axis_no'],name='src_5c316c5e8c88a23a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_axis_no'))),name='src_ci_5c316c5e8c88a23a')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiAxisRemain，待确认）'
         ordering=["-id"]
 
@@ -3777,9 +3956,11 @@ class SourceDyeSemiIn(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'SemiKindID': 'old_semi_kind_id', 'CustomerID': 'old_customer_id', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessUnitID': 'old_business_unit_id', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'WareHouseID': 'old_ware_house_id', 'SupplierID': 'old_supplier_id', 'GrayOutSheetNo': 'old_gray_out_sheet_no', 'A_A': 'old_a_a'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_semi_kind_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_gray_out_sheet_no': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('单据号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -3809,7 +3990,7 @@ class SourceDyeSemiIn(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semiin'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_418f03d4154769f7')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_418f03d4154769f7'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_418f03d4154769f7')]
         verbose_name=verbose_name_plural='半成品入库单'
         ordering=["-id"]
 
@@ -3819,9 +4000,11 @@ class SourceDyeSemiInDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'ReceSheetNo': 'old_rece_sheet_no', 'FabricID': 'old_fabric_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'InRolls': 'old_in_rolls', 'InQty': 'old_in_qty', 'StorageUnitID': 'old_storage_unit_id', 'OrderNo': 'old_order_no', 'CheckNo': 'old_check_no', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'MachineID': 'old_machine_id', 'OriReceSheetNo': 'old_ori_rece_sheet_no', 'Remarks': 'old_remarks', 'NewLotNo': 'old_new_lot_no', 'Width': 'old_width', 'JobSheetNo': 'old_job_sheet_no', 'Area': 'old_area', 'ProdID': 'old_prod_id', 'GrainQty': 'old_grain_qty', 'Rolls': 'old_rolls', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Packs': 'old_packs', 'PCS': 'old_pcs', 'FixedQty': 'old_fixed_qty', 'Price': 'old_price', 'PreField1': 'old_pre_field1', 'PreField2': 'old_pre_field2', 'PreField3': 'old_pre_field3', 'PreField4': 'old_pre_field4', 'PreField5': 'old_pre_field5', 'Amount': 'old_amount', 'PurDetailNo': 'old_pur_detail_no', 'YarnCategory': 'old_yarn_category', 'Classify': 'old_classify', 'ColorNum': 'old_color_num', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'TrunReceSheetNo': 'old_trun_rece_sheet_no', 'InSheetKind': 'old_in_sheet_kind', 'GrayOutDetailNo': 'old_gray_out_detail_no', 'InputCode': 'old_input_code'}
     SOURCE_KEY=('ReceSheetNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_order_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_ori_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_new_lot_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_pre_field2': 'Chinese_PRC_CI_AS', 'old_pre_field3': 'Chinese_PRC_CI_AS', 'old_pre_field4': 'Chinese_PRC_CI_AS', 'old_pre_field5': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_yarn_category': 'Chinese_PRC_CI_AS', 'old_classify': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_trun_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_gray_out_detail_no': 'Chinese_PRC_CI_AS', 'old_input_code': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：SemiIn', 'target': 'erp_warehouse.SourceDyeSemiIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 PurSemiInDetail → PurSemiIn', '原界面主从 CusReturnSemiInDetail → CusReturnSemiIn', '原界面主从 TurnSemiInDetail → TurnSemiIn', '原界面主从 MaterialSemiInDetail → MaterialSemiIn', '原界面主从 SemiInDetail → SemiIn', '原界面主从 SemiInDetailBack → SemiInBack', '原界面主从 GrayOutToSemiInDetail → GrayOutToSemiIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_rece_sheet_no=models.CharField('入库明细号', null=False, blank=True, max_length=20)
     old_fabric_id=models.CharField('客户规格', null=True, blank=True, max_length=128)
@@ -3872,7 +4055,7 @@ class SourceDyeSemiInDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semiindetail'
-        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no'],name='src_ed118088bc5b6e4e')]
+        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no'],name='src_ed118088bc5b6e4e'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rece_sheet_no'))),name='src_ci_ed118088bc5b6e4e')]
         verbose_name=verbose_name_plural='半成品入库明细'
         ordering=["-id"]
 
@@ -3882,9 +4065,11 @@ class SourceDyeSemiInRecord(SourceRecord):
     SOURCE_FIELDS={'ReceSheetNo': 'old_rece_sheet_no', 'RollNo': 'old_roll_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'DlvQty': 'old_dlv_qty', 'StorageUnitID': 'old_storage_unit_id', 'Defects': 'old_defects', 'Status': 'old_status', 'BarCode': 'old_bar_code', 'AssignedNo': 'old_assigned_no', 'JobSheetNo': 'old_job_sheet_no', 'OriReceSheetNo': 'old_ori_rece_sheet_no', 'RollNo2': 'old_roll_no2', 'GUnit': 'old_gunit', 'OriBarCode': 'old_ori_bar_code', 'Remark': 'old_remark', 'GraySpec': 'old_gray_spec', 'Num': 'old_num', 'CBz': 'old_cbz', 'Rolls': 'old_rolls', 'Packs': 'old_packs', 'InputDetailCode': 'old_input_detail_code', 'Kg': 'old_kg', 'CustQty': 'old_cust_qty', 'TubeWeight': 'old_tube_weight'}
     SOURCE_KEY=('ReceSheetNo', 'RollNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_defects': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_ori_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_roll_no2': 'Chinese_PRC_CI_AS', 'old_ori_bar_code': 'Chinese_PRC_CI_AS', 'old_remark': 'Chinese_PRC_CI_AS', 'old_gray_spec': 'Chinese_PRC_CI_AS', 'old_cbz': 'Chinese_PRC_CI_AS', 'old_input_detail_code': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：SemiInDetail', 'target': 'erp_warehouse.SourceDyeSemiInDetail', 'source_fields': ['ReceSheetNo'], 'target_fields': ['ReceSheetNo'], 'evidence': ['原界面主从 TurnSemiInRecord → TurnSemiInDetail', '原界面主从 PurSemiInRecord → PurSemiInDetail', '原界面主从 MaterialSemiInRecord → MaterialSemiInDetail', '原界面主从 GrayOutToSemiInRecord → GrayOutToSemiInDetail', '原界面主从 SemiInRecord → SemiInDetail', '原界面主从 CusReturnSemiInRecord → CusReturnSemiInDetail', '原界面主从 SemiInRecordBack → SemiInDetailBack']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_rece_sheet_no=models.CharField('入库明细号', null=False, blank=True, max_length=20)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
     old_length_qty=models.DecimalField('长度', null=True, blank=True, max_digits=10, decimal_places=2)
@@ -3914,7 +4099,7 @@ class SourceDyeSemiInRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semiinrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no', 'old_roll_no'],name='src_09e8e89770641ef7')]
+        indexes=[models.Index(fields=['source_batch', 'old_rece_sheet_no', 'old_roll_no'],name='src_09e8e89770641ef7'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rece_sheet_no'))),Upper(RTrim(models.F('old_roll_no'))),name='src_ci_09e8e89770641ef7')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiInRecord，待确认）'
         ordering=["-id"]
 
@@ -3924,9 +4109,11 @@ class SourceDyeSemiOut(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'SemiKindID': 'old_semi_kind_id', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'CustomerID': 'old_customer_id', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessUnitID': 'old_business_unit_id', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'WareHouseID': 'old_ware_house_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_semi_kind_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('出库日期', null=True, blank=True)
@@ -3953,7 +4140,7 @@ class SourceDyeSemiOut(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semiout'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_c21923e80f7f6250')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_c21923e80f7f6250'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_c21923e80f7f6250')]
         verbose_name=verbose_name_plural='半成品出库单'
         ordering=["-id"]
 
@@ -3963,9 +4150,11 @@ class SourceDyeSemiOutDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'AssignedNo': 'old_assigned_no', 'ReceSheetNo': 'old_rece_sheet_no', 'FabricID': 'old_fabric_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'StorageUnitID': 'old_storage_unit_id', 'OutRolls': 'old_out_rolls', 'OutQty': 'old_out_qty', 'OrderNo': 'old_order_no', 'CheckNo': 'old_check_no', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'MachineID': 'old_machine_id', 'Remarks': 'old_remarks', 'JobSheetNo': 'old_job_sheet_no', 'Price': 'old_price', 'GrainQty': 'old_grain_qty', 'Rolls': 'old_rolls', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Packs': 'old_packs', 'PCS': 'old_pcs', 'FixedQty': 'old_fixed_qty', 'Amount': 'old_amount', 'ProdID': 'old_prod_id', 'PreField1': 'old_pre_field1', 'PreField2': 'old_pre_field2', 'PreField3': 'old_pre_field3', 'PreField4': 'old_pre_field4', 'PreField5': 'old_pre_field5', 'WareHouseID': 'old_ware_house_id', 'DetailNo': 'old_detail_no', 'SupplierID': 'old_supplier_id', 'PurchaseOrders': 'old_purchase_orders', 'InSheetKind': 'old_in_sheet_kind', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'InputCode': 'old_input_code'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_order_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_pre_field2': 'Chinese_PRC_CI_AS', 'old_pre_field3': 'Chinese_PRC_CI_AS', 'old_pre_field4': 'Chinese_PRC_CI_AS', 'old_pre_field5': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_input_code': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：SemiOut', 'target': 'erp_warehouse.SourceDyeSemiOut', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 SemiOutDetail → SemiOut', '原界面主从 SemiOutDetailTurn → SemiOutTurn', '原界面主从 SemiOutSaleDetail → SemiOutSale', '原界面主从 SemiOutWorkDetail → SemiOutWork', '原界面主从 SemiOutDetailJob → SemiOutJob']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_assigned_no=models.CharField('投胚流水号', null=True, blank=True, max_length=20)
     old_rece_sheet_no=models.CharField('入库明细号', null=True, blank=True, max_length=20)
@@ -4010,7 +4199,7 @@ class SourceDyeSemiOutDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semioutdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_assigned_no'],name='src_4f6f2cf7c081581b'),models.Index(fields=['source_batch', 'old_detail_no'],name='src_ef9c245435b4038d')]
+        indexes=[models.Index(fields=['source_batch', 'old_assigned_no'],name='src_4f6f2cf7c081581b'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_assigned_no'))),name='src_ci_4f6f2cf7c081581b'),models.Index(fields=['source_batch', 'old_detail_no'],name='src_ef9c245435b4038d'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_ef9c245435b4038d')]
         verbose_name=verbose_name_plural='半成品出库明细'
         ordering=["-id"]
 
@@ -4020,9 +4209,11 @@ class SourceDyeSemiOutRecord(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'AssignedNo': 'old_assigned_no', 'RollNo': 'old_roll_no', 'BarCode': 'old_bar_code', 'ReceSheetNo': 'old_rece_sheet_no', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StorageUnitID': 'old_storage_unit_id', 'Status': 'old_status', 'Remarks': 'old_remarks', 'GUnit': 'old_gunit', 'Rolls': 'old_rolls', 'Packs': 'old_packs', 'JobSheetNo': 'old_job_sheet_no'}
     SOURCE_KEY=('AssignedNo', 'RollNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_roll_no': 'Chinese_PRC_CI_AS', 'old_bar_code': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_status': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：SemiOutDetail', 'target': 'erp_warehouse.SourceDyeSemiOutDetail', 'source_fields': ['AssignedNo'], 'target_fields': ['AssignedNo'], 'evidence': ['原界面主从 SemiOutRecordTurn → SemiOutDetailTurn', '原界面主从 SemiOutRecordJob → SemiOutDetailJob', '原界面主从 SemiOutRecord → SemiOutDetail', '原界面主从 SemiOutSaleRecord → SemiOutSaleDetail', '原界面主从 SemiOutWorkRecord → SemiOutWorkDetail']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('工卡流水', null=True, blank=True, max_length=20)
     old_assigned_no=models.CharField('投胚流水号', null=False, blank=True, max_length=20)
     old_roll_no=models.CharField('箱号', null=False, blank=True, max_length=20)
@@ -4041,7 +4232,7 @@ class SourceDyeSemiOutRecord(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semioutrecord'
-        indexes=[models.Index(fields=['source_batch', 'old_assigned_no', 'old_roll_no'],name='src_941b12ccd9bb3b39')]
+        indexes=[models.Index(fields=['source_batch', 'old_assigned_no', 'old_roll_no'],name='src_941b12ccd9bb3b39'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_assigned_no'))),Upper(RTrim(models.F('old_roll_no'))),name='src_ci_941b12ccd9bb3b39')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiOutRecord，待确认）'
         ordering=["-id"]
 
@@ -4051,9 +4242,11 @@ class SourceDyeSemiPostionUp(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'JobSheetNo': 'old_job_sheet_no', 'SupplierID': 'old_supplier_id', 'CustomerID': 'old_customer_id', 'InSheetKind': 'old_in_sheet_kind', 'ProdID': 'old_prod_id', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'PreField1': 'old_pre_field1', 'FixedQty': 'old_fixed_qty', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'Rolls': 'old_rolls', 'WeightQty': 'old_weight_qty', 'LengthQty': 'old_length_qty', 'Packs': 'old_packs', 'PCS': 'old_pcs', 'Area': 'old_area', 'NewArea': 'old_new_area', 'SheetStatus': 'old_sheet_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'InDetailNo': 'old_in_detail_no'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_new_area': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=36)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -4090,7 +4283,7 @@ class SourceDyeSemiPostionUp(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semipostionup'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_1f4a72f8503f14fd')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_1f4a72f8503f14fd'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_1f4a72f8503f14fd')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiPostionUp，待确认）'
         ordering=["-id"]
 
@@ -4100,9 +4293,11 @@ class SourceDyeSemiStock(SourceRecord):
     SOURCE_FIELDS={'StockDate': 'old_stock_date', 'BusinessUnitID': 'old_business_unit_id', 'CustomerID': 'old_customer_id', 'WareHouseID': 'old_ware_house_id', 'GrayKindID': 'old_gray_kind_id', 'SalerGroupID': 'old_saler_group_id', 'SupplierID': 'old_supplier_id', 'BusinessKind': 'old_business_kind', 'ProdID': 'old_prod_id', 'StockKind': 'old_stock_kind', 'SalerID': 'old_saler_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'PreMonthPacks': 'old_pre_month_packs', 'PreMonthRolls': 'old_pre_month_rolls', 'Price': 'old_price', 'CarryDate': 'old_carry_date', 'Remarks': 'old_remarks', 'PreMonthWeightQty': 'old_pre_month_weight_qty', 'PreMonthLengthQty': 'old_pre_month_length_qty', 'StorageUnitIDs': 'old_storage_unit_ids', 'ReceSheetNo': 'old_rece_sheet_no', 'PreField1': 'old_pre_field1', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'FixedQty': 'old_fixed_qty', 'ColorID': 'old_color_id'}
     SOURCE_KEY=('StockDate', 'CustomerID', 'WareHouseID', 'SupplierID', 'ProdID', 'SalerID', 'ColorID', 'Spec', 'LotNo', 'ReceSheetNo', 'PreField1', 'PurchaseOrders', 'A_A', 'A_B', 'FixedQty')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_stock_date=models.DateTimeField('StockDate', null=False, blank=False)
     old_business_unit_id=models.CharField('BusinessUnitID', null=True, blank=True, max_length=10)
     old_customer_id=models.CharField('CustomerID', null=False, blank=True, max_length=10)
@@ -4134,7 +4329,7 @@ class SourceDyeSemiStock(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semistock'
-        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_customer_id', 'old_ware_house_id', 'old_supplier_id', 'old_prod_id', 'old_saler_id', 'old_color_id', 'old_spec', 'old_lot_no', 'old_rece_sheet_no', 'old_pre_field1', 'old_purchase_orders', 'old_a_a', 'old_a_b', 'old_fixed_qty'],name='src_99fb667b0d77e557')]
+        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_customer_id', 'old_ware_house_id', 'old_supplier_id', 'old_prod_id', 'old_saler_id', 'old_color_id', 'old_spec', 'old_lot_no', 'old_rece_sheet_no', 'old_pre_field1', 'old_purchase_orders', 'old_a_a', 'old_a_b', 'old_fixed_qty'],name='src_99fb667b0d77e557'),models.Index(models.F('source_batch'),models.F('old_stock_date'),Upper(RTrim(models.F('old_customer_id'))),Upper(RTrim(models.F('old_ware_house_id'))),Upper(RTrim(models.F('old_supplier_id'))),Upper(RTrim(models.F('old_prod_id'))),Upper(RTrim(models.F('old_saler_id'))),Upper(RTrim(models.F('old_color_id'))),Upper(RTrim(models.F('old_spec'))),Upper(RTrim(models.F('old_lot_no'))),Upper(RTrim(models.F('old_rece_sheet_no'))),Upper(RTrim(models.F('old_pre_field1'))),Upper(RTrim(models.F('old_purchase_orders'))),Upper(RTrim(models.F('old_a_a'))),Upper(RTrim(models.F('old_a_b'))),models.F('old_fixed_qty'),name='src_ci_99fb667b0d77e557')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiStock，待确认）'
         ordering=["-id"]
 
@@ -4144,9 +4339,11 @@ class SourceDyeSemiStockAdjust(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'BusinessUnitID': 'old_business_unit_id', 'BusinessKind': 'old_business_kind', 'GrayKindID': 'old_gray_kind_id', 'SalerGroupID': 'old_saler_group_id', 'CustomerID': 'old_customer_id', 'WareHouseID': 'old_ware_house_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_gray_kind_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -4172,7 +4369,7 @@ class SourceDyeSemiStockAdjust(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semistockadjust'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_ababb2a39dab5166')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_ababb2a39dab5166'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_ababb2a39dab5166')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiStockAdjust，待确认）'
         ordering=["-id"]
 
@@ -4182,9 +4379,11 @@ class SourceDyeSemiStockAdjustDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'CheckNo': 'old_check_no', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'ColorNum': 'old_color_num', 'PaperRolls': 'old_paper_rolls', 'RealRolls': 'old_real_rolls', 'AdjustRolls': 'old_adjust_rolls', 'Price': 'old_price', 'StockUnit': 'old_stock_unit', 'Remarks': 'old_remarks', 'ProdID': 'old_prod_id', 'PaperLength': 'old_paper_length', 'PaperWeight': 'old_paper_weight', 'RealLengthQty': 'old_real_length_qty', 'RealWeightQty': 'old_real_weight_qty', 'AdjustLengthQty': 'old_adjust_length_qty', 'AdjustWeightQty': 'old_adjust_weight_qty', 'StorageUnitIDs': 'old_storage_unit_ids', 'ReceSheetNo': 'old_rece_sheet_no', 'CustomerID': 'old_customer_id', 'InSheetKind': 'old_in_sheet_kind', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'FixedQty': 'old_fixed_qty', 'PreField1': 'old_pre_field1'}
     SOURCE_KEY=('SheetSeries', 'DetailNo')
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：SemiStockAdjust', 'target': 'erp_warehouse.SourceDyeSemiStockAdjust', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 SemiStockAdjustDetail → SemiStockAdjust']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('调整明细单号', null=False, blank=True, max_length=36)
     old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=50)
@@ -4219,7 +4418,7 @@ class SourceDyeSemiStockAdjustDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semistockadjustdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_ea8bedc626c20344')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_ea8bedc626c20344'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_ea8bedc626c20344')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiStockAdjustDetail，待确认）'
         ordering=["-id"]
 
@@ -4229,9 +4428,11 @@ class SourceDyeSemiStockBook(SourceRecord):
     SOURCE_FIELDS={'BookNo': 'old_book_no', 'BookKind': 'old_book_kind', 'DeptID': 'old_dept_id', 'CustomerID': 'old_customer_id', 'SemiKindID': 'old_semi_kind_id', 'WareHouseID': 'old_ware_house_id', 'FabricID': 'old_fabric_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'StorageUnitID': 'old_storage_unit_id', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'OrderNo': 'old_order_no', 'SheetNo': 'old_sheet_no', 'CheckNo': 'old_check_no', 'InQty': 'old_in_qty', 'InRolls': 'old_in_rolls', 'OutQty': 'old_out_qty', 'OutRolls': 'old_out_rolls', 'StockUnit': 'old_stock_unit', 'Remarks': 'old_remarks', 'BookDate': 'old_book_date', 'BusinessUnitID': 'old_business_unit_id', 'JobSheetNo': 'old_job_sheet_no', 'SheetSeries': 'old_sheet_series', 'SheetKind': 'old_sheet_kind', 'CurrDate': 'old_curr_date', 'ProdID': 'old_prod_id', 'ReceSheetNo': 'old_rece_sheet_no', 'DetailNo': 'old_detail_no', 'InPacks': 'old_in_packs', 'OutPacks': 'old_out_packs', 'Price': 'old_price', 'InWeightQty': 'old_in_weight_qty', 'InLengthQty': 'old_in_length_qty', 'InMoney': 'old_in_money', 'StorageUnitIDs': 'old_storage_unit_ids', 'OutWeightQty': 'old_out_weight_qty', 'OutLengthQty': 'old_out_length_qty', 'OutMoney': 'old_out_money', 'SupplierID': 'old_supplier_id', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'InSheetKind': 'old_in_sheet_kind', 'PurchaseOrders': 'old_purchase_orders', 'FixedQty': 'old_fixed_qty', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'PreField1': 'old_pre_field1', 'StockFlag': 'old_stock_flag'}
     SOURCE_KEY=('BookNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_dept_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_semi_kind_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_id': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_order_no': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_kind': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_stock_flag': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=('old_book_no',)
+    SOURCE_IDENTITY_RULES={'old_book_no': (1, 1)}
     old_book_no=models.BigIntegerField('BookNo', null=False, blank=False)
     old_book_kind=models.IntegerField('BookKind', null=True, blank=True)
     old_dept_id=models.CharField('DeptID', null=True, blank=True, max_length=10)
@@ -4295,9 +4496,11 @@ class SourceDyeSemiStockSpecUp(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'SalerGroupID': 'old_saler_group_id', 'SalerID': 'old_saler_id', 'StockUnit': 'old_stock_unit', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'BusinessUnitID': 'old_business_unit_id', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'WareHouseID': 'old_ware_house_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_saler_group_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('出库日期', null=True, blank=True)
@@ -4322,7 +4525,7 @@ class SourceDyeSemiStockSpecUp(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semistockspecup'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0d32b69812e76f28')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0d32b69812e76f28'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_0d32b69812e76f28')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiStockSpecUp，待确认）'
         ordering=["-id"]
 
@@ -4332,9 +4535,11 @@ class SourceDyeSemiStockSpecUpDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'AssignedNo': 'old_assigned_no', 'ReceSheetNo': 'old_rece_sheet_no', 'DetailNo': 'old_detail_no', 'PCS': 'old_pcs', 'Rolls': 'old_rolls', 'Packs': 'old_packs', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'Price': 'old_price', 'CheckNo': 'old_check_no', 'Remarks': 'old_remarks', 'Area': 'old_area', 'StorageUnitIDs': 'old_storage_unit_ids', 'WareHouseID': 'old_ware_house_id', 'CustomerID': 'old_customer_id', 'InSheetKind': 'old_in_sheet_kind', 'ProdID': 'old_prod_id', 'LotNo': 'old_lot_no', 'ColorID': 'old_color_id', 'FixedQty': 'old_fixed_qty', 'SupplierID': 'old_supplier_id', 'PreField1': 'old_pre_field1', 'PurchaseOrders': 'old_purchase_orders', 'A_A': 'old_a_a', 'A_B': 'old_a_b', 'UPCustomerID': 'old_upcustomer_id', 'UPInSheetKind': 'old_upin_sheet_kind', 'UPProdID': 'old_upprod_id', 'UPLotNo': 'old_uplot_no', 'UPColorID': 'old_upcolor_id', 'UPFixedQty': 'old_upfixed_qty', 'UPPreField1': 'old_uppre_field1', 'UPPurchaseOrders': 'old_uppurchase_orders', 'UPA_A': 'old_upa_a', 'UPA_B': 'old_upa_b'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_assigned_no': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_upcustomer_id': 'Chinese_PRC_CI_AS', 'old_upin_sheet_kind': 'Chinese_PRC_CI_AS', 'old_upprod_id': 'Chinese_PRC_CI_AS', 'old_uplot_no': 'Chinese_PRC_CI_AS', 'old_upcolor_id': 'Chinese_PRC_CI_AS', 'old_uppre_field1': 'Chinese_PRC_CI_AS', 'old_uppurchase_orders': 'Chinese_PRC_CI_AS', 'old_upa_a': 'Chinese_PRC_CI_AS', 'old_upa_b': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：SemiStockSpecUp', 'target': 'erp_warehouse.SourceDyeSemiStockSpecUp', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 SemiStockSpecUpDetail → SemiStockSpecUp']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_assigned_no=models.CharField('投胚流水号', null=True, blank=True, max_length=20)
     old_rece_sheet_no=models.CharField('入库明细号', null=True, blank=True, max_length=20)
@@ -4375,7 +4580,7 @@ class SourceDyeSemiStockSpecUpDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_semistockspecupdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_ba0430cc235b3809')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_ba0430cc235b3809'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_ba0430cc235b3809')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（SemiStockSpecUpDetail，待确认）'
         ordering=["-id"]
 
@@ -4385,9 +4590,11 @@ class SourceDyeStuffStep(SourceRecord):
     SOURCE_FIELDS={'Code': 'old_code', 'Name': 'old_name', 'Reserved1': 'old_reserved1', 'CodeNo': 'old_code_no', 'Remarks': 'old_remarks'}
     SOURCE_KEY=('Code',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_code': 'Chinese_PRC_CI_AS', 'old_name': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_code=models.CharField('编码', null=False, blank=True, max_length=20)
     old_name=models.CharField('备料步骤', null=False, blank=True, max_length=100)
     old_reserved1=models.IntegerField('Reserved1', null=True, blank=True)
@@ -4396,7 +4603,7 @@ class SourceDyeStuffStep(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuff_step'
-        indexes=[models.Index(fields=['source_batch', 'old_code'],name='src_2f83c4f22a44033e')]
+        indexes=[models.Index(fields=['source_batch', 'old_code'],name='src_2f83c4f22a44033e'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_code'))),name='src_ci_2f83c4f22a44033e')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（Stuff_Step，待确认）'
         ordering=["-id"]
 
@@ -4406,9 +4613,11 @@ class SourceDyeStuffAllot(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'BusinessUnitID': 'old_business_unit_id', 'WareHouseID': 'old_ware_house_id', 'DeptID': 'old_dept_id', 'CustomerID': 'old_customer_id', 'Keeper': 'old_keeper', 'EmpID': 'old_emp_id', 'WeightSheetNo': 'old_weight_sheet_no', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'ToWareHouseID': 'old_to_ware_house_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_weight_sheet_no': 'Chinese_PRC_CI_AS', 'old_sheet_status': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_to_ware_house_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=50)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=36)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -4436,7 +4645,7 @@ class SourceDyeStuffAllot(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffallot'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_f546f0cb8ae39481')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_f546f0cb8ae39481'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_f546f0cb8ae39481')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（StuffAllot，待确认）'
         ordering=["-id"]
 
@@ -4446,9 +4655,11 @@ class SourceDyeStuffAllotDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'PurDetailNo': 'old_pur_detail_no', 'StuffID': 'old_stuff_id', 'LotNo': 'old_lot_no', 'Qty': 'old_qty', 'Price': 'old_price', 'TaxPrice': 'old_tax_price', 'TaxRate': 'old_tax_rate', 'TaxMoney': 'old_tax_money', 'Amount': 'old_amount', 'APDetailNo': 'old_apdetail_no', 'InDetailNo': 'old_in_detail_no', 'DlvQty': 'old_dlv_qty', 'Remarks': 'old_remarks', 'StockUnit': 'old_stock_unit'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_stock_unit': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：StuffAllot', 'target': 'erp_warehouse.SourceDyeStuffAllot', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 StuffAllotDetail → StuffAllot']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=50)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_pur_detail_no=models.CharField('采购单明细号', null=True, blank=True, max_length=20)
@@ -4469,7 +4680,7 @@ class SourceDyeStuffAllotDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffallotdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_ea92fb489b1df2e6')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_ea92fb489b1df2e6'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_ea92fb489b1df2e6')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（StuffAllotDetail，待确认）'
         ordering=["-id"]
 
@@ -4479,9 +4690,11 @@ class SourceDyeStuffChange(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'StartTime': 'old_start_time', 'Reason': 'old_reason', 'OriStuffID': 'old_ori_stuff_id', 'OriLotNo': 'old_ori_lot_no', 'RemainQty': 'old_remain_qty', 'StuffID': 'old_stuff_id', 'LotNo': 'old_lot_no', 'InQty': 'old_in_qty', 'InDate': 'old_in_date', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_start_time': 'Chinese_PRC_CI_AS', 'old_reason': 'Chinese_PRC_CI_AS', 'old_ori_stuff_id': 'Chinese_PRC_CI_AS', 'old_ori_lot_no': 'Chinese_PRC_CI_AS', 'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('SheetNo', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -4507,7 +4720,7 @@ class SourceDyeStuffChange(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffchange'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0b7dc82289f8dc42')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0b7dc82289f8dc42'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_0b7dc82289f8dc42')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（StuffChange，待确认）'
         ordering=["-id"]
 
@@ -4517,9 +4730,11 @@ class SourceDyeStuffIn(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'WareHouseID': 'old_ware_house_id', 'SupplierID': 'old_supplier_id', 'BusinessUnitID': 'old_business_unit_id', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status', 'Keeper': 'old_keeper', 'Reason': 'old_reason', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'APMoney': 'old_apmoney', 'APQty': 'old_apqty', 'UnClearQty': 'old_un_clear_qty', 'UnClearMoney': 'old_un_clear_money', 'UnClearInvoiceQty': 'old_un_clear_invoice_qty', 'UnClearInvoiceMoney': 'old_un_clear_invoice_money', 'Discount': 'old_discount', 'DiscountMoney': 'old_discount_money', 'Total': 'old_total', 'BuyerID': 'old_buyer_id', 'invoice': 'old_invoice'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_sheet_status': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_reason': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_buyer_id': 'Chinese_PRC_CI_AS', 'old_invoice': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -4555,7 +4770,7 @@ class SourceDyeStuffIn(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffin'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_436e4545efafe40e')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_436e4545efafe40e'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_436e4545efafe40e')]
         verbose_name=verbose_name_plural='染化料入库单'
         ordering=["-id"]
 
@@ -4565,9 +4780,11 @@ class SourceDyeStuffInDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'PurDetailNo': 'old_pur_detail_no', 'StuffID': 'old_stuff_id', 'Price': 'old_price', 'TaxPrice': 'old_tax_price', 'TaxRate': 'old_tax_rate', 'TaxMoney': 'old_tax_money', 'Amount': 'old_amount', 'Qty': 'old_qty', 'APDetailNo': 'old_apdetail_no', 'LotNo': 'old_lot_no', 'Remarks': 'old_remarks', 'PackUnit': 'old_pack_unit', 'PackQty': 'old_pack_qty', 'NewStuffID': 'old_new_stuff_id', 'StuffType': 'old_stuff_type', 'StuffKindID': 'old_stuff_kind_id', 'StuffName': 'old_stuff_name', 'OriInDetailNo': 'old_ori_in_detail_no'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_pack_unit': 'Chinese_PRC_CI_AS', 'old_new_stuff_id': 'Chinese_PRC_CI_AS', 'old_stuff_type': 'Chinese_PRC_CI_AS', 'old_stuff_kind_id': 'Chinese_PRC_CI_AS', 'old_stuff_name': 'Chinese_PRC_CI_AS', 'old_ori_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：StuffIn', 'target': 'erp_warehouse.SourceDyeStuffIn', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 SmallStuffInDetail → SmallStuffIn', '原界面主从 StuffInDetail → StuffIn']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_pur_detail_no=models.CharField('采购单明细号', null=True, blank=True, max_length=20)
@@ -4592,7 +4809,7 @@ class SourceDyeStuffInDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffindetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_bef67ab2c25ac5fa')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_bef67ab2c25ac5fa'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_bef67ab2c25ac5fa')]
         verbose_name=verbose_name_plural='染化料入库明细'
         ordering=["-id"]
 
@@ -4602,9 +4819,11 @@ class SourceDyeStuffOut(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'BusinessUnitID': 'old_business_unit_id', 'WareHouseID': 'old_ware_house_id', 'DeptID': 'old_dept_id', 'CustomerID': 'old_customer_id', 'Keeper': 'old_keeper', 'EmpID': 'old_emp_id', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'WeightSheetNo': 'old_weight_sheet_no', 'InDetailNo': 'old_in_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'OutDate': 'old_out_date', 'MachineID': 'old_machine_id', 'SQSheetNo': 'old_sqsheet_no', 'FactID': 'old_fact_id', 'CombineSheetNos': 'old_combine_sheet_nos', 'ShiftID': 'old_shift_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_keeper': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_sheet_status': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_weight_sheet_no': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_sqsheet_no': 'Chinese_PRC_CI_AS', 'old_fact_id': 'Chinese_PRC_CI_AS', 'old_combine_sheet_nos': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -4639,7 +4858,7 @@ class SourceDyeStuffOut(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffout'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0b80b199c2bce7cc')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_0b80b199c2bce7cc'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_0b80b199c2bce7cc')]
         verbose_name=verbose_name_plural='染化料出库单'
         ordering=["-id"]
 
@@ -4649,9 +4868,11 @@ class SourceDyeStuffOutDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'PurDetailNo': 'old_pur_detail_no', 'StuffID': 'old_stuff_id', 'Price': 'old_price', 'TaxPrice': 'old_tax_price', 'TaxRate': 'old_tax_rate', 'TaxMoney': 'old_tax_money', 'Amount': 'old_amount', 'Qty': 'old_qty', 'APDetailNo': 'old_apdetail_no', 'LotNo': 'old_lot_no', 'DlvQty': 'old_dlv_qty', 'Remarks': 'old_remarks', 'InDetailNo': 'old_in_detail_no', 'PhaseNo': 'old_phase_no', 'PhaseID': 'old_phase_id', 'StuffNo': 'old_stuff_no'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_pur_detail_no': 'Chinese_PRC_CI_AS', 'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_apdetail_no': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS', 'old_phase_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：StuffOut', 'target': 'erp_warehouse.SourceDyeStuffOut', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 StuffOutDetail → StuffOut', '原界面主从 DStuffOutDetail → DStuffOut', '原界面主从 SmallStuffOutDetail → SmallStuffOut']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号（子表）', null=False, blank=True, max_length=36)
     old_pur_detail_no=models.CharField('采购单明细号', null=True, blank=True, max_length=20)
@@ -4674,7 +4895,7 @@ class SourceDyeStuffOutDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffoutdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_7ba01b78c129dfeb')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_7ba01b78c129dfeb'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_7ba01b78c129dfeb')]
         verbose_name=verbose_name_plural='染化料出库明细'
         ordering=["-id"]
 
@@ -4684,9 +4905,11 @@ class SourceDyeStuffStock(SourceRecord):
     SOURCE_FIELDS={'StockDate': 'old_stock_date', 'StuffID': 'old_stuff_id', 'WareHouseID': 'old_ware_house_id', 'PreMonthQty': 'old_pre_month_qty', 'Price': 'old_price', 'PreMonthMoney': 'old_pre_month_money', 'CarryDate': 'old_carry_date', 'Remarks': 'old_remarks', 'LotNo': 'old_lot_no', 'LastStockQty': 'old_last_stock_qty', 'LastStockMoney': 'old_last_stock_money', 'InQty': 'old_in_qty', 'InMoney': 'old_in_money', 'OutQty': 'old_out_qty', 'OutMoney': 'old_out_money', 'InDetailNo': 'old_in_detail_no'}
     SOURCE_KEY=('StockDate', 'StuffID', 'WareHouseID', 'InDetailNo')
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={'old_in_detail_no': ('literal', '')}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_stock_date=models.DateTimeField('StockDate', null=False, blank=False)
     old_stuff_id=models.CharField('StuffID', null=False, blank=True, max_length=10)
     old_ware_house_id=models.CharField('WareHouseID', null=False, blank=True, max_length=10)
@@ -4706,7 +4929,7 @@ class SourceDyeStuffStock(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffstock'
-        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_stuff_id', 'old_ware_house_id', 'old_in_detail_no'],name='src_f91f3941ab7db2e5')]
+        indexes=[models.Index(fields=['source_batch', 'old_stock_date', 'old_stuff_id', 'old_ware_house_id', 'old_in_detail_no'],name='src_f91f3941ab7db2e5'),models.Index(models.F('source_batch'),models.F('old_stock_date'),Upper(RTrim(models.F('old_stuff_id'))),Upper(RTrim(models.F('old_ware_house_id'))),Upper(RTrim(models.F('old_in_detail_no'))),name='src_ci_f91f3941ab7db2e5')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（StuffStock，待确认）'
         ordering=["-id"]
 
@@ -4716,9 +4939,11 @@ class SourceDyeStuffStockAdjust(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'WareHouseID': 'old_ware_house_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'BusinessUnitID': 'old_business_unit_id'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -4740,7 +4965,7 @@ class SourceDyeStuffStockAdjust(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffstockadjust'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_effccab581e835bf')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_effccab581e835bf'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_effccab581e835bf')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（StuffStockAdjust，待确认）'
         ordering=["-id"]
 
@@ -4750,9 +4975,11 @@ class SourceDyeStuffStockAdjustDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'StuffID': 'old_stuff_id', 'LotNo': 'old_lot_no', 'PaperQty': 'old_paper_qty', 'RealQty': 'old_real_qty', 'AdjustQty': 'old_adjust_qty', 'Price': 'old_price', 'Remarks': 'old_remarks', 'PaperMoney': 'old_paper_money', 'RealMoney': 'old_real_money', 'AdjustMoney': 'old_adjust_money', 'InDetailNo': 'old_in_detail_no'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：StuffStockAdjust', 'target': 'erp_warehouse.SourceDyeStuffStockAdjust', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 StuffStockAdjustDetail → StuffStockAdjust']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('关联单号', null=True, blank=True, max_length=20)
     old_detail_no=models.CharField('表单明细号', null=False, blank=True, max_length=36)
     old_stuff_id=models.CharField('染化料编码', null=True, blank=True, max_length=10)
@@ -4770,7 +4997,7 @@ class SourceDyeStuffStockAdjustDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_stuffstockadjustdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_4c93d36157442b92')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_4c93d36157442b92'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_4c93d36157442b92')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（StuffStockAdjustDetail，待确认）'
         ordering=["-id"]
 
@@ -4780,9 +5007,11 @@ class SourceDyeStuffStockBook(SourceRecord):
     SOURCE_FIELDS={'BookNo': 'old_book_no', 'BookDate': 'old_book_date', 'AccDate': 'old_acc_date', 'BookKind': 'old_book_kind', 'SupplierID': 'old_supplier_id', 'WareHouseID': 'old_ware_house_id', 'StuffID': 'old_stuff_id', 'StorageUnitIDs': 'old_storage_unit_ids', 'SheetNo': 'old_sheet_no', 'DetailNo': 'old_detail_no', 'InQty': 'old_in_qty', 'OutQty': 'old_out_qty', 'Price': 'old_price', 'Remarks': 'old_remarks', 'DeptID': 'old_dept_id', 'LotNo': 'old_lot_no', 'SheetSeries': 'old_sheet_series', 'StockFlag': 'old_stock_flag', 'InMoney': 'old_in_money', 'OutMoney': 'old_out_money', 'CurrDate': 'old_curr_date', 'InDetailNo': 'old_in_detail_no'}
     SOURCE_KEY=('BookNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_ware_house_id': 'Chinese_PRC_CI_AS', 'old_stuff_id': 'Chinese_PRC_CI_AS', 'old_storage_unit_ids': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_dept_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_stock_flag': 'Chinese_PRC_CI_AS', 'old_in_detail_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=('old_book_no',)
+    SOURCE_IDENTITY_RULES={'old_book_no': (1, 1)}
     old_book_no=models.BigIntegerField('BookNo', null=False, blank=False)
     old_book_date=models.DateTimeField('BookDate', null=True, blank=True)
     old_acc_date=models.DateTimeField('AccDate', null=True, blank=True)
@@ -4818,9 +5047,11 @@ class SourceDyeSwipeLabelPrint(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'JobSheetNo': 'old_job_sheet_no', 'MachineID': 'old_machine_id', 'GradeID': 'old_grade_id', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'RightStatus': 'old_right_status', 'RptID': 'old_rpt_id', 'PrintNumber': 'old_print_number', 'PrintCount': 'old_print_count', 'CheckNo': 'old_check_no', 'CustColorNum': 'old_cust_color_num', 'CustSelfNo': 'old_cust_self_no', 'ProdIDName': 'old_prod_idname', 'LotNo': 'old_lot_no', 'PreField1': 'old_pre_field1', 'CustSelfProduct': 'old_cust_self_product', 'ColorID': 'old_color_id', 'CustomerRemarks': 'old_customer_remarks', 'EmpID': 'old_emp_id', 'ColorNum': 'old_color_num', 'CustJobNo': 'old_cust_job_no'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_machine_id': 'Chinese_PRC_CI_AS', 'old_grade_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_rpt_id': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_prod_idname': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS', 'old_cust_self_product': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_customer_remarks': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=50)
     old_sheet_no=models.CharField('制单单号', null=True, blank=True, max_length=50)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
@@ -4853,7 +5084,7 @@ class SourceDyeSwipeLabelPrint(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_swipelabelprint'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_6dff9c7cbce9ac04')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_6dff9c7cbce9ac04'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_6dff9c7cbce9ac04')]
         verbose_name=verbose_name_plural='染色工艺与配方相关表（SwipeLabelPrint，待确认）'
         ordering=["-id"]
 
@@ -4863,9 +5094,11 @@ class SourceDyeUrgentInStruct(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'SheetStatus': 'old_sheet_status', 'StepNo': 'old_step_no', 'PrintTimes': 'old_print_times', 'RightStatus': 'old_right_status', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'CustomerID': 'old_customer_id', 'DlvAddress': 'old_dlv_address', 'CarNo': 'old_car_no', 'Driver': 'old_driver'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_dlv_address': 'Chinese_PRC_CI_AS', 'old_car_no': 'Chinese_PRC_CI_AS', 'old_driver': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=50)
     old_sheet_no=models.CharField('SheetNo', null=True, blank=True, max_length=36)
     old_sheet_date=models.DateTimeField('SheetDate', null=True, blank=True)
@@ -4889,7 +5122,7 @@ class SourceDyeUrgentInStruct(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_urgentinstruct'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_d375f108f1991c37')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_d375f108f1991c37'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_d375f108f1991c37')]
         verbose_name=verbose_name_plural='其他或待确认相关表（UrgentInStruct，待确认）'
         ordering=["-id"]
 
@@ -4899,9 +5132,11 @@ class SourceDyeUrgentInStructDetail(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'JobSheetNo': 'old_job_sheet_no', 'CustomerID': 'old_customer_id', 'ProdID': 'old_prod_id', 'Rolls': 'old_rolls', 'LengthQty': 'old_length_qty', 'WeightQty': 'old_weight_qty', 'StockUnit': 'old_stock_unit', 'ContractNo': 'old_contract_no', 'Spec': 'old_spec', 'Structure': 'old_structure', 'SalerID': 'old_saler_id', 'Remarks': 'old_remarks', 'CustSelfProduct': 'old_cust_self_product', 'CustSelfNo': 'old_cust_self_no', 'OrderSheetNo': 'old_order_sheet_no', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'CustColorNum': 'old_cust_color_num', 'Weight': 'old_weight', 'Width': 'old_width', 'DetailCustName': 'old_detail_cust_name', 'OrderSheetDate': 'old_order_sheet_date', 'CurrProcessID': 'old_curr_process_id', 'CustJobNo': 'old_cust_job_no', 'Jobattes1': 'old_jobattes1', 'RealLotNo': 'old_real_lot_no'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_stock_unit': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_structure': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_cust_self_product': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_order_sheet_no': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_cust_color_num': 'Chinese_PRC_CI_AS', 'old_weight': 'Chinese_PRC_CI_AS', 'old_width': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_curr_process_id': 'Chinese_PRC_CI_AS', 'old_cust_job_no': 'Chinese_PRC_CI_AS', 'old_jobattes1': 'Chinese_PRC_CI_AS', 'old_real_lot_no': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=True, blank=True, max_length=50)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=36)
     old_job_sheet_no=models.CharField('JobSheetNo', null=True, blank=True, max_length=50)
@@ -4933,7 +5168,7 @@ class SourceDyeUrgentInStructDetail(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_urgentinstructdetail'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_f7fd9fdb19baae4d')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_f7fd9fdb19baae4d'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_f7fd9fdb19baae4d')]
         verbose_name=verbose_name_plural='其他或待确认相关表（UrgentInStructDetail，待确认）'
         ordering=["-id"]
 
@@ -4943,9 +5178,11 @@ class SourceDyeWareHouseProdCount(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetDate': 'old_sheet_date', 'SheetNo': 'old_sheet_no', 'SheetKind': 'old_sheet_kind', 'JobSheetNo': 'old_job_sheet_no', 'Customer': 'old_customer', 'ColorNum': 'old_color_num', 'ColorID': 'old_color_id', 'Rolls': 'old_rolls', 'WeightQty': 'old_weight_qty', 'Cargador1': 'old_cargador1', 'Cargador2': 'old_cargador2', 'Cargador3': 'old_cargador3', 'Cargador4': 'old_cargador4', 'Cargador5': 'old_cargador5', 'Remarks': 'old_remarks'}
     SOURCE_KEY=('SheetSeries',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_cargador1': 'Chinese_PRC_CI_AS', 'old_cargador2': 'Chinese_PRC_CI_AS', 'old_cargador3': 'Chinese_PRC_CI_AS', 'old_cargador4': 'Chinese_PRC_CI_AS', 'old_cargador5': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
     old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
     old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
@@ -4965,7 +5202,7 @@ class SourceDyeWareHouseProdCount(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_warehouseprodcount'
-        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_1001583a311f9752')]
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_1001583a311f9752'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_1001583a311f9752')]
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（WareHouseProdCount，待确认）'
         ordering=["-id"]
 
@@ -4975,9 +5212,11 @@ class SourceDyeWeightTechInfo(SourceRecord):
     SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'Tech': 'old_tech', 'ParameterNo': 'old_parameter_no', 'ParameterID': 'old_parameter_id', 'ParameterName': 'old_parameter_name', 'ParameterValue': 'old_parameter_value', 'ProgId': 'old_prog_id'}
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_tech': 'Chinese_PRC_CI_AS', 'old_parameter_no': 'Chinese_PRC_CI_AS', 'old_parameter_id': 'Chinese_PRC_CI_AS', 'old_parameter_name': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_sheet_series=models.CharField('SheetSeries', null=False, blank=True, max_length=20)
     old_detail_no=models.CharField('DetailNo', null=False, blank=True, max_length=30)
     old_tech=models.CharField('Tech', null=True, blank=True, max_length=50)
@@ -4989,7 +5228,7 @@ class SourceDyeWeightTechInfo(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_weighttechinfo'
-        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_692c9debdd8328ef')]
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_692c9debdd8328ef'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_692c9debdd8328ef')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（WeightTechInfo，待确认）'
         ordering=["-id"]
 
@@ -4999,9 +5238,11 @@ class SourceDyeWidthGramWeight(SourceRecord):
     SOURCE_FIELDS={'Code': 'old_code', 'NameC': 'old_name_c', 'NumValue': 'old_num_value', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Kind': 'old_kind'}
     SOURCE_KEY=('Code',)
     SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_code': 'Chinese_PRC_CI_AS', 'old_name_c': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_kind': 'Chinese_PRC_CI_AS'}
     SOURCE_RELATIONS=[]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
     old_code=models.CharField('Code', null=False, blank=True, max_length=20)
     old_name_c=models.CharField('名称', null=True, blank=True, max_length=50)
     old_num_value=models.DecimalField('NumValue', null=True, blank=True, max_digits=18, decimal_places=2)
@@ -5013,6 +5254,6 @@ class SourceDyeWidthGramWeight(SourceRecord):
 
     class Meta(SourceRecord.Meta):
         db_table='src_dye_widthgramweight'
-        indexes=[models.Index(fields=['source_batch', 'old_code'],name='src_051a950ab92c566f')]
+        indexes=[models.Index(fields=['source_batch', 'old_code'],name='src_051a950ab92c566f'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_code'))),name='src_ci_051a950ab92c566f')]
         verbose_name=verbose_name_plural='染化料与称料库存相关表（WidthGramWeight，待确认）'
         ordering=["-id"]

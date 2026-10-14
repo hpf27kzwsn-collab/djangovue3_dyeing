@@ -15,11 +15,13 @@ class SourceIdentitySequence(ErpModel):
 def allocate(item, actor):
     from .business import persist, locked
     for key in item.SOURCE_IDENTITIES:
-        maximum = type(item).objects.aggregate(number=models.Max(key))['number']
-        starting = 0 if maximum is None else maximum
+        seed, step = item.SOURCE_IDENTITY_RULES[key]
         sequence, created = SourceIdentitySequence.objects.get_or_create(
-            namespace=item._meta.label + '.' + key, defaults={'last_number': starting, 'creator': actor, 'modifier': actor})
+            namespace=item._meta.label + '.' + key, defaults={'last_number': seed - step, 'creator': actor, 'modifier': actor})
         sequence = locked(sequence)
-        sequence.last_number = max(sequence.last_number, starting) + 1
+        if created:
+            maximum = type(item).objects.aggregate(number=models.Max(key))['number']
+            sequence.last_number = seed - step if maximum is None else max(maximum, seed - step)
+        sequence.last_number += step
         persist(sequence, actor)
         setattr(item, key, sequence.last_number)

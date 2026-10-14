@@ -199,9 +199,9 @@ class MasterDataApiTests(TestCase):
         FieldPermission.objects.filter(role=role, field__model=m.Party._meta.label, field__field_name='name').update(is_update=False)
         call_command('init_data', verbosity=0)
         self.patch('Party', self.party.pk, {'name': '不可修改'}, 400)
-        self.assertEqual(Menu.objects.filter(parent__component_name='erp_base', resource__startswith='erp_base_', visible=True).count(), 20)
+        self.assertEqual(Menu.objects.filter(parent__component_name='erp_base', resource__startswith='erp_base_', visible=True).count(), 21)
         self.assertFalse(RoleMenuPermission.objects.filter(role=role,menu__component_name__startswith='erp_base_legacy').exists())
-        self.assertEqual(Menu.objects.filter(parent__component_name='erp_base', resource__startswith='erp_base_').count(), 30)
+        self.assertEqual(Menu.objects.filter(parent__component_name='erp_base', resource__startswith='erp_base_').count(), 31)
 
     def test_related_field_data_scope_prevents_cross_department_link(self):
         dept = Dept.objects.create(key='restricted', name='受限部门')

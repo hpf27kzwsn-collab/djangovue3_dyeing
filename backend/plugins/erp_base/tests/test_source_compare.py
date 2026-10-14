@@ -1,4 +1,5 @@
 import json
+from datetime import date
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
@@ -7,11 +8,27 @@ from django.test import TestCase
 from django.utils import timezone
 from system.models import Users
 from plugins.erp_base.legacy_models import LegacyImportBatch,LegacySourceTable
-from plugins.erp_base.source_import import import_table,compare_table
+from plugins.erp_base.source_import import import_table,compare_table,original_values,identity
 from plugins.erp_production.source_models import SourceDyeWProcess
 
 
 class FullOriginalComparisonTests(TestCase):
+    def test_actual_sql_identity_is_retained_even_without_declared_primary_key(self):
+        from types import SimpleNamespace
+        from plugins.erp_production.source_models import SourceDyeUsersMachines
+        table = SimpleNamespace(schema_name='dye', table_name='UsersMachines')
+        original = {'key': None, 'values': {'ID': '42'}}
+        value = json.loads(identity(table, original, SourceDyeUsersMachines))
+        self.assertEqual(value['key'], {'ID': '42'})
+        self.assertEqual(value['key_kind'], 'sql_identity')
+
+    def test_sql_date_export_keeps_calendar_date_when_dotnet_emits_datetime_text(self):
+        from plugins.erp_base.source_models import SourceDboZhenzhibaobiao
+        values = {old: None for old in SourceDboZhenzhibaobiao.SOURCE_FIELDS}
+        values['日期'] = '2023-03-28T00:00:00.0000000'
+        actual = original_values(SourceDboZhenzhibaobiao, {'values': values})
+        self.assertEqual(actual[SourceDboZhenzhibaobiao.SOURCE_FIELDS['日期']], date(2023, 3, 28))
+
     def test_full_comparison_preserves_null_negative_identity_and_reports_changed_field(self):
         actor=Users.objects.create_superuser(username='source-compare',password='test-password')
         now=timezone.now()

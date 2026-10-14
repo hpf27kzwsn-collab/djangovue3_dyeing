@@ -53,16 +53,20 @@ def generate(schema_path,registry_path):
             assert set(relation['source_fields'])<=set(table['fields']),(table['table'],relation)
             assert set(relation['target_fields'])<=set(targets[relation['target']]['fields']),(table['table'],relation)
     columns=defaultdict(list)
+    identity_rules={(row['schema_name'],row['table_name'],row['field_name']):(int(row['seed']),int(row['increment']))
+                    for row in source['identities']}
     owners=runpy.run_path(str(ROOT/'backend/plugins/erp_base/source_ownership.py'))['OWNERS']
     formulas=runpy.run_path(str(ROOT/'backend/plugins/erp_base/source_calculations.py'))
     entry_formulas=runpy.run_path(str(ROOT/'backend/plugins/erp_base/source_calculation_entries.py'))['ENTRY_METHODS']
+    entry_rules=json.loads((ROOT/'backend/plugins/erp_base/source_entry_rules.json').read_text(encoding='utf8'))['models']
     for column in source['fields']:columns[(column['schema_name'],column['table_name'])].append(column)
     grouping=defaultdict(list)
     for table in registry['tables']:
         if table['handling']=='business_model':grouping[table['module']].append(table)
     for module in MODULES:
         code=['"""静态旧业务字段；由tools/legacy_models生成，逐表来源见source_catalog.json。"""',
-              'from django.db import models','from plugins.erp_base.source_documents import SourceRecord','']
+              'from django.db import models','from django.db.models.functions import Upper,RTrim',
+              'from plugins.erp_base.source_documents import SourceRecord','']
         resources=['"""原业务模型的完整字段与主从入口。"""','RESOURCE_OPTIONS = {']
         for table in grouping[module]:
             name=table['model'];fields=columns[(table['schema'],table['table'])]
@@ -71,10 +75,13 @@ def generate(schema_path,registry_path):
             code += ['', 'class '+name+'(SourceRecord):','    SOURCE_SCHEMA='+repr(table['schema']),
                      '    SOURCE_TABLE='+repr(table['table']),'    SOURCE_FIELDS='+repr(raw),'    SOURCE_KEY='+repr(tuple(table['primary_key'])),
                      '    SOURCE_DOCUMENT='+repr(table['document']),
+                     '    SOURCE_COLLATIONS='+repr({raw[column['field_name']]:column['collation_name'] for column in fields if column['collation_name'] is not None}),
                      '    SOURCE_RELATIONS='+repr(table['relations']),
                      '    SOURCE_DEFAULTS='+repr({raw[column['field_name']]:original_default(column['default_definition'])
                                                 for column in fields if column['default_definition'] is not None}),
-                     '    SOURCE_IDENTITIES='+repr(tuple(raw[column['field_name']] for column in fields if column['is_identity']))]
+                     '    SOURCE_IDENTITIES='+repr(tuple(raw[column['field_name']] for column in fields if column['is_identity'])),
+                     '    SOURCE_IDENTITY_RULES='+repr({raw[column['field_name']]:identity_rules[(table['schema'],table['table'],column['field_name'])]
+                                                       for column in fields if column['is_identity']})]
             for column in fields:
                 title=table['captions'][column['field_name']]
                 code.append('    '+raw[column['field_name']]+'='+declaration(column,title))
@@ -87,11 +94,22 @@ def generate(schema_path,registry_path):
                 fields=['source_batch',*[raw[column] for column in key]]
                 index_name='src_'+hashlib.sha256((module+'.'+name+','.join(key)).encode()).hexdigest()[:16]
                 index_code.append('models.Index(fields='+repr(fields)+',name='+repr(index_name)+')')
+                collations={raw[column['field_name']]:column['collation_name'] for column in columns[(table['schema'],table['table'])] if column['collation_name'] is not None}
+                if any(raw[column] in collations for column in key):
+                    expressions=["models.F('source_batch')"]
+                    for column in key:
+                        field_key=raw[column];expression='models.F('+repr(field_key)+')'
+                        if field_key in collations:
+                            expression='RTrim('+expression+')'
+                            if '_CI_' in collations[field_key]:expression='Upper('+expression+')'
+                        expressions.append(expression)
+                    ci_name='src_ci_'+hashlib.sha256((module+'.'+table['model']+','.join(key)).encode()).hexdigest()[:16]
+                    index_code.append('models.Index('+','.join(expressions)+',name='+repr(ci_name)+')')
             code+=['','    class Meta(SourceRecord.Meta):','        db_table='+repr(table['db_table']),
                    '        indexes=['+','.join(index_code)+']',
                    '        verbose_name=verbose_name_plural='+repr(table['title']),'        ordering=["-id"]']
             options={'viewset':'plugins.erp_base.source_api.SourceRecordViewSet','serializer':'plugins.erp_base.source_api.SourceRecordSerializer',
-                     'crud_fields':['id',*raw.values(),*[r['field'] for r in table['relations']],'approval_stage','confirmed_at','confirmed_by','approved_at','approved_by','legacy_id','source_batch','source_row','remarks'],
+                     'crud_fields':['id','entry_name',*raw.values(),*[r['field'] for r in table['relations']],'approval_stage','confirmed_at','confirmed_by','approved_at','approved_by','legacy_id','source_batch','source_row','remarks'],
                      'fields':{'legacy_id':{'column':{'show':False}},'source_batch':{'column':{'show':False}},'source_row':{'column':{'show':False}}},
                      'workflow':{'source_model':True,'state_field':'approval_stage','actions':[]}}
             if table['document']:
@@ -99,6 +117,24 @@ def generate(schema_path,registry_path):
                     {'key':'confirm','title':'确认','states':['draft'],'inputs':[]},
                     {'key':'approve','title':'审核','states':['confirmed'],'inputs':[]},
                     {'key':'reopen','title':'重新办理','states':['confirmed','approved'],'inputs':[{'key':'reason','title':'原因','kind':'textarea','required':True,'options':[]}]}]})
+            rules=entry_rules.get(module+'.'+name,{})
+            options['fields']['entry_name']={'title':'业务类型','column':{'show':False}}
+            options['workflow']['entries']=[{'value':entry,'label':rule['title'],
+                'generated_fields':[raw[old] for old in [*rule['number_fields'],*rule['default_fields']]]}
+                for entry,rule in rules.items()]
+            if table['table']=='StuffWeight':
+                options['workflow']['actions'].append({'key':'issue_materials','title':'按原称料规则生成领料',
+                    'states':['draft','confirmed','approved'],'inputs':[
+                        {'key':'finished_at','title':'实际事件时间','kind':'datetime','required':True,'default_now':False,'options':[]},
+                        {'key':'evidence_kind','title':'实际事件类型','kind':'select','required':True,'options':[
+                            {'value':'weighing_finished','label':'称量完成记录'},{'value':'process_started','label':'染色工序开工记录'}]},
+                        {'key':'evidence_reference','title':'实际事件记录号或证明','kind':'text','required':True,'options':[]}]})
+            for relation in table['relations']:
+                target=targets[relation['target']]
+                label='SheetNo' if 'SheetNo' in target['fields'] else target['primary_key'][0] if target['primary_key'] else target['fields'][0]
+                options['fields'][relation['field']]={'remote':{'entity':target['module']+'_'+target['model'].lower(),
+                    'pk':'id','label':identifier(label),'columns':[{'field':identifier(old),'title':target['captions'][old]}
+                    for old in list(dict.fromkeys([label,*relation['target_fields']]))]}}
             if module+'.'+name in owners:
                 options['workflow']['editable_states']=['draft',None]
             methods=[]

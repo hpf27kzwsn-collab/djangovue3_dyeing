@@ -118,3 +118,15 @@ RESOURCE_OPTIONS['SourceIdentitySequence'] = {
     'viewset': 'plugins.erp_base.business_api.BusinessActionViewSet',
     'crud_fields': ['id','namespace','last_number','legacy_id','create_datetime','update_datetime'],
 }
+RESOURCE_OPTIONS['SourceDocumentContext'] = {
+    'viewset': 'plugins.erp_base.business_api.BusinessActionViewSet',
+    'crud_fields': ['id', 'entity', 'object_id', 'entry_name', 'legacy_id', 'create_datetime'],
+}
+RESOURCE_OPTIONS['SourceBusinessParameter'] = {
+    'viewset': 'plugins.erp_base.views.MasterDataViewSet',
+    'serializer': 'plugins.erp_base.serializers.MasterDataSerializer',
+    'crud_fields': ['id', 'name', 'value', 'captured_at', 'legacy_id', 'remarks', 'create_datetime', 'update_datetime'],
+    'label_field': 'name',
+    'fields': {'captured_at': {'readonly': True}},
+}
+MODEL_FIELDS['SourceBusinessParameter'] = 'name value captured_at'

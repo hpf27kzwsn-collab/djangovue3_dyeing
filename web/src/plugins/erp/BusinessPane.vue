@@ -28,7 +28,7 @@ const actions=computed(()=>{
   if(tabs.value.length)result.push({key:'children',text:'明细与关联',permission:props.entity+':detail',click:(row:any)=>{selected.value=row;activeTab.value=tabs.value[0].entity;open.value=true}})
   if((workflow.value.children??[]).some((child:any)=>child.atomic))result.push({key:'document',text:'整单编辑',permission:props.entity+':save-document-post',show:(row:any)=>!frozen(row),click:(row:any)=>{selected.value=row;editor.value=true}})
   for(const action of workflow.value.actions??[])result.push({key:action.key,text:action.title,permission:props.entity+':'+action.key+'-post',show:(row:any)=>action.states.includes(state(row))&&!(action.hide_when??[]).some((key:string)=>row[key])&&!(props.entity==='erp_sampling_sampleconfirmation'&&action.key==='send'&&row.sent_at!==null),click:async(row:any)=>{
-    if(action.inputs.length){currentAction.value=action;actionRow.value=row;actionData.value=Object.fromEntries(action.inputs.filter((f:any)=>f.kind==='datetime').map((f:any)=>[f.key,new Date().toISOString()]));actionOpen.value=true}
+    if(action.inputs.length){currentAction.value=action;actionRow.value=row;actionData.value=Object.fromEntries(action.inputs.filter((f:any)=>f.kind==='datetime'&&f.default_now!==false).map((f:any)=>[f.key,new Date().toISOString()]));actionOpen.value=true}
     else{await api(`/api/system/${props.entity}/${row.id}/${action.key}/`,{method:'POST',data:{}});ElMessage.success('操作成功');await table.value.refresh()}
   }})
   return result

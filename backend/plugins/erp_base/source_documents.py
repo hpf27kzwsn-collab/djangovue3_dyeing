@@ -12,6 +12,11 @@ class SourceRecord(ErpModel):
     approved_at=models.DateTimeField('审核时间',null=True,blank=True)
     approved_by=models.ForeignKey('system.Users',verbose_name='审核人',null=True,blank=True,on_delete=models.PROTECT,related_name='%(app_label)s_%(class)s_approved')
 
+    @property
+    def entry_name(self):
+        from .source_entry_services import entry_for
+        return entry_for(self)
+
     class Meta:
         abstract=True
         constraints=[models.UniqueConstraint(fields=['source_batch','source_row'],name='%(app_label)s_%(class)s_srcrow_uniq')]
