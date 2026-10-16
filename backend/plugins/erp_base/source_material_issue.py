@@ -1,4 +1,5 @@
 """原称料自动领料算法的明确软件动作；实际事件证明由调用方提供。"""
+from plugins.erp_base.source_provenance import is_historical
 from datetime import datetime
 from decimal import Decimal, localcontext
 from django.apps import apps
@@ -19,7 +20,7 @@ def issue(item, actor, finished_at, evidence_kind, evidence_reference):
     item = locked(item)
     from .source_execution_state import require_available
     require_available(item)
-    if item.source_batch_id is not None or item.legacy_id is not None:
+    if is_historical(item):
         raise ValidationError({'source': '历史称料与原自动出库已承接；本动作在明确的新接续称料单上办理。'})
     context = SourceDocumentContext.objects.select_for_update().filter(entity=item._meta.label, object_id=item.pk).first()
     if context is None:

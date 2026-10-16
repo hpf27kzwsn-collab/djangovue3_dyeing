@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from django.apps import apps
 from django.test import TestCase
 from system.models import Users
@@ -9,7 +10,7 @@ class OriginalStockJobTests(TestCase):
         self.actor = Users.objects.create_superuser(username='stock-job', password='test-password')
         self.job_model = apps.get_model('erp_production.SourceDyeJobSheet')
         self.jobs = [self.job_model.objects.create(old_sheet_series='OLD-J' + str(index), old_sheet_no='J' + str(index),
-            legacy_id='OLD-J' + str(index)) for index in [1, 2]]
+            source_batch=historical_batch()) for index in [1, 2]]
 
     def test_gray_job_receipt_assignments_follow_actual_approval_and_each_job_total(self):
         assignment = apps.get_model('erp_production.SourceDyeJobAssign')
@@ -25,7 +26,7 @@ class OriginalStockJobTests(TestCase):
         for index, job in enumerate(self.jobs, 1):
             job.refresh_from_db(); self.assertEqual(job.old_sum_assigned_rolls, index)
             self.assertEqual(job.old_curr_process_id, '胚纱出库')
-            self.assertEqual(job.legacy_id, 'OLD-J' + str(index))
+            self.assertEqual(job.source_batch_id, historical_batch().pk)
         services.confirm(head, self.actor); services.approve(head, self.actor)
         for row in allocations:
             row.refresh_from_db(); self.assertEqual(int(row.old_status), 1)

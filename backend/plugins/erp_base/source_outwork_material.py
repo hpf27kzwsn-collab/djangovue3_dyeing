@@ -1,4 +1,5 @@
 """旧21/25/26类外协回料；原选择余额与本次实际收回独立。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from django.db import transaction
 from django.db.models import Value
 from django.db.models.functions import Coalesce,Upper,RTrim
@@ -18,7 +19,7 @@ def joined_receipts(table,kind,column,value,query):
     result=[]
     for row in source.order_by('pk'):
         for head in matching(query(table,'erp_warehouse'),SheetSeries=raw(row,'SheetSeries')).filter(old_sheet_kind=kind).order_by('pk'):
-            result.append({'entity':row._meta.label,'record_id':row.pk,'legacy_id':row.legacy_id,'header_id':head.pk,
+            result.append({'entity':row._meta.label,'record_id':row.pk,'source': source_reference(row),'header_id':head.pk,
                 'SheetKind':kind,**{name:raw(row,name) for name in ['Rolls','WeightQty','Packs']}})
     return result
 

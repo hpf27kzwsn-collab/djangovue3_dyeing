@@ -1,4 +1,5 @@
 """包装条码、GX98开工与QC汇总。与破坏原始事实的旧触发行为差异见异常E44。"""
+from plugins.erp_base.source_provenance import is_historical
 import re
 from datetime import datetime
 from django.apps import apps
@@ -62,7 +63,7 @@ def qc_totals(item,actor):
 
 
 def saved(item, created, actor):
-    if item.SOURCE_TABLE!='RecordYield' or item.legacy_id is not None or item.source_batch_id is not None:
+    if item.SOURCE_TABLE!='RecordYield' or is_historical(item):
         return
     values={}
     if created and (raw(item,'BarCode') is None or raw(item,'BarCode').rstrip(' ')==''):

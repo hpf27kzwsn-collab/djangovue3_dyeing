@@ -53,7 +53,7 @@ class DocumentInput(serializers.Serializer):
 class BusinessSerializer(CoreSerializer):
     def get_fields(self):
         fields = super().get_fields()
-        for key in policy_for(self.Meta.model)['owned'][self.Meta.model] | {'legacy_id'}:
+        for key in policy_for(self.Meta.model)['owned'][self.Meta.model]:
             fields[key].read_only = True
         for field in fields.values():
             if isinstance(field, serializers.CharField):
@@ -71,7 +71,7 @@ class BusinessSerializer(CoreSerializer):
         return []
 
     def to_internal_value(self, data):
-        owned = policy_for(self.Meta.model)['owned'][self.Meta.model] | {'legacy_id', 'id'}
+        owned = policy_for(self.Meta.model)['owned'][self.Meta.model] | {'id'}
         denied = {key: '此字段由专用业务操作维护。' for key in owned if key in data}
         if denied:
             raise serializers.ValidationError(denied)

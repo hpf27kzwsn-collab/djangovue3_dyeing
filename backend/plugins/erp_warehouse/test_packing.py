@@ -143,13 +143,13 @@ class PackingDeliveryTests(TestCase):
         returned.refresh_from_db();self.assertEqual(returned.status,'confirmed')
         self.assertEqual(fulfillment.reopened_quantity(self.line),0)
 
-    def test_api_pack_records_actual_package_and_legacy_id(self):
+    def test_api_pack_records_actual_package_without_extra_legacy_id(self):
         card,employee,package,*_=self.prepare()
         response=self.client.post(f'/api/system/erp_warehouse_package/{package.pk}/pack/',
             {'at':(self.now+timedelta(hours=7)).isoformat(),'employee':employee.pk},format='json')
         self.assertEqual(response.status_code,200,response.data)
         self.assertEqual(response.data['data']['net_mass_kg'],'80.000000')
-        self.assertIn('legacy_id',response.data['data'])
+        self.assertNotIn('legacy_id',response.data['data'])
 
     def test_explicit_unfulfilled_demand_release_preserves_original_plan(self):
         card,employee,package,allocation,*_=self.packed()

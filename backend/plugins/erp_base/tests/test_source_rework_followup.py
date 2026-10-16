@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime,timedelta
 from decimal import Decimal
 from django.apps import apps
@@ -32,7 +33,7 @@ class ReworkExtendedTests(TestCase):
         return self.old('WProcess','erp_production',old_wprocess_no=number,old_job_sheet_no=job,old_station_id=station,
             old_curr_kg=kg,old_curr_dosage=dosage,old_create_date=at or self.at)
     def far(self,**extra):
-        value={'legacy_id':'D','header_legacy_id':'H','sheet_date':self.at,'sheet_kind':30,'job_number':'J',
+        value={'detail_no':'D','header_sheet_series':'H','sheet_date':self.at,'sheet_kind':30,'job_number':'J',
             'quantity':Decimal(1000),'metres':None,'zero_amount':True};value.update(extra);return value
 
     def test_daily_original_subtotals_sum_repeated_denominator_and_rates(self):
@@ -232,7 +233,7 @@ class FollowupPurchaseTests(TestCase):
 
     def test_purchase_raw_return_both_families_actual_signed_stock_and_source(self):
         for family in ['Gray','Semi']:
-            row=self.old(family+'InDetail',old_sheet_series='OLD',old_rece_sheet_no='R',old_pur_detail_no='P',old_price=2,old_weight_qty=10,legacy_id='OLD')
+            row=self.old(family+'InDetail',old_sheet_series='OLD',old_rece_sheet_no='R',old_pur_detail_no='P',old_price=2,old_weight_qty=10,source_batch=historical_batch())
             before=snapshot(row)
             head=return_raw_purchase(row,self.actor,weight=Decimal('-3'),length=None,rolls=-1,warehouse='W',unit=1,supplier='S',receipt_number='NEW-RETURN',**self.event)
             line=type(row).objects.get(source_parent_1=head)
@@ -241,7 +242,8 @@ class FollowupPurchaseTests(TestCase):
             book=self.model(family+'StockBook').objects.get(old_sheet_series=head.old_sheet_series)
             self.assertEqual(book.old_in_weight_qty,-3);self.assertEqual(book.old_supplier_id,'S')
             row.refresh_from_db();self.assertEqual(snapshot(row),before)
-            self.assertEqual(view_effects(head)['purchase_return_origin']['source']['legacy_id'],'OLD')
+            self.assertEqual(view_effects(head)['purchase_return_origin']['source']['source_batch'],historical_batch().pk)
+            self.assertEqual(view_effects(head)['purchase_return_origin']['source']['id'],row.pk)
 
     def test_purchase_other_kind_and_orphan_receipts_all_visible(self):
         item=self.old('PurDetail','erp_purchase',old_detail_no='P')

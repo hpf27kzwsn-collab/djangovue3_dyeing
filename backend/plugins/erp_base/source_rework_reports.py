@@ -1,4 +1,5 @@
 """Sp_ReworkCloth2/3月度返修统计；完整保留旧连接倍增及未归类刷卡。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 from decimal import Decimal
 from itertools import product
@@ -46,7 +47,7 @@ def repair_sources(works, query):
                     fabric_key=None if gray is None else key(raw(gray,'FabricKindID'))
                     for cloth,dept in product(fabric[fabric_key] or [None],departments[department] or [None]):
                         kg=weighted(dosage,raw(work,'CurrKg'),True)
-                        sources.append({'work_id':work.pk,'legacy_id':work.legacy_id,'job_id':job.pk,'review_id':review.pk,
+                        sources.append({'work_id':work.pk,'source': source_reference(work),'job_id':job.pk,'review_id':review.pk,
                             'fabric_id':None if cloth is None else cloth.pk,'department_id':None if dept is None else dept.pk,
                             'FabricName':None if cloth is None else raw(cloth,'Description'),
                             'StationID':raw(work,'StationID'),'CreateDate':raw(work,'CreateDate'),
@@ -58,7 +59,7 @@ def repair_sources(works, query):
             code=key(raw(work,'WProcessNo'))
             if code is not None:repair[code].extend(sources)
         if not sources or key(raw(work,'StationID')) not in ['05','06'] or any(key(row['Kind']) not in ['内部评审','客退评审'] for row in sources):
-            supplement.append({'record_id':work.pk,'legacy_id':work.legacy_id,'StationID':raw(work,'StationID'),
+            supplement.append({'record_id':work.pk,'source': source_reference(work),'StationID':raw(work,'StationID'),
                 'CurrDosage':dosage,'CurrKg':raw(work,'CurrKg'),'issue':'未进入原返修分类，原刷卡及数量保留。'})
     return repair,expanded,supplement
 
@@ -68,7 +69,7 @@ def statistics(start, end, station, query=rows, repair_works=None):
     repair,expanded,supplement=repair_sources(works if repair_works is None else repair_works,query)
     if repair_works is not None:
         # 同比原程序借用本期返修来源，但补充明细仍列本次统计期间的真实刷卡。
-        supplement=[{'record_id':work.pk,'legacy_id':work.legacy_id,'StationID':raw(work,'StationID'),
+        supplement=[{'record_id':work.pk,'source': source_reference(work),'StationID':raw(work,'StationID'),
             'CurrDosage':raw(work,'CurrDosage'),'CurrKg':raw(work,'CurrKg'),
             'issue':'原同期刷卡未进入所采用的返修分类，原刷卡及数量保留。'} for work in works
             if key(raw(work,'StationID')) not in ['05','06'] or not repair[key(raw(work,'WProcessNo'))]
@@ -78,7 +79,7 @@ def statistics(start, end, station, query=rows, repair_works=None):
         if key(raw(work,'StationID'))!=station:continue
         month=timezone.localtime(raw(work,'CreateDate')).strftime('%Y-%m')
         for source in repair[key(raw(work,'WProcessNo'))] or [None]:
-            data={'month':month,'record_id':work.pk,'legacy_id':work.legacy_id,'WProcessNo':raw(work,'WProcessNo'),
+            data={'month':month,'record_id':work.pk,'source': source_reference(work),'WProcessNo':raw(work,'WProcessNo'),
                 'AllNum':1,'AllKg':weighted(raw(work,'CurrDosage'),raw(work,'CurrKg')),
                 **{name:None if source is None else source[name] for name in ['N_Num','K_Num','N_RKg','K_RKg']},
                 'repair_source':source}

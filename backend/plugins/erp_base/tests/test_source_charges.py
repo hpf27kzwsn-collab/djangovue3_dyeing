@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime
 from decimal import Decimal
 from django.apps import apps
@@ -44,11 +45,11 @@ class OriginalChargeTests(TestCase):
         self.basic('B2', '松筒', 2, date=timezone.make_aware(datetime(2026, 2, 1)))
         self.basic('B3', '松筒', 30, tax=True, tax_price=33, date=timezone.make_aware(datetime(2026, 3, 1)))
         existing = self.model('OrderAtte').objects.create(old_sheet_series='O', old_check_no='OLD',
-            old_field_type='06', old_atte_code='1', old_atte_value='松筒', old_price=99, legacy_id='old-charge')
+            old_field_type='06', old_atte_code='1', old_atte_value='松筒', old_price=99, source_batch=historical_batch())
         line = self.charge('1', '松筒')
         existing.refresh_from_db(); self.assertEqual(line.old_price, 2)
         self.assertEqual(existing.old_price, 2)
-        self.assertEqual(existing.legacy_id, 'old-charge')
+        self.assertEqual(existing.source_batch_id, historical_batch().pk)
 
     def test_latest_unit_controls_whole_sum_and_feel_is_excluded(self):
         self.basic('B1', '包装', 100, unit='4')
@@ -66,7 +67,7 @@ class OriginalChargeTests(TestCase):
             self.charge('1', '稀有加工')
         self.assertFalse(self.model('OrderAtte').objects.exists())
         old = self.model('OrderAtte').objects.create(old_sheet_series='O', old_check_no='CHECK', old_field_type='05',
-            old_atte_code='1', old_atte_value='稀有加工', legacy_id='old-irregular', old_price=-2)
+            old_atte_code='1', old_atte_value='稀有加工', source_batch=historical_batch(), old_price=-2)
         services.write(type(old), {'old_description': '历史异常仍保存'}, old, self.actor)
         old.refresh_from_db(); self.assertEqual(old.old_price, -2)
 
@@ -84,13 +85,13 @@ class OriginalChargeTests(TestCase):
     def test_dictionary_registration_keeps_non_numeric_old_codes_and_does_not_duplicate_name(self):
         dictionary = self.model('PFieldValidSub', 'erp_base')
         old = dictionary.objects.create(old_field_type='AtteKind', old_code='05', old_sub_code='旧项', old_sort_value=3,
-            old_name='旧项目', legacy_id='old-dictionary')
+            old_name='旧项目', source_batch=historical_batch())
         dictionary.objects.create(old_field_type='AtteKind', old_code='05', old_sub_code='9', old_sort_value=4)
         first = self.write('QuoteItemPrice', old_detail_no='Q1', old_item='新加工')
         self.write('QuoteItemPrice', old_detail_no='Q2', old_item='新加工')
         item = dictionary.objects.get(old_name='新加工')
         self.assertEqual(item.old_sub_code, '10'); self.assertEqual(item.old_sort_value, 5)
-        self.assertTrue(dictionary.objects.filter(pk=old.pk, legacy_id='old-dictionary').exists())
+        self.assertTrue(dictionary.objects.filter(pk=old.pk, source_batch=historical_batch()).exists())
 
     def test_job_quote_keeps_original_distinct_and_confirmed_gate_not_row_filter(self):
         job = self.model('JobSheet', 'erp_production').objects.create(old_sheet_series='J', old_customer_id='C', old_cust_self_product='P')

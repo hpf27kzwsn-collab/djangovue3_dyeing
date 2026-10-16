@@ -1,4 +1,5 @@
 """结案后实际收退登记与重新核对；旧结案快照和损耗始终保留。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from django.apps import apps
 from .business import locked,persist,record,snapshot
 from .source_context import SourceDocumentContext
@@ -69,7 +70,7 @@ def review(application,query):
         target=query(model.SOURCE_TABLE,model._meta.app_label).filter(pk=source['source']['id']).first()
         if target is None:continue
         data.append({'number':event['number'],'kind':event['kind'],'at':event['at'],'reason':event['reason'],
-            'entity':model._meta.label,'record_id':target.pk,'legacy_id':target.legacy_id,
+            'entity':model._meta.label,'record_id':target.pk,'source': source_reference(target),
             'after_closure':value is not None and event['number']>cursor,'active':active(type(target).objects.filter(pk=target.pk)).exists(),
             **{name:raw(target,name) for name in ['SheetNo','SheetKind','WeightQty','Rolls'] if name in target.SOURCE_FIELDS}})
     if value is not None:

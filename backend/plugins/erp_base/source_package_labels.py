@@ -1,4 +1,5 @@
 """sp_AuTo_RecordYield：投坯条码回写、全包装条码标签同步和逐字段撤回。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 import re
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -99,7 +100,7 @@ def plan(job, query=reader, lock=False, series=None):
         for employee in selected('HEmployee', 'erp_base', EmpID=raw(item, 'EmpID')):
             progress_sources[(employee._meta.label, employee.pk)] = employee
     check_scope(progress_sources.values(), query)
-    output = [{'record_id': pk, 'legacy_id': item.legacy_id, 'gray_ids': gray_candidates.get(pk, []),
+    output = [{'record_id': pk, 'source': source_reference(item), 'gray_ids': gray_candidates.get(pk, []),
         'outside_gray_scope': pk not in packages, 'before': {name: raw(item, name) for name in updates[pk]},
         'after': updates[pk]} for pk, item in sorted(targets.items())]
     report = {'report': '自动包装标签同步范围', 'target_series': series, 'rows': output, 'result_rows': cursor,

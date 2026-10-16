@@ -52,7 +52,7 @@ class MasterDataApiTests(TestCase):
         for name, fields in MODEL_FIELDS.items():
             with self.subTest(model=name):
                 model = ENTITIES['erp_base_' + name.lower()]
-                expected = {'id', *fields.split(), 'remarks', 'legacy_id', 'create_datetime', 'update_datetime'}
+                expected = {'id', *fields.split(), 'remarks', 'create_datetime', 'update_datetime'}
                 response = self.client.get('/api/meta/erp_base_' + name.lower() + '/')
                 self.assertEqual(response.status_code, 200, response.data)
                 actual = {field['key'] for field in response.data['data']['fields']}
@@ -62,13 +62,11 @@ class MasterDataApiTests(TestCase):
         self.assertEqual(self.client.get('/api/system/erp_sales_salesorder/').status_code, 200)
 
     def test_legacy_identity_and_route_status_are_read_only(self):
-        self.create('Party', {'code': 'P2', 'name': '客户二', 'legacy_id': '0002'}, 400)
         version = self.version()
         self.patch('RouteVersion', version.pk, {'status': 'active'}, 400)
-        self.patch('Party', self.party.pk, {'legacy_id': ''}, 400)
         self.patch('ColorStandard', self.create('ColorStandard', {'code': 'C1', 'color_number': '001'})['id'], {'source_sample': None}, 400)
         row = self.create('Party', {'code': 'P2', 'name': '客户二'})
-        self.assertIsNone(row['legacy_id'])
+        self.assertNotIn('legacy_id',row)
 
     def test_preserves_null_false_zero_empty_and_text_spaces(self):
         row = self.create('Party', {'code': 'P2', 'name': ' 客户二 ', 'phone': '', 'fax': None,
@@ -176,8 +174,8 @@ class MasterDataApiTests(TestCase):
         self.assertEqual(clone.status, VersionStatus.DRAFT)
         steps = list(m.RouteStep.objects.filter(route_version=clone).order_by('sequence'))
         self.assertEqual(steps[1].predecessor_id, steps[0].pk)
-        self.assertTrue(all(step.legacy_id is None for step in steps))
-        self.assertIsNone(clone.legacy_id)
+        self.assertTrue(all('legacy_id' not in {f.name for f in step._meta.fields} for step in steps))
+        self.assertNotIn('legacy_id', {f.name for f in clone._meta.fields})
         self.assertEqual(self.client.get(self.url('RouteStep', steps[1].pk)).data['data']['predecessor_label'], '1')
 
     def test_nullable_active_flag_metadata_preserves_unknown(self):

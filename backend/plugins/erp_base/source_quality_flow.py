@@ -1,4 +1,5 @@
 """对色、疵布入库及刷卡原触发规则；历史来源不自动重演。"""
+from plugins.erp_base.source_provenance import is_historical
 from datetime import datetime
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -65,7 +66,7 @@ def work_record(item, created, actor):
 
 
 def saved(item, created, actor):
-    if item.legacy_id is not None or item.source_batch_id is not None:
+    if is_historical(item):
         return
     if item.SOURCE_TABLE == 'ColoringCheck':
         coloring(item, actor)

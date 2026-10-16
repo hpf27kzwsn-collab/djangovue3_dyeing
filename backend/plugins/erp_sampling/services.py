@@ -227,7 +227,7 @@ def version_transition(item, actor, target, employee=None):
 
 
 def copied_values(item):
-    omitted = {'id', 'legacy_id', 'creator', 'modifier', 'dept_belong', 'create_datetime', 'update_datetime'}
+    omitted = {'id', 'creator', 'modifier', 'dept_belong', 'create_datetime', 'update_datetime'}
     return {f.attname: f.value_from_object(item) for f in item._meta.fields if f.name not in omitted}
 
 

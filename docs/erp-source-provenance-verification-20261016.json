@@ -1,0 +1,3618 @@
+{
+  "database": "erp_full_trial_20261014",
+  "models": 700,
+  "original_models": 589,
+  "original_fields": 12016,
+  "backup": "data-backups/remove-old-id-20261016",
+  "before_rows": 68371951,
+  "removed_columns": 701,
+  "migrations": [
+    "erp_base.0028_preserve_source_provenance",
+    "erp_base.0029_remove_businessaction_legacy_id_and_more",
+    "erp_production.0022_remove_dyebatch_legacy_id_and_more",
+    "erp_purchase.0011_remove_purchaseorder_legacy_id_and_more",
+    "erp_quality.0013_preserve_original_header_key",
+    "erp_quality.0014_remove_extra_source_ids",
+    "erp_sales.0018_remove_commercialprice_legacy_id_and_more",
+    "erp_sampling.0011_remove_processcurvestep_legacy_id_and_more",
+    "erp_warehouse.0016_remove_inventorylot_legacy_id_and_more"
+  ],
+  "tables": [
+    {
+      "model": "erp_base.BusinessAction",
+      "before": 34,
+      "after": 34
+    },
+    {
+      "model": "erp_base.BusinessUnit",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.Factory",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.Employee",
+      "before": 274,
+      "after": 274
+    },
+    {
+      "model": "erp_base.Shift",
+      "before": 33,
+      "after": 33
+    },
+    {
+      "model": "erp_base.Party",
+      "before": 182,
+      "after": 182
+    },
+    {
+      "model": "erp_base.PartyRole",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.PartyContact",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.PartyAddress",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.BusinessChoice",
+      "before": 734,
+      "after": 734
+    },
+    {
+      "model": "erp_base.Unit",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.Material",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.YarnSpecification",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.ChemicalSpecification",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.CustomerMaterial",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.Warehouse",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.StorageLocation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.WorkCenter",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.Process",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.Machine",
+      "before": 120,
+      "after": 120
+    },
+    {
+      "model": "erp_base.MachineProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.Route",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.RouteVersion",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.RouteStep",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.ColorStandard",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.PackagingSpecification",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.LabelTemplate",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.LegacyImportBatch",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "model": "erp_base.LegacySourceTable",
+      "before": 645,
+      "after": 645
+    },
+    {
+      "model": "erp_base.LegacyObjectMap",
+      "before": 1343,
+      "after": 1343
+    },
+    {
+      "model": "erp_base.LegacyImportIssue",
+      "before": 645,
+      "after": 645
+    },
+    {
+      "model": "erp_base.SourceDboAA",
+      "before": 419,
+      "after": 419
+    },
+    {
+      "model": "erp_base.SourceDboAAA",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDboAAKC1",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDboABC",
+      "before": 439,
+      "after": 439
+    },
+    {
+      "model": "erp_base.SourceDboADD",
+      "before": 420,
+      "after": 420
+    },
+    {
+      "model": "erp_base.SourceDboAEE",
+      "before": 265,
+      "after": 265
+    },
+    {
+      "model": "erp_base.SourceDboC",
+      "before": 12,
+      "after": 12
+    },
+    {
+      "model": "erp_base.SourceDboCbbz1109",
+      "before": 51,
+      "after": 51
+    },
+    {
+      "model": "erp_base.SourceDboCkpd20221024",
+      "before": 409,
+      "after": 409
+    },
+    {
+      "model": "erp_base.SourceDboCkpd20221024bak",
+      "before": 406,
+      "after": 406
+    },
+    {
+      "model": "erp_base.SourceDboCkpd20221027",
+      "before": 68,
+      "after": 68
+    },
+    {
+      "model": "erp_base.SourceDboCksgz20221024",
+      "before": 387,
+      "after": 387
+    },
+    {
+      "model": "erp_base.SourceDboCpdqkc20221024",
+      "before": 244,
+      "after": 244
+    },
+    {
+      "model": "erp_base.SourceDboDXCHANLIANG",
+      "before": 5645,
+      "after": 5645
+    },
+    {
+      "model": "erp_base.SourceDboHypf",
+      "before": 355675,
+      "after": 355675
+    },
+    {
+      "model": "erp_base.SourceDboItbak20221120",
+      "before": 444,
+      "after": 444
+    },
+    {
+      "model": "erp_base.SourceDboItbak20221121",
+      "before": 444,
+      "after": 444
+    },
+    {
+      "model": "erp_base.SourceDboJxtbzyq",
+      "before": 9,
+      "after": 9
+    },
+    {
+      "model": "erp_base.SourceDboJxtkckh",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDboNHTJ",
+      "before": 210,
+      "after": 210
+    },
+    {
+      "model": "erp_base.SourceDboPbpd20230422",
+      "before": 512,
+      "after": 512
+    },
+    {
+      "model": "erp_base.SourceDboPS20221218",
+      "before": 80,
+      "after": 80
+    },
+    {
+      "model": "erp_base.SourceDboRansechugangtongji",
+      "before": 3749,
+      "after": 3749
+    },
+    {
+      "model": "erp_base.SourceDboRansetongji",
+      "before": 515,
+      "after": 515
+    },
+    {
+      "model": "erp_base.SourceDboRCDDZJB",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDboShda",
+      "before": 58930,
+      "after": 58930
+    },
+    {
+      "model": "erp_base.SourceDboSHIFT",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDboSHLEIXING",
+      "before": 20,
+      "after": 20
+    },
+    {
+      "model": "erp_base.SourceDboTmp20221104",
+      "before": 264,
+      "after": 264
+    },
+    {
+      "model": "erp_base.SourceDboXxtcbkc20221023",
+      "before": 19,
+      "after": 19
+    },
+    {
+      "model": "erp_base.SourceDboXxtzzp20221024",
+      "before": 259,
+      "after": 259
+    },
+    {
+      "model": "erp_base.SourceDboZhenzhibaobiao",
+      "before": 84,
+      "after": 84
+    },
+    {
+      "model": "erp_base.SourceDboZJHXMXBB",
+      "before": 2121,
+      "after": 2121
+    },
+    {
+      "model": "erp_base.SourceDyeACGroup",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeAcholiday",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeACUnlockComb",
+      "before": 10,
+      "after": 10
+    },
+    {
+      "model": "erp_base.SourceDyeAPPUploadFilesInfo",
+      "before": 7,
+      "after": 7
+    },
+    {
+      "model": "erp_base.SourceDyeAPPUploadFilesInfoDel",
+      "before": 5,
+      "after": 5
+    },
+    {
+      "model": "erp_base.SourceDyeArrivalNotice",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeArrivalNoticeDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeAttachment",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "model": "erp_base.SourceDyeAttParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeAuditedExc",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeAUTHDEVICE",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeBalancingConditions",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeBaseCase",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_base.SourceDyeBaseCaseDetail",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "model": "erp_base.SourceDyeBiotemplate",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeClockShift",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeCompensatedetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeCompensatemain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeCookIn",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeDEPARTMENTS",
+      "before": 14,
+      "after": 14
+    },
+    {
+      "model": "erp_base.SourceDyeDeptUsedSchs",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeDyeProcessPrice",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeEmpRoom",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeEnableCard",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeEXCNOTES",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeFaceTemp",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeFeelOfferDetail",
+      "before": 2388,
+      "after": 2388
+    },
+    {
+      "model": "erp_base.SourceDyeFeelOfferMain",
+      "before": 29,
+      "after": 29
+    },
+    {
+      "model": "erp_base.SourceDyeFixedCanDetail",
+      "before": 5,
+      "after": 5
+    },
+    {
+      "model": "erp_base.SourceDyeFixedCanRecord",
+      "before": 5,
+      "after": 5
+    },
+    {
+      "model": "erp_base.SourceDyeGetJobSheetReceive",
+      "before": 15732,
+      "after": 15732
+    },
+    {
+      "model": "erp_base.SourceDyeGWName",
+      "before": 45,
+      "after": 45
+    },
+    {
+      "model": "erp_base.SourceDyeHContract",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHEmpAppNotice",
+      "before": 130,
+      "after": 130
+    },
+    {
+      "model": "erp_base.SourceDyeHEmpDeptPerm",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHEmployee",
+      "before": 274,
+      "after": 274
+    },
+    {
+      "model": "erp_base.SourceDyeHEmployee2",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHEmployeeIORecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHEmpRole",
+      "before": 53,
+      "after": 53
+    },
+    {
+      "model": "erp_base.SourceDyeHLeave",
+      "before": 23,
+      "after": 23
+    },
+    {
+      "model": "erp_base.SourceDyeHPositionChange",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHRewardPunish",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHSalaryAttend",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHOLIDAYS",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHuman",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeITMANAGE",
+      "before": 452,
+      "after": 452
+    },
+    {
+      "model": "erp_base.SourceDyeKindLimit",
+      "before": 5,
+      "after": 5
+    },
+    {
+      "model": "erp_base.SourceDyeKQ",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeKQQuery",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeLeaveClass",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeLeaveClass1",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeLimit",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_base.SourceDyeLossBill",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "before": 10,
+      "after": 10
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjustDetail",
+      "before": 11,
+      "after": 11
+    },
+    {
+      "model": "erp_base.SourceDyeNoLimit",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeNUMRUN",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeNUMRUNDEIL",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePArticle",
+      "before": 399,
+      "after": 399
+    },
+    {
+      "model": "erp_base.SourceDyePArticleStorageUnitID",
+      "before": 208,
+      "after": 208
+    },
+    {
+      "model": "erp_base.SourceDyePAtteSub",
+      "before": 102,
+      "after": 102
+    },
+    {
+      "model": "erp_base.SourceDyePAtteType",
+      "before": 5,
+      "after": 5
+    },
+    {
+      "model": "erp_base.SourceDyePAuxRule",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePAuxRuleDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePBalanceType",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePColorNum",
+      "before": 41706,
+      "after": 41706
+    },
+    {
+      "model": "erp_base.SourceDyePCommissionRatio",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCommMethod",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCommModule",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCommPort",
+      "before": 11,
+      "after": 11
+    },
+    {
+      "model": "erp_base.SourceDyePCook",
+      "before": 208,
+      "after": 208
+    },
+    {
+      "model": "erp_base.SourceDyePCraftParam",
+      "before": 34,
+      "after": 34
+    },
+    {
+      "model": "erp_base.SourceDyePCraftPParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustAddress",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustCategory",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustLinker",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustomer",
+      "before": 182,
+      "after": 182
+    },
+    {
+      "model": "erp_base.SourceDyePCustRelation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePDept",
+      "before": 11,
+      "after": 11
+    },
+    {
+      "model": "erp_base.SourceDyePDyeCurve",
+      "before": 21,
+      "after": 21
+    },
+    {
+      "model": "erp_base.SourceDyePDyeCurveDetail",
+      "before": 119,
+      "after": 119
+    },
+    {
+      "model": "erp_base.SourceDyePDyeProgram",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePDyeProgramDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFabric",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFabricCust",
+      "before": 50,
+      "after": 50
+    },
+    {
+      "model": "erp_base.SourceDyePFabricFact",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFabricOther",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFeelCode",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFieldMemo",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_base.SourceDyePFieldValid",
+      "before": 827,
+      "after": 827
+    },
+    {
+      "model": "erp_base.SourceDyePFieldValidSub",
+      "before": 175,
+      "after": 175
+    },
+    {
+      "model": "erp_base.SourceDyePFieldValidSubCust",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePGray",
+      "before": 648,
+      "after": 648
+    },
+    {
+      "model": "erp_base.SourceDyePGrayBak",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePITOnRest",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePITWatch",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePLable",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachine",
+      "before": 120,
+      "after": 120
+    },
+    {
+      "model": "erp_base.SourceDyePMachineColor",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachineFaultClass",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "model": "erp_base.SourceDyePMachineFaultStatus",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_base.SourceDyePMachinePart",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachinePoint",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachinePort",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachineProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachineProd",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachineShift",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMeter",
+      "before": 8,
+      "after": 8
+    },
+    {
+      "model": "erp_base.SourceDyePMeterAlarm",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMeterMachine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPDesign",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPDesignDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPDesignSet",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPriceList",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListAtte",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListColor",
+      "before": 8,
+      "after": 8
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListProcess",
+      "before": 9,
+      "after": 9
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListVat",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcess",
+      "before": 18,
+      "after": 18
+    },
+    {
+      "model": "erp_base.SourceDyePProcessArea",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessChemical",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessCraft",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessCraft1",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessDefect",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessPCraft",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessPrice",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProduct",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePShift",
+      "before": 33,
+      "after": 33
+    },
+    {
+      "model": "erp_base.SourceDyePShiftArrange",
+      "before": 12,
+      "after": 12
+    },
+    {
+      "model": "erp_base.SourceDyePShiftArrangeDetail",
+      "before": 1460,
+      "after": 1460
+    },
+    {
+      "model": "erp_base.SourceDyePShiftEmp",
+      "before": 156,
+      "after": 156
+    },
+    {
+      "model": "erp_base.SourceDyePShiftMachine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePStorageUnitID",
+      "before": 833,
+      "after": 833
+    },
+    {
+      "model": "erp_base.SourceDyePStuff",
+      "before": 329,
+      "after": 329
+    },
+    {
+      "model": "erp_base.SourceDyePStuffStorageUnitID",
+      "before": 13,
+      "after": 13
+    },
+    {
+      "model": "erp_base.SourceDyePVehicle",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePWareHouse",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPasteDosage",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPasteDosageDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePrintDipsRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePrintScreen",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePrintScreenDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyePrintScreenRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeReportItem",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeRequestLimit",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_base.SourceDyeSAccMonth",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSAutoID",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSCorpTitle",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSDataLink",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTable",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableField",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSDBCombo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSDBComboValue",
+      "before": 403,
+      "after": 403
+    },
+    {
+      "model": "erp_base.SourceDyeSFieldRight",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSFlow",
+      "before": 10,
+      "after": 10
+    },
+    {
+      "model": "erp_base.SourceDyeSFlowRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSFlowStep",
+      "before": 16,
+      "after": 16
+    },
+    {
+      "model": "erp_base.SourceDyeSFlowStepEmp",
+      "before": 26,
+      "after": 26
+    },
+    {
+      "model": "erp_base.SourceDyeSFlowTask",
+      "before": 15285,
+      "after": 15285
+    },
+    {
+      "model": "erp_base.SourceDyeSFormParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSFunctions",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSFuncUser",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSGridColumnParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSGridParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSLookup",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSModule",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSPanelParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSPermission",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSPivotGridColumnParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSPivotGridParam",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSQuerySQL",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSRevision",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSRevisionDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSRoles",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSRptInfo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSRptMenu",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSRptRight",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSSaveMessRule",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSSaveMessRuleDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSSheetNo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSSysParams",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSUINav",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSchClass",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSHIFT",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSHOUPITONGZHIDAN",
+      "before": 204,
+      "after": 204
+    },
+    {
+      "model": "erp_base.SourceDyeStaffEstablishing",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSwipeEmpEdit",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_base.SourceDyeSwipeEmpEditDetail",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_base.SourceDyeTBKEY",
+      "before": 36,
+      "after": 36
+    },
+    {
+      "model": "erp_base.SourceDyeTBSMSALLOT",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeTBSMSINFO",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeTEMPLATE",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeUSEROFRUN",
+      "before": 231,
+      "after": 231
+    },
+    {
+      "model": "erp_base.SourceDyeUSERSPEDAY",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeUSERTEMPSCH",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeUSERINFO",
+      "before": 159,
+      "after": 159
+    },
+    {
+      "model": "erp_base.SourceDyeUserUsedSClasses",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceDyeYunfeibiaozhun",
+      "before": 39,
+      "after": 39
+    },
+    {
+      "model": "erp_base.SourceDyeZRevisionDetail",
+      "before": 54372853,
+      "after": 54372853
+    },
+    {
+      "model": "erp_base.SourceDyeZRevisionKey",
+      "before": 3126513,
+      "after": 3126513
+    },
+    {
+      "model": "erp_base.SourceDyeZKAttendanceMonthStatistics",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_base.SourceIdentitySequence",
+      "before": 17,
+      "after": 17
+    },
+    {
+      "model": "erp_base.SourceDocumentContext",
+      "before": 0,
+      "after": 13
+    },
+    {
+      "model": "erp_base.SourceBusinessParameter",
+      "before": 13,
+      "after": 13
+    },
+    {
+      "model": "erp_sales.SalesOrder",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SalesOrderLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SalesLineRequirement",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SalesOrderChange",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SalesOrderChangeLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.CommercialPrice",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.CommercialPriceLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.Delivery",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.DeliveryLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SalesReturn",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SalesReturnLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.CustomerComplaint",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.CustomerComplaintLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeClothGetMoney",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeClothGetMoneyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeCusAddPrice",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeCusAddPriceDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeCusBasicsPrice",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_sales.SourceDyeCusBasicsPriceDetail",
+      "before": 48,
+      "after": 48
+    },
+    {
+      "model": "erp_sales.SourceDyeCusExtraCharge",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerNoLimit",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerTS",
+      "before": 114,
+      "after": 114
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerTSDetail",
+      "before": 373,
+      "after": 373
+    },
+    {
+      "model": "erp_sales.SourceDyeFixedPrice",
+      "before": 20,
+      "after": 20
+    },
+    {
+      "model": "erp_sales.SourceDyeFixedPriceAtte",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeFixedPriceDetail",
+      "before": 847,
+      "after": 847
+    },
+    {
+      "model": "erp_sales.SourceDyeFixedPriceProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderAssign",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderAssign2",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderAtte",
+      "before": 62895,
+      "after": 62895
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderColor",
+      "before": 80053,
+      "after": 80053
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderCombine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderDlvApply",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderDlvApplyLock",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderDlvApplySheet",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderFee",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderInfo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderInfoProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderMain",
+      "before": 17032,
+      "after": 17032
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderPriceProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderProcessPre",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyePriceAdjust",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyePriceAdjustDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeQuote",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeQuoteAtte",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeQuoteDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeQuoteItemPrice",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_sales.SourceDyeQuotePriceAtte",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "model": "erp_sales.SourceDyeQuotePriceProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeRCORDERCOLOR",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeRCORDERMAIN",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeZDAddPrice",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeZDAddPriceDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.PurchaseRequest",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.PurchaseRequestLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.PurchaseOrder",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.PurchaseOrderLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.PurchaseReturn",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.PurchaseReturnLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyeArticlePurDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyeArticlePurMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyeFabricPurDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyeFabricPurMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyePurApplyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyePurApplyMain",
+      "before": 407,
+      "after": 407
+    },
+    {
+      "model": "erp_purchase.SourceDyePurDetail",
+      "before": 580,
+      "after": 580
+    },
+    {
+      "model": "erp_purchase.SourceDyePurMain",
+      "before": 377,
+      "after": 377
+    },
+    {
+      "model": "erp_purchase.SourceDyeStuffPurDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyeStuffPurMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SampleRequest",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SampleLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SampleTrial",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SampleConfirmation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.Recipe",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.RecipeVersion",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.RecipeStage",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.RecipeIngredient",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.ProcessCurveVersion",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.ProcessCurveStep",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDboBackDyeRecipePhase",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeAddDyeWProcessStep",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorCard",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorCardDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorCardFlow",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorChangeRisk",
+      "before": 4,
+      "after": 4
+    },
+    {
+      "model": "erp_sampling.SourceDyeCptLabRecipe",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeCptLabRecipeDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeCurSmpPrescriptEntry",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeColor",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecord",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordDetail",
+      "before": 26,
+      "after": 26
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordEmp",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordNote",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordPhase",
+      "before": 26,
+      "after": 26
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabAtte",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabColor",
+      "before": 20974,
+      "after": 20974
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabColorRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabMain",
+      "before": 6502,
+      "after": 6502
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeProduceItem",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "before": 65678,
+      "after": 65678
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipeDetail",
+      "before": 541217,
+      "after": 541217
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipeJob",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipePhase",
+      "before": 197837,
+      "after": 197837
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeReprint",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeStartDateTime",
+      "before": 78179,
+      "after": 78179
+    },
+    {
+      "model": "erp_sampling.SourceDyeLabDips",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparate",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparateDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparateRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTest",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTestColor",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTestDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTestStuff",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintLabAttach",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintLabAtte",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintLabMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintRecipe",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintRecipeColor",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintRecipeDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePTSampleRegist",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePTSampleRegistAtte",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyePTSampleRegistDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleChoice",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleIn",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleInDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleOut",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleOutDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleStockBook",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeSmpPrescriptEntry",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeYeDye",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.PhysicalBatchExecution",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.PhysicalExecutionCorrection",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WorkCard",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WorkCardOrderAllocation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.DyeBatch",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.DyeBatchWorkCard",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.DyeBatchAllocation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WorkCardOperation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.OperationParameter",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WorkCardRequirement",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.ScheduleAssignment",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.OperationExecution",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.ExecutionWorker",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.ExecutionMeasurement",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.ExecutionCorrection",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.ProductionRecipe",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.MaterialPlanStage",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.MaterialPlanLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WeighingOrder",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WeighingStage",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WeighingLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.WeighingRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.ReworkOrder",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeColorShiftEmp",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeDPWorkQty",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeEEnergyDay",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeEYardMeterGether",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeEmpShiftClock",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeEnergyConsumption",
+      "before": 664,
+      "after": 664
+    },
+    {
+      "model": "erp_production.SourceDyeEnergyConsumptionDetail",
+      "before": 5242,
+      "after": 5242
+    },
+    {
+      "model": "erp_production.SourceDyeEnergyRecords",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeGetClothNotice",
+      "before": 4,
+      "after": 4
+    },
+    {
+      "model": "erp_production.SourceDyeGetClothNoticeDetail",
+      "before": 8,
+      "after": 8
+    },
+    {
+      "model": "erp_production.SourceDyeGrayReturnApply",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeGrayReturnApplyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeHSalaryWorkQty",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeHSalaryWorkShift",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeHSJobsheetNo",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "model": "erp_production.SourceDyeJingShaRegister",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "model": "erp_production.SourceDyeJingShaRegisterDetail",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_production.SourceDyeJobAssign",
+      "before": 14934,
+      "after": 14934
+    },
+    {
+      "model": "erp_production.SourceDyeJobAtte",
+      "before": 89328,
+      "after": 89328
+    },
+    {
+      "model": "erp_production.SourceDyeJobColor",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobCombine",
+      "before": 61,
+      "after": 61
+    },
+    {
+      "model": "erp_production.SourceDyeJobCombineOrder",
+      "before": 91455,
+      "after": 91455
+    },
+    {
+      "model": "erp_production.SourceDyeJobExceptions",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobGrayRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobInWareEdit",
+      "before": 558,
+      "after": 558
+    },
+    {
+      "model": "erp_production.SourceDyeJobMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobOutWareEdit",
+      "before": 576,
+      "after": 576
+    },
+    {
+      "model": "erp_production.SourceDyeJobPreRegist",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobProcess",
+      "before": 473531,
+      "after": 473531
+    },
+    {
+      "model": "erp_production.SourceDyeJobProcessPre",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "before": 92538,
+      "after": 92538
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetMasrkCar",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetNoRushOrder",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetOther",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetReceive",
+      "before": 58162,
+      "after": 58162
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetRegister",
+      "before": 75653,
+      "after": 75653
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetSchedule",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobShiftEmp",
+      "before": 533166,
+      "after": 533166
+    },
+    {
+      "model": "erp_production.SourceDyeJobShiftEmpBak",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeJobStartRollNo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCarePlan",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCarePlanDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCareProject",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCareRecords",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCase",
+      "before": 4,
+      "after": 4
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCaseDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCaseProject",
+      "before": 40,
+      "after": 40
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFault",
+      "before": 18,
+      "after": 18
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFaultArticleInfo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFaultComment",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFaultFilter",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFaultRecord",
+      "before": 50,
+      "after": 50
+    },
+    {
+      "model": "erp_production.SourceDyeMachines",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMoveShiftBill",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeOutWorkApply",
+      "before": 46,
+      "after": 46
+    },
+    {
+      "model": "erp_production.SourceDyeOutWorkApplyDetail",
+      "before": 46,
+      "after": 46
+    },
+    {
+      "model": "erp_production.SourceDyePlanDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyePlanMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyePrePlanOrder",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeProcessCraft",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeProcessCraftJobNo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeProcessCraftOrderNo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeProcessSchedule",
+      "before": 139,
+      "after": 139
+    },
+    {
+      "model": "erp_production.SourceDyeProcessSchedulebak",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyePStuffWeight",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyePStuffWeightDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyePStuffWeightPhase",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeRecordEmp",
+      "before": 577705,
+      "after": 577705
+    },
+    {
+      "model": "erp_production.SourceDyeSalaryChanges",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeSalaryChangesDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeSemiOutWorkApply",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeSemiOutWorkApplyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeShiftArrange",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "model": "erp_production.SourceDyeShiftArrangeDetail",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_production.SourceDyeShiftPlan",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeShiftPlanDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraft",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraftBeforeDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraftDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraftJobNo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeSterotypeTech",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStuffCombineSheets",
+      "before": 367306,
+      "after": 367306
+    },
+    {
+      "model": "erp_production.SourceDyeStuffDeptApply",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStuffDeptApplyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStuffOutApply",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStuffOutApplyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "before": 248051,
+      "after": 248051
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeightDetail",
+      "before": 1204177,
+      "after": 1204177
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeightJobSheetNo",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeightPhase",
+      "before": 537050,
+      "after": 537050
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeightPrint",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeTightTube",
+      "before": 1194,
+      "after": 1194
+    },
+    {
+      "model": "erp_production.SourceDyeTightTubeDetail",
+      "before": 1197,
+      "after": 1197
+    },
+    {
+      "model": "erp_production.SourceDyeTightTubePlan",
+      "before": 143,
+      "after": 143
+    },
+    {
+      "model": "erp_production.SourceDyeTightTubePlanDetail",
+      "before": 146,
+      "after": 146
+    },
+    {
+      "model": "erp_production.SourceDyeUserACMachines",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeUsersMachines",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeWashTheTankDye",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeWProcess",
+      "before": 389052,
+      "after": 389052
+    },
+    {
+      "model": "erp_production.SourceDyeWProcessBak",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeWProcessStep",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeWProcessStepBak",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeWVehicle",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_production.SourceDyeWWorkRecord",
+      "before": 3058,
+      "after": 3058
+    },
+    {
+      "model": "erp_production.SourceDyeWWorkTime",
+      "before": 2949,
+      "after": 2949
+    },
+    {
+      "model": "erp_warehouse.InventoryLot",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockReceipt",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockReceiptLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockIssue",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockIssueLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.InventoryMovement",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockBalance",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockTransfer",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockTransferLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockCount",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockCountLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockAdjustment",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.StockAdjustmentLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.LotTransformation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.LotTransformationLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.Package",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.PackageDispositionAllocation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.PackageOrderAllocation",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.LabelPrint",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDboProdin1029",
+      "before": 424,
+      "after": 424
+    },
+    {
+      "model": "erp_warehouse.SourceDyeAProdRecord",
+      "before": 7,
+      "after": 7
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleDeptApply",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleDeptApplyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleIn",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleInDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOut",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutApply",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutApplyDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStock",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStockAdjust",
+      "before": 11,
+      "after": 11
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStockAdjustDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStockBook",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeCarryMaterial",
+      "before": 3320,
+      "after": 3320
+    },
+    {
+      "model": "erp_warehouse.SourceDyeCarryMaterialDetail",
+      "before": 74959,
+      "after": 74959
+    },
+    {
+      "model": "erp_warehouse.SourceDyeCookInDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeDyeStuffOut",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeDyeStuffOutDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayBalance",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayBalanceDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "before": 4032,
+      "after": 4032
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayInDefect",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayInDetail",
+      "before": 46424,
+      "after": 46424
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayInRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayMaterial",
+      "before": 3895,
+      "after": 3895
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayMaterialDetail",
+      "before": 74109,
+      "after": 74109
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "before": 6013,
+      "after": 6013
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOutDetail",
+      "before": 6023,
+      "after": 6023
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOutRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayPostionUp",
+      "before": 1297,
+      "after": 1297
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayRecordCutLogs",
+      "before": 173,
+      "after": 173
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStock",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAdjust",
+      "before": 167,
+      "after": 167
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAdjustDetail",
+      "before": 873,
+      "after": 873
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAllot",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockBook",
+      "before": 53208,
+      "after": 53208
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockCheck",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockSpecUp",
+      "before": 29,
+      "after": 29
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockSpecUpDetail",
+      "before": 29,
+      "after": 29
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStorageAdjust",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStorageAdjustDetail",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStorageAdjustRecord",
+      "before": 32,
+      "after": 32
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMIn",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMInDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMInRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMOut",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMOutDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMOutRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOtherIn",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOtherInDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutGoingBill",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutGoingBillDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutPlan",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutPlanDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackQty",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackQty1",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkQty",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkQty1",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkQtyDetail",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkSumQty",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "before": 78114,
+      "after": 78114
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInTo",
+      "before": 110,
+      "after": 110
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInPDARecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInPriceAtte",
+      "before": 1642,
+      "after": 1642
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInPriceProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInRecord",
+      "before": 191018,
+      "after": 191018
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdLoading",
+      "before": 12,
+      "after": 12
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdLoadingDetail",
+      "before": 3989,
+      "after": 3989
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOut",
+      "before": 4964,
+      "after": 4964
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutDetail",
+      "before": 190463,
+      "after": 190463
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutPDARecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutPriceAtte",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutPriceProcess",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStock",
+      "before": 49,
+      "after": 49
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAdjust",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAdjustDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAllot",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockBook",
+      "before": 268577,
+      "after": 268577
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockCheck",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockCheckDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStorageAdjust",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStorageAdjustDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStorageAdjustRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "before": 377215,
+      "after": 377215
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiAxisBook",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiAxisRemain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "before": 12380,
+      "after": 12380
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiInDetail",
+      "before": 135140,
+      "after": 135140
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiInRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOut",
+      "before": 61740,
+      "after": 61740
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOutDetail",
+      "before": 76073,
+      "after": 76073
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOutRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiPostionUp",
+      "before": 2406,
+      "after": 2406
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStock",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockAdjust",
+      "before": 1481,
+      "after": 1481
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockAdjustDetail",
+      "before": 28294,
+      "after": 28294
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockBook",
+      "before": 215462,
+      "after": 215462
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockSpecUp",
+      "before": 53,
+      "after": 53
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockSpecUpDetail",
+      "before": 67,
+      "after": 67
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStep",
+      "before": 70,
+      "after": 70
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffAllot",
+      "before": 87,
+      "after": 87
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffAllotDetail",
+      "before": 1054,
+      "after": 1054
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffChange",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffIn",
+      "before": 701,
+      "after": 701
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffInDetail",
+      "before": 2128,
+      "after": 2128
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffOut",
+      "before": 243535,
+      "after": 243535
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffOutDetail",
+      "before": 1097595,
+      "after": 1097595
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStock",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStockAdjust",
+      "before": 15,
+      "after": 15
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStockAdjustDetail",
+      "before": 4053,
+      "after": 4053
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStockBook",
+      "before": 1103776,
+      "after": 1103776
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSwipeLabelPrint",
+      "before": 41461,
+      "after": 41461
+    },
+    {
+      "model": "erp_warehouse.SourceDyeUrgentInStruct",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeUrgentInStructDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWareHouseProdCount",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWeightTechInfo",
+      "before": 6,
+      "after": 6
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWidthGramWeight",
+      "before": 18,
+      "after": 18
+    },
+    {
+      "model": "erp_quality.QualityQuantityBatch",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_quality.QualityQuantitySource",
+      "before": 401,
+      "after": 401
+    },
+    {
+      "model": "erp_quality.QualityInspection",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.InspectionResultLine",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.QualityDisposition",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.QualityDefect",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeCHECKEXACT",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeCHECKINOUT",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeColoringCheck",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveIn",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveInDetail",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveInRecord",
+      "before": 3,
+      "after": 3
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveOut",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveOutDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveOutRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeDyeCheck",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeDyeCheckout",
+      "before": 80778,
+      "after": 80778
+    },
+    {
+      "model": "erp_quality.SourceDyeFARDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeFARMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeFARRecord",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeInspectionLog",
+      "before": 7,
+      "after": 7
+    },
+    {
+      "model": "erp_quality.SourceDyeInspectionLogDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeInspectionProject",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyePTestItem",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityAccident",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityDeduction",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityRegister",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeRecordDefect",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeTestDetail",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeTestMain",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "before": 11026,
+      "after": 11026
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefectPenalty",
+      "before": 571,
+      "after": 571
+    },
+    {
+      "model": "erp_quality.SourceDyeZhijianwenti",
+      "before": 44,
+      "after": 44
+    }
+  ],
+  "quality_rows_verified": 401,
+  "full_field_comparisons": [
+    {
+      "table": "dye.p_Customer",
+      "rows": 182,
+      "field_comparisons": 12376
+    },
+    {
+      "table": "dye.p_FieldValid",
+      "rows": 827,
+      "field_comparisons": 20675
+    },
+    {
+      "table": "dye.p_Shift",
+      "rows": 33,
+      "field_comparisons": 726
+    },
+    {
+      "table": "dye.s_DBComboValue",
+      "rows": 403,
+      "field_comparisons": 1612
+    },
+    {
+      "table": "dye.s_FlowStep",
+      "rows": 16,
+      "field_comparisons": 416
+    },
+    {
+      "table": "dye.GrayRecordCutLogs",
+      "rows": 173,
+      "field_comparisons": 2768
+    }
+  ],
+  "api_checks": [
+    {
+      "entity": "erp_base_sourcedyepcustomer",
+      "status": 200
+    },
+    {
+      "entity": "erp_base_businesschoice",
+      "status": 200
+    },
+    {
+      "entity": "erp_quality_qualityquantitysource",
+      "status": 200
+    },
+    {
+      "action": "original_table_export",
+      "status": 200
+    }
+  ],
+  "completed": true,
+  "code_verification": {
+    "final_nine_migration_clean_install": "passed",
+    "seeded_old_schema_upgrade": "passed",
+    "django_system_check": "passed",
+    "migration_drift": "No changes detected",
+    "frontend_typecheck_and_build": "passed",
+    "full_regression": {
+      "executed": 749,
+      "passed": 745,
+      "errors": 4,
+      "status": "all errors corrected and rerun",
+      "note": "One failed module import represented 12 undiscovered cases; three individual test fixtures or assertions used the old format."
+    },
+    "current_discovered_tests": 760,
+    "corrected_modules_rerun": {
+      "executed": 29,
+      "passed": 29,
+      "seconds": 11.939
+    },
+    "final_targeted_runs": [
+      {
+        "scope": "original keys and full-field comparison",
+        "executed": 7,
+        "passed": 7
+      },
+      {
+        "scope": "master adoption and original row preservation",
+        "executed": 6,
+        "passed": 6
+      },
+      {
+        "scope": "package labels, dye steps, foundation completion",
+        "executed": 64,
+        "passed": 64
+      },
+      {
+        "scope": "cross-card, delivery, purchase quality, rework, sample flow lineage",
+        "executed": 102,
+        "passed": 102
+      }
+    ],
+    "coverage_note": "760 cases covered across the full run and correction reruns, not a single all-green full run. Targeted suites overlap and are not added to the total.",
+    "unresolved_test_failures": 0
+  }
+}

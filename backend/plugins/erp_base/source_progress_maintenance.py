@@ -1,4 +1,5 @@
 """全库空进度维护：逐卡计算、预览及有审计的回写。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 import re
 from django.db import transaction
@@ -64,7 +65,7 @@ def maintain(actor,apply,at,reason,query=rows):
         processes=[] if raw(job,'SheetSeries') is None else grouped[key(raw(job,'SheetSeries'))]
         values,issues=planned_values(processes)
         changes={name:value for name,value in values.items() if raw(job,name)!=value}
-        result['rows'].append({'job_id':job.pk,'legacy_id':job.legacy_id,'JobSheetNo':raw(job,'SheetNo'),
+        result['rows'].append({'job_id':job.pk,'source': source_reference(job),'JobSheetNo':raw(job,'SheetNo'),
             'process_count':len(processes),'changes':changes,'result':'已回写' if apply and changes else '待回写' if changes else '无需改变'})
         result['supplemental_rows'].extend({'job_id':job.pk,**issue} for issue in issues)
         if apply and changes:

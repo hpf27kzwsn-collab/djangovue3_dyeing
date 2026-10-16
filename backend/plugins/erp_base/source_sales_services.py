@@ -1,4 +1,5 @@
 """订单变更到工卡、调价到确价；保存触发与审核动作按原程序分别办理。"""
+from plugins.erp_base.source_provenance import is_historical
 from datetime import datetime
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -79,7 +80,7 @@ def saved(item, data, created, actor):
     if item.SOURCE_TABLE=='QuoteDetail':
         from .source_quote_rules import saved as quote_saved
         quote_saved(item,data,created,actor)
-    if item.source_batch_id is not None or item.legacy_id is not None:
+    if is_historical(item):
         return
     fields = set(item.SOURCE_FIELDS) if created else {old for old, key in item.SOURCE_FIELDS.items() if key in data}
     if item.SOURCE_TABLE in ['OrderMain', 'OrderColor']:
@@ -89,7 +90,7 @@ def saved(item, data, created, actor):
 
 
 def adjustment_audit(item, actor, approved):
-    if item.SOURCE_TABLE != 'PriceAdjust' or item.source_batch_id is not None or item.legacy_id is not None:
+    if item.SOURCE_TABLE != 'PriceAdjust' or is_historical(item):
         return
     for line in matching(rows('PriceAdjustDetail'), SheetSeries=raw(item, 'SheetSeries')).order_by('pk'):
         values = {'AdjustPrice': raw(line, 'AdjustPrice'), 'StartDate': raw(item, 'StartDate'), 'DateType': raw(item, 'DateType')} if approved else {

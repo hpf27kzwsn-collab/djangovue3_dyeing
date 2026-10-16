@@ -53,28 +53,46 @@ def import_row(batch,table,row,actor):
     model,fields,conversions=RULES[table.table_name]
     label=model._meta.label
     if table.table_name=='p_FieldValid' and row['values']['FieldType'] in FINANCE_CHOICES:return None
+    # 原形模型逐行承接，转换到通用主档失败也不丢原行或合并重复记录。
+    from .source_import import source_model
+    original_model=source_model(table)
+    from .source_import import original_values
+    raw=original_values(original_model,row)
+    original,created=original_model.objects.get_or_create(source_batch=batch,source_row=row['row'],defaults={
+        **raw,
+        'approval_stage':None,'creator':actor,'modifier':actor,'dept_belong_id':actor.dept_id})
+    persist(LegacyObjectMap.objects.get_or_create(source_table=table,row_number=row['row'],target_model=original_model._meta.label,
+        defaults={'source_key':row['key'],'target_id':original.pk,'mapped_fields':{
+            original_model.SOURCE_FIELDS[k]:{'source':k,'conversion':'identity'} for k in row['values']}})[0],actor)
     if row['key'] is None:
-        issue(batch,table,actor,'no_primary_key','没有原主键，保留完整来源，不伪造旧系统id。',row,label);return None
+        issue(batch,table,actor,'no_primary_key','没有原主键，已逐行承接原形模型；不按业务码合并到通用主档。',row,label);return original
     previous=LegacyObjectMap.objects.filter(source_table=table,row_number=row['row'],target_model=label).first()
     if previous is not None:return model.objects.get(pk=previous.target_id)
-    legacy=json.dumps({'schema':table.schema_name,'table':table.table_name,'key':row['key']},ensure_ascii=False,sort_keys=True,separators=(',',':'))
     values={};mapping={}
     for field,source in fields.items():
         mapping[field]={'source':source,'conversion':conversions.get(field,'identity')}
         try:values[field]=comparison_value(model._meta.get_field(field),row['values'][source],mapping[field]['conversion'])
         except ValidationError as error:
-            issue(batch,table,actor,'source_value',str(error),row,label,field,row['values'][source]);return None
-    existing=model.objects.filter(legacy_id=legacy).first()
+            issue(batch,table,actor,'source_value',str(error),row,label,field,row['values'][source]);return original
+    mappings=LegacyObjectMap.objects.filter(source_table__batch__database_name=batch.database_name,
+        source_table__schema_name=table.schema_name,source_table__table_name=table.table_name,
+        source_key=row['key'],target_model=label)
+    if mappings.filter(source_table=table).exists():
+        issue(batch,table,actor,'duplicate_source_key','同批次重复原键已分别承接原形模型，不合并原行。',row,label);return original
+    targets=list(mappings.order_by().values_list('target_id',flat=True).distinct())
+    if len(targets)>1:
+        issue(batch,table,actor,'ambiguous_source_key','原键对应多个已采用主档；原行已承接，不猜测覆盖。',row,label);return original
+    existing=model.objects.get(pk=targets[0]) if targets else None
     if existing is not None:
         changed=[key for key,value in values.items() if getattr(existing,key)!=value]
         if changed:
-            issue(batch,table,actor,'changed_source','来源与已经导入或人工维护的新值不一致；不覆盖现有记录。',row,label,value=changed);return None
+            issue(batch,table,actor,'changed_source','来源与已经导入或人工维护的新值不一致；原形模型保存本次原值，不覆盖主档。',row,label,value=changed);return original
         item=existing
     else:
-        item=model(**values,legacy_id=legacy)
+        item=model(**values)
         try:item.full_clean()
         except ValidationError as error:
-            issue(batch,table,actor,'model_validation',str(error),row,label,value=row['values']);return None
+            issue(batch,table,actor,'model_validation',str(error),row,label,value=row['values']);return original
         persist(item,actor)
     persist(LegacyObjectMap(source_table=table,row_number=row['row'],source_key=row['key'],target_model=label,target_id=item.pk,mapped_fields=mapping),actor)
     batch.import_issues.filter(source_table=table,row_number=row['row'],target_model=label,category__in=['model_validation','source_value']).update(is_resolved=True,handling='字段复刻修订后已原值导入。')
@@ -87,14 +105,20 @@ def import_row(batch,table,row,actor):
 
 def import_masters(batch,actor):
     counts={}
-    for name in ['p_FieldValid','p_Shift','h_Employee','p_Customer','p_Machine']:
-        table=batch.source_tables.get(table_name=name);count=0
+    for name in RULES:
+        table=batch.source_tables.get(table_name=name)
+        count={'original_rows':0,'adopted_rows':0,'original_only_rows':0,'excluded_finance':0}
         expected=set(RULES[name][1].values());actual={column['field_name'] for column in table.columns}
         missing=expected-actual
         if missing:raise ValueError('当前来源已变更，先修订明确字段映射：'+name+' '+','.join(sorted(missing)))
         with source_path(table).open(encoding='utf-8') as source:
             for line in source:
-                if import_row(batch,table,json.loads(line),actor) is not None:count+=1
+                item=import_row(batch,table,json.loads(line),actor)
+                if item is None:
+                    count['excluded_finance']+=1
+                else:
+                    count['original_rows']+=1
+                    count['adopted_rows' if isinstance(item,RULES[name][0]) else 'original_only_rows']+=1
         counts[name]=count
     link_relations(batch,actor)
     return counts
@@ -111,7 +135,8 @@ def link_relations(batch,actor):
             'category':('CustKindID',base.BusinessChoice,'p_FieldValid','code')},
     }
     from .legacy_services import rows
-    for mapping in LegacyObjectMap.objects.filter(source_table__batch=batch,source_table__table_name__in=relations).select_related('source_table'):
+    for mapping in LegacyObjectMap.objects.filter(source_table__batch=batch,source_table__table_name__in=relations,
+        target_model__in=[RULES[name][0]._meta.label for name in relations]).select_related('source_table'):
         model,_,_=RULES[mapping.source_table.table_name]
         target=model.objects.get(pk=mapping.target_id)
         original=rows(mapping.source_table,mapping.row_number,1)[0]

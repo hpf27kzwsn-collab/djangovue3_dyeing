@@ -1,4 +1,5 @@
 """Sp_QualityIssues1～4的日/月、旬、一级分类及染色质量奖扣统计。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 import re
 from datetime import datetime, timedelta
@@ -185,7 +186,7 @@ def quality_statistics(report, as_of, denominator=None, query=rows):
         result = [{'OneGrade': group[0], 'UnitName': group[1], **sums(bucket)} for group, bucket in grades.items()
                   if group[0] in valid and group[1] == '数量']
     source = query('WDefect', 'erp_quality').filter(Q(old_sheet_date__isnull=True) | Q(old_sheet_date__gte=dates['month_start'], old_sheet_date__lte=dates['end'])).exclude(pk__in=ids)
-    unclassified = [{'id': row.pk, 'legacy_id': row.legacy_id, 'SheetNo': row.old_sheet_no,
+    unclassified = [{'id': row.pk, 'source': source_reference(row), 'SheetNo': row.old_sheet_no,
         'SheetDate': row.old_sheet_date, 'Kind': row.old_kind, 'DefectDept': row.old_defect_dept,
         'DefectQty': row.old_defect_qty, 'DefectLengthQty': row.old_defect_length_qty,
         'reason': '日期为空，不能归入所选月份' if row.old_sheet_date is None else '不属于旧报表三种评审类型'} for row in source.order_by('pk')]
@@ -210,11 +211,11 @@ def dye_quality_award(start, end, query=rows):
                 groups[cls]['B'].append(row.old_wdnum)
                 matches += 1
         if not matches:
-            unclassified.append({'id': row.pk, 'legacy_id': row.legacy_id, 'WProcessNo': row.old_wprocess_no,
+            unclassified.append({'id': row.pk, 'source': source_reference(row), 'WProcessNo': row.old_wprocess_no,
                 'JobSheetNo': row.old_job_sheet_no, 'DefectClassID': row.old_defect_class_id, 'WDNum': row.old_wdnum,
                 'reason': '有责任班次，但未匹配原03部门返修评审；保留A产量，原B分支无对应行'})
     for row in query('DyeCheckout', 'erp_quality').filter(old_end_time__isnull=True).order_by('pk'):
-        unclassified.append({'id': row.pk, 'legacy_id': row.legacy_id, 'WProcessNo': row.old_wprocess_no,
+        unclassified.append({'id': row.pk, 'source': source_reference(row), 'WProcessNo': row.old_wprocess_no,
             'JobSheetNo': row.old_job_sheet_no, 'DefectClassID': row.old_defect_class_id, 'WDNum': row.old_wdnum,
             'reason': '结束时间为空，不能归入本次统计区间'})
     values = []

@@ -157,7 +157,7 @@ def responsibility(start,end,far_rows,far_reference,query=rows):
                 suffix={'12':'3','14':'4'}.get(dept,'5');qty,meter='Qty'+suffix,'Meter'+suffix
             row[qty],row[meter]=source['quantity'],source['metres']
             row['AllQty'],row['AllMeter']=source['quantity'],source['metres']
-            row.update(month=month,position=position,legacy_id=source['legacy_id'],header_legacy_id=source['header_legacy_id'],
+            row.update(month=month,position=position,detail_no=source['detail_no'],header_sheet_series=source['header_sheet_series'],
                 job_id=job.pk,review_id=review.pk,DefectDept=raw(review,'DefectDept'),DefectClassID=raw(review,'DefectClassID'))
             grouped[month].append(row);details.append(row)
     result=[]

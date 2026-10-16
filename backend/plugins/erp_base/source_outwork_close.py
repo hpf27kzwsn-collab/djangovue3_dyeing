@@ -56,7 +56,7 @@ def reconciliation(dispatched, received, losses, query=rows, returned_material=(
             'dispatch_nulls': values['dispatch'].count(None), 'receipt_nulls': values['receipt'].count(None)})
     return {'report': '外协结案核对', 'rows': result, 'sources': sources,
         'supplemental_rows': [{'direction': source['direction'], 'entity': source['entity'],
-            'id': source['source']['id'], 'legacy_id': source['source']['legacy_id'], 'unit': source['unit'],
+            'id': source['source']['id'], 'source_batch': source['source']['source_batch'], 'source_row': source['source']['source_row'], 'unit': source['unit'],
             'header_count': len(source['headers']), **{key:value for key,value in source['source'].items() if key.startswith('old_')}} for source in sources],
         'notes': ['按明确选定的实际收发记录作本单数量汇总；单位不同不相加，单位未定逐行列示，空值不改成零，负值保留。',
             '损耗由本次确认填写，收发差额不自动认定为损耗；数量汇总保留空值条数。']}

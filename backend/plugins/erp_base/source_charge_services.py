@@ -1,4 +1,5 @@
 """订单另收费采用和工卡另收费查询；各原程序的不同条件分别保留。"""
+from plugins.erp_base.source_provenance import is_historical
 import json
 from decimal import Decimal
 from django.apps import apps
@@ -108,7 +109,7 @@ def register_charge_name(item, actor):
 
 
 def saved(item, actor):
-    if item.source_batch_id is not None or item.legacy_id is not None:
+    if is_historical(item):
         return
     if item.SOURCE_TABLE == 'OrderAtte':
         order_charge(item, actor)

@@ -1,4 +1,5 @@
 """原循环排班、跨午夜班次及部门机台选择；计算与办理分开。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from datetime import datetime, timedelta
 from uuid import uuid4
 import re
@@ -20,7 +21,7 @@ def wall(value):
 
 
 def source(row):
-    return {'record_id':row.pk,'legacy_id':row.legacy_id,
+    return {'record_id':row.pk,'source': source_reference(row),
         **{name:wall(raw(row,name)) for name in row.SOURCE_FIELDS if name not in ['Password']}}
 
 

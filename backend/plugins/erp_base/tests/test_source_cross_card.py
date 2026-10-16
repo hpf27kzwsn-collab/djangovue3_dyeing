@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime, timedelta
 from decimal import Decimal
 from django.apps import apps
@@ -34,20 +35,20 @@ class CrossCardTests(TestCase):
         row=self.model(name,module).objects.create(**values);row.refresh_from_db();return row
     def job(self,number='J',**values):
         return self.old('JobSheet','erp_production',old_sheet_no=number,old_sheet_series=number,
-            old_pre_vat_qty=100,old_pre_rolls=10,old_assign_unit=1,legacy_id=number,**values)
+            old_pre_vat_qty=100,old_pre_rolls=10,old_assign_unit=1,source_batch=historical_batch(),**values)
     def redo(self,job,review=None,processes=()):
         return reprocess(job,self.actor,review,Decimal('-3'),None,1,10,'02',processes,**self.event)
     def cancel(self,job,query=reader):
         return cancel(job,self.actor,mode='execution_only',work_mode='trigger_then_maintenance',query=query,**self.event)
     def purchase(self,entry='StuffIn',quantity=Decimal('-2')):
         item=self.old('PurApplyDetail','erp_purchase',old_sheet_series='PA',old_detail_no='D',old_qty=40,
-            old_price=3,old_stuff_id='DYE',old_article_id='PART',old_stuff_unit='KG',old_article_unit='BOX',legacy_id='PUR')
+            old_price=3,old_stuff_id='DYE',old_article_id='PART',old_stuff_unit='KG',old_article_unit='BOX',source_batch=historical_batch())
         head=receive_material(item,self.actor,entry,quantity,'W','SUP',12,**self.event)
         line=self.model(head.SOURCE_TABLE+'Detail').objects.get(source_parent_1=head)
         return item,head,line
     def transfer(self,table='GrayOutDetail',source_number='J',target_number='T'):
         source=self.job(source_number);target=self.job(target_number)
-        line=self.old(table,old_sheet_series='OLD',old_job_sheet_no=source_number,old_weight_qty=8,old_price=2,legacy_id='OUT',
+        line=self.old(table,old_sheet_series='OLD',old_job_sheet_no=source_number,old_weight_qty=8,old_price=2,source_batch=historical_batch(),
             **({'old_assigned_no':'D'} if table=='GrayOutDetail' else {'old_detail_no':'D'}))
         values={key:value for key,value in self.move.items() if key!='sheet_kind'}
         result=transfer_issue(line,self.actor,source,target,return_kind=16,issue_kind=34,customer='C',issue_number='NEW-1',**values)
@@ -55,13 +56,14 @@ class CrossCardTests(TestCase):
 
     def test_reprocess_preserves_source_plan_and_actuals_and_uses_review(self):
         job=self.job(old_sum_process_weight_qty=55,old_pkg=30)
-        review=self.old('WDefect','erp_quality',old_sheet_no='REVIEW',old_sheet_series='Q',old_kind='未知类别',legacy_id='Q')
+        review=self.old('WDefect','erp_quality',old_sheet_no='REVIEW',old_sheet_series='Q',old_kind='未知类别',source_batch=historical_batch())
         before=snapshot(job);target=self.redo(job,review)
         job.refresh_from_db();self.assertEqual(snapshot(job),before)
         self.assertEqual((target.old_loss_str,target.old_sheet_kind,target.old_job_kind_id),('REVIEW',10,'02'))
         self.assertEqual(target.old_pre_vat_qty,-3);self.assertIsNone(target.old_sum_process_weight_qty)
-        self.assertIsNone(target.old_pkg);self.assertIsNone(target.legacy_id)
-        self.assertEqual(view_effects(target)['card_adoption']['review']['source']['legacy_id'],'Q')
+        self.assertIsNone(target.old_pkg);self.assertIsNone(target.source_batch_id)
+        self.assertEqual(view_effects(target)['card_adoption']['review']['source']['source_batch'],historical_batch().pk)
+        self.assertEqual(view_effects(target)['card_adoption']['review']['source']['id'],review.pk)
 
     def test_reprocess_route_has_theory_but_no_execution(self):
         job=self.job()
@@ -101,13 +103,14 @@ class CrossCardTests(TestCase):
     def test_actual_issue_both_families_keeps_negative_null_and_old_row(self):
         job=self.job()
         for family in ['Gray','Semi']:
-            row=self.old(family+'InDetail',old_sheet_series=family,old_rece_sheet_no=family,old_weight_qty=99,old_price=2,legacy_id=family)
+            row=self.old(family+'InDetail',old_sheet_series=family,old_rece_sheet_no=family,old_weight_qty=99,old_price=2,source_batch=historical_batch())
             before=snapshot(row);head=issue_receipt(row,self.actor,job,**self.move)
             line=self.model(family+'OutDetail').objects.get(source_parent_1=head)
             self.assertEqual(line.old_weight_qty,Decimal('-2.5'));self.assertIsNone(line.old_length_qty)
             self.assertEqual(line.old_amount,-5);self.assertEqual(line.old_job_sheet_no,'J')
             row.refresh_from_db();self.assertEqual(snapshot(row),before)
-            self.assertEqual(view_effects(head)['cross_card_issue']['source']['source']['legacy_id'],family)
+            self.assertEqual(view_effects(head)['cross_card_issue']['source']['source']['source_batch'],historical_batch().pk)
+            self.assertEqual(view_effects(head)['cross_card_issue']['source']['source']['id'],row.pk)
 
     def test_issue_to_reversed_plan_rolls_back(self):
         target=self.redo(self.job());reverse_card(target,self.actor,'unstarted',**self.event)
@@ -121,8 +124,8 @@ class CrossCardTests(TestCase):
             fact=view_effects(head)['cross_card_transfer'];returned=self.model(family+'In').objects.get(pk=fact['return']['source']['id'])
             incoming=self.model(family+'InDetail').objects.get(source_parent_1=returned)
             self.assertEqual(incoming.old_weight_qty,Decimal('-2.5'))
-            line.refresh_from_db();self.assertEqual(line.old_weight_qty,8);self.assertEqual(line.legacy_id,'OUT')
-            self.assertIsNone(head.legacy_id);self.assertEqual(returned.old_customer_id,'C')
+            line.refresh_from_db();self.assertEqual(line.old_weight_qty,8);self.assertEqual(line.source_batch_id,historical_batch().pk)
+            self.assertIsNone(head.source_batch_id);self.assertEqual(returned.old_customer_id,'C')
             self.assertIn(target.pk,[row['record_id'] for row in discover(source)['issues']])
 
     def test_transfer_inverse_requires_downstream_first_and_restore_upstream_first(self):
@@ -148,7 +151,8 @@ class CrossCardTests(TestCase):
             self.assertEqual(getattr(line,'old_qty' if head.SOURCE_TABLE=='StuffIn' else 'old_in_qty'),-2)
             self.assertEqual(line.old_amount,-6)
             self.assertEqual(head.old_supplier_id,'SUP')
-            self.assertEqual(view_effects(head)['purchase_origin']['source']['legacy_id'],'PUR')
+            self.assertEqual(view_effects(head)['purchase_origin']['source']['source_batch'],historical_batch().pk)
+            self.assertEqual(view_effects(head)['purchase_origin']['source']['id'],item.pk)
             item.refresh_from_db();self.assertEqual(item.old_qty,40)
 
     def test_purchase_null_quantity_not_replaced_with_plan(self):

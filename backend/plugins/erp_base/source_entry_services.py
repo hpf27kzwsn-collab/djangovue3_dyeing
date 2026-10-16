@@ -1,3 +1,4 @@
+from plugins.erp_base.source_provenance import is_historical
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from .business import persist
@@ -7,7 +8,7 @@ from .source_numbers import generate
 
 
 def entry_for(item):
-    if item.source_batch_id is not None or item.legacy_id is not None:
+    if is_historical(item):
         return None
     name = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).values_list('entry_name', flat=True).first()
     return None if name in ['explicit_outwork_closure', 'explicit_business_continuation', 'foundation_trigger'] else name
@@ -19,7 +20,7 @@ def resolve_entry(item, selected, owners):
     if selected is not None:
         if selected not in choices:
             raise ValidationError({'_entry': '此业务模型没有所选旧入口。'})
-        if item.source_batch_id is not None or item.legacy_id is not None:
+        if is_historical(item):
             raise ValidationError({'_entry': '历史记录不补造使用入口；新接续业务另建单据。'})
         if previous is not None and previous != selected:
             raise ValidationError({'_entry': '已建立的单据保持原业务入口，其他类型另建单据。'})

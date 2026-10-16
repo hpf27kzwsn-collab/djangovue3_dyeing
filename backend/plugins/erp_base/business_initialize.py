@@ -114,7 +114,7 @@ def load():
                 button_grants.append(RoleMenuButtonPermission(role=role,menu_button=button,data_range=3))
             owned = set() if query_only else policy_for(model)['owned'][model]
             for column in MenuField.objects.filter(menu=menu):
-                writable = not query_only and column.field_name not in {*AUDIT_FIELDS, 'legacy_id', *owned}
+                writable = not query_only and column.field_name not in {*AUDIT_FIELDS, *owned}
                 field_grants.append(FieldPermission(role=role,field=column,
                     is_query=True,is_create=writable,is_update=writable))
         FieldPermission.objects.bulk_create(field_grants)

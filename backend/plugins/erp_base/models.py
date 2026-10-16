@@ -9,12 +9,6 @@ from . import choices
 
 class ErpModel(CoreModel):
     remarks = models.TextField("业务备注", blank=True)
-    legacy_id = models.TextField(
-        "旧erpID",
-        blank=True,
-        null=True,
-        help_text="旧来源的 JSON 文本：schema、table、key；复合主键保留全部键列，新建业务留空。",
-    )
 
     class Meta:
         abstract = True

@@ -1,4 +1,5 @@
 """试样/配方的染程、用料、成本和确板版本联动。"""
+from plugins.erp_base.source_provenance import is_historical
 from datetime import datetime
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -19,7 +20,7 @@ def change(query, values, actor):
 
 
 def saved(item, actor):
-    if item.source_batch_id is not None or item.legacy_id is not None:
+    if is_historical(item):
         return
     table = item.SOURCE_TABLE
     if table in ['DyeRecipeDetail', 'DyeDipsRecordDetail']:
@@ -38,7 +39,7 @@ def saved(item, actor):
 
 def refresh_chain(items, actor):
     for item in items:
-        if item.SOURCE_TABLE != 'DyeRecipe' or item.source_batch_id is not None or item.legacy_id is not None:
+        if item.SOURCE_TABLE != 'DyeRecipe' or is_historical(item):
             continue
         amounts = []
         for phase in matching(rows('DyeRecipePhase'), SheetSeries=raw(item, 'SheetSeries')):
@@ -61,7 +62,7 @@ def removing(item, actor):
             rows('DyeDipsRecord'), ColorNo=raw(item, 'ColorNo')).exists():
         raise ValidationError({'source': '此来样颜色已有打样配方，按原规则不能删除。'})
     masters = matching(rows('PColorNum', 'erp_base'), SheetSeries=raw(item, 'SheetSeries'), ColorNo=raw(item, 'ColorNo'))
-    for master in masters.filter(source_batch__isnull=True, legacy_id__isnull=True).order_by('pk'):
+    for master in masters.filter(source_batch__isnull=True).order_by('pk'):
         record(master, 'sampling_color_delete', snapshot(master), actor, '随所属新来样颜色删除；历史色号主档保留')
         master.delete()
 

@@ -6,11 +6,11 @@ from django.db import transaction
 from django.utils.dateparse import parse_datetime
 from system.models import Users
 from plugins.erp_base.business import persist, snapshot, record
-from plugins.erp_base.source_context import SourceBusinessParameter
+from plugins.erp_base.source_context import SourceBusinessParameter, SourceDocumentContext
 
 
 class Command(BaseCommand):
-    help = '采用已保存的旧业务参数值及完整原主键'
+    help = '按原ParamName采用已保存的旧业务参数值'
 
     def add_arguments(self, parser):
         parser.add_argument('--evidence', type=Path, required=True)
@@ -25,8 +25,10 @@ class Command(BaseCommand):
             before = {'exists': False} if created else snapshot(item)
             item.value = original['value']
             item.captured_at = parse_datetime(evidence['captured_at'])
-            item.legacy_id = json.dumps({'schema': evidence['schema'], 'table': evidence['table'],
-                'key': {'ParamName': original['name']}}, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
             persist(item, actor)
+            context,_=SourceDocumentContext.objects.get_or_create(entity=item._meta.label,object_id=item.pk,
+                defaults={'entry_name':'parameter_adoption','effects':{}})
+            context.effects['parameter_source']={'schema':evidence['schema'],'table':evidence['table'],'field':'ParamName'}
+            persist(context,actor)
             record(item, 'adopt_parameter', before, actor, '采用只读核实的旧业务参数')
         self.stdout.write('已采用业务参数：' + str(len(evidence['parameters'])))

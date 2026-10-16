@@ -1,4 +1,5 @@
 """现场报工入口的原主从关联；不同入口保留不同连接宽度。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from .source_stock_services import raw
 from .source_business_updates import matching
 from .source_quality_reports import rows
@@ -30,7 +31,7 @@ def linked(item,entry,query=rows):
         for child in source:
             matched=all(raw(item,name) is not None and raw(child,name) is not None and
                 (raw(item,name).rstrip(' ').upper()==raw(child,name).rstrip(' ').upper() if isinstance(raw(item,name),str) else raw(item,name)==raw(child,name)) for name in fields)
-            row={'record_id':child.pk,'legacy_id':child.legacy_id,'entity':child._meta.label,'entry':child_entry,
+            row={'record_id':child.pk,'source': source_reference(child),'entity':child._meta.label,'entry':child_entry,
                 **{name:raw(child,name) for name in child.SOURCE_FIELDS}}
             if matched:result.append(row)
             else:issues.append({**row,'issue':'同报工流水但不满足本入口原多列主从关系；原行保留'})

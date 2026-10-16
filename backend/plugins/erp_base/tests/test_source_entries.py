@@ -20,7 +20,7 @@ class SourceEntryCreationTests(TestCase):
         date = timezone.localtime().strftime('%y%m%d')
         self.assertEqual(row.old_sheet_series, 'K' + date + '001')
         self.assertEqual(row.old_sheet_no, 'K#' + date + '001')
-        self.assertIsNone(row.legacy_id)
+        self.assertIsNone(row.source_batch_id)
         self.assertEqual(SourceDocumentContext.objects.get(entity=row._meta.label, object_id=row.pk).entry_name, 'OrderMain')
         other = services.write(SourceDyeOrderMain, {'_entry': 'OrderMain'}, actor=self.actor)
         self.assertEqual(other.old_sheet_series, 'K' + date + '002')
@@ -38,7 +38,7 @@ class SourceEntryCreationTests(TestCase):
         self.assertEqual(child.old_sheet_series, root.old_sheet_series)
         self.assertEqual(SourceDocumentContext.objects.get(entity=child._meta.label, object_id=child.pk).entry_name, 'OrderColor')
         self.assertIsNotNone(child.old_check_no)
-        self.assertIsNone(child.legacy_id)
+        self.assertIsNone(child.source_batch_id)
 
     def test_latest_sql_identity_seed_is_999_for_leave_class(self):
         row = services.write(SourceDyeLeaveClass1, {}, actor=self.actor)

@@ -1,4 +1,5 @@
 """历史细码日志解析、缺失行留档及有明确结果来源的历史逆向。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 import re
 from decimal import Decimal
 from django.core.exceptions import ValidationError
@@ -68,7 +69,7 @@ def preview(item,measure='unknown'):
     if table=='JobGrayRecord':notes.append('JobGrayRecord入口既可能用于出库前选坯，也可能出库后操作，办理时明确选择阶段与工卡。')
     return {'report':'历史细码拆合恢复依据','rows':original,'result_rows':after,
         'supplemental_rows':[{'issue':issue} for issue in first+second],
-        'legacy_id':item.legacy_id,'log_id':item.pk,'old_status':status,'old_table':table,'old_kind':raw(item,'Kind'),'notes':notes}
+        'source': source_reference(item),'log_id':item.pk,'old_status':status,'old_table':table,'old_kind':raw(item,'Kind'),'notes':notes}
 
 
 def current_values(item):

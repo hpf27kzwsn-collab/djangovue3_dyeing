@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime,timedelta
 from decimal import Decimal
 from django.apps import apps
@@ -154,9 +155,9 @@ class FoundationCompletionTests(TestCase):
         first=create('p_Process',ProcessID='P',Price=3)
         create('p_Process',ProcessID='P',Price=None)
         self.assertIsNone(scalar.pack_quantity_price('P',rows))
-        first.legacy_id='old-1';first.save(update_fields=['legacy_id'])
+        first.source_batch=historical_batch();first.save(update_fields=['source_batch'])
         result=utility.export_original(type(first).objects.filter(pk=first.pk))
-        self.assertEqual(result[0]['legacy_id'],'old-1');self.assertEqual(Decimal(result[0]['values']['Price']),3)
+        self.assertEqual(result[0]['source']['batch_id'],historical_batch().pk);self.assertEqual(Decimal(result[0]['values']['Price']),3)
 
     def test_full_employee_report_requires_current_administrator(self):
         user=Users.objects.create_user(username='foundation-reader',password='test')

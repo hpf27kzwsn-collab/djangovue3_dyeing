@@ -1,4 +1,5 @@
 """原形单据的库存生效；依据实际旧库存过程，历史承接不调用。"""
+from plugins.erp_base.source_provenance import is_historical
 from django.apps import apps
 from django.utils import timezone
 from .business import persist, locked, record, snapshot
@@ -132,7 +133,7 @@ def clear_effects(context, actor):
 
 
 def refresh(item, actor):
-    if item.SOURCE_TABLE not in STOCK_TABLES or item.source_batch_id is not None or item.legacy_id is not None:
+    if item.SOURCE_TABLE not in STOCK_TABLES or is_historical(item):
         return
     item = locked(item)
     from .source_execution_state import require_available

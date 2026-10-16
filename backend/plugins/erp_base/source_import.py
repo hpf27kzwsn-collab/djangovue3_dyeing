@@ -37,20 +37,8 @@ def original_values(model,original):
     return values
 
 
-def identity(table,original,model):
-    key=original['key']
-    kind=None
-    if key is None and model.SOURCE_IDENTITIES:
-        key={old:original['values'][old] for old,new in model.SOURCE_FIELDS.items() if new in model.SOURCE_IDENTITIES}
-        kind='sql_identity'
-    if key is None:return None
-    value={'schema':table.schema_name,'table':table.table_name,'key':key}
-    if kind is not None:value['key_kind']=kind
-    return json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'))
-
-
 def make_record(model,table,original,actor):
-    return model(**original_values(model,original),legacy_id=identity(table,original,model),source_batch=table.batch,
+    return model(**original_values(model,original),source_batch=table.batch,
         source_row=original['row'],creator=actor,modifier=actor,dept_belong_id=actor.dept_id,approval_stage=None)
 
 
@@ -79,7 +67,7 @@ def copy_original_table(model, table, actor):
     fields = [field for field in model._meta.local_fields if not field.primary_key]
     defaults = {field.attname: field.get_default() for field in fields}
     now = timezone.now()
-    defaults.update(source_batch_id=table.batch_id, source_row=None, legacy_id=None,
+    defaults.update(source_batch_id=table.batch_id, source_row=None,
                     creator_id=actor.pk, modifier_id=actor.pk, dept_belong_id=actor.dept_id,
                     create_datetime=now, update_datetime=now, approval_stage=None)
     quote = connection.ops.quote_name
@@ -90,7 +78,7 @@ def copy_original_table(model, table, actor):
             for line in stream:
                 original = json.loads(line)
                 values = {**defaults, **original_values(model, original),
-                          'source_row': original['row'], 'legacy_id': identity(table, original, model)}
+                          'source_row': original['row']}
                 copy.write_row([values[field.attname] for field in fields])
                 count += 1
     if count != table.row_count:
@@ -103,16 +91,15 @@ def compare_table(table):
     """流式逐行逐字段核对，不用抽样或合计代替原值对照。"""
     model=source_model(table)
     count=0;comparisons=0
-    names=['source_row','legacy_id','approval_stage',*model.SOURCE_FIELDS.values()]
+    names=['source_row','approval_stage',*model.SOURCE_FIELDS.values()]
     records=model.objects.filter(source_batch=table.batch).order_by('source_row').values_list(*names).iterator(chunk_size=5000)
     with closing(records), source_path(table).open(encoding='utf-8') as stream:
         for line,current in zip_longest(stream,records):
             if line is None or current is None:raise ValueError('原行身份集合不一致：'+table.table_name)
             original=json.loads(line)
             if current[0]!=original['row']:raise ValueError('原行身份集合不一致：'+table.table_name)
-            if current[1]!=identity(table,original,model):raise ValueError(f"旧erpID不一致：{table.table_name} 第{original['row']}行")
-            if current[2] is not None:raise ValueError(f"历史行出现新办理阶段：{table.table_name} 第{original['row']}行")
-            for (name,expected),actual in zip(original_values(model,original).items(),current[3:]):
+            if current[1] is not None:raise ValueError(f"历史行出现新办理阶段：{table.table_name} 第{original['row']}行")
+            for (name,expected),actual in zip(original_values(model,original).items(),current[2:]):
                 if isinstance(actual,memoryview):actual=bytes(actual)
                 if actual!=expected:raise ValueError(f"原字段不一致：{table.table_name} 第{original['row']}行 {name}")
                 comparisons+=1

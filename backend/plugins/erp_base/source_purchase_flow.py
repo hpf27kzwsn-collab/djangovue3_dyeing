@@ -1,4 +1,5 @@
 """采购实际引用、分批收货及原采购进度查询。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from django.apps import apps
 from django.core.exceptions import ValidationError
 from django.db import transaction
@@ -39,7 +40,7 @@ def receipt_progress(item, query=rows):
         for line in matching(query(table + 'Detail', 'erp_warehouse'), PurDetailNo=number).order_by('pk'):
             for head in matching(query(table, 'erp_warehouse'), SheetSeries=raw(line, 'SheetSeries')).filter(old_sheet_kind=kind):
                 sources.append({'entity': line._meta.label, 'id': line.pk, 'header_id': head.pk,
-                    'legacy_id': line.legacy_id, 'weight': raw(line, 'WeightQty')})
+                    'source': source_reference(line), 'weight': raw(line, 'WeightQty')})
     values = [line['weight'] for line in sources if line['weight'] is not None]
     # 原视图排除空采购号；NULL不作为另一NULL的实际采购关系。
     total = sum(values) if values and number is not None and number.rstrip(' ') else None
@@ -156,7 +157,7 @@ def material_receipts(item, query):
             for head in heads or [None]:
                 qty=raw(line,measure);kind=None if head is None else raw(head,'SheetKind')
                 signed=qty if kind!=16 or qty is None else -abs(qty) if table=='StuffIn' else -qty
-                result.append({'entity':line._meta.label,'record_id':line.pk,'legacy_id':line.legacy_id,
+                result.append({'entity':line._meta.label,'record_id':line.pk,'source': source_reference(line),
                     'header_id':None if head is None else head.pk,'SheetKind':kind,'measure':measure,
                     'quantity':qty,'stock_quantity_rule':signed,'missing_header':head is None,
                     'source_unit':material_source_unit(item,table),
@@ -201,7 +202,7 @@ def raw_receipts(item,query):
             heads=query(table,'erp_warehouse')
             heads=list(heads.filter(pk=line.source_parent_1_id) if line.source_parent_1_id is not None else matching(heads,SheetSeries=raw(line,'SheetSeries')))
             for head in heads or [None]:
-                result.append({'entity':line._meta.label,'record_id':line.pk,'legacy_id':line.legacy_id,
+                result.append({'entity':line._meta.label,'record_id':line.pk,'source': source_reference(line),
                     'purchase_reference_fields':[name for name in ['PurDetailNo','PurchaseOrders'] if key(raw(line,name))==key(number)],
                     'PurDetailNo':raw(line,'PurDetailNo'),'PurchaseOrders':raw(line,'PurchaseOrders'),
                     'header_id':None if head is None else head.pk,'SheetKind':None if head is None else raw(head,'SheetKind'),

@@ -52,4 +52,4 @@ class LegacyMapViewSet(LegacyReadViewSet):
             else:expected=comparison_value(model._meta.get_field(field),old,spec['conversion'])
             data.append({'field':field,'title':str(model._meta.get_field(field).verbose_name),'old_field':spec['source'],'old_value':old,
                 'new_value':str(new) if new is not None else None,'matches':new==expected})
-        return success({'old_key':original['key'],'legacy_id':target.legacy_id,'target':mapping.target_model,'rows':data})
+        return success({'old_key':original['key'],'source_table':mapping.source_table_id,'source_row':mapping.row_number,'target':mapping.target_model,'rows':data})

@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime, date, timedelta
 from decimal import Decimal
 from unittest.mock import patch
@@ -42,11 +43,11 @@ class RemainingChainTests(TestCase):
         return self.old('JobSheet', **values)
 
     def test_closure_preserves_source_fields_and_explicit_losses(self):
-        application = self.old('OutWorkApply', old_sheet_series='A', legacy_id='A', old_sheet_status=-7)
+        application = self.old('OutWorkApply', old_sheet_series='A', source_batch=historical_batch(), old_sheet_status=-7)
         before = snapshot(application)
         self.old('GrayOut', 'erp_warehouse', old_sheet_series='G', old_stock_unit='1')
-        lines = [self.old('GrayOutDetail', 'erp_warehouse', old_sheet_series='G', old_assigned_no='D', old_weight_qty=value, legacy_id=str(i)) for i,value in enumerate([Decimal('10'),Decimal('-2'),None])]
-        receipt = self.old('ProdIn', 'erp_warehouse', old_sheet_series='R', old_stock_unit='1', old_weight_qty=Decimal('6.5'), legacy_id='R')
+        lines = [self.old('GrayOutDetail', 'erp_warehouse', old_sheet_series='G', old_assigned_no='D', old_weight_qty=value, source_batch=historical_batch()) for i,value in enumerate([Decimal('10'),Decimal('-2'),None])]
+        receipt = self.old('ProdIn', 'erp_warehouse', old_sheet_series='R', old_stock_unit='1', old_weight_qty=Decimal('6.5'), source_batch=historical_batch())
         losses = [{'unit':1,'measure':'WeightQty','quantity':Decimal('-0.25'),'reason':'明确负损耗'}]
         result = close(application, self.actor, lines + [lines[0]], [receipt], losses, self.at, '实际核对')
         row = next(row for row in result['rows'] if row['unit']==1 and row['measure']=='WeightQty')
@@ -71,7 +72,7 @@ class RemainingChainTests(TestCase):
         self.assertEqual([len(source['headers']) for source in result['sources']],[0,2])
 
     def test_empty_semi_outwork_closure_api_and_loss_validation(self):
-        application=self.old('SemiOutWorkApply',old_sheet_series='S',legacy_id='S')
+        application=self.old('SemiOutWorkApply',old_sheet_series='S',source_batch=historical_batch())
         url=f'/api/system/erp_production_sourcedyesemioutworkapply/{application.pk}/'
         payload={'dispatched':[],'received':[],'losses':[],'closed_at':self.at.isoformat(),'reason':'原零明细业务'}
         result=self.client.post(url+'close_outwork/',payload,format='json')
@@ -94,13 +95,13 @@ class RemainingChainTests(TestCase):
     def test_last_work_deletion_resets_process_and_retains_history_children(self):
         job=self.job();self.process(1);process=self.process(2)
         work=self.work()
-        old=self.old('JobShiftEmp',old_job_sheet_no='J',old_process_no=2,old_process_id='P2',old_shift_id='S',old_wprocess_no='W',legacy_id='staff')
+        old=self.old('JobShiftEmp',old_job_sheet_no='J',old_process_no=2,old_process_id='P2',old_shift_id='S',old_wprocess_no='W',source_batch=historical_batch())
         new=self.old('JobShiftEmp',old_job_sheet_no='J',old_process_no=2,old_process_id='P2',old_shift_id='S',old_wprocess_no='W')
         services.delete(type(work).objects.filter(pk=work.pk),self.actor)
         process.refresh_from_db();job.refresh_from_db()
         self.assertEqual(process.old_status,'0');self.assertIsNone(process.old_machine_id);self.assertIsNone(process.old_start_time)
         self.assertEqual(job.old_curr_process_id,'P1');self.assertEqual(job.old_next_process_id,'P2')
-        self.assertTrue(type(old).objects.filter(pk=old.pk,legacy_id='staff').exists())
+        self.assertTrue(type(old).objects.filter(pk=old.pk,source_batch=historical_batch()).exists())
         self.assertFalse(type(new).objects.filter(pk=new.pk).exists())
         self.assertTrue(BusinessAction.objects.filter(action='work_delete_keep_source',object_id=old.pk).exists())
 
@@ -140,11 +141,11 @@ class RemainingChainTests(TestCase):
 
     def test_added_foreign_keys_unlinked_without_erasing_old_step_fields(self):
         work=self.work(old_class_id=None)
-        step=self.old('WProcessStep',old_wpstep_no='STEP',old_wprocess_no='W',legacy_id='STEP',source_parent_1=work)
-        staff=self.old('JobShiftEmp',old_job_sheet_no='J',old_process_no=2,old_process_id='P2',old_shift_id='S',old_wprocess_no='W',legacy_id='STAFF',source_parent_1=work,source_parent_2=work)
+        step=self.old('WProcessStep',old_wpstep_no='STEP',old_wprocess_no='W',source_batch=historical_batch(),source_parent_1=work)
+        staff=self.old('JobShiftEmp',old_job_sheet_no='J',old_process_no=2,old_process_id='P2',old_shift_id='S',old_wprocess_no='W',source_batch=historical_batch(),source_parent_1=work,source_parent_2=work)
         services.delete_documents(type(work).objects.filter(pk=work.pk),self.actor)
         step.refresh_from_db();staff.refresh_from_db()
-        self.assertIsNone(step.source_parent_1_id);self.assertEqual(step.old_wprocess_no,'W');self.assertEqual(step.legacy_id,'STEP')
+        self.assertIsNone(step.source_parent_1_id);self.assertEqual(step.old_wprocess_no,'W');self.assertEqual(step.source_batch_id,historical_batch().pk)
         self.assertIsNone(staff.source_parent_1_id);self.assertIsNone(staff.source_parent_2_id);self.assertEqual(staff.old_wprocess_no,'W')
         self.assertEqual(BusinessAction.objects.filter(action='work_delete_unlink').count(),3)
 
@@ -175,7 +176,7 @@ class RemainingChainTests(TestCase):
         url=f'/api/system/erp_production_sourcedyewprocess/{work.pk}/delete_shift_record/'
         result=self.client.post(url,{'mode':'trigger_then_maintenance','reason':'实际撤回'},format='json')
         self.assertEqual(result.status_code,200,result.data);self.assertFalse(type(work).objects.filter(pk=work.pk).exists())
-        historical=self.work('H',old_class_id=None,legacy_id='H')
+        historical=self.work('H',old_class_id=None,source_batch=historical_batch())
         before=BusinessAction.objects.count()
         with self.assertRaises(ValidationError):delete_shift_record(historical,self.actor,'trigger','不可删除原行')
         self.assertEqual(BusinessAction.objects.count(),before)

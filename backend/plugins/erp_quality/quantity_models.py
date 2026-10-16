@@ -20,7 +20,7 @@ class QualityQuantitySource(ErpModel):
     source_row=models.PositiveIntegerField('原连接行序号')
     detail_no=models.CharField('原FAR明细号',max_length=36,null=True,blank=True)
     detail_sheet_series=models.CharField('原明细表头流水',max_length=20,null=True,blank=True)
-    header_legacy_id=models.TextField('原表头旧erpID',null=True,blank=True)
+    header_sheet_series=models.CharField('原匹配表头流水',max_length=20,null=True,blank=True)
     sheet_date=models.DateTimeField('原表头日期',null=True,blank=True)
     sheet_kind=models.SmallIntegerField('原单据类型',null=True,blank=True)
     business_unit=models.CharField('原经营单位编码',max_length=10,null=True,blank=True)

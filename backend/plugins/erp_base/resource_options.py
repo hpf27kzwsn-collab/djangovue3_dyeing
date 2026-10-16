@@ -34,10 +34,10 @@ RESOURCE_OPTIONS = {
     name: {
         'viewset': 'plugins.erp_base.views.MasterDataViewSet',
         'serializer': 'plugins.erp_base.serializers.MasterDataSerializer',
-        'crud_fields': ['id', *fields.split(), 'remarks', 'legacy_id', 'create_datetime', 'update_datetime'],
+        'crud_fields': ['id', *fields.split(), 'remarks', 'create_datetime', 'update_datetime'],
         'fields': {
             'id': {'column': {'show': False}},
-            'legacy_id': {'column': {'show': False}},
+
             'remarks': {'column': {'show': False}},
         },
     }
@@ -47,8 +47,8 @@ RESOURCE_OPTIONS['RouteVersion']['viewset'] = 'plugins.erp_base.views.RouteVersi
 RESOURCE_OPTIONS['BusinessAction'] = {
     'workflow': {'readonly': True},
     'viewset': 'plugins.erp_base.business_api.BusinessActionViewSet',
-    'crud_fields': ['id', 'entity', 'object_id', 'action', 'reason', 'before', 'after', 'creator', 'create_datetime', 'legacy_id'],
-    'fields': {'legacy_id': {'column': {'show': False}}},
+    'crud_fields': ['id', 'entity', 'object_id', 'action', 'reason', 'before', 'after', 'creator', 'create_datetime'],
+    'fields': {},
 }
 RESOURCE_OPTIONS['ColorStandard']['fields']['source_sample'] = {
     'remote': {'entity': 'erp_sampling_sampleline', 'pk': 'id', 'label': 'line_number'},
@@ -116,16 +116,16 @@ from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
 RESOURCE_OPTIONS.update(SOURCE_RESOURCES)
 RESOURCE_OPTIONS['SourceIdentitySequence'] = {
     'viewset': 'plugins.erp_base.business_api.BusinessActionViewSet',
-    'crud_fields': ['id','namespace','last_number','legacy_id','create_datetime','update_datetime'],
+    'crud_fields': ['id','namespace','last_number','create_datetime','update_datetime'],
 }
 RESOURCE_OPTIONS['SourceDocumentContext'] = {
     'viewset': 'plugins.erp_base.business_api.BusinessActionViewSet',
-    'crud_fields': ['id', 'entity', 'object_id', 'entry_name', 'legacy_id', 'create_datetime'],
+    'crud_fields': ['id', 'entity', 'object_id', 'entry_name', 'create_datetime'],
 }
 RESOURCE_OPTIONS['SourceBusinessParameter'] = {
     'viewset': 'plugins.erp_base.views.MasterDataViewSet',
     'serializer': 'plugins.erp_base.serializers.MasterDataSerializer',
-    'crud_fields': ['id', 'name', 'value', 'captured_at', 'legacy_id', 'remarks', 'create_datetime', 'update_datetime'],
+    'crud_fields': ['id', 'name', 'value', 'captured_at', 'remarks', 'create_datetime', 'update_datetime'],
     'label_field': 'name',
     'fields': {'captured_at': {'readonly': True}},
 }

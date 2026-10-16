@@ -1,4 +1,6 @@
 """已核实的基础资料查询、主体名单、原单位和日期函数。"""
+from plugins.erp_base.source_provenance import is_historical
+from plugins.erp_base.source_provenance import reference as source_reference
 from datetime import timedelta
 from decimal import Decimal, ROUND_HALF_UP
 
@@ -44,7 +46,7 @@ def get_days(start, end):
 
 
 def source_row(item, fields):
-    return {'entity': item._meta.label, 'record_id': item.pk, 'legacy_id': item.legacy_id,
+    return {'entity': item._meta.label, 'record_id': item.pk, 'source': source_reference(item),
             **{field: raw(item, field) for field in fields}}
 
 
@@ -129,7 +131,7 @@ def correspondence(item, query=rows):
 
 def salary_changes_saved(item):
     """SalaryChanges_InUp；原行导入独立保存，业务保存执行当前有效规则。"""
-    if item.source_batch_id is not None or item.legacy_id is not None:
+    if is_historical(item):
         return
     if raw(item, 'Kind') in (3, 4) and not matching(rows('JobSheet', 'erp_production'), SheetNo=raw(item, 'JobSheetNo')).exists():
         raise ValidationError({'old_job_sheet_no': '原工卡调整规则：Kind为3或4时，生产编号必须存在。'})

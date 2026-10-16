@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from django.apps import apps
 from django.core.exceptions import ValidationError
 from django.test import TestCase
@@ -11,16 +12,16 @@ class OriginalGrayStorageTests(TestCase):
         self.actor = Users.objects.create_superuser(username='gray-transfer', password='test')
         self.model = lambda table: apps.get_model('erp_warehouse.SourceDye' + table)
         self.receipt = self.model('GrayIn').objects.create(old_sheet_series='GIN-01', old_sheet_no='GIN-01',
-            old_sheet_kind=11, old_customer_id='C01', old_ware_house_id='W01', legacy_id='old-head')
+            old_sheet_kind=11, old_customer_id='C01', old_ware_house_id='W01', source_batch=historical_batch())
         self.detail = self.model('GrayInDetail').objects.create(source_parent_1=self.receipt,
             old_sheet_series='GIN-01', old_rece_sheet_no='ABCDEF0001', old_gray_id='Y01',
-            old_rolls=10, old_weight_qty=100, old_length_qty=200, old_storage_unit_ids='A01', legacy_id='old-detail')
+            old_rolls=10, old_weight_qty=100, old_length_qty=200, old_storage_unit_ids='A01', source_batch=historical_batch())
         self.tag = self.model('GrayInRecord').objects.create(source_parent_1=self.detail,
             old_rece_sheet_no='ABCDEF0001', old_roll_no='01', old_bar_code='TAG-1',
-            old_weight_qty=20, old_length_qty=40, old_dlv_qty=7, legacy_id='old-tag')
+            old_weight_qty=20, old_length_qty=40, old_dlv_qty=7, source_batch=historical_batch())
         self.book = self.model('GrayStockBook').objects.create(old_book_no=900,
             old_sheet_series='GIN-01', old_rece_sheet_no='ABCDEF0001', old_detail_no='ABCDEF0001',
-            old_in_rolls=10, old_in_weight_qty=100, old_in_length_qty=200, legacy_id='old-book')
+            old_in_rolls=10, old_in_weight_qty=100, old_in_length_qty=200, source_batch=historical_batch())
         self.head = services.write(self.model('GrayStorageAdjust'), {'_entry': 'GrayStorageAdjust'}, actor=self.actor)
         self.line = services.write(self.model('GrayStorageAdjustDetail'), {'source_parent_1': self.head,
             'old_detail_no': 'MOVE-1', 'old_rece_sheet_no': 'ABCDEF0001', 'old_from_rece_sheet_no': 'ORIGINAL',
@@ -42,8 +43,8 @@ class OriginalGrayStorageTests(TestCase):
         self.assertEqual(split.old_storage_unit_ids, 'B02')
         self.assertEqual(self.tag.source_parent_1_id, split.pk)
         self.assertEqual(self.tag.old_dlv_qty, 7)
-        self.assertEqual(self.tag.legacy_id, 'old-tag')
-        self.assertIsNone(split.legacy_id)
+        self.assertEqual(self.tag.source_batch_id, historical_batch().pk)
+        self.assertIsNone(split.source_batch_id)
         self.assertEqual(self.model('GrayStockBook').objects.count(), 2)
         services.reopen(self.head, self.actor, '反审转仓')
         self.detail.refresh_from_db(); self.book.refresh_from_db(); self.tag.refresh_from_db(); self.line.refresh_from_db()

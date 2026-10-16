@@ -85,7 +85,7 @@ class OriginalDocumentServiceTests(TestCase):
         self.assertIsNotNone(one.old_record_id)
         self.assertNotEqual(one.old_record_id, two.old_record_id)
         self.assertIsNotNone(one.old_record_date)
-        self.assertIsNone(one.legacy_id)
+        self.assertIsNone(one.source_batch_id)
         response=self.client.post('/api/system/erp_production_sourcedyemachinefaultrecord/',{},format='json')
         self.assertEqual(response.status_code,200,response.data)
         self.assertIsNotNone(response.data['data']['old_record_id'])
@@ -97,7 +97,7 @@ class OriginalDocumentServiceTests(TestCase):
         two=source_services.write(SourceDyeArticleStockBook,{},actor=self.actor)
         self.assertEqual(one.old_book_no,126)
         self.assertEqual(two.old_book_no,127)
-        self.assertIsNone(one.legacy_id)
+        self.assertIsNone(one.source_batch_id)
 
     def test_source_child_inherits_document_department_and_signed_totals_refresh(self):
         department=Dept.objects.create(name='所属部门')

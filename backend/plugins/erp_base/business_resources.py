@@ -7,8 +7,8 @@ def options(app, fields, relations, viewsets):
         result[name] = {
             'serializer': 'plugins.erp_base.business_api.BusinessSerializer',
             'viewset': viewsets[name],
-            'crud_fields': ['id', *keys.split(), 'remarks', 'legacy_id', 'create_datetime', 'update_datetime'],
-            'fields': {key: {'column': {'show': False}} for key in ('id', 'legacy_id', 'remarks')},
+            'crud_fields': ['id', *keys.split(), 'remarks', 'create_datetime', 'update_datetime'],
+            'fields': {key: {'column': {'show': False}} for key in ('id', 'remarks')},
         }
         for key, target in relations[name].items():
             entity, label = target

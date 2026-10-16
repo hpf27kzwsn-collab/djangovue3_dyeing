@@ -32,6 +32,13 @@ class AddSourceIndexes(CreateSourceModels):
     def describe(self):return 'Add '+str(len(self.operations))+' original key indexes'
 
 
+class RemoveSourceFields(CreateSourceModels):
+    """批量删除互不依赖的可空来源列；保留标准RemoveField的数据库行为。"""
+    category=OperationCategory.REMOVAL
+
+    def describe(self):return 'Remove '+str(len(self.operations))+' redundant source fields'
+
+
 class AddSourceConstraints(CreateSourceModels):
     def describe(self):return 'Add '+str(len(self.operations))+' source row identities'
 

@@ -722,8 +722,8 @@ class SourceWorkViewSet(SourceRecordViewSet):
 
 
 class ReworkQuantityInput(serializers.Serializer):
-    legacy_id=serializers.CharField(allow_null=True,allow_blank=True)
-    header_legacy_id=serializers.CharField(allow_null=True,allow_blank=True)
+    detail_no=serializers.CharField(allow_null=True,allow_blank=True)
+    header_sheet_series=serializers.CharField(allow_null=True,allow_blank=True)
     sheet_date=serializers.DateTimeField(allow_null=True)
     sheet_kind=serializers.IntegerField(allow_null=True)
     job_number=serializers.CharField(allow_null=True,allow_blank=True,trim_whitespace=False)

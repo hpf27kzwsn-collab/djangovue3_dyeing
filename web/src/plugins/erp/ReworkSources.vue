@@ -3,10 +3,10 @@ import {computed} from 'vue'
 const props=defineProps<{modelValue?:any[]}>()
 const emit=defineEmits(['update:modelValue'])
 const rows=computed(()=>props.modelValue??[])
-function add(){emit('update:modelValue',[...rows.value,{legacy_id:null,header_legacy_id:null,sheet_date:null,sheet_kind:null,job_number:null,quantity:null,metres:null,zero_amount:null}])}
+function add(){emit('update:modelValue',[...rows.value,{detail_no:null,header_sheet_series:null,sheet_date:null,sheet_kind:null,job_number:null,quantity:null,metres:null,zero_amount:null}])}
 function update(index:number,key:string,value:any){emit('update:modelValue',rows.value.map((row,i)=>i===index?{...row,[key]:value}:row))}
 function remove(index:number){emit('update:modelValue',rows.value.filter((_,i)=>i!==index))}
-const fields=[['legacy_id','明细旧erpID'],['header_legacy_id','表头旧erpID'],['job_number','原工卡号'],['quantity','原重量Qty（公斤）'],['metres','有依据的原长度PreMeter（米）']]
+const fields=[['detail_no','原明细号'],['header_sheet_series','原匹配表头流水'],['job_number','原工卡号'],['quantity','原重量Qty（公斤）'],['metres','有依据的原长度PreMeter（米）']]
 </script>
 <template>
   <div class="rework-sources">

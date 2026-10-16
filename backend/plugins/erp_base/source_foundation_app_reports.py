@@ -1,4 +1,5 @@
 """原APP手感报价、产量及费用查询；断开的旧调用按已说明的业务来源接续。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 from calendar import monthrange
 from datetime import timedelta
@@ -91,7 +92,7 @@ def output_sum(filter_text='',date_mode=1,start=None,end=None,query=rows,now=Non
                         for process_row in processes[(key(process),)] or [None]:
                             post_name=None if post is None else raw(post,'Name');process_name=None if process_row is None else raw(process_row,'Name')
                             if text and not (sql_like(post_name,'%'+text+'%') or sql_like(process_name,'%'+text+'%')):continue
-                            source_rows.append({'entity':item._meta.label,'record_id':item.pk,'legacy_id':item.legacy_id,'JobSheetNo':job,
+                            source_rows.append({'entity':item._meta.label,'record_id':item.pk,'source': source_reference(item),'JobSheetNo':job,
                                 'ProcessID':process,'StationID':station,'PostName':post_name,'ProcessName':process_name,
                                 'CurrKg':kg,'CurrMeter':meter,'CurrRolls':roll_count,'raw_kg':kilograms,'raw_meter':metres,
                                 'AssignUnit':unit,'CurrDosage':dosage,'first_job_id':None if first is None else first.pk,

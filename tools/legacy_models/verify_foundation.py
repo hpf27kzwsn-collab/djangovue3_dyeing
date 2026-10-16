@@ -46,7 +46,7 @@ def verify(args):
             assert imported == compared['rows']
             model = source_model(table)
             compared.update(fields=len(model.SOURCE_FIELDS),
-                            legacy_id_rows=model.objects.filter(source_batch=batch, legacy_id__isnull=False).count())
+                            source_rows=model.objects.filter(source_batch=batch).count())
             item['tables'].append(compared)
         item['relations'] = link_relations(batch, [table.table_name for table in tables])
         # 建立FK后再次比较，关联过程不能改原字段。

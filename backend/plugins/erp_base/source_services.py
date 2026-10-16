@@ -1,4 +1,5 @@
 """原表单据的主从保存与办理；历史导入独立保存原事实。"""
+from plugins.erp_base.source_provenance import is_historical
 from django.apps import apps
 from django.core.exceptions import ValidationError
 from django.db import transaction
@@ -21,7 +22,7 @@ from . import source_purchase_flow as purchase
 from . import source_quality_flow as quality
 from . import source_packaging_flow as packing
 
-OWNED = {'legacy_id', 'source_batch', 'source_row', 'approval_stage', 'confirmed_at',
+OWNED = {'source_batch', 'source_row', 'approval_stage', 'confirmed_at',
          'confirmed_by', 'approved_at', 'approved_by'}
 
 
@@ -140,7 +141,7 @@ def refresh_totals(items, actor):
             continue
         original = item
         item = locked(item)
-        if item.source_batch_id is not None or item.legacy_id is not None:
+        if is_historical(item):
             continue
         values = aggregate_values(item)
         changed = {key: value for key, value in values.items() if getattr(item, key) != value}
@@ -205,7 +206,7 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
         for parent in chain(item)[:-1]:
             purchase.require_change(parent, '修改')
     editable(lock_chain(item) if item.pk is not None else [locked(parent) for parent in chain(item)[:-1]])
-    if item.source_batch_id is None and item.legacy_id is None:
+    if not is_historical(item):
         assign_owner_values(item, data)
         assign_reference_values(item,data)
     entry = entries.resolve_entry(item, selected_entry, chain(item)[:-1])
@@ -279,8 +280,8 @@ def delete_documents(queryset, actor):
         descendants = []
         for child in child_rows(item):
             editable(lock_chain(child))
-            if child.source_batch_id is not None or child.legacy_id is not None:
-                raise ValidationError({'legacy_id': '所属明细含历史来源记录，不能删除该原行。'})
+            if is_historical(child):
+                raise ValidationError({'source_batch': '所属明细含历史来源记录，不能删除该原行。'})
             descendants.extend(owned(child))
             descendants.append(child)
         return descendants
@@ -292,8 +293,8 @@ def delete_documents(queryset, actor):
         if not item.SOURCE_DOCUMENT or item.SOURCE_TABLE == 'WProcess':
             delete(type(item).objects.filter(pk=item.pk), actor)
             continue
-        if item.source_batch_id is not None or item.legacy_id is not None:
-            raise ValidationError({'legacy_id': '历史来源单据保留原行，不从普通删除入口删除。'})
+        if is_historical(item):
+            raise ValidationError({'source_batch': '历史来源单据保留原行，不从普通删除入口删除。'})
         from .source_context import SourceDocumentContext
         context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
         if context is not None:
@@ -313,8 +314,8 @@ def delete(queryset,actor=None,apply_effects=True):
     for item in queryset.order_by('pk'):
         require_operation_retention(item)
         editable(lock_chain(item))
-        if item.source_batch_id is not None or item.legacy_id is not None:
-            raise ValidationError({'legacy_id': '历史来源记录保留原行，不从普通删除入口删除。'})
+        if is_historical(item):
+            raise ValidationError({'source_batch': '历史来源记录保留原行，不从普通删除入口删除。'})
         sales.removing(item)
         sampling.removing(item, actor)
         from .source_master_data import removing as master_removing
@@ -448,8 +449,8 @@ def reopen(item, actor, reason):
 def calculate(item, actor, method):
     item = lock_chain(item)[-1]
     editable(chain(item))
-    if item.source_batch_id is not None or item.legacy_id is not None:
-        raise ValidationError({'legacy_id': '历史原计算值保留；重新计算在新办理单据上采用。'})
+    if is_historical(item):
+        raise ValidationError({'source_batch': '历史原计算值保留；重新计算在新办理单据上采用。'})
     if method == 'fields':
         if item.SOURCE_TABLE not in PRODUCTS and item.SOURCE_TABLE not in SPECIAL_TABLES:
             raise ValidationError({'method': '本表尚未登记本行字段公式。'})

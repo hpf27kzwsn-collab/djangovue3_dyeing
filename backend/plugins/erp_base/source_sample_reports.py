@@ -1,4 +1,5 @@
 """打样对色责任、原计件产量、7:30工作日及明确的逐日展开。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 from datetime import datetime,timedelta
 from decimal import Decimal,ROUND_HALF_UP,localcontext
@@ -28,7 +29,7 @@ def recipe_dictionary(query,issues):
         if code is None:continue
         stripped=code.strip()
         if stripped and (re.fullmatch(r'[+-]?[0-9]+',stripped) is None or not -2147483648<=int(stripped)<=2147483647):
-            issues.append({'record_id':item.pk,'legacy_id':item.legacy_id,'Code':code,'issue':'原整数连接会转换失败；此字典原行保留，本次无法关联计件'})
+            issues.append({'record_id':item.pk,'source': source_reference(item),'Code':code,'issue':'原整数连接会转换失败；此字典原行保留，本次无法关联计件'})
         else:result.append((0 if stripped=='' else int(stripped),item))
     return result
 
@@ -42,10 +43,10 @@ def source_rows(start,end,query=rows):
         for item in source.order_by('pk'):
             emp=raw(item,'EmpID');version=raw(item,'ColorVersion') if table=='DyeDipsRecord' else ''
             if key(emp or '')=='' or table=='DyeDipsRecord' and key('A' if version is None else version)!='A':
-                excluded.append({'entity':item._meta.label,'record_id':item.pk,'legacy_id':item.legacy_id,'issue':'原主工号为空或普通打样版本不是A'});continue
+                excluded.append({'entity':item._meta.label,'record_id':item.pk,'source': source_reference(item),'issue':'原主工号为空或普通打样版本不是A'});continue
             stamp=raw(item,'SheetDate');kind=raw(item,'IsDoubleDye' if table=='DyeDipsRecord' else 'Kind')
             row={name:raw(item,name) for name in ['SheetDate','EmpID','ColorNum','ColorID','CustomerID','SheetNo']}
-            row.update(entity=item._meta.label,record_id=item.pk,legacy_id=item.legacy_id,ID=f'{table}:{item.pk}',
+            row.update(entity=item._meta.label,record_id=item.pk,source=source_reference(item),ID=f'{table}:{item.pk}',
                 SheetKind=4 if table=='DyeDipsRecord' else raw(item,'SheetKind'),ColorVersion=version,
                 JobSheetNo='' if table=='DyeDipsRecord' else raw(item,'JobSheetNo'),IsDoubleDye=kind,
                 SDate=None if stamp is None else (timezone.localtime(stamp)-timedelta(minutes=450)).date().isoformat(),
@@ -66,7 +67,7 @@ def checker(start,end,query=rows):
             employee=raw(item,field)
             if not eligible or key(employee or '')=='':continue
             group=groups.setdefault(key(employee),{'CheckerID':employee,'S':0,'R':0});group[name]+=1
-            details.append({'record_id':item.pk,'legacy_id':item.legacy_id,'measure':name,'employee':employee,'SheetDate':raw(item,'SheetDate')})
+            details.append({'record_id':item.pk,'source': source_reference(item),'measure':name,'employee':employee,'SheetDate':raw(item,'SheetDate')})
     result=[]
     for group in groups.values():
         group['Rate']=Decimal(0) if group['S']==0 else rounded(group['R']/group['S'],'.001')*100
@@ -105,7 +106,7 @@ def production(mode,start=None,end=None,employee=None,query=rows):
         'rows':result,'result_rows':source if mode!='details' else [],'supplemental_rows':excluded,
         'notes':['时间范围为原SheetDate开始包含、结束不含；SDate按本地时间减450分钟。日报是明确的SDate展开，不虚称存在同名原日报过程。',
             '原主EmpID列有效，其他员工UNION已注释；计件按字典连接倍数，Amount不乘Num且排除FDNum，未按常识改算。',
-            '视图原NEWID每次随机，页面用来源表/项目ID稳定追溯，不作为旧erpID。非数字RecipeKind原整数转换失败需另列异常。']}
+            '视图原NEWID每次随机，页面用来源表/项目ID稳定追溯，不作为原键及来源信息。非数字RecipeKind原整数转换失败需另列异常。']}
 
 
 def emp1(start=None,end=None,employee=None,query=rows):

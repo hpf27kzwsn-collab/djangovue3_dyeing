@@ -1,4 +1,5 @@
 """外协申请、发出、回货、退回及质量处置的逐条来源查询。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from django.apps import apps
 from .source_stock_services import raw
 from .source_context import SourceDocumentContext
@@ -17,7 +18,7 @@ def trace(item, query):
         seen.add(key)
         context=SourceDocumentContext.objects.filter(entity=row._meta.label,object_id=row.pk).first()
         effects={} if context is None else context.effects
-        result.append({'entity':row._meta.label,'record_id':row.pk,'legacy_id':row.legacy_id,
+        result.append({'entity':row._meta.label,'record_id':row.pk,'source': source_reference(row),
             'active':active(type(row).objects.filter(pk=row.pk)).exists(),
             **{field:raw(row,field) for field in ['SheetNo','SheetSeries','SheetKind','JobSheetNo','CheckNo','Rolls','WeightQty','LengthQty','Qty','StockUnit'] if field in row.SOURCE_FIELDS},
             **{name:None if name not in effects else {key:effects[name][key] for key in
@@ -41,7 +42,7 @@ def trace(item, query):
                     links.append({'source_id':row.pk,'source_entity':row._meta.label,'target_id':target.pk,
                         'target_entity':target._meta.label,'relation':name})
         if not found and row.SOURCE_TABLE in ['OutWorkApplyDetail','SemiOutWorkApplyDetail','GrayOutDetail','SemiOutDetail']:
-            unresolved.append({'entity':row._meta.label,'record_id':row.pk,'legacy_id':row.legacy_id,
+            unresolved.append({'entity':row._meta.label,'record_id':row.pk,'source': source_reference(row),
                 'issue':'没有已登记的后续来源；不据此断言从未发出/收回，也不以同码猜接。'})
     return {'report':'外协完整来源与质量处置追溯','rows':result,'result_rows':links,'supplemental_rows':unresolved,
         'notes':['同时列出活动及已撤回留档记录；申请量、实际发出、实际回货、退回及质量处置分别显示，不合并为一种数量。',

@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime, date
 from decimal import Decimal
 from django.apps import apps
@@ -29,10 +30,11 @@ class OriginalSalesLinksTests(TestCase):
         line = self.write('OrderColor', source_parent_1=head, old_check_no='CHECK1', old_order_qty=10)
         combos = [self.model('JobCombineOrder', 'erp_production').objects.create(
             old_sheet_series='JOB' + str(i), old_check_no='check1 ', old_color_remarks='old',
-            old_order_qty=99, legacy_id='old-combo-' + str(i)) for i in [1, 2]]
+            old_order_qty=99, source_batch=historical_batch()) for i in [1, 2]]
+        original_batches = {combo.pk: combo.source_batch_id for combo in combos}
         jobs = [self.model('JobSheet', 'erp_production').objects.create(
             old_sheet_series='JOB' + str(i), old_sheet_no='JN' + str(i), old_check_no='CHECK1',
-            old_pre_rolls=99, old_prod_id='KEEP', legacy_id='old-job-' + str(i)) for i in [1, 2]]
+            old_pre_rolls=99, old_prod_id='KEEP', source_batch=historical_batch()) for i in [1, 2]]
         tags = [self.model('GrayMaterialDetail', 'erp_warehouse').objects.create(
             old_detail_no='G' + str(i), old_job_sheet_no='JN' + str(i)) for i in [1, 2]]
         self.model('JobCombineOrder', 'erp_production').objects.create(
@@ -48,12 +50,12 @@ class OriginalSalesLinksTests(TestCase):
             self.assertEqual(job.old_cust_self_product, '客户品名')
             self.assertEqual(combo.old_order_qty, Decimal('-3.5'))
             self.assertEqual(combo.old_cust_self_no, 'PO2')
-            self.assertTrue(combo.legacy_id.startswith('old-combo-'))
+            self.assertEqual(combo.source_batch_id, original_batches[combo.pk])
         self.assertEqual(tags[0].old_color_remarks, '前色,<用途&>')
         self.assertEqual(tags[1].old_color_remarks, '<用途&>')
 
     def test_historical_source_save_does_not_replay_new_order_trigger(self):
-        head = self.model('OrderMain').objects.create(old_sheet_series='OLD', legacy_id='old-order')
+        head = self.model('OrderMain').objects.create(old_sheet_series='OLD', source_batch=historical_batch())
         self.model('OrderColor').objects.create(old_sheet_series='OLD', old_check_no='CHECK')
         job = self.model('JobSheet', 'erp_production').objects.create(old_sheet_series='J', old_check_no='CHECK', old_customer_id='KEEP')
         services.write(type(head), {'old_customer_id': 'NEW'}, head, self.actor)
@@ -71,7 +73,7 @@ class OriginalSalesLinksTests(TestCase):
 
     def test_expiry_is_selected_action_and_does_not_close_unrelated_history(self):
         at = timezone.make_aware(datetime(2024, 1, 1))
-        old = self.model('OrderMain').objects.create(old_sheet_series='OLD', old_sheet_date=at, legacy_id='old-order')
+        old = self.model('OrderMain').objects.create(old_sheet_series='OLD', old_sheet_date=at, source_batch=historical_batch())
         head = self.write('OrderMain', old_sheet_series='NEW', old_sheet_date=at)
         old.refresh_from_db(); self.assertIsNone(old.old_sheet_status)
         client = APIClient(); client.force_authenticate(self.actor)
@@ -107,8 +109,8 @@ class OriginalSalesLinksTests(TestCase):
         head.refresh_from_db(); self.assertEqual(head.old_sheet_status, 10)
 
     def test_adjustment_save_audit_and_reopen_have_distinct_original_scopes(self):
-        first = self.quote(old_detail_no='Q1', old_color_num='A12-3', legacy_id='quote-1')
-        other = self.quote(old_detail_no='Q2', old_color_num='B123', legacy_id='quote-2')
+        first = self.quote(old_detail_no='Q1', old_color_num='A12-3', source_batch=historical_batch())
+        other = self.quote(old_detail_no='Q2', old_color_num='B123', source_batch=historical_batch())
         unrelated = self.quote(old_detail_no='Q3', old_color_num='A124', old_adjust_price=99)
         at = timezone.make_aware(datetime(2026, 10, 1))
         head = self.write('PriceAdjust', old_sheet_series='ADJ1', old_start_date=at, old_date_type='1')
@@ -123,7 +125,7 @@ class OriginalSalesLinksTests(TestCase):
         self.assertEqual(timezone.localtime(first.old_start_date).date(), date(1900, 1, 1))
         self.assertEqual(first.old_date_type, 0)
         self.assertEqual(first.old_job_sheet_no, 'D1')
-        self.assertEqual(first.legacy_id, 'quote-1')
+        self.assertEqual(first.source_batch_id, historical_batch().pk)
         self.assertEqual(other.old_adjust_price, Decimal('-2.50'))
         self.assertEqual(unrelated.old_adjust_price, 99)
 

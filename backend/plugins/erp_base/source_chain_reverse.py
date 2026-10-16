@@ -1,4 +1,5 @@
 """工卡执行链撤销：原单留档、实际库存反记、明确回写及撤销恢复。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from contextlib import contextmanager
 from contextvars import ContextVar
 from django.apps import apps
@@ -231,14 +232,14 @@ def preview(job,query=reader):
         targets=[apps.get_model(row['entity']).objects.get(pk=row['id']) for row in effect(owner,'package_label_sync')['changes']]
         check_scope([owner,*targets],query)
         labels.extend({'label_sync_job_id':job_id,'record_id':row.pk,'table':row.SOURCE_TABLE,'effect':'先恢复本次标签同步前字段，含跨卡同条码目标和工位回写'} for row in targets)
-    return {'report':'工卡执行整链撤销预览','rows':[{'entity':row._meta.label,'record_id':row.pk,'legacy_id':row.legacy_id,
+    return {'report':'工卡执行整链撤销预览','rows':[{'entity':row._meta.label,'record_id':row.pk,'source': source_reference(row),
         'table':row.SOURCE_TABLE,'effect':'原单留档，退出活动办理'} for row in data['nodes'].values()],
-        'result_rows':[{'entity':row._meta.label,'record_id':row.pk,'legacy_id':row.legacy_id,
+        'result_rows':[{'entity':row._meta.label,'record_id':row.pk,'source': source_reference(row),
             **{name:raw(row,name) for name in row.SOURCE_FIELDS if name in ['WareHouseID','LotNo','StorageUnitIDs','JobSheetNo'] or name[2:] in MEASURES and name.startswith('In') or name[3:] in MEASURES and name.startswith('Out')}} for row in data['ledgers'].values()],
         'supplemental_rows':labels+data['issues']+[{'source_entity':edge['from'][0],'source_id':edge['from'][1],
             'target_entity':edge['to'][0],'target_id':edge['to'][1],'relation':edge['via']} for edge in data['edges']],
         'links':data['edges'],'notes':data['notes']+[
-            '撤销顺序：交付/退回及实际库存→包装/称料/报工→进度回写→所选拆合计划。全部原行和旧erpID保留。',
+            '撤销顺序：交付/退回及实际库存→包装/称料/报工→进度回写→所选拆合计划。全部原行和原键及来源信息保留。',
             '反向流水使用原流水数量与维度；NULL仍为NULL，负数反向为正数；无流水不按计划补造。']}
 
 

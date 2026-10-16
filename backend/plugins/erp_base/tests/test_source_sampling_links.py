@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime
 from decimal import Decimal
 from django.apps import apps
@@ -19,13 +20,13 @@ class OriginalSamplingLinksTests(TestCase):
         return services.write(self.model(table), data, actor=self.actor)
 
     def test_trial_version_updates_existing_color_and_delete_returns_latest_remaining(self):
-        master = self.model('PColorNum', 'erp_base').objects.create(old_color_no='COLOR', old_color_num='C1', legacy_id='old-color')
+        master = self.model('PColorNum', 'erp_base').objects.create(old_color_no='COLOR', old_color_num='C1', source_batch=historical_batch())
         previous = self.model('DyeRecipe').objects.create(old_sheet_series='R0', old_sheet_kind=1,
-            old_color_num='C1', old_color_version='V0', old_sheet_date=timezone.make_aware(datetime(2026, 1, 1)), legacy_id='old-recipe')
+            old_color_num='C1', old_color_version='V0', old_sheet_date=timezone.make_aware(datetime(2026, 1, 1)), source_batch=historical_batch())
         current = self.write('DyeRecipe', _entry='TrialDyeRecipe', old_sheet_series='R1', old_sheet_kind=1,
             old_color_num='c1 ', old_color_version='V1', old_sheet_date=timezone.make_aware(datetime(2026, 2, 1)))
         master.refresh_from_db(); self.assertEqual(master.old_color_num_no, 'V1')
-        self.assertEqual(master.legacy_id, 'old-color')
+        self.assertEqual(master.source_batch_id, historical_batch().pk)
         services.delete_documents(type(current).objects.filter(pk=current.pk), self.actor)
         master.refresh_from_db(); self.assertEqual(master.old_color_num_no, 'V0')
         self.assertEqual(timezone.localtime(master.old_oktime).month, 1)
@@ -66,21 +67,21 @@ class OriginalSamplingLinksTests(TestCase):
         with self.assertRaisesMessage(ValidationError, '已停用'):
             self.write('DyeRecipeDetail', source_parent_1=phase, old_stuff_id='stop ', old_stuff_no='01')
         old = self.model('DyeRecipeDetail').objects.create(old_sheet_series='OLD', old_phase_no='01',
-            old_stuff_no='01', old_stuff_id='STOP', legacy_id='original-stopped-stuff')
+            old_stuff_no='01', old_stuff_id='STOP', source_batch=historical_batch())
         services.write(type(old), {'old_remarks': '历史说明'}, old, self.actor)
         old.refresh_from_db(); self.assertEqual(old.old_stuff_id, 'STOP')
 
     def test_creating_recipe_keeps_orphan_phases_and_details(self):
-        phase = self.model('DyeRecipePhase').objects.create(old_sheet_series='MISSING', old_phase_no='01', legacy_id='orphan-phase')
+        phase = self.model('DyeRecipePhase').objects.create(old_sheet_series='MISSING', old_phase_no='01', source_batch=historical_batch())
         detail = self.model('DyeRecipeDetail').objects.create(old_sheet_series='MISSING', old_phase_no='01',
-            old_stuff_no='01', old_stuff_id='S1', legacy_id='orphan-detail')
+            old_stuff_no='01', old_stuff_id='S1', source_batch=historical_batch())
         self.write('DyeRecipe', old_sheet_series='NEW')
         self.assertTrue(type(phase).objects.filter(pk=phase.pk).exists())
         self.assertTrue(type(detail).objects.filter(pk=detail.pk).exists())
 
     def test_sample_color_delete_keeps_referenced_sample_and_historical_master(self):
         color = self.write('DyeLabColor', old_sheet_series='LAB', old_color_no='C', old_color_num='A1')
-        master = self.model('PColorNum', 'erp_base').objects.create(old_sheet_series='LAB', old_color_no='C', legacy_id='old-color')
+        master = self.model('PColorNum', 'erp_base').objects.create(old_sheet_series='LAB', old_color_no='C', source_batch=historical_batch())
         trial = self.model('DyeDipsRecord').objects.create(old_sheet_series='DIPS', old_color_no='C')
         with self.assertRaisesMessage(ValidationError, '已有打样配方'):
             services.delete(type(color).objects.filter(pk=color.pk), self.actor)
@@ -94,7 +95,7 @@ class OriginalSamplingLinksTests(TestCase):
         with self.assertRaisesMessage(ValidationError, '染程不能重复'):
             self.write('DyeDipsRecordPhase', source_parent_1=head, old_phase_no=2, old_phase_id='p1 ')
         old = self.model('DyeDipsRecordPhase').objects.create(old_sheet_series='D1', old_phase_no=2,
-            old_phase_id='P1', legacy_id='historical-duplicate')
+            old_phase_id='P1', source_batch=historical_batch())
         self.assertTrue(type(old).objects.filter(pk=old.pk).exists())
         self.model('PStuff', 'erp_base').objects.create(old_stuff_id='STOP', old_status=1)
         with self.assertRaisesMessage(ValidationError, '已停用'):
@@ -104,7 +105,7 @@ class OriginalSamplingLinksTests(TestCase):
         master = self.model('PColorNum', 'erp_base').objects.create(old_color_no='C', old_color_num='C1')
         for series, when in [('DATED', timezone.make_aware(datetime(2026, 1, 1))), ('UNDATED', None)]:
             self.model('DyeRecipe').objects.create(old_sheet_series=series, old_sheet_kind=1,
-                old_color_num='C1', old_color_version=series, old_sheet_date=when, legacy_id=series)
+                old_color_num='C1', old_color_version=series, old_sheet_date=when, source_batch=historical_batch())
         recipe = self.write('DyeRecipe', old_sheet_series='NEW', old_sheet_kind=1, old_color_num='C1')
         services.delete_documents(type(recipe).objects.filter(pk=recipe.pk), self.actor)
         master.refresh_from_db(); self.assertEqual(master.old_color_num_no, 'DATED')

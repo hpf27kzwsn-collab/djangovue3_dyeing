@@ -1,10 +1,12 @@
 # 染色 ERP 模型实施说明
 
+> 2026-10-16 来源设计更新：当前及后续开发取消额外【旧erpID】，保留旧表原键字段，使用来源批次/提取行及既有来源映射追溯。本文早期实施和验证记录中的旧字段描述属于当时状态，不再作为当前模型要求。以[原键字段与来源追溯规范](原键字段与来源追溯规范.md)为准。
+
 当前补充（2026-10-14）：本文件下文保留对应阶段记录。最新结构、662个ERP模型、553表完整来源、原服务分支及承接/采用结果见[2026-10-14完整原表承接与业务服务实施记录](2026-10-14完整原表承接与业务服务实施记录.md)。旧SQL停止、91表覆盖及旧模型数量不再代表当前起点。
 
 实施日期：2026-10-11，实施状态更新于 2026-10-12。依据：[六模块模型与字段设计](H:/Project_python/django-vue3-admin/dyeing/染色ERP六模块模型与字段设计.md)。当前项目：`djangovue3_dyeing`，Django 5.2.18。
 
-六个业务应用已注册。当前 106 个 ERP 模型、971 个专属字段均已实现，各模型另继承 9 个公共字段，包含额外“旧系统id” `legacy_id`。当前有 45 个正式 ERP 迁移。基础与业务页面、状态动作、查询和旧新对照已接入；业务测试在独立数据库执行，完整来源及已确认主档分别登记。具体本轮变化见 [本批模型及字段实施清单](本批模型及字段实施清单.md) 和 [本轮实施及验收说明](染色ERP本轮实施及验收说明.md)。
+七个ERP业务应用已注册。当前700个ERP模型，其中589个原表复刻模型，保留12,016个旧表原字段。公共基类保留业务备注及平台审计字段，取消额外旧ID列；原表按批次/提取行、转换主档按既有来源映射追溯。以下早期分批计数保留为实施历史；当前来源设计见《原键字段与来源追溯规范》。
 
 本次按当前旧系统字段设置复核，修订字段含义、标题、长度、精度及空值；具体已复刻和合理调整见 [旧系统字段复刻与差异处理说明](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段复刻与差异处理说明.md) 和 [逐项对照](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/旧系统字段逐项对照.md)。
 
@@ -19,7 +21,7 @@
 | 生产管理 | erp_production | 27 | [models.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/plugins/erp_production/models.py) | 3 | 11 |
 | 仓储管理 | erp_warehouse | 19 | [models.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/plugins/erp_warehouse/models.py) | 1 | 8 |
 
-应用配置位于 [application/plugins.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/application/plugins.py)。跨应用外键使用明确的 `app_label.Model` 字符串；Django 将跨模块依赖拆成多份初始迁移。所有实体继承 `ErpModel(CoreModel)`，增加长业务备注 `remarks` 和旧系统id `legacy_id`，复用现有账号、部门和附件资源。
+应用配置位于 [application/plugins.py](H:/Project_python/django-vue3-admin/djangovue3_dyeing/backend/application/plugins.py)。跨应用外键使用明确的 `app_label.Model` 字符串；Django 将跨模块依赖拆成多份初始迁移。所有实体继承 `ErpModel(CoreModel)`，增加长业务备注 `remarks`，复用现有账号、部门和附件资源；取消额外旧 ID 字段，保留原表真实键列。
 
 已有框架把登记的模型转换为资源接口。六个应用的 106 个模型均已登记，普通基础资料、明确业务动作和只读结果分别使用对应服务与权限；库存流水和余额由收发、盘点、调拨及冲销动作维护。A 批的历史实施范围见 [基础信息A批实施记录](H:/Project_python/django-vue3-admin/djangovue3_dyeing/docs/基础信息A批实施记录.md)，后续各批见 [业务功能逐批实施记录](业务功能逐批实施记录.md)。
 

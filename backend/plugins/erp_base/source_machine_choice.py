@@ -1,4 +1,5 @@
 """原工序机台列表与进缸机台查询；仅投影，不替用户改报工机台。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from datetime import datetime,timedelta
 from django.utils import timezone
 from .source_quality_reports import rows,key
@@ -25,8 +26,8 @@ def entered_machine(number,query=rows):
     a=varchar(raw(work[0],'MachineID'),100) if work else None
     b=None if not jobs or raw(jobs[-1],'StereotypesName') is None else varchar(raw(jobs[-1],'StereotypesName')[:3],100)
     return {'report':'Fn_Get_Machine','rows':[{'JobSheetNo':number,'MachineID':b if not a else a}],
-        'candidate_rows':[{'record_id':r.pk,'legacy_id':r.legacy_id,'MachineID':raw(r,'MachineID'),'selected':r==work[0]} for r in work],
-        'result_rows':[{'record_id':r.pk,'legacy_id':r.legacy_id,'StereotypesName':raw(r,'StereotypesName'),'selected':r==jobs[-1]} for r in jobs],
+        'candidate_rows':[{'record_id':r.pk,'source': source_reference(r),'MachineID':raw(r,'MachineID'),'selected':r==work[0]} for r in work],
+        'result_rows':[{'record_id':r.pk,'source': source_reference(r),'StereotypesName':raw(r,'StereotypesName'),'selected':r==jobs[-1]} for r in jobs],
         'notes':['GX07非空机台TOP1原无排序，明确取本项目ID第一条，全部候选保留。没有报工机台时取最后工卡StereotypesName前三个字符，不查排程。']}
 
 

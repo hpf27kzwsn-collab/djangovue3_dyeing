@@ -116,7 +116,7 @@ class EquipmentTests(TestCase):
     def test_care_create_with_projects_has_new_ids_and_can_reverse(self):
         self.project();head=self.save_project('care')
         child=rows('MachineCareProject','erp_production').get()
-        self.assertEqual(child.old_detail_no,head.old_sheet_series+'-000');self.assertIsNone(head.legacy_id)
+        self.assertEqual(child.old_detail_no,head.old_sheet_series+'-000');self.assertIsNone(head.source_batch_id)
         undo(head,self.actor,self.at,'撤回')
         self.assertEqual(rows('MachineCareRecords','erp_production').count(),0)
         self.assertEqual(reader('MachineCareProject','erp_production').count(),1)

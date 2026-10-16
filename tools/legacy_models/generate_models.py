@@ -111,8 +111,8 @@ def generate(schema_path,registry_path):
                    '        indexes=['+','.join(index_code)+']',
                    '        verbose_name=verbose_name_plural='+repr(table['title']),'        ordering=["-id"]']
             options={'viewset':'plugins.erp_base.source_api.SourceRecordViewSet','serializer':'plugins.erp_base.source_api.SourceRecordSerializer',
-                     'crud_fields':['id','entry_name',*raw.values(),*[r['field'] for r in table['relations']],'approval_stage','confirmed_at','confirmed_by','approved_at','approved_by','legacy_id','source_batch','source_row','remarks'],
-                     'fields':{'legacy_id':{'column':{'show':False}},'source_batch':{'column':{'show':False}},'source_row':{'column':{'show':False}}},
+                     'crud_fields':['id','entry_name',*raw.values(),*[r['field'] for r in table['relations']],'approval_stage','confirmed_at','confirmed_by','approved_at','approved_by','source_batch','source_row','remarks'],
+                     'fields':{'source_batch':{'column':{'show':False}},'source_row':{'column':{'show':False}}},
                      'workflow':{'source_model':True,'state_field':'approval_stage','actions':[]}}
             if table['document']:
                 options['workflow'].update({'editable_states':['draft'],'actions':[
@@ -210,7 +210,7 @@ def generate(schema_path,registry_path):
             if table['table']=='WProcess':
                 options['viewset']='plugins.erp_base.source_api.SourceWorkViewSet'
                 options['workflow']['actions'].append({'key':'delete_shift_record','title':'按旧班次规则删除刷卡',
-                    'states':['draft','confirmed','approved',None],'hide_when':['legacy_id','source_batch'],'inputs':[
+                    'states':['draft','confirmed','approved',None],'hide_when':['source_batch'],'inputs':[
                         {'key':'mode','title':'实际删除链','kind':'select','required':True,'options':[
                             {'value':'trigger','label':'原删除触发器'},
                             {'value':'trigger_then_maintenance','label':'删除触发器后执行删除维护过程'}]},

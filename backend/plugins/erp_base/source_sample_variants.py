@@ -1,4 +1,5 @@
 """打样配色级各原过程：独立口径、完整范围预览、实际回写及撤回。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 from datetime import datetime
 from decimal import Decimal
@@ -122,12 +123,12 @@ def plan(anchor, variant, scope='selected', query=reader):
                 for field in ['ColorNum','ColorNo']:
                     update(choose('PColorNum','erp_base',**{field:raw(head,field)}),copied)
                     if variant!='Sp_DyeDipsRecord10':update(choose('DyeLabColor',**{field:raw(head,field)}),{'ColorDepthID':get(head,'ColorDepthID')})
-            details_report.append({'record_id':sample.pk,'legacy_id':sample.legacy_id,'white':white,'dye':dye,'global_fast_count':len(fast),
+            details_report.append({'record_id':sample.pk,'source': source_reference(sample),'white':white,'dye':dye,'global_fast_count':len(fast),
                 'ColorDepthID':depth,'DyePhaseName':values['DyePhaseName'],'note_candidates':[row.pk for row in notes],
                 'material_ids':[row.pk for row in joined],'phase_ids':[row.pk for row in phases]})
     check_scope([anchor,*sources.values(),*targets.values()],query)
     report={'report':'打样原过程回写预览','variant':variant,'scope':scope,'rows':[
-        {'entity':item._meta.label,'record_id':item.pk,'legacy_id':item.legacy_id,
+        {'entity':item._meta.label,'record_id':item.pk,'source': source_reference(item),
          'before':{name:raw(item,name) for name in changes[identity]},'after':changes[identity]}
         for identity,item in targets.items()], 'result_rows':details_report,'supplemental_rows':issues,
         'notes':['selected明确处理所选流水；original保留原过程全库游标范围，Sp_DyeDipsRecord本身仍按流水。',

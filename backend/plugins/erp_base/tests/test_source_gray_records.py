@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from django.apps import apps
 from django.test import TestCase
 from rest_framework.test import APIClient
@@ -15,15 +16,15 @@ class OriginalGrayRecordsTests(TestCase):
         head = services.write(self.model('GrayIn'), {'_entry': 'GrayIn', 'old_stock_unit': 1}, actor=self.actor)
         line = services.write(self.model('GrayInDetail'), {'source_parent_1': head, 'old_rece_sheet_no': 'R01'}, actor=self.actor)
         tag = self.model('GrayInRecord').objects.create(source_parent_1=line, old_rece_sheet_no='R01',
-            old_roll_no='01', old_gunit=2, legacy_id='old-unit-tag')
+            old_roll_no='01', old_gunit=2, source_batch=historical_batch())
         services.write(type(line), {'old_weight_qty': 10}, line, self.actor)
         tag.refresh_from_db()
         self.assertEqual(tag.old_gunit, 1)
-        self.assertEqual(tag.legacy_id, 'old-unit-tag')
+        self.assertEqual(tag.source_batch_id, historical_batch().pk)
 
     def test_removing_actual_return_changes_each_related_job_and_keeps_other_jobs(self):
         jobs = self.model('JobSheet', 'erp_production')
-        job = jobs.objects.create(old_sheet_series='JOB-1', old_sheet_no='JOB-1', legacy_id='old-return-job')
+        job = jobs.objects.create(old_sheet_series='JOB-1', old_sheet_no='JOB-1', source_batch=historical_batch())
         other = jobs.objects.create(old_sheet_series='JOB-2', old_sheet_no='JOB-2', old_sheet_status=1)
         head = services.write(self.model('GrayOut'), {'_entry': 'GrayOut', 'old_sheet_kind': 29}, actor=self.actor)
         line = services.write(self.model('GrayOutDetail'), {'source_parent_1': head, 'old_assigned_no': 'RETURN-1',
@@ -32,7 +33,7 @@ class OriginalGrayRecordsTests(TestCase):
         job.refresh_from_db(); other.refresh_from_db()
         self.assertEqual(job.old_curr_process_id, '退仓待处理')
         self.assertEqual(job.old_sheet_status, 9)
-        self.assertEqual(job.legacy_id, 'old-return-job')
+        self.assertEqual(job.source_batch_id, historical_batch().pk)
         self.assertEqual(other.old_sheet_status, 1)
         self.assertFalse(type(line).objects.filter(pk=line.pk).exists())
 
@@ -51,7 +52,7 @@ class OriginalGrayRecordsTests(TestCase):
         head = services.write(self.model('GrayOut'), {'_entry': 'GrayOut'}, actor=self.actor)
         line = services.write(self.model('GrayOutDetail'), {'source_parent_1': head,
             'old_assigned_no': 'KEEP-1', 'old_rolls': -2}, actor=self.actor)
-        line.legacy_id = 'old-child'; line.save(update_fields=['legacy_id'])
+        line.source_batch=historical_batch(); line.save(update_fields=['source_batch'])
         client = APIClient(); client.force_authenticate(self.actor)
         response = client.delete(f'/api/system/erp_warehouse_sourcedyegrayout/{head.pk}/')
         self.assertEqual(response.status_code, 400, response.data)
@@ -64,7 +65,7 @@ class OriginalGrayRecordsTests(TestCase):
         line = self.model('GrayInDetail').objects.create(source_parent_1=receipt,
             old_sheet_series='GIN-01', old_rece_sheet_no='R01')
         tags = [self.model('GrayInRecord').objects.create(source_parent_1=line, old_rece_sheet_no='R01',
-            old_roll_no=roll, old_bar_code='SAME-TAG', legacy_id='old-tag-' + roll) for roll in ['01', '02']]
+            old_roll_no=roll, old_bar_code='SAME-TAG', source_batch=historical_batch()) for roll in ['01', '02']]
         job = self.model('JobSheet', 'erp_production').objects.create(old_sheet_series='JOB-SERIES', old_sheet_no='JOB-01')
         allocated = self.model('JobGrayRecord', 'erp_production').objects.create(source_parent_1=job,
             old_sheet_series='JOB-SERIES', old_roll_no='01', old_rece_sheet_no='R01', old_gray_bar_code='SAME-TAG')
@@ -79,7 +80,7 @@ class OriginalGrayRecordsTests(TestCase):
         self.assertEqual(tags[0].old_job_sheet_no, 'JOB-SERIES')
         self.assertIsNone(tags[1].old_assigned_no)
         self.assertEqual(allocated.old_assigned_no, 'OUT-1')
-        self.assertEqual(tags[0].legacy_id, 'old-tag-01')
+        self.assertEqual(tags[0].source_batch_id, historical_batch().pk)
         services.reopen(head, self.actor, '反审出库')
         # 旧过程反审只撤库存，不撤上述细码回写；原行为明确保留。
         tags[0].refresh_from_db()

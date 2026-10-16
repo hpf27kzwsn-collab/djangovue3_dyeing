@@ -195,7 +195,7 @@ class QuoteSampleTests(TestCase):
         self.old('DyeLabMain',SheetSeries='L',CustomerID='CUSTOMER')
         item=schedule(color,self.actor,'DyeDipsRecord','A','E','S',**self.event)
         self.assertEqual((item.old_customer_id,item.old_color_num,item.old_spec),('CUSTOMER','C','原规格'))
-        self.assertIsNone(item.legacy_id)
+        self.assertIsNone(item.source_batch_id)
         self.assertFalse(schedule_preview(color)[0]['rows'][0]['original_visible'])
         second=schedule(color,self.actor,'DyeDipsRecordBulk','B','E','S',**self.event)
         self.assertNotEqual(item.old_sheet_series,second.old_sheet_series)

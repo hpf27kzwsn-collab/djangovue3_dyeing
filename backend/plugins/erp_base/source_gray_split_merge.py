@@ -1,4 +1,5 @@
 """出库前坯料、出库后投坯细码拆合及原汇总回写；原参与行留档。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 import re
 from uuid import uuid4
 from django.apps import apps
@@ -260,7 +261,7 @@ def undo_operation(item,actor,at,reason):
 def operation_report(item):
     context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
     if context is None or 'gray_operation' not in context.effects:
-        return {'report':'原细码拆合日志','rows':[{'record_id':item.pk,'legacy_id':item.legacy_id,**{old:raw(item,old) for old in item.SOURCE_FIELDS}}],
+        return {'report':'原细码拆合日志','rows':[{'record_id':item.pk,'source': source_reference(item),**{old:raw(item,old) for old in item.SOURCE_FIELDS}}],
             'notes':['原日志原样展示；缺少逐行前值时不能猜测恢复，由明确的细码调整继续办理。']}
     value=context.effects['gray_operation']
     results=[{'entity':entry['entity'],'record_id':entry['source']['id'],'role':'拆分生成'} for entry in value['created']]

@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from django.test import TestCase
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -21,7 +22,7 @@ class OriginalStockPostingTests(TestCase):
         book = SourceDyeStuffStockBook.objects.get()
         self.assertEqual(book.old_in_qty, -2)
         self.assertEqual(book.old_in_money, -6)
-        self.assertIsNone(book.legacy_id)
+        self.assertIsNone(book.source_batch_id)
         services.write(type(line), {'old_qty': 3, 'old_amount': 9}, line, self.actor)
         self.assertEqual(SourceDyeStuffStockBook.objects.count(), 1)
         self.assertEqual(SourceDyeStuffStockBook.objects.get().old_in_qty, -3)
@@ -45,7 +46,7 @@ class OriginalStockPostingTests(TestCase):
         head.refresh_from_db(); self.assertEqual(head.old_right_status, 0)
 
     def test_root_delete_cleans_only_its_new_effects_and_keeps_historical_book(self):
-        historical = SourceDyeStuffStockBook.objects.create(old_book_no=5, legacy_id='old-book', old_in_qty=-20)
+        historical = SourceDyeStuffStockBook.objects.create(old_book_no=5, source_batch=historical_batch(), old_in_qty=-20)
         head = services.write(SourceDyeStuffIn, {'_entry': 'StuffIn'}, actor=self.actor)
         services.write(SourceDyeStuffInDetail, {'source_parent_1': head, 'old_detail_no': 'ROW-1',
             'old_stuff_id': 'S1', 'old_qty': 2, 'old_amount': 6}, actor=self.actor)
@@ -93,7 +94,7 @@ class OriginalStockPostingTests(TestCase):
     def test_stuff_allot_generates_both_documents_and_keeps_save_mode_after_reopen(self):
         SourceBusinessParameter.objects.create(name='CostMethodOfStuff', value='M')
         material = apps.get_model('erp_base.SourceDyePStuff').objects.create(old_stuff_id='S1', old_wof=2,
-            old_price=2, legacy_id='OLD-MATERIAL-S1')
+            old_price=2, source_batch=historical_batch())
         head = services.write(apps.get_model('erp_warehouse.SourceDyeStuffAllot'), {'_entry': 'StuffAllot',
             'old_sheet_series': 'ALLOT-00000001', 'old_sheet_no': 'ALLOT-1',
             'old_ware_house_id': '12', 'old_to_ware_house_id': '13'}, actor=self.actor)
@@ -102,7 +103,7 @@ class OriginalStockPostingTests(TestCase):
         self.assertEqual(SourceDyeStuffStockBook.objects.count(), 2)
         material.refresh_from_db()
         self.assertEqual(material.old_price, 3)
-        self.assertEqual(material.legacy_id, 'OLD-MATERIAL-S1')
+        self.assertEqual(material.source_batch_id, historical_batch().pk)
         head = services.confirm(head, self.actor); head = services.approve(head, self.actor)
         incoming = apps.get_model('erp_warehouse.SourceDyeStuffIn').objects.get(old_sheet_series='SR00000001')
         outgoing = apps.get_model('erp_warehouse.SourceDyeStuffOut').objects.get(old_sheet_series='TO00000001')

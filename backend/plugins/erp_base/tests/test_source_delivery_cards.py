@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime
 from decimal import Decimal
 from django.apps import apps
@@ -37,23 +38,24 @@ class DeliveryCardTests(TestCase):
 
     def job(self,**values):
         return self.old('JobSheet','erp_production',old_sheet_series='J',old_sheet_no='JOB',
-            old_pre_vat_qty=Decimal('100'),old_pre_rolls=10,old_assign_unit=1,legacy_id='J',**values)
+            old_pre_vat_qty=Decimal('100'),old_pre_rolls=10,old_assign_unit=1,source_batch=historical_batch(),**values)
 
     def test_material_return_both_families_keep_negative_null_and_source(self):
         for table,key,incoming in [('GrayOutDetail','old_assigned_no','GrayIn'),('SemiOutDetail','old_detail_no','SemiIn')]:
-            source=self.old(table,old_sheet_series='ORPHAN',**{key:table},old_weight_qty=100,old_price=Decimal('2.50'),legacy_id=table)
+            source=self.old(table,old_sheet_series='ORPHAN',**{key:table},old_weight_qty=100,old_price=Decimal('2.50'),source_batch=historical_batch())
             before=snapshot(source)
             result=return_material(source,self.actor,customer='C',**self.movement)
             line=self.model(incoming+'Detail').objects.get(source_parent_1=result)
             self.assertEqual(line.old_weight_qty,Decimal('-2.5'));self.assertIsNone(line.old_length_qty)
             self.assertEqual(line.old_amount,Decimal('-6.25'));self.assertEqual(result.old_customer_id,'C')
-            self.assertEqual(view_effects(result)['material_return_origin']['source']['legacy_id'],table)
+            self.assertEqual(view_effects(result)['material_return_origin']['source']['source_batch'],historical_batch().pk)
+            self.assertEqual(view_effects(result)['material_return_origin']['source']['id'],source.pk)
             source.refresh_from_db();self.assertEqual(snapshot(source),before)
-            self.assertIsNone(result.legacy_id)
+            self.assertIsNone(result.source_batch_id)
 
     def test_factory_dispositions_have_audit_and_do_not_change_old_quality_or_stock(self):
-        source=self.old('ProdIn',old_sheet_series='R',old_right_status=99,old_weight_qty=-4,legacy_id='R')
-        inspection=self.old('WDefect','erp_quality',old_sheet_series='Q',old_sheet_no='Q',legacy_id='Q')
+        source=self.old('ProdIn',old_sheet_series='R',old_right_status=99,old_weight_qty=-4,source_batch=historical_batch())
+        inspection=self.old('WDefect','erp_quality',old_sheet_series='Q',old_sheet_no='Q',source_batch=historical_batch())
         before=snapshot(source)
         for result in ['released','concession','hold','return','withdrawn']:
             factory_quality(source,self.actor,'FACT',result,inspection,self.at,'明确质量处置')
@@ -63,13 +65,14 @@ class DeliveryCardTests(TestCase):
         self.assertEqual(self.model('ProdStockBook').objects.count(),0)
 
     def test_duplicate_packaging_labels_use_selected_row_and_actual_receipt(self):
-        first=self.old('RecordYield',old_guid='A',old_bar_code='SAME',old_kg=123,old_net_kg=-9,legacy_id='A')
-        second=self.old('RecordYield',old_guid='B',old_bar_code='SAME',old_kg=99,legacy_id='B')
+        first=self.old('RecordYield',old_guid='A',old_bar_code='SAME',old_kg=123,old_net_kg=-9,source_batch=historical_batch())
+        second=self.old('RecordYield',old_guid='B',old_bar_code='SAME',old_kg=99,source_batch=historical_batch())
         target=receive_package(second,self.actor,**self.movement)
         line=self.model('ProdInRecord').objects.get(source_parent_1=target)
         self.assertEqual(target.old_weight_qty,Decimal('-2.5'));self.assertEqual(line.old_prod_bar_code,'SAME')
         self.assertIsNone(line.old_net_kg)
-        self.assertEqual(view_effects(target)['package_receipt_origin']['source']['legacy_id'],'B')
+        self.assertEqual(view_effects(target)['package_receipt_origin']['source']['source_batch'],historical_batch().pk)
+        self.assertEqual(view_effects(target)['package_receipt_origin']['source']['id'],second.pk)
         first.refresh_from_db();self.assertEqual(first.old_net_kg,-9)
         stock=self.model('ProdStockBook').objects.get(old_sheet_series=target.old_sheet_series)
         self.assertEqual(stock.old_in_weight_qty,Decimal('-2.5'))
@@ -83,7 +86,7 @@ class DeliveryCardTests(TestCase):
         return dispatch_product(source,self.actor,**values,purpose=purpose,receiver='RCV',price=Decimal('3'),records=records)
 
     def test_factory_return_and_delivery_price_signed_and_reverse_are_separate(self):
-        source=self.old('ProdIn',old_sheet_series='R',old_sheet_no='RECEIPT',old_customer_id='C',old_stock_unit=1,old_price=2,old_right_status=10,legacy_id='R')
+        source=self.old('ProdIn',old_sheet_series='R',old_sheet_no='RECEIPT',old_customer_id='C',old_stock_unit=1,old_price=2,old_right_status=10,source_batch=historical_batch())
         out=self.dispatch(source,purpose='factory_return')
         self.assertEqual(out.old_fact_id,'RCV');self.assertEqual(out.old_customer_id,'C')
         self.assertNotEqual(out.old_right_status,10)
@@ -101,8 +104,8 @@ class DeliveryCardTests(TestCase):
         self.assertEqual(view_effects(returned)['product_dispatch_origin']['purpose'],'delivery_return')
 
     def test_delivery_fine_records_selected_by_id_not_barcode_and_reject_foreign_owner(self):
-        source=self.old('ProdIn',old_sheet_series='R',old_sheet_no='R',legacy_id='R')
-        records=[self.old('ProdInRecord',old_sheet_series='r ',old_roll_no=str(i),old_bar_code='SAME',old_in_rolls=-1,legacy_id=str(i)) for i in range(2)]
+        source=self.old('ProdIn',old_sheet_series='R',old_sheet_no='R',source_batch=historical_batch())
+        records=[self.old('ProdInRecord',old_sheet_series='r ',old_roll_no=str(i),old_bar_code='SAME',old_in_rolls=-1,source_batch=historical_batch()) for i in range(2)]
         out=self.dispatch(source,records=records)
         detail=self.model('ProdOutDetail').objects.get(source_parent_1=out)
         self.assertEqual(self.model('ProdOutRecord').objects.filter(source_parent_1=detail).count(),2)
@@ -123,7 +126,7 @@ class DeliveryCardTests(TestCase):
         planned=self.model('JobProcess','erp_production').objects.get(source_parent_1=new)
         self.assertEqual(planned.old_theory_value01,'55');self.assertIsNone(planned.old_actual_value01)
         self.assertIsNone(planned.old_start_time);self.assertIsNone(planned.old_wprocess_no)
-        self.assertEqual(planned.old_status,'0');self.assertIsNone(planned.legacy_id)
+        self.assertEqual(planned.old_status,'0');self.assertIsNone(planned.source_batch_id)
         self.assertTrue(view_effects(new)['card_adoption']['quantity_deducted'])
 
     def test_split_cross_unit_null_and_negative_kept_with_explicit_difference(self):
@@ -138,7 +141,7 @@ class DeliveryCardTests(TestCase):
 
     def test_merge_keeps_duplicate_job_numbers_and_all_original_actuals(self):
         first=self.job(old_sum_process_weight_qty=20)
-        second=self.old('JobSheet','erp_production',old_sheet_series='OTHER',old_sheet_no='JOB',old_pre_vat_qty=-2,old_pre_rolls=None,legacy_id='B')
+        second=self.old('JobSheet','erp_production',old_sheet_series='OTHER',old_sheet_no='JOB',old_pre_vat_qty=-2,old_pre_rolls=None,source_batch=historical_batch())
         before=[snapshot(first),snapshot(second)]
         target=merge_cards(first,self.actor,[second,second],Decimal('30'),None,1,self.at,'合卡',[])
         data=combine_members(target)['rows']
@@ -149,11 +152,12 @@ class DeliveryCardTests(TestCase):
 
     def test_order_allocation_partial_transfer_preserves_total_and_unknown(self):
         job=self.job()
-        source=self.old('JobCombineOrder','erp_production',old_sheet_series='OTHER',old_check_no='C',old_order_qty=100,old_combine_qty=Decimal('20'),legacy_id='allocation')
+        source=self.old('JobCombineOrder','erp_production',old_sheet_series='OTHER',old_check_no='C',old_order_qty=100,old_combine_qty=Decimal('20'),source_batch=historical_batch())
         target=transfer_allocation(source,self.actor,job,Decimal('5.25'),self.at,'部分转移')
         source.refresh_from_db();self.assertEqual(source.old_combine_qty+target.old_combine_qty,20)
-        self.assertEqual(target.old_order_qty,100);self.assertIsNone(target.legacy_id)
-        self.assertEqual(view_effects(target)['order_transfer_origin']['source']['source']['legacy_id'],'allocation')
+        self.assertEqual(target.old_order_qty,100);self.assertIsNone(target.source_batch_id)
+        self.assertEqual(view_effects(target)['order_transfer_origin']['source']['source']['source_batch'],historical_batch().pk)
+        self.assertEqual(view_effects(target)['order_transfer_origin']['source']['source']['id'],source.pk)
         unknown=transfer_allocation(source,self.actor,job,None,self.at,'原分配未知')
         source.refresh_from_db();self.assertIsNone(source.old_combine_qty);self.assertIsNone(unknown.old_combine_qty)
 
@@ -172,7 +176,7 @@ class DeliveryCardTests(TestCase):
         job.refresh_from_db();self.assertEqual(job.old_pkg,150);self.assertEqual(job.old_prolls,2)
 
     def test_automatic_barcode_keeps_given_duplicates_and_imported_rows_unchanged(self):
-        original=self.old('RecordYield',old_guid='OLD',old_bar_code=None,old_roll_no='123',old_net_kg=-7,legacy_id='old')
+        original=self.old('RecordYield',old_guid='OLD',old_bar_code=None,old_roll_no='123',old_net_kg=-7,source_batch=historical_batch())
         before=snapshot(original)
         a=self.write('RecordYield',_entry='RecordYield',old_roll_no='001',old_bar_code=None)
         b=self.write('RecordYield',_entry='RecordYield',old_roll_no='001',old_bar_code=None)
@@ -191,7 +195,7 @@ class DeliveryCardTests(TestCase):
         self.assertTrue(type(weigh).objects.filter(pk=weigh.pk).exists())
 
     def test_api_optional_nulls_quality_and_generated_action_metadata(self):
-        receipt=self.old('ProdIn',old_sheet_series='R',legacy_id='R')
+        receipt=self.old('ProdIn',old_sheet_series='R',source_batch=historical_batch())
         root=f'/api/system/erp_warehouse_sourcedyeprodin/{receipt.pk}/'
         response=self.client.post(root+'factory_quality/',{'result':'hold','at':self.at.isoformat(),'reason':'原无质检'},format='json')
         self.assertEqual(response.status_code,200,response.data)
@@ -203,15 +207,15 @@ class DeliveryCardTests(TestCase):
         response=self.client.post(root+'dispatch_product/',{'at':self.at.isoformat(),'reason':'原空数量',
             'sheet_kind':22,'purpose':'customer_delivery','records':[]},format='json')
         self.assertEqual(response.status_code,200,response.data)
-        package=self.old('RecordYield',old_guid='P',old_bar_code='P',legacy_id='P')
+        package=self.old('RecordYield',old_guid='P',old_bar_code='P',source_batch=historical_batch())
         response=self.client.post(f'/api/system/erp_warehouse_sourcedyerecordyield/{package.pk}/receive_package/',
             {'at':self.at.isoformat(),'reason':'原空数量','sheet_kind':10},format='json')
         self.assertEqual(response.status_code,200,response.data)
 
     def test_combined_process_uses_source_status_exact_next_and_time_way(self):
         job=self.job(old_curr_process_id='BEFORE')
-        source=self.old('JobProcess','erp_production',old_sheet_series='OTHER',old_process_no=1,old_process_id='GX07',old_status='5',legacy_id='S')
-        target=self.old('JobProcess','erp_production',old_sheet_series='J',old_process_no=3,old_process_id='RARE',old_start_time=self.at,legacy_id='T')
+        source=self.old('JobProcess','erp_production',old_sheet_series='OTHER',old_process_no=1,old_process_id='GX07',old_status='5',source_batch=historical_batch())
+        target=self.old('JobProcess','erp_production',old_sheet_series='J',old_process_no=3,old_process_id='RARE',old_start_time=self.at,source_batch=historical_batch())
         sync_combined_process(source,self.actor,[target],None,2,self.at,'原结束分支')
         target.refresh_from_db();job.refresh_from_db()
         self.assertEqual(target.old_status,'5');self.assertEqual(target.old_end_time,self.at)
@@ -220,11 +224,11 @@ class DeliveryCardTests(TestCase):
         sync_combined_process(source,self.actor,[target],'M',0,self.at,'原双时间分支')
         job.refresh_from_db();target.refresh_from_db()
         self.assertEqual(job.old_curr_process_id,'RARE');self.assertEqual(job.old_next_process_id,'NEXT')
-        self.assertEqual(target.old_machine_id,'M');self.assertEqual(target.legacy_id,'T')
+        self.assertEqual(target.old_machine_id,'M');self.assertEqual(target.source_batch_id,historical_batch().pk)
 
     def test_barcode_five_digit_overflow_keeps_old_row_and_extends_new_number(self):
         prefix=timezone.localtime().strftime('%y%m%d')
-        old=self.old('RecordYield',old_guid='MAX',old_bar_code=prefix+'99999',legacy_id='max')
+        old=self.old('RecordYield',old_guid='MAX',old_bar_code=prefix+'99999',source_batch=historical_batch())
         result=self.write('RecordYield',old_bar_code=None)
         self.assertEqual(result.old_bar_code,prefix+'100000')
         old.refresh_from_db();self.assertEqual(old.old_bar_code,prefix+'99999')
@@ -260,15 +264,15 @@ class DeliveryCardTests(TestCase):
         self.assertEqual(view_effects(item)['factory_quality']['result'],'hold')
 
     def test_packaging_gray_adoption_keeps_duplicate_rows_and_precise_source(self):
-        source=self.old('JobGrayRecord','erp_production',old_sheet_series='ORPHAN',old_gray_bar_code='G',old_weight_qty=-8,legacy_id='G')
-        selected=self.old('RecordYield',old_guid='A',old_bar_code='SAME',old_gray_weight=99,legacy_id='A')
-        other=self.old('RecordYield',old_guid='B',old_bar_code='SAME',old_gray_weight=77,legacy_id='B')
+        source=self.old('JobGrayRecord','erp_production',old_sheet_series='ORPHAN',old_gray_bar_code='G',old_weight_qty=-8,source_batch=historical_batch())
+        selected=self.old('RecordYield',old_guid='A',old_bar_code='SAME',old_gray_weight=99,source_batch=historical_batch())
+        other=self.old('RecordYield',old_guid='B',old_bar_code='SAME',old_gray_weight=77,source_batch=historical_batch())
         response=self.client.post(f'/api/system/erp_warehouse_sourcedyerecordyield/{selected.pk}/adopt_gray_record/',
             {'source':source.pk,'at':self.at.isoformat(),'reason':'明确对应原行'},format='json')
         self.assertEqual(response.status_code,200,response.data)
         selected.refresh_from_db();other.refresh_from_db()
         self.assertEqual(selected.old_gray_weight,-8);self.assertEqual(selected.old_gray_bar_code,'G')
-        self.assertEqual(other.old_gray_weight,77);self.assertEqual(selected.legacy_id,'A')
+        self.assertEqual(other.old_gray_weight,77);self.assertEqual(selected.source_batch_id,historical_batch().pk)
         self.assertEqual(Decimal(view_effects(selected)['package_gray_origin']['package_before']['source']['old_gray_weight']),99)
 
     def test_split_and_allocation_round_once_before_subtracting(self):
@@ -282,7 +286,7 @@ class DeliveryCardTests(TestCase):
         source.refresh_from_db();self.assertEqual(source.old_combine_qty+result.old_combine_qty,20)
 
     def test_package_receipt_keeps_different_original_header_and_record_precision(self):
-        source=self.old('RecordYield',old_guid='A',old_bar_code='A',legacy_id='A')
+        source=self.old('RecordYield',old_guid='A',old_bar_code='A',source_batch=historical_batch())
         values={**self.movement,'weight':Decimal('1.235'),'rolls':Decimal('2.345')}
         result=receive_package(source,self.actor,**values)
         detail=self.model('ProdInRecord').objects.get(source_parent_1=result)
@@ -291,8 +295,8 @@ class DeliveryCardTests(TestCase):
         self.assertEqual(view_effects(result)['package_receipt_origin']['requested_amounts']['weight'],'1.235')
 
     def test_orphan_combine_group_can_be_read_and_adopted_without_deleting_sources(self):
-        first=self.old('JobCombine','erp_production',old_sheet_series='MISSING',old_job_sheet_no='DUP',old_qty=-2,legacy_id='A')
-        second=self.old('JobCombine','erp_production',old_sheet_series='MISSING',old_job_sheet_no='DUP',old_qty=None,legacy_id='B')
+        first=self.old('JobCombine','erp_production',old_sheet_series='MISSING',old_job_sheet_no='DUP',old_qty=-2,source_batch=historical_batch())
+        second=self.old('JobCombine','erp_production',old_sheet_series='MISSING',old_job_sheet_no='DUP',old_qty=None,source_batch=historical_batch())
         root=f'/api/system/erp_production_sourcedyejobcombine/{first.pk}/'
         result=self.client.post(root+'combine_group/',{},format='json')
         self.assertEqual(result.status_code,200,result.data)
@@ -302,7 +306,8 @@ class DeliveryCardTests(TestCase):
         self.assertEqual(result.status_code,200,result.data)
         link=type(first).objects.get(pk=result.data['data']['id'])
         self.assertEqual(link.source_parent_1,target);self.assertEqual(link.old_qty,-2)
-        self.assertEqual(link.old_job_sheet_no,'DUP');self.assertIsNone(link.legacy_id)
+        self.assertEqual(link.old_job_sheet_no,'DUP');self.assertIsNone(link.source_batch_id)
         first.refresh_from_db();second.refresh_from_db()
         self.assertEqual(first.old_sheet_series,'MISSING');self.assertEqual(second.old_sheet_series,'MISSING')
-        self.assertEqual(view_effects(link)['combine_link_origin']['source']['source']['legacy_id'],'A')
+        self.assertEqual(view_effects(link)['combine_link_origin']['source']['source']['source_batch'],historical_batch().pk)
+        self.assertEqual(view_effects(link)['combine_link_origin']['source']['source']['id'],first.pk)

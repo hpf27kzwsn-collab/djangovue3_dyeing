@@ -1,4 +1,5 @@
 """客样颜色到普通/复版打样排单，按原主从投影承接。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from django.db import transaction
 from .business import snapshot
 from .source_stock_services import raw
@@ -15,9 +16,9 @@ def preview(color,query=reader):
     # 原ColorNum NOT IN (SELECT ISNULL(ColorNum,''))保留NULL排除及空色号对应。
     number=raw(color,'ColorNum')
     empty_exists=reader('DyeDipsRecord','erp_sampling').filter(old_color_num__isnull=True).exists() if number is not None and number.rstrip(' ')=='' else False
-    return {'report':'客样打样排单来源','rows':[{'record_id':color.pk,'legacy_id':color.legacy_id,'ColorNo':raw(color,'ColorNo'),
+    return {'report':'客样打样排单来源','rows':[{'record_id':color.pk,'source': source_reference(color),'ColorNo':raw(color,'ColorNo'),
         'ColorNum':number,'original_visible':number is not None and not existing and not empty_exists}],
-        'candidate_rows':[{'record_id':row.pk,'legacy_id':row.legacy_id,'CustomerID':raw(row,'CustomerID'),'selected':row.pk==labs[-1].pk} for row in labs],
+        'candidate_rows':[{'record_id':row.pk,'source': source_reference(row),'CustomerID':raw(row,'CustomerID'),'selected':row.pk==labs[-1].pk} for row in labs],
         'supplemental_rows':[{'record_id':row.pk,'SheetSeries':raw(row,'SheetSeries'),'issue':'已有同色号打样；原未打样选择器不再显示，仍可明确复版'} for row in existing],
         'notes':['原来样表头LEFT JOIN及全部颜色字段保留；缺失表头不补造。多表头按项目ID最后候选采用并留存候选。',
             '普通打样和复版沿用原入口号码、部门及最新字段；已有打样不阻止明确复版。']},labs

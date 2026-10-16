@@ -1,4 +1,5 @@
 """明确翻译工卡保存、工序进度和成品入库的上游回写。"""
+from plugins.erp_base.source_provenance import is_historical
 from django.apps import apps
 from django.db.models import Sum
 from .business import locked, persist, record, snapshot
@@ -26,7 +27,7 @@ def apply_changes(item, values, actor, action):
 
 
 def refresh_job(job, actor):
-    if job.source_batch_id is not None or job.legacy_id is not None:
+    if is_historical(job):
         return
     job = locked(job)
     entry = entry_for(job)
@@ -82,7 +83,7 @@ def refresh_product_inbound(item, actor):
 
 def refresh_chain(items, actor):
     for item in items:
-        if item.source_batch_id is not None or item.legacy_id is not None:
+        if is_historical(item):
             continue
         if item.SOURCE_TABLE == 'JobSheet':
             updated = refresh_job(item, actor)

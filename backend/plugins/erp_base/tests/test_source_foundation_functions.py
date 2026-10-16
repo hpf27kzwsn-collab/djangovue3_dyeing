@@ -61,7 +61,7 @@ class FoundationQueryTests(TestCase):
         self.assertIsNone(queries.parameter_value(long_name))
         self.assertEqual(queries.system_parameters()['rows'][0][long_name], 'YES-LONG-V')
         row.refresh_from_db(); self.assertEqual(row.old_param_value, 'YES-LONG-VALUE')
-        self.assertEqual(str(source._meta.get_field('legacy_id').verbose_name), '旧erpID')
+        self.assertNotIn('legacy_id', {f.name for f in source._meta.fields})
 
     def test_combo_keeps_duplicates_nulls_wildcards_and_unsorted_indexes(self):
         source = model('SDBComboValue')

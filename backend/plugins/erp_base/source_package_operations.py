@@ -1,4 +1,5 @@
 """RecordYield_Add替换新增及Sp_RecordYieldQuery排序配对；原行留档，差异见E56/E57。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -60,7 +61,7 @@ def replacement_rows(item, query=reader):
 def preview_replace(item, query=reader):
     selected = list(replacement_rows(item, query).order_by('pk'))
     return {'report': '同工卡同卷号包装替换预览', 'rows': [
-        {'record_id': row.pk, 'legacy_id': row.legacy_id, 'JobSheetNo': raw(row, 'JobSheetNo'),
+        {'record_id': row.pk, 'source': source_reference(row), 'JobSheetNo': raw(row, 'JobSheetNo'),
          'RollNo': raw(row, 'RollNo'), 'BarCode': raw(row, 'BarCode'), 'Kg': raw(row, 'Kg')}
         for row in selected], 'notes': [
         '按原JobSheetNo与RollNo匹配全部活动原行；NULL不与NULL相等。',
@@ -190,7 +191,7 @@ def pairing(job, query=reader):
         source = sorted(partitions[series], key=lambda pair: (sort_key(raw(pair[0], 'ReceSheetNo')),
             sort_key(raw(pair[0], 'RollNo')), pair[0].pk, pair[1].pk))
         for rank, (row, head) in enumerate(source, 1):
-            candidate = {'record_id': row.pk, 'job_id': head.pk, 'legacy_id': row.legacy_id,
+            candidate = {'record_id': row.pk, 'job_id': head.pk, 'source': source_reference(row),
                 'SheetSeries': raw(row, 'SheetSeries'), 'ReceSheetNo': raw(row, 'ReceSheetNo'),
                 'RollNo': raw(row, 'RollNo'), 'GrayBarCode': raw(row, 'GrayBarCode'),
                 'WeightQty': raw(row, 'WeightQty'), 'rank': rank}
@@ -205,7 +206,7 @@ def pairing(job, query=reader):
     for rank, package in enumerate(packages, 1):
         candidates = by_barcode[text_key(raw(package, 'BarCode'))]
         selected = candidates[-1] if candidates else None
-        results.append({'record_id': package.pk, 'legacy_id': package.legacy_id, 'RollNo': raw(package, 'RollNo'),
+        results.append({'record_id': package.pk, 'source': source_reference(package), 'RollNo': raw(package, 'RollNo'),
             'BarCode': raw(package, 'BarCode'), 'rank': rank, 'candidate_count': len(candidates),
             'source_id': None if selected is None else selected['record_id'],
             'GrayWeight': None if selected is None else selected['WeightQty'],

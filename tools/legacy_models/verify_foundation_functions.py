@@ -52,7 +52,7 @@ def verify(args):
             count = import_table(table, actor)
             compared = compare_table(table)
             assert count == compared['rows']
-            compared['legacy_id_rows'] = source_model(table).objects.filter(source_batch=batch, legacy_id__isnull=False).count()
+            compared['source_rows'] = source_model(table).objects.filter(source_batch=batch).count()
             result['tables'].append(compared)
         link_relations(batch)
         for table in batch.source_tables.all():

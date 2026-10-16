@@ -1,4 +1,5 @@
 """原分页与临时表展列的service实现；参数为已授权的数据，不接收可执行SQL。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 from decimal import Decimal
 from .source_quality_reports import key, total
@@ -67,7 +68,7 @@ def employee_columns(records, variant):
 
 
 def export_original(query):
-    """sp_GenInsertSQL的迁移替代：完整原字段与旧erpID，二进制不再写成NULL。"""
+    """sp_GenInsertSQL的迁移替代：完整原字段与来源批次/提取行，二进制不再写成NULL。"""
     import base64
     from datetime import date,datetime
     def value(raw):
@@ -75,5 +76,5 @@ def export_original(query):
         if isinstance(raw,Decimal):return str(raw)
         if isinstance(raw,(date,datetime)):return raw.isoformat()
         return raw
-    return [{'record_id':item.pk,'legacy_id':item.legacy_id,
+    return [{'record_id':item.pk,'source': source_reference(item),
              'values':{old:value(getattr(item,new)) for old,new in item.SOURCE_FIELDS.items()}} for item in query.order_by('pk')]

@@ -1,3 +1,4 @@
+from plugins.erp_base.source_provenance import reference as source_reference
 from decimal import InvalidOperation
 from rest_framework import serializers
 from rest_framework.decorators import action
@@ -95,7 +96,7 @@ class SourceFoundationViewSet(SourceRecordViewSet):
         if not hasattr(model,'SOURCE_FIELDS'):raise ValidationError({'model':'请选择已登记的原数据模型。'})
         source=report_query(request,include_retained=True)(model.__name__.removeprefix('SourceDye'),model._meta.app_label)
         return report_result({'report':'原字段完整导出','rows':export_original(source),
-            'notes':['sp_GenInsertSQL的结构化迁移替代；包含旧erpID、二进制原值和已留档记录，不执行导出文本。']})
+            'notes':['sp_GenInsertSQL的结构化迁移替代；包含原键及来源信息、二进制原值和已留档记录，不执行导出文本。']})
 
     @action(methods=['post'], detail=False)
     def original_table_transform(self,request):
@@ -367,5 +368,5 @@ class SourcePlatformFoundationViewSet(SourceRecordViewSet):
         if name=='GetPrintRight':
             result=platform.print_rights(value,extra)
         else:
-            result=[{'entity':item._meta.label,'record_id':item.pk,'legacy_id':item.legacy_id} for item in operations[name]()]
+            result=[{'entity':item._meta.label,'record_id':item.pk,'source': source_reference(item)} for item in operations[name]()]
         return report_result({'report':name,'rows':result,'notes':['办理原配置记录并留存修改记录；不授予当前Django账号权限。']})

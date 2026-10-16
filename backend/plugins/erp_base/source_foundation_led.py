@@ -1,4 +1,5 @@
 """原02站机台排程看板；保留连接倍增、空机台和NULL任务文字。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from decimal import Decimal, ROUND_HALF_UP
 from .source_quality_reports import rows, key
 from .source_business_updates import matching
@@ -25,7 +26,7 @@ def report(query=rows):
                 text=None if any(part is None for part in parts) else ''.join(parts)
                 for gray in grays:
                     assignments.setdefault(key(raw(schedule,'MachineID')),[]).append({'Job':text,
-                        'schedule_id':schedule.pk,'job_id':job.pk,'legacy_id':job.legacy_id,
+                        'schedule_id':schedule.pk,'job_id':job.pk,'source': source_reference(job),
                         'customer_id':None if customer is None else customer.pk,'gray_id':None if gray is None else gray.pk})
     machines=list(matching(query('PMachine','erp_base'),StationID='02').order_by('pk'))
     columns=[];output={};details=[];positions={}

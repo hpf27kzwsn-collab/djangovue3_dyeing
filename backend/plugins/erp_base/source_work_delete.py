@@ -1,4 +1,5 @@
 """刷卡删除触发器、班次校验及独立删除维护过程。"""
+from plugins.erp_base.source_provenance import is_historical
 from datetime import timedelta
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -38,7 +39,7 @@ def remove_children(query, actor, procedure):
     for child in query.order_by('pk'):
         child = locked(child)
         # 原行留档；新增关联行按原过程删除，两者都记录实际命中对象。
-        historical = child.legacy_id is not None or child.source_batch_id is not None
+        historical = is_historical(child)
         record(child, 'work_delete_keep_source' if historical else 'work_delete_child', snapshot(child), actor, procedure)
         if not historical:
             child.delete()
@@ -69,7 +70,7 @@ def prepare_delete(item, actor):
                 before = snapshot(child)
                 setattr(child, field, None)
                 child.save(update_fields=[field])
-                record(child, 'work_delete_unlink', before, actor, '撤回刷卡，仅解除Django附加外键；全部原字段和旧erpID保留')
+                record(child, 'work_delete_unlink', before, actor, '撤回刷卡，仅解除Django附加外键；全部原字段和原键及来源信息保留')
 
 
 def trigger_removed(item, actor, retain_children=False):

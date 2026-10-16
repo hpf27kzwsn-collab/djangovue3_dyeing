@@ -1,4 +1,5 @@
 """机台方案到巡检/保养项目，保留旧APP两个保存过程的不同字段行为。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 import re
 import math
 from django.core.exceptions import ValidationError
@@ -67,7 +68,7 @@ def project_plan(case,changed_ids,changed_values,changed_results,query=rows):
         selected=[e for e in edits if equal(e['CaseDetailNo'],raw(project,'DetailNo'))]
         for edit in selected or [None]:
             value=raw(project,'DefaultValue') if edit is None or edit['Value'] is None else edit['Value']
-            result['rows'].append({'source_id':project.pk,'legacy_id':project.legacy_id,'suffix':str(len(result['rows'])).zfill(3)[-3:],
+            result['rows'].append({'source_id':project.pk,'source': source_reference(project),'suffix':str(len(result['rows'])).zfill(3)[-3:],
                 **{n:raw(project,n) for n in ['SortNo','SerialNum','ProjectInfo','DefaultValue','Remarks','IsInputText']},
                 'Value':value,'CaseDetailNo':raw(project,'DetailNo'),'Result':None if edit is None else edit['Result']})
     matched={r['CaseDetailNo'].rstrip(' ').upper() for r in result['rows'] if r['CaseDetailNo'] is not None}
@@ -90,7 +91,7 @@ def case_projects(number,query=rows):
         serial=raw(p,'SerialNum');numeric=sql_numeric(serial)
         result.append({'caseDetailNo':raw(p,'DetailNo'),'SerialNum':serial or '','ProjectInfo':raw(p,'ProjectInfo') or '',
             'DefaultValue':raw(p,'DefaultValue') or '','VALUE':'','OriValue':raw(p,'DefaultValue') or '',
-            'Result':0 if numeric else 4,'IsInputText':int(raw(p,'IsInputText') or 0),'record_id':p.pk,'legacy_id':p.legacy_id})
+            'Result':0 if numeric else 4,'IsInputText':int(raw(p,'IsInputText') or 0),'record_id':p.pk,'source': source_reference(p)})
     return {'report':'sp_App_GetMachineCaseProject','rows':result,
         'candidate_rows':[{'record_id':c.pk,'SheetSeries':raw(c,'SheetSeries'),'selected':c==selected} for c in cases]+[
             {'record_id':c.pk,'link_id':l.pk,'SheetSeries':raw(c,'SheetSeries'),'selected':c==selected} for c,l in candidates],

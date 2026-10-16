@@ -1,6 +1,6 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import date
 from decimal import Decimal
-import json
 
 from django.apps import apps
 from django.core.exceptions import ValidationError
@@ -10,7 +10,8 @@ from rest_framework.test import APIClient
 from system.models import Users
 from plugins.erp_base import source_foundation as service
 from plugins.erp_base.source_services import write
-from plugins.erp_base.source_import import identity, link_relations
+from plugins.erp_base.source_import import link_relations
+from plugins.erp_base.source_provenance import reference
 from plugins.erp_base.legacy_models import LegacyImportBatch
 from plugins.erp_base.source_entry_registry import ENTRY_RULES
 
@@ -53,7 +54,7 @@ class FoundationSourceTests(TestCase):
                              ('erp_production', 'HSalaryWorkQty'), ('erp_production', 'HSalaryWorkShift'),
                              ('erp_quality', 'FARMain'), ('erp_quality', 'FARDetail'), ('erp_quality', 'FARRecord')]:
             source = model(module, name)
-            self.assertEqual(str(source._meta.get_field('legacy_id').verbose_name), '旧erpID')
+            self.assertNotIn('legacy_id', {f.name for f in source._meta.fields})
             self.assertFalse(source.SOURCE_DOCUMENT)
         for name in ['FARMain', 'FARDetail', 'FARRecord']:
             self.assertNotIn('erp_quality.SourceDye'+name, ENTRY_RULES)
@@ -71,7 +72,7 @@ class FoundationSourceTests(TestCase):
         self.assertIsNotNone(head.old_sheet_series)
         self.assertEqual(child.old_sheet_series, head.old_sheet_series)
         self.assertIsNotNone(child.old_detail_no)
-        self.assertIsNone(head.legacy_id)
+        self.assertIsNone(head.source_batch_id)
         self.assertEqual(model('erp_warehouse', 'ProdOut').objects.count(), 0)
 
     def test_adjustment_uses_only_original_kind_three_four_job_check(self):
@@ -86,7 +87,7 @@ class FoundationSourceTests(TestCase):
         self.assertEqual(row.old_kind, 4)
         self.assertEqual(model('erp_production', 'WProcess').objects.count(), 0)
         # Existing orphan facts stay loadable; the import path does not replay this trigger.
-        original = source.objects.create(old_sheet_series='HIST', old_kind=3, old_job_sheet_no='MISSING', legacy_id='original-key')
+        original = source.objects.create(old_sheet_series='HIST', old_kind=3, old_job_sheet_no='MISSING', source_batch=historical_batch())
         service.salary_changes_saved(original)
 
     def test_original_composite_identity_and_far_detail_membership(self):
@@ -107,10 +108,10 @@ class FoundationSourceTests(TestCase):
         self.assertEqual(record.source_parent_1.old_sheet_series, 'B')
         self.assertIsNone(orphan.source_parent_1_id)
         self.assertEqual(orphan.old_sheet_series, 'UNKNOWN')
-        from types import SimpleNamespace
-        actual = identity(SimpleNamespace(schema_name='dye', table_name='FARRecord'),
-            {'key': {'DetailNo': 'SAME', 'RollNo': '01'}, 'values': {}}, records)
-        self.assertEqual(json.loads(actual)['key'], {'DetailNo': 'SAME', 'RollNo': '01'})
+        actual = reference(record)
+        self.assertEqual(actual['key'], {'DetailNo': 'SAME', 'RollNo': 1})
+        self.assertEqual(actual['batch_id'], batch.pk)
+        self.assertEqual(actual['row'], 1)
 
     def test_business_unit_strings_keep_empty_source_suffix_matching_and_stopped_rows(self):
         dictionary = model('erp_base', 'PFieldValid')

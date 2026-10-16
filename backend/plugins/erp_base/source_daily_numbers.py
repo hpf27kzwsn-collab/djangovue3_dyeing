@@ -21,7 +21,7 @@ def allocate(object_name, digits, long_date, actor, at=None):
         defaults={'last_number': 0, 'creator': actor, 'modifier': actor})
     locked(mutex)
     source = matching(rows('SAutoID', 'erp_base'), IDObject=name, IDValue=day)
-    active = list(source.filter(source_batch__isnull=True, legacy_id__isnull=True).order_by('pk').select_for_update())
+    active = list(source.filter(source_batch__isnull=True).order_by('pk').select_for_update())
     seeded = []
     if not active:
         originals = list(source.exclude(source_batch__isnull=True).order_by('pk'))

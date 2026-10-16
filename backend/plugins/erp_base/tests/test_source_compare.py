@@ -8,19 +8,18 @@ from django.test import TestCase
 from django.utils import timezone
 from system.models import Users
 from plugins.erp_base.legacy_models import LegacyImportBatch,LegacySourceTable
-from plugins.erp_base.source_import import import_table,compare_table,original_values,identity
+from plugins.erp_base.source_import import import_table,compare_table,original_values
 from plugins.erp_production.source_models import SourceDyeWProcess
 
 
 class FullOriginalComparisonTests(TestCase):
     def test_actual_sql_identity_is_retained_even_without_declared_primary_key(self):
-        from types import SimpleNamespace
         from plugins.erp_production.source_models import SourceDyeUsersMachines
-        table = SimpleNamespace(schema_name='dye', table_name='UsersMachines')
-        original = {'key': None, 'values': {'ID': '42'}}
-        value = json.loads(identity(table, original, SourceDyeUsersMachines))
-        self.assertEqual(value['key'], {'ID': '42'})
-        self.assertEqual(value['key_kind'], 'sql_identity')
+        values=dict.fromkeys(SourceDyeUsersMachines.SOURCE_FIELDS);values.update(ID='42',USERID='7',DEVICEID='8')
+        item=SourceDyeUsersMachines.objects.create(**original_values(SourceDyeUsersMachines,{'values':values}))
+        item.refresh_from_db()
+        self.assertEqual(getattr(item,SourceDyeUsersMachines.SOURCE_FIELDS['ID']),42)
+        self.assertEqual(SourceDyeUsersMachines.SOURCE_KEY,())
 
     def test_sql_date_export_keeps_calendar_date_when_dotnet_emits_datetime_text(self):
         from plugins.erp_base.source_models import SourceDboZhenzhibaobiao

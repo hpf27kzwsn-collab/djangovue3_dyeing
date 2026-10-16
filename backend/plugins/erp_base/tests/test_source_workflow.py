@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from django.apps import apps
 from django.test import TestCase
 from system.models import Users
@@ -71,8 +72,8 @@ class OriginalJobWorkflowTests(TestCase):
         self.job.refresh_from_db(); self.assertTrue(self.job.old_is_prod_in_finished)
 
     def test_new_receipt_updates_existing_legacy_job_without_erasing_its_identity(self):
-        self.job.legacy_id = 'OLD-JOB-1'; self.job.save(update_fields=['legacy_id'])
+        self.job.source_batch=historical_batch(); self.job.save(update_fields=['source_batch'])
         self.receipt('IN-1', 4)
         self.job.refresh_from_db()
         self.assertTrue(self.job.old_is_prod_in_finished)
-        self.assertEqual(self.job.legacy_id, 'OLD-JOB-1')
+        self.assertEqual(self.job.source_batch_id, historical_batch().pk)

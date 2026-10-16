@@ -5,12 +5,14 @@ from .source_quality_reports import rows, key, total
 from .source_station_yield import code_index
 from .source_stock_services import raw
 from .source_business_updates import matching
+from .source_provenance import reference
 
 
 def projected(query, fields):
-    columns = ['pk', 'legacy_id', *[query.model.SOURCE_FIELDS[name] for name in fields]]
-    for values in query.order_by('pk').values_list(*columns).iterator(chunk_size=4000):
-        yield dict(zip(['record_id', 'legacy_id', *fields], values))
+    columns = ['pk','source_batch','source_row',
+        *[query.model.SOURCE_FIELDS[name] for name in (*query.model.SOURCE_KEY,*fields)]]
+    for item in query.order_by('pk').only(*columns).iterator(chunk_size=4000):
+        yield {'record_id':item.pk,'source':reference(item),**{name:raw(item,name) for name in fields}}
 
 
 def latest_packers(number=None, query=rows):

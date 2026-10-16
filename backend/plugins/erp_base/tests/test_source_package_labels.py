@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime, timedelta
 from decimal import Decimal
 from django.apps import apps
@@ -31,7 +32,7 @@ class PackageLabelTests(TestCase):
         return self.old('RecordYield', 'erp_warehouse', **dict({'old_guid': str(reader('RecordYield','erp_warehouse').count()),
             'old_roll_no': '1', 'old_bar_code': 'B', 'old_job_sheet_no': 'BEFORE', 'old_gray_bar_code': 'G',
             'old_customer_id': '', 'old_cust_qty': Decimal('12.3'), 'old_net_kg': Decimal('9.5'),
-            'old_cust_color_num': '9876', 'old_db2_code': 'OLD', 'legacy_id': 'SOURCE'}, **values))
+            'old_cust_color_num': '9876', 'old_db2_code': 'OLD', 'source_batch': historical_batch()}, **values))
 
     def gray(self, **values):
         return self.old('JobGrayRecord', **dict({'old_sheet_series': 'S', 'old_gray_bar_code': 'G'}, **values))
@@ -50,7 +51,7 @@ class PackageLabelTests(TestCase):
         first.refresh_from_db(); other.refresh_from_db()
         self.assertEqual(first.old_db2_code,'AB00001234123J001')
         self.assertEqual(other.old_db2_code,'AB00009876123OTHER001')
-        self.assertEqual(first.old_customer_gray_name,'AB#纱线'); self.assertEqual(first.legacy_id,'SOURCE')
+        self.assertEqual(first.old_customer_gray_name,'AB#纱线'); self.assertEqual(first.source_batch_id,historical_batch().pk)
         self.assertEqual(other.old_job_sheet_no,'OTHER')
         undo(self.job,self.actor,**self.event)
         for item, previous in zip([first,other],before):
@@ -140,17 +141,19 @@ class PackageLabelTests(TestCase):
         self.assertEqual(shared_yield(mode='entry_guid')['rows'][0]['Qty'],Decimal('12.3'))
 
     def test_archive_cutoff_existing_backup_expands_scope_and_preserves_process_no(self):
-        old=self.old('WProcess',old_wprocess_no='W',old_end_time=cutoff(self.at)-timedelta(seconds=1),legacy_id='WORK')
+        old=self.old('WProcess',old_wprocess_no='W',old_end_time=cutoff(self.at)-timedelta(seconds=1),source_batch=historical_batch())
         recent=self.old('WProcess',old_wprocess_no='W',old_end_time=self.at)
         boundary=self.old('WProcess',old_wprocess_no='BOUNDARY',old_end_time=cutoff(self.at))
         blank=self.old('WProcess',old_wprocess_no='NULL',old_end_time=None)
         self.old('WProcessBak',old_wprocess_no='EXIST')
         expanded=self.old('WProcess',old_wprocess_no='EXIST',old_end_time=self.at)
-        child=self.old('JobShiftEmp',old_job_sheet_no='J',old_shift_id='S',old_emp_id='E',old_process_no=7,old_wprocess_no='W',legacy_id='EMP')
+        child=self.old('JobShiftEmp',old_job_sheet_no='J',old_shift_id='S',old_emp_id='E',old_process_no=7,old_wprocess_no='W',source_batch=historical_batch())
         self.old('WProcessStep',old_wpstep_no='STEP',old_wprocess_no='W')
         result=archive(old,self.actor,**self.event)
         self.assertEqual(result['rows'][0]['copy_count'],1);self.assertEqual(result['rows'][0]['retire_count'],3)
-        copied=reader('JobShiftEmpBak','erp_production').get();self.assertEqual((copied.old_process_no,copied.legacy_id),(7,'EMP'))
+        copied=reader('JobShiftEmpBak','erp_production').get();self.assertEqual(copied.old_process_no,7);self.assertIsNone(copied.source_batch_id)
+        from plugins.erp_base.source_provenance import is_historical
+        self.assertTrue(is_historical(copied))
         self.assertEqual(set(active(reader('WProcess','erp_production')).values_list('pk',flat=True)),{boundary.pk,blank.pk})
         self.assertEqual(reader('WProcess','erp_production').count(),5)
         undo_archive(old,self.actor,**self.event)
@@ -225,7 +228,7 @@ class PackageLabelTests(TestCase):
 
     def test_label_target_delete_requires_reverse(self):
         from plugins.erp_base.source_services import delete_documents
-        item=self.package(legacy_id=None);self.gray();self.sync()
+        item=self.package(source_batch=None);self.gray();self.sync()
         with self.assertRaises(ValidationError):delete_documents(type(item).objects.filter(pk=item.pk),self.actor)
         self.assertTrue(type(item).objects.filter(pk=item.pk).exists())
 

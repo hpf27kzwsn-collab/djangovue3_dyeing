@@ -47,4 +47,4 @@ class OriginalCalculationApiTests(TestCase):
         response=client.post(f'/api/system/erp_warehouse_sourcedyerecordyield/{row.pk}/calculate/',{'method':'QC_Record'},format='json')
         self.assertEqual(response.status_code,200,response.data)
         row.refresh_from_db();self.assertEqual(row.old_net_kg,98);self.assertEqual(row.old_real_qty,7)
-        self.assertIsNone(row.legacy_id)
+        self.assertIsNone(row.source_batch_id)

@@ -14,7 +14,7 @@ DATE=datetime(2026,10,1)
 
 
 def config(id=1,**values):
-    return {'record_id':id,'legacy_id':str(id),'ID':id,'BeginDate':DATE,'CycleDays':'1天','Mode':'3',
+    return {'record_id':id,'ID':id,'BeginDate':DATE,'CycleDays':'1天','Mode':'3',
         **{f'{p}{n:02}':'' for n in range(1,4) for p in ['ShiftID','ClassID','DateBetween']},
         'ShiftID01':'甲班','ClassID01':'早','DateBetween01':'07:50-19:50',
         'ShiftID02':'乙班','ClassID02':'晚','DateBetween02':'19:50-07:50',**values}
@@ -149,7 +149,7 @@ class CalendarServiceTests(TestCase):
     def test_generate_and_undo_retains_rows_and_does_not_invent_legacy_id(self):
         report=self.run_generation();self.assertEqual(len(report['rows']),2)
         self.assertEqual(rows('PShiftArrangeDetail','erp_base').count(),2)
-        self.assertFalse(reader('PShiftArrangeDetail','erp_base').exclude(legacy_id=None).exists())
+        self.assertFalse(reader('PShiftArrangeDetail','erp_base').exclude(source_batch=None).exists())
         undo(self.config,self.actor,self.at,'撤回')
         self.assertEqual(rows('PShiftArrangeDetail','erp_base').count(),0)
         self.assertEqual(reader('PShiftArrangeDetail','erp_base').count(),2)

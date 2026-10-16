@@ -1,4 +1,5 @@
 """原出缸直通率、对色员看板与色级产量；聚合口径和来源分别保留。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from collections import defaultdict
 from datetime import datetime, timedelta
 from decimal import Decimal, ROUND_DOWN
@@ -14,7 +15,7 @@ MEASURES = {'TotalKg':'ClothQtyKg','ZKg':'ZKg','JKg':'JKg','RTKg':'RTKg',
 
 
 def reference(item, **values):
-    return {'entity':item._meta.label,'record_id':item.pk,'legacy_id':item.legacy_id,**values}
+    return {'entity':item._meta.label,'record_id':item.pk,'source': source_reference(item),**values}
 
 
 def ratio(numerator, denominator, display=False):

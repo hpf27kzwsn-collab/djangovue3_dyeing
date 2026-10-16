@@ -1,4 +1,5 @@
 """工卡拆分、合卡关系及订单分配量转移；原实际报工和库存不随计划复制。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from django.apps import apps
 from django.db import transaction
 from .business import locked
@@ -114,7 +115,7 @@ def transfer_allocation(item, actor, target, quantity, at, reason):
 def combine_members(item, query=None):
     members=rows('JobCombine') if query is None else query('JobCombine','erp_production')
     members=matching(members,SheetSeries=raw(item,'SheetSeries')).order_by('pk')
-    data=[{'id':row.pk,'legacy_id':row.legacy_id,'JobSheetNo':raw(row,'JobSheetNo'),
+    data=[{'id':row.pk,'source': source_reference(row),'JobSheetNo':raw(row,'JobSheetNo'),
         'Qty':raw(row,'Qty'),'Rolls':raw(row,'Rolls'),'CombineKind':raw(row,'CombineKind')} for row in members]
     return {'report':'工卡合并原关系','rows':data,
         'notes':['按关系原行逐条列出，同名工卡和重复关系均保留；合卡计划不代替原卡实际收发。']}

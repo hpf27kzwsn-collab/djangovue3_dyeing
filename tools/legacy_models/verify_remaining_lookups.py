@@ -39,7 +39,7 @@ def load(manifest):
         with path.open('rb') as stream:
             assert hashlib.file_digest(stream,'sha256').hexdigest()==definition['sha256']
         fields=list(model.SOURCE_FIELDS.values())
-        extra=['description','remarks','create_datetime','update_datetime','legacy_id','source_row','source_batch_id']
+        extra=['description','remarks','create_datetime','update_datetime','source_row','source_batch_id']
         now=timezone.now();count=0
         with connection.cursor() as cursor:
             command=sql.SQL('COPY {} ({}) FROM STDIN').format(sql.Identifier(model._meta.db_table),

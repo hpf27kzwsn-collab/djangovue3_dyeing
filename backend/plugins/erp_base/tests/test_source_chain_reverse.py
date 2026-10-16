@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime,timedelta
 from decimal import Decimal
 from django.apps import apps
@@ -22,7 +23,7 @@ class ExecutionChainTests(TestCase):
         self.at=timezone.make_aware(datetime(2026,10,15,10))
         self.event={'at':self.at,'reason':'整链撤销验收'}
         self.job=self.old('JobSheet','erp_production',old_sheet_series='JS',old_sheet_no='JOB',old_sheet_status=0,
-            old_pre_rolls=5,old_pre_vat_qty=20,legacy_id='OLD-JOB')
+            old_pre_rolls=5,old_pre_vat_qty=20,source_batch=historical_batch())
 
     def model(self,name,module='erp_warehouse'):return apps.get_model(module+'.SourceDye'+name)
     def old(self,name,module='erp_warehouse',**values):
@@ -32,19 +33,19 @@ class ExecutionChainTests(TestCase):
         return cancel(self.job,self.actor,**values)
     def book(self,table='ProdStockBook',series='IN',**values):
         return self.old(table,old_book_no=100+self.model(table).objects.count(),old_sheet_series=series,
-            old_ware_house_id='WH',old_lot_no='LOT',old_storage_unit_ids='BIN',legacy_id='BOOK',**values)
-    def inbound(self):return self.old('ProdIn',old_sheet_series='IN',old_sheet_no='PI',old_job_sheet_no='JOB',old_rolls=5,old_weight_qty=20,legacy_id='IN')
+            old_ware_house_id='WH',old_lot_no='LOT',old_storage_unit_ids='BIN',source_batch=historical_batch(),**values)
+    def inbound(self):return self.old('ProdIn',old_sheet_series='IN',old_sheet_no='PI',old_job_sheet_no='JOB',old_rolls=5,old_weight_qty=20,source_batch=historical_batch())
     def work(self):
         process=self.old('JobProcess','erp_production',old_sheet_series='JS',old_process_no=1,old_process_id='GX07',
             old_status='1',old_start_time=self.at,old_end_time=self.at,old_station_id='06')
         work=self.old('WProcess','erp_production',old_wprocess_no='W',old_job_sheet_no='JOB',old_process_id='GX07',
-            old_process_no=1,old_status='1',old_station_id='06',old_class_id='03',old_end_time=self.at,old_curr_kg=-2,legacy_id='WORK')
+            old_process_no=1,old_status='1',old_station_id='06',old_class_id='03',old_end_time=self.at,old_curr_kg=-2,source_batch=historical_batch())
         return process,work
 
     def test_preview_readonly_and_complete_old_ids(self):
         inbound=self.inbound();book=self.book(old_in_weight_qty=-2,old_out_weight_qty=None)
         before=SourceDocumentContext.objects.count();data=preview(self.job)
-        self.assertTrue(any(row['record_id']==inbound.pk and row['legacy_id']=='IN' for row in data['rows']))
+        self.assertTrue(any(row['record_id']==inbound.pk and row['source']['batch_id']==historical_batch().pk for row in data['rows']))
         self.assertEqual(data['result_rows'][0]['InWeightQty'],Decimal('-2'))
         self.assertEqual(SourceDocumentContext.objects.count(),before)
         self.assertEqual(self.model('ProdStockBook').objects.count(),1)
@@ -56,7 +57,7 @@ class ExecutionChainTests(TestCase):
         other=self.model('ProdStockBook').objects.exclude(pk=book.pk).get()
         self.assertEqual(other.old_in_weight_qty,Decimal('2'));self.assertIsNone(other.old_out_weight_qty)
         self.assertEqual((other.old_ware_house_id,other.old_lot_no,other.old_storage_unit_ids),('WH','LOT','BIN'))
-        self.assertIsNone(other.legacy_id);self.assertEqual(other.old_book_date,self.at)
+        self.assertIsNone(other.source_batch_id);self.assertEqual(other.old_book_date,self.at)
         self.assertEqual(self.model('ProdStockBook').objects.aggregate(q=Sum('old_in_weight_qty'))['q'],0)
         self.assertFalse(active(type(inbound).objects.filter(pk=inbound.pk)).exists())
 
@@ -210,9 +211,9 @@ class ExecutionChainTests(TestCase):
         self.assertEqual(self.model('ProdStockBook').objects.count(),1)
 
     def test_orphan_line_keeps_identity_and_reverses_its_exact_ledger(self):
-        line=self.old('ProdOutDetail',old_detail_no='D1',old_sheet_series='MISSING',old_job_sheet_no='JOB',legacy_id='ORPHAN')
+        line=self.old('ProdOutDetail',old_detail_no='D1',old_sheet_series='MISSING',old_job_sheet_no='JOB',source_batch=historical_batch())
         self.book(series='MISSING',old_detail_no='D1',old_out_weight_qty=-7)
-        self.execute();self.assertTrue(type(line).objects.filter(pk=line.pk,legacy_id='ORPHAN').exists())
+        self.execute();self.assertTrue(type(line).objects.filter(pk=line.pk,source_batch=historical_batch()).exists())
         self.assertEqual(self.model('ProdStockBook').objects.aggregate(q=Sum('old_out_weight_qty'))['q'],0)
 
     def test_complete_header_orphan_ledger_is_not_skipped(self):

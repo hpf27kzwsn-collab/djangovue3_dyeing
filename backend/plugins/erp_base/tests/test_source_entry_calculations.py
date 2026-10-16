@@ -136,7 +136,7 @@ class OriginalEntryCalculationTests(TestCase):
         self.assertEqual(response.status_code, 200, response.data)
         detail.refresh_from_db()
         self.assertEqual(detail.old_money, 20)
-        self.assertIsNone(detail.legacy_id)
+        self.assertIsNone(detail.source_batch_id)
 
     def test_color_number_uses_latest_saved_components_and_original_empty_rules(self):
         row = SourceDyeDyeLabColor(old_order_num='AB000123', old_color_markt='C', old_color_after='-1', old_color_num_input='')

@@ -11,7 +11,7 @@ def choice(key,title,options):
 
 
 def relation(key,title,entity,label,many=True):
-    columns=[{'field':'id','title':'记录ID'},{'field':'legacy_id','title':'旧erpID'}, {'field':label,'title':title}]
+    columns=[{'field':'id','title':'记录ID'},{'field':label,'title':title}]
     extras={'erp_warehouse_sourcedyeprodinrecord':[('old_sheet_series','入库流水'),('old_roll_no','卷号'),('old_weight_qty','重量'),('old_length_qty','长度')],
         'erp_production_sourcedyejobprocess':[('old_sheet_series','工卡流水'),('old_process_no','工序序号'),('old_status','原状态')],
         'erp_production_sourcedyejobsheet':[('old_sheet_series','工卡流水'),('old_pre_vat_qty','计划量'),('old_assign_unit','原单位')]}

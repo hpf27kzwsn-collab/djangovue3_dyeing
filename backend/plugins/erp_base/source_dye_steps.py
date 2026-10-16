@@ -1,4 +1,5 @@
 """正式染色扫码选卡与三个备料步骤视图；外部中控来源独立留明。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from itertools import product
 from django.db.models import Q
 from .source_stock_services import raw
@@ -13,7 +14,7 @@ JOB_FIELDS='SheetSeries SheetNo BarCode OrderSheetNo CustomerID ProdID LotNo Spe
 def scan(barcode,query=rows):
     barcode=varchar(barcode,50);candidates=[]
     source=query('StuffWeight','erp_production').filter(Q(old_sheet_status=0)|Q(old_sheet_status__isnull=True),old_sheet_kind=2,old_recipe_type__in=[0,2]).order_by('pk')
-    for weight in source.only('id','legacy_id','old_job_sheet_no','old_combine_sheet_nos').iterator():
+    for weight in source.only('id','source_batch','source_row',*[source.model.SOURCE_FIELDS[k] for k in source.model.SOURCE_KEY],'old_job_sheet_no','old_combine_sheet_nos').iterator():
         if equal(raw(weight,'JobSheetNo'),barcode) or sql_like(raw(weight,'CombineSheetNos'),None if barcode is None else '%'+barcode+'%'):candidates.append(weight)
     actual=varchar(raw(candidates[-1],'JobSheetNo'),50) if candidates else None
     jobs=(matching(query('JobSheet','erp_production'),SheetNo=actual) | matching(query('JobSheet','erp_production'),BarCode=actual)).order_by('pk')
@@ -31,11 +32,11 @@ def scan(barcode,query=rows):
                 VehicleNo=value(process,'VehicleNo'),Place=value(process,'Place'),ProcessNo=value(process,'ProcessNo'),
                 StuffRolls=value(weight,'Rolls'),StuffLengthQty=0,StuffWeightQty=value(weight,'ClothQtyKg'),
                 **{'Ori'+name:value(original,name) for name in ['SumAssignedRolls','SumAssignedLengthQty','SumAssignedWeightQty']})
-            result.update(record_id=job.pk,legacy_id=job.legacy_id,weight_id=None if weight is None else weight.pk,
+            result.update(record_id=job.pk,source=source_reference(job),weight_id=None if weight is None else weight.pk,
                 joined_ids=[None if obj is None else obj.pk for obj in [process,customer,material,original,weight]])
             results.append(result)
     return {'report':'DPJobSheet','rows':results[:1],'candidate_rows':results,
-        'result_rows':[{'record_id':w.pk,'legacy_id':w.legacy_id,'JobSheetNo':raw(w,'JobSheetNo'),'CombineSheetNos':raw(w,'CombineSheetNos'),'selected':w.pk==candidates[-1].pk} for w in candidates],
+        'result_rows':[{'record_id':w.pk,'source': source_reference(w),'JobSheetNo':raw(w,'JobSheetNo'),'CombineSheetNos':raw(w,'CombineSheetNos'),'selected':w.pk==candidates[-1].pk} for w in candidates],
         'notes':['原入口先由0状态2类称料的主/副卡字符串寻找主卡，不能直接用工卡条码绕过称料选择。',
             '最终称料左连接没有状态限制；NULL原卡号按原SQL变成单引号字符，不能替换为空串。',
             '无序标量按项目ID最后候选，TOP 1按连接来源ID第一候选；全部候选另列，见E85。']}
@@ -54,7 +55,7 @@ def prepare(weight,mode,query=rows):
         phases=matching(query('StuffWeightPhase','erp_production'),SheetSeries=series).filter(old_phase_no=number) if number is not None else query('StuffWeightPhase','erp_production').none()
         heads=list(matching(query('StuffWeight','erp_production'),SheetSeries=series).order_by('pk'))
         phases=list(phases.order_by('pk'))
-        if not phases or not heads:issues.append({'record_id':detail.pk,'legacy_id':detail.legacy_id,'issue':'原阶段/称料内连接无匹配'})
+        if not phases or not heads:issues.append({'record_id':detail.pk,'source': source_reference(detail),'issue':'原阶段/称料内连接无匹配'})
         for phase,head in product(phases,heads):
             base={'SheetSeries':raw(detail,'SheetSeries'),'JobSheetNo':raw(head,'JobSheetNo'),**{name:raw(phase,name) for name in ['ProgramID','BathRatio','WaterQty']},
                 'CarryIndex':raw(detail,'CarryIndex'),'StepName':raw(detail,'StepName')}
@@ -62,9 +63,9 @@ def prepare(weight,mode,query=rows):
             choices=list(matching(query('StuffWeightPhase','erp_production'),SheetSeries=varchar(series,100),ProgramID=varchar(raw(phase,'ProgramID'),50)).order_by('pk'))
             selected=None if not choices else raw(choices[0],'PhaseNo')
             selected=None if selected is None else varchar(str(selected),10)
-            phase_choices.extend({'record_id':p.pk,'legacy_id':p.legacy_id,'ProgramID':raw(p,'ProgramID'),'PhaseNo':raw(p,'PhaseNo'),'selected':p.pk==choices[0].pk} for p in choices)
+            phase_choices.extend({'record_id':p.pk,'source': source_reference(p),'ProgramID':raw(p,'ProgramID'),'PhaseNo':raw(p,'PhaseNo'),'selected':p.pk==choices[0].pk} for p in choices)
             materials=list(matching(query('PStuff','erp_base'),StuffID=raw(detail,'StuffID')).order_by('pk'))
-            if not materials:issues.append({'record_id':detail.pk,'legacy_id':detail.legacy_id,'issue':'原染料/助剂字典内连接无匹配'})
+            if not materials:issues.append({'record_id':detail.pk,'source': source_reference(detail),'issue':'原染料/助剂字典内连接无匹配'})
             for material in materials:
                 tank=raw(material,'TankNo');kind=raw(material,'StuffType')
                 if (tank or 0)==0 and key(kind) in ['S','A']:tank=1 if key(kind)=='S' else 2

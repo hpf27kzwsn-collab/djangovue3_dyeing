@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 import json
 from types import SimpleNamespace
 from datetime import datetime,timedelta
@@ -40,10 +41,10 @@ class QuantityMappingTests(TestCase):
         batch=import_quantities(self.file([self.row(quantity='-2.00'),self.row(quantity=None,zero_amount=None),
             self.row(detail_key='ORPHAN',header_key=None,sheet_date=None,zero_amount=False,sheet_kind=99)]),self.actor)
         rows=list(batch.quantity_rows.order_by('source_row'))
-        self.assertEqual(len(rows),3);self.assertEqual(rows[0].legacy_id,rows[1].legacy_id)
+        self.assertEqual(len(rows),3);self.assertEqual(rows[0].detail_no,rows[1].detail_no)
         self.assertEqual(rows[0].quantity,-2);self.assertIsNone(rows[1].quantity);self.assertIsNone(rows[1].zero_amount)
-        self.assertFalse(rows[2].zero_amount);self.assertIsNone(rows[2].header_legacy_id)
-        self.assertEqual(json.loads(rows[0].legacy_id)['key'],{'DetailNo':'D'})
+        self.assertFalse(rows[2].zero_amount);self.assertIsNone(rows[2].header_sheet_series)
+        self.assertEqual(rows[0].detail_no,'D');self.assertEqual(rows[0].header_sheet_series,'H')
         self.assertTrue(all(row.metres is None for row in rows))
 
     def test_same_file_idempotent_and_new_snapshot_keeps_old(self):
@@ -105,7 +106,7 @@ class QuantityMappingTests(TestCase):
         self.assertEqual(response.data['data']['quantity_mapping']['batch_id'],batch.pk)
         response=self.client.post(url,{**args,'quantity_source':'manual','far_rows':[]},format='json')
         self.assertIsNone(response.data['data']['rows'][0]['FARKg'])
-        response=self.client.post(url,{**args,'quantity_source':'automatic','far_rows':[{'legacy_id':'D','header_legacy_id':'H',
+        response=self.client.post(url,{**args,'quantity_source':'automatic','far_rows':[{'detail_no':'D','header_sheet_series':'H',
             'sheet_date':self.at.isoformat(),'sheet_kind':30,'job_number':'J','quantity':'1','metres':None,'zero_amount':True}]},format='json')
         self.assertEqual(response.status_code,400)
 

@@ -11,10 +11,6 @@ from plugins.erp_base.business import persist,record
 from .quantity_models import QualityQuantityBatch,QualityQuantitySource
 
 
-def old_id(table,key,value):
-    return json.dumps({'schema':'dye','table':table,'key':{key:value}},ensure_ascii=False,sort_keys=True,separators=(',',':'))
-
-
 def source_date(value):
     if value is None:return None
     parsed=datetime.fromisoformat(value)
@@ -35,8 +31,7 @@ def import_quantities(path,actor):
         values={name:row[name] for name in ['detail_sheet_series','sheet_kind','business_unit','job_number','out_detail_no','stock_unit','zero_amount']}
         values.update({name:None if row[name] is None else Decimal(row[name]) for name in ['quantity','metres']})
         persist(QualityQuantitySource(batch=batch,source_row=index,detail_no=row['detail_key'],
-            legacy_id=old_id('FARDetail','DetailNo',row['detail_key']),
-            header_legacy_id=None if row['header_key'] is None else old_id('FARMain','SheetSeries',row['header_key']),
+            header_sheet_series=row['header_key'],
             sheet_date=source_date(row['sheet_date']),**values),actor)
     record(batch,'quality_quantities_imported',{'exists':False},actor,'完整质量数量投影；只读原来源，不生成财务或库存单据')
     return batch
@@ -49,7 +44,7 @@ def automatic(start,end,batches,sources,batch=None,previous_start=None,previous_
     period=Q(sheet_date__gte=start,sheet_date__lte=end)|Q(sheet_date__isnull=True)
     if previous_start is not None:period |= Q(sheet_date__gte=previous_start,sheet_date__lte=previous_end)
     selected=sources.filter(batch=batch).filter(period).order_by('source_row')
-    result=[{name:getattr(row,name) for name in ['legacy_id','header_legacy_id','sheet_date','sheet_kind','job_number','quantity','metres','zero_amount']}
+    result=[{name:getattr(row,name) for name in ['detail_no','header_sheet_series','sheet_date','sheet_kind','job_number','quantity','metres','zero_amount']}
         | {'source_id':row.pk,'source_row':row.source_row,'batch_id':batch.pk,'out_detail_no':row.out_detail_no,
             'stock_unit':row.stock_unit,'business_unit':row.business_unit} for row in selected]
     return result,f'{batch.database_name} / 批次{batch.pk} / {batch.captured_at.isoformat()} / SHA256 {batch.sha256}',{

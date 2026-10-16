@@ -11,7 +11,6 @@ from .services import save_master
 class MasterDataSerializer(CoreSerializer):
     def get_fields(self):
         fields = super().get_fields()
-        fields['legacy_id'].read_only = True
         if self.Meta.model is RouteVersion:
             fields['status'].read_only = True
         if self.Meta.model is ColorStandard:
@@ -34,7 +33,7 @@ class MasterDataSerializer(CoreSerializer):
         return []
 
     def to_internal_value(self, data):
-        owned = ['legacy_id', *(['status'] if self.Meta.model is RouteVersion else []),
+        owned = [*(['status'] if self.Meta.model is RouteVersion else []),
                  *(['source_sample'] if self.Meta.model is ColorStandard else [])]
         denied = {key: '此字段由导入或专用业务操作维护。' for key in owned if key in data}
         if denied:

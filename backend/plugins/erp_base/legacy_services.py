@@ -36,7 +36,7 @@ def register_snapshot(path,actor):
     batch=persist(LegacyImportBatch(number=root.name,database_name=manifest['database'],started_at=parse_datetime(manifest['started_at']),
         finished_at=parse_datetime(manifest['finished_at']),manifest_sha256=manifest_digest,source_directory=stored_path(root),table_count=len(tables),
         row_count=sum(table['rows'] for table in tables),byte_count=sum(table['bytes'] for table in tables),verified_at=timezone.now(),
-        note='按表 READ COMMITTED 提取，保留全部来源字段与原主键；无主键行不伪造旧系统id。文件核对不代表已完成正式切换一致性验收。'),actor)
+        note='按表 READ COMMITTED 提取，保留全部来源字段与原主键；无主键行按批次/提取行保留全部重复记录。文件核对不代表已完成正式切换一致性验收。'),actor)
     for table in tables:
         persist(LegacySourceTable(batch=batch,schema_name=table['schema'],table_name=table['table'],modules=table['modules'],
             columns=table['columns'],primary_key=table['primary_key'],row_count=table['rows'],byte_count=table['bytes'],

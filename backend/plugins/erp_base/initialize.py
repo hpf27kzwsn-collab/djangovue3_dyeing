@@ -46,7 +46,7 @@ def load():
             for button in buttons:
                 RoleMenuButtonPermission.objects.get_or_create(role=role, menu_button=button, defaults={'data_range': 3})
             for column in MenuField.objects.filter(menu=menu, model=model._meta.label):
-                writable = index == 0 and column.field_name not in ['legacy_id', *AUDIT_FIELDS]
+                writable = index == 0 and column.field_name not in [*AUDIT_FIELDS]
                 if name == 'RouteVersion' and column.field_name == 'status':
                     writable = False
                 if name == 'ColorStandard' and column.field_name == 'source_sample':

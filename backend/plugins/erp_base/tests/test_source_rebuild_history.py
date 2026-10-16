@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime,timedelta
 from decimal import Decimal
 from django.apps import apps
@@ -46,7 +47,7 @@ class RebuildHistoryTests(TestCase):
         fields=dict(old_id='HISTORY',old_kind=kind,old_status=status,old_operate_date=self.at,old_data_table_name='qry_GrayStockBookRecord',
             old_ori_rece_sheet_no_list='R',old_ori_roll_no_list='001',old_ori_bar_code_list='CODE',
             old_new_roll_no_list='001,001-1',old_new_bar_code_list='CODE,CODE-1',old_ori_qty_list='重量：10；长度：20；匹数：2',
-            old_new_qty_list='重量：6,4；长度：12,8；匹数：1,1',legacy_id='HISTORY')
+            old_new_qty_list='重量：6,4；长度：12,8；匹数：1,1',source_batch=historical_batch())
         fields.update(values)
         return self.old('GrayRecordCutLogs','erp_warehouse',**fields)
 
@@ -121,16 +122,16 @@ class RebuildHistoryTests(TestCase):
 
     def test_null_delete_variable_retains_original_rows_and_repeat_inserts_match_old_sql(self):
         job,process=self.ready()
-        original=self.old('DyeCheckout','erp_quality',old_job_sheet_no='A',old_process_id='GX06',old_wprocess_no='OLD',legacy_id='OLD')
+        original=self.old('DyeCheckout','erp_quality',old_job_sheet_no='A',old_process_id='GX06',old_wprocess_no='OLD',source_batch=historical_batch())
         first=rebuild(process,self.actor,1,**self.event);second=rebuild(process,self.actor,1,**self.event)
         self.assertEqual(first['retired_ids'],[]);self.assertEqual(len(first['created_ids']),1)
         self.assertEqual(self.model('DyeCheckout','erp_quality').objects.count(),3)
-        original.refresh_from_db();self.assertEqual(original.legacy_id,'OLD');self.assertEqual(original.old_color_depth_id,'05')
-        new=self.model('DyeCheckout','erp_quality').objects.get(pk=second['created_ids'][0]);self.assertIsNone(new.legacy_id)
+        original.refresh_from_db();self.assertEqual(original.source_batch_id,historical_batch().pk);self.assertEqual(original.old_color_depth_id,'05')
+        new=self.model('DyeCheckout','erp_quality').objects.get(pk=second['created_ids'][0]);self.assertIsNone(new.source_batch_id)
 
     def test_explicit_delete_scope_retires_history_without_counting_it_again(self):
         job,process=self.ready()
-        original=self.old('DyeCheckout','erp_quality',old_job_sheet_no='A',old_process_id='GX06',legacy_id='OLD')
+        original=self.old('DyeCheckout','erp_quality',old_job_sheet_no='A',old_process_id='GX06',source_batch=historical_batch())
         result=rebuild(process,self.actor,1,process_variable='GX06',**self.event)
         self.assertEqual(result['retired_ids'],[original.pk]);self.assertEqual(self.model('DyeCheckout','erp_quality').objects.count(),2)
         self.assertEqual(quality_active(self.model('DyeCheckout','erp_quality').objects.all()).count(),1)
@@ -178,7 +179,7 @@ class RebuildHistoryTests(TestCase):
     def test_archive_restores_known_fields_without_fake_legacy_id_or_stock_effects(self):
         log=self.log(old_ori_qty_list='23.20',old_new_qty_list='20.20,3.00');before=snapshot(log)
         result=self.recovery(log);row=self.model('GrayInRecord','erp_warehouse').objects.get(pk=result['result_rows'][0]['record_id'])
-        self.assertIsNone(row.old_weight_qty);self.assertIsNone(row.legacy_id);self.assertEqual(row.old_bar_code,'CODE')
+        self.assertIsNone(row.old_weight_qty);self.assertIsNone(row.source_batch_id);self.assertEqual(row.old_bar_code,'CODE')
         self.assertEqual(gray_active(type(row).objects.all()).count(),0)
         self.assertEqual(view_effects(row)['history_gray_origin']['logged_values']['unclassified_quantity'],'23.20')
         log.refresh_from_db();self.assertEqual(snapshot(log),before)

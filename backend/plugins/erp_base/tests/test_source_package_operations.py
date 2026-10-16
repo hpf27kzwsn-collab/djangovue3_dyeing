@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime
 from decimal import Decimal
 from django.apps import apps
@@ -22,7 +23,7 @@ class PackageOperationsTests(TestCase):
         self.at = timezone.make_aware(datetime(2026, 10, 15, 15))
         self.event = {'at': self.at, 'reason': '包装替换及排序核对'}
         self.client = APIClient(); self.client.force_authenticate(self.actor)
-        self.job = self.old('JobSheet', 'erp_production', old_sheet_series='JS', old_sheet_no='JOB', legacy_id='OLDJOB')
+        self.job = self.old('JobSheet', 'erp_production', old_sheet_series='JS', old_sheet_no='JOB', source_batch=historical_batch())
 
     def model(self, name, module='erp_warehouse'):
         return apps.get_model(module + '.SourceDye' + name)
@@ -32,13 +33,13 @@ class PackageOperationsTests(TestCase):
 
     def package(self, **values):
         defaults = dict(old_guid=str(self.model('RecordYield').objects.count()), old_job_sheet_no='JOB',
-            old_roll_no='01', old_bar_code='B', old_kg=20, legacy_id='OLDPACK')
+            old_roll_no='01', old_bar_code='B', old_kg=20, source_batch=historical_batch())
         defaults.update(values)
         return self.old('RecordYield', **defaults)
 
     def gray(self, **values):
         defaults = dict(old_sheet_series='JS', old_rece_sheet_no='R', old_roll_no='01',
-            old_bar_code='G', old_gray_bar_code='GRAY', old_weight_qty=-2, legacy_id='OLDGRAY')
+            old_bar_code='G', old_gray_bar_code='GRAY', old_weight_qty=-2, source_batch=historical_batch())
         defaults.update(values)
         return self.old('JobGrayRecord', 'erp_production', **defaults)
 
@@ -54,7 +55,7 @@ class PackageOperationsTests(TestCase):
         self.assertEqual([row['record_id'] for row in preview['rows']], [first.pk, second.pk])
         self.assertEqual(SourceDocumentContext.objects.count(), 0)
         result = self.replace(first, old_kg=Decimal('-3.25'))
-        self.assertIsNone(result.legacy_id); self.assertNotEqual(result.old_guid, first.old_guid)
+        self.assertIsNone(result.source_batch_id); self.assertNotEqual(result.old_guid, first.old_guid)
         self.assertEqual((result.old_bar_code, result.old_kg, result.old_qty, result.old_pack_bag),
             ('JOB01', Decimal('-3.25'), Decimal('-1.123456'), Decimal('-0.125')))
         self.assertEqual(result.old_add_weigth, '原文')
@@ -118,7 +119,7 @@ class PackageOperationsTests(TestCase):
 
     def test_existing_receipts_remain_and_later_receipt_requires_own_reversal(self):
         row = self.package(old_bar_code='JOB01')
-        old_receipt = self.old('ProdInRecord', old_sheet_series='OLD', old_prod_bar_code='JOB01', old_weight_qty=12, legacy_id='PI')
+        old_receipt = self.old('ProdInRecord', old_sheet_series='OLD', old_prod_bar_code='JOB01', old_weight_qty=12, source_batch=historical_batch())
         before = snapshot(old_receipt)
         result = self.replace(row)
         undo_replace(result, self.actor, **self.event)
@@ -281,9 +282,9 @@ class PackageOperationsTests(TestCase):
         from plugins.erp_base.source_chain_reverse import discover, cancel, undo
         from plugins.erp_base.source_continuation import origin
         old = self.package(); first = self.replace(old); new = self.replace(first)
-        receipt = self.old('ProdIn', old_sheet_series='PI', old_sheet_no='PI', old_job_sheet_no=None, legacy_id='OLDPI')
+        receipt = self.old('ProdIn', old_sheet_series='PI', old_sheet_no='PI', old_job_sheet_no=None, source_batch=historical_batch())
         save_effect(receipt, 'package_receipt_origin', origin(old), self.actor, '明确旧包装入库来源')
-        book = self.old('ProdStockBook', old_book_no=1, old_sheet_series='PI', old_in_weight_qty=-3, legacy_id='OLDBOOK')
+        book = self.old('ProdStockBook', old_book_no=1, old_sheet_series='PI', old_in_weight_qty=-3, source_batch=historical_batch())
         data = discover(self.job)
         self.assertIn((receipt._meta.label, receipt.pk), data['nodes'])
         self.assertNotIn((old._meta.label, old.pk), data['nodes'])

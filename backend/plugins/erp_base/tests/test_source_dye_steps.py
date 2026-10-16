@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime,timedelta
 from decimal import Decimal
 from unittest.mock import patch
@@ -137,7 +138,7 @@ class DyeStepsTests(TestCase):
 
     def test_shift_apply_keeps_legacy_rows_uses_defaults_and_undo(self):
         head=self.arrange();self.work();original=self.member(EffiRate=Decimal('.5'))
-        original.legacy_id='OLD-PERSON';original.save()
+        original.source_batch=historical_batch();original.save()
         apply(head,self.actor,self.at,'test')
         self.assertEqual(reader('JobShiftEmp','erp_production').count(),2)
         current=rows('JobShiftEmp','erp_production').get();self.assertEqual(current.old_emp_id,'NEW')

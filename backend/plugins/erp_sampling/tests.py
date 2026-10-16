@@ -65,7 +65,7 @@ class SamplingWorkflowTests(TestCase):
         self.assertEqual(clone['status'], 'draft')
         copied = m.RecipeIngredient.objects.get(stage__version_id=clone['id'])
         self.assertEqual(copied.dosage, m.RecipeIngredient.objects.get(pk=ingredient['id']).dosage)
-        self.assertIsNone(copied.legacy_id)
+        self.assertNotIn('legacy_id', {f.name for f in copied._meta.fields})
         response = self.client.delete(self.url('RecipeStage', stage['id']))
         self.assertEqual(response.status_code, 400, response.data)
 

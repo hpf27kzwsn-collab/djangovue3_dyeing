@@ -1,4 +1,5 @@
 """原报价函数：独立保留取价、日期、数量区间、单位和无序候选。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from decimal import Decimal, ROUND_HALF_UP
 from .source_quality_reports import rows, key
 from .source_stock_services import raw
@@ -27,7 +28,7 @@ def calculate(function, params, query=rows):
     def candidates(stage, items, field):
         for item in items:
             evidence.append({'stage': stage, 'entity': item._meta.label, 'record_id': item.pk,
-                'legacy_id': item.legacy_id, 'field': field, 'value': raw(item, field)})
+                'source': source_reference(item), 'field': field, 'value': raw(item, field)})
     def last(stage, items, field, default=None):
         candidates(stage, items, field)
         return raw(items[-1], field) if items else default

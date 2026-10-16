@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime,timedelta
 from decimal import Decimal
 from django.apps import apps
@@ -158,7 +159,7 @@ class SplitAutoTests(TestCase):
         source.refresh_from_db();self.assertEqual(source.old_combine_qty,50)
 
     def test_reverse_adopted_link_retains_orphan_original(self):
-        source=self.old('JobCombine',old_sheet_series='ORPHAN',old_qty=-3,old_rolls=None,legacy_id='link')
+        source=self.old('JobCombine',old_sheet_series='ORPHAN',old_qty=-3,old_rolls=None,source_batch=historical_batch())
         new=adopt_combine_link(source,self.actor,self.job(),**self.event)
         reverse_link(new,self.actor,**self.event);source.refresh_from_db();new.refresh_from_db()
         self.assertEqual(source.old_qty,-3);self.assertEqual(new.old_qty,0);self.assertEqual(new.old_rolls,0)
@@ -166,11 +167,11 @@ class SplitAutoTests(TestCase):
     def test_pre_dispatch_split_updates_roll_sum_only_and_undo_restores_exact_values(self):
         detail=self.old('GrayInDetail','erp_warehouse',old_rece_sheet_no='R',old_sheet_series='H',old_rolls=99,old_weight_qty=345,old_length_qty=678)
         book=self.old('GrayStockBook','erp_warehouse',old_book_no=1,old_rece_sheet_no='R',old_sheet_series='H',old_detail_no='R',old_in_rolls=99,old_in_weight_qty=345)
-        original=self.gray(source_parent_1=detail,legacy_id='old-tag');before=snapshot(original)
+        original=self.gray(source_parent_1=detail,source_batch=historical_batch());before=snapshot(original)
         log=self.split(original);new=self.new_gray(log)
         original.refresh_from_db();detail.refresh_from_db();book.refresh_from_db()
         self.assertEqual(original.old_weight_qty,75);self.assertEqual(new.old_weight_qty,25)
-        self.assertEqual(new.old_roll_no,'001-1');self.assertEqual(new.old_cbz,'剪');self.assertIsNone(new.legacy_id)
+        self.assertEqual(new.old_roll_no,'001-1');self.assertEqual(new.old_cbz,'剪');self.assertIsNone(new.source_batch_id)
         self.assertEqual(detail.old_rolls,10);self.assertEqual(detail.old_weight_qty,345);self.assertEqual(book.old_in_rolls,10)
         undo_operation(log,self.actor,**self.event);original.refresh_from_db();detail.refresh_from_db();book.refresh_from_db()
         for key in original.SOURCE_FIELDS.values():self.assertEqual(snapshot(original)[key],before[key])
@@ -204,8 +205,8 @@ class SplitAutoTests(TestCase):
         self.assertGreaterEqual(len(operation_report(log)['supplemental_rows']),4)
 
     def test_merge_keeps_duplicate_barcodes_and_updates_each_receipt_without_double_count(self):
-        one=self.gray(receipt='R',roll='001',code='SAME',legacy_id='1')
-        two=self.gray(receipt='R2',roll='002',code='SAME',legacy_id='2');two_before=snapshot(two)
+        one=self.gray(receipt='R',roll='001',code='SAME',source_batch=historical_batch())
+        two=self.gray(receipt='R2',roll='002',code='SAME',source_batch=historical_batch());two_before=snapshot(two)
         details=[]
         for receipt in ['R','R2']:
             details.append(self.old('GrayInDetail','erp_warehouse',old_rece_sheet_no=receipt,old_sheet_series=receipt,old_weight_qty=100))
@@ -241,8 +242,8 @@ class SplitAutoTests(TestCase):
         self.assertEqual(view_effects(log)['gray_operation']['state'],'applied')
 
     def test_history_without_new_operation_facts_is_visible_and_reverse_is_explicit_error(self):
-        log=self.old('GrayRecordCutLogs','erp_warehouse',old_id='OLD',old_kind=1,old_operate_date=self.at,legacy_id='OLD')
-        self.assertEqual(operation_report(log)['rows'][0]['legacy_id'],'OLD')
+        log=self.old('GrayRecordCutLogs','erp_warehouse',old_id='OLD',old_kind=1,old_operate_date=self.at,source_batch=historical_batch())
+        self.assertEqual(operation_report(log)['rows'][0]['source']['batch_id'],historical_batch().pk)
         with self.assertRaises(ValidationError):undo_operation(log,self.actor,**self.event)
 
     def test_generic_delete_cannot_bypass_operation_or_remove_history(self):

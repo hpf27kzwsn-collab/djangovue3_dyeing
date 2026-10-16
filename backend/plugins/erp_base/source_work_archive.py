@@ -58,7 +58,7 @@ def archive(anchor, actor, at, reason, query=reader):
         model = apps.get_model('erp_production.SourceDye' + name + 'Bak')
         for source in aged if name == 'WProcess' else items:
             values = {field: raw(source, old) for old, field in model.SOURCE_FIELDS.items()}
-            target = persist(model(**values, legacy_id=source.legacy_id, dept_belong_id=source.dept_belong_id), actor)
+            target = persist(model(**values, dept_belong_id=source.dept_belong_id), actor)
             record(target, 'work_archive_copy', {'exists': False}, actor, reason)
             save_effect(target, 'work_archive_copy', {'anchor_id': anchor.pk, 'source': origin(source), 'at': at}, actor, reason)
             created.append(origin(target))

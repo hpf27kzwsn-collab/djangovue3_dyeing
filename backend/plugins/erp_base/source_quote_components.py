@@ -1,4 +1,5 @@
 """工卡六项套价与出库附加工艺取价，保留连接倍数和原NULL语义。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from .source_quality_reports import rows,key
 from .source_business_updates import matching
 from .source_stock_services import raw
@@ -14,7 +15,7 @@ def calculate(function,params,query=rows):
     def same(a,b):return a is not None and b is not None and key(a)==key(b)
     def add(stage,item,field,amount=None):
         amount=value(item,field) if amount is None else amount
-        if item is not None:evidence.append({'stage':stage,'entity':item._meta.label,'record_id':item.pk,'legacy_id':item.legacy_id,'field':field,'value':amount})
+        if item is not None:evidence.append({'stage':stage,'entity':item._meta.label,'record_id':item.pk,'source': source_reference(item),'field':field,'value':amount})
         return amount
     job= varchar(params.get('job'),30)
     if function=='fn_GetTechPrice':

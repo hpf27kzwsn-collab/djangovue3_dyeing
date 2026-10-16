@@ -1,4 +1,5 @@
 """当前主档触发器：原检查留事实，部门/员工/考勤联动逐行办理。"""
+from plugins.erp_base.source_provenance import is_historical
 from django.core.exceptions import ValidationError
 from .business import persist, record, snapshot
 from .source_business_updates import matching
@@ -108,7 +109,7 @@ def employee_saved(item, actor):
 
 
 def saved(item, data, created, actor):
-    if item.SOURCE_TABLE not in TABLES or item.source_batch_id is not None or item.legacy_id is not None:
+    if item.SOURCE_TABLE not in TABLES or is_historical(item):
         return
     check(item, data, created, actor)
     if item.SOURCE_TABLE == 'p_Dept':

@@ -1,3 +1,4 @@
+from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import timedelta
 from decimal import Decimal
 import json
@@ -142,25 +143,15 @@ class ErpModelConstraintTests(TestCase):
         client.force_authenticate(user)
         self.assertEqual(client.post('/api/system/erp_warehouse_stockbalance/', {'quantity': '100'}, format='json').status_code, 405)
 
-    def test_legacy_identity_preserves_text_code_and_source_table(self):
-        identity = {'schema': 'dye', 'table': 'p_Customer', 'key': {'CustomerID': '000012'}}
-        self.owner.legacy_id = json.dumps(identity, ensure_ascii=False)
-        self.owner.save(update_fields=['legacy_id'])
-        self.owner.refresh_from_db()
-        self.assertEqual(json.loads(self.owner.legacy_id), identity)
-        self.assertEqual(json.loads(self.owner.legacy_id)['key']['CustomerID'], '000012')
-
-    def test_legacy_identity_preserves_every_composite_key_column(self):
-        identity = {'schema': 'dye', 'table': 'JobProcess', 'key': {'SheetSeries': '0001', 'ProcessNo': '03'}}
-        self.operation.legacy_id = json.dumps(identity, ensure_ascii=False)
-        self.operation.save(update_fields=['legacy_id'])
-        self.operation.refresh_from_db()
-        self.assertEqual(json.loads(self.operation.legacy_id)['key'], identity['key'])
-
-    def test_new_records_have_no_invented_legacy_identity(self):
-        for instance in [self.owner, self.material, self.work_card, self.operation, self.receipt]:
-            instance.refresh_from_db()
-            self.assertIsNone(instance.legacy_id)
+    def test_original_customer_and_composite_keys_are_retained(self):
+        from plugins.erp_base.source_models import SourceDyePCustomer, SourceDyePFieldValid
+        from plugins.erp_base.source_provenance import reference
+        customer=SourceDyePCustomer.objects.create(old_customer_id='000012',source_batch=historical_batch())
+        option=SourceDyePFieldValid.objects.create(old_field_type='DyeClass',old_code='0001',source_batch=historical_batch())
+        self.assertEqual(reference(customer)['key'],{'CustomerID':'000012'})
+        self.assertEqual(reference(option)['key'],{'FieldType':'DyeClass','Code':'0001'})
+        for instance in [self.owner,self.material,self.work_card,self.operation,self.receipt]:
+            self.assertNotIn('legacy_id',{f.name for f in instance._meta.fields})
 
     def test_nullable_legacy_flags_keep_unknown_false_and_true_distinct(self):
         self.owner.refresh_from_db()

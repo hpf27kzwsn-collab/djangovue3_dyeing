@@ -1,4 +1,5 @@
 """班组排班审核、原报工人员重建及明确撤回；替换原行继续留档。"""
+from plugins.erp_base.source_provenance import reference as source_reference
 from decimal import Decimal,ROUND_HALF_UP,ROUND_DOWN
 from uuid import uuid4
 from django.apps import apps
@@ -32,7 +33,7 @@ def proportion(employee,number,query=rows):
         if value is not None and abs(value)>Decimal('99.9999'):
             value=None;issues.append({'issue':'原decimal(6,4)返回值溢出，比例列为NULL'})
     return {'report':'GetPropOfJobShiftEmp','rows':[{'EmpID':employee,'WProcessNo':number,'EmpRate':numerator,'SumRate':denominator,'Prop':value}],
-        'candidate_rows':[{'record_id':m.pk,'legacy_id':m.legacy_id,'EmpID':raw(m,'EmpID'),'EffiRate':raw(m,'EffiRate'),'selected':bool(selected) and m.pk==selected[-1].pk} for m in members],
+        'candidate_rows':[{'record_id':m.pk,'source': source_reference(m),'EmpID':raw(m,'EmpID'),'EffiRate':raw(m,'EffiRate'),'selected':bool(selected) and m.pk==selected[-1].pk} for m in members],
         'supplemental_rows':issues,'notes':['原参数截断为工号10字节/报工号20字节；个人率和总率先转两位小数再求四位比例。',
             '同员工多行按最后来源ID取个人率，总率仍包含全部人员行；NULL率取1，零率、负率原值保留。']}
 
@@ -61,8 +62,8 @@ def plan(item,query=reader):
                 group=groups.setdefault(groupkey,{**values,**extra,'SumCount':0,'work_ids':[]});group['SumCount']+=1;group['work_ids'].append(record.pk)
     check_scope(sources,query)
     return {'report':'UpdateJobShiftEmp','rows':list(groups.values()),
-        'candidate_rows':[{'record_id':h.pk,'legacy_id':h.legacy_id,'selected':h==head} for h in heads],
-        'result_rows':[{'record_id':d.pk,'legacy_id':d.legacy_id,'ShiftID':raw(d,'ShiftID'),'EmpID':raw(d,'EmpID')} for d in details],
+        'candidate_rows':[{'record_id':h.pk,'source': source_reference(h),'selected':h==head} for h in heads],
+        'result_rows':[{'record_id':d.pk,'source': source_reference(d),'ShiftID':raw(d,'ShiftID'),'EmpID':raw(d,'EmpID')} for d in details],
         'notes':['按WProcess.CreateDate首含尾不含筛选，不能改成开始/结束报工时间。',
             '原GROUP BY含费率、备注、修改人和时间，不按工卡去重；每组删原班组再插入本排班全部明细，异班组及重复明细继续保留。',
             '原INSERT不写EffiRate/Post/Remarks，不继承旧率；新行采用原表默认。未匹配员工的报工仍参与一次左连接。']},details

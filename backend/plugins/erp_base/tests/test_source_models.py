@@ -95,7 +95,7 @@ class FullSourceModelTests(TestCase):
         originals=[model for model in models if issubclass(model,SourceRecord)]
         self.assertEqual(len(models),700);self.assertEqual(len(originals),589)
         self.assertEqual(sum(len(model.SOURCE_FIELDS) for model in originals),12016)
-        for model in models:self.assertEqual(str(model._meta.get_field('legacy_id').verbose_name),'旧erpID')
+        for model in models:self.assertNotIn('legacy_id', {f.name for f in model._meta.fields})
         self.assertEqual(QualityInspection._meta.app_label,'erp_quality')
         self.assertEqual(QualityInspection._meta.db_table,'erp_production_qualityinspection')
 
