@@ -1,0 +1,486 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyeoutworkapply/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyeoutworkapply/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyesemioutworkapply/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyesemioutworkapply/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyewprocess/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyewprocess/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyewdefect/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_sourcedyewdefect/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyedyecheckout/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_sourcedyedyecheckout/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-n29Xd3Cw.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-Gm1I3tyW.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyedyecheckout/quality_award/"
+    }
+  ],
+  "registered_actions": {
+    "erp_production_sourcedyeoutworkapply": [
+      "close_outwork",
+      "outwork_closure",
+      "reopen_outwork"
+    ],
+    "erp_production_sourcedyesemioutworkapply": [
+      "close_outwork",
+      "outwork_closure",
+      "reopen_outwork"
+    ],
+    "erp_production_sourcedyewprocess": [
+      "delete_shift_record"
+    ],
+    "erp_quality_sourcedyewdefect": [
+      "quality_statistics"
+    ],
+    "erp_quality_sourcedyedyecheckout": [
+      "quality_award"
+    ]
+  },
+  "frontend_typecheck_and_build": "passed",
+  "current_history_counts": {
+    "OutWorkApply": 46,
+    "SemiOutWorkApply": 0,
+    "WProcess": 389052,
+    "WDefect": 11026,
+    "DyeCheckout": 80778
+  },
+  "real_history_report_checks": [
+    {
+      "procedure": "Sp_QualityIssues1",
+      "as_of": "2024-01-31",
+      "rows": 30,
+      "supplemental_rows": 0,
+      "unclassified_rows": 21,
+      "source_count": 0,
+      "period": {
+        "start": "2024-01-31T00:00:00+08:00",
+        "end": "2024-01-31T23:59:59.997000+08:00",
+        "month_start": "2024-01-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues2",
+      "as_of": "2024-01-31",
+      "rows": 12,
+      "supplemental_rows": 0,
+      "unclassified_rows": 21,
+      "source_count": 0,
+      "period": {
+        "start": "2024-01-21T00:00:00+08:00",
+        "end": "2024-01-31T23:59:59.997000+08:00",
+        "month_start": "2024-01-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues3",
+      "as_of": "2024-01-31",
+      "rows": 0,
+      "supplemental_rows": 0,
+      "unclassified_rows": 21,
+      "source_count": 0,
+      "period": {
+        "start": "2024-01-31T00:00:00+08:00",
+        "end": "2024-01-31T23:59:59.997000+08:00",
+        "month_start": "2024-01-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues1",
+      "as_of": "2025-12-31",
+      "rows": 30,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 727,
+      "period": {
+        "start": "2025-12-31T00:00:00+08:00",
+        "end": "2025-12-31T23:59:59.997000+08:00",
+        "month_start": "2025-12-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues2",
+      "as_of": "2025-12-31",
+      "rows": 12,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 727,
+      "period": {
+        "start": "2025-12-21T00:00:00+08:00",
+        "end": "2025-12-31T23:59:59.997000+08:00",
+        "month_start": "2025-12-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues3",
+      "as_of": "2025-12-31",
+      "rows": 0,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 727,
+      "period": {
+        "start": "2025-12-31T00:00:00+08:00",
+        "end": "2025-12-31T23:59:59.997000+08:00",
+        "month_start": "2025-12-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues1",
+      "as_of": "2026-08-31",
+      "rows": 30,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 448,
+      "period": {
+        "start": "2026-08-31T00:00:00+08:00",
+        "end": "2026-08-31T23:59:59.997000+08:00",
+        "month_start": "2026-08-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues2",
+      "as_of": "2026-08-31",
+      "rows": 12,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 448,
+      "period": {
+        "start": "2026-08-21T00:00:00+08:00",
+        "end": "2026-08-31T23:59:59.997000+08:00",
+        "month_start": "2026-08-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues3",
+      "as_of": "2026-08-31",
+      "rows": 0,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 448,
+      "period": {
+        "start": "2026-08-31T00:00:00+08:00",
+        "end": "2026-08-31T23:59:59.997000+08:00",
+        "month_start": "2026-08-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues1",
+      "as_of": "9067-06-22",
+      "rows": 30,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 1,
+      "period": {
+        "start": "9067-06-22T00:00:00+08:00",
+        "end": "9067-06-22T23:59:59.997000+08:00",
+        "month_start": "9067-06-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues2",
+      "as_of": "9067-06-22",
+      "rows": 12,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 1,
+      "period": {
+        "start": "9067-06-21T00:00:00+08:00",
+        "end": "9067-06-30T23:59:59.997000+08:00",
+        "month_start": "9067-06-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues3",
+      "as_of": "9067-06-22",
+      "rows": 0,
+      "supplemental_rows": 2,
+      "unclassified_rows": 21,
+      "source_count": 1,
+      "period": {
+        "start": "9067-06-22T00:00:00+08:00",
+        "end": "9067-06-22T23:59:59.997000+08:00",
+        "month_start": "9067-06-01T00:00:00+08:00"
+      },
+      "denominator": {
+        "DayAllNum": null,
+        "DayAllKg": null,
+        "MonthAllNum": null,
+        "MonthAllKg": null
+      }
+    },
+    {
+      "procedure": "Sp_QualityIssues4",
+      "rows": [
+        {
+          "ClassID": "04",
+          "AClassIDNum": "1029.0",
+          "BClassIDNum": null,
+          "Rate": null,
+          "ClassIDMoeny": "920.39",
+          "KFMoeny": "0",
+          "Moeny": "920.39"
+        },
+        {
+          "ClassID": "03",
+          "AClassIDNum": "1207.0",
+          "BClassIDNum": null,
+          "Rate": null,
+          "ClassIDMoeny": "1079.61",
+          "KFMoeny": "0",
+          "Moeny": "1079.61"
+        }
+      ],
+      "unclassified_rows": 0,
+      "source_count": 2236,
+      "period": {
+        "start": "2026-08-01T00:00:00+08:00",
+        "end": "2026-08-15T11:24:42.583000+08:00"
+      }
+    }
+  ],
+  "regression_tests": {
+    "count": 145,
+    "passed": 145,
+    "failed": 0,
+    "seconds": 76.719,
+    "log": ".runtime-temp/erp-log-export/remaining-chain-regression-20261015-complete.log"
+  },
+  "django_check": "passed",
+  "makemigrations_check": "No changes detected",
+  "test_database_setup": "144-test run used normal database setup; final code rerun reused that verified test schema, with per-test transaction isolation",
+  "original_full_history_verification": "erp-full-original-verification-20261014.json",
+  "sql_server_report_parity_verified": false,
+  "ten_day_financial_denominator_automatic": false,
+  "all_old_business_workflows_reproduced": false,
+  "quality_source_facts": {
+    "responsibility_groups": [
+      {
+        "old_defect_dept": null,
+        "old_defect_class_id": null,
+        "count": 11025
+      },
+      {
+        "old_defect_dept": "01",
+        "old_defect_class_id": "03",
+        "count": 1
+      }
+    ],
+    "undated_rows": 21,
+    "latest_original_date": "9067-06-22"
+  }
+}

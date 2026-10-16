@@ -14,6 +14,12 @@ from .source_entry_calculations import entry_values
 from . import source_entry_services as entries
 from . import source_stock_services as stock
 from . import source_workflow_services as workflow
+from . import source_sales_services as sales
+from . import source_sampling_services as sampling
+from . import source_charge_services as charges
+from . import source_purchase_flow as purchase
+from . import source_quality_flow as quality
+from . import source_packaging_flow as packing
 
 OWNED = {'legacy_id', 'source_batch', 'source_row', 'approval_stage', 'confirmed_at',
          'confirmed_by', 'approved_at', 'approved_by'}
@@ -45,6 +51,8 @@ def lock_chain(item):
 
 
 def require_origin_edit(item):
+    from .source_execution_state import require_available
+    require_available(item)
     from .source_context import SourceDocumentContext
     context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
     if context is not None and 'derived_from' in context.effects:
@@ -54,6 +62,9 @@ def require_origin_edit(item):
 def editable(items):
     for item in items:
         require_origin_edit(item)
+        if item.pk is not None and item.SOURCE_TABLE in ['GrayInRecord','JobGrayRecord']:
+            from .source_gray_split_merge import require_active
+            require_active(item)
         if item.approval_stage in ['confirmed', 'approved']:
             raise ValidationError({'approval_stage': '所属单据已经确认或审核，请先重新办理。'})
 
@@ -115,6 +126,8 @@ def apply_defaults(item, data):
         elif kind == 'uuid':
             value = uuid4()
         field = item._meta.get_field(key)
+        if item.SOURCE_TABLE == 'PurMain' and key == 'old_sheet_status' and value == '':
+            value = 0  # 原整数列DEFAULT('')在SQL Server中的实际转换结果。
         value = field.to_python(value)
         if field.get_internal_type() == 'DateTimeField' and value is not None and timezone.is_naive(value):
             value = timezone.make_aware(value)
@@ -146,6 +159,10 @@ def finish(items, actor):
     refresh_totals(items, actor)
     stock.refresh_chain(items, actor)
     workflow.refresh_chain(items, actor)
+    sampling.refresh_chain(items, actor)
+    from .source_sample_flow import sync_lab
+    for item in items:
+        sync_lab(item, actor)
 
 
 @transaction.atomic
@@ -156,10 +173,13 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
     if denied:
         raise ValidationError({key: '由来源导入或明确办理动作维护。' for key in denied})
     item = model() if instance is None else lock_chain(instance)[-1]
+    for parent in chain(item):
+        if parent.pk is not None:
+            purchase.require_change(parent, '修改')
     if instance is None:
         apply_defaults(item, data)
     editable(chain(item))
-    if instance is not None:
+    if instance is not None and model.SOURCE_TABLE not in ['p_Customer', 'p_Gray', 'p_Dept', 'h_Employee', 'USERINFO']:
         for old in model.SOURCE_KEY:
             key = model.SOURCE_FIELDS[old]
             if key in data and data[key] != getattr(item, key):
@@ -174,6 +194,16 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
     before = {'exists': False} if instance is None else snapshot(item)
     for key, value in data.items():
         setattr(item, key, value)
+    from .source_execution_state import require_available
+    for rule in item.SOURCE_RELATIONS:
+        if getattr(item,rule['field']+'_id') is not None:require_available(getattr(item,rule['field']))
+    if item.SOURCE_TABLE in ['WProcess','StuffWeight','RecordYield','ProdIn','StuffOut','ProdOutDetail','GrayOutDetail','SemiOutDetail']:
+        from .source_business_updates import matching
+        jobs=apps.get_model('erp_production.SourceDyeJobSheet')
+        for job in matching(jobs.objects.all(),SheetNo=stock.raw(item,'JobSheetNo')):require_available(locked(job))
+    if instance is None:
+        for parent in chain(item)[:-1]:
+            purchase.require_change(parent, '修改')
     editable(lock_chain(item) if item.pk is not None else [locked(parent) for parent in chain(item)[:-1]])
     if item.source_batch_id is None and item.legacy_id is None:
         assign_owner_values(item, data)
@@ -181,6 +211,8 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
     entry = entries.resolve_entry(item, selected_entry, chain(item)[:-1])
     if instance is None and entry is not None:
         entries.apply_new_rules(item, data, actor, entry)
+        from .source_site_work import bind
+        bind(item,data,entry)
     if instance is None:
         item.approval_stage = 'draft' if item.SOURCE_DOCUMENT and not parents(item) else None
         allocate(item, actor)
@@ -191,13 +223,53 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
             owner_chain = chain(item)
             item.dept_belong_id = actor.dept_id if len(owner_chain) == 1 else owner_chain[0].dept_belong_id
     result = persist(item)
+    from .source_master_data import saved as master_saved
+    master_saved(item, data, instance is None, actor)
     if entry is not None:
         entries.save_context(item, actor, entry)
+    sales.saved(item, data, instance is None, actor)
+    charges.saved(item, actor)
+    sampling.saved(item, actor)
+    quality.saved(item, instance is None, actor)
+    packing.saved(item, instance is None, actor)
+    if item.SOURCE_TABLE=='ShiftArrange':
+        from .source_shift_work import trigger
+        trigger(item,data,instance is None,actor)
+    if item.SOURCE_TABLE=='MachineFault':
+        from .source_equipment_faults import trigger
+        trigger(item,actor)
+    if item.SOURCE_TABLE == 'SalaryChanges':
+        from .source_foundation import salary_changes_saved
+        salary_changes_saved(item)
     if actor is not None:
         record(item, 'create' if instance is None else 'edit', before, actor)
     if apply_effects:
         finish(chain(item), actor)
+    if item.SOURCE_TABLE=='ProdTest':
+        from .source_trial_variants import saved as trial_saved
+        trial_saved(item,entry,actor)
     return result
+
+
+def require_operation_retention(item):
+    from .source_context import SourceDocumentContext
+    if item.SOURCE_TABLE == 'RecordYield':
+        contexts = SourceDocumentContext.objects.filter(effects__package_label_sync__state='applied')
+        if any(any(row['entity'] == item._meta.label and row['id'] == item.pk for row in context.effects['package_label_sync']['changes']) for context in contexts):
+            raise ValidationError({'source':'本包装参与已生效的标签同步，请先撤回对应同步，保留原字段恢复链。'})
+    context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
+    if context is not None and any(key in context.effects for key in [
+        'card_adoption','order_transfer_origin','combine_link_origin','combine_link_reversal','gray_operation','gray_lineage','gray_consumed',
+        'history_gray_recovery','history_gray_origin','quality_rebuild_origin','quality_replaced',
+        'execution_chain','chain_cancelled','chain_container','chain_compensation',
+        'package_replacement','package_retained','package_pairing','package_gray_origin','package_label_sync',
+        'work_archive','work_archived','work_archive_copy',
+        'sample_variant','trial_work','trial_retained','trial_origin',
+        'shift_work','shift_retained','shift_origin','shift_master_sync',
+        'calendar_generation','calendar_retained','calendar_origin',
+        'equipment_operation','equipment_retained','equipment_origin',
+        'cross_card_issue','cross_card_transfer']):
+        raise ValidationError({'source':'此记录是拆合/转移办理事实，使用对应撤回动作并保留记录，不能直接删除。'})
 
 
 @transaction.atomic
@@ -213,8 +285,11 @@ def delete_documents(queryset, actor):
             descendants.append(child)
         return descendants
     for item in queryset.order_by('pk'):
+        require_operation_retention(item)
         editable(lock_chain(item))
-        if not item.SOURCE_DOCUMENT:
+        sales.removing(item)
+        purchase.require_change(item, '删除')
+        if not item.SOURCE_DOCUMENT or item.SOURCE_TABLE == 'WProcess':
             delete(type(item).objects.filter(pk=item.pk), actor)
             continue
         if item.source_batch_id is not None or item.legacy_id is not None:
@@ -236,9 +311,22 @@ def delete(queryset,actor=None,apply_effects=True):
     affected = {}
     removed = []
     for item in queryset.order_by('pk'):
+        require_operation_retention(item)
         editable(lock_chain(item))
         if item.source_batch_id is not None or item.legacy_id is not None:
             raise ValidationError({'legacy_id': '历史来源记录保留原行，不从普通删除入口删除。'})
+        sales.removing(item)
+        sampling.removing(item, actor)
+        from .source_master_data import removing as master_removing
+        master_removing(item, actor)
+        for parent in chain(item):
+            purchase.require_change(parent, '删除')
+        quality.removing(item)
+        packing.removing(item)
+        if item.SOURCE_TABLE == 'WProcess':
+            from .source_work_delete import prepare_delete
+            prepare_delete(item, actor)
+            record(item, 'work_deleted', snapshot(item), actor, '删除刷卡原行，随后执行WProcess_DELETE回写')
         if item.SOURCE_TABLE == 'StuffWeight':
             outgoing = apps.get_model('erp_warehouse.SourceDyeStuffOut')
             if outgoing.objects.filter(old_weight_sheet_no__iexact=item.old_sheet_no).exists():
@@ -263,6 +351,12 @@ def delete(queryset,actor=None,apply_effects=True):
         queryset.delete()
     except ProtectedError as error:
         raise ValidationError({'parent': '此记录仍被明细或其他业务引用，请先处理相应业务。'}) from error
+    for item in removed:
+        sales.removed(item, actor)
+        sampling.removed(item, actor)
+        quality.removed(item, actor)
+        from .source_work_delete import trigger_removed
+        trigger_removed(item, actor)
     if apply_effects:
         finish(list(affected.values()), actor)
         for item in removed:
@@ -289,6 +383,15 @@ def advance(item, actor, expected, target):
         if entries.entry_for(item) is not None and 'RightStatus' in item.SOURCE_FIELDS:
             setattr(item, item.SOURCE_FIELDS['RightStatus'], 10)
     persist(item, actor)
+    if target == 'approved':
+        sales.adjustment_audit(item, actor, True)
+        if item.SOURCE_TABLE=='ShiftArrange' and entries.entry_for(item)=='ShiftArrange':
+            from .source_shift_work import trigger,apply
+            trigger(item,{'old_right_status':10},False,actor,at)
+            apply(item,actor,at,'原排班AfterApproveSQL调整报工人员')
+    if item.SOURCE_TABLE=='MachineFault':
+        from .source_equipment_faults import trigger
+        trigger(item,actor,at)
     stock.refresh(item, actor)
     workflow.refresh_chain([item], actor)
     record(item, target, before, actor)
@@ -318,12 +421,23 @@ def reopen(item, actor, reason):
     if not reason.strip():
         raise ValidationError({'reason': '重新办理须说明原因。'})
     before = snapshot(item)
+    was_approved = item.approval_stage == 'approved'
+    if was_approved:
+        purchase.require_change(item, 'reopen')
     item.approval_stage = 'draft'
     item.confirmed_at = item.approved_at = None
     item.confirmed_by = item.approved_by = None
     if entries.entry_for(item) is not None and 'RightStatus' in item.SOURCE_FIELDS:
         setattr(item, item.SOURCE_FIELDS['RightStatus'], 0)
     persist(item, actor)
+    if was_approved:
+        sales.adjustment_audit(item, actor, False)
+        if item.SOURCE_TABLE=='ShiftArrange' and entries.entry_for(item)=='ShiftArrange':
+            from .source_shift_work import trigger
+            trigger(item,{'old_right_status':0},False,actor)
+    if item.SOURCE_TABLE=='MachineFault':
+        from .source_equipment_faults import trigger
+        trigger(item,actor)
     stock.refresh(item, actor)
     workflow.refresh_chain([item], actor)
     record(item, 'reopen', before, actor, reason)
@@ -354,8 +468,9 @@ def calculate(item, actor, method):
     for key, value in values.items():
         setattr(item, key, value)
     persist(item, actor)
+    sales.saved(item, values, False, actor)
+    charges.saved(item, actor)
+    sampling.saved(item, actor)
     record(item, 'calculate', before, actor, '采用原入口公式：' + method)
-    refresh_totals(chain(item), actor)
-    stock.refresh_chain(chain(item), actor)
-    workflow.refresh_chain(chain(item), actor)
+    finish(chain(item), actor)
     return item

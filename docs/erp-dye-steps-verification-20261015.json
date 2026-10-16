@@ -1,0 +1,469 @@
+{
+  "database": "erp_full_trial_20261014",
+  "definitions": [
+    {
+      "name": "DPJobSheet",
+      "sha256": "7ceb671c8e6dacbeb256af6e93f86e186bbddb314b510b8889a4ba1117d2613f",
+      "equal": true
+    },
+    {
+      "name": "DPJobStep",
+      "sha256": "4762da9c61af55e83170d1e770252df163b7bdb8480a18223e514186b850950f",
+      "equal": true
+    },
+    {
+      "name": "fn_GetPhaseNo",
+      "sha256": "e06c9c6c6d1908bc74cdc6ce103bb75fa82b53521ad3b37739b86adbf4d34a4d",
+      "equal": true
+    },
+    {
+      "name": "GetPropOfJobShiftEmp",
+      "sha256": "cc210073b3bfec186a028720b879bdfeb8fe9e8760aad4d74849504e2e80bddd",
+      "equal": true
+    },
+    {
+      "name": "ShiftArrange_Update",
+      "sha256": "01fb8aa995a5766c2d10f4f0f45f643980d4a15deb4887e4c118d00ef24ab841",
+      "equal": true
+    },
+    {
+      "name": "Sp_GetShiftAndClass3",
+      "sha256": "6a3f4ba8e1b0d4a72bb5d5b90d63068ccdd5546e514d3fff5b130dae921957b8",
+      "equal": true
+    },
+    {
+      "name": "UpdateJobShiftEmp",
+      "sha256": "7731f1adf864b775ac2b1ea8ae8599250c0f51655b84577b4468030b09edc14e",
+      "equal": true
+    },
+    {
+      "name": "V_Progs_Step",
+      "sha256": "e9f94618a0c8b646916793ff88320962b36dec632c84426f97c09892fd2507c1",
+      "equal": true
+    },
+    {
+      "name": "v_StuffWeightStep",
+      "sha256": "1237f6c52851bede70ae870f92bc01c248ff69bc84124dcdaf6405126e2b7626",
+      "equal": true
+    },
+    {
+      "name": "v_StuffWeightStep_LX",
+      "sha256": "ced5d1748168c28ec57454b30f66c6a7ace96ee4aa6225493fb9c3675a2ae636",
+      "equal": true
+    },
+    {
+      "name": "v_StuffWeightStep_TO_LX",
+      "sha256": "764442823066c50ac28801d8ff4064a3b2e16da1cea03b92dab8c20b86fb0951",
+      "equal": true
+    }
+  ],
+  "ui_definitions_equal": 11,
+  "old_counts": [
+    {
+      "TableName": "ShiftArrange",
+      "N": 2
+    },
+    {
+      "TableName": "ShiftArrangeDetail",
+      "N": 6
+    },
+    {
+      "TableName": "p_ShiftEmp",
+      "N": 156
+    },
+    {
+      "TableName": "WProcess",
+      "N": 389052
+    },
+    {
+      "TableName": "JobShiftEmp",
+      "N": 533166
+    },
+    {
+      "TableName": "WProcessStep",
+      "N": 0
+    },
+    {
+      "TableName": "AddDyeWProcessStep",
+      "N": 0
+    },
+    {
+      "TableName": "StuffWeightDetail",
+      "N": 1204177
+    }
+  ],
+  "checks": [
+    {
+      "query": "v_StuffWeightStep",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "query": "v_StuffWeightStep_LX",
+      "rows": 9,
+      "old_sql_equal": true
+    },
+    {
+      "query": "v_StuffWeightStep_TO_LX",
+      "rows": 5,
+      "old_sql_equal": true
+    },
+    {
+      "query": "properties",
+      "rows": 30,
+      "old_sql_equal": true
+    },
+    {
+      "query": "shift_groups_0",
+      "rows": 509,
+      "old_sql_equal": true
+    },
+    {
+      "query": "shift_groups_1",
+      "rows": 895,
+      "old_sql_equal": true
+    },
+    {
+      "query": "scan_0",
+      "rows": 1,
+      "old_sql_equal": true
+    },
+    {
+      "query": "formal_0",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "query": "scan_1",
+      "rows": 1,
+      "old_sql_equal": true
+    },
+    {
+      "query": "formal_1",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "query": "scan_2",
+      "rows": 1,
+      "old_sql_equal": true
+    },
+    {
+      "query": "formal_2",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "query": "scan_3",
+      "rows": 1,
+      "old_sql_equal": true
+    },
+    {
+      "query": "formal_3",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "query": "scan_4",
+      "rows": 1,
+      "old_sql_equal": true
+    },
+    {
+      "query": "formal_4",
+      "rows": 0,
+      "old_sql_equal": true
+    }
+  ],
+  "weight_ids": [
+    248051,
+    248050,
+    248049
+  ],
+  "shift_ids": [
+    2,
+    1
+  ],
+  "jobs": [
+    {
+      "id": 92515,
+      "number": "260815J0202",
+      "process": "GX07"
+    },
+    {
+      "id": 92526,
+      "number": "260815J0501",
+      "process": "GX07"
+    },
+    {
+      "id": 92524,
+      "number": "260815J0203",
+      "process": "GX07"
+    },
+    {
+      "id": 92507,
+      "number": "260813J1004R1",
+      "process": "GX07"
+    },
+    {
+      "id": 92485,
+      "number": "260814C0402",
+      "process": "GX07"
+    }
+  ],
+  "sample_property": {
+    "EmpID": "HF1622",
+    "WProcessNo": "26081511430407945082",
+    "Prop": "1.0000"
+  },
+  "old_sql_access": "SELECT and DECLARE only; no old procedure, trigger or remote equipment execution",
+  "history_imported_this_batch": false,
+  "historical_business_mutations": false,
+  "formal_nonempty_history_equivalence": false,
+  "limitations": [
+    "DPJobStep实际步骤表为空且阶段/活动曲线未关联；非空、异常、跨工序分支由隔离测试覆盖。",
+    "V_Progs_Step依赖远程中控七表；本批不伪造设备回传。"
+  ],
+  "decimal_division_probe": [
+    {
+      "EmpRate": "0.01",
+      "SumRate": "200.01",
+      "Divided": "0.00004999",
+      "Prop": "0.0000",
+      "Scale": 8,
+      "Precision": 13
+    }
+  ],
+  "http": [
+    {
+      "method": "GET",
+      "path": "/readiness",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyestuffweight/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyestuffweight/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyeshiftarrange/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyeshiftarrange/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyewprocess/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyewprocess/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobshiftemp/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobshiftemp/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyestuffweight/248051/material_steps/",
+      "parameters": {
+        "mode": "standard"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyestuffweight/248051/material_steps/",
+      "parameters": {
+        "mode": "lx"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyestuffweight/248051/material_steps/",
+      "parameters": {
+        "mode": "to_lx"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyeshiftarrange/2/preview_shift_work/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyeshiftarrange/1/preview_shift_work/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/scan_dye_job/",
+      "parameters": {
+        "barcode": "260815J0202"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92515/formal_dye_steps/",
+      "parameters": {
+        "process": "GX07",
+        "process_no": 1,
+        "employee": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/389052/employee_proportion/",
+      "parameters": {
+        "employee": "HF1622"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/389052/site_work_details/",
+      "parameters": {
+        "entry": "DPWProcess"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/389052/site_work_details/",
+      "parameters": {
+        "entry": "DPWProcessEdit"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/389052/site_work_details/",
+      "parameters": {
+        "entry": "AddWProcessEdit"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/389052/site_work_details/",
+      "parameters": {
+        "entry": "WProcessEdit"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BjqqHLKp.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-CJnfdOQ4.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css",
+      "parameters": null
+    }
+  ],
+  "http_count": 39,
+  "page_action_count": 10,
+  "validation": {
+    "regression_tests": 487,
+    "final_focused_tests": 25,
+    "distinct_tests": 489,
+    "final_30_properties_rechecked": true,
+    "check": "passed",
+    "makemigrations_check": "no changes",
+    "frontend_build": "passed (existing large chunk warning)",
+    "mutation_tests": "isolated database only",
+    "final_related_tests": 71,
+    "diff_check": "passed"
+  }
+}

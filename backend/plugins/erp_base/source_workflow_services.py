@@ -59,7 +59,8 @@ def refresh_product_inbound(item, actor):
     jobs = list(job_model.objects.filter(old_sheet_no__iexact=number).order_by('pk'))
     if not jobs:
         return
-    inbound = apps.get_model('erp_warehouse.SourceDyeProdIn').objects.filter(old_job_sheet_no__iexact=number)
+    from .source_execution_state import active
+    inbound = active(apps.get_model('erp_warehouse.SourceDyeProdIn').objects.filter(old_job_sheet_no__iexact=number))
     parameter = SourceBusinessParameter.objects.filter(name='JobReProdIn').first()
     # 原SELECT中的ISNULL作用于存在的参数行；没有参数行时变量仍为NULL并进入else。
     mode = None if parameter is None else '1' if parameter.value is None else parameter.value.rstrip(' ')

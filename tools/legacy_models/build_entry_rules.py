@@ -17,7 +17,8 @@ CONFIG_KEYS = ['FieldKind', 'GenerateTime', 'Prefix', 'EndCode', 'YearCode', 'Mo
 def build(path):
     data = json.loads(path.read_text(encoding='utf-8-sig'))
     catalog = json.loads((ROOT / 'tools/legacy_models/source_catalog.json').read_text(encoding='utf8'))
-    tables = {row['table']: row for row in catalog['tables'] if row['handling'] == 'business_model' and row['schema'] == 'dye'}
+    tables = {row['table']: row for row in catalog['tables'] if row['handling'] == 'business_model'
+              and row['schema'] == 'dye' and row.get('entry_scope') != 'business_source_only'}
     fields = defaultdict(list)
     for row in data['ui_fields']:
         fields[row['DataTableName']].append(row)

@@ -192,7 +192,8 @@ def inventory_values(item, entry):
             values['RealLoss'] = product(divide(difference(weight, gray), gray, 'old_gary_weight'), Decimal('100'))
         return values
     if item.SOURCE_TABLE == 'GrayInDetail':
-        records = apps.get_model('erp_warehouse.SourceDyeGrayInRecord').objects.filter(source_parent_1=item)
+        from .source_gray_split_merge import active
+        records = active(apps.get_model('erp_warehouse.SourceDyeGrayInRecord').objects.filter(source_parent_1=item))
         count = records.aggregate(value=Count('old_roll_no'))['value']
         head = source_parent(item)
         return {'LengthQty': subtotal(records, 'LengthQty'), 'WeightQty': subtotal(records, 'WeightQty'),
@@ -238,7 +239,12 @@ def entry_values(item, entry):
     with localcontext() as context:
         context.prec = 80
         table = item.SOURCE_TABLE
-        if table == 'DyeRecipeDetail':
+        if table == 'WProcess':
+            values = {'EndTime': item.old_start_time}
+        elif table == 'JobShiftEmp':
+            parent = source_parent(item)
+            values = {name:getattr(parent,parent.SOURCE_FIELDS[name]) for name in ['JobSheetNo','ProcessID','ProcessNo','ShiftID']}
+        elif table == 'DyeRecipeDetail':
             values = recipe_values(item, entry)
         elif table == 'StuffWeightPhase':
             values = weight_phase_values(item, entry)

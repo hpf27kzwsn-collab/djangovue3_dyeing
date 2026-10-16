@@ -9,3 +9,5 @@ for name,workflow in WORKFLOWS.items():RESOURCE_OPTIONS[name]['workflow']=workfl
 
 from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
 RESOURCE_OPTIONS.update(SOURCE_RESOURCES)
+from .quantity_resources import RESOURCE_OPTIONS as QUANTITY_RESOURCES
+RESOURCE_OPTIONS.update(QUANTITY_RESOURCES)

@@ -1,6 +1,7 @@
 param(
     [Parameter(Mandatory=$true)][string]$OutputDirectory,
-    [Parameter(Mandatory=$true)][string]$EvidencePath
+    [Parameter(Mandatory=$true)][string]$EvidencePath,
+    [string[]]$Tables
 )
 $ErrorActionPreference = 'Stop'
 [Threading.Thread]::CurrentThread.CurrentCulture = [Globalization.CultureInfo]::InvariantCulture
@@ -9,6 +10,10 @@ New-Item -ItemType Directory -Path $erpFullDirectory -ErrorAction Stop | Out-Nul
 $erpFullCatalog = Get-Content -LiteralPath (Join-Path $PSScriptRoot '../legacy_models/source_catalog.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $erpFullEvidence = Get-Content -LiteralPath $EvidencePath -Raw -Encoding UTF8 | ConvertFrom-Json
 $erpFullDefinitions = @($erpFullCatalog.tables | Where-Object handling -EQ 'business_model')
+if ($Tables) {
+    $erpFullDefinitions = @($erpFullDefinitions | Where-Object { $_.table -in $Tables })
+    if ($erpFullDefinitions.Count -ne $Tables.Count) { throw '所选表必须是目录中明确的业务表且不能重复。' }
+}
 $erpFullDefinitions = @($erpFullDefinitions | Sort-Object @{Expression={
     $erpFullDefinition = $_
     ($erpFullEvidence.tables | Where-Object { $_.schema_name -eq $erpFullDefinition.schema -and $_.table_name -eq $erpFullDefinition.table }).approximate_rows
@@ -19,7 +24,7 @@ $erpFullConnection.Open()
 try {
     $erpFullManifest = [ordered]@{ database='Textile_GXHFRS'; started_at=[DateTimeOffset]::Now.ToString('o');
         structure_captured_at=$erpFullEvidence.captured_at; statements='SELECT only'; isolation='READ COMMITTED';
-        source_scope='all seven-module business_model tables in source_catalog; independent finance excluded';
+        source_scope=if($Tables){'selected business tables: '+($Tables -join ',')}else{'all seven-module business_model tables in source_catalog; independent finance excluded'};
         numeric_encoding='SQL numeric values stored as invariant strings, including SqlDecimal precision up to 38';
         no_primary_key_identity='key is null; row is extraction ordinal, not a fabricated old-system id'; tables=@() }
     foreach ($erpFullDefinition in $erpFullDefinitions) {

@@ -1,0 +1,386 @@
+{
+  "date": "2026-10-15",
+  "scope": "班次循环与机台班组选择",
+  "old_access": "SELECT only; neither procedure executed",
+  "definitions": [
+    {
+      "name": "Fn_Get_Machine",
+      "sha256": "b46a17961e5686b7ca285a390728b4d16caa1dce2472639f0df69a120ef5e185",
+      "equal": true
+    },
+    {
+      "name": "New_StringSplit",
+      "sha256": "ea4f6530c16a22b2ea31e2301ef8872779419707e22ed833674d4683215e7c1b",
+      "equal": true
+    },
+    {
+      "name": "qry_ProcessMachine",
+      "sha256": "3e4d5d9a2bba2b0a836bbf266e4af229b307ea62a5ae0e3acf56ab2a64b026f8",
+      "equal": true
+    },
+    {
+      "name": "Sp_CreateShiftAndClassDetail",
+      "sha256": "bc535b4902f42df6502d290de37cc18cfb4bdcf1d38466c3b205067ad367c73d",
+      "equal": true
+    },
+    {
+      "name": "Sp_GetShiftAndClass3",
+      "sha256": "6a3f4ba8e1b0d4a72bb5d5b90d63068ccdd5546e514d3fff5b130dae921957b8",
+      "equal": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "config",
+      "rows": 12,
+      "fields": 13,
+      "equal": true
+    },
+    {
+      "name": "details",
+      "rows": 1460,
+      "fields": 15,
+      "equal": true
+    },
+    {
+      "name": "from_first_config_rebuild_all_existing_calendar_without_write",
+      "rows": 1460,
+      "fields": 15,
+      "equal": true
+    },
+    {
+      "name": "independent_readonly_sql_machine_selection",
+      "cases": 1440,
+      "rows": 117,
+      "equal": true
+    }
+  ],
+  "source_counts": {
+    "config": 12,
+    "details": 1460,
+    "machines": 120,
+    "shifts": 33,
+    "departments": 11
+  },
+  "semantics": [
+    {
+      "end_time": "59:59",
+      "remainder": -1,
+      "empty_int": 0,
+      "null_pattern": null,
+      "null_name": null,
+      "null_mod": null,
+      "rounded_time": "2026-10-02T00:00:00.000"
+    }
+  ],
+  "calendar_range": [
+    "2022-09-07T00:00:00.000",
+    "2026-09-05T00:00:00.000"
+  ],
+  "duplicate_days": 0,
+  "next_preview": {
+    "rows": 365,
+    "first": "2026-09-06T00:00:00.000",
+    "last": "2027-09-05T00:00:00.000",
+    "written": false
+  },
+  "history_import_this_batch": false,
+  "machine_checks": [
+    {
+      "parameters": {
+        "number": "260815J0102",
+        "shift": "A197",
+        "employee": "HF1072",
+        "process": "GX07",
+        "as_of": "2026-08-15T12:00:00"
+      },
+      "rows": 3,
+      "equal": true
+    },
+    {
+      "parameters": {
+        "number": "260815J0102",
+        "shift": "A197",
+        "employee": "HF1072",
+        "process": "GX07",
+        "as_of": "2026-10-15T12:00:00"
+      },
+      "rows": 7,
+      "equal": true
+    },
+    {
+      "parameters": {
+        "number": "260815H0703",
+        "shift": "A197",
+        "employee": "HF1072",
+        "process": "GX07",
+        "as_of": "2026-08-15T12:00:00"
+      },
+      "rows": 0,
+      "equal": true
+    },
+    {
+      "parameters": {
+        "number": "260815H0703",
+        "shift": "A197",
+        "employee": "HF1072",
+        "process": "GX07",
+        "as_of": "2026-10-15T12:00:00"
+      },
+      "rows": 13,
+      "equal": true
+    },
+    {
+      "parameters": {
+        "number": "260815H0803",
+        "shift": "A197",
+        "employee": "HF1072",
+        "process": "GX07",
+        "as_of": "2026-08-15T12:00:00"
+      },
+      "rows": 0,
+      "equal": true
+    },
+    {
+      "parameters": {
+        "number": "260815H0803",
+        "shift": "A197",
+        "employee": "HF1072",
+        "process": "GX07",
+        "as_of": "2026-10-15T12:00:00"
+      },
+      "rows": 13,
+      "equal": true
+    },
+    {
+      "parameters": {
+        "number": "260815J0102",
+        "shift": "A197",
+        "employee": "MISSING",
+        "process": "GX15",
+        "as_of": "2026-10-15T12:00:00"
+      },
+      "rows": 11,
+      "equal": true
+    },
+    {
+      "parameters": {
+        "number": "260815J0102",
+        "shift": "A197",
+        "employee": "MISSING",
+        "process": "GX07",
+        "as_of": "2026-10-15T12:00:00"
+      },
+      "rows": 0,
+      "equal": true
+    }
+  ],
+  "entered_machine_checks": {
+    "cases": 6,
+    "equal": true
+  },
+  "http": [
+    {
+      "method": "GET",
+      "path": "/readiness",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_base_sourcedyepshiftarrange/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_base_sourcedyepshiftarrange/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_base_sourcedyepmachine/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_base_sourcedyepmachine/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_base_sourcedyepshiftarrangedetail/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_base_sourcedyepshiftarrangedetail/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_base_sourcedyepshiftarrange/preview_calendar/",
+      "parameters": {
+        "create_days": 365
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_base_sourcedyepshiftarrange/lookup_shift/",
+      "parameters": {
+        "curr_time": "2026-09-05T08:00:00+08:00",
+        "machine": "J01"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_base_sourcedyepshiftarrangedetail/lookup_shift/",
+      "parameters": {
+        "curr_time": "2026-09-05T08:00:00+08:00",
+        "machine": "J01"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_base_sourcedyepmachine/lookup_shift/",
+      "parameters": {
+        "curr_time": "2026-09-05T08:00:00+08:00",
+        "machine": "J01"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_base_sourcedyepshiftarrange/1/resolve_shift/",
+      "parameters": {
+        "curr_time": "2026-09-05T08:00:00+08:00",
+        "machine": "J01",
+        "at": "2026-10-15T12:00:00+08:00",
+        "reason": "已有日历的运行查询核对"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_base_sourcedyepshiftarrange/1/continuation/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92538/entered_machine/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92538/process_machines/",
+      "parameters": {
+        "shift": "A197",
+        "employee": "HF1072",
+        "process": "GX07",
+        "as_of": "2026-10-15T12:00:00+08:00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-Cii9-Ajg.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-B4DsAW38.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css",
+      "parameters": null
+    }
+  ],
+  "http_count": 33,
+  "page_action_bindings": 13,
+  "runtime_calendar_write": false,
+  "validation": {
+    "new_tests": 45,
+    "related_tests": 70,
+    "full_regression_tests": 534,
+    "full_regression": "passed",
+    "first_regression": "519 tests: 518 passed, one Windows temporary-directory permission error; rerun with normal permissions including new machine tests passed",
+    "django_check": "passed",
+    "makemigrations_check": "no changes",
+    "frontend_build": "passed; existing large chunk warning",
+    "diff_check": "passed",
+    "mutation_tests": "isolated PostgreSQL on port 5440 only",
+    "runtime_http_count": 33
+  }
+}

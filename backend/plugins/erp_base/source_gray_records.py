@@ -4,6 +4,7 @@ from django.db.models.functions import Upper, RTrim
 from .business import locked, persist
 from .source_stock_services import raw, detail_rows
 from .source_workflow_services import apply_changes
+from .source_gray_split_merge import active
 
 
 def matching(query, field, value):
@@ -14,7 +15,7 @@ def refresh(item, context, actor):
     records = apps.get_model('erp_warehouse.SourceDyeGrayInRecord')
     if item.SOURCE_TABLE == 'GrayIn':
         for line in detail_rows(item, 'GrayInDetail'):
-            for tag in records.objects.filter(source_parent_1=line).order_by('pk'):
+            for tag in active(records.objects.filter(source_parent_1=line)).order_by('pk'):
                 apply_changes(locked(tag), {'GUnit': raw(item, 'StockUnit')}, actor, 'gray_receipt_unit')
         return
     jobs = apps.get_model('erp_production.SourceDyeJobSheet')
@@ -27,12 +28,12 @@ def refresh(item, context, actor):
             continue
         job_matches = matching(jobs.objects.all(), 'old_sheet_no', number)
         for job in job_matches.order_by('pk'):
-            allocated = matching(job_records.objects.filter(source_parent_1=job), 'old_rece_sheet_no', raw(line, 'ReceSheetNo'))
+            allocated = matching(active(job_records.objects.filter(source_parent_1=job)), 'old_rece_sheet_no', raw(line, 'ReceSheetNo'))
             for output in outgoing.objects.filter(source_parent_1=line).order_by('pk'):
                 selected = matching(allocated, 'old_gray_bar_code', raw(output, 'BarCode'))
                 for allocation in selected.order_by('pk'):
                     apply_changes(locked(allocation), {'AssignedNo': raw(line, 'AssignedNo')}, actor, 'gray_job_record_assignment')
-                tags = matching(records.objects.all(), 'old_rece_sheet_no', raw(line, 'ReceSheetNo'))
+                tags = matching(active(records.objects.all()), 'old_rece_sheet_no', raw(line, 'ReceSheetNo'))
                 tags = matching(tags, 'old_bar_code', raw(output, 'BarCode'))
                 # 条码可重复，实际出库细码号明确时必须同时匹配，避免把另一箱回写为本次领用。
                 if raw(output, 'RollNo') not in [None, '']:

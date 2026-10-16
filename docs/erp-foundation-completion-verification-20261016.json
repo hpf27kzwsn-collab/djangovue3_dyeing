@@ -1,0 +1,2478 @@
+{
+  "snapshot_at": "2026-10-16T08:51:52.7617220+08:00",
+  "scope": "只读原库；隔离复制及对照，不采用到开发历史库",
+  "latest_schema_fields_equal": 13268,
+  "erp_models": 700,
+  "source_models": 589,
+  "source_fields": 12016,
+  "all_models_have_legacy_id": true,
+  "added_source_models": 23,
+  "added_original_fields": 413,
+  "isolated_copied_tables": 77,
+  "isolated_copied_rows": 2874057,
+  "copy_verification": "导出文件SHA256、COPY输入行数与目标表计数；不是全部原字段逐行回读比较",
+  "copy_tables": [
+    {
+      "table": "ArticleInDetail",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Human",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "p_CustAddress",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "p_CustCategory",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "p_CustLinker",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "PrintColorSeparate",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "PrintColorSeparateDetail",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "Quote",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "QuoteAtte",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "QuoteDetail",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "QuotePriceProcess",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "SemiOutWorkApply",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "SemiOutWorkApplyDetail",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "BaseCase",
+      "rows": 1,
+      "source_sha256": "1ca60c33b6c1609b0b80a9cf2deab51bd7f277a4a106829a5f292cfe17ae3330"
+    },
+    {
+      "table": "DyeDipsRecord",
+      "rows": 1,
+      "source_sha256": "89ebf708c67870208bd11908766c7720e645176fecc23c897a07f7217b2b531e"
+    },
+    {
+      "table": "p_MachineFaultClass",
+      "rows": 2,
+      "source_sha256": "6ba712a1a0f36222f06828e45affc9d4342d4f84445f62594dcef545a63273f3"
+    },
+    {
+      "table": "HS_JobsheetNo",
+      "rows": 3,
+      "source_sha256": "34d199d2f42c022649857f0ee522d3919e49821fdb2bc43335e26a03dc5aadbf"
+    },
+    {
+      "table": "KindLimit",
+      "rows": 5,
+      "source_sha256": "049f23e03a531ac69c09247b0960c728402e3da84d83c51789932fed9be33de3"
+    },
+    {
+      "table": "Limit",
+      "rows": 6,
+      "source_sha256": "add4ee6c886cb38afbc0bfcd0b3d2e21cd7d4e0daab3ce5e6ea7b35020722e00"
+    },
+    {
+      "table": "p_Meter",
+      "rows": 8,
+      "source_sha256": "cc8272475b1fc28d416e8273a62712f05fd7ea1988e0f49538e041ea81d2fa33"
+    },
+    {
+      "table": "p_CommPort",
+      "rows": 11,
+      "source_sha256": "2962c07dd3da0dbfd94a22ae63883a0c0eb63807bf1ea840d0726f485a23cf7b"
+    },
+    {
+      "table": "p_Dept",
+      "rows": 11,
+      "source_sha256": "f56e5d4772b84803a68d7e090846d5c7a394637c1d43ec8cb5e2ce6bff06205d"
+    },
+    {
+      "table": "p_StuffStorageUnitID",
+      "rows": 13,
+      "source_sha256": "f62e8860b8792574535f5dd2706ae20a1ddec6476c1a7fbd3a00100bf386f483"
+    },
+    {
+      "table": "p_Process",
+      "rows": 18,
+      "source_sha256": "c583132013db631f8e4c58a875992d4782a076fd5df815ab43e7716f7f61f8f7"
+    },
+    {
+      "table": "WidthGramWeight",
+      "rows": 18,
+      "source_sha256": "7f77f130159f8d240e5bfd3cb72a7a219ab7cf8ed7a148d586f5c99b668f2d1b"
+    },
+    {
+      "table": "p_DyeCurve",
+      "rows": 21,
+      "source_sha256": "bfc089fdc3019007263a29b98ceabb1a776d05bf6339c1f09841f9972b31ba22"
+    },
+    {
+      "table": "s_Module",
+      "rows": 32,
+      "source_sha256": "5506df217135d231a020ef9edbb1034e2cec12fd0104ded1a6c9b97520a608ac"
+    },
+    {
+      "table": "p_Shift",
+      "rows": 33,
+      "source_sha256": "4783d1161068942c9609901b97e850b125e354e2547bdd0ddc3a0515edd2ca9f"
+    },
+    {
+      "table": "p_CraftParam",
+      "rows": 34,
+      "source_sha256": "32d7ded68c088841bda4e02645c572db62d89fe6b6069a3362ccf357745ed8c7"
+    },
+    {
+      "table": "zhijianwenti",
+      "rows": 44,
+      "source_sha256": "3991a823a5daaf9325ae0c6c6b57ca40367b2f4068cc7a5a17afe5f084c461a4"
+    },
+    {
+      "table": "s_DataLink",
+      "rows": 45,
+      "source_sha256": "e23c50e59fde0016f7feeaa463e2c19bdb6da73e4967cd08c7d3b5893b301c33"
+    },
+    {
+      "table": "s_DBCombo",
+      "rows": 103,
+      "source_sha256": "9eca41b9208c68c0fa8684eaedfb5aa2818bd7702da63fc490b8a674398bbdde"
+    },
+    {
+      "table": "p_DyeCurveDetail",
+      "rows": 119,
+      "source_sha256": "253f0c081efdd3009dae938f0c96997bfacae14adf28f6c539be1bfd1248e08e"
+    },
+    {
+      "table": "p_Machine",
+      "rows": 120,
+      "source_sha256": "3746abd1f4622e0f4fedc60cbe638efe8347bec26b0dc2913efbc31fa71b8376"
+    },
+    {
+      "table": "s_RptMenu",
+      "rows": 148,
+      "source_sha256": "eb66a7fc03f8141d96c5e4d62d95d77851d9ba90846a5ca3f20ca27ba571d702"
+    },
+    {
+      "table": "p_ShiftEmp",
+      "rows": 156,
+      "source_sha256": "5193d545f08c2d0ddff66cec7a04330ee382ab5308f368e37b7026e61aa7928a"
+    },
+    {
+      "table": "p_FieldValidSub",
+      "rows": 175,
+      "source_sha256": "51351f52c1b1ae5a2b06d4b4e8aa7406ad0b781f0c429dc88e3aac0b314cda90"
+    },
+    {
+      "table": "p_Customer",
+      "rows": 182,
+      "source_sha256": "403099f9eb78ef22782fab90cdede3323dd718c5d9809ddcb5b16fd98f6e8db3"
+    },
+    {
+      "table": "p_ArticleStorageUnitID",
+      "rows": 208,
+      "source_sha256": "59ef25419649d37067ac09a8317d0f6596e02c58421064a48067c0415ec9153e"
+    },
+    {
+      "table": "p_Cook",
+      "rows": 208,
+      "source_sha256": "4d2b76f47de40dd91cca375fb9afd2db7cadc62816990e17774358eeb3a45cad"
+    },
+    {
+      "table": "s_Lookup",
+      "rows": 266,
+      "source_sha256": "4cafe7509bf93c92845b7c886299b191bb65f8c383c69ef7fdea4ef7d36e2775"
+    },
+    {
+      "table": "h_Employee",
+      "rows": 274,
+      "source_sha256": "3f40aef267cd9e449c90f097880ce7cb3859646800ec02e221c9db03be2cb3fc"
+    },
+    {
+      "table": "s_RptInfo",
+      "rows": 290,
+      "source_sha256": "1aa10fba340d6c06eb7f208be163ae44eb039dd8e3df474888999f806d0ebaa5"
+    },
+    {
+      "table": "p_Stuff",
+      "rows": 329,
+      "source_sha256": "ff5f3f234ef7acb673abe0fd5b5b79e93358f60c16694d9525a4de63ea65c2f5"
+    },
+    {
+      "table": "p_Article",
+      "rows": 399,
+      "source_sha256": "402042ede379ecb030561b1e71bf1e9628ce44e1b71cc2ea1d2484008e6b7b78"
+    },
+    {
+      "table": "p_Gray",
+      "rows": 648,
+      "source_sha256": "a23736722e71e464951b67f0881401af4674296e8f25c2dc9be3bbd730158606"
+    },
+    {
+      "table": "p_FieldValid",
+      "rows": 827,
+      "source_sha256": "ae2af5a6f2335d611dd1136e0a4dd74a7fb2a4aac5fecd478081479f672e362f"
+    },
+    {
+      "table": "p_StorageUnitID",
+      "rows": 833,
+      "source_sha256": "3f8050afb564090051e1430ca47af8409e02e8762565eb934b22e445624c0fda"
+    },
+    {
+      "table": "s_Functions",
+      "rows": 1395,
+      "source_sha256": "b7ff03d2133f5e3f67432a70e9de62f0a50d4949a2be5f74c0c45d11d49ac79f"
+    },
+    {
+      "table": "s_QuerySQL",
+      "rows": 1632,
+      "source_sha256": "621adb3381fec42c42d54a8ef6751fbcc5239c576a2bc46276095ec6e124c55b"
+    },
+    {
+      "table": "s_DataTable",
+      "rows": 1682,
+      "source_sha256": "2dc6503db6a9a6693f0c5a2e8c3f6511ab007270c967c5a9103235af75297f0e"
+    },
+    {
+      "table": "ProdLoadingDetail",
+      "rows": 3989,
+      "source_sha256": "3f38b3a876e342ae6bb05a4df4a9ded96266571be0560ae5e4eb2b741e496fd3"
+    },
+    {
+      "table": "DyeLabMain",
+      "rows": 6502,
+      "source_sha256": "d6974fdac48bb5a3406d0208ce24c8ac749c7aa16d56498d82355ba1e3a73dba"
+    },
+    {
+      "table": "WDefect",
+      "rows": 11026,
+      "source_sha256": "15b409a9adf30c5b0a3ebf27a8ba35fb1fccc7f63e9b36b4e97e1d577a895358"
+    },
+    {
+      "table": "OrderMain",
+      "rows": 17032,
+      "source_sha256": "d3eeebf519b04d55f5d066ab0de23852f02531cc8f4c77da9f7cabe37eadd81a"
+    },
+    {
+      "table": "DyeLabColor",
+      "rows": 20974,
+      "source_sha256": "3ecb89c795104fb43428e2db66c237b5de0099c4c4d1e5f3866654419ecd6c19"
+    },
+    {
+      "table": "P_ColorNum",
+      "rows": 41706,
+      "source_sha256": "2dd3248578d04aac18b7e8d156b078b1ff9023d1e34257afedd07b6c5c755f3d"
+    },
+    {
+      "table": "DyeRecipe",
+      "rows": 65678,
+      "source_sha256": "c3d64fda600b88e892ae335efce42eda93d703c1f92f0e1e642b29c00b73e5bd"
+    },
+    {
+      "table": "SemiOutDetail",
+      "rows": 76073,
+      "source_sha256": "c589765cce3df1d89b8487ea2304ae14849acf5e6c8e4c234d3ac68cd305e08c"
+    },
+    {
+      "table": "OrderColor",
+      "rows": 80053,
+      "source_sha256": "7ed21708f953f01bc7f86c7d23a4a4dfc4cebc37f05fb4e9e3f71e670632fdfe"
+    },
+    {
+      "table": "JobAtte",
+      "rows": 89328,
+      "source_sha256": "ef888e4a58e2a9ef2eb3a18ead63da827eafc8a9888be31e55e008bf6973d40b"
+    },
+    {
+      "table": "JobSheet",
+      "rows": 92538,
+      "source_sha256": "aa932db163a5daf139a7ae72cab71f611fd82a99011c8c52b5131d013e066aa8"
+    },
+    {
+      "table": "StuffWeight",
+      "rows": 248051,
+      "source_sha256": "bb9838fb2a1b0c5304b8310a844d9bc9433af1e50937d85f74c2961418785163"
+    },
+    {
+      "table": "WProcess",
+      "rows": 389052,
+      "source_sha256": "58f0b5e65b8f5652afd249c18fc4593bbd6a905902daef41214bcbf6fee0d357"
+    },
+    {
+      "table": "JobProcess",
+      "rows": 473531,
+      "source_sha256": "f440b001ec613e85a49b6e155e2fdecf1bb807dce8440dedeac6b83909eba7be"
+    },
+    {
+      "table": "StuffWeightPhase",
+      "rows": 537050,
+      "source_sha256": "87e82c46cc558714f7dafa8074bb206b2c3e306d85b34d5628ba6c880bd7fbe1"
+    },
+    {
+      "table": "ArticleStockBook",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "p_Product",
+      "rows": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "GrayIn",
+      "rows": 4032,
+      "source_sha256": "ccbc4a622387cc4ace1db4e63023dafa35b267e4aaaaf87dcb550a4af0980f74"
+    },
+    {
+      "table": "SemiIn",
+      "rows": 12380,
+      "source_sha256": "920bfdadc22cebe50c1196f5f9ba8d8eef2d0dfab2d2af86067931ed6eca8c21"
+    },
+    {
+      "table": "GrayInDetail",
+      "rows": 46424,
+      "source_sha256": "83703e52af39bd81b450364f893d57904269838179da9300a55de3393529c53d"
+    },
+    {
+      "table": "GrayStockBook",
+      "rows": 53208,
+      "source_sha256": "83401db9e10b810d1d86c6a348227b7b64ad51f837a3e80cb2e9e0ec9314fc07"
+    },
+    {
+      "table": "CarryMaterialDetail",
+      "rows": 74959,
+      "source_sha256": "cd97983cfd145b2b5985bde3792647fb57d4e1e30dfb54560a067cef2fcf0052"
+    },
+    {
+      "table": "ProdIn",
+      "rows": 78114,
+      "source_sha256": "090df08aee535735d8c149dd45803a2c9cc5bb24591fe8c113ca40589a9683fe"
+    },
+    {
+      "table": "JobCombineOrder",
+      "rows": 91455,
+      "source_sha256": "fd829e60320eb57df186947dd5ead61b5619a841952ad36f9d132e87af87f26b"
+    },
+    {
+      "table": "SemiInDetail",
+      "rows": 135140,
+      "source_sha256": "9177d2ab2ad41b3e403827d08a2b78bd7572dd5eee09dfdf89cd1805961821eb"
+    },
+    {
+      "table": "SemiStockBook",
+      "rows": 215462,
+      "source_sha256": "fe53ca2f8c59de28698659229726f641f70ad502f3d95bbaff6c9f0582639afc"
+    }
+  ],
+  "lookup_definitions": 266,
+  "local_lookups": 262,
+  "external_lookups": [
+    "B153",
+    "B196",
+    "B197",
+    "B198"
+  ],
+  "new_lookup_comparisons": [
+    {
+      "id": "A003",
+      "status": "matched",
+      "new_rows": 39226,
+      "old_rows": 39226
+    },
+    {
+      "id": "A004",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "A005",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "A006",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "A007",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "A008",
+      "status": "matched",
+      "new_rows": 6,
+      "old_rows": 6
+    },
+    {
+      "id": "A011",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "A012",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "A013",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "A014",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "A015",
+      "status": "matched",
+      "new_rows": 6,
+      "old_rows": 6
+    },
+    {
+      "id": "A016",
+      "status": "matched",
+      "new_rows": 8,
+      "old_rows": 8
+    },
+    {
+      "id": "A017",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "A018",
+      "status": "matched",
+      "new_rows": 79,
+      "old_rows": 79
+    },
+    {
+      "id": "A019",
+      "status": "matched",
+      "new_rows": 6,
+      "old_rows": 6
+    },
+    {
+      "id": "A020",
+      "status": "matched",
+      "new_rows": 26,
+      "old_rows": 26
+    },
+    {
+      "id": "A021",
+      "status": "matched",
+      "new_rows": 6,
+      "old_rows": 6
+    },
+    {
+      "id": "A022",
+      "status": "matched",
+      "new_rows": 10,
+      "old_rows": 10
+    },
+    {
+      "id": "A024",
+      "status": "matched",
+      "new_rows": 19,
+      "old_rows": 19
+    },
+    {
+      "id": "A026",
+      "status": "matched",
+      "new_rows": 270976,
+      "old_rows": 270976
+    },
+    {
+      "id": "A027",
+      "status": "matched",
+      "new_rows": 12,
+      "old_rows": 12
+    },
+    {
+      "id": "A028",
+      "status": "matched",
+      "new_rows": 80053,
+      "old_rows": 80053
+    },
+    {
+      "id": "A030",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "A031",
+      "status": "matched",
+      "new_rows": 591,
+      "old_rows": 591
+    },
+    {
+      "id": "A032",
+      "status": "matched",
+      "new_rows": 7,
+      "old_rows": 7
+    },
+    {
+      "id": "A033",
+      "status": "matched",
+      "new_rows": 5,
+      "old_rows": 5
+    },
+    {
+      "id": "B002",
+      "status": "matched",
+      "new_rows": 163,
+      "old_rows": 163
+    },
+    {
+      "id": "B004",
+      "status": "matched",
+      "new_rows": 641,
+      "old_rows": 641
+    },
+    {
+      "id": "B014",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B015",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B029",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "B034",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B035",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B036",
+      "status": "matched",
+      "new_rows": 801,
+      "old_rows": 801
+    },
+    {
+      "id": "B037",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B0381",
+      "status": "matched",
+      "new_rows": 10,
+      "old_rows": 10
+    },
+    {
+      "id": "B0382",
+      "status": "matched",
+      "new_rows": 8,
+      "old_rows": 8
+    },
+    {
+      "id": "B039",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B050",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B051",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B054",
+      "status": "matched",
+      "new_rows": 91,
+      "old_rows": 91
+    },
+    {
+      "id": "B055",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B057",
+      "status": "matched",
+      "new_rows": 1395,
+      "old_rows": 1395
+    },
+    {
+      "id": "B061",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B063",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B065",
+      "status": "matched",
+      "new_rows": 13,
+      "old_rows": 13
+    },
+    {
+      "id": "B073",
+      "status": "matched",
+      "new_rows": 163,
+      "old_rows": 163
+    },
+    {
+      "id": "B074",
+      "status": "matched",
+      "new_rows": 91,
+      "old_rows": 91
+    },
+    {
+      "id": "B080",
+      "status": "matched",
+      "new_rows": 120,
+      "old_rows": 120
+    },
+    {
+      "id": "B081",
+      "status": "matched",
+      "new_rows": 18,
+      "old_rows": 18
+    },
+    {
+      "id": "B082",
+      "status": "matched",
+      "new_rows": 34,
+      "old_rows": 34
+    },
+    {
+      "id": "B083",
+      "status": "collation_group_match_raw_representative_difference",
+      "new_rows": 2096,
+      "old_rows": 2096
+    },
+    {
+      "id": "B088",
+      "status": "matched",
+      "new_rows": 46314,
+      "old_rows": 46314
+    },
+    {
+      "id": "B089",
+      "status": "matched",
+      "new_rows": 163,
+      "old_rows": 163
+    },
+    {
+      "id": "B091",
+      "status": "matched",
+      "new_rows": 33,
+      "old_rows": 33
+    },
+    {
+      "id": "B092",
+      "status": "matched",
+      "new_rows": 6,
+      "old_rows": 6
+    },
+    {
+      "id": "B093",
+      "status": "matched",
+      "new_rows": 328,
+      "old_rows": 328
+    },
+    {
+      "id": "B094",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B095",
+      "status": "matched",
+      "new_rows": 11,
+      "old_rows": 11
+    },
+    {
+      "id": "B096",
+      "status": "matched",
+      "new_rows": 399,
+      "old_rows": 399
+    },
+    {
+      "id": "B097",
+      "status": "matched",
+      "new_rows": 4,
+      "old_rows": 4
+    },
+    {
+      "id": "B100",
+      "status": "matched",
+      "new_rows": 20924,
+      "old_rows": 20924
+    },
+    {
+      "id": "B101",
+      "status": "matched",
+      "new_rows": 10,
+      "old_rows": 10
+    },
+    {
+      "id": "B102",
+      "status": "matched",
+      "new_rows": 14,
+      "old_rows": 14
+    },
+    {
+      "id": "B104",
+      "status": "matched",
+      "new_rows": 11,
+      "old_rows": 11
+    },
+    {
+      "id": "B106",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B107",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B109",
+      "status": "matched",
+      "new_rows": 474375,
+      "old_rows": 474375
+    },
+    {
+      "id": "B110",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B111",
+      "status": "matched",
+      "new_rows": 248051,
+      "old_rows": 248051
+    },
+    {
+      "id": "B112",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B113",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B114",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B117",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B118",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B119",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B120",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B122",
+      "status": "matched",
+      "new_rows": 33,
+      "old_rows": 33
+    },
+    {
+      "id": "B126",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B128",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B129",
+      "status": "matched",
+      "new_rows": 163,
+      "old_rows": 163
+    },
+    {
+      "id": "B130",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B132",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B133",
+      "status": "matched",
+      "new_rows": 91,
+      "old_rows": 91
+    },
+    {
+      "id": "B134",
+      "status": "matched",
+      "new_rows": 60,
+      "old_rows": 60
+    },
+    {
+      "id": "B135",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B136",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B137",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B139",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B140",
+      "status": "matched",
+      "new_rows": 7,
+      "old_rows": 7
+    },
+    {
+      "id": "B141",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B142",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B143",
+      "status": "matched",
+      "new_rows": 268,
+      "old_rows": 268
+    },
+    {
+      "id": "B144",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B145",
+      "status": "matched",
+      "new_rows": 103,
+      "old_rows": 103
+    },
+    {
+      "id": "B146",
+      "status": "matched",
+      "new_rows": 354,
+      "old_rows": 354
+    },
+    {
+      "id": "B147",
+      "status": "matched",
+      "new_rows": 20974,
+      "old_rows": 20974
+    },
+    {
+      "id": "B148",
+      "status": "matched",
+      "new_rows": 92538,
+      "old_rows": 92538
+    },
+    {
+      "id": "B151",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B156",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B157",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B158",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B159",
+      "status": "matched",
+      "new_rows": 4,
+      "old_rows": 4
+    },
+    {
+      "id": "B160",
+      "status": "matched",
+      "new_rows": 8,
+      "old_rows": 8
+    },
+    {
+      "id": "B161",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B162",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B163",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "B164",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "B165",
+      "status": "matched",
+      "new_rows": 17,
+      "old_rows": 17
+    },
+    {
+      "id": "B166",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B167",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B168",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B169",
+      "status": "matched",
+      "new_rows": 105,
+      "old_rows": 105
+    },
+    {
+      "id": "B170",
+      "status": "matched",
+      "new_rows": 13,
+      "old_rows": 13
+    },
+    {
+      "id": "B171",
+      "status": "matched",
+      "new_rows": 208,
+      "old_rows": 208
+    },
+    {
+      "id": "B174",
+      "status": "matched",
+      "new_rows": 21,
+      "old_rows": 21
+    },
+    {
+      "id": "B175",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B176",
+      "status": "matched",
+      "new_rows": 119,
+      "old_rows": 119
+    },
+    {
+      "id": "B178",
+      "status": "matched",
+      "new_rows": 329,
+      "old_rows": 329
+    },
+    {
+      "id": "B179",
+      "status": "matched",
+      "new_rows": 328,
+      "old_rows": 328
+    },
+    {
+      "id": "B180",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B182",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B183",
+      "status": "matched",
+      "new_rows": 21,
+      "old_rows": 21
+    },
+    {
+      "id": "B184",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B185",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B186",
+      "status": "matched",
+      "new_rows": 19210,
+      "old_rows": 19210
+    },
+    {
+      "id": "B188",
+      "status": "matched",
+      "new_rows": 641,
+      "old_rows": 641
+    },
+    {
+      "id": "B190",
+      "status": "matched",
+      "new_rows": 41706,
+      "old_rows": 41706
+    },
+    {
+      "id": "B191",
+      "status": "matched",
+      "new_rows": 32,
+      "old_rows": 32
+    },
+    {
+      "id": "B192",
+      "status": "matched",
+      "new_rows": 91,
+      "old_rows": 91
+    },
+    {
+      "id": "B193",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B194",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "B195",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B199",
+      "status": "matched",
+      "new_rows": 79,
+      "old_rows": 79
+    },
+    {
+      "id": "B200",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B201",
+      "status": "matched",
+      "new_rows": 11,
+      "old_rows": 11
+    },
+    {
+      "id": "B202",
+      "status": "matched",
+      "new_rows": 11,
+      "old_rows": 11
+    },
+    {
+      "id": "B203",
+      "status": "matched",
+      "new_rows": 3,
+      "old_rows": 3
+    },
+    {
+      "id": "B204",
+      "status": "matched",
+      "new_rows": 41,
+      "old_rows": 41
+    },
+    {
+      "id": "B205",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B208",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "B210",
+      "status": "collation_group_match_raw_representative_difference",
+      "new_rows": 647,
+      "old_rows": 647
+    },
+    {
+      "id": "B212",
+      "status": "matched",
+      "new_rows": 1,
+      "old_rows": 1
+    },
+    {
+      "id": "B214",
+      "status": "matched",
+      "new_rows": 270976,
+      "old_rows": 270976
+    },
+    {
+      "id": "B219",
+      "status": "matched",
+      "new_rows": 4,
+      "old_rows": 4
+    },
+    {
+      "id": "B222",
+      "status": "matched",
+      "new_rows": 473527,
+      "old_rows": 473527
+    },
+    {
+      "id": "B304",
+      "status": "matched",
+      "new_rows": 11,
+      "old_rows": 11
+    },
+    {
+      "id": "B305",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B400",
+      "status": "matched",
+      "new_rows": 208,
+      "old_rows": 208
+    },
+    {
+      "id": "B401",
+      "status": "matched",
+      "new_rows": 13,
+      "old_rows": 13
+    },
+    {
+      "id": "B402",
+      "status": "matched",
+      "new_rows": 0,
+      "old_rows": 0
+    },
+    {
+      "id": "B404",
+      "status": "matched",
+      "new_rows": 11,
+      "old_rows": 11
+    },
+    {
+      "id": "B407",
+      "status": "matched",
+      "new_rows": 2,
+      "old_rows": 2
+    },
+    {
+      "id": "S001",
+      "status": "matched",
+      "new_rows": 32,
+      "old_rows": 32
+    },
+    {
+      "id": "S002",
+      "status": "matched",
+      "new_rows": 36,
+      "old_rows": 36
+    },
+    {
+      "id": "S003",
+      "status": "matched",
+      "new_rows": 1682,
+      "old_rows": 1682
+    },
+    {
+      "id": "S006",
+      "status": "matched",
+      "new_rows": 266,
+      "old_rows": 266
+    },
+    {
+      "id": "S007",
+      "status": "matched",
+      "new_rows": 45,
+      "old_rows": 45
+    },
+    {
+      "id": "S008",
+      "status": "matched",
+      "new_rows": 163,
+      "old_rows": 163
+    },
+    {
+      "id": "S009",
+      "status": "matched",
+      "new_rows": 369,
+      "old_rows": 369
+    },
+    {
+      "id": "S181",
+      "status": "matched",
+      "new_rows": 7,
+      "old_rows": 7
+    }
+  ],
+  "lookup_counts": {
+    "matched": 159,
+    "collation_group_match_raw_representative_difference": 2
+  },
+  "reference_rows": 2112966,
+  "original_literal_errors": [
+    {
+      "id": "A013",
+      "number": 207,
+      "message": "列名 'DeptID' 无效。\r\n列名 'DeptID' 无效。"
+    },
+    {
+      "id": "A014",
+      "number": 207,
+      "message": "列名 'DeptID' 无效。\r\n列名 'DeptID' 无效。"
+    },
+    {
+      "id": "A017",
+      "number": 207,
+      "message": "列名 'DeptID' 无效。"
+    },
+    {
+      "id": "B034",
+      "number": 207,
+      "message": "列名 'DeptID' 无效。"
+    },
+    {
+      "id": "B035",
+      "number": 207,
+      "message": "列名 'DeptID' 无效。"
+    },
+    {
+      "id": "B097",
+      "number": 207,
+      "message": "列名 'DeptID' 无效。\r\n列名 'DeptID' 无效。\r\n列名 'DeptID' 无效。\r\n列名 'DeptID' 无效。"
+    },
+    {
+      "id": "B400",
+      "number": 156,
+      "message": "关键字 'where' 附近有语法错误。"
+    },
+    {
+      "id": "B401",
+      "number": 156,
+      "message": "关键字 'where' 附近有语法错误。"
+    },
+    {
+      "id": "B402",
+      "number": 156,
+      "message": "关键字 'where' 附近有语法错误。"
+    },
+    {
+      "id": "S001",
+      "number": 156,
+      "message": "关键字 'where' 附近有语法错误。"
+    },
+    {
+      "id": "S006",
+      "number": 156,
+      "message": "关键字 'where' 附近有语法错误。"
+    }
+  ],
+  "reference_notice": "比较对象为明确修正后的参考SELECT，不能将修正前的原过程报错记为原过程等价通过。",
+  "query_structure_checks": [
+    {
+      "name": "A_GrayID",
+      "ok": true
+    },
+    {
+      "name": "CureDyeByBill",
+      "ok": true
+    },
+    {
+      "name": "CureDyeByBill_LX",
+      "ok": true
+    },
+    {
+      "name": "MaxSavePlease",
+      "ok": true
+    },
+    {
+      "name": "s_vwColorDepth",
+      "ok": true
+    },
+    {
+      "name": "s_vwCustomer",
+      "ok": true
+    },
+    {
+      "name": "v_App_Customer",
+      "ok": true
+    },
+    {
+      "name": "v_APP_EmployeeDevice",
+      "ok": true
+    },
+    {
+      "name": "v_Customer",
+      "ok": true
+    },
+    {
+      "name": "v_DyePhase",
+      "ok": true
+    },
+    {
+      "name": "v_DyeWorkQty_Day",
+      "ok": true
+    },
+    {
+      "name": "V_GrayToProduct",
+      "ok": true
+    },
+    {
+      "name": "v_KQ_CType",
+      "ok": true
+    },
+    {
+      "name": "v_KQ_InRecord",
+      "ok": true
+    },
+    {
+      "name": "v_KQ_OutRecord",
+      "ok": true
+    },
+    {
+      "name": "v_PatQuery",
+      "ok": true
+    },
+    {
+      "name": "V_Stuff",
+      "ok": true
+    },
+    {
+      "name": "vw_DyeWorkQtyQuer",
+      "ok": true
+    },
+    {
+      "name": "vw_ZHENZHIYUNFEITJ1",
+      "ok": true
+    },
+    {
+      "name": "sp_app_QueryEmployees",
+      "ok": true
+    },
+    {
+      "name": "v_CookQuery",
+      "ok": true
+    },
+    {
+      "name": "v_DPWorkQtyCount",
+      "ok": true
+    }
+  ],
+  "query_notice": "结构检查不证明19视图完整历史数据逐行等价。",
+  "scalar_probes": 56,
+  "pinyin_bmp_characters": 63488,
+  "new_tests": 31,
+  "financial_scope_correction": "GetCommissionRatio为回款佣金，保留原对象并转财务暂缓；s_AccMonth为业务日期依赖恢复来源。",
+  "number_extractor_probes": 16,
+  "period_comparisons": [
+    {
+      "input": "2024-01-01",
+      "matched": true,
+      "result": {
+        "BeginDate": "2023-01-01T00:00:00",
+        "EndDate": "2024-01-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-01-26",
+      "matched": true,
+      "result": {
+        "BeginDate": "2023-01-01T00:00:00",
+        "EndDate": "2024-01-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-01",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-02-01T00:00:00",
+        "EndDate": "2024-02-29T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-27",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-02-01T00:00:00",
+        "EndDate": "2024-02-29T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-28",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-02-01T00:00:00",
+        "EndDate": "2024-02-29T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-29",
+      "matched": true,
+      "result": {
+        "BeginDate": null,
+        "EndDate": null,
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-03-01",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-03-01T00:00:00",
+        "EndDate": "2024-03-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-12-25",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-12-01T00:00:00",
+        "EndDate": "2024-12-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-12-26",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-12-01T00:00:00",
+        "EndDate": "2024-12-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-12-31",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-12-01T00:00:00",
+        "EndDate": "2024-12-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2025-01-01",
+      "matched": true,
+      "result": {
+        "BeginDate": "2024-01-01T00:00:00",
+        "EndDate": "2025-01-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2026-10-16",
+      "matched": true,
+      "result": {
+        "BeginDate": "2026-10-01T00:00:00",
+        "EndDate": "2026-10-31T23:59:59",
+        "FirstDate": null
+      }
+    }
+  ],
+  "lookup_full_projection_structure_checks": [
+    {
+      "id": "A003",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "A004",
+      "ok": true,
+      "columns": 2
+    },
+    {
+      "id": "A005",
+      "ok": true,
+      "columns": 2
+    },
+    {
+      "id": "A006",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "A007",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "A008",
+      "ok": true,
+      "columns": 68
+    },
+    {
+      "id": "A011",
+      "ok": true,
+      "columns": 2
+    },
+    {
+      "id": "A012",
+      "ok": true,
+      "columns": 2
+    },
+    {
+      "id": "A013",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "A014",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "A015",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "A016",
+      "ok": true,
+      "columns": 37
+    },
+    {
+      "id": "A017",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "A018",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "A019",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "A020",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "A021",
+      "ok": true,
+      "columns": 27
+    },
+    {
+      "id": "A022",
+      "ok": true,
+      "columns": 27
+    },
+    {
+      "id": "A024",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "A026",
+      "ok": true,
+      "columns": 5
+    },
+    {
+      "id": "A027",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "A028",
+      "ok": true,
+      "columns": 6
+    },
+    {
+      "id": "A030",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "A031",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "A032",
+      "ok": true,
+      "columns": 27
+    },
+    {
+      "id": "A033",
+      "ok": true,
+      "columns": 27
+    },
+    {
+      "id": "B002",
+      "ok": true,
+      "columns": 6
+    },
+    {
+      "id": "B004",
+      "ok": true,
+      "columns": 54
+    },
+    {
+      "id": "B014",
+      "ok": true,
+      "columns": 13
+    },
+    {
+      "id": "B015",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B029",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B034",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "B035",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "B036",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B037",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B0381",
+      "ok": true,
+      "columns": 8
+    },
+    {
+      "id": "B0382",
+      "ok": true,
+      "columns": 8
+    },
+    {
+      "id": "B039",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B050",
+      "ok": true,
+      "columns": 8
+    },
+    {
+      "id": "B051",
+      "ok": true,
+      "columns": 12
+    },
+    {
+      "id": "B054",
+      "ok": true,
+      "columns": 69
+    },
+    {
+      "id": "B055",
+      "ok": true,
+      "columns": 69
+    },
+    {
+      "id": "B057",
+      "ok": true,
+      "columns": 31
+    },
+    {
+      "id": "B061",
+      "ok": true,
+      "columns": 100
+    },
+    {
+      "id": "B063",
+      "ok": true,
+      "columns": 2
+    },
+    {
+      "id": "B065",
+      "ok": true,
+      "columns": 12
+    },
+    {
+      "id": "B073",
+      "ok": true,
+      "columns": 100
+    },
+    {
+      "id": "B074",
+      "ok": true,
+      "columns": 68
+    },
+    {
+      "id": "B080",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B081",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B082",
+      "ok": true,
+      "columns": 7
+    },
+    {
+      "id": "B083",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "B088",
+      "ok": true,
+      "columns": 45
+    },
+    {
+      "id": "B089",
+      "ok": true,
+      "columns": 100
+    },
+    {
+      "id": "B091",
+      "ok": true,
+      "columns": 22
+    },
+    {
+      "id": "B092",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "B093",
+      "ok": true,
+      "columns": 44
+    },
+    {
+      "id": "B094",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "B095",
+      "ok": true,
+      "columns": 13
+    },
+    {
+      "id": "B096",
+      "ok": true,
+      "columns": 30
+    },
+    {
+      "id": "B097",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "B100",
+      "ok": true,
+      "columns": 68
+    },
+    {
+      "id": "B101",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B102",
+      "ok": true,
+      "columns": 68
+    },
+    {
+      "id": "B104",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B106",
+      "ok": true,
+      "columns": 20
+    },
+    {
+      "id": "B107",
+      "ok": true,
+      "columns": 7
+    },
+    {
+      "id": "B109",
+      "ok": true,
+      "columns": 15
+    },
+    {
+      "id": "B110",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B111",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "B112",
+      "ok": true,
+      "columns": 5
+    },
+    {
+      "id": "B113",
+      "ok": true,
+      "columns": 89
+    },
+    {
+      "id": "B114",
+      "ok": true,
+      "columns": 100
+    },
+    {
+      "id": "B117",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "B118",
+      "ok": true,
+      "columns": 22
+    },
+    {
+      "id": "B119",
+      "ok": true,
+      "columns": 22
+    },
+    {
+      "id": "B120",
+      "ok": true,
+      "columns": 22
+    },
+    {
+      "id": "B122",
+      "ok": true,
+      "columns": 22
+    },
+    {
+      "id": "B126",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B128",
+      "ok": true,
+      "columns": 20
+    },
+    {
+      "id": "B129",
+      "ok": true,
+      "columns": 6
+    },
+    {
+      "id": "B130",
+      "ok": true,
+      "columns": 89
+    },
+    {
+      "id": "B132",
+      "ok": true,
+      "columns": 15
+    },
+    {
+      "id": "B133",
+      "ok": true,
+      "columns": 71
+    },
+    {
+      "id": "B134",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B135",
+      "ok": true,
+      "columns": 20
+    },
+    {
+      "id": "B136",
+      "ok": true,
+      "columns": 6
+    },
+    {
+      "id": "B137",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B139",
+      "ok": true,
+      "columns": 89
+    },
+    {
+      "id": "B140",
+      "ok": true,
+      "columns": 100
+    },
+    {
+      "id": "B141",
+      "ok": true,
+      "columns": 20
+    },
+    {
+      "id": "B142",
+      "ok": true,
+      "columns": 89
+    },
+    {
+      "id": "B143",
+      "ok": true,
+      "columns": 7
+    },
+    {
+      "id": "B144",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B145",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B146",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B147",
+      "ok": true,
+      "columns": 67
+    },
+    {
+      "id": "B148",
+      "ok": true,
+      "columns": 16
+    },
+    {
+      "id": "B151",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B156",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B157",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B158",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B159",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B160",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B161",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B162",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B163",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B164",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B165",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B166",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "B167",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B168",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B169",
+      "ok": true,
+      "columns": 44
+    },
+    {
+      "id": "B170",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B171",
+      "ok": true,
+      "columns": 27
+    },
+    {
+      "id": "B174",
+      "ok": true,
+      "columns": 20
+    },
+    {
+      "id": "B175",
+      "ok": true,
+      "columns": 11
+    },
+    {
+      "id": "B176",
+      "ok": true,
+      "columns": 8
+    },
+    {
+      "id": "B178",
+      "ok": true,
+      "columns": 44
+    },
+    {
+      "id": "B179",
+      "ok": true,
+      "columns": 44
+    },
+    {
+      "id": "B180",
+      "ok": true,
+      "columns": 6
+    },
+    {
+      "id": "B182",
+      "ok": true,
+      "columns": 20
+    },
+    {
+      "id": "B183",
+      "ok": true,
+      "columns": 20
+    },
+    {
+      "id": "B184",
+      "ok": true,
+      "columns": 6
+    },
+    {
+      "id": "B185",
+      "ok": true,
+      "columns": 25
+    },
+    {
+      "id": "B186",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B188",
+      "ok": true,
+      "columns": 12
+    },
+    {
+      "id": "B190",
+      "ok": true,
+      "columns": 66
+    },
+    {
+      "id": "B191",
+      "ok": true,
+      "columns": 4
+    },
+    {
+      "id": "B192",
+      "ok": true,
+      "columns": 71
+    },
+    {
+      "id": "B193",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "B194",
+      "ok": true,
+      "columns": 7
+    },
+    {
+      "id": "B195",
+      "ok": true,
+      "columns": 13
+    },
+    {
+      "id": "B199",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B200",
+      "ok": true,
+      "columns": 44
+    },
+    {
+      "id": "B201",
+      "ok": true,
+      "columns": 13
+    },
+    {
+      "id": "B202",
+      "ok": true,
+      "columns": 13
+    },
+    {
+      "id": "B203",
+      "ok": true,
+      "columns": 24
+    },
+    {
+      "id": "B204",
+      "ok": true,
+      "columns": 24
+    },
+    {
+      "id": "B205",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "B208",
+      "ok": true,
+      "columns": 71
+    },
+    {
+      "id": "B210",
+      "ok": true,
+      "columns": 16
+    },
+    {
+      "id": "B212",
+      "ok": true,
+      "columns": 2
+    },
+    {
+      "id": "B214",
+      "ok": true,
+      "columns": 15
+    },
+    {
+      "id": "B219",
+      "ok": true,
+      "columns": 5
+    },
+    {
+      "id": "B222",
+      "ok": true,
+      "columns": 10
+    },
+    {
+      "id": "B304",
+      "ok": true,
+      "columns": 13
+    },
+    {
+      "id": "B305",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "B400",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "B401",
+      "ok": true,
+      "columns": 3
+    },
+    {
+      "id": "B402",
+      "ok": true,
+      "columns": 7
+    },
+    {
+      "id": "B404",
+      "ok": true,
+      "columns": 55
+    },
+    {
+      "id": "B407",
+      "ok": true,
+      "columns": 1
+    },
+    {
+      "id": "S001",
+      "ok": true,
+      "columns": 11
+    },
+    {
+      "id": "S002",
+      "ok": true,
+      "columns": 26
+    },
+    {
+      "id": "S003",
+      "ok": true,
+      "columns": 44
+    },
+    {
+      "id": "S006",
+      "ok": true,
+      "columns": 23
+    },
+    {
+      "id": "S007",
+      "ok": true,
+      "columns": 10
+    },
+    {
+      "id": "S008",
+      "ok": true,
+      "columns": 12
+    },
+    {
+      "id": "S009",
+      "ok": true,
+      "columns": 5
+    },
+    {
+      "id": "S181",
+      "ok": true,
+      "columns": 98
+    }
+  ],
+  "validation": {
+    "full_regression": {
+      "passed": 695,
+      "duration_seconds": 586.6,
+      "log": ".runtime-temp/erp-phase1-completion-20261016/full-tests-final.log",
+      "sha256": "2c4ea8b21e7d8fd4c92f6421652c4b4ce89b3b1099053dcbdb07ca87d896691f"
+    },
+    "final_focused": {
+      "passed": 31,
+      "duration_seconds": 6.845,
+      "log": ".runtime-temp/erp-phase1-completion-20261016/final-focused-tests.log",
+      "sha256": "1de3bf7465f60d5ad1145ac66898b0e74be690a18b2e1d4484fa584bc34acb31"
+    },
+    "negative_zero_master_recheck": {
+      "passed": 7,
+      "duration_seconds": 3.411,
+      "log": ".runtime-temp/erp-phase1-completion-20261016/final-master-tests.log",
+      "sha256": "8e535cd3960b6943b3b587a760d2596b262ab184504b9865364e0604f263f838"
+    },
+    "frontend_typecheck": "passed",
+    "frontend_build": "passed",
+    "migration_drift_check": "no changes detected",
+    "final_note": "完整695项后，期间解析与附加列补做31项定向复测；手感代号负零修正再复测7项，数量不能相加当不同测试。"
+  },
+  "runtime_route_checks": 16
+}

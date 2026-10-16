@@ -8,7 +8,7 @@ from .source_calculations import store_value, decimal
 
 
 STOCK_TABLES = {'StuffIn', 'StuffOut', 'StuffStockAdjust', 'StuffAllot', 'ProdIn', 'ProdOut', 'ProdStockAdjust',
-                'ArticleIn', 'ArticleOut', 'ArticleStockAdjust', 'GrayIn', 'GrayOut', 'GrayStockAdjust',
+                'ArticleIn', 'ArticleOut', 'ArticleStockAdjust', 'SampleIn', 'SampleOut', 'GrayIn', 'GrayOut', 'GrayStockAdjust',
                 'GrayBalance', 'GrayStockSpecUp', 'GrayStockAllot', 'GrayStorageAdjust', 'SemiIn', 'SemiOut', 'SemiStockAdjust', 'SemiStockSpecUp'}
 
 
@@ -21,7 +21,8 @@ def copy_fields(item, names):
 
 
 def detail_rows(item, name):
-    return apps.get_model('erp_warehouse.SourceDye' + name).objects.filter(source_parent_1=item).order_by('pk')
+    from .source_execution_state import active
+    return active(apps.get_model('erp_warehouse.SourceDye' + name).objects.filter(source_parent_1=item)).order_by('pk')
 
 
 def signed_return(value, kind):
@@ -134,8 +135,10 @@ def refresh(item, actor):
     if item.SOURCE_TABLE not in STOCK_TABLES or item.source_batch_id is not None or item.legacy_id is not None:
         return
     item = locked(item)
+    from .source_execution_state import require_available
+    require_available(item)
     context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
-    if context is None:
+    if context is None or context.entry_name in ['explicit_outwork_closure','explicit_business_continuation']:
         return
     if 'derived_from' in context.effects:
         return
@@ -148,7 +151,10 @@ def refresh(item, actor):
     before = snapshot(context)
     clear_effects(context, actor)
     if ready:
-        if item.SOURCE_TABLE == 'StuffAllot':
+        if item.SOURCE_TABLE in ['SampleIn', 'SampleOut']:
+            from .source_sample_stock import rows as sample_rows
+            rows = sample_rows(item)
+        elif item.SOURCE_TABLE == 'StuffAllot':
             from .source_stuff_allot import derive
             rows = derive(item, context, actor)
         elif item.SOURCE_TABLE.startswith('Stuff'):
@@ -175,7 +181,8 @@ def refresh(item, actor):
         effects = {}
         from .source_services import write
         for table, values in rows:
-            model = apps.get_model('erp_warehouse.SourceDye' + table)
+            module = 'erp_sampling' if table == 'SampleStockBook' else 'erp_warehouse'
+            model = apps.get_model(module + '.SourceDye' + table)
             prototype = model()
             data = dict(store_value(prototype, old, value) for old, value in values.items())
             entry = write(model, data, actor=actor)

@@ -403,7 +403,141 @@ class SourceDyeDyeCheckout(SourceRecord):
     class Meta(SourceRecord.Meta):
         db_table='src_dye_dyecheckout'
         indexes=[]
-        verbose_name=verbose_name_plural='财务结算与成本相关表（dyeCheckout，待确认）'
+        verbose_name=verbose_name_plural='染色出缸质量与产量（dyeCheckout）'
+        ordering=["-id"]
+
+class SourceDyeFARDetail(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='FARDetail'
+    SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'CheckNo': 'old_check_no', 'OutDetailNo': 'old_out_detail_no', 'ColorID': 'old_color_id', 'OutDate': 'old_out_date', 'Qty': 'old_qty', 'Price': 'old_price', 'ARMoney': 'old_armoney', 'Remarks': 'old_remarks', 'ProdID': 'old_prod_id', 'Spec': 'old_spec', 'LotNo': 'old_lot_no', 'DesignNo': 'old_design_no', 'ColorDepthID': 'old_color_depth_id', 'ColorNum': 'old_color_num', 'ProcessPrice': 'old_process_price', 'Rolls': 'old_rolls', 'FenTouAmount': 'old_fen_tou_amount', 'DiscountMoney': 'old_discount_money', 'Amount': 'old_amount', 'StockUnit': 'old_stock_unit', 'JobSheetNo': 'old_job_sheet_no', 'PriceUnit': 'old_price_unit', 'PriceQty': 'old_price_qty', 'GangWeiAmount': 'old_gang_wei_amount', 'GaryPrice': 'old_gary_price', 'FabricID': 'old_fabric_id', 'Kind': 'old_kind', 'ProcessName': 'old_process_name', 'DetailCustName': 'old_detail_cust_name', 'SelfCustomer': 'old_self_customer', 'AddrDlv': 'old_addr_dlv', 'OrderRolls': 'old_order_rolls', 'OrderQty': 'old_order_qty', 'RightStatus': 'old_right_status', 'OtherPriceAtte': 'old_other_price_atte', 'MoneyKind': 'old_money_kind', 'CustSelfNo': 'old_cust_self_no', 'ContractNo': 'old_contract_no', 'MinAmount': 'old_min_amount'}
+    SOURCE_KEY=('DetailNo',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_check_no': 'Chinese_PRC_CI_AS', 'old_out_detail_no': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_spec': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_design_no': 'Chinese_PRC_CI_AS', 'old_color_depth_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_price_unit': 'Chinese_PRC_CI_AS', 'old_gary_price': 'Chinese_PRC_CI_AS', 'old_fabric_id': 'Chinese_PRC_CI_AS', 'old_process_name': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_self_customer': 'Chinese_PRC_CI_AS', 'old_addr_dlv': 'Chinese_PRC_CI_AS', 'old_other_price_atte': 'Chinese_PRC_CI_AS', 'old_money_kind': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：FARMain', 'target': 'erp_quality.SourceDyeFARMain', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 FARDetail → FARMain；SalaryChanges各变体均按SheetSeries']}]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
+    old_detail_no=models.CharField('表单明细号', null=False, blank=True, max_length=36)
+    old_check_no=models.CharField('订单明细号', null=True, blank=True, max_length=20)
+    old_out_detail_no=models.CharField('出库单明细号', null=True, blank=True, max_length=20)
+    old_color_id=models.CharField('颜色编码', null=True, blank=True, max_length=150)
+    old_out_date=models.DateTimeField('出库日期', null=True, blank=True)
+    old_qty=models.DecimalField('重量', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_price=models.DecimalField('价格', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_armoney=models.DecimalField('应收款', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_remarks=models.CharField('备注', null=True, blank=True, max_length=512)
+    old_prod_id=models.CharField('本厂规格', null=True, blank=True, max_length=50)
+    old_spec=models.CharField('是否返工', null=True, blank=True, max_length=128)
+    old_lot_no=models.CharField('批号', null=True, blank=True, max_length=500)
+    old_design_no=models.CharField('DesignNo', null=True, blank=True, max_length=50)
+    old_color_depth_id=models.CharField('颜色深浅', null=True, blank=True, max_length=50)
+    old_color_num=models.CharField('色号', null=True, blank=True, max_length=100)
+    old_process_price=models.DecimalField('工艺价', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_rolls=models.DecimalField('粒数', null=True, blank=True, max_digits=7, decimal_places=2)
+    old_fen_tou_amount=models.DecimalField('分头金额', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_discount_money=models.DecimalField('折扣金额', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_amount=models.DecimalField('金额', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_stock_unit=models.IntegerField('单位', null=True, blank=True)
+    old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=50)
+    old_price_unit=models.CharField('计价单位', null=True, blank=True, max_length=50)
+    old_price_qty=models.DecimalField('计费数量', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_gang_wei_amount=models.DecimalField('缸位金额', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_gary_price=models.CharField('计件类别', null=True, blank=True, max_length=50)
+    old_fabric_id=models.CharField('客户规格', null=True, blank=True, max_length=200)
+    old_kind=models.IntegerField('收费类别', null=True, blank=True)
+    old_process_name=models.CharField('工序流程', null=True, blank=True, max_length=100)
+    old_detail_cust_name=models.CharField('明细客户', null=True, blank=True, max_length=100)
+    old_self_customer=models.CharField('出库客户', null=True, blank=True, max_length=50)
+    old_addr_dlv=models.CharField('地址', null=True, blank=True, max_length=100)
+    old_order_rolls=models.DecimalField('OrderRolls', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_order_qty=models.DecimalField('OrderQty', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_right_status=models.IntegerField('财务确认状态', null=True, blank=True)
+    old_other_price_atte=models.CharField('加工要求', null=True, blank=True, max_length=150)
+    old_money_kind=models.CharField('款项', null=True, blank=True, max_length=150)
+    old_cust_self_no=models.CharField('制单号', null=True, blank=True, max_length=150)
+    old_contract_no=models.CharField('客户单号', null=True, blank=True, max_length=500)
+    old_min_amount=models.DecimalField('最低消费', null=True, blank=True, max_digits=8, decimal_places=2)
+    source_parent_1=models.ForeignKey('erp_quality.SourceDyeFARMain', verbose_name='原关系：FARMain', null=True, blank=True, on_delete=models.PROTECT, related_name='+')
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_fardetail'
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_34e4e5797bf1d0b8'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_34e4e5797bf1d0b8'),models.Index(fields=['source_batch', 'old_sheet_series', 'old_detail_no'],name='src_be537f624e3954c2'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_be537f624e3954c2')]
+        verbose_name=verbose_name_plural='质量数量来源明细（原FARDetail）'
+        ordering=["-id"]
+
+class SourceDyeFARMain(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='FARMain'
+    SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetDate': 'old_sheet_date', 'SheetKind': 'old_sheet_kind', 'ARKindID': 'old_arkind_id', 'CustomerID': 'old_customer_id', 'SalerID': 'old_saler_id', 'BusinessUnitID': 'old_business_unit_id', 'ExchangeRate': 'old_exchange_rate', 'CurrencyID': 'old_currency_id', 'PaymentID': 'old_payment_id', 'SheetStatus': 'old_sheet_status', 'RightStatus': 'old_right_status', 'PrintTimes': 'old_print_times', 'Revisions': 'old_revisions', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'StepNo': 'old_step_no', 'ApproveDate': 'old_approve_date', 'Approver': 'old_approver', 'Discount': 'old_discount', 'ProdCode': 'old_prod_code', 'ARMoney': 'old_armoney', 'ATSheetSeries': 'old_atsheet_series'}
+    SOURCE_KEY=('SheetSeries',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_arkind_id': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_saler_id': 'Chinese_PRC_CI_AS', 'old_business_unit_id': 'Chinese_PRC_CI_AS', 'old_currency_id': 'Chinese_PRC_CI_AS', 'old_payment_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_prod_code': 'Chinese_PRC_CI_AS', 'old_atsheet_series': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
+    old_sheet_no=models.CharField('表单编号', null=True, blank=True, max_length=20)
+    old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
+    old_sheet_kind=models.IntegerField('单据类别', null=True, blank=True)
+    old_arkind_id=models.CharField('应收单类别', null=True, blank=True, max_length=10)
+    old_customer_id=models.CharField('客户', null=True, blank=True, max_length=10)
+    old_saler_id=models.CharField('业务员代码', null=True, blank=True, max_length=10)
+    old_business_unit_id=models.CharField('经营单位代码', null=True, blank=True, max_length=10)
+    old_exchange_rate=models.DecimalField('汇率', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_currency_id=models.CharField('币别', null=True, blank=True, max_length=10)
+    old_payment_id=models.CharField('付款方式', null=True, blank=True, max_length=10)
+    old_sheet_status=models.IntegerField('单据状态', null=True, blank=True)
+    old_right_status=models.IntegerField('审核状态', null=True, blank=True)
+    old_print_times=models.IntegerField('打印次数', null=True, blank=True)
+    old_revisions=models.IntegerField('修改次数', null=True, blank=True)
+    old_remarks=models.CharField('备注', null=True, blank=True, max_length=512)
+    old_creater=models.CharField('创建人', null=True, blank=True, max_length=10)
+    old_create_date=models.DateTimeField('创建时间', null=True, blank=True)
+    old_modifyer=models.CharField('修改人', null=True, blank=True, max_length=10)
+    old_modify_date=models.DateTimeField('修改日期', null=True, blank=True)
+    old_step_no=models.IntegerField('工作流节点号', null=True, blank=True)
+    old_approve_date=models.DateTimeField('ApproveDate', null=True, blank=True)
+    old_approver=models.CharField('Approver', null=True, blank=True, max_length=20)
+    old_discount=models.DecimalField('折扣率', null=True, blank=True, max_digits=3, decimal_places=2)
+    old_prod_code=models.CharField('区域号', null=True, blank=True, max_length=16)
+    old_armoney=models.DecimalField('应收金额', null=True, blank=True, max_digits=12, decimal_places=2)
+    old_atsheet_series=models.CharField('ATSheetSeries', null=True, blank=True, max_length=40)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_farmain'
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_6787ff644f47d847'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_6787ff644f47d847')]
+        verbose_name=verbose_name_plural='质量数量来源头（原FARMain）'
+        ordering=["-id"]
+
+class SourceDyeFARRecord(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='FARRecord'
+    SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'RollNo': 'old_roll_no', 'OutDetailNo': 'old_out_detail_no', 'Rolls': 'old_rolls', 'WeightQty': 'old_weight_qty', 'NetKg': 'old_net_kg', 'OutRolls': 'old_out_rolls', 'OutPacks': 'old_out_packs', 'FenTou': 'old_fen_tou'}
+    SOURCE_KEY=('DetailNo', 'RollNo')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_out_detail_no': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：FARDetail', 'target': 'erp_quality.SourceDyeFARDetail', 'source_fields': ['SheetSeries', 'DetailNo'], 'target_fields': ['SheetSeries', 'DetailNo'], 'evidence': ['原界面主从 FARRecord → FARDetail；SalaryChanges各变体均按SheetSeries']}]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_sheet_series=models.CharField('表单流水号', null=True, blank=True, max_length=20)
+    old_detail_no=models.CharField('表单明细号', null=False, blank=True, max_length=36)
+    old_roll_no=models.IntegerField('行号', null=False, blank=False)
+    old_out_detail_no=models.CharField('出库单明细号', null=True, blank=True, max_length=20)
+    old_rolls=models.DecimalField('粒数', null=True, blank=True, max_digits=7, decimal_places=2)
+    old_weight_qty=models.DecimalField('毛重', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_net_kg=models.DecimalField('净重', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_out_rolls=models.DecimalField('出库粒数', null=True, blank=True, max_digits=7, decimal_places=2)
+    old_out_packs=models.DecimalField('出库件数', null=True, blank=True, max_digits=6, decimal_places=1)
+    old_fen_tou=models.DecimalField('分头', null=True, blank=True, max_digits=6, decimal_places=1)
+    source_parent_1=models.ForeignKey('erp_quality.SourceDyeFARDetail', verbose_name='原关系：FARDetail', null=True, blank=True, on_delete=models.PROTECT, related_name='+')
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_farrecord'
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no', 'old_roll_no'],name='src_0e51c62579cfec3b'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),models.F('old_roll_no'),name='src_ci_0e51c62579cfec3b')]
+        verbose_name=verbose_name_plural='质量数量来源细码（原FARRecord）'
         ordering=["-id"]
 
 class SourceDyeInspectionLog(SourceRecord):

@@ -1,0 +1,1364 @@
+{
+  "date": "2026-10-15",
+  "scope": "现场报工补录、机台巡检保养与设备维修",
+  "old_access": "SELECT and read-only local variable queries only; no old procedure executed",
+  "definitions": [
+    {
+      "name": "A_TOPWProcessNo",
+      "sha256": "071140da56159fe7d8e95692af9826b7f5335923be17e58a9459b6625c91124b",
+      "equal": true
+    },
+    {
+      "name": "ChangeIDListToEmpName",
+      "sha256": "f0d57ae477ede958d9ac1f244836b64d90731e8be8c888549e782518d4ecaa3d",
+      "equal": true
+    },
+    {
+      "name": "f_splitWithRowNo",
+      "sha256": "92237f415bbb90101c49d620af32bb1c17387906935fff2a3b13ef401a01af11",
+      "equal": true
+    },
+    {
+      "name": "MachineFault_Update",
+      "sha256": "b10adb2a55456b42edec2b99139a80b3cef785a2203759c16e54cd310e983b6e",
+      "equal": true
+    },
+    {
+      "name": "sp_App_CheckInspectionLog",
+      "sha256": "e794ce000d5c66760d7e46a944b579c493652cd7be57f1d0becafb2a2d9eb740",
+      "equal": true
+    },
+    {
+      "name": "sp_App_CheckMachineCareRecords",
+      "sha256": "9e4bbe5032ff4b7638b31aa2e08ff4d6e8f48f634edc2f02513c68f09091a7b1",
+      "equal": true
+    },
+    {
+      "name": "sp_App_CheckMachineFaultBill",
+      "sha256": "3fa7280ab19133d3fbcf44bd78f842ed49cdfca32e57ac95397a345b06ab0f87",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_Accept",
+      "sha256": "e18951da6ad652f935ca67fc3877dcd76636e57f7e84f7a21c377e42bde7b625",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_Check",
+      "sha256": "71a1eb1744a31f65f13ae30750fd39f139e1ce96b4d6d108ff24ccb6df2a8f80",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_Close",
+      "sha256": "cf41236c72be6a754825213e613ea7fe3fa7528e533c823b6896a7f4b8cd9657",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_Commit",
+      "sha256": "359aada7617eae06733224932af616277dfd78a9d42291073bda9e8f6ec22440",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_Confirm",
+      "sha256": "aa5ab875a33646f6d9306b97aba08cf8254a2b42cdb2af649ffff7ad70ce2f8c",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_Evaluate",
+      "sha256": "9db5cdc8c2eac308fc028dc38f9b4c58db65fc9df04f60bc4f1087074533368b",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_Remark",
+      "sha256": "0c5d3d22362b290e0ef8d8f63cf8bf8913229b2c35e8381cdf0a86daf91b5afb",
+      "equal": true
+    },
+    {
+      "name": "sp_App_FalutAction_SignIn",
+      "sha256": "54d0518b9691e39c2d5ff3f339ba1d8243f852f031756d1cafe65e2488ab84df",
+      "equal": true
+    },
+    {
+      "name": "sp_App_GetFaultActions",
+      "sha256": "f1fce86e93ea3bf230d53f8ed91f4cf86fc0a5e7a5c7b954235b8aec0260a429",
+      "equal": true
+    },
+    {
+      "name": "sp_App_GetFaultActions2",
+      "sha256": "7c0a8570bd40eb4719a70bc66cf29f26ee4f117e924d9467d044746f9c4e4382",
+      "equal": true
+    },
+    {
+      "name": "sp_App_GetInspectionLogBySheetSeries",
+      "sha256": "0ad1174014e65caa7b18ed483cd2543defce361a0635dcb5d8f7270ec3a3e026",
+      "equal": true
+    },
+    {
+      "name": "sp_App_GetMachineCareRecordsBySheetSeries",
+      "sha256": "161bdf59a4ec3dc293fdb67d421b63749894fd0483b11560f35f7fbd2c12a948",
+      "equal": true
+    },
+    {
+      "name": "sp_App_GetMachineCaseProject",
+      "sha256": "bc0eefa14259c1af8796cae5468ee4869de0acd1575e0e61b1826ae406a3d0d7",
+      "equal": true
+    },
+    {
+      "name": "sp_App_SaveInspectionLog",
+      "sha256": "d971d50ee3aeafff7cf2563e5c37f01673a54254ca17b593a934078ea3ee8870",
+      "equal": true
+    },
+    {
+      "name": "sp_App_SaveMachineCareRecords",
+      "sha256": "17e09a4b741b0e475fec3711f7ef55a171f8afd523bfba11edb974a7553f93f0",
+      "equal": true
+    },
+    {
+      "name": "sp_App_SaveMachineFaultBill",
+      "sha256": "a550709ad88c6260d978f26c769fbf97a829f4acef07f881489b9333f51996c4",
+      "equal": true
+    },
+    {
+      "name": "sp_Get_Machine_Parameters",
+      "sha256": "0d0c9d9df0e0051aaac53b513008d9b437f6c31e19126b782667554532374323",
+      "equal": true
+    },
+    {
+      "name": "v_APP_EmployeeDevice",
+      "sha256": "f9f785bd2f7003870c806ceb657707518dc991e209e42a73fde615c67cc36434",
+      "equal": true
+    },
+    {
+      "name": "V_Machine_Parameters",
+      "sha256": "efc95c3b28b224c28119f5149c6fa5f744a508e394d8d713cedd73515460e0b5",
+      "equal": true
+    },
+    {
+      "name": "V_Machine_ProcessID",
+      "sha256": "8e91abac80fdc0afa38bda0e3db6f07851992a85d6d8af3f936ecaca47b4cc33",
+      "equal": true
+    },
+    {
+      "name": "vw_DyeMachine",
+      "sha256": "74440cec65cf4d0a8c525802089e40e3e49a10c3879f945725b98388d3d5710a",
+      "equal": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "all_care",
+      "rows": 3,
+      "fields": 21,
+      "equal": true
+    },
+    {
+      "name": "all_inspection",
+      "rows": 7,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "all_fault",
+      "rows": 18,
+      "fields": 46,
+      "equal": true
+    },
+    {
+      "name": "all_records",
+      "rows": 50,
+      "fields": 10,
+      "equal": true
+    },
+    {
+      "name": "cases",
+      "rows": 4,
+      "fields": 15,
+      "equal": true
+    },
+    {
+      "name": "projects",
+      "rows": 40,
+      "fields": 9,
+      "equal": true
+    },
+    {
+      "name": "action_0",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_1",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_2",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_3",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_4",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_5",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_6",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_7",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_8",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_9",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_10",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_11",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_12",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_13",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_14",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_15",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_16",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_17",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_18",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_19",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_20",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_21",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_22",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_23",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_24",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_25",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_26",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_27",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_28",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_29",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_30",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_31",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_32",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_33",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_34",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_35",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_36",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_37",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_38",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_39",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_40",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_41",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_42",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_43",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_44",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_45",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_46",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_47",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_48",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_49",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_50",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_51",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_52",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_53",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_54",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_55",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_56",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_57",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_58",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_59",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_60",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_61",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_62",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_63",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_64",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_65",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_66",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_67",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_68",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_69",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_70",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_71",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_72",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_73",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_74",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_75",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_76",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_77",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_78",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_79",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_80",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_81",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_82",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_83",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_84",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_85",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_86",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_87",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_88",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_89",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_90",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_91",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_92",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_93",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_94",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_95",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_96",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_97",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_98",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_99",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_100",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_101",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "action_102",
+      "rows": 1,
+      "fields": 16,
+      "equal": true
+    },
+    {
+      "name": "action_103",
+      "rows": 1,
+      "fields": 18,
+      "equal": true
+    },
+    {
+      "name": "case_projects",
+      "rows": 40,
+      "fields": 9,
+      "equal": true
+    },
+    {
+      "name": "split_0",
+      "rows": 0,
+      "fields": 0,
+      "equal": true
+    },
+    {
+      "name": "split_1",
+      "rows": 1,
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "name": "split_2",
+      "rows": 3,
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "name": "split_3",
+      "rows": 1,
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "name": "split_4",
+      "rows": 3,
+      "fields": 2,
+      "equal": true
+    },
+    {
+      "name": "site_work",
+      "rows": 0,
+      "fields": 0,
+      "equal": true
+    },
+    {
+      "name": "site_steps",
+      "rows": 0,
+      "fields": 0,
+      "equal": true
+    },
+    {
+      "name": "site_independent",
+      "rows": 0,
+      "fields": 0,
+      "equal": true
+    }
+  ],
+  "fault_action_comparisons": 104,
+  "source_counts": [
+    {
+      "name": "AddDyeWProcessStep",
+      "n": 0
+    },
+    {
+      "name": "MachineCareProject",
+      "n": 0
+    },
+    {
+      "name": "MachineCareRecords",
+      "n": 3
+    },
+    {
+      "name": "MachineCase",
+      "n": 4
+    },
+    {
+      "name": "MachineCaseDetail",
+      "n": 0
+    },
+    {
+      "name": "MachineCaseProject",
+      "n": 40
+    },
+    {
+      "name": "MachineFault",
+      "n": 18
+    },
+    {
+      "name": "MachineFaultRecord",
+      "n": 50
+    },
+    {
+      "name": "MachineFaultComment",
+      "n": 0
+    },
+    {
+      "name": "MachineFaultArticleInfo",
+      "n": 0
+    },
+    {
+      "name": "InspectionLog",
+      "n": 7
+    },
+    {
+      "name": "InspectionProject",
+      "n": 0
+    },
+    {
+      "name": "PMachineFaultStatus",
+      "n": 6
+    }
+  ],
+  "numeric_probes": [
+    {
+      "x": "",
+      "numeric_result": 0
+    },
+    {
+      "x": " ",
+      "numeric_result": 0
+    },
+    {
+      "x": ".",
+      "numeric_result": 1
+    },
+    {
+      "x": ",",
+      "numeric_result": 1
+    },
+    {
+      "x": "\\",
+      "numeric_result": 1
+    },
+    {
+      "x": "$",
+      "numeric_result": 1
+    },
+    {
+      "x": "¥",
+      "numeric_result": 1
+    },
+    {
+      "x": "￥",
+      "numeric_result": 1
+    },
+    {
+      "x": "+",
+      "numeric_result": 1
+    },
+    {
+      "x": "-",
+      "numeric_result": 1
+    },
+    {
+      "x": "1,000",
+      "numeric_result": 1
+    },
+    {
+      "x": "1,2",
+      "numeric_result": 1
+    },
+    {
+      "x": "1e2",
+      "numeric_result": 1
+    },
+    {
+      "x": "1d2",
+      "numeric_result": 1
+    },
+    {
+      "x": "$1",
+      "numeric_result": 1
+    },
+    {
+      "x": "1$",
+      "numeric_result": 0
+    },
+    {
+      "x": "1-",
+      "numeric_result": 0
+    },
+    {
+      "x": "１２",
+      "numeric_result": 0
+    },
+    {
+      "x": "1.2.3",
+      "numeric_result": 0
+    },
+    {
+      "x": "1e999",
+      "numeric_result": 0
+    }
+  ],
+  "linked_servers": [
+    {
+      "name": "PS2019VSHFTOJJ",
+      "data_source": "PS2019VSHFTOJJ",
+      "is_linked": false
+    }
+  ],
+  "parameters_adopted_this_batch": [
+    {
+      "ParamName": "IsUseMachineCase",
+      "ParamValue": "1"
+    },
+    {
+      "ParamName": "IsUseMachineInspectionCase",
+      "ParamValue": "1"
+    },
+    {
+      "ParamName": "MachineFault_EditControl",
+      "ParamValue": "0"
+    },
+    {
+      "ParamName": "MachineFault_FixManGetBill",
+      "ParamValue": "1"
+    },
+    {
+      "ParamName": "MachineFault_FlowType",
+      "ParamValue": "0"
+    },
+    {
+      "ParamName": "MachineFault_MachineSourceType",
+      "ParamValue": "1"
+    },
+    {
+      "ParamName": "MachineFault_ReportManConfirm",
+      "ParamValue": "0"
+    },
+    {
+      "ParamName": "MachineFault_UseFaultClass",
+      "ParamValue": "1"
+    },
+    {
+      "ParamName": "MachineFault_UseSendTo",
+      "ParamValue": "1"
+    },
+    {
+      "ParamName": "MachineFaultFreshTime",
+      "ParamValue": "10"
+    }
+  ],
+  "history_business_import_this_batch": false,
+  "runtime_business_actions_this_batch": false,
+  "split_overflow": "Read-only SQL SELECT of f_splitWithRowNo(REPLICATE(A,101),backtick) raised string truncation; new preview reports overflow and retains supplied raw lists.",
+  "limitations": [
+    "No linked server for external machine parameters or controller views",
+    "Legacy s_Notice delivery is not connected; notification intent retained, no successful delivery claimed",
+    "ISNUMERIC translation verified for 40 current project serials and 20 boundary probes, not every SQL currency or precision variant",
+    "Unordered legacy multirow assignment uses deterministic project IDs; candidates retained"
+  ],
+  "http": [
+    {
+      "method": "GET",
+      "path": "/readiness",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyemachinefault/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyemachinefault/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyemachinecarerecords/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyemachinecarerecords/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyeinspectionlog/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_sourcedyeinspectionlog/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyemachinecase/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyemachinecase/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_base_sourcedyepmachine/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_base_sourcedyepmachine/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/fault_actions/",
+      "parameters": {
+        "employee": "YG007",
+        "version": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/fault_actions/",
+      "parameters": {
+        "employee": "YG007",
+        "version": 2
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/fault_save_check/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/fault_history/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/continuation/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/check_fault_action/",
+      "parameters": {
+        "action": "签到",
+        "fixers": null
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/check_fault_action/",
+      "parameters": {
+        "action": "取消签到",
+        "fixers": null
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/check_fault_action/",
+      "parameters": {
+        "action": "恢复",
+        "fixers": null
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinefault/1/check_fault_action/",
+      "parameters": {
+        "action": "指派",
+        "fixers": null
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinecase/1/machine_case_projects/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_base_sourcedyepmachine/1/machine_case_projects/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinecarerecords/1/equipment_projects/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyemachinecarerecords/preview_equipment_projects/",
+      "parameters": {
+        "case": "MC210907001"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyeinspectionlog/1/equipment_projects/",
+      "parameters": {}
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyeinspectionlog/preview_equipment_projects/",
+      "parameters": {
+        "case": "MC210907001"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92105/site_records/",
+      "parameters": {}
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-DlDhec8O.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-Cu_JRyBJ.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css",
+      "parameters": null
+    }
+  ],
+  "http_count": 45,
+  "page_action_bindings": 25,
+  "completed_date": "2026-10-16",
+  "nonempty_site_comparison": {
+    "job": "260812C0402",
+    "checks": [
+      {
+        "part": "work",
+        "rows": 4,
+        "fields": 60,
+        "equal": true
+      },
+      {
+        "part": "steps",
+        "rows": 0,
+        "fields": 0,
+        "equal": true
+      },
+      {
+        "part": "independent",
+        "rows": 0,
+        "fields": 0,
+        "equal": true
+      }
+    ]
+  },
+  "validation": {
+    "full_regression": {
+      "tests": 568,
+      "passed": true,
+      "seconds": 365.609
+    },
+    "final_equipment_retest": {
+      "tests": 34,
+      "passed": true,
+      "seconds": 21.227,
+      "includes": "NULL remark original NOT NULL rollback and API rejection"
+    },
+    "django_check": "passed",
+    "migration_check": "No changes detected",
+    "frontend_typecheck_build": "passed; existing large chunk warning",
+    "git_diff_check": "passed",
+    "test_cluster_5440": "stopped",
+    "runtime_port": 8001
+  },
+  "original_remark_constraint": {
+    "table": "dye.MachineFaultRecord",
+    "column": "Remark",
+    "is_nullable": false,
+    "type": "nvarchar",
+    "max_length_bytes": 400,
+    "verified": "read-only sys.columns on 2026-10-16"
+  },
+  "test_notes": [
+    "First complete run had two invalid new test fixtures; corrected fixtures and all 568 passed.",
+    "Final NULL-input probe confirmed original NOT NULL log column; no NULL-to-empty substitution; all 34 equipment cases passed after enforcing original constraint."
+  ]
+}

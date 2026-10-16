@@ -50,6 +50,7 @@ def undo(context, actor):
 
 
 def derive(item, context, actor):
+    from .source_gray_split_merge import active
     incoming = model('GrayInDetail')
     records = model('GrayInRecord')
     books = model('GrayStockBook')
@@ -91,7 +92,7 @@ def derive(item, context, actor):
             barcode_rows = model('GrayStorageAdjustRecord').objects.filter(source_parent_1=line)
             codes = list(barcode_rows.values_list('old_rece_sheet_no', flat=True))
             for code in codes:
-                selected = matching(records.objects.select_for_update().filter(source_parent_1=source), 'old_bar_code', code)
+                selected = matching(active(records.objects.select_for_update().filter(source_parent_1=source)), 'old_bar_code', code)
                 for tag in selected:
                     change(tag, {'old_rece_sheet_no': number, 'source_parent_1': split}, changes, actor)
             source_books = matching(books.objects.select_for_update(), 'old_sheet_series', raw(source, 'SheetSeries'))

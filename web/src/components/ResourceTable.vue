@@ -17,7 +17,7 @@ import {useMobile} from '../mobile'
 import {resourceQuery} from '../resource-query'
 import {fileSize} from '../tag-color'
 import {componentNames} from '../page-catalog'
-import {merge} from 'lodash-es'
+import {merge,isEqual} from 'lodash-es'
 const Resource=defineAsyncComponent(()=>import('../pages/Resource.vue'))
 const ChartPanel=defineAsyncComponent(()=>import('./ChartPanel.vue'))
 const DepartmentCharts=defineAsyncComponent(()=>import('./DepartmentCharts.vue'))
@@ -40,10 +40,11 @@ const pageMenu=computed(()=>account.menus.find(menu=>menu.id===pageMenuId))
 const permissionPrefix=computed(()=>!props.context&&pageMenu.value?.component==='system/Resource'?pageMenu.value.component_name:entity)
 const can=(action:string)=>account.can(`${permissionPrefix.value}:${action}`)
 const isOwnRoute=()=>route.path===(pageMenu.value?.web_path||ownPath)
-function payload(form:any,operation='is_create') {
+function payload(form:any,operation='is_create',original?:any) {
   const data:any={}
   for(const field of props.meta.fields) {
     if(field.readonly || !field[operation] || !(field.key in form)) continue
+    if(operation==='is_update'&&props.meta.workflow?.source_model&&isEqual(form[field.key],original[field.key]))continue
     if((operation==='is_update' && entity==='user' && field.key==='password') || (field.kind==='file' && !(form[field.key] instanceof File))) continue
     data[field.key]=form[field.key]
   }
@@ -140,7 +141,7 @@ function createCrudOptions() {
   for(const action of props.rowActions??[])buttons[action.key]={text:action.text,show:compute(({row}:any)=>account.can(action.permission)&&(!action.show||action.show(row))),click:({row}:any)=>action.click(row)}
   return {crudOptions:merge({
     request:{pageRequest:(query:any)=>api(base,{params:resourceQuery({...query,...context.value,...(entity==='user'?{include_children:includeChildren.value}:{})})}),addRequest:({form}:any)=>api(base,{method:'POST',data:payload(form)}),
-      editRequest:({form,row}:any)=>api(`${base}${row[props.meta.pk]}/`,{method:'PATCH',data:payload(form,'is_update')}),
+      editRequest:({form,row}:any)=>api(`${base}${row[props.meta.pk]}/`,{method:'PATCH',data:payload(form,'is_update',row)}),
       delRequest:async({row}:any)=>{const result=await api(`${base}${row[props.meta.pk]}/`,{method:'DELETE'});deselect(row);await loadTree();return result}},
     table:{rowKey:props.meta.pk,onSelectionChange:(rows:any[])=>selection.value=rows},toolbar:{buttons:{export:{show:false}}},
     actionbar:{buttons:{add:{show:editable&&can('add')}}},rowHandle:{width:entity==='role'||entity==='user'?340:240,buttons},

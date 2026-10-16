@@ -1,0 +1,94 @@
+{
+  "scope": "新项目开发库；Django APIClient路径检查，不等于浏览器或外部HTTP验收",
+  "migration": "erp_base.0026_original_system_parameters",
+  "new_parameter_source_rows": 0,
+  "adopted_original_rows_this_batch": 0,
+  "daily_number_allocation_in_development": false,
+  "api_checks": [
+    {
+      "action": "original_function",
+      "inputs": {
+        "function": "SafeVarToInt",
+        "value": "12.5"
+      },
+      "status": 200,
+      "rows": 1
+    },
+    {
+      "action": "continuous_dates",
+      "inputs": {
+        "value": "2024-02-29",
+        "kind": "md",
+        "previous": 26,
+        "following": 25
+      },
+      "status": 200,
+      "rows": 31
+    },
+    {
+      "action": "original_combo",
+      "inputs": {
+        "combo_id": "Z005",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 5
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "B001",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 91
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "B006",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 163
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "B405",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 648
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "B049",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 53
+    },
+    {
+      "entity": "erp_base.SourceDyePCustomer",
+      "action": "correspondence",
+      "status": 200
+    },
+    {
+      "entity": "erp_base.SourceDyePGray",
+      "action": "correspondence",
+      "status": 200
+    },
+    {
+      "entity": "sourcedyessysparams",
+      "action": "system_parameters",
+      "status": 200
+    },
+    {
+      "entity": "sourcedyesdbcombovalue",
+      "action": "original_combo",
+      "status": 200
+    }
+  ]
+}

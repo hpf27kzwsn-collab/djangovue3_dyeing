@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models import F,Q
 from plugins.erp_base.models import ErpModel
 from plugins.erp_base import choices
+from .quantity_models import QualityQuantityBatch,QualityQuantitySource
 
 
 class QualityInspection(ErpModel):

@@ -1,0 +1,3256 @@
+{
+  "captured_at": "2026-10-16T08:28:29.6691912+08:00",
+  "statements": "SELECT only",
+  "probes": [
+    {
+      "name": "Fn_Get_AZ",
+      "input": null,
+      "ok": true,
+      "value": null
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "  ",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "AB12cd-3.4",
+      "ok": true,
+      "value": "ABcd"
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "a-12.34kg56",
+      "ok": true,
+      "value": "akg"
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "-",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "-.",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "1..2",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "1.2.3",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "+12",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "1e3",
+      "ok": true,
+      "value": "e"
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "1,234",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "2147483647.5",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "。；！【】￥＋",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "Ａ１２．３Ｂ",
+      "ok": true,
+      "value": "ＡＢ"
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "éäZ09",
+      "ok": true,
+      "value": "éZ"
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "a\r\nb\t c",
+      "ok": true,
+      "value": "abc"
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "12.5  ",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": ".",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "１２．３",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "0.00005",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "2147483647.49",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "a\u0001b",
+      "ok": true,
+      "value": "ab"
+    },
+    {
+      "name": "Fn_Get_AZ",
+      "input": "。，；：！？、（）【】｛｝《》「」『』～＠＃￥％＆＊＋－＝／｜＼",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": null,
+      "ok": true,
+      "value": null
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "  ",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "AB12cd-3.4",
+      "ok": true,
+      "value": "123.4"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "a-12.34kg56",
+      "ok": true,
+      "value": "12.3456"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "-",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "-.",
+      "ok": true,
+      "value": "."
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "1..2",
+      "ok": true,
+      "value": "1..2"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "1.2.3",
+      "ok": true,
+      "value": "1.2.3"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "+12",
+      "ok": true,
+      "value": "12"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "1e3",
+      "ok": true,
+      "value": "13"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "1,234",
+      "ok": true,
+      "value": "1234"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "2147483647.5",
+      "ok": true,
+      "value": "2147483647.5"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "。；！【】￥＋",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "Ａ１２．３Ｂ",
+      "ok": true,
+      "value": "１２．３"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "éäZ09",
+      "ok": true,
+      "value": "09"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "a\r\nb\t c",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "12.5  ",
+      "ok": true,
+      "value": "12.5"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      "ok": true,
+      "value": "99999999999999999999"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": ".",
+      "ok": true,
+      "value": "."
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "１２．３",
+      "ok": true,
+      "value": "１２．３"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "0.00005",
+      "ok": true,
+      "value": "0.00005"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "2147483647.49",
+      "ok": true,
+      "value": "2147483647.49"
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "a\u0001b",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "Fn_Get_NumNo",
+      "input": "。，；：！？、（）【】｛｝《》「」『』～＠＃￥％＆＊＋－＝／｜＼",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": null,
+      "ok": true,
+      "value": null
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "  ",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "AB12cd-3.4",
+      "ok": true,
+      "value": "1234"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "a-12.34kg56",
+      "ok": true,
+      "value": "123456"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "-",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "-.",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "1..2",
+      "ok": true,
+      "value": "12"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "1.2.3",
+      "ok": true,
+      "value": "123"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "+12",
+      "ok": true,
+      "value": "12"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "1e3",
+      "ok": true,
+      "value": "13"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "1,234",
+      "ok": true,
+      "value": "1234"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "2147483647.5",
+      "ok": true,
+      "value": "21474836475"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "。；！【】￥＋",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "Ａ１２．３Ｂ",
+      "ok": true,
+      "value": "１２３"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "éäZ09",
+      "ok": true,
+      "value": "09"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "a\r\nb\t c",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "12.5  ",
+      "ok": true,
+      "value": "125"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      "ok": true,
+      "value": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": ".",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "１２．３",
+      "ok": true,
+      "value": "１２３"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "0.00005",
+      "ok": true,
+      "value": "000005"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "2147483647.49",
+      "ok": true,
+      "value": "214748364749"
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "a\u0001b",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GET_NUMBER",
+      "input": "。，；：！？、（）【】｛｝《》「」『』～＠＃￥％＆＊＋－＝／｜＼",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": null,
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "  ",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "AB12cd-3.4",
+      "ok": true,
+      "value": 12.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "a-12.34kg56",
+      "ok": true,
+      "value": -12.34
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "-",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "-.",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 nvarchar 转换为 float 时出错。"
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "1..2",
+      "ok": true,
+      "value": 1.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "1.2.3",
+      "ok": true,
+      "value": 1.2
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "+12",
+      "ok": true,
+      "value": 12.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "1e3",
+      "ok": true,
+      "value": 1.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "1,234",
+      "ok": true,
+      "value": 1.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "2147483647.5",
+      "ok": true,
+      "value": 2147483647.5
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "。；！【】￥＋",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "Ａ１２．３Ｂ",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 nvarchar 转换为 float 时出错。"
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "éäZ09",
+      "ok": true,
+      "value": 9.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "a\r\nb\t c",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "12.5  ",
+      "ok": true,
+      "value": 12.5
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      "ok": true,
+      "value": 1e+50
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": ".",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "１２．３",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 nvarchar 转换为 float 时出错。"
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "0.00005",
+      "ok": true,
+      "value": 5e-05
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "2147483647.49",
+      "ok": true,
+      "value": 2147483647.49
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "a\u0001b",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "GetNumberFromString3",
+      "input": "。，；：！？、（）【】｛｝《》「」『』～＠＃￥％＆＊＋－＝／｜＼",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": null,
+      "ok": true,
+      "value": null
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "",
+      "ok": true,
+      "value": ""
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "  ",
+      "ok": true,
+      "value": "  "
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "AB12cd-3.4",
+      "ok": true,
+      "value": "AB12cd-3.4"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "a-12.34kg56",
+      "ok": true,
+      "value": "a-12.34kg56"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "-",
+      "ok": true,
+      "value": "-"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "-.",
+      "ok": true,
+      "value": "-."
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "1..2",
+      "ok": true,
+      "value": "1..2"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "1.2.3",
+      "ok": true,
+      "value": "1.2.3"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "+12",
+      "ok": true,
+      "value": "+12"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "1e3",
+      "ok": true,
+      "value": "1e3"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "1,234",
+      "ok": true,
+      "value": "1,234"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "2147483647.5",
+      "ok": true,
+      "value": "2147483647.5"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "。；！【】￥＋",
+      "ok": true,
+      "value": ".;![]$+"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "Ａ１２．３Ｂ",
+      "ok": true,
+      "value": "Ａ１２．３Ｂ"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "éäZ09",
+      "ok": true,
+      "value": "éäZ09"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "a\r\nb\t c",
+      "ok": true,
+      "value": "a b\t c"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "12.5  ",
+      "ok": true,
+      "value": "12.5"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      "ok": true,
+      "value": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": ".",
+      "ok": true,
+      "value": "."
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "１２．３",
+      "ok": true,
+      "value": "１２．３"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "0.00005",
+      "ok": true,
+      "value": "0.00005"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "2147483647.49",
+      "ok": true,
+      "value": "2147483647.49"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "a\u0001b",
+      "ok": false,
+      "error_number": 6841,
+      "message": "FOR XML 无法对节点 'NoName' 的数据进行序列化，因为它包含在 XML 中不允许出现的字符(0x0001)。若要使用 FOR XML 检索此数据，请将它转换为 binary、varbinary 或 image 数据类型，然后使用 BINARY BASE64 指令。"
+    },
+    {
+      "name": "NormalizeTextFast",
+      "input": "。，；：！？、（）【】｛｝《》「」『』～＠＃￥％＆＊＋－＝／｜＼",
+      "ok": true,
+      "value": ".,;:!?,()[]{}<>\"\"\"\"~@#$%&*+-=/|\\"
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": null,
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "  ",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "AB12cd-3.4",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "a-12.34kg56",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "-",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "-.",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "1..2",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 varchar 转换为 numeric 时出错。"
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "1.2.3",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 varchar 转换为 numeric 时出错。"
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "+12",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "1e3",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "1,234",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "2147483647.5",
+      "ok": true,
+      "value": 2147483647.5
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "。；！【】￥＋",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "Ａ１２．３Ｂ",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "éäZ09",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "a\r\nb\t c",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "12.5  ",
+      "ok": true,
+      "value": 12.5
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      "ok": false,
+      "error_number": 8115,
+      "message": "将 varchar 转换为数据类型 numeric 时出现算术溢出错误。"
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": ".",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 varchar 转换为 numeric 时出错。"
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "１２．３",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "0.00005",
+      "ok": true,
+      "value": 0.0001
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "2147483647.49",
+      "ok": true,
+      "value": 2147483647.49
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "a\u0001b",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToFloat",
+      "input": "。，；：！？、（）【】｛｝《》「」『』～＠＃￥％＆＊＋－＝／｜＼",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": null,
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "  ",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "AB12cd-3.4",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "a-12.34kg56",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "-",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "-.",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "1..2",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 varchar 转换为 numeric 时出错。"
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "1.2.3",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 varchar 转换为 numeric 时出错。"
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "+12",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "1e3",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "1,234",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "2147483647.5",
+      "ok": false,
+      "error_number": 8115,
+      "message": "将 expression 转换为数据类型 int 时出现算术溢出错误。"
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "。；！【】￥＋",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "Ａ１２．３Ｂ",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "éäZ09",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "a\r\nb\t c",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "12.5  ",
+      "ok": true,
+      "value": 13.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+      "ok": false,
+      "error_number": 8115,
+      "message": "将 varchar 转换为数据类型 numeric 时出现算术溢出错误。"
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": ".",
+      "ok": false,
+      "error_number": 8114,
+      "message": "从数据类型 varchar 转换为 numeric 时出错。"
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "１２．３",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "0.00005",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "2147483647.49",
+      "ok": true,
+      "value": 2147483647.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "a\u0001b",
+      "ok": true,
+      "value": 0.0
+    },
+    {
+      "name": "SafeVarToInt",
+      "input": "。，；：！？、（）【】｛｝《》「」『』～＠＃￥％＆＊＋－＝／｜＼",
+      "ok": true,
+      "value": 0.0
+    }
+  ],
+  "dates": [
+    {
+      "kind": "year",
+      "prev": 2,
+      "next": 2,
+      "rows": [
+        {
+          "DataDate": "2022-01-01",
+          "DateAlis": "2022年",
+          "DateCommon": "2022"
+        },
+        {
+          "DataDate": "2023-01-01",
+          "DateAlis": "2023年",
+          "DateCommon": "2023"
+        },
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "2024年",
+          "DateCommon": "2024"
+        },
+        {
+          "DataDate": "2025-01-01",
+          "DateAlis": "2025年",
+          "DateCommon": "2025"
+        },
+        {
+          "DataDate": "2026-01-01",
+          "DateAlis": "2026年",
+          "DateCommon": "2026"
+        }
+      ]
+    },
+    {
+      "kind": "year",
+      "prev": 0,
+      "next": 0,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "2024年",
+          "DateCommon": "2024"
+        }
+      ]
+    },
+    {
+      "kind": "year",
+      "prev": 26,
+      "next": 25,
+      "rows": [
+        {
+          "DataDate": "1998-01-01",
+          "DateAlis": "1998年",
+          "DateCommon": "1998"
+        },
+        {
+          "DataDate": "1999-01-01",
+          "DateAlis": "1999年",
+          "DateCommon": "1999"
+        },
+        {
+          "DataDate": "2000-01-01",
+          "DateAlis": "2000年",
+          "DateCommon": "2000"
+        },
+        {
+          "DataDate": "2001-01-01",
+          "DateAlis": "2001年",
+          "DateCommon": "2001"
+        },
+        {
+          "DataDate": "2002-01-01",
+          "DateAlis": "2002年",
+          "DateCommon": "2002"
+        },
+        {
+          "DataDate": "2003-01-01",
+          "DateAlis": "2003年",
+          "DateCommon": "2003"
+        },
+        {
+          "DataDate": "2004-01-01",
+          "DateAlis": "2004年",
+          "DateCommon": "2004"
+        },
+        {
+          "DataDate": "2005-01-01",
+          "DateAlis": "2005年",
+          "DateCommon": "2005"
+        },
+        {
+          "DataDate": "2006-01-01",
+          "DateAlis": "2006年",
+          "DateCommon": "2006"
+        },
+        {
+          "DataDate": "2007-01-01",
+          "DateAlis": "2007年",
+          "DateCommon": "2007"
+        },
+        {
+          "DataDate": "2008-01-01",
+          "DateAlis": "2008年",
+          "DateCommon": "2008"
+        },
+        {
+          "DataDate": "2009-01-01",
+          "DateAlis": "2009年",
+          "DateCommon": "2009"
+        },
+        {
+          "DataDate": "2010-01-01",
+          "DateAlis": "2010年",
+          "DateCommon": "2010"
+        },
+        {
+          "DataDate": "2011-01-01",
+          "DateAlis": "2011年",
+          "DateCommon": "2011"
+        },
+        {
+          "DataDate": "2012-01-01",
+          "DateAlis": "2012年",
+          "DateCommon": "2012"
+        },
+        {
+          "DataDate": "2013-01-01",
+          "DateAlis": "2013年",
+          "DateCommon": "2013"
+        },
+        {
+          "DataDate": "2014-01-01",
+          "DateAlis": "2014年",
+          "DateCommon": "2014"
+        },
+        {
+          "DataDate": "2015-01-01",
+          "DateAlis": "2015年",
+          "DateCommon": "2015"
+        },
+        {
+          "DataDate": "2016-01-01",
+          "DateAlis": "2016年",
+          "DateCommon": "2016"
+        },
+        {
+          "DataDate": "2017-01-01",
+          "DateAlis": "2017年",
+          "DateCommon": "2017"
+        },
+        {
+          "DataDate": "2018-01-01",
+          "DateAlis": "2018年",
+          "DateCommon": "2018"
+        },
+        {
+          "DataDate": "2019-01-01",
+          "DateAlis": "2019年",
+          "DateCommon": "2019"
+        },
+        {
+          "DataDate": "2020-01-01",
+          "DateAlis": "2020年",
+          "DateCommon": "2020"
+        },
+        {
+          "DataDate": "2021-01-01",
+          "DateAlis": "2021年",
+          "DateCommon": "2021"
+        },
+        {
+          "DataDate": "2022-01-01",
+          "DateAlis": "2022年",
+          "DateCommon": "2022"
+        },
+        {
+          "DataDate": "2023-01-01",
+          "DateAlis": "2023年",
+          "DateCommon": "2023"
+        },
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "2024年",
+          "DateCommon": "2024"
+        },
+        {
+          "DataDate": "2025-01-01",
+          "DateAlis": "2025年",
+          "DateCommon": "2025"
+        },
+        {
+          "DataDate": "2026-01-01",
+          "DateAlis": "2026年",
+          "DateCommon": "2026"
+        },
+        {
+          "DataDate": "2027-01-01",
+          "DateAlis": "2027年",
+          "DateCommon": "2027"
+        },
+        {
+          "DataDate": "2028-01-01",
+          "DateAlis": "2028年",
+          "DateCommon": "2028"
+        },
+        {
+          "DataDate": "2029-01-01",
+          "DateAlis": "2029年",
+          "DateCommon": "2029"
+        },
+        {
+          "DataDate": "2030-01-01",
+          "DateAlis": "2030年",
+          "DateCommon": "2030"
+        },
+        {
+          "DataDate": "2031-01-01",
+          "DateAlis": "2031年",
+          "DateCommon": "2031"
+        },
+        {
+          "DataDate": "2032-01-01",
+          "DateAlis": "2032年",
+          "DateCommon": "2032"
+        },
+        {
+          "DataDate": "2033-01-01",
+          "DateAlis": "2033年",
+          "DateCommon": "2033"
+        },
+        {
+          "DataDate": "2034-01-01",
+          "DateAlis": "2034年",
+          "DateCommon": "2034"
+        },
+        {
+          "DataDate": "2035-01-01",
+          "DateAlis": "2035年",
+          "DateCommon": "2035"
+        },
+        {
+          "DataDate": "2036-01-01",
+          "DateAlis": "2036年",
+          "DateCommon": "2036"
+        },
+        {
+          "DataDate": "2037-01-01",
+          "DateAlis": "2037年",
+          "DateCommon": "2037"
+        },
+        {
+          "DataDate": "2038-01-01",
+          "DateAlis": "2038年",
+          "DateCommon": "2038"
+        },
+        {
+          "DataDate": "2039-01-01",
+          "DateAlis": "2039年",
+          "DateCommon": "2039"
+        },
+        {
+          "DataDate": "2040-01-01",
+          "DateAlis": "2040年",
+          "DateCommon": "2040"
+        },
+        {
+          "DataDate": "2041-01-01",
+          "DateAlis": "2041年",
+          "DateCommon": "2041"
+        },
+        {
+          "DataDate": "2042-01-01",
+          "DateAlis": "2042年",
+          "DateCommon": "2042"
+        },
+        {
+          "DataDate": "2043-01-01",
+          "DateAlis": "2043年",
+          "DateCommon": "2043"
+        },
+        {
+          "DataDate": "2044-01-01",
+          "DateAlis": "2044年",
+          "DateCommon": "2044"
+        },
+        {
+          "DataDate": "2045-01-01",
+          "DateAlis": "2045年",
+          "DateCommon": "2045"
+        },
+        {
+          "DataDate": "2046-01-01",
+          "DateAlis": "2046年",
+          "DateCommon": "2046"
+        },
+        {
+          "DataDate": "2047-01-01",
+          "DateAlis": "2047年",
+          "DateCommon": "2047"
+        },
+        {
+          "DataDate": "2048-01-01",
+          "DateAlis": "2048年",
+          "DateCommon": "2048"
+        },
+        {
+          "DataDate": "2049-01-01",
+          "DateAlis": "2049年",
+          "DateCommon": "2049"
+        }
+      ]
+    },
+    {
+      "kind": "year",
+      "prev": -2,
+      "next": -1,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "2024年",
+          "DateCommon": "2024"
+        }
+      ]
+    },
+    {
+      "kind": "year",
+      "prev": null,
+      "next": null,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "2024年",
+          "DateCommon": "2024"
+        }
+      ]
+    },
+    {
+      "kind": "mon",
+      "prev": 2,
+      "next": 2,
+      "rows": [
+        {
+          "DataDate": "2023-12-01",
+          "DateAlis": "2023年12月",
+          "DateCommon": "2023/12"
+        },
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "2024年1月",
+          "DateCommon": "2024/1"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月",
+          "DateCommon": "2024/2"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "2024年3月",
+          "DateCommon": "2024/3"
+        },
+        {
+          "DataDate": "2024-04-01",
+          "DateAlis": "2024年4月",
+          "DateCommon": "2024/4"
+        }
+      ]
+    },
+    {
+      "kind": "mon",
+      "prev": 0,
+      "next": 0,
+      "rows": [
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月",
+          "DateCommon": "2024/2"
+        }
+      ]
+    },
+    {
+      "kind": "mon",
+      "prev": 26,
+      "next": 25,
+      "rows": [
+        {
+          "DataDate": "2021-12-01",
+          "DateAlis": "2021年12月",
+          "DateCommon": "2021/12"
+        },
+        {
+          "DataDate": "2022-01-01",
+          "DateAlis": "2022年1月",
+          "DateCommon": "2022/1"
+        },
+        {
+          "DataDate": "2022-02-01",
+          "DateAlis": "2022年2月",
+          "DateCommon": "2022/2"
+        },
+        {
+          "DataDate": "2022-03-01",
+          "DateAlis": "2022年3月",
+          "DateCommon": "2022/3"
+        },
+        {
+          "DataDate": "2022-04-01",
+          "DateAlis": "2022年4月",
+          "DateCommon": "2022/4"
+        },
+        {
+          "DataDate": "2022-05-01",
+          "DateAlis": "2022年5月",
+          "DateCommon": "2022/5"
+        },
+        {
+          "DataDate": "2022-06-01",
+          "DateAlis": "2022年6月",
+          "DateCommon": "2022/6"
+        },
+        {
+          "DataDate": "2022-07-01",
+          "DateAlis": "2022年7月",
+          "DateCommon": "2022/7"
+        },
+        {
+          "DataDate": "2022-08-01",
+          "DateAlis": "2022年8月",
+          "DateCommon": "2022/8"
+        },
+        {
+          "DataDate": "2022-09-01",
+          "DateAlis": "2022年9月",
+          "DateCommon": "2022/9"
+        },
+        {
+          "DataDate": "2022-10-01",
+          "DateAlis": "2022年10月",
+          "DateCommon": "2022/10"
+        },
+        {
+          "DataDate": "2022-11-01",
+          "DateAlis": "2022年11月",
+          "DateCommon": "2022/11"
+        },
+        {
+          "DataDate": "2022-12-01",
+          "DateAlis": "2022年12月",
+          "DateCommon": "2022/12"
+        },
+        {
+          "DataDate": "2023-01-01",
+          "DateAlis": "2023年1月",
+          "DateCommon": "2023/1"
+        },
+        {
+          "DataDate": "2023-02-01",
+          "DateAlis": "2023年2月",
+          "DateCommon": "2023/2"
+        },
+        {
+          "DataDate": "2023-03-01",
+          "DateAlis": "2023年3月",
+          "DateCommon": "2023/3"
+        },
+        {
+          "DataDate": "2023-04-01",
+          "DateAlis": "2023年4月",
+          "DateCommon": "2023/4"
+        },
+        {
+          "DataDate": "2023-05-01",
+          "DateAlis": "2023年5月",
+          "DateCommon": "2023/5"
+        },
+        {
+          "DataDate": "2023-06-01",
+          "DateAlis": "2023年6月",
+          "DateCommon": "2023/6"
+        },
+        {
+          "DataDate": "2023-07-01",
+          "DateAlis": "2023年7月",
+          "DateCommon": "2023/7"
+        },
+        {
+          "DataDate": "2023-08-01",
+          "DateAlis": "2023年8月",
+          "DateCommon": "2023/8"
+        },
+        {
+          "DataDate": "2023-09-01",
+          "DateAlis": "2023年9月",
+          "DateCommon": "2023/9"
+        },
+        {
+          "DataDate": "2023-10-01",
+          "DateAlis": "2023年10月",
+          "DateCommon": "2023/10"
+        },
+        {
+          "DataDate": "2023-11-01",
+          "DateAlis": "2023年11月",
+          "DateCommon": "2023/11"
+        },
+        {
+          "DataDate": "2023-12-01",
+          "DateAlis": "2023年12月",
+          "DateCommon": "2023/12"
+        },
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "2024年1月",
+          "DateCommon": "2024/1"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月",
+          "DateCommon": "2024/2"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "2024年3月",
+          "DateCommon": "2024/3"
+        },
+        {
+          "DataDate": "2024-04-01",
+          "DateAlis": "2024年4月",
+          "DateCommon": "2024/4"
+        },
+        {
+          "DataDate": "2024-05-01",
+          "DateAlis": "2024年5月",
+          "DateCommon": "2024/5"
+        },
+        {
+          "DataDate": "2024-06-01",
+          "DateAlis": "2024年6月",
+          "DateCommon": "2024/6"
+        },
+        {
+          "DataDate": "2024-07-01",
+          "DateAlis": "2024年7月",
+          "DateCommon": "2024/7"
+        },
+        {
+          "DataDate": "2024-08-01",
+          "DateAlis": "2024年8月",
+          "DateCommon": "2024/8"
+        },
+        {
+          "DataDate": "2024-09-01",
+          "DateAlis": "2024年9月",
+          "DateCommon": "2024/9"
+        },
+        {
+          "DataDate": "2024-10-01",
+          "DateAlis": "2024年10月",
+          "DateCommon": "2024/10"
+        },
+        {
+          "DataDate": "2024-11-01",
+          "DateAlis": "2024年11月",
+          "DateCommon": "2024/11"
+        },
+        {
+          "DataDate": "2024-12-01",
+          "DateAlis": "2024年12月",
+          "DateCommon": "2024/12"
+        },
+        {
+          "DataDate": "2025-01-01",
+          "DateAlis": "2025年1月",
+          "DateCommon": "2025/1"
+        },
+        {
+          "DataDate": "2025-02-01",
+          "DateAlis": "2025年2月",
+          "DateCommon": "2025/2"
+        },
+        {
+          "DataDate": "2025-03-01",
+          "DateAlis": "2025年3月",
+          "DateCommon": "2025/3"
+        },
+        {
+          "DataDate": "2025-04-01",
+          "DateAlis": "2025年4月",
+          "DateCommon": "2025/4"
+        },
+        {
+          "DataDate": "2025-05-01",
+          "DateAlis": "2025年5月",
+          "DateCommon": "2025/5"
+        },
+        {
+          "DataDate": "2025-06-01",
+          "DateAlis": "2025年6月",
+          "DateCommon": "2025/6"
+        },
+        {
+          "DataDate": "2025-07-01",
+          "DateAlis": "2025年7月",
+          "DateCommon": "2025/7"
+        },
+        {
+          "DataDate": "2025-08-01",
+          "DateAlis": "2025年8月",
+          "DateCommon": "2025/8"
+        },
+        {
+          "DataDate": "2025-09-01",
+          "DateAlis": "2025年9月",
+          "DateCommon": "2025/9"
+        },
+        {
+          "DataDate": "2025-10-01",
+          "DateAlis": "2025年10月",
+          "DateCommon": "2025/10"
+        },
+        {
+          "DataDate": "2025-11-01",
+          "DateAlis": "2025年11月",
+          "DateCommon": "2025/11"
+        },
+        {
+          "DataDate": "2025-12-01",
+          "DateAlis": "2025年12月",
+          "DateCommon": "2025/12"
+        },
+        {
+          "DataDate": "2026-01-01",
+          "DateAlis": "2026年1月",
+          "DateCommon": "2026/1"
+        },
+        {
+          "DataDate": "2026-02-01",
+          "DateAlis": "2026年2月",
+          "DateCommon": "2026/2"
+        },
+        {
+          "DataDate": "2026-03-01",
+          "DateAlis": "2026年3月",
+          "DateCommon": "2026/3"
+        }
+      ]
+    },
+    {
+      "kind": "mon",
+      "prev": -2,
+      "next": -1,
+      "rows": [
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月",
+          "DateCommon": "2024/2"
+        }
+      ]
+    },
+    {
+      "kind": "mon",
+      "prev": null,
+      "next": null,
+      "rows": [
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月",
+          "DateCommon": "2024/2"
+        }
+      ]
+    },
+    {
+      "kind": "d",
+      "prev": 2,
+      "next": 2,
+      "rows": [
+        {
+          "DataDate": "2024-02-27",
+          "DateAlis": "2024年2月27日",
+          "DateCommon": "2024/2/27"
+        },
+        {
+          "DataDate": "2024-02-28",
+          "DateAlis": "2024年2月28日",
+          "DateCommon": "2024/2/28"
+        },
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024/2/29"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "2024年3月1日",
+          "DateCommon": "2024/3/1"
+        },
+        {
+          "DataDate": "2024-03-02",
+          "DateAlis": "2024年3月2日",
+          "DateCommon": "2024/3/2"
+        }
+      ]
+    },
+    {
+      "kind": "d",
+      "prev": 0,
+      "next": 0,
+      "rows": [
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024/2/29"
+        }
+      ]
+    },
+    {
+      "kind": "d",
+      "prev": 26,
+      "next": 25,
+      "rows": [
+        {
+          "DataDate": "2024-02-03",
+          "DateAlis": "2024年2月3日",
+          "DateCommon": "2024/2/3"
+        },
+        {
+          "DataDate": "2024-02-04",
+          "DateAlis": "2024年2月4日",
+          "DateCommon": "2024/2/4"
+        },
+        {
+          "DataDate": "2024-02-05",
+          "DateAlis": "2024年2月5日",
+          "DateCommon": "2024/2/5"
+        },
+        {
+          "DataDate": "2024-02-06",
+          "DateAlis": "2024年2月6日",
+          "DateCommon": "2024/2/6"
+        },
+        {
+          "DataDate": "2024-02-07",
+          "DateAlis": "2024年2月7日",
+          "DateCommon": "2024/2/7"
+        },
+        {
+          "DataDate": "2024-02-08",
+          "DateAlis": "2024年2月8日",
+          "DateCommon": "2024/2/8"
+        },
+        {
+          "DataDate": "2024-02-09",
+          "DateAlis": "2024年2月9日",
+          "DateCommon": "2024/2/9"
+        },
+        {
+          "DataDate": "2024-02-10",
+          "DateAlis": "2024年2月10日",
+          "DateCommon": "2024/2/10"
+        },
+        {
+          "DataDate": "2024-02-11",
+          "DateAlis": "2024年2月11日",
+          "DateCommon": "2024/2/11"
+        },
+        {
+          "DataDate": "2024-02-12",
+          "DateAlis": "2024年2月12日",
+          "DateCommon": "2024/2/12"
+        },
+        {
+          "DataDate": "2024-02-13",
+          "DateAlis": "2024年2月13日",
+          "DateCommon": "2024/2/13"
+        },
+        {
+          "DataDate": "2024-02-14",
+          "DateAlis": "2024年2月14日",
+          "DateCommon": "2024/2/14"
+        },
+        {
+          "DataDate": "2024-02-15",
+          "DateAlis": "2024年2月15日",
+          "DateCommon": "2024/2/15"
+        },
+        {
+          "DataDate": "2024-02-16",
+          "DateAlis": "2024年2月16日",
+          "DateCommon": "2024/2/16"
+        },
+        {
+          "DataDate": "2024-02-17",
+          "DateAlis": "2024年2月17日",
+          "DateCommon": "2024/2/17"
+        },
+        {
+          "DataDate": "2024-02-18",
+          "DateAlis": "2024年2月18日",
+          "DateCommon": "2024/2/18"
+        },
+        {
+          "DataDate": "2024-02-19",
+          "DateAlis": "2024年2月19日",
+          "DateCommon": "2024/2/19"
+        },
+        {
+          "DataDate": "2024-02-20",
+          "DateAlis": "2024年2月20日",
+          "DateCommon": "2024/2/20"
+        },
+        {
+          "DataDate": "2024-02-21",
+          "DateAlis": "2024年2月21日",
+          "DateCommon": "2024/2/21"
+        },
+        {
+          "DataDate": "2024-02-22",
+          "DateAlis": "2024年2月22日",
+          "DateCommon": "2024/2/22"
+        },
+        {
+          "DataDate": "2024-02-23",
+          "DateAlis": "2024年2月23日",
+          "DateCommon": "2024/2/23"
+        },
+        {
+          "DataDate": "2024-02-24",
+          "DateAlis": "2024年2月24日",
+          "DateCommon": "2024/2/24"
+        },
+        {
+          "DataDate": "2024-02-25",
+          "DateAlis": "2024年2月25日",
+          "DateCommon": "2024/2/25"
+        },
+        {
+          "DataDate": "2024-02-26",
+          "DateAlis": "2024年2月26日",
+          "DateCommon": "2024/2/26"
+        },
+        {
+          "DataDate": "2024-02-27",
+          "DateAlis": "2024年2月27日",
+          "DateCommon": "2024/2/27"
+        },
+        {
+          "DataDate": "2024-02-28",
+          "DateAlis": "2024年2月28日",
+          "DateCommon": "2024/2/28"
+        },
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024/2/29"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "2024年3月1日",
+          "DateCommon": "2024/3/1"
+        },
+        {
+          "DataDate": "2024-03-02",
+          "DateAlis": "2024年3月2日",
+          "DateCommon": "2024/3/2"
+        },
+        {
+          "DataDate": "2024-03-03",
+          "DateAlis": "2024年3月3日",
+          "DateCommon": "2024/3/3"
+        },
+        {
+          "DataDate": "2024-03-04",
+          "DateAlis": "2024年3月4日",
+          "DateCommon": "2024/3/4"
+        },
+        {
+          "DataDate": "2024-03-05",
+          "DateAlis": "2024年3月5日",
+          "DateCommon": "2024/3/5"
+        },
+        {
+          "DataDate": "2024-03-06",
+          "DateAlis": "2024年3月6日",
+          "DateCommon": "2024/3/6"
+        },
+        {
+          "DataDate": "2024-03-07",
+          "DateAlis": "2024年3月7日",
+          "DateCommon": "2024/3/7"
+        },
+        {
+          "DataDate": "2024-03-08",
+          "DateAlis": "2024年3月8日",
+          "DateCommon": "2024/3/8"
+        },
+        {
+          "DataDate": "2024-03-09",
+          "DateAlis": "2024年3月9日",
+          "DateCommon": "2024/3/9"
+        },
+        {
+          "DataDate": "2024-03-10",
+          "DateAlis": "2024年3月10日",
+          "DateCommon": "2024/3/10"
+        },
+        {
+          "DataDate": "2024-03-11",
+          "DateAlis": "2024年3月11日",
+          "DateCommon": "2024/3/11"
+        },
+        {
+          "DataDate": "2024-03-12",
+          "DateAlis": "2024年3月12日",
+          "DateCommon": "2024/3/12"
+        },
+        {
+          "DataDate": "2024-03-13",
+          "DateAlis": "2024年3月13日",
+          "DateCommon": "2024/3/13"
+        },
+        {
+          "DataDate": "2024-03-14",
+          "DateAlis": "2024年3月14日",
+          "DateCommon": "2024/3/14"
+        },
+        {
+          "DataDate": "2024-03-15",
+          "DateAlis": "2024年3月15日",
+          "DateCommon": "2024/3/15"
+        },
+        {
+          "DataDate": "2024-03-16",
+          "DateAlis": "2024年3月16日",
+          "DateCommon": "2024/3/16"
+        },
+        {
+          "DataDate": "2024-03-17",
+          "DateAlis": "2024年3月17日",
+          "DateCommon": "2024/3/17"
+        },
+        {
+          "DataDate": "2024-03-18",
+          "DateAlis": "2024年3月18日",
+          "DateCommon": "2024/3/18"
+        },
+        {
+          "DataDate": "2024-03-19",
+          "DateAlis": "2024年3月19日",
+          "DateCommon": "2024/3/19"
+        },
+        {
+          "DataDate": "2024-03-20",
+          "DateAlis": "2024年3月20日",
+          "DateCommon": "2024/3/20"
+        },
+        {
+          "DataDate": "2024-03-21",
+          "DateAlis": "2024年3月21日",
+          "DateCommon": "2024/3/21"
+        },
+        {
+          "DataDate": "2024-03-22",
+          "DateAlis": "2024年3月22日",
+          "DateCommon": "2024/3/22"
+        },
+        {
+          "DataDate": "2024-03-23",
+          "DateAlis": "2024年3月23日",
+          "DateCommon": "2024/3/23"
+        },
+        {
+          "DataDate": "2024-03-24",
+          "DateAlis": "2024年3月24日",
+          "DateCommon": "2024/3/24"
+        },
+        {
+          "DataDate": "2024-03-25",
+          "DateAlis": "2024年3月25日",
+          "DateCommon": "2024/3/25"
+        }
+      ]
+    },
+    {
+      "kind": "d",
+      "prev": -2,
+      "next": -1,
+      "rows": [
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024/2/29"
+        }
+      ]
+    },
+    {
+      "kind": "d",
+      "prev": null,
+      "next": null,
+      "rows": [
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024/2/29"
+        }
+      ]
+    },
+    {
+      "kind": "ym",
+      "prev": 2,
+      "next": 2,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "1月",
+          "DateCommon": "2024/1"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2月",
+          "DateCommon": "2024/2"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "3月",
+          "DateCommon": "2024/3"
+        },
+        {
+          "DataDate": "2024-04-01",
+          "DateAlis": "4月",
+          "DateCommon": "2024/4"
+        },
+        {
+          "DataDate": "2024-05-01",
+          "DateAlis": "5月",
+          "DateCommon": "2024/5"
+        },
+        {
+          "DataDate": "2024-06-01",
+          "DateAlis": "6月",
+          "DateCommon": "2024/6"
+        },
+        {
+          "DataDate": "2024-07-01",
+          "DateAlis": "7月",
+          "DateCommon": "2024/7"
+        },
+        {
+          "DataDate": "2024-08-01",
+          "DateAlis": "8月",
+          "DateCommon": "2024/8"
+        },
+        {
+          "DataDate": "2024-09-01",
+          "DateAlis": "9月",
+          "DateCommon": "2024/9"
+        },
+        {
+          "DataDate": "2024-10-01",
+          "DateAlis": "10月",
+          "DateCommon": "2024/10"
+        },
+        {
+          "DataDate": "2024-11-01",
+          "DateAlis": "11月",
+          "DateCommon": "2024/11"
+        },
+        {
+          "DataDate": "2024-12-01",
+          "DateAlis": "12月",
+          "DateCommon": "2024/12"
+        }
+      ]
+    },
+    {
+      "kind": "ym",
+      "prev": 0,
+      "next": 0,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "1月",
+          "DateCommon": "2024/1"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2月",
+          "DateCommon": "2024/2"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "3月",
+          "DateCommon": "2024/3"
+        },
+        {
+          "DataDate": "2024-04-01",
+          "DateAlis": "4月",
+          "DateCommon": "2024/4"
+        },
+        {
+          "DataDate": "2024-05-01",
+          "DateAlis": "5月",
+          "DateCommon": "2024/5"
+        },
+        {
+          "DataDate": "2024-06-01",
+          "DateAlis": "6月",
+          "DateCommon": "2024/6"
+        },
+        {
+          "DataDate": "2024-07-01",
+          "DateAlis": "7月",
+          "DateCommon": "2024/7"
+        },
+        {
+          "DataDate": "2024-08-01",
+          "DateAlis": "8月",
+          "DateCommon": "2024/8"
+        },
+        {
+          "DataDate": "2024-09-01",
+          "DateAlis": "9月",
+          "DateCommon": "2024/9"
+        },
+        {
+          "DataDate": "2024-10-01",
+          "DateAlis": "10月",
+          "DateCommon": "2024/10"
+        },
+        {
+          "DataDate": "2024-11-01",
+          "DateAlis": "11月",
+          "DateCommon": "2024/11"
+        },
+        {
+          "DataDate": "2024-12-01",
+          "DateAlis": "12月",
+          "DateCommon": "2024/12"
+        }
+      ]
+    },
+    {
+      "kind": "ym",
+      "prev": 26,
+      "next": 25,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "1月",
+          "DateCommon": "2024/1"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2月",
+          "DateCommon": "2024/2"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "3月",
+          "DateCommon": "2024/3"
+        },
+        {
+          "DataDate": "2024-04-01",
+          "DateAlis": "4月",
+          "DateCommon": "2024/4"
+        },
+        {
+          "DataDate": "2024-05-01",
+          "DateAlis": "5月",
+          "DateCommon": "2024/5"
+        },
+        {
+          "DataDate": "2024-06-01",
+          "DateAlis": "6月",
+          "DateCommon": "2024/6"
+        },
+        {
+          "DataDate": "2024-07-01",
+          "DateAlis": "7月",
+          "DateCommon": "2024/7"
+        },
+        {
+          "DataDate": "2024-08-01",
+          "DateAlis": "8月",
+          "DateCommon": "2024/8"
+        },
+        {
+          "DataDate": "2024-09-01",
+          "DateAlis": "9月",
+          "DateCommon": "2024/9"
+        },
+        {
+          "DataDate": "2024-10-01",
+          "DateAlis": "10月",
+          "DateCommon": "2024/10"
+        },
+        {
+          "DataDate": "2024-11-01",
+          "DateAlis": "11月",
+          "DateCommon": "2024/11"
+        },
+        {
+          "DataDate": "2024-12-01",
+          "DateAlis": "12月",
+          "DateCommon": "2024/12"
+        }
+      ]
+    },
+    {
+      "kind": "ym",
+      "prev": -2,
+      "next": -1,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "1月",
+          "DateCommon": "2024/1"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2月",
+          "DateCommon": "2024/2"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "3月",
+          "DateCommon": "2024/3"
+        },
+        {
+          "DataDate": "2024-04-01",
+          "DateAlis": "4月",
+          "DateCommon": "2024/4"
+        },
+        {
+          "DataDate": "2024-05-01",
+          "DateAlis": "5月",
+          "DateCommon": "2024/5"
+        },
+        {
+          "DataDate": "2024-06-01",
+          "DateAlis": "6月",
+          "DateCommon": "2024/6"
+        },
+        {
+          "DataDate": "2024-07-01",
+          "DateAlis": "7月",
+          "DateCommon": "2024/7"
+        },
+        {
+          "DataDate": "2024-08-01",
+          "DateAlis": "8月",
+          "DateCommon": "2024/8"
+        },
+        {
+          "DataDate": "2024-09-01",
+          "DateAlis": "9月",
+          "DateCommon": "2024/9"
+        },
+        {
+          "DataDate": "2024-10-01",
+          "DateAlis": "10月",
+          "DateCommon": "2024/10"
+        },
+        {
+          "DataDate": "2024-11-01",
+          "DateAlis": "11月",
+          "DateCommon": "2024/11"
+        },
+        {
+          "DataDate": "2024-12-01",
+          "DateAlis": "12月",
+          "DateCommon": "2024/12"
+        }
+      ]
+    },
+    {
+      "kind": "ym",
+      "prev": null,
+      "next": null,
+      "rows": [
+        {
+          "DataDate": "2024-01-01",
+          "DateAlis": "1月",
+          "DateCommon": "2024/1"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2月",
+          "DateCommon": "2024/2"
+        },
+        {
+          "DataDate": "2024-03-01",
+          "DateAlis": "3月",
+          "DateCommon": "2024/3"
+        },
+        {
+          "DataDate": "2024-04-01",
+          "DateAlis": "4月",
+          "DateCommon": "2024/4"
+        },
+        {
+          "DataDate": "2024-05-01",
+          "DateAlis": "5月",
+          "DateCommon": "2024/5"
+        },
+        {
+          "DataDate": "2024-06-01",
+          "DateAlis": "6月",
+          "DateCommon": "2024/6"
+        },
+        {
+          "DataDate": "2024-07-01",
+          "DateAlis": "7月",
+          "DateCommon": "2024/7"
+        },
+        {
+          "DataDate": "2024-08-01",
+          "DateAlis": "8月",
+          "DateCommon": "2024/8"
+        },
+        {
+          "DataDate": "2024-09-01",
+          "DateAlis": "9月",
+          "DateCommon": "2024/9"
+        },
+        {
+          "DataDate": "2024-10-01",
+          "DateAlis": "10月",
+          "DateCommon": "2024/10"
+        },
+        {
+          "DataDate": "2024-11-01",
+          "DateAlis": "11月",
+          "DateCommon": "2024/11"
+        },
+        {
+          "DataDate": "2024-12-01",
+          "DateAlis": "12月",
+          "DateCommon": "2024/12"
+        }
+      ]
+    },
+    {
+      "kind": "md",
+      "prev": 2,
+      "next": 2,
+      "rows": [
+        {
+          "DataDate": "2024-01-02",
+          "DateAlis": "2024年1月2日",
+          "DateCommon": "2024-01-02"
+        },
+        {
+          "DataDate": "2024-01-03",
+          "DateAlis": "2024年1月3日",
+          "DateCommon": "2024-01-03"
+        },
+        {
+          "DataDate": "2024-01-04",
+          "DateAlis": "2024年1月4日",
+          "DateCommon": "2024-01-04"
+        },
+        {
+          "DataDate": "2024-01-05",
+          "DateAlis": "2024年1月5日",
+          "DateCommon": "2024-01-05"
+        },
+        {
+          "DataDate": "2024-01-06",
+          "DateAlis": "2024年1月6日",
+          "DateCommon": "2024-01-06"
+        },
+        {
+          "DataDate": "2024-01-07",
+          "DateAlis": "2024年1月7日",
+          "DateCommon": "2024-01-07"
+        },
+        {
+          "DataDate": "2024-01-08",
+          "DateAlis": "2024年1月8日",
+          "DateCommon": "2024-01-08"
+        },
+        {
+          "DataDate": "2024-01-09",
+          "DateAlis": "2024年1月9日",
+          "DateCommon": "2024-01-09"
+        },
+        {
+          "DataDate": "2024-01-10",
+          "DateAlis": "2024年1月10日",
+          "DateCommon": "2024-01-10"
+        },
+        {
+          "DataDate": "2024-01-11",
+          "DateAlis": "2024年1月11日",
+          "DateCommon": "2024-01-11"
+        },
+        {
+          "DataDate": "2024-01-12",
+          "DateAlis": "2024年1月12日",
+          "DateCommon": "2024-01-12"
+        },
+        {
+          "DataDate": "2024-01-13",
+          "DateAlis": "2024年1月13日",
+          "DateCommon": "2024-01-13"
+        },
+        {
+          "DataDate": "2024-01-14",
+          "DateAlis": "2024年1月14日",
+          "DateCommon": "2024-01-14"
+        },
+        {
+          "DataDate": "2024-01-15",
+          "DateAlis": "2024年1月15日",
+          "DateCommon": "2024-01-15"
+        },
+        {
+          "DataDate": "2024-01-16",
+          "DateAlis": "2024年1月16日",
+          "DateCommon": "2024-01-16"
+        },
+        {
+          "DataDate": "2024-01-17",
+          "DateAlis": "2024年1月17日",
+          "DateCommon": "2024-01-17"
+        },
+        {
+          "DataDate": "2024-01-18",
+          "DateAlis": "2024年1月18日",
+          "DateCommon": "2024-01-18"
+        },
+        {
+          "DataDate": "2024-01-19",
+          "DateAlis": "2024年1月19日",
+          "DateCommon": "2024-01-19"
+        },
+        {
+          "DataDate": "2024-01-20",
+          "DateAlis": "2024年1月20日",
+          "DateCommon": "2024-01-20"
+        },
+        {
+          "DataDate": "2024-01-21",
+          "DateAlis": "2024年1月21日",
+          "DateCommon": "2024-01-21"
+        },
+        {
+          "DataDate": "2024-01-22",
+          "DateAlis": "2024年1月22日",
+          "DateCommon": "2024-01-22"
+        },
+        {
+          "DataDate": "2024-01-23",
+          "DateAlis": "2024年1月23日",
+          "DateCommon": "2024-01-23"
+        },
+        {
+          "DataDate": "2024-01-24",
+          "DateAlis": "2024年1月24日",
+          "DateCommon": "2024-01-24"
+        },
+        {
+          "DataDate": "2024-01-25",
+          "DateAlis": "2024年1月25日",
+          "DateCommon": "2024-01-25"
+        },
+        {
+          "DataDate": "2024-01-26",
+          "DateAlis": "2024年1月26日",
+          "DateCommon": "2024-01-26"
+        },
+        {
+          "DataDate": "2024-01-27",
+          "DateAlis": "2024年1月27日",
+          "DateCommon": "2024-01-27"
+        },
+        {
+          "DataDate": "2024-01-28",
+          "DateAlis": "2024年1月28日",
+          "DateCommon": "2024-01-28"
+        },
+        {
+          "DataDate": "2024-01-29",
+          "DateAlis": "2024年1月29日",
+          "DateCommon": "2024-01-29"
+        },
+        {
+          "DataDate": "2024-01-30",
+          "DateAlis": "2024年1月30日",
+          "DateCommon": "2024-01-30"
+        },
+        {
+          "DataDate": "2024-01-31",
+          "DateAlis": "2024年1月31日",
+          "DateCommon": "2024-01-31"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月1日",
+          "DateCommon": "2024-02-01"
+        },
+        {
+          "DataDate": "2024-02-02",
+          "DateAlis": "2024年2月2日",
+          "DateCommon": "2024-02-02"
+        }
+      ]
+    },
+    {
+      "kind": "md",
+      "prev": 0,
+      "next": 0,
+      "rows": [
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月1日",
+          "DateCommon": "2024-02-01"
+        },
+        {
+          "DataDate": "2024-02-02",
+          "DateAlis": "2024年2月2日",
+          "DateCommon": "2024-02-02"
+        },
+        {
+          "DataDate": "2024-02-03",
+          "DateAlis": "2024年2月3日",
+          "DateCommon": "2024-02-03"
+        },
+        {
+          "DataDate": "2024-02-04",
+          "DateAlis": "2024年2月4日",
+          "DateCommon": "2024-02-04"
+        },
+        {
+          "DataDate": "2024-02-05",
+          "DateAlis": "2024年2月5日",
+          "DateCommon": "2024-02-05"
+        },
+        {
+          "DataDate": "2024-02-06",
+          "DateAlis": "2024年2月6日",
+          "DateCommon": "2024-02-06"
+        },
+        {
+          "DataDate": "2024-02-07",
+          "DateAlis": "2024年2月7日",
+          "DateCommon": "2024-02-07"
+        },
+        {
+          "DataDate": "2024-02-08",
+          "DateAlis": "2024年2月8日",
+          "DateCommon": "2024-02-08"
+        },
+        {
+          "DataDate": "2024-02-09",
+          "DateAlis": "2024年2月9日",
+          "DateCommon": "2024-02-09"
+        },
+        {
+          "DataDate": "2024-02-10",
+          "DateAlis": "2024年2月10日",
+          "DateCommon": "2024-02-10"
+        },
+        {
+          "DataDate": "2024-02-11",
+          "DateAlis": "2024年2月11日",
+          "DateCommon": "2024-02-11"
+        },
+        {
+          "DataDate": "2024-02-12",
+          "DateAlis": "2024年2月12日",
+          "DateCommon": "2024-02-12"
+        },
+        {
+          "DataDate": "2024-02-13",
+          "DateAlis": "2024年2月13日",
+          "DateCommon": "2024-02-13"
+        },
+        {
+          "DataDate": "2024-02-14",
+          "DateAlis": "2024年2月14日",
+          "DateCommon": "2024-02-14"
+        },
+        {
+          "DataDate": "2024-02-15",
+          "DateAlis": "2024年2月15日",
+          "DateCommon": "2024-02-15"
+        },
+        {
+          "DataDate": "2024-02-16",
+          "DateAlis": "2024年2月16日",
+          "DateCommon": "2024-02-16"
+        },
+        {
+          "DataDate": "2024-02-17",
+          "DateAlis": "2024年2月17日",
+          "DateCommon": "2024-02-17"
+        },
+        {
+          "DataDate": "2024-02-18",
+          "DateAlis": "2024年2月18日",
+          "DateCommon": "2024-02-18"
+        },
+        {
+          "DataDate": "2024-02-19",
+          "DateAlis": "2024年2月19日",
+          "DateCommon": "2024-02-19"
+        },
+        {
+          "DataDate": "2024-02-20",
+          "DateAlis": "2024年2月20日",
+          "DateCommon": "2024-02-20"
+        },
+        {
+          "DataDate": "2024-02-21",
+          "DateAlis": "2024年2月21日",
+          "DateCommon": "2024-02-21"
+        },
+        {
+          "DataDate": "2024-02-22",
+          "DateAlis": "2024年2月22日",
+          "DateCommon": "2024-02-22"
+        },
+        {
+          "DataDate": "2024-02-23",
+          "DateAlis": "2024年2月23日",
+          "DateCommon": "2024-02-23"
+        },
+        {
+          "DataDate": "2024-02-24",
+          "DateAlis": "2024年2月24日",
+          "DateCommon": "2024-02-24"
+        },
+        {
+          "DataDate": "2024-02-25",
+          "DateAlis": "2024年2月25日",
+          "DateCommon": "2024-02-25"
+        },
+        {
+          "DataDate": "2024-02-26",
+          "DateAlis": "2024年2月26日",
+          "DateCommon": "2024-02-26"
+        },
+        {
+          "DataDate": "2024-02-27",
+          "DateAlis": "2024年2月27日",
+          "DateCommon": "2024-02-27"
+        },
+        {
+          "DataDate": "2024-02-28",
+          "DateAlis": "2024年2月28日",
+          "DateCommon": "2024-02-28"
+        },
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024-02-29"
+        }
+      ]
+    },
+    {
+      "kind": "md",
+      "prev": 26,
+      "next": 25,
+      "rows": [
+        {
+          "DataDate": "2024-01-26",
+          "DateAlis": "2024年1月26日",
+          "DateCommon": "2024-01-26"
+        },
+        {
+          "DataDate": "2024-01-27",
+          "DateAlis": "2024年1月27日",
+          "DateCommon": "2024-01-27"
+        },
+        {
+          "DataDate": "2024-01-28",
+          "DateAlis": "2024年1月28日",
+          "DateCommon": "2024-01-28"
+        },
+        {
+          "DataDate": "2024-01-29",
+          "DateAlis": "2024年1月29日",
+          "DateCommon": "2024-01-29"
+        },
+        {
+          "DataDate": "2024-01-30",
+          "DateAlis": "2024年1月30日",
+          "DateCommon": "2024-01-30"
+        },
+        {
+          "DataDate": "2024-01-31",
+          "DateAlis": "2024年1月31日",
+          "DateCommon": "2024-01-31"
+        },
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月1日",
+          "DateCommon": "2024-02-01"
+        },
+        {
+          "DataDate": "2024-02-02",
+          "DateAlis": "2024年2月2日",
+          "DateCommon": "2024-02-02"
+        },
+        {
+          "DataDate": "2024-02-03",
+          "DateAlis": "2024年2月3日",
+          "DateCommon": "2024-02-03"
+        },
+        {
+          "DataDate": "2024-02-04",
+          "DateAlis": "2024年2月4日",
+          "DateCommon": "2024-02-04"
+        },
+        {
+          "DataDate": "2024-02-05",
+          "DateAlis": "2024年2月5日",
+          "DateCommon": "2024-02-05"
+        },
+        {
+          "DataDate": "2024-02-06",
+          "DateAlis": "2024年2月6日",
+          "DateCommon": "2024-02-06"
+        },
+        {
+          "DataDate": "2024-02-07",
+          "DateAlis": "2024年2月7日",
+          "DateCommon": "2024-02-07"
+        },
+        {
+          "DataDate": "2024-02-08",
+          "DateAlis": "2024年2月8日",
+          "DateCommon": "2024-02-08"
+        },
+        {
+          "DataDate": "2024-02-09",
+          "DateAlis": "2024年2月9日",
+          "DateCommon": "2024-02-09"
+        },
+        {
+          "DataDate": "2024-02-10",
+          "DateAlis": "2024年2月10日",
+          "DateCommon": "2024-02-10"
+        },
+        {
+          "DataDate": "2024-02-11",
+          "DateAlis": "2024年2月11日",
+          "DateCommon": "2024-02-11"
+        },
+        {
+          "DataDate": "2024-02-12",
+          "DateAlis": "2024年2月12日",
+          "DateCommon": "2024-02-12"
+        },
+        {
+          "DataDate": "2024-02-13",
+          "DateAlis": "2024年2月13日",
+          "DateCommon": "2024-02-13"
+        },
+        {
+          "DataDate": "2024-02-14",
+          "DateAlis": "2024年2月14日",
+          "DateCommon": "2024-02-14"
+        },
+        {
+          "DataDate": "2024-02-15",
+          "DateAlis": "2024年2月15日",
+          "DateCommon": "2024-02-15"
+        },
+        {
+          "DataDate": "2024-02-16",
+          "DateAlis": "2024年2月16日",
+          "DateCommon": "2024-02-16"
+        },
+        {
+          "DataDate": "2024-02-17",
+          "DateAlis": "2024年2月17日",
+          "DateCommon": "2024-02-17"
+        },
+        {
+          "DataDate": "2024-02-18",
+          "DateAlis": "2024年2月18日",
+          "DateCommon": "2024-02-18"
+        },
+        {
+          "DataDate": "2024-02-19",
+          "DateAlis": "2024年2月19日",
+          "DateCommon": "2024-02-19"
+        },
+        {
+          "DataDate": "2024-02-20",
+          "DateAlis": "2024年2月20日",
+          "DateCommon": "2024-02-20"
+        },
+        {
+          "DataDate": "2024-02-21",
+          "DateAlis": "2024年2月21日",
+          "DateCommon": "2024-02-21"
+        },
+        {
+          "DataDate": "2024-02-22",
+          "DateAlis": "2024年2月22日",
+          "DateCommon": "2024-02-22"
+        },
+        {
+          "DataDate": "2024-02-23",
+          "DateAlis": "2024年2月23日",
+          "DateCommon": "2024-02-23"
+        },
+        {
+          "DataDate": "2024-02-24",
+          "DateAlis": "2024年2月24日",
+          "DateCommon": "2024-02-24"
+        },
+        {
+          "DataDate": "2024-02-25",
+          "DateAlis": "2024年2月25日",
+          "DateCommon": "2024-02-25"
+        }
+      ]
+    },
+    {
+      "kind": "md",
+      "prev": -2,
+      "next": -1,
+      "rows": [
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月1日",
+          "DateCommon": "2024-02-01"
+        },
+        {
+          "DataDate": "2024-02-02",
+          "DateAlis": "2024年2月2日",
+          "DateCommon": "2024-02-02"
+        },
+        {
+          "DataDate": "2024-02-03",
+          "DateAlis": "2024年2月3日",
+          "DateCommon": "2024-02-03"
+        },
+        {
+          "DataDate": "2024-02-04",
+          "DateAlis": "2024年2月4日",
+          "DateCommon": "2024-02-04"
+        },
+        {
+          "DataDate": "2024-02-05",
+          "DateAlis": "2024年2月5日",
+          "DateCommon": "2024-02-05"
+        },
+        {
+          "DataDate": "2024-02-06",
+          "DateAlis": "2024年2月6日",
+          "DateCommon": "2024-02-06"
+        },
+        {
+          "DataDate": "2024-02-07",
+          "DateAlis": "2024年2月7日",
+          "DateCommon": "2024-02-07"
+        },
+        {
+          "DataDate": "2024-02-08",
+          "DateAlis": "2024年2月8日",
+          "DateCommon": "2024-02-08"
+        },
+        {
+          "DataDate": "2024-02-09",
+          "DateAlis": "2024年2月9日",
+          "DateCommon": "2024-02-09"
+        },
+        {
+          "DataDate": "2024-02-10",
+          "DateAlis": "2024年2月10日",
+          "DateCommon": "2024-02-10"
+        },
+        {
+          "DataDate": "2024-02-11",
+          "DateAlis": "2024年2月11日",
+          "DateCommon": "2024-02-11"
+        },
+        {
+          "DataDate": "2024-02-12",
+          "DateAlis": "2024年2月12日",
+          "DateCommon": "2024-02-12"
+        },
+        {
+          "DataDate": "2024-02-13",
+          "DateAlis": "2024年2月13日",
+          "DateCommon": "2024-02-13"
+        },
+        {
+          "DataDate": "2024-02-14",
+          "DateAlis": "2024年2月14日",
+          "DateCommon": "2024-02-14"
+        },
+        {
+          "DataDate": "2024-02-15",
+          "DateAlis": "2024年2月15日",
+          "DateCommon": "2024-02-15"
+        },
+        {
+          "DataDate": "2024-02-16",
+          "DateAlis": "2024年2月16日",
+          "DateCommon": "2024-02-16"
+        },
+        {
+          "DataDate": "2024-02-17",
+          "DateAlis": "2024年2月17日",
+          "DateCommon": "2024-02-17"
+        },
+        {
+          "DataDate": "2024-02-18",
+          "DateAlis": "2024年2月18日",
+          "DateCommon": "2024-02-18"
+        },
+        {
+          "DataDate": "2024-02-19",
+          "DateAlis": "2024年2月19日",
+          "DateCommon": "2024-02-19"
+        },
+        {
+          "DataDate": "2024-02-20",
+          "DateAlis": "2024年2月20日",
+          "DateCommon": "2024-02-20"
+        },
+        {
+          "DataDate": "2024-02-21",
+          "DateAlis": "2024年2月21日",
+          "DateCommon": "2024-02-21"
+        },
+        {
+          "DataDate": "2024-02-22",
+          "DateAlis": "2024年2月22日",
+          "DateCommon": "2024-02-22"
+        },
+        {
+          "DataDate": "2024-02-23",
+          "DateAlis": "2024年2月23日",
+          "DateCommon": "2024-02-23"
+        },
+        {
+          "DataDate": "2024-02-24",
+          "DateAlis": "2024年2月24日",
+          "DateCommon": "2024-02-24"
+        },
+        {
+          "DataDate": "2024-02-25",
+          "DateAlis": "2024年2月25日",
+          "DateCommon": "2024-02-25"
+        },
+        {
+          "DataDate": "2024-02-26",
+          "DateAlis": "2024年2月26日",
+          "DateCommon": "2024-02-26"
+        },
+        {
+          "DataDate": "2024-02-27",
+          "DateAlis": "2024年2月27日",
+          "DateCommon": "2024-02-27"
+        },
+        {
+          "DataDate": "2024-02-28",
+          "DateAlis": "2024年2月28日",
+          "DateCommon": "2024-02-28"
+        },
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024-02-29"
+        }
+      ]
+    },
+    {
+      "kind": "md",
+      "prev": null,
+      "next": null,
+      "rows": [
+        {
+          "DataDate": "2024-02-01",
+          "DateAlis": "2024年2月1日",
+          "DateCommon": "2024-02-01"
+        },
+        {
+          "DataDate": "2024-02-02",
+          "DateAlis": "2024年2月2日",
+          "DateCommon": "2024-02-02"
+        },
+        {
+          "DataDate": "2024-02-03",
+          "DateAlis": "2024年2月3日",
+          "DateCommon": "2024-02-03"
+        },
+        {
+          "DataDate": "2024-02-04",
+          "DateAlis": "2024年2月4日",
+          "DateCommon": "2024-02-04"
+        },
+        {
+          "DataDate": "2024-02-05",
+          "DateAlis": "2024年2月5日",
+          "DateCommon": "2024-02-05"
+        },
+        {
+          "DataDate": "2024-02-06",
+          "DateAlis": "2024年2月6日",
+          "DateCommon": "2024-02-06"
+        },
+        {
+          "DataDate": "2024-02-07",
+          "DateAlis": "2024年2月7日",
+          "DateCommon": "2024-02-07"
+        },
+        {
+          "DataDate": "2024-02-08",
+          "DateAlis": "2024年2月8日",
+          "DateCommon": "2024-02-08"
+        },
+        {
+          "DataDate": "2024-02-09",
+          "DateAlis": "2024年2月9日",
+          "DateCommon": "2024-02-09"
+        },
+        {
+          "DataDate": "2024-02-10",
+          "DateAlis": "2024年2月10日",
+          "DateCommon": "2024-02-10"
+        },
+        {
+          "DataDate": "2024-02-11",
+          "DateAlis": "2024年2月11日",
+          "DateCommon": "2024-02-11"
+        },
+        {
+          "DataDate": "2024-02-12",
+          "DateAlis": "2024年2月12日",
+          "DateCommon": "2024-02-12"
+        },
+        {
+          "DataDate": "2024-02-13",
+          "DateAlis": "2024年2月13日",
+          "DateCommon": "2024-02-13"
+        },
+        {
+          "DataDate": "2024-02-14",
+          "DateAlis": "2024年2月14日",
+          "DateCommon": "2024-02-14"
+        },
+        {
+          "DataDate": "2024-02-15",
+          "DateAlis": "2024年2月15日",
+          "DateCommon": "2024-02-15"
+        },
+        {
+          "DataDate": "2024-02-16",
+          "DateAlis": "2024年2月16日",
+          "DateCommon": "2024-02-16"
+        },
+        {
+          "DataDate": "2024-02-17",
+          "DateAlis": "2024年2月17日",
+          "DateCommon": "2024-02-17"
+        },
+        {
+          "DataDate": "2024-02-18",
+          "DateAlis": "2024年2月18日",
+          "DateCommon": "2024-02-18"
+        },
+        {
+          "DataDate": "2024-02-19",
+          "DateAlis": "2024年2月19日",
+          "DateCommon": "2024-02-19"
+        },
+        {
+          "DataDate": "2024-02-20",
+          "DateAlis": "2024年2月20日",
+          "DateCommon": "2024-02-20"
+        },
+        {
+          "DataDate": "2024-02-21",
+          "DateAlis": "2024年2月21日",
+          "DateCommon": "2024-02-21"
+        },
+        {
+          "DataDate": "2024-02-22",
+          "DateAlis": "2024年2月22日",
+          "DateCommon": "2024-02-22"
+        },
+        {
+          "DataDate": "2024-02-23",
+          "DateAlis": "2024年2月23日",
+          "DateCommon": "2024-02-23"
+        },
+        {
+          "DataDate": "2024-02-24",
+          "DateAlis": "2024年2月24日",
+          "DateCommon": "2024-02-24"
+        },
+        {
+          "DataDate": "2024-02-25",
+          "DateAlis": "2024年2月25日",
+          "DateCommon": "2024-02-25"
+        },
+        {
+          "DataDate": "2024-02-26",
+          "DateAlis": "2024年2月26日",
+          "DateCommon": "2024-02-26"
+        },
+        {
+          "DataDate": "2024-02-27",
+          "DateAlis": "2024年2月27日",
+          "DateCommon": "2024-02-27"
+        },
+        {
+          "DataDate": "2024-02-28",
+          "DateAlis": "2024年2月28日",
+          "DateCommon": "2024-02-28"
+        },
+        {
+          "DataDate": "2024-02-29",
+          "DateAlis": "2024年2月29日",
+          "DateCommon": "2024-02-29"
+        }
+      ]
+    },
+    {
+      "kind": "bad",
+      "prev": 2,
+      "next": 2,
+      "rows": []
+    },
+    {
+      "kind": "bad",
+      "prev": 0,
+      "next": 0,
+      "rows": []
+    },
+    {
+      "kind": "bad",
+      "prev": 26,
+      "next": 25,
+      "rows": []
+    },
+    {
+      "kind": "bad",
+      "prev": -2,
+      "next": -1,
+      "rows": []
+    },
+    {
+      "kind": "bad",
+      "prev": null,
+      "next": null,
+      "rows": []
+    },
+    {
+      "kind": null,
+      "prev": 2,
+      "next": 2,
+      "rows": []
+    },
+    {
+      "kind": null,
+      "prev": 0,
+      "next": 0,
+      "rows": []
+    },
+    {
+      "kind": null,
+      "prev": 26,
+      "next": 25,
+      "rows": []
+    },
+    {
+      "kind": null,
+      "prev": -2,
+      "next": -1,
+      "rows": []
+    },
+    {
+      "kind": null,
+      "prev": null,
+      "next": null,
+      "rows": []
+    }
+  ]
+}

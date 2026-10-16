@@ -1,0 +1,1036 @@
+{
+  "A003": {
+    "source_sha256": "97ecfe2ccb88f2aa2a2588bda55e1bb62b1fca845c2e013cc9f84e6f40dfdfcd",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A004": {
+    "source_sha256": "fe06d1fc9fa67381e92fc6f20e252567bffe2beb7a0b357f09dd3e3319f09b99",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A005": {
+    "source_sha256": "f90521e096cad5802bc42e039b9ab4780b633674d3aa1ffa595695acdbfe1170",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A006": {
+    "source_sha256": "3e1444c16f8cd81b7b25b174b500e113f16f51d86c501e765a764307ee8290fb",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT DISTINCT SplitCardReason FROM dye.JobSheet",
+    "adaptation": "原数据集未定义；采用现有工卡拆卡原因，单据字段仍可自由录入。"
+  },
+  "A007": {
+    "source_sha256": "9a59b69572c301462f246f4e41a42db4fe1359eb769f15e0172bbc32acff4676",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A008": {
+    "source_sha256": "f58a47427d7476597cec6e1b6027c7968f6bed7182fc7c6ceda568ea4ba62e5e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A011": {
+    "source_sha256": "d6ad038580395fda3c802d0225e29070d7d47b6297ae4a85bbc9d6aba8d7284f",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A012": {
+    "source_sha256": "b8ef74819127040e2d999a691bae695ff54aaa8511021d86e2e8f87939191699",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A013": {
+    "source_sha256": "f135ea4c8beb459f6acaa55089d204b45460d14b9ef8352908d8d1bd9717e9f7",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID IN ('17','20')",
+    "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+  },
+  "A014": {
+    "source_sha256": "5d841b5ca0f24a8580ee1914d88b006f4e73bf83369fd961bdcd57bcad5944be",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID IN ('18','19')",
+    "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+  },
+  "A015": {
+    "source_sha256": "bccd9131b9ea2ef15015d117a225d4a915c17c7c916464a16fd7dac1df6f6f63",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A016": {
+    "source_sha256": "0ce28389c0e03514fbd115cc448463afb5e73228274f79308f0e4dc35a96b78d",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A017": {
+    "source_sha256": "18ca11b8383a501ba76a78ff7a0333aef40576de2aedb2aa54a4efba24a61b3a",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID='0803'",
+    "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+  },
+  "A018": {
+    "source_sha256": "f32e3ab8b24fc5a3539c6fed6e8cf396f442367642ee15c0147f0e462effa3bd",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A019": {
+    "source_sha256": "9b2609aeca09f3e1d6dc3a38cc05d1dafb6788ab564210ab409d1a6e935b9f93",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A020": {
+    "source_sha256": "0d4c2737131ca8de9e6ca9ed681a672428ccbc7be2a398f97e6f338bd7133fa9",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A021": {
+    "source_sha256": "b4f310c043e25ac1ff2d5cc8555101aadb25e249be26182103cc3bd7a94d5d8e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A022": {
+    "source_sha256": "c06e2e53b3d5eb3a005846e80080e9c3e909f31bf5af59ab037a4c97d9a18d42",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A024": {
+    "source_sha256": "8bfa09a40656c8c62d6078c1d8d582f7c5a1f5f717b7fdac18f18faae65aea2c",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (SELECT TOP 50\r\nA.SerialNumber,\r\nA.ShiftID,\r\nA.EmpID,\r\nB.Name\r\nFROM dye.p_ShiftEmp A\r\nLEFT JOIN dye.p_Shift P ON A.ShiftID=P.ShiftID\r\nLEFT JOIN dye.h_Employee B ON B.EmpID = A.EmpID\r\nWHERE (SELECT C.Description FROM dye.p_FieldValid C WHERE C.FieldType='Station' AND C.Code=P.StationID)='后纺'\r\nORDER BY SerialNumber DESC) original_source WHERE 1=1",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "A026": {
+    "source_sha256": "7fe3ab965f0babd667459781cdd0cf6e23f655d94addaa74239400552682fd1c",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A027": {
+    "source_sha256": "5b10f31f60a1157e64aba08e1b3ac1ad383f7135f807b5791aa6ad92551a7877",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (SELECT DISTINCT  \r\nStereotypesName \r\nFROM (SELECT \r\nKindName AS StereotypesName\r\nFROM dye.p_Machine\r\nWHERE StationID='06'\r\n)A) original_source WHERE 1=1",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "A028": {
+    "source_sha256": "36b86e23c1ca8f32535fdad298c9b9175a4c69f8607ea015e4d02144b79de63a",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A030": {
+    "source_sha256": "b7c9eead29a8785227cd219adddaab2a513d69ec6df2bb918ccf9e16e7910223",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A031": {
+    "source_sha256": "414a6a46bfff8b9f2d6efd80667f39f2c6a4143cdc3504a79893d6fea183fd07",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A032": {
+    "source_sha256": "e6e3faf3820071fb3f83d69481c19547aa48f96bbe9b3fce082b6fb43147ab4b",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "A033": {
+    "source_sha256": "4425aff40bd353272c97415b3502e7277a1ba6f98b76568ab745c272a5455239",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B002": {
+    "source_sha256": "c9f6302b823ac1f3a78941e60bf59f34178daa997631eeaf87b5d436fb3228ee",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B004": {
+    "source_sha256": "9279087d7d4c88511d715d4e956dd836f5c4513f40df8694e7e78923e55e88dd",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B014": {
+    "source_sha256": "83265b669bbe1523f678bba6855406e1b1c341f5a23494e5b74d7e30f9504db7",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B015": {
+    "source_sha256": "6440f2aa076eeafb41497c643b36889ebb67351226881ab54d5ff779ef736bae",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B029": {
+    "source_sha256": "4944dac92c90b77e420e01cb185971367c6da81dcd3deb376cb5510ed7dbd7be",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B034": {
+    "source_sha256": "283eb1f32ca4af608a5845c2866998fac7d155313ae5fd34166d3743af81f229",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID='0801'",
+    "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+  },
+  "B035": {
+    "source_sha256": "de1919d3f9264651146fcf1e667a357e7d4f35ee3c423f21413161896b677296",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID='0802'",
+    "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+  },
+  "B036": {
+    "source_sha256": "3ac424737a6358f8a73ae432942c21392fea964d2ac18a97a136303da77f6788",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B037": {
+    "source_sha256": "e23aa1bc11827c568236db583bd2f235d7a69a53dbdec35ce6d4c3387f43d7d2",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B0381": {
+    "source_sha256": "57fc3bd20a2afd698c835772963c620ad5dc669c09f6ade5a3071cbd8d4300f0",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B0382": {
+    "source_sha256": "f320099331a9634dcd26d11787b004b4e2c2fd089c596ad18aa1368421efe57f",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B039": {
+    "source_sha256": "24d3668356dbc06d058b72c1f0abbd394bc58171e9c9f27a9f77bfc9526e6d65",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B050": {
+    "source_sha256": "da5952158e8cb43fcad81b7b54bb6a27a2e4242613050fcf9f5d6c5db1e67305",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B051": {
+    "source_sha256": "c129e4c9229e59a5b79e357db9531e581041a0ff46392efaba1c993dc254002e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B054": {
+    "source_sha256": "e179fb46bd5738cee29e02bf9ae7cd75baf06ae7e5d7c6ebc6eb6b81151a1950",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B055": {
+    "source_sha256": "586d566e803310af829750b566b34645f3f792af16ddb571b4ccf15af227bb3d",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B057": {
+    "source_sha256": "3a01c0cd6ac287cf7d77cca1e1e64bada49f5fcaa0cc8b1c9be1abb1b0e4ee41",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B061": {
+    "source_sha256": "d6e8d21075645c44dac9011a81e9813467990d5c715c9202fef7881d3378b9a8",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B063": {
+    "source_sha256": "94c31d91abdabda889bfd55d70c4456bab4d32068a2f0e297871db0b6f26d488",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B065": {
+    "source_sha256": "57e8149de1fd2d0501d52194e81c7791c0975e13820e9eb518642e5c043fab90",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B073": {
+    "source_sha256": "3e3de7b8943be3a9f875e0d65fecd060e791372d65d7862891b47817f0b5eecd",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B074": {
+    "source_sha256": "f11b9b4489d7fe9a1c0d45d431b6dd946b0414c841d2cc15b968f7a3aaf541de",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B080": {
+    "source_sha256": "8bdc54667a76cf4903dd9afe7b69543a122f3b825c27b2b9b60aafed37f0e998",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B081": {
+    "source_sha256": "5b15d9e1f71b7970a13fceec354651234653dea4feef694fcff2a5524d519741",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B082": {
+    "source_sha256": "3af75cd0057355437b1ccfae210aaf1b0768a6d07d8474fe18ca2fe66df164c3",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B083": {
+    "source_sha256": "adcefd7f3d3faa68a87937373756b466d308b76c3387fbd6bc6fb4b189facaca",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B088": {
+    "source_sha256": "ece4c14fbed5b2d1776fddbf880a51f7f2daba2a74815a3759b133fc9c15e2f1",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (Select gb.*\r\nFrom vwGrayStockBook gb\r\nWhere (IsNull(gb.Packs,0)>0 or IsNull(Rolls,0)>0 Or IsNull(LengthQty,0)>0 Or IsNull(WeightQty,0)>0)\r\nOrder by gb.SheetSeries,gb.ReceSheetNo) original_source WHERE 1=1",
+    "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+  },
+  "B089": {
+    "source_sha256": "eb06e5f66417003ff38e50da7d768fffab0580b96be4e84ea9a426161de78e4b",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B091": {
+    "source_sha256": "5c353137af57101f1a3596808d535799c5f1fccbb2db8539074c43015d536af4",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B092": {
+    "source_sha256": "eb5682968dd1d18e62beaef79b29885b29dc6b1b5ff06c0aa1e6fce36001e3db",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B093": {
+    "source_sha256": "47d10ef3b82c0b9146f8ac828666fd7a3f0b38a7c723b6b90b5aad9c41faee49",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B094": {
+    "source_sha256": "e3b574cfa5e27edfc9aa6530fbc82eb6791f417465625bd90fa69a32eeaedf50",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B095": {
+    "source_sha256": "e9f590f138458502f7a15b11acc8f6b2e9a8d820a5d500b6d2dc20c22c613810",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B096": {
+    "source_sha256": "6742454e7dd55b29b8fb384b08c46840439891bc715590049455c1f5e4461c23",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B097": {
+    "source_sha256": "7324f84dff418113bf8e16a63692e4cdd6934398da4b9d6ae7b8a3aae16a5030",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID IN ('17','18','19','20')",
+    "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+  },
+  "B100": {
+    "source_sha256": "6671a0d5ef1235d6258183ea2ed709e26b2d51c96ee8e63dbd971482a79ff28a",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B101": {
+    "source_sha256": "6adfd9a869e9fbc971e76d4f974637a2df5f2eb17eeb569558234ed291ee7434",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B102": {
+    "source_sha256": "a5cc434c4550071e9ef2cfe1bcb6d22fe5b6427100c572dc5a6661eb00b91f47",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B104": {
+    "source_sha256": "6d88a15e9dc7bb750e4378f2d8686d52267d23f6b315d4ccc6fd841b0ad84471",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B106": {
+    "source_sha256": "c916044fccb21a2c993f20ca7ecc6a11d58b845f61ab1dd371e6b204f177fe8b",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B107": {
+    "source_sha256": "e6eeaf020d42d22ab843c9b85c29e659c0ed9bcdb4fc685ed9b5f5988f002b95",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B109": {
+    "source_sha256": "ebb70a48b795dd3e55e2de1c1177e641244ccd0e9a0aec423b64063e712d1282",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (SELECT ROW_NUMBER()OVER(ORDER BY SheetNo,ProcessNo,ProcessID)ID,* \r\nFROM (SELECT SheetNo,a.CustomerID,c.ShortName,ProdID,d.NameC,OrderSheetNo,ColorNum,a.ColorID,\r\nISNULL(ProcessNo,1)ProcessNo,ISNULL(b.ProcessID,2)ProcessID,e.Name,b.StationID,SumAssignedRolls,SumAssignedWeightQty \r\nFROM dye.JobSheet a\r\nLEFT JOIN dye.JobProcess b\r\nON a.SheetSeries = b.SheetSeries\r\nLEFT JOIN dye.p_Customer c\r\nON a.CustomerID=c.CustomerID\r\nLEFT JOIN dye.p_Gray d\r\nON a.ProdID=d.GrayID\r\nLEFT JOIN dye.p_Process e\r\nON b.ProcessID=e.ProcessID\r\nWHERE a.SheetDate>'2018-01-01')a) original_source WHERE 1=1",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B110": {
+    "source_sha256": "a32ed49470e5583de0881c4529ebf8130d2c8f8f68767d4aaa2ccac8d90a503c",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B111": {
+    "source_sha256": "b91a4c1252895c94ffdb697a7f3f50fafb884ccc16a90be06e91da029679f001",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B112": {
+    "source_sha256": "035697c0e1eb0c58fa3a12b7bd01ace732d856b975225a7f1044be305736da07",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B113": {
+    "source_sha256": "50f6d5d850c7a6d15559ce17e5936084e867b96147dff1f72964ab78e41e6bbf",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B114": {
+    "source_sha256": "d740a2daf71637208594c6b894649c7739d15d64b350ad4367d2165b3a50cdcd",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B117": {
+    "source_sha256": "14a42c2c72c1f73e74aab041ace67e79140e11e2029177b7194db000b1eaa7f1",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (SELECT Name FROM(SELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='CDriver'\r\nUNION \r\nSELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='Cargador'\r\nUNION \r\nSELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='Discharger')A) original_source WHERE 1=1",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B118": {
+    "source_sha256": "5de907dae08b1ce8d45f80b8b2bccdc47ea0f830752089370d546d1e34d67ad0",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B119": {
+    "source_sha256": "3589b13675dc69a1c6050df47791b2233f60b2c72305b2f11cc29e828e739143",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B120": {
+    "source_sha256": "d5798dcd942bbdfce5f3d4b55574fa02cffb06a620491721d413a3565e5ebac2",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B122": {
+    "source_sha256": "5c353137af57101f1a3596808d535799c5f1fccbb2db8539074c43015d536af4",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B126": {
+    "source_sha256": "2a58797bfc7979d6c18a71e172396e22f7932f637e94b69ff4042b0577f5ff1e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B128": {
+    "source_sha256": "ba1a568084045632a5021dd050c41c0bb6237acac877a447a0f7fcc260c8a7a6",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B129": {
+    "source_sha256": "2b094403db5b4a5ad4c5c6fcaa8e0ecebcd8c6407492659e7d2b9e537cf4e4ab",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B130": {
+    "source_sha256": "70d2c8724027966174cb87fd51c3759c7873e2bc2b0343f583541ccc8ff869d5",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B132": {
+    "source_sha256": "8e93454cfeb5bbf6358d42b9bcec2f2fdef7e626209759c5f2d3fcef44d36a19",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B133": {
+    "source_sha256": "0b8f26e65d0c233c042563b2c62f19e7b120b55482448bee3fd7c82a410e01bf",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B134": {
+    "source_sha256": "05bf4decf2a64bbfeb9232397acdc8f00ed9e4461eb79a38f66ff50c81e8a088",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B135": {
+    "source_sha256": "66b636141d115b923d6d232be12ff135c6f09a139173496d9d20e4cf1809e175",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B136": {
+    "source_sha256": "a77f1d931851bd49579924063417578d0e30ed08f2e9245a70167a4b8e5fcea6",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID) original_source WHERE ISNULL(IsOut,0)=0 and DeptID='DT022'",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B137": {
+    "source_sha256": "507cd53eae335faa66bcf1ad6674a9d940021a1a3dd90df0109f1caf49318996",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B139": {
+    "source_sha256": "0f8260a3b57efd475e8e6c7950540a746efb7531a661aedec653d8ea598c26da",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B140": {
+    "source_sha256": "362b1ada528c048f130bf65fb7181c697b51d9e87d5f83508c15d1070d51fed2",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B141": {
+    "source_sha256": "323ecb5be8c16399e60956c60e7a8647ebda9dcfce671cffe9883c7051303bc6",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B142": {
+    "source_sha256": "e8d2a1ba77d2f7f57f27c47ed5f774294e8ea57d8191021fc39a69598e40b6cd",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B143": {
+    "source_sha256": "587be55370b21043428a97c6c5e662a25b0d95afbd5916a660eea6f3c44c8144",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B144": {
+    "source_sha256": "c18208b7f6c66c414c53e1ce0bb964cc393c7f9695a187b0ef98367f9636096e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B145": {
+    "source_sha256": "4eba3fb9aec9808f6b1e9e70aecf5dac09b3f4b6232223b807a4a6417839359b",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B146": {
+    "source_sha256": "ada2aa8af818dfef057f28d687335e0c35ab5b8099b23941ba9f4ba19bc0f38a",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B147": {
+    "source_sha256": "74541c72932e8170cedfce299613bf91e03ade2ad88e06a241f20ca1f040892d",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B148": {
+    "source_sha256": "8cf3384a3affd0ce53d7c67028e9067ba7ecee13a66f9d64a26ea32ec21f24af",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B151": {
+    "source_sha256": "c288b1f4af75f9ba69de0b3d0097113d2f7f7f1a0ba13ea954978c45d8a0450e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B153": {
+    "source_sha256": "9f5538a76920604054dc9f2640b38087dc82a8cfcc72e8e54ea23bd0101f910f",
+    "adapter": {
+      "engine": "external"
+    }
+  },
+  "B156": {
+    "source_sha256": "deb041fec5db147729d4a1635b3e4a161f855b2ee2370fa622dcc88d15040b1f",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B157": {
+    "source_sha256": "e2516e03bf4c8da286cf73e3b8cc190384ca645067829e3be103f4241eab67c4",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B158": {
+    "source_sha256": "9d38ab29610e6823517258d6625cbef6cf06d41215e27adc3fbe79852023af37",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B159": {
+    "source_sha256": "8aca8af071c56b5a332e48faa2d8b39ab5270c21d2307ca2b3aaf9c790d54274",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B160": {
+    "source_sha256": "84686694323f8d6302eca0d5ae2b6fb32e73b349b165e36a8880ca408c5910bc",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B161": {
+    "source_sha256": "68146b8c76d6a41514253740ca601f226ce0ce600624ccaa13d691c91f51bfcd",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B162": {
+    "source_sha256": "890e54c7fa788baf9b5d3e79ea73b357e8cf2363dbc09c2a917c08338a95a5f4",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B163": {
+    "source_sha256": "2c3aca69eb3651188c07708688c428e5b577df3b3720805dd493bceead04ebcf",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B164": {
+    "source_sha256": "937be2bb5938d2ea2db03b948701b574b3888702febb0415d493a6290224a5f5",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B165": {
+    "source_sha256": "e2a5c81af824986615bbb36c77dd52c66ee8c948e4d89aaac06dea142aab00f2",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B166": {
+    "source_sha256": "53509bf89930374932ede5410b825b52b673af2e1dc55deed5def9a8658ec0d7",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B167": {
+    "source_sha256": "18626f0d32d9e7a769e93976271407d0b11d93afe76ff8425d319ad8867d760c",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B168": {
+    "source_sha256": "a7bcf35cfdf2b933c72d9183ea0c40d37eedc1022a4e92da94550ccfe7a36fb3",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B169": {
+    "source_sha256": "69412fe71fdd6aff2e13e41e51f53066518eb3e7bdf6fb5813fb107ec5ff2c8f",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B170": {
+    "source_sha256": "05542b35886b8dd40596bfc38d748b7e8ec2bd5cca2275e754a6c4fd4f26fe78",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B171": {
+    "source_sha256": "485fa261b1a83c057a19e027aaecb873cb92fc4e5fc11b1cf29b1829ba8139ae",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B174": {
+    "source_sha256": "3eda78856e69061197fdb4bbc83da701b282d476bf1c6cebdc78f581ecc7b6e5",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B175": {
+    "source_sha256": "53763f178b3b428bc72b7dc53346f2da9d549c82eea23c7c703131eefb4b1a4e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B176": {
+    "source_sha256": "b1160fa96d169312bc2c2fa1dc05c95e821cce9837b6b0d9b8b8846811e85f06",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B178": {
+    "source_sha256": "7b1ed3810638ffcc1de23c8bb99c569617c86a4b361f5d681b488947541bf837",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B179": {
+    "source_sha256": "47d10ef3b82c0b9146f8ac828666fd7a3f0b38a7c723b6b90b5aad9c41faee49",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B180": {
+    "source_sha256": "e7e4ae5d620251bb2c833c3599cf4f72172e52668c0369dbd92cdd78706af4b8",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B182": {
+    "source_sha256": "ce971c90aa8278a3be8e08447be667f4efadf2fa924a1239349f6485c1200fa2",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B183": {
+    "source_sha256": "c10f3cf27ae07aa22ff4a81644f0051186b180ee908ebe7934037586616ce613",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B184": {
+    "source_sha256": "8c725e7ded4a2672c1e473ef2b2a81d72e29342c6bb6e128b6901783d5792ab1",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID) original_source WHERE DeptID='03' AND EmpKind='N026' AND ISNULL(IsOut,0)=0",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B185": {
+    "source_sha256": "0f1f597fe6efa60d82369affecc8181feb705125eea6a6c9e42cf28b52ff1886",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B186": {
+    "source_sha256": "a59ac4c4dc3b0fc596e04ba91d7f1911982e6c43e051c9fb9ce427d196ceeac4",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B188": {
+    "source_sha256": "ac48073c8a51f0e296e430328ed8ec0dc7231ae353e885571c1eea78a86b6e31",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B190": {
+    "source_sha256": "d499b0d1199e468142295a60e2a5a93205d4611692dcb4c409acdb1e1d105294",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B191": {
+    "source_sha256": "78e834ef0c64f96159488cd9cfe8b20d74a50c8593b2af0b985134c091aff8d7",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B192": {
+    "source_sha256": "266f27f5a75fe9b2a038eae06f49220ea942e048b3aa386f79977125b5373ae3",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B193": {
+    "source_sha256": "a70bea3160b859f0c23ab82826dbb5d694fa19ec4e81e556f38c14f701489a36",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B194": {
+    "source_sha256": "def1a7995a38fd9666d89fa466d5215b9db11b1fe801a60fa0a31a59576b43ee",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B195": {
+    "source_sha256": "5608d21db5854732a55f2cb70e0ba2607cb8bc33e67fbd25135094b664c78275",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B196": {
+    "source_sha256": "0899dcbe50d9a5aac8176556c92d1e778f7b51ce33225461f0f69aacb82850b0",
+    "adapter": {
+      "engine": "external"
+    }
+  },
+  "B197": {
+    "source_sha256": "076b46800b1fd23c8fce1fb5f853be1a2a6d225e8cd0f3f833110af147dac631",
+    "adapter": {
+      "engine": "external"
+    }
+  },
+  "B198": {
+    "source_sha256": "1a5b9851431787410d12624a27f1b6b080ce867b8a2b69c99cad35264eb512ec",
+    "adapter": {
+      "engine": "external"
+    }
+  },
+  "B199": {
+    "source_sha256": "817afa8b9bf5dd1f81c2306d04b5ce7fc45850b5cc2a778fb417fde172b899ba",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B200": {
+    "source_sha256": "f5a67031ae43bb7952a61e11d0a84d8faa9888db57b160fee2753cd26876c771",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B201": {
+    "source_sha256": "e9f590f138458502f7a15b11acc8f6b2e9a8d820a5d500b6d2dc20c22c613810",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B202": {
+    "source_sha256": "e9f590f138458502f7a15b11acc8f6b2e9a8d820a5d500b6d2dc20c22c613810",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B203": {
+    "source_sha256": "8c50f9a048898f9b4dc7e29f847cc57b70a84bd1052b70567f9b3ebb735760e5",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B204": {
+    "source_sha256": "2cc9639944953abd749229e207f042d352274ca9e06b01f2011fa59e20c71fe7",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B205": {
+    "source_sha256": "fbbd54179a4ea619582e957551a04e09f84dc83f40020a321a2f22acce09e2e5",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B208": {
+    "source_sha256": "90be78333102654bf36ec6ff39fb4f845ff72cc3a31b4121778bbd9011ffb5ab",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B210": {
+    "source_sha256": "6d6b919fb43995635a3cfc3d9e6bbc5efc741fa8c0d591079e1f84e06ff82253",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (SELECT \r\nNewID() AS ID,\r\n*\r\nFROM \r\n(SELECT \r\nIIF(A.CustomerID='074','本厂采购','客户来纱') AS YarnCategory,\r\nA.ReceSheetNo,\r\nA.CustomerID,\r\nA.ProdID,\r\nA.LotNo,\r\nA.InSheetKind,\r\nA.ColorID,\r\nA.PurchaseOrders,\r\nA.FixedQty,\r\nA.A_A,\r\nA.A_B,\r\nA.Packs-ISNULL(B.TPacks,0.00) AS Packs,\r\nA.Rolls-ISNULL(B.TRolls,0.00)  AS Rolls,\r\nA.LengthQty-ISNULL(B.TLengthQty,0.00)  AS LengthQty,\r\nA.WeightQty-ISNULL(B.TWeightQty,0.00)  AS WeightQty\r\nFROM dye.vwSemiStockBook_New A\r\nLEFT JOIN (\r\nSELECT \r\nISNULL(Semi_Owner,'') AS CustomerID,\r\nISNULL(ProdID,'')ProdID,\r\nISNULL(LotNo,'')LotNo,\r\nISNULL(InSheetKind,'')InSheetKind,\r\nISNULL(ColorID,'')ColorID,\r\nISNULL(PurchaseOrders,'')PurchaseOrders,\r\nISNULL(FixedQty,0.0)FixedQty,\r\nISNULL(A_A,'')A_A,\r\nISNULL(A_B,'')A_B,\r\n0 AS TPacks,\r\nSUM(Rolls)TRolls,\r\n0 AS TLengthQty,\r\nSUM(Qty)AS TWeightQty\r\nFROM dye.CarryMaterialDetail C\r\nWHERE 1=1\r\nAND NOT EXISTS(SELECT 1 FROM dye.SemiOutDetail D WHERE D.JobSheetNo=C.JobSheetNo)\r\nAND EXISTS(SELECT 1 FROM dye.JobSheet J WHERE J.SheetNo=C.JobSheetNo)\r\nGROUP BY Semi_Owner,ProdID,LotNo,InSheetKind,ColorID,PurchaseOrders,FixedQty,A_A,A_B\r\n)B  ON 1=1\r\nAND B.CustomerID = A.CustomerID \r\nAND B.ProdID = A.ProdID\r\nAND B.LotNo = A.LotNo\r\nAND B.InSheetKind = A.InSheetKind\r\nAND B.ColorID = A.ColorID\r\nAND B.PurchaseOrders = A.PurchaseOrders\r\nAND B.FixedQty = A.FixedQty\r\nAND B.A_A = A.A_A \r\nAND B.A_B = A.A_B \r\n)E \r\nWHERE 1=1\r\nAND E.WeightQty>0) original_source WHERE 1=1",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B212": {
+    "source_sha256": "25c5a3b02b98279cf556b5fadf2e0909f0a8e66adf352f7195bc27dd2d4f20f8",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B214": {
+    "source_sha256": "8596c1fa942711016cafcc80352376581fb6a5ded7744752104ddf0ecf9718bc",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B219": {
+    "source_sha256": "1bca99f3a5d2444c02d094344ba6acdd5c9e2a7998bcd664482c7ccb6a29d732",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B222": {
+    "source_sha256": "7c7875730c507f7bf7007e7a24f7fad4aeca8faad6066d8fcb4fef571e63ade1",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B304": {
+    "source_sha256": "29412f0e7104437846b982230057920f157bb1053c1cce6200debded56b07f6b",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B305": {
+    "source_sha256": "f869716f7d742c187a1a96c7d585317d3f9a602e331098bb6c06d97ca033d9c2",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B400": {
+    "source_sha256": "d9a2d03562a946d1c76ede4e342e001932f663ac84c3c3416c52abbd55623138",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select * from dye.p_ArticleStorageUnitID\r\norder by code) original_source WHERE FieldType='machinekw'",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B401": {
+    "source_sha256": "696a71c83f52517afd2918dd6cb89c5ee85ecbadcbe4af8a7b324616fa504ed1",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (select * from dye.p_StuffStorageUnitID\r\norder by code) original_source WHERE FieldType='dyeingkw'",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B402": {
+    "source_sha256": "52b20e8127a99416f9c6fcb9a317cee1fd57f0b95c1ae18020cae49c56487dda",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (SELECT * FROM  dye.Human\r\norder by ID) original_source WHERE FieldType='Employee'",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "B404": {
+    "source_sha256": "6b21c095e551d2d60e73964d1c9beff7ae3ce21183e9e55657e2cd0535aa4deb",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "B407": {
+    "source_sha256": "e287b996900c4c27c7aa8f695ab5fbb805e0a202d97380e5d42d81fd6f3d3f5c",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT \r\nLEFT(CONVERT(VARCHAR(100),A.NFYEAR,120),4)AS NFYEAR \r\nFROM \r\n(SELECT DATEADD(YEAR, -1, GETDATE()) AS NFYEAR\r\nUNION ALL\r\nSELECT DATEADD(YEAR, -0, GETDATE()) AS NFYEAR\r\n)A",
+    "effective_key_field": "NFYEAR",
+    "effective_display_field": "NFYEAR",
+    "adaptation": "原键和显示列均缺失，按唯一投影NFYEAR提供年份。"
+  },
+  "S001": {
+    "source_sha256": "e5ac875badc6d6be11168d24dfddf7a8db854d6c58119c5816c18a7ced2b9f98",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (Select * from s_Module Order by ModuleNo) original_source WHERE 1=1",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "S002": {
+    "source_sha256": "b0fa194bdfbd71fc82b54f6bb293707f907ccac72701fcbb592e22690b50e045",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "S003": {
+    "source_sha256": "11088240f7434ca517b06865e917c88861d345bef615d89d00feb37bf563b28e",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "S006": {
+    "source_sha256": "c1639c440654e1be5001d6efe13d3627a41378e8f7e89ef9ea547e77395dddac",
+    "adapter": {
+      "engine": "static_sql"
+    },
+    "execution_query": "SELECT * FROM (Select * from s_Lookup\r\nOrder By Kind,LookupID) original_source WHERE 1=1",
+    "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+  },
+  "S007": {
+    "source_sha256": "e943042f42def51843dd52fce646ecbcb0a9095216a58a9b4daea0bdb8f7c184",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "S008": {
+    "source_sha256": "78fb0e9258d78391dd35e69ed6ec266149fd3f66054ecb933c4779f7cf1d49f8",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "S009": {
+    "source_sha256": "428f3d2a0e9875db2673b64a2ef9213abe5bc1fa356bf123e1f854f5cbd60886",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  },
+  "S181": {
+    "source_sha256": "75428b3f81dd2ec2f03cb62b2d5930a79965995402616a162b7be29138916532",
+    "adapter": {
+      "engine": "static_sql"
+    }
+  }
+}

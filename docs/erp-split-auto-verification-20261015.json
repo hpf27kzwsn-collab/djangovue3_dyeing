@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobcombineorder/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobcombineorder/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobcombine/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobcombine/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobprocess/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobprocess/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobgrayrecord/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobgrayrecord/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyegrayinrecord/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyegrayinrecord/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyegrayrecordcutlogs/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyegrayrecordcutlogs/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-DqN3CxMZ.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-La9ULQgl.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobprocess/1/preview_auto_combine/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyegrayrecordcutlogs/1/operation_report/"
+    }
+  ],
+  "registered_actions": {
+    "erp_production_sourcedyejobsheet": [
+      "reverse_card",
+      "continuation"
+    ],
+    "erp_production_sourcedyejobcombineorder": [
+      "reverse_allocation",
+      "continuation"
+    ],
+    "erp_production_sourcedyejobcombine": [
+      "reverse_link",
+      "continuation"
+    ],
+    "erp_production_sourcedyejobprocess": [
+      "preview_auto_combine",
+      "automatic_combine",
+      "continuation"
+    ],
+    "erp_production_sourcedyejobgrayrecord": [
+      "split_gray",
+      "merge_gray",
+      "continuation"
+    ],
+    "erp_warehouse_sourcedyegrayinrecord": [
+      "split_gray",
+      "merge_gray",
+      "continuation"
+    ],
+    "erp_warehouse_sourcedyegrayrecordcutlogs": [
+      "operation_report",
+      "undo_gray",
+      "continuation"
+    ]
+  },
+  "registered_action_count": 18,
+  "current_history_counts": {
+    "JobSheet": 92538,
+    "JobCombine": 61,
+    "JobCombineOrder": 91455,
+    "JobProcess": 473531,
+    "ProcessSchedule": 139,
+    "StuffWeight": 248051,
+    "JobGrayRecord": 0,
+    "GrayInRecord": 0,
+    "GrayRecordCutLogs": 173
+  },
+  "history_schedule_nonempty_combine_rows": 0,
+  "history_auto_route_preview": [
+    {
+      "plan_id": null,
+      "process_id": 1,
+      "source_job": "240902F0201",
+      "selection_note": "候选排程中没有匹配的非空成员，核验实际原工序预览，不补造成员",
+      "rows": [],
+      "source_selection": [
+        {
+          "source_job_id": 1,
+          "mode": "schedule",
+          "selected_source_id": null,
+          "candidate_ids": []
+        }
+      ],
+      "notes": [
+        "无序TOP 1按记录ID最小、无序标量末值按记录ID最大明确选择；全部候选ID及未匹配片段保留。"
+      ]
+    }
+  ],
+  "history_gray_log": {
+    "id": 1,
+    "legacy_id": "{\"key\":{\"ID\":\"AA04B4E0-4049-4837-87BA-3DA5344282F7\",\"OperateDate\":\"2022-07-07T11:49:42.0100000\"},\"schema\":\"dye\",\"table\":\"GrayRecordCutLogs\"}",
+    "report": "原细码拆合日志",
+    "notes": [
+      "原日志原样展示；缺少逐行前值时不能猜测恢复，由明确的细码调整继续办理。"
+    ]
+  },
+  "regression_tests": {
+    "passed": 197,
+    "failed": 0,
+    "seconds": 98.896,
+    "new_tests": 30,
+    "log": ".runtime-temp/erp-log-export/split-auto-regression-20261015.log"
+  },
+  "django_check": "passed",
+  "makemigrations_check": "No changes detected",
+  "frontend_typecheck_and_build": "passed",
+  "test_database": "test_erp_source_additions_20261014 on 5440; existing validated schema; per-test transaction isolation",
+  "source_evidence_snapshot": "2026-10-14 verified structure-and-logic.json and workflow_evidence.json",
+  "historical_mutation_actions_run_for_http_verification": false,
+  "sql_server_program_parity_verified_this_turn": false,
+  "all_old_business_workflows_reproduced": false,
+  "exception_document": "旧ERP复刻异常与合理实现说明.md E46-E49"
+}

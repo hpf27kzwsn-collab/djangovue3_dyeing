@@ -4,6 +4,64 @@ from django.db.models.functions import Upper,RTrim
 from plugins.erp_base.source_documents import SourceRecord
 
 
+class SourceDyeClothGetMoney(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='ClothGetMoney'
+    SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'SheetKind': 'old_sheet_kind', 'SheetDate': 'old_sheet_date', 'CustomerID': 'old_customer_id', 'AddrDlv': 'old_addr_dlv', 'Remarks': 'old_remarks', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date', 'RightStatus': 'old_right_status', 'SheetStatus': 'old_sheet_status'}
+    SOURCE_KEY=('SheetSeries',)
+    SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_addr_dlv': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_sheet_series=models.CharField('表单流水号', null=False, blank=True, max_length=20)
+    old_sheet_no=models.CharField('表单号', null=False, blank=True, max_length=20)
+    old_sheet_kind=models.IntegerField('表单类型', null=True, blank=True)
+    old_sheet_date=models.DateTimeField('单据日期', null=True, blank=True)
+    old_customer_id=models.CharField('客户', null=True, blank=True, max_length=20)
+    old_addr_dlv=models.CharField('地址', null=True, blank=True, max_length=512)
+    old_remarks=models.CharField('备注', null=True, blank=True, max_length=512)
+    old_creater=models.CharField('创建人', null=True, blank=True, max_length=10)
+    old_create_date=models.DateTimeField('创建时间', null=True, blank=True)
+    old_modifyer=models.CharField('修改人', null=True, blank=True, max_length=10)
+    old_modify_date=models.DateTimeField('修改时间', null=True, blank=True)
+    old_approver=models.CharField('审核人', null=True, blank=True, max_length=20)
+    old_approve_date=models.DateTimeField('审核时间', null=True, blank=True)
+    old_right_status=models.IntegerField('单据状态', null=True, blank=True)
+    old_sheet_status=models.IntegerField('SheetStatus', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_clothgetmoney'
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_7d9a1254cd807cf7'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_7d9a1254cd807cf7')]
+        verbose_name=verbose_name_plural='提货记录原表（ClothGetMoney）'
+        ordering=["-id"]
+
+class SourceDyeClothGetMoneyDetail(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='ClothGetMoneyDetail'
+    SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'ProdID': 'old_prod_id', 'Rolls': 'old_rolls', 'ThisRolls': 'old_this_rolls', 'Remarks': 'old_remarks'}
+    SOURCE_KEY=('DetailNo',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：ClothGetMoney', 'target': 'erp_sales.SourceDyeClothGetMoney', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 ClothGetMoneyDetail → ClothGetMoney；SalaryChanges各变体均按SheetSeries']}]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_sheet_series=models.CharField('表单号', null=False, blank=True, max_length=20)
+    old_detail_no=models.CharField('明细单号', null=False, blank=True, max_length=20)
+    old_prod_id=models.CharField('本厂规格', null=True, blank=True, max_length=200)
+    old_rolls=models.DecimalField('粒数', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_this_rolls=models.DecimalField('收到条数', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_remarks=models.CharField('备注', null=True, blank=True, max_length=512)
+    source_parent_1=models.ForeignKey('erp_sales.SourceDyeClothGetMoney', verbose_name='原关系：ClothGetMoney', null=True, blank=True, on_delete=models.PROTECT, related_name='+')
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_clothgetmoneydetail'
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_d61c91370b6c4131'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_d61c91370b6c4131')]
+        verbose_name=verbose_name_plural='提货数量明细原表（ClothGetMoneyDetail）'
+        ordering=["-id"]
+
 class SourceDyeCusAddPrice(SourceRecord):
     SOURCE_SCHEMA='dye'
     SOURCE_TABLE='CusAddPrice'

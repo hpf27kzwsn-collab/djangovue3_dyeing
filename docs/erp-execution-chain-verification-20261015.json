@@ -1,0 +1,3035 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyewprocess/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyestuffweight/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyeprodin/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyeprodout/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-8IDi9Q7y.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-CMtBLrOJ.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92477/preview_execution_reverse/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92477/continuation/"
+    }
+  ],
+  "registered_actions": [
+    "preview_execution_reverse",
+    "link_execution_source",
+    "reverse_execution_chain",
+    "undo_execution_reverse",
+    "continuation"
+  ],
+  "new_actions": 4,
+  "selectable_source_tables": [
+    "CarryMaterialDetail",
+    "ColorShiftEmp",
+    "ColoringCheck",
+    "DyeCheckout",
+    "GrayIn",
+    "GrayOut",
+    "GrayOutDetail",
+    "GrayOutRecord",
+    "GrayStockBook",
+    "JobGrayRecord",
+    "JobShiftEmp",
+    "ProdIn",
+    "ProdInRecord",
+    "ProdOut",
+    "ProdOutDetail",
+    "ProdOutRecord",
+    "ProdStockBook",
+    "RecordYield",
+    "SemiIn",
+    "SemiOut",
+    "SemiOutDetail",
+    "SemiOutRecord",
+    "SemiStockBook",
+    "StuffIn",
+    "StuffOut",
+    "StuffStockBook",
+    "StuffWeight",
+    "StuffWeightDetail",
+    "StuffWeightPhase",
+    "WProcess",
+    "WProcessStep"
+  ],
+  "regression_tests": {
+    "passed": 254,
+    "failed": 0,
+    "new_tests": 31,
+    "seconds": 157.388,
+    "log": ".runtime-temp/erp-log-export/chain-regression-20261015.log"
+  },
+  "django_check": "passed",
+  "makemigrations_check": "No changes detected",
+  "frontend_typecheck_and_build": "passed",
+  "frontend_build_warning": "existing chunks larger than 500 kB",
+  "history_preview": {
+    "job_id": 92477,
+    "legacy_id": "{\"key\":{\"SheetSeries\":\"26081418503652323029\"},\"schema\":\"dye\",\"table\":\"JobSheet\"}",
+    "job_sheet_no": "260814G0405",
+    "seconds": 5.13,
+    "node_count": 62,
+    "ledger_count": 17,
+    "counts_by_table": {
+      "CarryMaterialDetail": 1,
+      "dyeCheckout": 1,
+      "SemiOutDetail": 1,
+      "StuffOut": 3,
+      "StuffWeight": 3,
+      "WProcess": 5,
+      "SemiOut": 1,
+      "StuffOutDetail": 16,
+      "StuffWeightPhase": 7,
+      "JobShiftEmp": 8,
+      "StuffWeightDetail": 16
+    },
+    "report": {
+      "report": "工卡执行整链撤销预览",
+      "rows": [
+        {
+          "entity": "erp_warehouse.SourceDyeCarryMaterialDetail",
+          "record_id": 74918,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"CM260814006-12\"},\"schema\":\"dye\",\"table\":\"CarryMaterialDetail\"}",
+          "table": "CarryMaterialDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_quality.SourceDyeDyeCheckout",
+          "record_id": 80740,
+          "legacy_id": null,
+          "table": "dyeCheckout",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeSemiOutDetail",
+          "record_id": 52614,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SJ20260814116-01\"},\"schema\":\"dye\",\"table\":\"SemiOutDetail\"}",
+          "table": "SemiOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOut",
+          "record_id": 243385,
+          "legacy_id": "{\"key\":{\"SheetSeries\":\"SO250554385\"},\"schema\":\"dye\",\"table\":\"StuffOut\"}",
+          "table": "StuffOut",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOut",
+          "record_id": 243386,
+          "legacy_id": "{\"key\":{\"SheetSeries\":\"SO250554386\"},\"schema\":\"dye\",\"table\":\"StuffOut\"}",
+          "table": "StuffOut",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOut",
+          "record_id": 243387,
+          "legacy_id": "{\"key\":{\"SheetSeries\":\"SO250554387\"},\"schema\":\"dye\",\"table\":\"StuffOut\"}",
+          "table": "StuffOut",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeight",
+          "record_id": 247780,
+          "legacy_id": "{\"key\":{\"SheetSeries\":\"CL260815016\"},\"schema\":\"dye\",\"table\":\"StuffWeight\"}",
+          "table": "StuffWeight",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeight",
+          "record_id": 247865,
+          "legacy_id": "{\"key\":{\"SheetSeries\":\"CL260815101\"},\"schema\":\"dye\",\"table\":\"StuffWeight\"}",
+          "table": "StuffWeight",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeight",
+          "record_id": 247910,
+          "legacy_id": "{\"key\":{\"SheetSeries\":\"CL260815146\"},\"schema\":\"dye\",\"table\":\"StuffWeight\"}",
+          "table": "StuffWeight",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeWProcess",
+          "record_id": 388615,
+          "legacy_id": "{\"key\":{\"WProcessNo\":\"26081423412884652048\"},\"schema\":\"dye\",\"table\":\"WProcess\"}",
+          "table": "WProcess",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeWProcess",
+          "record_id": 388704,
+          "legacy_id": "{\"key\":{\"WProcessNo\":\"26081501462372914040\"},\"schema\":\"dye\",\"table\":\"WProcess\"}",
+          "table": "WProcess",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeWProcess",
+          "record_id": 388945,
+          "legacy_id": "{\"key\":{\"WProcessNo\":\"26081509183017116040\"},\"schema\":\"dye\",\"table\":\"WProcess\"}",
+          "table": "WProcess",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeWProcess",
+          "record_id": 388958,
+          "legacy_id": "{\"key\":{\"WProcessNo\":\"26081509364565370040\"},\"schema\":\"dye\",\"table\":\"WProcess\"}",
+          "table": "WProcess",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeWProcess",
+          "record_id": 389006,
+          "legacy_id": "{\"key\":{\"WProcessNo\":\"26081510395297002048\"},\"schema\":\"dye\",\"table\":\"WProcess\"}",
+          "table": "WProcess",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeSemiOut",
+          "record_id": 52013,
+          "legacy_id": "{\"key\":{\"SheetSeries\":\"SJ20260814116\"},\"schema\":\"dye\",\"table\":\"SemiOut\"}",
+          "table": "SemiOut",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096298,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-01\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096299,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-02\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096300,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-03\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096301,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-04\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096302,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-05\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096303,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-06\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096304,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-07\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096305,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-08\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096306,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554385-09\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096307,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554386-01\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096308,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554386-02\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096309,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554386-03\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096310,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554386-04\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096311,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554386-05\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096312,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554387-01\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "record_id": 1096313,
+          "legacy_id": "{\"key\":{\"DetailNo\":\"SO250554387-02\"},\"schema\":\"dye\",\"table\":\"StuffOutDetail\"}",
+          "table": "StuffOutDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightPhase",
+          "record_id": 536409,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815016\"},\"schema\":\"dye\",\"table\":\"StuffWeightPhase\"}",
+          "table": "StuffWeightPhase",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightPhase",
+          "record_id": 536410,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815016\"},\"schema\":\"dye\",\"table\":\"StuffWeightPhase\"}",
+          "table": "StuffWeightPhase",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightPhase",
+          "record_id": 536411,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"3\",\"SheetSeries\":\"CL260815016\"},\"schema\":\"dye\",\"table\":\"StuffWeightPhase\"}",
+          "table": "StuffWeightPhase",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightPhase",
+          "record_id": 536624,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815101\"},\"schema\":\"dye\",\"table\":\"StuffWeightPhase\"}",
+          "table": "StuffWeightPhase",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightPhase",
+          "record_id": 536625,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815101\"},\"schema\":\"dye\",\"table\":\"StuffWeightPhase\"}",
+          "table": "StuffWeightPhase",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightPhase",
+          "record_id": 536720,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815146\"},\"schema\":\"dye\",\"table\":\"StuffWeightPhase\"}",
+          "table": "StuffWeightPhase",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightPhase",
+          "record_id": 536721,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815146\"},\"schema\":\"dye\",\"table\":\"StuffWeightPhase\"}",
+          "table": "StuffWeightPhase",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505060,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1206\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"1\",\"ShiftID\":\"A188\",\"WProcessNo\":\"26081423412884652048\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505061,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1356\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"1\",\"ShiftID\":\"A188\",\"WProcessNo\":\"26081423412884652048\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505064,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1096\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"2\",\"ShiftID\":\"A190\",\"WProcessNo\":\"26081501462372914040\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505062,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1536\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"2\",\"ShiftID\":\"A189\",\"WProcessNo\":\"26081509183017116040\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505063,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1536\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"2\",\"ShiftID\":\"A189\",\"WProcessNo\":\"26081509364565370040\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505057,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1093\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"3\",\"ShiftID\":\"A187\",\"WProcessNo\":\"26081510395297002048\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505058,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1123\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"3\",\"ShiftID\":\"A187\",\"WProcessNo\":\"26081510395297002048\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeJobShiftEmp",
+          "record_id": 505059,
+          "legacy_id": "{\"key\":{\"EmpID\":\"HF1600\",\"JobSheetNo\":\"260814G0405\",\"ProcessNo\":\"3\",\"ShiftID\":\"A187\",\"WProcessNo\":\"26081510395297002048\"},\"schema\":\"dye\",\"table\":\"JobShiftEmp\"}",
+          "table": "JobShiftEmp",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202770,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"1\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202771,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"2\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202772,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"1\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202773,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"2\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202774,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"3\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202775,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"3\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"1\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202776,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"3\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"2\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202777,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"3\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"3\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1202778,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"3\",\"SheetSeries\":\"CL260815016\",\"StuffNo\":\"4\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1203253,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815101\",\"StuffNo\":\"1\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1203254,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815101\",\"StuffNo\":\"2\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1203255,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815101\",\"StuffNo\":\"3\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1203256,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815101\",\"StuffNo\":\"1\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1203257,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815101\",\"StuffNo\":\"2\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1203455,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"1\",\"SheetSeries\":\"CL260815146\",\"StuffNo\":\"1\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        },
+        {
+          "entity": "erp_production.SourceDyeStuffWeightDetail",
+          "record_id": 1203456,
+          "legacy_id": "{\"key\":{\"PhaseNo\":\"2\",\"SheetSeries\":\"CL260815146\",\"StuffNo\":\"1\"},\"schema\":\"dye\",\"table\":\"StuffWeightDetail\"}",
+          "table": "StuffWeightDetail",
+          "effect": "原单留档，退出活动办理"
+        }
+      ],
+      "result_rows": [
+        {
+          "entity": "erp_warehouse.SourceDyeSemiStockBook",
+          "record_id": 215088,
+          "legacy_id": "{\"key\":{\"BookNo\":\"235068\"},\"schema\":\"dye\",\"table\":\"SemiStockBook\"}",
+          "WareHouseID": "0803",
+          "LotNo": "DSYD7043-260725",
+          "InQty": null,
+          "InRolls": null,
+          "OutQty": null,
+          "OutRolls": "24.00",
+          "JobSheetNo": "260814G0405",
+          "InPacks": null,
+          "OutPacks": null,
+          "InWeightQty": null,
+          "InLengthQty": null,
+          "InMoney": null,
+          "StorageUnitIDs": null,
+          "OutWeightQty": "19.20",
+          "OutLengthQty": null,
+          "OutMoney": null
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103533,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120784\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.392000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "16.46"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103534,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120785\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.784000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "3.76"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103535,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120786\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.029400",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "2.64"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103536,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120787\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.062400",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "7.36"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103537,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120788\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.443500",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "35.04"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103538,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120789\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.096000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "3.26"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103539,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120790\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.117600",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "2.29"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103540,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120791\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.196000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "2.65"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103541,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120792\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.392000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "6.66"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103542,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120793\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.003700",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "0.44"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103543,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120794\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.057700",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "4.56"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103544,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120795\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.002200",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "0.94"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103545,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120796\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.050000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "1.70"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103546,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120797\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.200000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "2.70"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103547,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120798\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.768000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "18.59"
+        },
+        {
+          "entity": "erp_warehouse.SourceDyeStuffStockBook",
+          "record_id": 1103548,
+          "legacy_id": "{\"key\":{\"BookNo\":\"1120799\"},\"schema\":\"dye\",\"table\":\"StuffStockBook\"}",
+          "WareHouseID": "13",
+          "StorageUnitIDs": "",
+          "InQty": "0.000000",
+          "OutQty": "0.768000",
+          "LotNo": null,
+          "InMoney": "0.00",
+          "OutMoney": "10.14"
+        }
+      ],
+      "supplemental_rows": [
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_warehouse.SourceDyeCarryMaterialDetail",
+          "target_id": 74918,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_quality.SourceDyeDyeCheckout",
+          "target_id": 80740,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_warehouse.SourceDyeSemiOutDetail",
+          "target_id": 52614,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243386,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243387,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247780,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247865,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247910,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388615,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388704,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388945,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388958,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobSheet",
+          "source_id": 92477,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 389006,
+          "relation": "原工卡号"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeSemiOutDetail",
+          "source_id": 52614,
+          "target_entity": "erp_warehouse.SourceDyeSemiOut",
+          "target_id": 52013,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096298,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096299,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096300,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096301,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096302,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096303,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096304,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096305,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243385,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096306,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243386,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096307,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243386,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096308,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243386,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096309,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243386,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096310,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243386,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096311,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243387,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096312,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOut",
+          "source_id": 243387,
+          "target_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "target_id": 1096313,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247780,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536409,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247780,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536410,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247780,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536411,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247780,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247865,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536624,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247865,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536625,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247865,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243386,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247910,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536720,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247910,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536721,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeight",
+          "source_id": 247910,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243387,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388615,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505060,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388615,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505061,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388615,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505060,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388615,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505061,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388704,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505064,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388704,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505064,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388945,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505062,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388945,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505062,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388958,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505063,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 388958,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505063,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 389006,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505057,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 389006,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505058,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 389006,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505059,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 389006,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505057,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 389006,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505058,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeWProcess",
+          "source_id": 389006,
+          "target_entity": "erp_production.SourceDyeJobShiftEmp",
+          "target_id": 505059,
+          "relation": "完整原业务码"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeSemiOut",
+          "source_id": 52013,
+          "target_entity": "erp_warehouse.SourceDyeSemiOutDetail",
+          "target_id": 52614,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096298,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096299,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096300,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096301,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096302,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096303,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096304,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096305,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096306,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243385,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096307,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243386,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096308,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243386,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096309,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243386,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096310,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243386,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096311,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243386,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096312,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243387,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_warehouse.SourceDyeStuffOutDetail",
+          "source_id": 1096313,
+          "target_entity": "erp_warehouse.SourceDyeStuffOut",
+          "target_id": 243387,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536409,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202770,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536409,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202771,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536409,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247780,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536410,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202772,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536410,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202773,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536410,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202774,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536410,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247780,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536411,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202775,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536411,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202776,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536411,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202777,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536411,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1202778,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536411,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247780,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536624,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1203253,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536624,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1203254,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536624,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1203255,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536624,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247865,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536625,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1203256,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536625,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1203257,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536625,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247865,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536720,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1203455,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536720,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247910,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536721,
+          "target_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "target_id": 1203456,
+          "relation": "明细归属"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "source_id": 536721,
+          "target_entity": "erp_production.SourceDyeStuffWeight",
+          "target_id": 247910,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505060,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388615,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505061,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388615,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505064,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388704,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505062,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388945,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505063,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 388958,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505057,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 389006,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505058,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 389006,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeJobShiftEmp",
+          "source_id": 505059,
+          "target_entity": "erp_production.SourceDyeWProcess",
+          "target_id": 389006,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202770,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536409,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202771,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536409,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202772,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536410,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202773,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536410,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202774,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536410,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202775,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536411,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202776,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536411,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202777,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536411,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1202778,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536411,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1203253,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536624,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1203254,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536624,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1203255,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536624,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1203256,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536625,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1203257,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536625,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1203455,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536720,
+          "relation": "全部该类明细已在范围"
+        },
+        {
+          "source_entity": "erp_production.SourceDyeStuffWeightDetail",
+          "source_id": 1203456,
+          "target_entity": "erp_production.SourceDyeStuffWeightPhase",
+          "target_id": 536721,
+          "relation": "全部该类明细已在范围"
+        }
+      ],
+      "links": [
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeCarryMaterialDetail",
+            74918
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_quality.SourceDyeDyeCheckout",
+            80740
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeSemiOutDetail",
+            52614
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243387
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247865
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247910
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388615
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388704
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388945
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388958
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobSheet",
+            92477
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "via": "原工卡号"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeSemiOutDetail",
+            52614
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeSemiOut",
+            52013
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096298
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096299
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096300
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096301
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096302
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096303
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096304
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096305
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096306
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096307
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096308
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096309
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096310
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096311
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243387
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096312
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243387
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096313
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536409
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247865
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247865
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536625
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247865
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247910
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536720
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247910
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536721
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeight",
+            247910
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243387
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388615
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505060
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388615
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505061
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388615
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505060
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388615
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505061
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388704
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505064
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388704
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505064
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388945
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505062
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388945
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505062
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388958
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505063
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            388958
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505063
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505057
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505058
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505059
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505057
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505058
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "to": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505059
+          ],
+          "via": "完整原业务码"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeSemiOut",
+            52013
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeSemiOutDetail",
+            52614
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096298
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096299
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096300
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096301
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096302
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096303
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096304
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096305
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096306
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243385
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096307
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096308
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096309
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096310
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096311
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243386
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096312
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243387
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_warehouse.SourceDyeStuffOutDetail",
+            1096313
+          ],
+          "to": [
+            "erp_warehouse.SourceDyeStuffOut",
+            243387
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536409
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202770
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536409
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202771
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536409
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202772
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202773
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202774
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202775
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202776
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202777
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202778
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247780
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203253
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203254
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203255
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247865
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536625
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203256
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536625
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203257
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536625
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247865
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536720
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203455
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536720
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247910
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536721
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203456
+          ],
+          "via": "明细归属"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536721
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeight",
+            247910
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505060
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388615
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505061
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388615
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505064
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388704
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505062
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388945
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505063
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            388958
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505057
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505058
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeJobShiftEmp",
+            505059
+          ],
+          "to": [
+            "erp_production.SourceDyeWProcess",
+            389006
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202770
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536409
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202771
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536409
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202772
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202773
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202774
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536410
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202775
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202776
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202777
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1202778
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536411
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203253
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203254
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203255
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536624
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203256
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536625
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203257
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536625
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203455
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536720
+          ],
+          "via": "全部该类明细已在范围"
+        },
+        {
+          "from": [
+            "erp_production.SourceDyeStuffWeightDetail",
+            1203456
+          ],
+          "to": [
+            "erp_production.SourceDyeStuffWeightPhase",
+            536721
+          ],
+          "via": "全部该类明细已在范围"
+        }
+      ],
+      "notes": [
+        "撤销顺序：交付/退回及实际库存→包装/称料/报工→进度回写→所选拆合计划。全部原行和旧erpID保留。",
+        "反向流水使用原流水数量与维度；NULL仍为NULL，负数反向为正数；无流水不按计划补造。"
+      ]
+    }
+  },
+  "execution_action_count_before_after": [
+    0,
+    0
+  ],
+  "historical_mutation_actions_run_for_http_verification": false,
+  "sql_server_program_parity_verified_this_turn": false,
+  "all_old_business_workflows_reproduced": false,
+  "exception_document": "旧ERP复刻异常与合理实现说明.md E53-E55",
+  "source_evidence_snapshot": "2026-10-14 verified structure-and-logic.json; current original entry hooks",
+  "test_database": "test_erp_source_additions_20261014 on 5440; existing validated schema; per-test transaction isolation"
+}

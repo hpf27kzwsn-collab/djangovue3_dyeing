@@ -1,0 +1,82 @@
+[
+  {
+    "name": "F_Get_No",
+    "result": null,
+    "input": null
+  },
+  {
+    "name": "F_Get_No",
+    "result": "",
+    "input": ""
+  },
+  {
+    "name": "F_Get_No",
+    "result": "123",
+    "input": "A123B"
+  },
+  {
+    "name": "F_Get_No",
+    "result": "１２３",
+    "input": "１２a３"
+  },
+  {
+    "name": "F_Get_No",
+    "result": "1234567890",
+    "input": "1234567890123456789012345"
+  },
+  {
+    "name": "F_Get_No",
+    "result": "１２345678",
+    "input": "甲１２乙34567890"
+  },
+  {
+    "name": "F_Get_No",
+    "result": "12",
+    "input": "A-1.2"
+  },
+  {
+    "name": "F_Get_No",
+    "result": "",
+    "input": "   "
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": null,
+    "input": null
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": "",
+    "input": ""
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": "123",
+    "input": "A123B"
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": "１２３",
+    "input": "１２a３"
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": "12345678901234567890",
+    "input": "1234567890123456789012345"
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": "１２34567890",
+    "input": "甲１２乙34567890"
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": "12",
+    "input": "A-1.2"
+  },
+  {
+    "name": "Fn_Get_No",
+    "result": "",
+    "input": "   "
+  }
+]

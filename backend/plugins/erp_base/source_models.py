@@ -2371,6 +2371,33 @@ class SourceDyeHRewardPunish(SourceRecord):
         verbose_name=verbose_name_plural='基础主数据相关表（h_RewardPunish，待确认）'
         ordering=["-id"]
 
+class SourceDyeHSalaryAttend(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='h_SalaryAttend'
+    SOURCE_FIELDS={'ID': 'old_id', 'EmpID': 'old_emp_id', 'FullDays': 'old_full_days', 'WorkDays': 'old_work_days', 'Remarks': 'old_remarks', 'FullWorkMoney': 'old_full_work_money', 'CalcMonth': 'old_calc_month', 'StationID': 'old_station_id', 'ShiftID': 'old_shift_id'}
+    SOURCE_KEY=('ID', 'CalcMonth')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_calc_month': 'Chinese_PRC_CI_AS', 'old_station_id': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_id=models.CharField('ID', null=False, blank=True, max_length=50)
+    old_emp_id=models.CharField('EmpID', null=True, blank=True, max_length=50)
+    old_full_days=models.IntegerField('FullDays', null=True, blank=True)
+    old_work_days=models.DecimalField('WorkDays', null=True, blank=True, max_digits=5, decimal_places=1)
+    old_remarks=models.CharField('Remarks', null=True, blank=True, max_length=512)
+    old_full_work_money=models.DecimalField('FullWorkMoney', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_calc_month=models.CharField('CalcMonth', null=False, blank=True, max_length=6)
+    old_station_id=models.CharField('StationID', null=True, blank=True, max_length=10)
+    old_shift_id=models.CharField('ShiftID', null=True, blank=True, max_length=10)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_h_salaryattend'
+        indexes=[models.Index(fields=['source_batch', 'old_id', 'old_calc_month'],name='src_63fb8b45249ec942'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_id'))),Upper(RTrim(models.F('old_calc_month'))),name='src_ci_63fb8b45249ec942')]
+        verbose_name=verbose_name_plural='人员出勤原始汇总（h_SalaryAttend）'
+        ordering=["-id"]
+
 class SourceDyeHOLIDAYS(SourceRecord):
     SOURCE_SCHEMA='dye'
     SOURCE_TABLE='HOLIDAYS'
@@ -5781,6 +5808,27 @@ class SourceDyeRequestLimit(SourceRecord):
         verbose_name=verbose_name_plural='其他或待确认相关表（RequestLimit，待确认）'
         ordering=["-id"]
 
+class SourceDyeSAccMonth(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_AccMonth'
+    SOURCE_FIELDS={'AccMonth': 'old_acc_month', 'StartTime': 'old_start_time', 'EndTime': 'old_end_time'}
+    SOURCE_KEY=('AccMonth',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_start_time': 'Chinese_PRC_CI_AS', 'old_end_time': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_acc_month=models.IntegerField('月份数组', null=False, blank=False)
+    old_start_time=models.CharField('结束时间', null=True, blank=True, max_length=14)
+    old_end_time=models.CharField('开始时间', null=True, blank=True, max_length=14)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_accmonth'
+        indexes=[models.Index(fields=['source_batch', 'old_acc_month'],name='src_c32d67b6d53ebf89')]
+        verbose_name=verbose_name_plural='原基础配置（s_AccMonth）'
+        ordering=["-id"]
+
 class SourceDyeSAutoID(SourceRecord):
     SOURCE_SCHEMA='dye'
     SOURCE_TABLE='s_AutoID'
@@ -5823,6 +5871,230 @@ class SourceDyeSCorpTitle(SourceRecord):
         db_table='src_dye_s_corptitle'
         indexes=[models.Index(fields=['source_batch', 'old_code'],name='src_8bf1b72ba35b7cc1'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_code'))),name='src_ci_8bf1b72ba35b7cc1')]
         verbose_name=verbose_name_plural='公司抬头资料'
+        ordering=["-id"]
+
+class SourceDyeSDataLink(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_DataLink'
+    SOURCE_FIELDS={'LinkNo': 'old_link_no', 'DataTableName': 'old_data_table_name', 'FieldName': 'old_field_name', 'DestDataTableName': 'old_dest_data_table_name', 'LinkFieldName': 'old_link_field_name', 'SQL': 'old_sql', 'Alias': 'old_alias', 'FuncNo': 'old_func_no', 'FormName': 'old_form_name', 'IsWebSite': 'old_is_web_site'}
+    SOURCE_KEY=('LinkNo',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_link_no': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_field_name': 'Chinese_PRC_CI_AS', 'old_dest_data_table_name': 'Chinese_PRC_CI_AS', 'old_link_field_name': 'Chinese_PRC_CI_AS', 'old_sql': 'Chinese_PRC_CI_AS', 'old_alias': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_link_no=models.CharField('链接编号', null=False, blank=True, max_length=20)
+    old_data_table_name=models.CharField('DataTableName', null=True, blank=True, max_length=50)
+    old_field_name=models.CharField('取值字段名', null=True, blank=True, max_length=50)
+    old_dest_data_table_name=models.CharField('目标表名', null=True, blank=True, max_length=50)
+    old_link_field_name=models.CharField('目标表主键名称', null=True, blank=True, max_length=50)
+    old_sql=models.TextField('SQL', null=True, blank=True)
+    old_alias=models.CharField('别名', null=True, blank=True, max_length=50)
+    old_func_no=models.CharField('模块编号', null=True, blank=True, max_length=6)
+    old_form_name=models.CharField('FormName', null=True, blank=True, max_length=50)
+    old_is_web_site=models.BooleanField('网址', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_datalink'
+        indexes=[models.Index(fields=['source_batch', 'old_link_no'],name='src_2bf02e8a0caee389'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_link_no'))),name='src_ci_2bf02e8a0caee389')]
+        verbose_name=verbose_name_plural='原基础配置（s_DataLink）'
+        ordering=["-id"]
+
+class SourceDyeSDataTable(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_DataTable'
+    SOURCE_FIELDS={'DataTableName': 'old_data_table_name', 'Kind': 'old_kind', 'Alias': 'old_alias', 'SQL': 'old_sql', 'UpdateSQL': 'old_update_sql', 'MasterDataTableName': 'old_master_data_table_name', 'DetailDataTableNames': 'old_detail_data_table_names', 'IsLoad': 'old_is_load', 'ModuleNo': 'old_module_no', 'Description': 'old_description', 'ModuleName': 'old_module_name', 'PrimaryKey': 'old_primary_key', 'IsCanExport': 'old_is_can_export', 'IsCreaterModify': 'old_is_creater_modify', 'TableName': 'old_table_name', 'OrderBy': 'old_order_by', 'RelaFieldNames': 'old_rela_field_names', 'MasterRelaFieldNames': 'old_master_rela_field_names', 'BeforeUpdateSQL': 'old_before_update_sql', 'BeforeDeleteSQL': 'old_before_delete_sql', 'BeforeApproveSQL': 'old_before_approve_sql', 'AfterApproveSQL': 'old_after_approve_sql', 'AfterUnApproveSQL': 'old_after_un_approve_sql', 'BeforeUnApproveSQL': 'old_before_un_approve_sql', 'BeforeAbortSQL': 'old_before_abort_sql', 'AfterAbortSQL': 'old_after_abort_sql', 'BeforeUnAbortSQL': 'old_before_un_abort_sql', 'AfterUnAbortSQL': 'old_after_un_abort_sql', 'AfterCloseSQL': 'old_after_close_sql', 'BeforeUnCloseSQL': 'old_before_un_close_sql', 'AfterUnCloseSQL': 'old_after_un_close_sql', 'BeforeSaveSQL': 'old_before_save_sql', 'AfterSaveSQL': 'old_after_save_sql', 'BeforeCloseSQL': 'old_before_close_sql', 'BeforePrintSQL': 'old_before_print_sql', 'AfterPrintSQL': 'old_after_print_sql', 'IsSaveUpdateStock': 'old_is_save_update_stock', 'NotNullDetails': 'old_not_null_details', 'Caption_Vietnamese': 'old_caption_vietnamese', 'IsDetailSelfQuery': 'old_is_detail_self_query', 'BeforeSubmitSQL': 'old_before_submit_sql', 'AfterSubmitSQL': 'old_after_submit_sql', 'RefreshAfterSaving': 'old_refresh_after_saving', 'IsRequired': 'old_is_required'}
+    SOURCE_KEY=('DataTableName',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_kind': 'Chinese_PRC_CI_AS', 'old_alias': 'Chinese_PRC_CI_AS', 'old_sql': 'Chinese_PRC_CI_AS', 'old_update_sql': 'Chinese_PRC_CI_AS', 'old_master_data_table_name': 'Chinese_PRC_CI_AS', 'old_detail_data_table_names': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_module_name': 'Chinese_PRC_CI_AS', 'old_primary_key': 'Chinese_PRC_CI_AS', 'old_table_name': 'Chinese_PRC_CI_AS', 'old_order_by': 'Chinese_PRC_CI_AS', 'old_rela_field_names': 'Chinese_PRC_CI_AS', 'old_master_rela_field_names': 'Chinese_PRC_CI_AS', 'old_before_update_sql': 'Chinese_PRC_CI_AS', 'old_before_delete_sql': 'Chinese_PRC_CI_AS', 'old_before_approve_sql': 'Chinese_PRC_CI_AS', 'old_after_approve_sql': 'Chinese_PRC_CI_AS', 'old_after_un_approve_sql': 'Chinese_PRC_CI_AS', 'old_before_un_approve_sql': 'Chinese_PRC_CI_AS', 'old_before_abort_sql': 'Chinese_PRC_CI_AS', 'old_after_abort_sql': 'Chinese_PRC_CI_AS', 'old_before_un_abort_sql': 'Chinese_PRC_CI_AS', 'old_after_un_abort_sql': 'Chinese_PRC_CI_AS', 'old_after_close_sql': 'Chinese_PRC_CI_AS', 'old_before_un_close_sql': 'Chinese_PRC_CI_AS', 'old_after_un_close_sql': 'Chinese_PRC_CI_AS', 'old_before_save_sql': 'Chinese_PRC_CI_AS', 'old_after_save_sql': 'Chinese_PRC_CI_AS', 'old_before_close_sql': 'Chinese_PRC_CI_AS', 'old_before_print_sql': 'Chinese_PRC_CI_AS', 'old_after_print_sql': 'Chinese_PRC_CI_AS', 'old_not_null_details': 'Chinese_PRC_CI_AS', 'old_caption_vietnamese': 'Chinese_PRC_CI_AS', 'old_before_submit_sql': 'Chinese_PRC_CI_AS', 'old_after_submit_sql': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_data_table_name=models.CharField('数据集名', null=False, blank=True, max_length=50)
+    old_kind=models.CharField('数据集分类', null=False, blank=True, max_length=10)
+    old_alias=models.CharField('别名', null=True, blank=True, max_length=50)
+    old_sql=models.TextField('数据集语句', null=True, blank=True)
+    old_update_sql=models.TextField('表修改语句', null=True, blank=True)
+    old_master_data_table_name=models.CharField('主数据集名称', null=True, blank=True, max_length=50)
+    old_detail_data_table_names=models.CharField('从数据集名称', null=True, blank=True, max_length=500)
+    old_is_load=models.BooleanField('启动装载', null=True, blank=True)
+    old_module_no=models.IntegerField('模块编号', null=True, blank=True)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=500)
+    old_module_name=models.CharField('模块名称', null=True, blank=True, max_length=20)
+    old_primary_key=models.CharField('更新主键', null=True, blank=True, max_length=200)
+    old_is_can_export=models.BooleanField('导出数据', null=True, blank=True)
+    old_is_creater_modify=models.BooleanField('只允许制单人修改', null=True, blank=True)
+    old_table_name=models.CharField('物理表名', null=True, blank=True, max_length=50)
+    old_order_by=models.CharField('排序语句', null=True, blank=True, max_length=100)
+    old_rela_field_names=models.CharField('本表关联主表字段列表', null=True, blank=True, max_length=100)
+    old_master_rela_field_names=models.CharField('关联数据集字段列表', null=True, blank=True, max_length=100)
+    old_before_update_sql=models.TextField('反修改前SQL', null=True, blank=True)
+    old_before_delete_sql=models.TextField('删除前SQL', null=True, blank=True)
+    old_before_approve_sql=models.TextField('审核前SQL', null=True, blank=True)
+    old_after_approve_sql=models.TextField('审核后SQL', null=True, blank=True)
+    old_after_un_approve_sql=models.TextField('反审核后SQL', null=True, blank=True)
+    old_before_un_approve_sql=models.TextField('反审核前SQL', null=True, blank=True)
+    old_before_abort_sql=models.TextField('中止前SQL', null=True, blank=True)
+    old_after_abort_sql=models.TextField('中止后SQL', null=True, blank=True)
+    old_before_un_abort_sql=models.TextField('反中止前SQL', null=True, blank=True)
+    old_after_un_abort_sql=models.TextField('反中止后SQL', null=True, blank=True)
+    old_after_close_sql=models.TextField('结案后SQL', null=True, blank=True)
+    old_before_un_close_sql=models.TextField('反结案前SQL', null=True, blank=True)
+    old_after_un_close_sql=models.TextField('反结案后SQL', null=True, blank=True)
+    old_before_save_sql=models.TextField('保存前SQL', null=True, blank=True)
+    old_after_save_sql=models.TextField('保存后SQL', null=True, blank=True)
+    old_before_close_sql=models.TextField('结案前SQL', null=True, blank=True)
+    old_before_print_sql=models.TextField('打印前SQL', null=True, blank=True)
+    old_after_print_sql=models.TextField('打印后SQL', null=True, blank=True)
+    old_is_save_update_stock=models.BooleanField('保存更新库存', null=True, blank=True)
+    old_not_null_details=models.CharField('不运行为空的子表名', null=True, blank=True, max_length=200)
+    old_caption_vietnamese=models.CharField('越南语标题', null=True, blank=True, max_length=100)
+    old_is_detail_self_query=models.BooleanField('子表是否自查询', null=True, blank=True)
+    old_before_submit_sql=models.TextField('提交前SQL', null=True, blank=True)
+    old_after_submit_sql=models.TextField('提交后SQL', null=True, blank=True)
+    old_refresh_after_saving=models.BooleanField('保存后刷新', null=True, blank=True)
+    old_is_required=models.BooleanField('数据必填', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_datatable'
+        indexes=[models.Index(fields=['source_batch', 'old_data_table_name'],name='src_0af8d91a5951ab92'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_data_table_name'))),name='src_ci_0af8d91a5951ab92')]
+        verbose_name=verbose_name_plural='原基础配置（s_DataTable）'
+        ordering=["-id"]
+
+class SourceDyeSDataTableField(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_DataTableField'
+    SOURCE_FIELDS={'DataTableName': 'old_data_table_name', 'FieldName': 'old_field_name', 'FieldKind': 'old_field_kind', 'Express': 'old_express', 'FieldCaption': 'old_field_caption', 'CodeDependentField': 'old_code_dependent_field', 'DateDependentField': 'old_date_dependent_field', 'GenerateTime': 'old_generate_time', 'Prefix': 'old_prefix', 'EndCode': 'old_end_code', 'IsAlone': 'old_is_alone', 'YearCode': 'old_year_code', 'MonthCode': 'old_month_code', 'IsUseDayCode': 'old_is_use_day_code', 'FixedLength': 'old_fixed_length', 'IsRequired': 'old_is_required', 'IsReadOnly': 'old_is_read_only', 'IsToTrack': 'old_is_to_track', 'EditMask': 'old_edit_mask', 'DisplayFormat': 'old_display_format', 'RegularExpression': 'old_regular_expression', 'RegularPrompt': 'old_regular_prompt', 'EditorKind': 'old_editor_kind', 'EditorID': 'old_editor_id', 'IsSys': 'old_is_sys', 'DaysOffSet': 'old_days_off_set', 'Description': 'old_description', 'IsAddReferField': 'old_is_add_refer_field', 'DisplayName': 'old_display_name', 'DefaultValue': 'old_default_value', 'MaskType': 'old_mask_type', 'FieldType': 'old_field_type', 'IsCopyField': 'old_is_copy_field', 'RelyRule': 'old_rely_rule', 'YearMonthSplit': 'old_year_month_split', 'MonthDaySplit': 'old_month_day_split', 'DayQueueSplit': 'old_day_queue_split', 'LinkNo': 'old_link_no', 'Precision': 'old_precision', 'CodeByAccMonth': 'old_code_by_acc_month', 'IsCheckDuplicate': 'old_is_check_duplicate', 'MaxValue': 'old_max_value', 'MinValue': 'old_min_value', 'Caption_Vietnamese': 'old_caption_vietnamese', 'EditIsControled': 'old_edit_is_controled', 'IsEnForceExpress': 'old_is_en_force_express', 'DLParentParamCols': 'old_dlparent_param_cols', 'DLSelfParamCols': 'old_dlself_param_cols', 'DefaultLoadProc': 'old_default_load_proc'}
+    SOURCE_KEY=('DataTableName', 'FieldName')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_field_name': 'Chinese_PRC_CI_AS', 'old_field_kind': 'Chinese_PRC_CI_AS', 'old_express': 'Chinese_PRC_CI_AS', 'old_field_caption': 'Chinese_PRC_CI_AS', 'old_code_dependent_field': 'Chinese_PRC_CI_AS', 'old_date_dependent_field': 'Chinese_PRC_CI_AS', 'old_prefix': 'Chinese_PRC_CI_AS', 'old_end_code': 'Chinese_PRC_CI_AS', 'old_edit_mask': 'Chinese_PRC_CI_AS', 'old_display_format': 'Chinese_PRC_CI_AS', 'old_regular_expression': 'Chinese_PRC_CI_AS', 'old_regular_prompt': 'Chinese_PRC_CI_AS', 'old_editor_kind': 'Chinese_PRC_CI_AS', 'old_editor_id': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_display_name': 'Chinese_PRC_CI_AS', 'old_default_value': 'Chinese_PRC_CI_AS', 'old_field_type': 'Chinese_PRC_CI_AS', 'old_rely_rule': 'Chinese_PRC_CI_AS', 'old_year_month_split': 'Chinese_PRC_CI_AS', 'old_month_day_split': 'Chinese_PRC_CI_AS', 'old_day_queue_split': 'Chinese_PRC_CI_AS', 'old_link_no': 'Chinese_PRC_CI_AS', 'old_caption_vietnamese': 'Chinese_PRC_CI_AS', 'old_dlparent_param_cols': 'Chinese_PRC_CI_AS', 'old_dlself_param_cols': 'Chinese_PRC_CI_AS', 'old_default_load_proc': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_data_table_name=models.CharField('数据表名称', null=False, blank=True, max_length=50)
+    old_field_name=models.CharField('字段名称', null=False, blank=True, max_length=50)
+    old_field_kind=models.CharField('编码方案', null=True, blank=True, max_length=50)
+    old_express=models.CharField('表达式', null=True, blank=True, max_length=500)
+    old_field_caption=models.CharField('字段名称', null=True, blank=True, max_length=50)
+    old_code_dependent_field=models.CharField('编码依赖字段', null=True, blank=True, max_length=50)
+    old_date_dependent_field=models.CharField('日期编码依赖字段', null=True, blank=True, max_length=20)
+    old_generate_time=models.IntegerField('产生时机', null=True, blank=True)
+    old_prefix=models.CharField('前缀', null=True, blank=True, max_length=10)
+    old_end_code=models.CharField('后缀', null=True, blank=True, max_length=50)
+    old_is_alone=models.BooleanField('独立编码', null=True, blank=True)
+    old_year_code=models.IntegerField('年份编码', null=True, blank=True)
+    old_month_code=models.IntegerField('月份编码', null=True, blank=True)
+    old_is_use_day_code=models.BooleanField('是否用日期', null=True, blank=True)
+    old_fixed_length=models.IntegerField('固定长度', null=True, blank=True)
+    old_is_required=models.BooleanField('必填项', null=True, blank=True)
+    old_is_read_only=models.BooleanField('只读', null=True, blank=True)
+    old_is_to_track=models.BooleanField('字段修改跟踪', null=True, blank=True)
+    old_edit_mask=models.CharField('编辑格式', null=True, blank=True, max_length=100)
+    old_display_format=models.CharField('显示格式', null=True, blank=True, max_length=100)
+    old_regular_expression=models.CharField('正则表达式', null=True, blank=True, max_length=100)
+    old_regular_prompt=models.CharField('正则提示', null=True, blank=True, max_length=100)
+    old_editor_kind=models.CharField('编辑形式', null=True, blank=True, max_length=20)
+    old_editor_id=models.CharField('网格编辑方法代码', null=True, blank=True, max_length=50)
+    old_is_sys=models.BooleanField('是否固定', null=True, blank=True)
+    old_days_off_set=models.IntegerField('日期间隔', null=True, blank=True)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=500)
+    old_is_add_refer_field=models.BooleanField('是否生成参照字段', null=True, blank=True)
+    old_display_name=models.CharField('字段显示名称', null=True, blank=True, max_length=20)
+    old_default_value=models.CharField('固定默认值', null=True, blank=True, max_length=1000)
+    old_mask_type=models.IntegerField('Mast类型', null=True, blank=True)
+    old_field_type=models.CharField('字段类型', null=True, blank=True, max_length=20)
+    old_is_copy_field=models.BooleanField('IsCopyField', null=True, blank=True)
+    old_rely_rule=models.CharField('依赖号码产生规则', null=True, blank=True, max_length=50)
+    old_year_month_split=models.CharField('YearMonthSplit', null=True, blank=True, max_length=10)
+    old_month_day_split=models.CharField('MonthDaySplit', null=True, blank=True, max_length=10)
+    old_day_queue_split=models.CharField('DayQueueSplit', null=True, blank=True, max_length=10)
+    old_link_no=models.CharField('链接编号', null=True, blank=True, max_length=20)
+    old_precision=models.IntegerField('Precision', null=True, blank=True)
+    old_code_by_acc_month=models.BooleanField('按财务月编码', null=True, blank=True)
+    old_is_check_duplicate=models.BooleanField('是否启用唯一性验证', null=True, blank=True)
+    old_max_value=models.DecimalField('MaxValue', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_min_value=models.DecimalField('MinValue', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_caption_vietnamese=models.CharField('Caption_Vietnamese', null=True, blank=True, max_length=100)
+    old_edit_is_controled=models.BooleanField('修改状态禁止编辑', null=True, blank=True)
+    old_is_en_force_express=models.BooleanField('IsEnForceExpress', null=True, blank=True)
+    old_dlparent_param_cols=models.CharField('DLParentParamCols', null=True, blank=True, max_length=200)
+    old_dlself_param_cols=models.CharField('DLSelfParamCols', null=True, blank=True, max_length=200)
+    old_default_load_proc=models.CharField('DefaultLoadProc', null=True, blank=True, max_length=200)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_datatablefield'
+        indexes=[models.Index(fields=['source_batch', 'old_data_table_name', 'old_field_name'],name='src_f1e40d988df3d229'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_data_table_name'))),Upper(RTrim(models.F('old_field_name'))),name='src_ci_f1e40d988df3d229')]
+        verbose_name=verbose_name_plural='原基础配置（s_DataTableField）'
+        ordering=["-id"]
+
+class SourceDyeSDBCombo(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_DBCombo'
+    SOURCE_FIELDS={'ComboID': 'old_combo_id', 'ComboName': 'old_combo_name', 'Description': 'old_description', 'Kind': 'old_kind'}
+    SOURCE_KEY=('ComboID',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_combo_id': 'Chinese_PRC_CI_AS', 'old_combo_name': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_kind': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_combo_id=models.CharField('组合框ID', null=False, blank=True, max_length=10)
+    old_combo_name=models.CharField('组合框名', null=True, blank=True, max_length=50)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=50)
+    old_kind=models.CharField('类型', null=True, blank=True, max_length=10)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_dbcombo'
+        indexes=[models.Index(fields=['source_batch', 'old_combo_id'],name='src_8cd605a02f8a09b7'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_combo_id'))),name='src_ci_8cd605a02f8a09b7')]
+        verbose_name=verbose_name_plural='原基础配置（s_DBCombo）'
+        ordering=["-id"]
+
+class SourceDyeSDBComboValue(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_DBComboValue'
+    SOURCE_FIELDS={'ComboID': 'old_combo_id', 'KeyValue': 'old_key_value', 'DisplayValue': 'old_display_value', 'DisplayIndex': 'old_display_index'}
+    SOURCE_KEY=('ComboID', 'KeyValue')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_combo_id': 'Chinese_PRC_CI_AS', 'old_key_value': 'Chinese_PRC_CI_AS', 'old_display_value': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_combo_id=models.CharField('组合框ID', null=False, blank=True, max_length=10)
+    old_key_value=models.CharField('值', null=False, blank=True, max_length=50)
+    old_display_value=models.CharField('显示值', null=True, blank=True, max_length=50)
+    old_display_index=models.IntegerField('显示顺序', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_dbcombovalue'
+        indexes=[models.Index(fields=['source_batch', 'old_combo_id', 'old_key_value'],name='src_639d9c375326aa8f'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_combo_id'))),Upper(RTrim(models.F('old_key_value'))),name='src_ci_639d9c375326aa8f')]
+        verbose_name=verbose_name_plural='业务枚举字典原值（s_DBComboValue）'
+        ordering=["-id"]
+
+class SourceDyeSFieldRight(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_FieldRight'
+    SOURCE_FIELDS={'EmpID': 'old_emp_id', 'DataTableName': 'old_data_table_name', 'FieldName': 'old_field_name', 'FieldRight': 'old_field_right', 'Remarks': 'old_remarks'}
+    SOURCE_KEY=('EmpID', 'DataTableName', 'FieldName')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_emp_id': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_field_name': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_emp_id=models.CharField('员工编号', null=False, blank=True, max_length=50)
+    old_data_table_name=models.CharField('数据集表名', null=False, blank=True, max_length=50)
+    old_field_name=models.CharField('字段列名', null=False, blank=True, max_length=50)
+    old_field_right=models.IntegerField('字段权限', null=True, blank=True)
+    old_remarks=models.CharField('Remarks', null=True, blank=True, max_length=100)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_fieldright'
+        indexes=[models.Index(fields=['source_batch', 'old_emp_id', 'old_data_table_name', 'old_field_name'],name='src_2778343c303496d7'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_emp_id'))),Upper(RTrim(models.F('old_data_table_name'))),Upper(RTrim(models.F('old_field_name'))),name='src_ci_2778343c303496d7')]
+        verbose_name=verbose_name_plural='原基础配置（s_FieldRight）'
         ordering=["-id"]
 
 class SourceDyeSFlow(SourceRecord):
@@ -6025,6 +6297,469 @@ class SourceDyeSFlowTask(SourceRecord):
         verbose_name=verbose_name_plural='旧审批待办及签署事实'
         ordering=["-id"]
 
+class SourceDyeSFormParam(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_FormParam'
+    SOURCE_FIELDS={'FormName': 'old_form_name', 'FuncNo': 'old_func_no', 'FormKind': 'old_form_kind', 'Stream': 'old_stream', 'IsAutoDisposeDataTable': 'old_is_auto_dispose_data_table', 'Description': 'old_description', 'CreateDate': 'old_create_date', 'Creater': 'old_creater', 'ModifyDate': 'old_modify_date', 'Modifyer': 'old_modifyer', 'MasterDataTableName': 'old_master_data_table_name', 'MasterQueryNo': 'old_master_query_no', 'IsNotShowQuery': 'old_is_not_show_query', 'LimitMasterQueryNos': 'old_limit_master_query_nos', 'IsDetailList': 'old_is_detail_list', 'AutoQueryTime': 'old_auto_query_time', 'AutoUnSelect': 'old_auto_un_select', 'NoShowQueryNo': 'old_no_show_query_no'}
+    SOURCE_KEY=('FuncNo', 'FormName')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_form_name': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_kind': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_master_data_table_name': 'Chinese_PRC_CI_AS', 'old_limit_master_query_nos': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_form_name=models.CharField('窗体名称', null=False, blank=True, max_length=50)
+    old_func_no=models.CharField('功能号', null=False, blank=True, max_length=6)
+    old_form_kind=models.CharField('窗体类型', null=True, blank=True, max_length=10)
+    old_stream=models.BinaryField('窗体模版', null=True, blank=True, editable=True)
+    old_is_auto_dispose_data_table=models.BooleanField('关闭清理数据', null=True, blank=True)
+    old_description=models.CharField('说明', null=True, blank=True, max_length=500)
+    old_create_date=models.DateTimeField('创建时间', null=True, blank=True)
+    old_creater=models.CharField('创建人', null=True, blank=True, max_length=10)
+    old_modify_date=models.DateTimeField('修改时间', null=True, blank=True)
+    old_modifyer=models.CharField('修改人', null=True, blank=True, max_length=10)
+    old_master_data_table_name=models.CharField('主数据集名', null=True, blank=True, max_length=50)
+    old_master_query_no=models.IntegerField('默认查询方案', null=True, blank=True)
+    old_is_not_show_query=models.BooleanField('IsNotShowQuery', null=True, blank=True)
+    old_limit_master_query_nos=models.CharField('LimitMasterQueryNos', null=True, blank=True, max_length=50)
+    old_is_detail_list=models.BooleanField('IsDetailList', null=True, blank=True)
+    old_auto_query_time=models.IntegerField('AutoQueryTime', null=True, blank=True)
+    old_auto_un_select=models.BooleanField('AutoUnSelect', null=True, blank=True)
+    old_no_show_query_no=models.IntegerField('查询方案查询不弹窗', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_formparam'
+        indexes=[models.Index(fields=['source_batch', 'old_func_no', 'old_form_name'],name='src_8f9d89522c00ce02'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_func_no'))),Upper(RTrim(models.F('old_form_name'))),name='src_ci_8f9d89522c00ce02')]
+        verbose_name=verbose_name_plural='原基础配置（s_FormParam）'
+        ordering=["-id"]
+
+class SourceDyeSFunctions(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_Functions'
+    SOURCE_FIELDS={'FuncNo': 'old_func_no', 'FuncName': 'old_func_name', 'FullName': 'old_full_name', 'IsEnable': 'old_is_enable', 'ModuleNo': 'old_module_no', 'CryptString': 'old_crypt_string', 'DllPath': 'old_dll_path', 'NameSpace': 'old_name_space', 'FormName': 'old_form_name', 'FormCaption': 'old_form_caption', 'ShowKind': 'old_show_kind', 'FormParam': 'old_form_param', 'FuncTag': 'old_func_tag', 'RelaFuncNo': 'old_rela_func_no', 'IsCanDesignForm': 'old_is_can_design_form', 'Description': 'old_description', 'FuncParams': 'old_func_params', 'IsDirectEdit': 'old_is_direct_edit', 'IsRptMultPrint': 'old_is_rpt_mult_print', 'IconName': 'old_icon_name', 'IsNotSQLTrans': 'old_is_not_sqltrans', 'Caption_Vietnamese': 'old_caption_vietnamese', 'ParamDescription': 'old_param_description', 'URL': 'old_url', 'UrlEnable': 'old_url_enable', 'SortNo': 'old_sort_no', 'AppUrlEnable': 'old_app_url_enable', 'AppURL': 'old_app_url', 'UseThirdProgram': 'old_use_third_program', 'Remarks': 'old_remarks', 'HoldDownShow': 'old_hold_down_show'}
+    SOURCE_KEY=('FuncNo',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_func_no': 'Chinese_PRC_CI_AS', 'old_func_name': 'Chinese_PRC_CI_AS', 'old_full_name': 'Chinese_PRC_CI_AS', 'old_crypt_string': 'Chinese_PRC_CI_AS', 'old_dll_path': 'Chinese_PRC_CI_AS', 'old_name_space': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS', 'old_form_caption': 'Chinese_PRC_CI_AS', 'old_show_kind': 'Chinese_PRC_CI_AS', 'old_form_param': 'Chinese_PRC_CI_AS', 'old_func_tag': 'Chinese_PRC_CI_AS', 'old_rela_func_no': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_func_params': 'Chinese_PRC_CI_AS', 'old_icon_name': 'Chinese_PRC_CI_AS', 'old_caption_vietnamese': 'Chinese_PRC_CI_AS', 'old_param_description': 'Chinese_PRC_CI_AS', 'old_url': 'Chinese_PRC_CI_AS', 'old_app_url': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_func_no=models.CharField('功能编号', null=False, blank=True, max_length=6)
+    old_func_name=models.CharField('功能名称', null=True, blank=True, max_length=64)
+    old_full_name=models.CharField('全名', null=True, blank=True, max_length=60)
+    old_is_enable=models.BooleanField('是否启用', null=True, blank=True)
+    old_module_no=models.IntegerField('模块编号', null=True, blank=True)
+    old_crypt_string=models.CharField('加密串', null=True, blank=True, max_length=100)
+    old_dll_path=models.CharField('dll所在路径', null=True, blank=True, max_length=100)
+    old_name_space=models.CharField('命名空间', null=True, blank=True, max_length=50)
+    old_form_name=models.CharField('窗口类名称', null=True, blank=True, max_length=50)
+    old_form_caption=models.CharField('窗口标题', null=True, blank=True, max_length=50)
+    old_show_kind=models.CharField('窗口显示模式', null=True, blank=True, max_length=20)
+    old_form_param=models.CharField('窗体启动附加参数', null=True, blank=True, max_length=200)
+    old_func_tag=models.CharField('功能标识号', null=True, blank=True, max_length=50)
+    old_rela_func_no=models.CharField('关联功能号', null=True, blank=True, max_length=200)
+    old_is_can_design_form=models.BooleanField('定制否', null=True, blank=True)
+    old_description=models.TextField('描述', null=True, blank=True)
+    old_func_params=models.CharField('FuncParams', null=True, blank=True, max_length=500)
+    old_is_direct_edit=models.BooleanField('IsDirectEdit', null=True, blank=True)
+    old_is_rpt_mult_print=models.BooleanField('IsRptMultPrint', null=True, blank=True)
+    old_icon_name=models.CharField('IconName', null=True, blank=True, max_length=256)
+    old_is_not_sqltrans=models.BooleanField('IsNotSQLTrans', null=True, blank=True)
+    old_caption_vietnamese=models.CharField('Caption_Vietnamese', null=True, blank=True, max_length=100)
+    old_param_description=models.CharField('ParamDescription', null=True, blank=True, max_length=500)
+    old_url=models.CharField('URL', null=True, blank=True, max_length=512)
+    old_url_enable=models.BooleanField('UrlEnable', null=True, blank=True)
+    old_sort_no=models.IntegerField('SortNo', null=True, blank=True)
+    old_app_url_enable=models.BooleanField('AppUrlEnable', null=True, blank=True)
+    old_app_url=models.CharField('AppURL', null=True, blank=True, max_length=512)
+    old_use_third_program=models.IntegerField('UseThirdProgram', null=True, blank=True)
+    old_remarks=models.CharField('Remarks', null=True, blank=True, max_length=1)
+    old_hold_down_show=models.BooleanField('HoldDownShow', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_functions'
+        indexes=[models.Index(fields=['source_batch', 'old_func_no'],name='src_341e95ed134d35a9'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_func_no'))),name='src_ci_341e95ed134d35a9')]
+        verbose_name=verbose_name_plural='原基础配置（s_Functions）'
+        ordering=["-id"]
+
+class SourceDyeSFuncUser(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_FuncUser'
+    SOURCE_FIELDS={'EmpID': 'old_emp_id', 'FuncNo': 'old_func_no', 'uiSerialNumber': 'old_ui_serial_number'}
+    SOURCE_KEY=('EmpID', 'FuncNo')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_emp_id': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_emp_id=models.CharField('员工ID', null=False, blank=True, max_length=50)
+    old_func_no=models.CharField('功能号', null=False, blank=True, max_length=6)
+    old_ui_serial_number=models.IntegerField('序号', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_funcuser'
+        indexes=[models.Index(fields=['source_batch', 'old_emp_id', 'old_func_no'],name='src_96b9c4d4f265bdbd'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_emp_id'))),Upper(RTrim(models.F('old_func_no'))),name='src_ci_96b9c4d4f265bdbd')]
+        verbose_name=verbose_name_plural='原基础配置（s_FuncUser）'
+        ordering=["-id"]
+
+class SourceDyeSGridColumnParam(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_GridColumnParam'
+    SOURCE_FIELDS={'FuncNo': 'old_func_no', 'FormName': 'old_form_name', 'GridName': 'old_grid_name', 'FieldName': 'old_field_name', 'DataTableName': 'old_data_table_name', 'ColumnHeader': 'old_column_header', 'DisplayWidth': 'old_display_width', 'MinWidth': 'old_min_width', 'DisplayIndex': 'old_display_index', 'IsAllowFocus': 'old_is_allow_focus', 'IsAllowMerge': 'old_is_allow_merge', 'IsVisiable': 'old_is_visiable', 'IsRequired': 'old_is_required', 'IsReadOnly': 'old_is_read_only', 'DefaultValue': 'old_default_value', 'FootFormat': 'old_foot_format', 'SumType': 'old_sum_type', 'GroupType': 'old_group_type', 'GroupFormat': 'old_group_format', 'AllowSort': 'old_allow_sort', 'BandTitle': 'old_band_title', 'EditorID': 'old_editor_id', 'EditorKind': 'old_editor_kind', 'DetailPropertyXML': 'old_detail_property_xml', 'IsSelfWarp': 'old_is_self_warp', 'ExportType': 'old_export_type', 'IsBestFit': 'old_is_best_fit', 'GroupIndex': 'old_group_index', 'Caption_Vietnamese': 'old_caption_vietnamese', 'RelyDataTableName': 'old_rely_data_table_name', 'RelyFieldName': 'old_rely_field_name', 'RelyQueryNo': 'old_rely_query_no', 'SumDistinctFields': 'old_sum_distinct_fields', 'IsShowGroupPanel': 'old_is_show_group_panel'}
+    SOURCE_KEY=('FuncNo', 'FormName', 'GridName', 'FieldName', 'DataTableName')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS', 'old_grid_name': 'Chinese_PRC_CI_AS', 'old_field_name': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_column_header': 'Chinese_PRC_CI_AS', 'old_default_value': 'Chinese_PRC_CI_AS', 'old_foot_format': 'Chinese_PRC_CI_AS', 'old_group_format': 'Chinese_PRC_CI_AS', 'old_band_title': 'Chinese_PRC_CI_AS', 'old_editor_id': 'Chinese_PRC_CI_AS', 'old_editor_kind': 'Chinese_PRC_CI_AS', 'old_detail_property_xml': 'Chinese_PRC_CI_AS', 'old_caption_vietnamese': 'Chinese_PRC_CI_AS', 'old_rely_data_table_name': 'Chinese_PRC_CI_AS', 'old_rely_field_name': 'Chinese_PRC_CI_AS', 'old_sum_distinct_fields': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_func_no=models.CharField('功能编号', null=False, blank=True, max_length=6)
+    old_form_name=models.CharField('窗口类名称', null=False, blank=True, max_length=50)
+    old_grid_name=models.CharField('Grid名称', null=False, blank=True, max_length=50)
+    old_field_name=models.CharField('字段列名', null=False, blank=True, max_length=50)
+    old_data_table_name=models.CharField('数据集表名', null=False, blank=True, max_length=50)
+    old_column_header=models.CharField('列标题', null=True, blank=True, max_length=100)
+    old_display_width=models.IntegerField('显示宽度', null=True, blank=True)
+    old_min_width=models.IntegerField('最小宽度', null=True, blank=True)
+    old_display_index=models.IntegerField('列显示序号', null=True, blank=True)
+    old_is_allow_focus=models.BooleanField('获得焦点', null=True, blank=True)
+    old_is_allow_merge=models.BooleanField('合并', null=True, blank=True)
+    old_is_visiable=models.BooleanField('可见否', null=True, blank=True)
+    old_is_required=models.BooleanField('必填项', null=True, blank=True)
+    old_is_read_only=models.BooleanField('只读否', null=True, blank=True)
+    old_default_value=models.CharField('缺省值', null=True, blank=True, max_length=50)
+    old_foot_format=models.CharField('底行格式', null=True, blank=True, max_length=20)
+    old_sum_type=models.IntegerField('求合方式', null=True, blank=True)
+    old_group_type=models.IntegerField('汇总类型', null=True, blank=True)
+    old_group_format=models.CharField('汇总显示格式', null=True, blank=True, max_length=20)
+    old_allow_sort=models.BooleanField('AllowSort', null=True, blank=True)
+    old_band_title=models.CharField('组标题', null=True, blank=True, max_length=20)
+    old_editor_id=models.CharField('网格编辑方法代码', null=True, blank=True, max_length=50)
+    old_editor_kind=models.CharField('编辑格式', null=True, blank=True, max_length=20)
+    old_detail_property_xml=models.TextField('DetailPropertyXML', null=True, blank=True)
+    old_is_self_warp=models.BooleanField('IsSelfWarp', null=True, blank=True)
+    old_export_type=models.BooleanField('导出值', null=True, blank=True)
+    old_is_best_fit=models.BooleanField('IsBestFit', null=True, blank=True)
+    old_group_index=models.IntegerField('分组顺序', null=True, blank=True)
+    old_caption_vietnamese=models.CharField('Caption_Vietnamese', null=True, blank=True, max_length=100)
+    old_rely_data_table_name=models.CharField('RelyDataTableName', null=True, blank=True, max_length=50)
+    old_rely_field_name=models.CharField('RelyFieldName', null=True, blank=True, max_length=50)
+    old_rely_query_no=models.IntegerField('RelyQueryNo', null=True, blank=True)
+    old_sum_distinct_fields=models.CharField('合计去重字段', null=True, blank=True, max_length=128)
+    old_is_show_group_panel=models.BooleanField('显示分组表头', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_gridcolumnparam'
+        indexes=[models.Index(fields=['source_batch', 'old_func_no', 'old_form_name', 'old_grid_name', 'old_field_name', 'old_data_table_name'],name='src_f0b5c8cc2c29978f'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_func_no'))),Upper(RTrim(models.F('old_form_name'))),Upper(RTrim(models.F('old_grid_name'))),Upper(RTrim(models.F('old_field_name'))),Upper(RTrim(models.F('old_data_table_name'))),name='src_ci_f0b5c8cc2c29978f')]
+        verbose_name=verbose_name_plural='原基础配置（s_GridColumnParam）'
+        ordering=["-id"]
+
+class SourceDyeSGridParam(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_GridParam'
+    SOURCE_FIELDS={'FuncNo': 'old_func_no', 'FormName': 'old_form_name', 'GridName': 'old_grid_name', 'DataTableName': 'old_data_table_name', 'Kind': 'old_kind', 'IsAddCheckBox': 'old_is_add_check_box', 'IsDisplayRowNo': 'old_is_display_row_no', 'IsRowValidate': 'old_is_row_validate', 'GridHeight': 'old_grid_height', 'GridTitle': 'old_grid_title', 'ModuleName': 'old_module_name', 'TreeViewWidth': 'old_tree_view_width', 'IsReadOnly': 'old_is_read_only', 'TreeViewFields': 'old_tree_view_fields', 'FixColumns': 'old_fix_columns', 'IsShowDetail': 'old_is_show_detail', 'IsShowGroupPanel': 'old_is_show_group_panel', 'ShowAutoFilterRow': 'old_show_auto_filter_row', 'AllowSort': 'old_allow_sort', 'ShowRightMenu': 'old_show_right_menu', 'DetailGridName': 'old_detail_grid_name', 'PropertyXML': 'old_property_xml', 'IsEnterLineFeed': 'old_is_enter_line_feed', 'EvenRowBackColor': 'old_even_row_back_color', 'EvenRowUseBackColor': 'old_even_row_use_back_color', 'OddRowBackColor': 'old_odd_row_back_color', 'OddRowUseBackColor': 'old_odd_row_use_back_color', 'EnableAppearanceEvenRow': 'old_enable_appearance_even_row', 'EnableAppearanceOddRow': 'old_enable_appearance_odd_row', 'Appearance': 'old_appearance', 'BindDataTableNames': 'old_bind_data_table_names', 'PromptMessage': 'old_prompt_message', 'AutoSelectAllInEditor': 'old_auto_select_all_in_editor', 'FontSize': 'old_font_size', 'IsBestFit': 'old_is_best_fit', 'IsBatch': 'old_is_batch', 'JobAtteSelectType': 'old_job_atte_select_type', 'IsDeleteAfterCopy': 'old_is_delete_after_copy', 'ChartAxisXField': 'old_chart_axis_xfield', 'ChartAxisYFields': 'old_chart_axis_yfields', 'ChartWidth': 'old_chart_width', 'IsNeedCopyData': 'old_is_need_copy_data', 'IsAllTextCenter': 'old_is_all_text_center', 'RelaPrograms': 'old_rela_programs', 'PassUnEditableBackColor': 'old_pass_un_editable_back_color'}
+    SOURCE_KEY=('FuncNo', 'FormName', 'GridName', 'DataTableName')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS', 'old_grid_name': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_kind': 'Chinese_PRC_CI_AS', 'old_grid_title': 'Chinese_PRC_CI_AS', 'old_module_name': 'Chinese_PRC_CI_AS', 'old_tree_view_fields': 'Chinese_PRC_CI_AS', 'old_detail_grid_name': 'Chinese_PRC_CI_AS', 'old_property_xml': 'Chinese_PRC_CI_AS', 'old_appearance': 'Chinese_PRC_CI_AS', 'old_bind_data_table_names': 'Chinese_PRC_CI_AS', 'old_prompt_message': 'Chinese_PRC_CI_AS', 'old_chart_axis_xfield': 'Chinese_PRC_CI_AS', 'old_chart_axis_yfields': 'Chinese_PRC_CI_AS', 'old_rela_programs': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_func_no=models.CharField('功能编号', null=False, blank=True, max_length=6)
+    old_form_name=models.CharField('窗口类名称', null=False, blank=True, max_length=50)
+    old_grid_name=models.CharField('Grid名称', null=False, blank=True, max_length=50)
+    old_data_table_name=models.CharField('数据集表名', null=False, blank=True, max_length=50)
+    old_kind=models.CharField('数据集类别', null=True, blank=True, max_length=10)
+    old_is_add_check_box=models.BooleanField('复选框', null=True, blank=True)
+    old_is_display_row_no=models.BooleanField('显示行号', null=True, blank=True)
+    old_is_row_validate=models.BooleanField('行验证', null=True, blank=True)
+    old_grid_height=models.IntegerField('网格高度', null=True, blank=True)
+    old_grid_title=models.CharField('网格标题', null=True, blank=True, max_length=50)
+    old_module_name=models.CharField('模块编号', null=True, blank=True, max_length=20)
+    old_tree_view_width=models.IntegerField('树型图宽度', null=True, blank=True)
+    old_is_read_only=models.BooleanField('只读否', null=True, blank=True)
+    old_tree_view_fields=models.CharField('分组树字段', null=True, blank=True, max_length=200)
+    old_fix_columns=models.IntegerField('固定列数', null=True, blank=True)
+    old_is_show_detail=models.BooleanField('显示明细网格', null=True, blank=True)
+    old_is_show_group_panel=models.BooleanField('显示分组表头', null=True, blank=True)
+    old_show_auto_filter_row=models.BooleanField('显示过滤行', null=True, blank=True)
+    old_allow_sort=models.BooleanField('AllowSort', null=True, blank=True)
+    old_show_right_menu=models.BooleanField('右击菜单', null=True, blank=True)
+    old_detail_grid_name=models.CharField('明细网格名称', null=True, blank=True, max_length=50)
+    old_property_xml=models.TextField('扩展属性', null=True, blank=True)
+    old_is_enter_line_feed=models.BooleanField('IsEnterLineFeed', null=True, blank=True)
+    old_even_row_back_color=models.IntegerField('奇行背景色', null=True, blank=True)
+    old_even_row_use_back_color=models.BooleanField('奇行焦点时背景色', null=True, blank=True)
+    old_odd_row_back_color=models.IntegerField('偶行背景色', null=True, blank=True)
+    old_odd_row_use_back_color=models.BooleanField('偶行焦点时背景色', null=True, blank=True)
+    old_enable_appearance_even_row=models.BooleanField('奇行交替变色', null=True, blank=True)
+    old_enable_appearance_odd_row=models.BooleanField('偶行交替变色', null=True, blank=True)
+    old_appearance=models.CharField('Appearance', null=True, blank=True, max_length=2000)
+    old_bind_data_table_names=models.CharField('关联绑定的数据表名集', null=True, blank=True, max_length=200)
+    old_prompt_message=models.CharField('PromptMessage', null=True, blank=True, max_length=200)
+    old_auto_select_all_in_editor=models.BooleanField('AutoSelectAllInEditor', null=True, blank=True)
+    old_font_size=models.IntegerField('FontSize', null=True, blank=True)
+    old_is_best_fit=models.BooleanField('IsBestFit', null=True, blank=True)
+    old_is_batch=models.BooleanField('IsBatch', null=True, blank=True)
+    old_job_atte_select_type=models.IntegerField('加工要求', null=True, blank=True)
+    old_is_delete_after_copy=models.BooleanField('是否删除双击行', null=True, blank=True)
+    old_chart_axis_xfield=models.CharField('图形X轴(字段:字段名)', null=True, blank=True, max_length=100)
+    old_chart_axis_yfields=models.CharField('图形Y轴(字段1:字段名1;字段2:字段名2)', null=True, blank=True, max_length=100)
+    old_chart_width=models.IntegerField('图形宽度', null=True, blank=True)
+    old_is_need_copy_data=models.BooleanField('是否自定义复制', null=True, blank=True)
+    old_is_all_text_center=models.BooleanField('内容居中', null=True, blank=True)
+    old_rela_programs=models.CharField('RelaPrograms', null=True, blank=True, max_length=10)
+    old_pass_un_editable_back_color=models.BooleanField('是否显示只读背景色', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_gridparam'
+        indexes=[models.Index(fields=['source_batch', 'old_func_no', 'old_form_name', 'old_grid_name', 'old_data_table_name'],name='src_d3f533c149c12a4d'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_func_no'))),Upper(RTrim(models.F('old_form_name'))),Upper(RTrim(models.F('old_grid_name'))),Upper(RTrim(models.F('old_data_table_name'))),name='src_ci_d3f533c149c12a4d')]
+        verbose_name=verbose_name_plural='原基础配置（s_GridParam）'
+        ordering=["-id"]
+
+class SourceDyeSLookup(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_Lookup'
+    SOURCE_FIELDS={'LookupID': 'old_lookup_id', 'LookupName': 'old_lookup_name', 'DataTableName': 'old_data_table_name', 'LookupDataFilter': 'old_lookup_data_filter', 'KeyField': 'old_key_field', 'DisplayField': 'old_display_field', 'MasterFilterField': 'old_master_filter_field', 'LookupFilterField': 'old_lookup_filter_field', 'ShowFooter': 'old_show_footer', 'ShowHeader': 'old_show_header', 'Description': 'old_description', 'Kind': 'old_kind', 'DropSQL': 'old_drop_sql', 'IsNeedReLoadBasic': 'old_is_need_re_load_basic', 'IsNeedMemery': 'old_is_need_memery', 'FieldType': 'old_field_type', 'IsCanAdd': 'old_is_can_add', 'IsCanEdit': 'old_is_can_edit', 'IsCanDelete': 'old_is_can_delete', 'IsEnterQuery': 'old_is_enter_query', 'IsShowQryFrom': 'old_is_show_qry_from', 'SplitChar': 'old_split_char', 'DisplayCaption': 'old_display_caption'}
+    SOURCE_KEY=('LookupID',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_lookup_id': 'Chinese_PRC_CI_AS', 'old_lookup_name': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_lookup_data_filter': 'Chinese_PRC_CI_AS', 'old_key_field': 'Chinese_PRC_CI_AS', 'old_display_field': 'Chinese_PRC_CI_AS', 'old_master_filter_field': 'Chinese_PRC_CI_AS', 'old_lookup_filter_field': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_kind': 'Chinese_PRC_CI_AS', 'old_drop_sql': 'Chinese_PRC_CI_AS', 'old_field_type': 'Chinese_PRC_CI_AS', 'old_split_char': 'Chinese_PRC_CI_AS', 'old_display_caption': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_lookup_id=models.CharField('下拉ID', null=False, blank=True, max_length=10)
+    old_lookup_name=models.CharField('下拉名称', null=True, blank=True, max_length=50)
+    old_data_table_name=models.CharField('数据集表名', null=True, blank=True, max_length=50)
+    old_lookup_data_filter=models.CharField('过滤器', null=True, blank=True, max_length=512)
+    old_key_field=models.CharField('健值', null=True, blank=True, max_length=50)
+    old_display_field=models.CharField('显示值', null=True, blank=True, max_length=50)
+    old_master_filter_field=models.CharField('主过滤字段', null=True, blank=True, max_length=256)
+    old_lookup_filter_field=models.CharField('下拉列表过滤字段', null=True, blank=True, max_length=256)
+    old_show_footer=models.BooleanField('显示标题', null=True, blank=True)
+    old_show_header=models.BooleanField('显示脚注', null=True, blank=True)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=500)
+    old_kind=models.CharField('类型', null=True, blank=True, max_length=10)
+    old_drop_sql=models.TextField('下拉SQL', null=True, blank=True)
+    old_is_need_re_load_basic=models.BooleanField('刷新需重查询数据', null=True, blank=True)
+    old_is_need_memery=models.BooleanField('是否记忆', null=True, blank=True)
+    old_field_type=models.CharField('FieldType', null=True, blank=True, max_length=20)
+    old_is_can_add=models.BooleanField('是否增加', null=True, blank=True)
+    old_is_can_edit=models.BooleanField('是否编辑', null=True, blank=True)
+    old_is_can_delete=models.BooleanField('是否删除', null=True, blank=True)
+    old_is_enter_query=models.BooleanField('下拉重查询', null=True, blank=True)
+    old_is_show_qry_from=models.BooleanField('IsShowQryFrom', null=True, blank=True)
+    old_split_char=models.CharField('分隔字符', null=True, blank=True, max_length=1)
+    old_display_caption=models.CharField('弹出界面列名', null=True, blank=True, max_length=500)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_lookup'
+        indexes=[models.Index(fields=['source_batch', 'old_lookup_id'],name='src_fb08b0b51e5d4018'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_lookup_id'))),name='src_ci_fb08b0b51e5d4018')]
+        verbose_name=verbose_name_plural='原基础配置（s_Lookup）'
+        ordering=["-id"]
+
+class SourceDyeSModule(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_Module'
+    SOURCE_FIELDS={'ModuleNo': 'old_module_no', 'ModuleName': 'old_module_name', 'ModuleCaption': 'old_module_caption', 'IsEnable': 'old_is_enable', 'CryptString': 'old_crypt_string', 'Shape': 'old_shape', 'SortNo': 'old_sort_no', 'ClientPoints': 'old_client_points', 'Caption_Vietnamese': 'old_caption_vietnamese', 'IconName': 'old_icon_name', 'ShowFilter': 'old_show_filter'}
+    SOURCE_KEY=('ModuleNo',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_module_name': 'Chinese_PRC_CI_AS', 'old_module_caption': 'Chinese_PRC_CI_AS', 'old_crypt_string': 'Chinese_PRC_CI_AS', 'old_caption_vietnamese': 'Chinese_PRC_CI_AS', 'old_icon_name': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_module_no=models.IntegerField('模块编号', null=False, blank=False)
+    old_module_name=models.CharField('模块名称', null=True, blank=True, max_length=20)
+    old_module_caption=models.CharField('模块全名', null=True, blank=True, max_length=60)
+    old_is_enable=models.BooleanField('是否启用', null=True, blank=True)
+    old_crypt_string=models.CharField('加密串', null=True, blank=True, max_length=100)
+    old_shape=models.BinaryField('二进制数据', null=True, blank=True, editable=True)
+    old_sort_no=models.IntegerField('SortNo', null=True, blank=True)
+    old_client_points=models.IntegerField('ClientPoints', null=True, blank=True)
+    old_caption_vietnamese=models.CharField('Caption_Vietnamese', null=True, blank=True, max_length=100)
+    old_icon_name=models.CharField('IconName', null=True, blank=True, max_length=256)
+    old_show_filter=models.BooleanField('ShowFilter', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_module'
+        indexes=[models.Index(fields=['source_batch', 'old_module_no'],name='src_1f77a82a42475c6f')]
+        verbose_name=verbose_name_plural='原基础配置（s_Module）'
+        ordering=["-id"]
+
+class SourceDyeSPanelParam(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_PanelParam'
+    SOURCE_FIELDS={'Guid': 'old_guid', 'FuncNo': 'old_func_no', 'FormName': 'old_form_name', 'PanelName': 'old_panel_name', 'DataTableName': 'old_data_table_name', 'StatusField': 'old_status_field', 'NotEnum': 'old_not_enum', 'ShowStatus': 'old_show_status', 'IsSelfTabIndex': 'old_is_self_tab_index'}
+    SOURCE_KEY=('Guid',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_guid': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS', 'old_panel_name': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_status_field': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_guid=models.CharField('唯一标识符', null=False, blank=True, max_length=50)
+    old_func_no=models.CharField('功能编号', null=False, blank=True, max_length=20)
+    old_form_name=models.CharField('窗口类名称', null=False, blank=True, max_length=50)
+    old_panel_name=models.CharField('面板名', null=False, blank=True, max_length=50)
+    old_data_table_name=models.CharField('数据集表名', null=True, blank=True, max_length=50)
+    old_status_field=models.CharField('StatusField', null=True, blank=True, max_length=20)
+    old_not_enum=models.BooleanField('NotEnum', null=True, blank=True)
+    old_show_status=models.BooleanField('ShowStatus', null=True, blank=True)
+    old_is_self_tab_index=models.BooleanField('IsSelfTabIndex', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_panelparam'
+        indexes=[models.Index(fields=['source_batch', 'old_guid'],name='src_68cf8d611f271222'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_guid'))),name='src_ci_68cf8d611f271222')]
+        verbose_name=verbose_name_plural='原基础配置（s_PanelParam）'
+        ordering=["-id"]
+
+class SourceDyeSPermission(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_Permission'
+    SOURCE_FIELDS={'RoleNo': 'old_role_no', 'FuncNo': 'old_func_no', 'IsCanInsert': 'old_is_can_insert', 'IsCanUpdate': 'old_is_can_update', 'IsCanDelete': 'old_is_can_delete', 'IsCanExport': 'old_is_can_export', 'IsCanQuery': 'old_is_can_query', 'IsCanPrint': 'old_is_can_print', 'IsCanApprove': 'old_is_can_approve', 'IsCanAbort': 'old_is_can_abort', 'IsCanClose': 'old_is_can_close', 'IsFavorite': 'old_is_favorite', 'IsCanCopy': 'old_is_can_copy', 'IsCanSubmit': 'old_is_can_submit', 'IsCanUnSubmit': 'old_is_can_un_submit', 'IsCanUnApprove': 'old_is_can_un_approve', 'IsCanImport': 'old_is_can_import', 'IsCanAttach': 'old_is_can_attach', 'IsCanSeeFlow': 'old_is_can_see_flow', 'IsSendMessage': 'old_is_send_message', 'IsCanUnClose': 'old_is_can_un_close', 'IsCanUnAbort': 'old_is_can_un_abort', 'IsCanSendMessage': 'old_is_can_send_message'}
+    SOURCE_KEY=('RoleNo', 'FuncNo')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_role_no': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={'old_is_can_insert': ('literal', 0), 'old_is_can_update': ('literal', 0), 'old_is_can_delete': ('literal', 0), 'old_is_can_export': ('literal', 0), 'old_is_can_query': ('literal', 0), 'old_is_can_print': ('literal', 0), 'old_is_can_approve': ('literal', 0), 'old_is_can_abort': ('literal', 0), 'old_is_can_close': ('literal', 0), 'old_is_favorite': ('literal', 0)}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_role_no=models.CharField('角色编号', null=False, blank=True, max_length=20)
+    old_func_no=models.CharField('功能编号', null=False, blank=True, max_length=10)
+    old_is_can_insert=models.BooleanField('新增权限', null=True, blank=True)
+    old_is_can_update=models.BooleanField('修改权限', null=True, blank=True)
+    old_is_can_delete=models.BooleanField('删除权限', null=True, blank=True)
+    old_is_can_export=models.BooleanField('输出权限', null=True, blank=True)
+    old_is_can_query=models.BooleanField('查询权限', null=True, blank=True)
+    old_is_can_print=models.BooleanField('打印权限', null=True, blank=True)
+    old_is_can_approve=models.BooleanField('审核权限', null=True, blank=True)
+    old_is_can_abort=models.BooleanField('中止权限', null=True, blank=True)
+    old_is_can_close=models.BooleanField('结案权限', null=True, blank=True)
+    old_is_favorite=models.BooleanField('日常工作', null=True, blank=True)
+    old_is_can_copy=models.BooleanField('复制', null=True, blank=True)
+    old_is_can_submit=models.BooleanField('提交', null=True, blank=True)
+    old_is_can_un_submit=models.BooleanField('撤销', null=True, blank=True)
+    old_is_can_un_approve=models.BooleanField('反审核', null=True, blank=True)
+    old_is_can_import=models.BooleanField('输入', null=True, blank=True)
+    old_is_can_attach=models.BooleanField('附件', null=True, blank=True)
+    old_is_can_see_flow=models.BooleanField('工作流', null=True, blank=True)
+    old_is_send_message=models.BooleanField('发消息', null=True, blank=True)
+    old_is_can_un_close=models.BooleanField('反结案权限', null=True, blank=True)
+    old_is_can_un_abort=models.BooleanField('IsCanUnAbort', null=True, blank=True)
+    old_is_can_send_message=models.BooleanField('IsCanSendMessage', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_permission'
+        indexes=[models.Index(fields=['source_batch', 'old_role_no', 'old_func_no'],name='src_469c2ee85f33feb5'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_role_no'))),Upper(RTrim(models.F('old_func_no'))),name='src_ci_469c2ee85f33feb5')]
+        verbose_name=verbose_name_plural='原基础配置（s_Permission）'
+        ordering=["-id"]
+
+class SourceDyeSPivotGridColumnParam(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_PivotGridColumnParam'
+    SOURCE_FIELDS={'FuncNo': 'old_func_no', 'FormName': 'old_form_name', 'GridName': 'old_grid_name', 'FieldName': 'old_field_name', 'DataTableName': 'old_data_table_name', 'ColumnHeader': 'old_column_header', 'IsVisiable': 'old_is_visiable', 'IsExpand': 'old_is_expand', 'SumType': 'old_sum_type', 'Area': 'old_area', 'AreaIndex': 'old_area_index', 'DisplayWidth': 'old_display_width', 'DisplayFormat': 'old_display_format', 'ShowGrandTotal': 'old_show_grand_total'}
+    SOURCE_KEY=('FuncNo', 'FormName', 'GridName', 'FieldName', 'DataTableName')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS', 'old_grid_name': 'Chinese_PRC_CI_AS', 'old_field_name': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_column_header': 'Chinese_PRC_CI_AS', 'old_display_format': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_func_no=models.CharField('功能号', null=False, blank=True, max_length=6)
+    old_form_name=models.CharField('窗体名称', null=False, blank=True, max_length=50)
+    old_grid_name=models.CharField('网格名称', null=False, blank=True, max_length=50)
+    old_field_name=models.CharField('字段名称', null=False, blank=True, max_length=50)
+    old_data_table_name=models.CharField('数据集名称', null=False, blank=True, max_length=50)
+    old_column_header=models.CharField('列标题', null=True, blank=True, max_length=30)
+    old_is_visiable=models.BooleanField('可见', null=True, blank=True)
+    old_is_expand=models.BooleanField('展开否', null=True, blank=True)
+    old_sum_type=models.IntegerField('合计类型', null=True, blank=True)
+    old_area=models.IntegerField('区域', null=True, blank=True)
+    old_area_index=models.IntegerField('顺序号', null=True, blank=True)
+    old_display_width=models.IntegerField('显示宽度', null=True, blank=True)
+    old_display_format=models.CharField('显示格式', null=True, blank=True, max_length=100)
+    old_show_grand_total=models.BooleanField('ShowGrandTotal', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_pivotgridcolumnparam'
+        indexes=[models.Index(fields=['source_batch', 'old_func_no', 'old_form_name', 'old_grid_name', 'old_field_name', 'old_data_table_name'],name='src_8dcccbea937807fb'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_func_no'))),Upper(RTrim(models.F('old_form_name'))),Upper(RTrim(models.F('old_grid_name'))),Upper(RTrim(models.F('old_field_name'))),Upper(RTrim(models.F('old_data_table_name'))),name='src_ci_8dcccbea937807fb')]
+        verbose_name=verbose_name_plural='原基础配置（s_PivotGridColumnParam）'
+        ordering=["-id"]
+
+class SourceDyeSPivotGridParam(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_PivotGridParam'
+    SOURCE_FIELDS={'FuncNo': 'old_func_no', 'FormName': 'old_form_name', 'GridName': 'old_grid_name', 'DataTableName': 'old_data_table_name', 'GridTitle': 'old_grid_title', 'Template': 'old_template', 'IsExpand': 'old_is_expand', 'FontSize': 'old_font_size', 'IsShowRowTotal': 'old_is_show_row_total', 'IsShowColumnTotal': 'old_is_show_column_total'}
+    SOURCE_KEY=('FuncNo', 'FormName', 'GridName', 'DataTableName')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS', 'old_grid_name': 'Chinese_PRC_CI_AS', 'old_data_table_name': 'Chinese_PRC_CI_AS', 'old_grid_title': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_func_no=models.CharField('功能号', null=False, blank=True, max_length=6)
+    old_form_name=models.CharField('窗体名称', null=False, blank=True, max_length=50)
+    old_grid_name=models.CharField('网格名称', null=False, blank=True, max_length=50)
+    old_data_table_name=models.CharField('数据集名称', null=False, blank=True, max_length=50)
+    old_grid_title=models.CharField('网格标题', null=True, blank=True, max_length=50)
+    old_template=models.BinaryField('模板', null=True, blank=True, editable=True)
+    old_is_expand=models.BooleanField('IsExpand', null=True, blank=True)
+    old_font_size=models.IntegerField('FontSize', null=True, blank=True)
+    old_is_show_row_total=models.BooleanField('IsShowRowTotal', null=True, blank=True)
+    old_is_show_column_total=models.BooleanField('IsShowColumnTotal', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_pivotgridparam'
+        indexes=[models.Index(fields=['source_batch', 'old_func_no', 'old_form_name', 'old_grid_name', 'old_data_table_name'],name='src_4c93710294f4bdae'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_func_no'))),Upper(RTrim(models.F('old_form_name'))),Upper(RTrim(models.F('old_grid_name'))),Upper(RTrim(models.F('old_data_table_name'))),name='src_ci_4c93710294f4bdae')]
+        verbose_name=verbose_name_plural='原基础配置（s_PivotGridParam）'
+        ordering=["-id"]
+
+class SourceDyeSQuerySQL(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_QuerySQL'
+    SOURCE_FIELDS={'QueryName': 'old_query_name', 'QueryNo': 'old_query_no', 'QuerySQL': 'old_query_sql', 'QueryKind': 'old_query_kind', 'FuncNo': 'old_func_no', 'FormName': 'old_form_name', 'IsFixed': 'old_is_fixed', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Description': 'old_description', 'GroupBy': 'old_group_by', 'OrderBy': 'old_order_by', 'DefaultDateFlag': 'old_default_date_flag', 'IsDefault': 'old_is_default', 'Alias': 'old_alias', 'DefaultTimeCourse': 'old_default_time_course', 'Qty': 'old_qty', 'IsAllowQueryAll': 'old_is_allow_query_all', 'Memo': 'old_memo', 'AllowQueryDays': 'old_allow_query_days', 'CustomAfterDays': 'old_custom_after_days', 'CustomBeforeDays': 'old_custom_before_days', 'RelaPrograms': 'old_rela_programs', 'Remarks': 'old_remarks'}
+    SOURCE_KEY=('QueryName', 'QueryNo')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_query_name': 'Chinese_PRC_CI_AS', 'old_query_sql': 'Chinese_PRC_CI_AS', 'old_query_kind': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS', 'old_form_name': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_group_by': 'Chinese_PRC_CI_AS', 'old_order_by': 'Chinese_PRC_CI_AS', 'old_alias': 'Chinese_PRC_CI_AS', 'old_default_time_course': 'Chinese_PRC_CI_AS', 'old_memo': 'Chinese_PRC_CI_AS', 'old_rela_programs': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_query_name=models.CharField('查询名', null=False, blank=True, max_length=50)
+    old_query_no=models.IntegerField('查询号', null=False, blank=False)
+    old_query_sql=models.TextField('SQL语句', null=True, blank=True)
+    old_query_kind=models.CharField('语句类型', null=True, blank=True, max_length=50)
+    old_func_no=models.CharField('功能编号', null=True, blank=True, max_length=6)
+    old_form_name=models.CharField('窗口类名称', null=True, blank=True, max_length=50)
+    old_is_fixed=models.BooleanField('固定否', null=True, blank=True)
+    old_creater=models.CharField('创建人', null=True, blank=True, max_length=10)
+    old_create_date=models.DateTimeField('创建时间', null=True, blank=True)
+    old_modifyer=models.CharField('修改人', null=True, blank=True, max_length=10)
+    old_modify_date=models.DateTimeField('修改日期', null=True, blank=True)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=500)
+    old_group_by=models.CharField('GroupBy', null=True, blank=True, max_length=100)
+    old_order_by=models.CharField('OrderBy', null=True, blank=True, max_length=100)
+    old_default_date_flag=models.IntegerField('默认日期', null=True, blank=True)
+    old_is_default=models.BooleanField('IsDefault', null=True, blank=True)
+    old_alias=models.CharField('Alias', null=True, blank=True, max_length=50)
+    old_default_time_course=models.CharField('DefaultTimeCourse', null=True, blank=True, max_length=50)
+    old_qty=models.DecimalField('Qty', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_is_allow_query_all=models.BooleanField('查询不设置时间段', null=True, blank=True)
+    old_memo=models.CharField('查询条件说明', null=True, blank=True, max_length=100)
+    old_allow_query_days=models.IntegerField('AllowQueryDays', null=True, blank=True)
+    old_custom_after_days=models.IntegerField('自定义结束时间', null=True, blank=True)
+    old_custom_before_days=models.IntegerField('自定义开始时间', null=True, blank=True)
+    old_rela_programs=models.CharField('RelaPrograms', null=True, blank=True, max_length=50)
+    old_remarks=models.CharField('Remarks', null=True, blank=True, max_length=200)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_querysql'
+        indexes=[models.Index(fields=['source_batch', 'old_query_name', 'old_query_no'],name='src_5a737cc37727d3af'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_query_name'))),models.F('old_query_no'),name='src_ci_5a737cc37727d3af')]
+        verbose_name=verbose_name_plural='原基础配置（s_QuerySQL）'
+        ordering=["-id"]
+
 class SourceDyeSRevision(SourceRecord):
     SOURCE_SCHEMA='dye'
     SOURCE_TABLE='s_Revision'
@@ -6083,6 +6818,122 @@ class SourceDyeSRevisionDetail(SourceRecord):
         db_table='src_dye_s_revisiondetail'
         indexes=[models.Index(fields=['source_batch', 'old_revi_no', 'old_row_no'],name='src_a5cda4384d744b49')]
         verbose_name=verbose_name_plural='旧业务字段变更明细'
+        ordering=["-id"]
+
+class SourceDyeSRoles(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_Roles'
+    SOURCE_FIELDS={'RoleNo': 'old_role_no', 'RoleName': 'old_role_name', 'Description': 'old_description'}
+    SOURCE_KEY=('RoleNo',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_role_no': 'Chinese_PRC_CI_AS', 'old_role_name': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_role_no=models.CharField('角色编号', null=False, blank=True, max_length=10)
+    old_role_name=models.CharField('角色名称', null=True, blank=True, max_length=20)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=100)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_roles'
+        indexes=[models.Index(fields=['source_batch', 'old_role_no'],name='src_b1fe8d57c5891581'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_role_no'))),name='src_ci_b1fe8d57c5891581')]
+        verbose_name=verbose_name_plural='原基础配置（s_Roles）'
+        ordering=["-id"]
+
+class SourceDyeSRptInfo(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_RptInfo'
+    SOURCE_FIELDS={'RptID': 'old_rpt_id', 'RptKind': 'old_rpt_kind', 'RptUse': 'old_rpt_use', 'ISOKind': 'old_isokind', 'CorpTitle': 'old_corp_title', 'RptTitle': 'old_rpt_title', 'IsPreView': 'old_is_pre_view', 'IsCanDesign': 'old_is_can_design', 'Template': 'old_template', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'Description': 'old_description', 'PrintTimes': 'old_print_times', 'RptRemoteParentID': 'old_rpt_remote_parent_id', 'RptRemotePath': 'old_rpt_remote_path', 'RptRemoteParameter': 'old_rpt_remote_parameter', 'RptRemoteType': 'old_rpt_remote_type', 'DefaultDateFlag': 'old_default_date_flag', 'IsShowPrintDialog': 'old_is_show_print_dialog', 'IsNotCheckModify': 'old_is_not_check_modify', 'DefaultTimeCourse': 'old_default_time_course', 'ReportParams': 'old_report_params', 'IsNotCheckBeforePrintSQL': 'old_is_not_check_before_print_sql', 'IsNotCheckAfterPrintSQL': 'old_is_not_check_after_print_sql', 'IsUseRpSettings': 'old_is_use_rp_settings', 'BeforePrintSQL': 'old_before_print_sql', 'TemplateXml': 'old_template_xml', 'ProdUnit': 'old_prod_unit', 'PrintNumber': 'old_print_number'}
+    SOURCE_KEY=('RptID',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_rpt_id': 'Chinese_PRC_CI_AS', 'old_rpt_kind': 'Chinese_PRC_CI_AS', 'old_rpt_use': 'Chinese_PRC_CI_AS', 'old_isokind': 'Chinese_PRC_CI_AS', 'old_corp_title': 'Chinese_PRC_CI_AS', 'old_rpt_title': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS', 'old_rpt_remote_parent_id': 'Chinese_PRC_CI_AS', 'old_rpt_remote_path': 'Chinese_PRC_CI_AS', 'old_rpt_remote_parameter': 'Chinese_PRC_CI_AS', 'old_default_time_course': 'Chinese_PRC_CI_AS', 'old_report_params': 'Chinese_PRC_CI_AS', 'old_before_print_sql': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_rpt_id=models.CharField('报表编号', null=False, blank=True, max_length=50)
+    old_rpt_kind=models.CharField('报表类型', null=True, blank=True, max_length=20)
+    old_rpt_use=models.CharField('用途分类', null=True, blank=True, max_length=20)
+    old_isokind=models.CharField('ISO体系标识', null=True, blank=True, max_length=20)
+    old_corp_title=models.CharField('公司标题', null=True, blank=True, max_length=50)
+    old_rpt_title=models.CharField('报表名称', null=True, blank=True, max_length=50)
+    old_is_pre_view=models.BooleanField('能否预览', null=True, blank=True)
+    old_is_can_design=models.BooleanField('能否设计', null=True, blank=True)
+    old_template=models.BinaryField('报表模板', null=True, blank=True, editable=True)
+    old_creater=models.CharField('创建人', null=True, blank=True, max_length=10)
+    old_create_date=models.DateTimeField('创建时间', null=True, blank=True)
+    old_modifyer=models.CharField('修改人', null=True, blank=True, max_length=10)
+    old_modify_date=models.DateTimeField('修改日期', null=True, blank=True)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=500)
+    old_print_times=models.IntegerField('打印次数', null=True, blank=True)
+    old_rpt_remote_parent_id=models.CharField('父级项目ID', null=True, blank=True, max_length=100)
+    old_rpt_remote_path=models.CharField('报表路径', null=True, blank=True, max_length=200)
+    old_rpt_remote_parameter=models.TextField('报表参数集', null=True, blank=True)
+    old_rpt_remote_type=models.IntegerField('报表项目类型', null=True, blank=True)
+    old_default_date_flag=models.IntegerField('默认时间区间', null=True, blank=True)
+    old_is_show_print_dialog=models.BooleanField('显示打印对话框', null=True, blank=True)
+    old_is_not_check_modify=models.BooleanField('IsNotCheckModify', null=True, blank=True)
+    old_default_time_course=models.CharField('DefaultTimeCourse', null=True, blank=True, max_length=50)
+    old_report_params=models.CharField('ReportParams', null=True, blank=True, max_length=200)
+    old_is_not_check_before_print_sql=models.BooleanField('IsNotCheckBeforePrintSQL', null=True, blank=True)
+    old_is_not_check_after_print_sql=models.BooleanField('IsNotCheckAfterPrintSQL', null=True, blank=True)
+    old_is_use_rp_settings=models.BooleanField('IsUseRpSettings', null=True, blank=True)
+    old_before_print_sql=models.TextField('BeforePrintSQL', null=True, blank=True)
+    old_template_xml=models.BinaryField('TemplateXml', null=True, blank=True, editable=True)
+    old_prod_unit=models.IntegerField('成品单位', null=True, blank=True)
+    old_print_number=models.IntegerField('打印份数', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_rptinfo'
+        indexes=[models.Index(fields=['source_batch', 'old_rpt_id'],name='src_4aec17eaf1d7dfc0'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rpt_id'))),name='src_ci_4aec17eaf1d7dfc0')]
+        verbose_name=verbose_name_plural='原基础配置（s_RptInfo）'
+        ordering=["-id"]
+
+class SourceDyeSRptMenu(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_RptMenu'
+    SOURCE_FIELDS={'RptID': 'old_rpt_id', 'FuncNo': 'old_func_no', 'RptNo': 'old_rpt_no', 'IsDefault': 'old_is_default', 'ShortCutKey': 'old_short_cut_key', 'Remarks': 'old_remarks'}
+    SOURCE_KEY=('RptID', 'FuncNo', 'RptNo')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_rpt_id': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS', 'old_short_cut_key': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_rpt_id=models.CharField('报表编号', null=False, blank=True, max_length=50)
+    old_func_no=models.CharField('功能号名称', null=False, blank=True, max_length=6)
+    old_rpt_no=models.IntegerField('报表序号', null=False, blank=False)
+    old_is_default=models.BooleanField('是否默认', null=True, blank=True)
+    old_short_cut_key=models.CharField('ShortCutKey', null=True, blank=True, max_length=50)
+    old_remarks=models.CharField('Remarks', null=True, blank=True, max_length=100)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_rptmenu'
+        indexes=[models.Index(fields=['source_batch', 'old_rpt_id', 'old_func_no', 'old_rpt_no'],name='src_47cafa95a0df6f4a'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rpt_id'))),Upper(RTrim(models.F('old_func_no'))),models.F('old_rpt_no'),name='src_ci_47cafa95a0df6f4a')]
+        verbose_name=verbose_name_plural='原基础配置（s_RptMenu）'
+        ordering=["-id"]
+
+class SourceDyeSRptRight(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_RptRight'
+    SOURCE_FIELDS={'RptID': 'old_rpt_id', 'EmpID': 'old_emp_id', 'IsEnable': 'old_is_enable', 'IsCanDesign': 'old_is_can_design'}
+    SOURCE_KEY=('RptID', 'EmpID')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_rpt_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_rpt_id=models.CharField('报表编号', null=False, blank=True, max_length=50)
+    old_emp_id=models.CharField('员工编号', null=False, blank=True, max_length=50)
+    old_is_enable=models.BooleanField('是否可见', null=False, blank=False)
+    old_is_can_design=models.BooleanField('IsCanDesign', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_rptright'
+        indexes=[models.Index(fields=['source_batch', 'old_rpt_id', 'old_emp_id'],name='src_dcd12b0ec4910343'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_rpt_id'))),Upper(RTrim(models.F('old_emp_id'))),name='src_ci_dcd12b0ec4910343')]
+        verbose_name=verbose_name_plural='原基础配置（s_RptRight）'
         ordering=["-id"]
 
 class SourceDyeSSaveMessRule(SourceRecord):
@@ -6167,6 +7018,56 @@ class SourceDyeSSheetNo(SourceRecord):
         db_table='src_dye_s_sheetno'
         indexes=[]
         verbose_name=verbose_name_plural='旧单据编号规则'
+        ordering=["-id"]
+
+class SourceDyeSSysParams(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_SysParams'
+    SOURCE_FIELDS={'ParamName': 'old_param_name', 'ParamType': 'old_param_type', 'ParamValue': 'old_param_value', 'Description': 'old_description', 'SortNo': 'old_sort_no', 'ModifyDate': 'old_modify_date', 'ModuleNo': 'old_module_no'}
+    SOURCE_KEY=('ParamName',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_param_name': 'Chinese_PRC_CI_AS', 'old_param_type': 'Chinese_PRC_CI_AS', 'old_param_value': 'Chinese_PRC_CI_AS', 'old_description': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_param_name=models.CharField('参数名', null=False, blank=True, max_length=50)
+    old_param_type=models.CharField('参数类型', null=True, blank=True, max_length=10)
+    old_param_value=models.CharField('参数值', null=True, blank=True, max_length=1000)
+    old_description=models.CharField('描述', null=True, blank=True, max_length=500)
+    old_sort_no=models.IntegerField('排序顺序号', null=True, blank=True)
+    old_modify_date=models.DateTimeField('修改日期', null=True, blank=True)
+    old_module_no=models.IntegerField('模块编号', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_sysparams'
+        indexes=[models.Index(fields=['source_batch', 'old_param_name'],name='src_2a0eaf3c4af452a6'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_param_name'))),name='src_ci_2a0eaf3c4af452a6')]
+        verbose_name=verbose_name_plural='原系统参数完整来源（s_SysParams）'
+        ordering=["-id"]
+
+class SourceDyeSUINav(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='s_UINav'
+    SOURCE_FIELDS={'RecordID': 'old_record_id', 'ModuleNo': 'old_module_no', 'ParentID': 'old_parent_id', 'FuncNo': 'old_func_no', 'Alias': 'old_alias', 'IsStop': 'old_is_stop', 'IndexNo': 'old_index_no'}
+    SOURCE_KEY=('RecordID',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_record_id': 'Chinese_PRC_CI_AS', 'old_parent_id': 'Chinese_PRC_CI_AS', 'old_func_no': 'Chinese_PRC_CI_AS', 'old_alias': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_record_id=models.CharField('记录ID', null=False, blank=True, max_length=50)
+    old_module_no=models.IntegerField('导航分组', null=True, blank=True)
+    old_parent_id=models.CharField('父ID', null=True, blank=True, max_length=38)
+    old_func_no=models.CharField('功能号', null=True, blank=True, max_length=6)
+    old_alias=models.CharField('别名', null=True, blank=True, max_length=50)
+    old_is_stop=models.BooleanField('停用', null=True, blank=True)
+    old_index_no=models.IntegerField('序号', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_s_uinav'
+        indexes=[models.Index(fields=['source_batch', 'old_record_id'],name='src_6ac1853b5b1e554c'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_record_id'))),name='src_ci_6ac1853b5b1e554c')]
+        verbose_name=verbose_name_plural='原基础配置（s_UINav）'
         ordering=["-id"]
 
 class SourceDyeSchClass(SourceRecord):
@@ -6720,4 +7621,51 @@ class SourceDyeZRevisionKey(SourceRecord):
         db_table='src_dye_z_revisionkey'
         indexes=[models.Index(fields=['source_batch', 'old_id'],name='src_6ce6431046ff82ba'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_id'))),name='src_ci_6ce6431046ff82ba')]
         verbose_name=verbose_name_plural='旧业务字段修改来源键'
+        ordering=["-id"]
+
+class SourceDyeZKAttendanceMonthStatistics(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='ZKAttendanceMonthStatistics'
+    SOURCE_FIELDS={'Id': 'old_id', 'USERID': 'old_userid', 'PortalSite': 'old_portal_site', 'Department': 'old_department', 'Employee': 'old_employee', 'Year': 'old_year', 'Month': 'old_month', 'YingDao': 'old_ying_dao', 'ShiDao': 'old_shi_dao', 'ChiDao': 'old_chi_dao', 'ZaoTui': 'old_zao_tui', 'KuangGong': 'old_kuang_gong', 'JiaBan': 'old_jia_ban', 'WaiChu': 'old_wai_chu', 'YinGongWaiChu': 'old_yin_gong_wai_chu', 'GongZuoShiJian': 'old_gong_zuo_shi_jian', 'YingQian': 'old_ying_qian', 'QianDao': 'old_qian_dao', 'QianTui': 'old_qian_tui', 'WeiQianDao': 'old_wei_qian_dao', 'WeiQianTui': 'old_wei_qian_tui', 'QingJia': 'old_qing_jia', 'PingRi': 'old_ping_ri', 'ZhouMo': 'old_zhou_mo', 'JieJiaRi': 'old_jie_jia_ri', 'ChuQinShiJian': 'old_chu_qin_shi_jian', 'PingRiJiaBan': 'old_ping_ri_jia_ban', 'ZhouMoJiaBan': 'old_zhou_mo_jia_ban', 'JieJiaRiJiaBan': 'old_jie_jia_ri_jia_ban'}
+    SOURCE_KEY=()
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_id=models.IntegerField('Id', null=False, blank=False)
+    old_userid=models.IntegerField('USERID', null=True, blank=True)
+    old_portal_site=models.IntegerField('PortalSite', null=True, blank=True)
+    old_department=models.IntegerField('Department', null=True, blank=True)
+    old_employee=models.IntegerField('Employee', null=True, blank=True)
+    old_year=models.IntegerField('Year', null=True, blank=True)
+    old_month=models.IntegerField('Month', null=True, blank=True)
+    old_ying_dao=models.DecimalField('YingDao', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_shi_dao=models.DecimalField('ShiDao', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_chi_dao=models.DecimalField('ChiDao', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_zao_tui=models.DecimalField('ZaoTui', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_kuang_gong=models.DecimalField('KuangGong', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_jia_ban=models.DecimalField('JiaBan', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_wai_chu=models.DecimalField('WaiChu', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_yin_gong_wai_chu=models.DecimalField('YinGongWaiChu', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_gong_zuo_shi_jian=models.DecimalField('GongZuoShiJian', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_ying_qian=models.DecimalField('YingQian', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_qian_dao=models.DecimalField('QianDao', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_qian_tui=models.DecimalField('QianTui', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_wei_qian_dao=models.DecimalField('WeiQianDao', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_wei_qian_tui=models.DecimalField('WeiQianTui', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_qing_jia=models.DecimalField('QingJia', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_ping_ri=models.DecimalField('PingRi', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_zhou_mo=models.DecimalField('ZhouMo', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_jie_jia_ri=models.DecimalField('JieJiaRi', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_chu_qin_shi_jian=models.DecimalField('ChuQinShiJian', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_ping_ri_jia_ban=models.DecimalField('PingRiJiaBan', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_zhou_mo_jia_ban=models.DecimalField('ZhouMoJiaBan', null=True, blank=True, max_digits=9, decimal_places=1)
+    old_jie_jia_ri_jia_ban=models.DecimalField('JieJiaRiJiaBan', null=True, blank=True, max_digits=9, decimal_places=1)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_zkattendancemonthstatistics'
+        indexes=[]
+        verbose_name=verbose_name_plural='考勤月统计原表（ZKAttendanceMonthStatistics）'
         ordering=["-id"]

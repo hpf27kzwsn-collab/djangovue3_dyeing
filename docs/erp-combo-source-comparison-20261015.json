@@ -1,0 +1,11 @@
+{
+  "batch": "erp-combo-source-20261015",
+  "completed": true,
+  "tables": [
+    {
+      "table": "dye.s_DBComboValue",
+      "rows": 403,
+      "field_comparisons": 1612
+    }
+  ]
+}

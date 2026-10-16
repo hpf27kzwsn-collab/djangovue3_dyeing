@@ -103,7 +103,7 @@ def load():
             if role.key=='erp_quality_manager':
                 query_only = model.__name__ not in {'QualityInspection','InspectionResultLine','QualityDisposition',
                     'QualityDefect','ReworkOrder','StockAdjustment','StockAdjustmentLine'}
-            if model.__name__ in ['InventoryMovement', 'StockBalance']:
+            if model.__name__ in ['InventoryMovement', 'StockBalance', 'QualityQuantityBatch', 'QualityQuantitySource']:
                 query_only = True
             if model._meta.app_label != 'erp_base':
                 RoleMenuPermission.objects.get_or_create(role=role, menu=menu)

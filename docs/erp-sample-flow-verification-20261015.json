@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "http_checks": [
+    "/readiness",
+    "/",
+    "/api/meta/erp_sampling_sourcedyedyedipsrecord/",
+    "/api/system/erp_sampling_sourcedyedyedipsrecord/?page=1&limit=1",
+    "/api/meta/erp_sampling_sourcedyedyerecipe/",
+    "/api/system/erp_sampling_sourcedyedyerecipe/?page=1&limit=1",
+    "/api/meta/erp_production_sourcedyejobsheet/",
+    "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1",
+    "/api/meta/erp_sales_sourcedyeorderatte/",
+    "/api/system/erp_sales_sourcedyeorderatte/?page=1&limit=1",
+    "/api/meta/erp_sales_sourcedyequoteitemprice/",
+    "/api/system/erp_sales_sourcedyequoteitemprice/?page=1&limit=1",
+    "/api/meta/erp_sampling_sourcedyedyelabmain/",
+    "/api/system/erp_sampling_sourcedyedyelabmain/?page=1&limit=1",
+    "/api/meta/erp_sampling_sourcedyesamplein/",
+    "/api/system/erp_sampling_sourcedyesamplein/?page=1&limit=1",
+    "/api/meta/erp_sampling_sourcedyesampleout/",
+    "/api/system/erp_sampling_sourcedyesampleout/?page=1&limit=1",
+    "/api/meta/erp_sampling_sourcedyesamplestockbook/",
+    "/api/system/erp_sampling_sourcedyesamplestockbook/?page=1&limit=1",
+    "/",
+    "/static/assets/index-BOsO--GA.js",
+    "/static/assets/rolldown-runtime-C0FnF6B9.js",
+    "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js",
+    "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js",
+    "/static/assets/set-B_OWwEUN.js",
+    "/static/assets/dist-DsBxLk65.js",
+    "/static/assets/api-DAkV4tF0.js",
+    "/static/assets/use-form-item-33qblBlf.js",
+    "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js",
+    "/static/assets/preload-helper-DjzSQ1t3.js",
+    "/static/assets/router-BIOjuzX5.js",
+    "/static/assets/iconify-B5fgQta9.js",
+    "/static/assets/index-a44301d5-CIkq_0dM.js",
+    "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js",
+    "/static/assets/index-BiNaxPul.css"
+  ],
+  "registered_actions": {
+    "erp_sampling_sourcedyedyedipsrecord": [
+      "update_result",
+      "record_reply",
+      "adopt_recipe"
+    ],
+    "erp_sampling_sourcedyedyerecipe": [
+      "to_production"
+    ],
+    "erp_production_sourcedyejobsheet": [
+      "charge_quote"
+    ]
+  },
+  "frontend_typecheck_and_build": "passed",
+  "current_history_counts": {
+    "orderatte": 62895,
+    "quoteitemprice": 1,
+    "cusextracharge": 0,
+    "cusbasicsprice": 1,
+    "dyelabmain": 6502,
+    "dyelabcolor": 20974,
+    "dyedipsrecord": 1,
+    "dyedipsrecordnote": 0,
+    "dyedipsrecordphase": 26,
+    "dyedipsrecorddetail": 26,
+    "dyerecipe": 65678,
+    "samplein": 0,
+    "sampleout": 0,
+    "samplestockbook": 0
+  },
+  "regression_tests": {
+    "count": 112,
+    "passed": 112,
+    "failed": 0,
+    "seconds": 65.375,
+    "log": ".runtime-temp/erp-log-export/sample-flow-regression-20261015.log"
+  },
+  "django_check": "passed",
+  "makemigrations_check": "No changes detected",
+  "original_full_history_verification": "erp-full-original-verification-20261014.json",
+  "all_old_business_workflows_reproduced": false
+}

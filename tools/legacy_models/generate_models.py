@@ -4,6 +4,8 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
+extend_continuation_actions=runpy.run_path(str(ROOT/'tools/legacy_models/continuation_actions.py'))['extend']
+extend_foundation_actions=runpy.run_path(str(ROOT/'tools/legacy_models/foundation_actions.py'))['extend']
 MODULES=['erp_base','erp_sales','erp_purchase','erp_sampling','erp_production','erp_warehouse','erp_quality']
 
 def identifier(name):
@@ -122,6 +124,111 @@ def generate(schema_path,registry_path):
             options['workflow']['entries']=[{'value':entry,'label':rule['title'],
                 'generated_fields':[raw[old] for old in [*rule['number_fields'],*rule['default_fields']]]}
                 for entry,rule in rules.items()]
+            if table['table']=='OrderMain':
+                options['viewset']='plugins.erp_base.source_api.SourceOrderViewSet'
+                options['workflow']['actions'].append({'key':'close_expired','title':'按原180天规则结单',
+                    'states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'as_of','title':'核对日期（YYYY-MM-DD）','kind':'text','required':True,'options':[]}]})
+            if table['table']=='DyeDipsRecord':
+                options['viewset']='plugins.erp_base.source_api.SourceDipsViewSet'
+                options['workflow']['actions'].extend([
+                    {'key':'update_result','title':'按原规则回写本单打样结果','states':['draft','confirmed','approved',None],'inputs':[]},
+                    {'key':'record_reply','title':'登记打样回复/确版号','states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'note','title':'回复说明（原Note）','kind':'textarea','required':False,'options':[]},
+                        {'key':'status','title':'原回复状态值','kind':'select','required':True,'options':[{'value':True,'label':'1'},{'value':False,'label':'0'}]},
+                        {'key':'confirm_version','title':'确版号（原值）','kind':'text','required':False,'options':[]},
+                        {'key':'reply_at','title':'实际回复时间','kind':'datetime','required':True,'default_now':False,'options':[]}]},
+                    {'key':'adopt_recipe','title':'采用试验列生成配方','states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'entry','title':'目标配方类型','kind':'select','required':True,'options':[{'value':'TrialDyeRecipe','label':'试产配方'},{'value':'BulkDyeRecipe','label':'生产配方'}]},
+                        {'key':'slot','title':'实际采用试验列','kind':'select','required':True,'options':[{'value':key,'label':key} for key in 'ABCDEF']},
+                        {'key':'version','title':'新配方版本','kind':'text','required':True,'options':[]},
+                        {'key':'adopted_at','title':'实际采用时间','kind':'datetime','required':True,'default_now':False,'options':[]}]}])
+            if table['table']=='DyeRecipe':
+                options['viewset']='plugins.erp_base.source_api.SourceRecipeViewSet'
+                options['workflow']['actions'].append({'key':'to_production','title':'复制采用为生产配方',
+                    'states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'version','title':'新生产配方版本','kind':'text','required':True,'options':[]},
+                        {'key':'adopted_at','title':'实际采用时间','kind':'datetime','required':True,'default_now':False,'options':[]}]})
+            if table['table']=='JobSheet':
+                options['viewset']='plugins.erp_base.source_api.SourceJobViewSet'
+                options['workflow']['actions'].append({'key':'charge_quote','title':'查询原另收费合计',
+                    'states':['draft','confirmed','approved',None],'inputs':[]})
+            if table['table']=='PurDetail':
+                options['viewset']='plugins.erp_base.source_api.SourcePurchaseDetailViewSet'
+                options['workflow']['actions'].extend([
+                    {'key':'receipt_progress','title':'查询原采购收货进度','states':['draft','confirmed','approved',None],'inputs':[]},
+                    {'key':'receive','title':'按实际分批量生成收货单','states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'entry','title':'收货入口','kind':'select','required':True,'options':[{'value':'PurGrayIn','label':'采购坯料入库'},{'value':'PurSemiIn','label':'采购半成品入库'}]},
+                        {'key':'received_at','title':'实际收货时间','kind':'datetime','required':True,'default_now':False,'options':[]},
+                        {'key':'quantity','title':'本次实际重量（可负数）','kind':'decimal','nullable':True,'required':False,'options':[]},
+                        {'key':'rolls','title':'本次实际粒数（可小数/负数）','kind':'decimal','nullable':True,'required':False,'options':[]},
+                        {'key':'warehouse','title':'实际仓库原编码','kind':'text','required':False,'options':[]},
+                        {'key':'unit','title':'实际库存单位原编码','kind':'text','required':False,'options':[]}]}])
+            if table['table']=='OrderColor':
+                options['viewset']='plugins.erp_base.source_api.SourceOutworkOrderViewSet'
+                options['workflow']['actions'].extend([
+                    {'key':'outwork_remaining','title':'查询原外协待申请量','states':['draft','confirmed','approved',None],'inputs':[]},
+                    {'key':'apply_outwork','title':'按明确数量生成外协申请','states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'quantity','title':'本次申请量（可负数）','kind':'decimal','nullable':True,'required':False,'options':[]},
+                        {'key':'rolls','title':'本次申请粒数','kind':'decimal','nullable':True,'required':False,'options':[]},
+                        {'key':'factory','title':'外协厂原编码','kind':'text','required':False,'options':[]},
+                        {'key':'process','title':'加工工序原编码','kind':'text','required':False,'options':[]},
+                        {'key':'entry','title':'申请类型','kind':'select','required':True,'options':[{'value':'OutWorkApply','label':'坯料发外'},{'value':'SemiOutWorkApply','label':'半成品发外'}]},
+                        {'key':'applied_at','title':'实际申请时间','kind':'datetime','required':True,'default_now':False,'options':[]}]}])
+            if table['table'] in ['OutWorkApplyDetail','SemiOutWorkApplyDetail','GrayOutDetail','SemiOutDetail']:
+                is_apply=table['table'] in ['OutWorkApplyDetail','SemiOutWorkApplyDetail']
+                options['viewset']='plugins.erp_base.source_api.'+('SourceOutworkApplyDetailViewSet' if is_apply else 'SourceOutworkDispatchDetailViewSet')
+                options['workflow']['actions'].append({'key':'dispatch_outwork' if is_apply else 'receive_outwork',
+                    'title':'按实际量生成外协发出单' if is_apply else '按实际量生成外协回货成品单',
+                    'states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'quantity','title':'本次实际重量','kind':'decimal','nullable':True,'required':False,'options':[]},
+                        {'key':'rolls','title':'本次实际粒数','kind':'decimal','nullable':True,'required':False,'options':[]},
+                        {'key':'warehouse','title':'实际仓库原编码','kind':'text','required':False,'options':[]},
+                        {'key':'unit','title':'实际库存单位原编码','kind':'text','required':False,'options':[]},
+                        {'key':'job_number','title':'实际工卡号（原值）','kind':'text','required':False,'options':[]},
+                        {'key':'sheet_kind','title':'本次原单据类型编码','kind':'number','required':True,'options':[]},
+                        {'key':'happened_at','title':'实际收发时间','kind':'datetime','required':True,'default_now':False,'options':[]}]})
+            if table['table']=='DefectiveInDetail':
+                options['viewset']='plugins.erp_base.source_api.SourceDefectiveDetailViewSet'
+                options['workflow']['actions'].append({'key':'defective_balance','title':'查询原疵布收发余额',
+                    'states':['draft','confirmed','approved',None],'inputs':[]})
+            if table['table'] in ['OutWorkApply','SemiOutWorkApply']:
+                options['viewset']='plugins.erp_base.source_api.SourceOutworkApplyViewSet'
+                movement='grayoutdetail' if table['table']=='OutWorkApply' else 'semioutdetail'
+                options['workflow']['actions'].extend([
+                    {'key':'close_outwork','title':'核对收发并确认损耗结案','states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'dispatched','title':'实际发外明细（可多选）','kind':'multi','required':False,'options':[],
+                         'remote':{'entity':'erp_warehouse_sourcedye'+movement,'pk':'id','label':'old_assigned_no' if table['table']=='OutWorkApply' else 'old_detail_no'}},
+                        {'key':'received','title':'实际回货单（可多选）','kind':'multi','required':False,'options':[],
+                         'remote':{'entity':'erp_warehouse_sourcedyeprodin','pk':'id','label':'old_sheet_no'}},
+                        {'key':'losses','title':'确认损耗明细','kind':'losses','required':False,'default':[], 'options':[]},
+                        {'key':'closed_at','title':'实际结案时间','kind':'datetime','required':True,'default_now':False,'options':[]},
+                        {'key':'reason','title':'结案依据/差异说明','kind':'textarea','required':True,'options':[]}]},
+                    {'key':'outwork_closure','title':'查看结案与损耗核对','states':['draft','confirmed','approved',None],'inputs':[]},
+                    {'key':'reopen_outwork','title':'撤回外协结案','states':['draft','confirmed','approved',None],'inputs':[
+                        {'key':'reason','title':'撤回原因','kind':'textarea','required':True,'options':[]}]}])
+            if table['table']=='WProcess':
+                options['viewset']='plugins.erp_base.source_api.SourceWorkViewSet'
+                options['workflow']['actions'].append({'key':'delete_shift_record','title':'按旧班次规则删除刷卡',
+                    'states':['draft','confirmed','approved',None],'hide_when':['legacy_id','source_batch'],'inputs':[
+                        {'key':'mode','title':'实际删除链','kind':'select','required':True,'options':[
+                            {'value':'trigger','label':'原删除触发器'},
+                            {'value':'trigger_then_maintenance','label':'删除触发器后执行删除维护过程'}]},
+                        {'key':'reason','title':'删除原因','kind':'textarea','required':True,'options':[]}]})
+            if table['table']=='WDefect':
+                options['viewset']='plugins.erp_base.source_api.SourceQualityViewSet'
+                inputs=[{'key':'report','title':'统计口径','kind':'select','required':True,'options':[
+                    {'value':1,'label':'日/月部门及班次统计'}, {'value':2,'label':'旬/月二级分类统计'}, {'value':3,'label':'日/月一级分类统计'}]},
+                    {'key':'as_of','title':'统计日期','kind':'date','required':True,'options':[]}]
+                inputs.extend({'key':key,'title':title,'kind':'decimal','nullable':True,'required':False,'options':[]} for key,title in [
+                    ('DayAllNum','原本旬分母卡数'),('DayAllKg','原本旬分母重量'),('MonthAllNum','原月累计分母卡数'),('MonthAllKg','原月累计分母重量')])
+                inputs.append({'key':'denominator_reference','title':'原分母来源（旬报）','kind':'textarea','required':False,'options':[]})
+                options['workflow']['actions'].append({'key':'quality_statistics','title':'质量日/月/旬统计','detail':False,'inputs':inputs})
+            if table['table']=='dyeCheckout':
+                options['viewset']='plugins.erp_base.source_api.SourceDyeCheckoutViewSet'
+                options['workflow']['actions'].append({'key':'quality_award','title':'染色质量责任奖扣统计','detail':False,'inputs':[
+                    {'key':'start','title':'开始时间（含）','kind':'datetime','required':True,'default_now':False,'options':[]},
+                    {'key':'end','title':'结束时间（含）','kind':'datetime','required':True,'default_now':False,'options':[]}]})
             if table['table']=='StuffWeight':
                 options['workflow']['actions'].append({'key':'issue_materials','title':'按原称料规则生成领料',
                     'states':['draft','confirmed','approved'],'inputs':[
@@ -129,6 +236,8 @@ def generate(schema_path,registry_path):
                         {'key':'evidence_kind','title':'实际事件类型','kind':'select','required':True,'options':[
                             {'value':'weighing_finished','label':'称量完成记录'},{'value':'process_started','label':'染色工序开工记录'}]},
                         {'key':'evidence_reference','title':'实际事件记录号或证明','kind':'text','required':True,'options':[]}]})
+            extend_continuation_actions(table['table'],options)
+            extend_foundation_actions(table['table'],options)
             for relation in table['relations']:
                 target=targets[relation['target']]
                 label='SheetNo' if 'SheetNo' in target['fields'] else target['primary_key'][0] if target['primary_key'] else target['fields'][0]

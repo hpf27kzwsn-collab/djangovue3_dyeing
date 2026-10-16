@@ -25,6 +25,8 @@ WEIGHT_DETAIL_ENTRIES = {
     'StuffWeightPhaseDetail': '一般称料',
 }
 ENTRY_METHODS = {
+    'WProcess': {'AddWProcessEdit': '刷卡补录结束时间取开始时间'},
+    'JobShiftEmp': {'JobShiftEmpEdit': '普通登记人员原表头字段', 'DPJobShiftEmpEdit': '刷卡产量查询人员原表头字段'},
     'DyeRecipeDetail': RECIPE_DETAIL_ENTRIES,
     'StuffWeightPhase': WEIGHT_PHASE_ENTRIES,
     'StuffWeightDetail': WEIGHT_DETAIL_ENTRIES,

@@ -1,0 +1,162 @@
+{
+  "scope": "新项目开发库；Django APIClient请求路径验证，非外部HTTP服务或浏览器验收",
+  "new_source_table_rows": {
+    "ClothGetMoney": 0,
+    "ClothGetMoneyDetail": 0,
+    "FARDetail": 0,
+    "FARMain": 0,
+    "FARRecord": 0,
+    "h_SalaryAttend": 0,
+    "h_SalaryWorkQty": 0,
+    "h_SalaryWorkShift": 0,
+    "SalaryChanges": 0,
+    "SalaryChangesDetail": 0,
+    "ZKAttendanceMonthStatistics": 0
+  },
+  "migrations": [
+    [
+      "erp_base",
+      "0025_shared_business_sources"
+    ],
+    [
+      "erp_production",
+      "0021_shared_business_sources"
+    ],
+    [
+      "erp_quality",
+      "0012_shared_business_sources"
+    ],
+    [
+      "erp_sales",
+      "0017_shared_business_sources"
+    ]
+  ],
+  "api_checks": [
+    {
+      "entity": "erp_sales_sourcedyeclothgetmoney",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_sales_sourcedyeclothgetmoneydetail",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_quality_sourcedyefardetail",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_quality_sourcedyefarmain",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_quality_sourcedyefarrecord",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_base_sourcedyehsalaryattend",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_production_sourcedyehsalaryworkqty",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_production_sourcedyehsalaryworkshift",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_production_sourcedyesalarychanges",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_production_sourcedyesalarychangesdetail",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "entity": "erp_base_sourcedyezkattendancemonthstatistics",
+      "action": "list",
+      "status": 200
+    },
+    {
+      "action": "convert_unit",
+      "inputs": {
+        "source_unit": 1,
+        "destination_unit": 3,
+        "quantity": "1.005"
+      },
+      "status": 200,
+      "rows": 1
+    },
+    {
+      "action": "calendar_days",
+      "inputs": {
+        "start": "2024-02-28",
+        "end": "2024-03-01"
+      },
+      "status": 200,
+      "rows": 3
+    },
+    {
+      "action": "foundation_lookup",
+      "inputs": {
+        "lookup_id": "B049"
+      },
+      "status": 200,
+      "rows": 53
+    },
+    {
+      "action": "foundation_lookup",
+      "inputs": {
+        "lookup_id": "B062"
+      },
+      "status": 200,
+      "rows": 10
+    },
+    {
+      "action": "foundation_lookup",
+      "inputs": {
+        "lookup_id": "B084"
+      },
+      "status": 200,
+      "rows": 9
+    },
+    {
+      "action": "foundation_lookup",
+      "inputs": {
+        "lookup_id": "B085"
+      },
+      "status": 200,
+      "rows": 3
+    },
+    {
+      "entity": "erp_base.SourceDyePMachine",
+      "action": "correspondence",
+      "status": 200
+    },
+    {
+      "entity": "erp_base.SourceDyeHEmployee",
+      "action": "correspondence",
+      "status": 200
+    },
+    {
+      "entity": "erp_base.SourceDyeHEmployee",
+      "action": "business_units",
+      "status": 200
+    },
+    {
+      "entity": "erp_base.SourceDyePArticle",
+      "action": "correspondence",
+      "status": 200
+    }
+  ]
+}

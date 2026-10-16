@@ -93,8 +93,8 @@ class FullSourceModelTests(TestCase):
     def test_every_business_model_has_legacy_identity_and_static_fields(self):
         models=[model for model in apps.get_models() if model._meta.app_label.startswith('erp_')]
         originals=[model for model in models if issubclass(model,SourceRecord)]
-        self.assertEqual(len(models),662);self.assertEqual(len(originals),553)
-        self.assertEqual(sum(len(model.SOURCE_FIELDS) for model in originals),11412)
+        self.assertEqual(len(models),700);self.assertEqual(len(originals),589)
+        self.assertEqual(sum(len(model.SOURCE_FIELDS) for model in originals),12016)
         for model in models:self.assertEqual(str(model._meta.get_field('legacy_id').verbose_name),'旧erpID')
         self.assertEqual(QualityInspection._meta.app_label,'erp_quality')
         self.assertEqual(QualityInspection._meta.db_table,'erp_production_qualityinspection')
@@ -137,6 +137,14 @@ class FullSourceModelTests(TestCase):
 class OriginalModelInitializationTests(TestCase):
     def test_reinitialization_keeps_custom_titles_and_existing_role_permissions(self):
         call_command('init_data',verbosity=0)
+        quantity_menus = ['erp_quality_qualityquantitybatch', 'erp_quality_qualityquantitysource']
+        quantity_fields = FieldPermission.objects.filter(role__key='erp_business_manager',
+            field__menu__component_name__in=quantity_menus)
+        self.assertTrue(quantity_fields.exists())
+        self.assertFalse(quantity_fields.filter(is_create=True).exists())
+        self.assertFalse(quantity_fields.filter(is_update=True).exists())
+        self.assertFalse(RoleMenuButtonPermission.objects.filter(role__key='erp_business_manager',
+            menu_button__menu__component_name__in=quantity_menus).exclude(menu_button__method=0).exists())
         menu=Menu.objects.get(component_name='erp_production_sourcedyewprocess')
         column=MenuField.objects.get(menu=menu,field_name='old_work_qty')
         column.title='现场数量名称';column.save(update_fields=['title'])

@@ -9,7 +9,8 @@ from .source_numbers import generate
 def entry_for(item):
     if item.source_batch_id is not None or item.legacy_id is not None:
         return None
-    return SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).values_list('entry_name', flat=True).first()
+    name = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).values_list('entry_name', flat=True).first()
+    return None if name in ['explicit_outwork_closure', 'explicit_business_continuation', 'foundation_trigger'] else name
 
 
 def resolve_entry(item, selected, owners):
@@ -57,4 +58,7 @@ def apply_new_rules(item, data, actor, entry):
 def save_context(item, actor, entry):
     context, created = SourceDocumentContext.objects.get_or_create(entity=item._meta.label, object_id=item.pk,
         defaults={'entry_name': entry, 'creator': actor, 'modifier': actor, 'dept_belong_id': item.dept_belong_id})
+    if context.entry_name in ['explicit_outwork_closure', 'explicit_business_continuation', 'foundation_trigger']:
+        context.entry_name = entry
+        persist(context, actor)
     return context

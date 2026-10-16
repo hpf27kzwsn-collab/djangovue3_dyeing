@@ -8,6 +8,7 @@ from .business import persist, record
 from .source_context import SourceDocumentContext
 from .source_calculations import decimal, store_value
 from .source_stock_services import raw, detail_rows
+from .source_execution_state import active
 
 
 def code(value):
@@ -26,7 +27,7 @@ def allocate(item, context, actor):
     outgoing = apps.get_model('erp_warehouse.SourceDyeSemiOutRecord')
     pools = defaultdict(lambda: {'rolls': None, 'weight': None, 'packs': None, 'original_rolls': None,
                                  'receipt': None, 'barcode': None, 'roll_no': None})
-    received = incoming.objects.alias(receipt=Upper(RTrim('old_rece_sheet_no')), original=Upper(RTrim('old_ori_rece_sheet_no'))).filter(
+    received = active(incoming.objects.all()).alias(receipt=Upper(RTrim('old_rece_sheet_no')), original=Upper(RTrim('old_ori_rece_sheet_no'))).filter(
         Q(receipt__in=receipts) | Q(original__in=receipts)).select_related('source_parent_1__source_parent_1').order_by('pk')
     for source in received:
         parent = source.source_parent_1
@@ -44,7 +45,7 @@ def allocate(item, context, actor):
             add(pool, target, raw(source, field), direction)
         if not returned:
             add(pool, 'original_rolls', raw(source, 'Rolls'))
-    issued = outgoing.objects.alias(receipt=Upper(RTrim('old_rece_sheet_no'))).filter(receipt__in=receipts).exclude(
+    issued = active(outgoing.objects.all()).alias(receipt=Upper(RTrim('old_rece_sheet_no'))).filter(receipt__in=receipts).exclude(
         source_parent_1__source_parent_1=item).order_by('pk')
     for source in issued:
         key = (code(raw(source, 'ReceSheetNo')), code(raw(source, 'BarCode')), raw(source, 'RollNo'))

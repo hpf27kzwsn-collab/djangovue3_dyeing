@@ -20,3 +20,4 @@ redis==8.1.0
 django-restql
 django-celery-beat
 django-celery-results
+sqlglot==30.23.0

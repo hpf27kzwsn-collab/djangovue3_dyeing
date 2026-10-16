@@ -1,0 +1,3336 @@
+{
+  "captured_at": "2026-10-16T08:12:55.8578057+08:00",
+  "lookups": {
+    "A001": {
+      "LookupID": "A001",
+      "LookupName": "A-Z色版好",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='A-Z'",
+      "KeyField": "Code",
+      "DisplayField": "Code",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "A-Z"
+      }
+    },
+    "A002": {
+      "LookupID": "A002",
+      "LookupName": "主客户下拉",
+      "DataTableName": "p_MasterCustomer",
+      "LookupDataFilter": null,
+      "KeyField": "CustomerID",
+      "DisplayField": "ShortName",
+      "query": "SELECT CustKindID,CustomerID,ShortName \r\nFROM p_Customer \r\nWHERE\r\nCustKindID=0 \r\nAND RightStatus=10\r\nAND ISNULL(MasterCustomer,'')=''",
+      "adapter": {
+        "table": "PCustomer"
+      }
+    },
+    "A003": {
+      "LookupID": "A003",
+      "LookupName": "确板色号",
+      "DataTableName": "JobColorNum",
+      "LookupDataFilter": null,
+      "KeyField": "ColorNum",
+      "DisplayField": "ColorNum",
+      "query": "SELECT ROW_NUMBER() OVER (ORDER BY A.ColorNum)ID, * FROM \r\n(SELECT DISTINCT CustomerID,ColorNum,ColorID FROM dye.DyeRecipe WHERE SheetDate>'2022-01-01')A\r\nWHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A004": {
+      "LookupID": "A004",
+      "LookupName": "送货地址",
+      "DataTableName": "AddrDlv",
+      "LookupDataFilter": null,
+      "KeyField": "AddrDlv",
+      "DisplayField": "AddrDlv",
+      "query": "SELECT NEWID()ID,* FROM (SELECT DISTINCT AddrDlv FROM dye.JobSheet)A WHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A005": {
+      "LookupID": "A005",
+      "LookupName": "手感编码",
+      "DataTableName": "Code1",
+      "LookupDataFilter": null,
+      "KeyField": "Code1",
+      "DisplayField": "Code1",
+      "query": "SELECT NEWID()ID,* FROM (SELECT DISTINCT Code1 FROM dye.JobSheet)A WHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A006": {
+      "LookupID": "A006",
+      "LookupName": "拆卡原因",
+      "DataTableName": "SplitCardReason",
+      "LookupDataFilter": null,
+      "KeyField": "SplitCardReason",
+      "DisplayField": "SplitCardReason",
+      "query": null,
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT DISTINCT SplitCardReason FROM dye.JobSheet",
+      "adaptation": "原数据集未定义；采用现有工卡拆卡原因，单据字段仍可自由录入。"
+    },
+    "A007": {
+      "LookupID": "A007",
+      "LookupName": "机物料规格",
+      "DataTableName": "ArticleInSpec",
+      "LookupDataFilter": null,
+      "KeyField": "Spec",
+      "DisplayField": "Spec",
+      "query": "SELECT DISTINCT Spec from dye.ArticleInDetail WHERE ISNULL(Spec,'')<>''",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A008": {
+      "LookupID": "A008",
+      "LookupName": "机物料供应商",
+      "DataTableName": "p_Supplier",
+      "LookupDataFilter": "CorpType NOT IN(2)",
+      "KeyField": "CustomerID",
+      "DisplayField": "ShortName",
+      "query": "select * from dye.p_Customer WHERE CustKindID='1' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A009": {
+      "LookupID": "A009",
+      "LookupName": "付款类型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='MoneyOutKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "MoneyOutKind"
+      }
+    },
+    "A010": {
+      "LookupID": "A010",
+      "LookupName": "评审责任部门",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Defects'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Defects"
+      }
+    },
+    "A011": {
+      "LookupID": "A011",
+      "LookupName": "客户资料业务员",
+      "DataTableName": "Saler",
+      "LookupDataFilter": null,
+      "KeyField": "Saler",
+      "DisplayField": "Name",
+      "query": "SELECT A.Saler,B.Name FROM \r\n(SELECT DISTINCT SalerID AS  Saler FROM dye.p_Customer WHERE ISNULL(SalerID,'')<>'')A\r\nLEFT JOIN dye.h_Employee B ON B.EmpID=A.Saler\r\nWHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A012": {
+      "LookupID": "A012",
+      "LookupName": "客户资料跟单员",
+      "DataTableName": "Merchandiser",
+      "LookupDataFilter": null,
+      "KeyField": "Merchandiser",
+      "DisplayField": "Name",
+      "query": "SELECT A.Merchandiser,B.Name FROM \r\n(SELECT DISTINCT Merchandiser AS Merchandiser FROM dye.p_Customer WHERE ISNULL(Merchandiser,'')<>'')A\r\nLEFT JOIN dye.h_Employee B ON B.EmpID=A.Merchandiser\r\nWHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A013": {
+      "LookupID": "A013",
+      "LookupName": "机物料仓",
+      "DataTableName": "WareHouseID",
+      "LookupDataFilter": "DeptID IN ('17','20')",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID'",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID IN ('17','20')",
+      "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+    },
+    "A014": {
+      "LookupID": "A014",
+      "LookupName": "本厂布、煤仓",
+      "DataTableName": "WareHouseID",
+      "LookupDataFilter": "DeptID IN ('18','19')",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID'",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID IN ('18','19')",
+      "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+    },
+    "A015": {
+      "LookupID": "A015",
+      "LookupName": "出货额度员工",
+      "DataTableName": "RKLimit",
+      "LookupDataFilter": null,
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "SELECT \r\nLimit.Kind,\r\nLimit.EmpID,\r\nKindLimit.DeliveryDay,\r\nh_Employee.Name\r\nName\r\nFROM dye.Limit \r\nLEFT JOIN dye.h_Employee ON h_Employee.EmpID = Limit.EmpID\r\nLEFT JOIN dye.KindLimit ON KindLimit.Kind=Limit.Kind\r\nWHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A016": {
+      "LookupID": "A016",
+      "LookupName": "能耗仪表",
+      "DataTableName": "p_Meter",
+      "LookupDataFilter": null,
+      "KeyField": "MeterID",
+      "DisplayField": "Name",
+      "query": "Select * From p_Meter where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A017": {
+      "LookupID": "A017",
+      "LookupName": "半成品仓",
+      "DataTableName": "WareHouseID",
+      "LookupDataFilter": "DeptID='0803'",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID'",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID='0803'",
+      "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+    },
+    "A018": {
+      "LookupID": "A018",
+      "LookupName": "染缸编号",
+      "DataTableName": "StereotypesName",
+      "LookupDataFilter": null,
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "SELECT \r\nMachineID+'-' AS  MachineID,\r\nName,\r\nDescription\r\nFROM dye.p_Machine\r\nWHERE StationID='06'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A019": {
+      "LookupID": "A019",
+      "LookupName": "原料区域",
+      "DataTableName": "p_StorageUnitID_Area",
+      "LookupDataFilter": "FieldType='StorageArea' AND Kind='原料'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "SELECT * FROM dye.p_StorageUnitID WHERE FieldType='StorageArea' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A020": {
+      "LookupID": "A020",
+      "LookupName": "半成品区域",
+      "DataTableName": "p_StorageUnitID_Area",
+      "LookupDataFilter": "FieldType='StorageArea' AND Kind='半成品'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "SELECT * FROM dye.p_StorageUnitID WHERE FieldType='StorageArea' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A021": {
+      "LookupID": "A021",
+      "LookupName": "后纺纸筒",
+      "DataTableName": "TubeWeight",
+      "LookupDataFilter": "FieldType='TubeWeight'",
+      "KeyField": "TubeWeight",
+      "DisplayField": "TubeWeight",
+      "query": "select \r\n* ,\r\nCONVERT(DECIMAL(7,3),NumValue)AS TubeWeight,\r\nCONVERT(DECIMAL(7,3),NumValue)AS PackBag\r\nfrom dye.p_FieldValid WHERE FieldType='TubeWeight' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A022": {
+      "LookupID": "A022",
+      "LookupName": "后纺包装",
+      "DataTableName": "PackBag",
+      "LookupDataFilter": "FieldType='PackBag'",
+      "KeyField": "TubeWeight",
+      "DisplayField": "PackBag",
+      "query": "select \r\n* ,\r\nCONVERT(DECIMAL(7,3),NumValue)AS TubeWeight,\r\nCONVERT(DECIMAL(7,3),NumValue)AS PackBag\r\nfrom dye.p_FieldValid WHERE FieldType='PackBag' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A023": {
+      "LookupID": "A023",
+      "LookupName": "标签仓库",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='LabelWareHouse'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "LabelWareHouse"
+      }
+    },
+    "A024": {
+      "LookupID": "A024",
+      "LookupName": "络筒员工",
+      "DataTableName": "ShiftEmp_Employee",
+      "LookupDataFilter": "",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "SELECT TOP 50\r\nA.SerialNumber,\r\nA.ShiftID,\r\nA.EmpID,\r\nB.Name\r\nFROM dye.p_ShiftEmp A\r\nLEFT JOIN dye.p_Shift P ON A.ShiftID=P.ShiftID\r\nLEFT JOIN dye.h_Employee B ON B.EmpID = A.EmpID\r\nWHERE (SELECT C.Description FROM dye.p_FieldValid C WHERE C.FieldType='Station' AND C.Code=P.StationID)='后纺'\r\nORDER BY SerialNumber DESC",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (SELECT TOP 50\r\nA.SerialNumber,\r\nA.ShiftID,\r\nA.EmpID,\r\nB.Name\r\nFROM dye.p_ShiftEmp A\r\nLEFT JOIN dye.p_Shift P ON A.ShiftID=P.ShiftID\r\nLEFT JOIN dye.h_Employee B ON B.EmpID = A.EmpID\r\nWHERE (SELECT C.Description FROM dye.p_FieldValid C WHERE C.FieldType='Station' AND C.Code=P.StationID)='后纺'\r\nORDER BY SerialNumber DESC) original_source WHERE 1=1",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "A025": {
+      "LookupID": "A025",
+      "LookupName": "标签用途",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='LabelRemarks'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "LabelRemarks"
+      }
+    },
+    "A026": {
+      "LookupID": "A026",
+      "LookupName": "合染订单明细",
+      "DataTableName": "JobCheckNo",
+      "LookupDataFilter": null,
+      "KeyField": "CheckNo",
+      "DisplayField": "CustSelfNo",
+      "query": "SELECT \r\nCheckNo,\r\nISNULL(CustSelfNo,'库存单')CustSelfNo,\r\nJobSheetNo,\r\nColorNum,\r\nREPLACE(CustFabricName,'  ','')CustFabricName,\r\ndye.fn_A_GetRemarks(0,CheckNo) AS LabelWareHouse,\r\ndye.fn_A_GetRemarks(1,CheckNo) AS LabelRemarks\r\nFROM dye.v_JobCombineOrder\r\nWHERE 1=1\r\nAND ISNULL(JobSheetNo,'')<>''",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A027": {
+      "LookupID": "A027",
+      "LookupName": "染缸缸位",
+      "DataTableName": "LEFT_StereotypesName_1",
+      "LookupDataFilter": null,
+      "KeyField": "StereotypesName",
+      "DisplayField": "StereotypesName",
+      "query": "SELECT DISTINCT  \r\nStereotypesName \r\nFROM (SELECT \r\nKindName AS StereotypesName\r\nFROM dye.p_Machine\r\nWHERE StationID='06'\r\n)A",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (SELECT DISTINCT  \r\nStereotypesName \r\nFROM (SELECT \r\nKindName AS StereotypesName\r\nFROM dye.p_Machine\r\nWHERE StationID='06'\r\n)A) original_source WHERE 1=1",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "A028": {
+      "LookupID": "A028",
+      "LookupName": "订单表明细号",
+      "DataTableName": "OrderCheckNo",
+      "LookupDataFilter": null,
+      "KeyField": "CheckNo",
+      "DisplayField": "CheckNo",
+      "query": "SELECT\r\nA.CheckNo,\r\nA.ContractNo,\r\nA.ColorNum,\r\nA.ColorID,\r\nB.SheetNo,\r\nB.CustSelfNo\r\nFROM dye.OrderColor A\r\nLEFT JOIN dye.OrderMain B ON B.SheetSeries = A.SheetSeries\r\nWHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A029": {
+      "LookupID": "A029",
+      "LookupName": "加工厂",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='FactID'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "FactID"
+      }
+    },
+    "A030": {
+      "LookupID": "A030",
+      "LookupName": "半成品发外未出库缸号",
+      "DataTableName": "qry_SemiOutWork",
+      "LookupDataFilter": null,
+      "KeyField": "DetailNo",
+      "DisplayField": "DetailNo",
+      "query": "SELECT sowa.SheetSeries,sowad.DetailNo,sowad.CheckNo \r\nFROM dye.SemiOutWorkApply sowa\r\nINNER JOIN dye.SemiOutWorkApplyDetail sowad ON sowad.SheetSeries = sowa.SheetSeries\r\nWHERE \r\nisnull(sowad.WorkMaterials,0)=0 and \r\nNOT EXISTS (SELECT * FROM dye.SemiOutDetail so WHERE so.JobSheetNo=sowad.DetailNo)",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A031": {
+      "LookupID": "A031",
+      "LookupName": "复版状态",
+      "DataTableName": "FBWC",
+      "LookupDataFilter": "",
+      "KeyField": "WProcessNo",
+      "DisplayField": "FBWC",
+      "query": "SELECT * FROM \r\n(SELECT \r\nROW_NUMBER()OVER(PARTITION BY A.JobSheetNo ORDER BY A.StartTime DESC)NUM,\r\nA.WProcessNo,\r\nA.JobSheetNo,\r\n'复版完成' AS FBWC\r\nFROM dye.WProcess A\r\nWHERE A.StationID='06'\r\nAND A.DyeState='5'\r\n)B\r\nWHERE \r\nB.NUM=1\r\nAND B.WProcessNo NOT IN (SELECT WProcessNo FROM dye.StuffWeight WHERE ISNULL(WProcessNo,'')<>'' AND SheetKind=2 AND RecipeType=1)",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A032": {
+      "LookupID": "A032",
+      "LookupName": "前纺纸筒",
+      "DataTableName": "TubeWeight_QF",
+      "LookupDataFilter": "FieldType='TubeWeight_QF'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select \r\n* ,\r\nCONVERT(DECIMAL(7,3),NumValue)AS TubeWeight,\r\nCONVERT(DECIMAL(7,3),NumValue)AS PackBag\r\nfrom dye.p_FieldValid WHERE FieldType='TubeWeight_QF' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "A033": {
+      "LookupID": "A033",
+      "LookupName": "前纺包装",
+      "DataTableName": "PackBag_QF",
+      "LookupDataFilter": "FieldType='PackBag_QF'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select \r\n* ,\r\nCONVERT(DECIMAL(7,3),NumValue)AS TubeWeight,\r\nCONVERT(DECIMAL(7,3),NumValue)AS PackBag\r\nfrom dye.p_FieldValid WHERE FieldType='PackBag_QF' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B001": {
+      "LookupID": "B001",
+      "LookupName": "客户资料",
+      "DataTableName": "v_Customer",
+      "LookupDataFilter": "IsNUll(IsStop,0)=0",
+      "KeyField": "CustomerID",
+      "DisplayField": "ShortName",
+      "query": "SELECT  \r\np.*,\r\nCONVERT(VARCHAR(10),\r\nISNULL(p.EnableOrders,0)) AS EbOd,\r\nc.Linker,\r\nLinkerTel \r\nFROM dye.p_Customer p \r\nLEFT JOIN \r\n(SELECT CustomerID,Name AS Linker,Mobile AS LinkerTel FROM dye.p_CustLinker WHERE RowNo='1')c \r\nON c.CustomerID = p.CustomerID\r\nWHERE\r\n p.CustKindID='0' \r\n--AND p.RightStatus=10\r\nAND 1=1",
+      "adapter": {
+        "table": "PCustomer"
+      }
+    },
+    "B002": {
+      "LookupID": "B002",
+      "LookupName": "全部员工",
+      "DataTableName": "Employee",
+      "LookupDataFilter": "ISNULL(IsOut,0)=0 ",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B003": {
+      "LookupID": "B003",
+      "LookupName": "胚纱类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='FabricKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "FabricKind"
+      }
+    },
+    "B004": {
+      "LookupID": "B004",
+      "LookupName": "本厂规格资料",
+      "DataTableName": "p_Gray",
+      "LookupDataFilter": "IsNUll(IsStop,0)=0",
+      "KeyField": "GrayID",
+      "DisplayField": "NameC",
+      "query": "SELECT *,StockUnit as unit FROM p_Gray where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B005": {
+      "LookupID": "B005",
+      "LookupName": "工艺线路",
+      "DataTableName": "p_Production",
+      "LookupDataFilter": null,
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType='Production' and 1=1 \r\norder by Name",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Production"
+      }
+    },
+    "B006": {
+      "LookupID": "B006",
+      "LookupName": "员工资料",
+      "DataTableName": "Employee",
+      "LookupDataFilter": "ISNULL(IsOut,0)=0 ",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID",
+      "adapter": {
+        "table": "HEmployee"
+      }
+    },
+    "B007": {
+      "LookupID": "B007",
+      "LookupName": "客户分类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='CustKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "CustKind"
+      }
+    },
+    "B008": {
+      "LookupID": "B008",
+      "LookupName": "开户银行",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Bank'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Bank"
+      }
+    },
+    "B009": {
+      "LookupID": "B009",
+      "LookupName": "部门类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DeptKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "DeptKind"
+      }
+    },
+    "B0092": {
+      "LookupID": "B0092",
+      "LookupName": "染化料类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='StuffKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "StuffKind"
+      }
+    },
+    "B010": {
+      "LookupID": "B010",
+      "LookupName": "员工类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='EmpKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "EmpKind"
+      }
+    },
+    "B011": {
+      "LookupID": "B011",
+      "LookupName": "颜色",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Color'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Color"
+      }
+    },
+    "B012": {
+      "LookupID": "B012",
+      "LookupName": "颜色深浅",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ColorDepth'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ColorDepth"
+      }
+    },
+    "B013": {
+      "LookupID": "B013",
+      "LookupName": "客户等级",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='CustGrade'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "CustGrade"
+      }
+    },
+    "B014": {
+      "LookupID": "B014",
+      "LookupName": "业务组别",
+      "DataTableName": "p_Dept",
+      "LookupDataFilter": "DeptKindID='11'  ",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select *  from p_Dept where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B015": {
+      "LookupID": "B015",
+      "LookupName": "染色工序",
+      "DataTableName": "p_Process",
+      "LookupDataFilter": "StationID='02'",
+      "KeyField": "ProcessID",
+      "DisplayField": "Name",
+      "query": "select * from p_Process",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B016": {
+      "LookupID": "B016",
+      "LookupName": "订单类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='OrderKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "OrderKind"
+      }
+    },
+    "B017": {
+      "LookupID": "B017",
+      "LookupName": "合同类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ContractClass'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ContractClass"
+      }
+    },
+    "B018": {
+      "LookupID": "B018",
+      "LookupName": "交货方式",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DlvManner'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "DlvManner"
+      }
+    },
+    "B019": {
+      "LookupID": "B019",
+      "LookupName": "交易方式",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='dyeMode'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "dyeMode"
+      }
+    },
+    "B020": {
+      "LookupID": "B020",
+      "LookupName": "运输方式",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='TranSport'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "TranSport"
+      }
+    },
+    "B021": {
+      "LookupID": "B021",
+      "LookupName": "装箱箱型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='BoxType'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "BoxType"
+      }
+    },
+    "B022": {
+      "LookupID": "B022",
+      "LookupName": "发货优先等级",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DlvPriority'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "DlvPriority"
+      }
+    },
+    "B023": {
+      "LookupID": "B023",
+      "LookupName": "报价类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='QuoteKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "QuoteKind"
+      }
+    },
+    "B024": {
+      "LookupID": "B024",
+      "LookupName": "销售区域",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Area'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Area"
+      }
+    },
+    "B025": {
+      "LookupID": "B025",
+      "LookupName": "采购类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='PurKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "PurKind"
+      }
+    },
+    "B026": {
+      "LookupID": "B026",
+      "LookupName": "公司类型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='CorpKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "CorpKind"
+      }
+    },
+    "B027": {
+      "LookupID": "B027",
+      "LookupName": "币别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Currency'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Currency"
+      }
+    },
+    "B028": {
+      "LookupID": "B028",
+      "LookupName": "付款方式",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Payment'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Payment"
+      }
+    },
+    "B029": {
+      "LookupID": "B029",
+      "LookupName": "结算方式",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Settle' and code IN('01','02')",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B030": {
+      "LookupID": "B030",
+      "LookupName": "应收类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ARKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ARKind"
+      }
+    },
+    "B031": {
+      "LookupID": "B031",
+      "LookupName": "应付类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='APKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "APKind"
+      }
+    },
+    "B032": {
+      "LookupID": "B032",
+      "LookupName": "籍贯",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Native'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Native"
+      }
+    },
+    "B033": {
+      "LookupID": "B033",
+      "LookupName": "学历",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Education'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Education"
+      }
+    },
+    "B034": {
+      "LookupID": "B034",
+      "LookupName": "胚纱仓库",
+      "DataTableName": "WareHouseID",
+      "LookupDataFilter": "DeptID='0801'",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID'",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID='0801'",
+      "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+    },
+    "B035": {
+      "LookupID": "B035",
+      "LookupName": "成品仓库",
+      "DataTableName": "WareHouseID",
+      "LookupDataFilter": "DeptID='0802'",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID'",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID='0802'",
+      "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+    },
+    "B036": {
+      "LookupID": "B036",
+      "LookupName": "白坯仓位",
+      "DataTableName": "p_StorageUnitID",
+      "LookupDataFilter": "FieldType='GrayStorage'",
+      "KeyField": "Code",
+      "DisplayField": "Code",
+      "query": "SELECT * FROM dye.p_StorageUnitID WHERE FieldType='GrayStorage' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B037": {
+      "LookupID": "B037",
+      "LookupName": "成品仓位",
+      "DataTableName": "p_StorageUnitID_Prod",
+      "LookupDataFilter": "FieldType='ProdStorage'",
+      "KeyField": "Code",
+      "DisplayField": "Code",
+      "query": "SELECT * FROM dye.p_StorageUnitID WHERE FieldType='ProdStorage' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B038": {
+      "LookupID": "B038",
+      "LookupName": "门幅种类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='WidthKind' ",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "WidthKind"
+      }
+    },
+    "B0381": {
+      "LookupID": "B0381",
+      "LookupName": "克重单位",
+      "DataTableName": "WidthGramWeight",
+      "LookupDataFilter": "Kind='克重' ",
+      "KeyField": "NameC",
+      "DisplayField": "NameC",
+      "query": "Select * from WidthGramWeight\r\nWhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B0382": {
+      "LookupID": "B0382",
+      "LookupName": "幅宽单位",
+      "DataTableName": "WidthGramWeight",
+      "LookupDataFilter": "Kind='幅宽' ",
+      "KeyField": "NameC",
+      "DisplayField": "NameC",
+      "query": "Select * from WidthGramWeight\r\nWhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B039": {
+      "LookupID": "B039",
+      "LookupName": "前处理工艺路线",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Production' and SortValue =1",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B040": {
+      "LookupID": "B040",
+      "LookupName": "手感类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='HandFeel'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "HandFeel"
+      }
+    },
+    "B041": {
+      "LookupID": "B041",
+      "LookupName": "加工要求",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='AtteKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "AtteKind"
+      }
+    },
+    "B042": {
+      "LookupID": "B042",
+      "LookupName": "加工单类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='JobKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "JobKind"
+      }
+    },
+    "B043": {
+      "LookupID": "B043",
+      "LookupName": "布匹等级",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='FabricGrade'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "FabricGrade"
+      }
+    },
+    "B044": {
+      "LookupID": "B044",
+      "LookupName": "对色光源",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='VerLight'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "VerLight"
+      }
+    },
+    "B045": {
+      "LookupID": "B045",
+      "LookupName": "保险类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Insurance'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Insurance"
+      }
+    },
+    "B046": {
+      "LookupID": "B046",
+      "LookupName": "国家",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Country'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Country"
+      }
+    },
+    "B047": {
+      "LookupID": "B047",
+      "LookupName": "企业类型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='BusinessKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "BusinessKind"
+      }
+    },
+    "B048": {
+      "LookupID": "B048",
+      "LookupName": "客户类型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ToPlace'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ToPlace"
+      }
+    },
+    "B049": {
+      "LookupID": "B049",
+      "LookupName": "机物料单位",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ArticleUnit'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ArticleUnit"
+      }
+    },
+    "B050": {
+      "LookupID": "B050",
+      "LookupName": "物料出库",
+      "DataTableName": "ArticleCurrentStock",
+      "LookupDataFilter": null,
+      "KeyField": "ArticleID",
+      "DisplayField": "Name",
+      "query": "SELECT a.ArticleID,b.Name,\r\nb.ArticleKindID,\r\nc.Name AS ArticleKindName ,\r\nd. Name AS Unit,\r\nISNULL(a.Qty,0)as SaveQty ,\r\nb.Price,a.Total\r\nFROM dye.vwArticleStockBook a \r\nLEFT JOIN dye.p_Article b\r\nON a.ArticleID=b.ArticleID\r\nLEFT JOIN dye.p_FieldValid c\r\nON b.ArticleKindID=c.Code AND FieldType='ArticleKind'\r\nLEFT JOIN dye.p_FieldValid d\r\nON b.Unit=d.Code AND d.FieldType='ArticleUnit'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B051": {
+      "LookupID": "B051",
+      "LookupName": "另收费项目",
+      "DataTableName": "p_FieldValidSub",
+      "LookupDataFilter": "FieldType='AtteKind' AND Code='00'",
+      "KeyField": "SubCode",
+      "DisplayField": "Name",
+      "query": "Select * From p_FieldValidSub where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B052": {
+      "LookupID": "B052",
+      "LookupName": "职位",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Position' ",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Position"
+      }
+    },
+    "B053": {
+      "LookupID": "B053",
+      "LookupName": "岗位",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='WorkKind' ",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "WorkKind"
+      }
+    },
+    "B054": {
+      "LookupID": "B054",
+      "LookupName": "供应商",
+      "DataTableName": "p_vwCustomer",
+      "LookupDataFilter": "CustKindID='1' AND IsNUll(IsStop,0)=0",
+      "KeyField": "CustomerID",
+      "DisplayField": "ShortName",
+      "query": "SELECT \r\np.*,b.CustCategoryCode\r\nFROM dye.p_Customer p  left Join dye.p_CustCategory b On p.CustomerID=b.CustomerID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B055": {
+      "LookupID": "B055",
+      "LookupName": "货运公司",
+      "DataTableName": "p_vwCustomer",
+      "LookupDataFilter": "CustCategoryCode='70'",
+      "KeyField": "CustomerID",
+      "DisplayField": "ShortName",
+      "query": "SELECT \r\np.*,b.CustCategoryCode\r\nFROM dye.p_Customer p  left Join dye.p_CustCategory b On p.CustomerID=b.CustomerID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B056": {
+      "LookupID": "B056",
+      "LookupName": "账龄",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='AccountAge'",
+      "KeyField": "NumValue",
+      "DisplayField": "NumValue",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "AccountAge"
+      }
+    },
+    "B057": {
+      "LookupID": "B057",
+      "LookupName": "功能编号",
+      "DataTableName": "s_Functions",
+      "LookupDataFilter": null,
+      "KeyField": "FuncNo",
+      "DisplayField": "FuncName",
+      "query": "Select * from s_Functions ",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B058": {
+      "LookupID": "B058",
+      "LookupName": "费用种类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='OrderFree'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "OrderFree"
+      }
+    },
+    "B059": {
+      "LookupID": "B059",
+      "LookupName": "申购类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='PurApply'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "PurApply"
+      }
+    },
+    "B060": {
+      "LookupID": "B060",
+      "LookupName": "流程类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='FlowKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "FlowKind"
+      }
+    },
+    "B061": {
+      "LookupID": "B061",
+      "LookupName": "业务员",
+      "DataTableName": "h_EmployeeEdit",
+      "LookupDataFilter": "EmpKind='N000'",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID],[IsCustomer]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu] \r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo],Ratio,IsNotKQ,ROUND(CAST(DATEDIFF(MONTH,InDate,GETDATE()) AS DECIMAL(4,1))/12,1) AS ProAge,isnull(datediff(yyyy,Birthday,getdate()),0) as Age\r\n,PwdUsefulLife, PwdExDate,EmpGroup,MFLevel,MFGiveOut ,CustomerID\r\n From h_Employee\r\nWhere isnull(IsOut,0)='0' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B062": {
+      "LookupID": "B062",
+      "LookupName": "部门",
+      "DataTableName": "p_Dept",
+      "LookupDataFilter": "DeptID<>'00'",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select *  from p_Dept where 1=1",
+      "adapter": {
+        "table": "PDept"
+      }
+    },
+    "B063": {
+      "LookupID": "B063",
+      "LookupName": "库存单位",
+      "DataTableName": "s_StockUnit",
+      "LookupDataFilter": null,
+      "KeyField": "Code",
+      "DisplayField": "Unit",
+      "query": "select '0'  code ,'米' unit",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B064": {
+      "LookupID": "B064",
+      "LookupName": "本厂规格分类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType ='GrayKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "GrayKind"
+      }
+    },
+    "B065": {
+      "LookupID": "B065",
+      "LookupName": "本厂规格分类明细",
+      "DataTableName": "p_FieldValidSub",
+      "LookupDataFilter": "FieldType='FabricInfoKind'",
+      "KeyField": "SubCode",
+      "DisplayField": "Name",
+      "query": "Select * From p_FieldValidSub where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B067": {
+      "LookupID": "B067",
+      "LookupName": "样品仓位",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SampleStorage'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SampleStorage"
+      }
+    },
+    "B068": {
+      "LookupID": "B068",
+      "LookupName": "样卡类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SampleKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SampleKind"
+      }
+    },
+    "B069": {
+      "LookupID": "B069",
+      "LookupName": "快递公司",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ExpressCompany'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ExpressCompany"
+      }
+    },
+    "B070": {
+      "LookupID": "B070",
+      "LookupName": "样品入库类型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SampleInKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SampleInKind"
+      }
+    },
+    "B071": {
+      "LookupID": "B071",
+      "LookupName": "样品出库类型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SampleOutKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SampleOutKind"
+      }
+    },
+    "B072": {
+      "LookupID": "B072",
+      "LookupName": "司机信息",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Driver'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Driver"
+      }
+    },
+    "B073": {
+      "LookupID": "B073",
+      "LookupName": "采购员",
+      "DataTableName": "h_EmployeeEdit",
+      "LookupDataFilter": "ISNULL(IsOut,0)=0 ",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID],[IsCustomer]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu] \r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo],Ratio,IsNotKQ,ROUND(CAST(DATEDIFF(MONTH,InDate,GETDATE()) AS DECIMAL(4,1))/12,1) AS ProAge,isnull(datediff(yyyy,Birthday,getdate()),0) as Age\r\n,PwdUsefulLife, PwdExDate,EmpGroup,MFLevel,MFGiveOut ,CustomerID\r\n From h_Employee\r\nWhere isnull(IsOut,0)='0' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B074": {
+      "LookupID": "B074",
+      "LookupName": "染化料供应商",
+      "DataTableName": "p_Supplier",
+      "LookupDataFilter": "",
+      "KeyField": "CustomerID",
+      "DisplayField": "ShortName",
+      "query": "select * from dye.p_Customer WHERE CustKindID='1' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B075": {
+      "LookupID": "B075",
+      "LookupName": "报损事由",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='LossKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "LossKind"
+      }
+    },
+    "B076": {
+      "LookupID": "B076",
+      "LookupName": "签核常用意见",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SignIdea'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SignIdea"
+      }
+    },
+    "B077": {
+      "LookupID": "B077",
+      "LookupName": "签核常用备注",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SignRemarks'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SignRemarks"
+      }
+    },
+    "B078": {
+      "LookupID": "B078",
+      "LookupName": "包装单位",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='PackUnit'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "PackUnit"
+      }
+    },
+    "B079": {
+      "LookupID": "B079",
+      "LookupName": "疵点",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DefectName'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "DefectName"
+      }
+    },
+    "B080": {
+      "LookupID": "B080",
+      "LookupName": "机台",
+      "DataTableName": "p_Machine",
+      "LookupDataFilter": "",
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "Select * from p_Machine where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B081": {
+      "LookupID": "B081",
+      "LookupName": "工序",
+      "DataTableName": "p_Process",
+      "LookupDataFilter": null,
+      "KeyField": "ProcessID",
+      "DisplayField": "Name",
+      "query": "select * from p_Process",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B082": {
+      "LookupID": "B082",
+      "LookupName": "工艺参数",
+      "DataTableName": "p_CraftParam",
+      "LookupDataFilter": null,
+      "KeyField": "ParamID",
+      "DisplayField": "ParamName",
+      "query": "select * from p_CraftParam",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B083": {
+      "LookupID": "B083",
+      "LookupName": "客户规格资料",
+      "DataTableName": "qry_Product_Query",
+      "LookupDataFilter": "",
+      "KeyField": "ProdID",
+      "DisplayField": "ProdID",
+      "query": "SELECT DISTINCT CustSelfProduct AS ProdID  FROM dye.JobSheet \r\nWHERE ISNULL(CustSelfProduct,'')<> '' AND 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B084": {
+      "LookupID": "B084",
+      "LookupName": "加工站别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Station'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Station"
+      }
+    },
+    "B085": {
+      "LookupID": "B085",
+      "LookupName": "生产车间",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='WorkShop'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "WorkShop"
+      }
+    },
+    "B086": {
+      "LookupID": "B086",
+      "LookupName": "机台群组",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='MachineKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "MachineKind"
+      }
+    },
+    "B087": {
+      "LookupID": "B087",
+      "LookupName": "生产班别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Class'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Class"
+      }
+    },
+    "B088": {
+      "LookupID": "B088",
+      "LookupName": "白坯库存",
+      "DataTableName": "p_qryGrayStockBook",
+      "LookupDataFilter": null,
+      "KeyField": "ReceSheetNo",
+      "DisplayField": "ReceSheetNo",
+      "query": "Select gb.*\r\nFrom vwGrayStockBook gb\r\nWhere (IsNull(gb.Packs,0)>0 or IsNull(Rolls,0)>0 Or IsNull(LengthQty,0)>0 Or IsNull(WeightQty,0)>0)\r\nOrder by gb.SheetSeries,gb.ReceSheetNo",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (Select gb.*\r\nFrom vwGrayStockBook gb\r\nWhere (IsNull(gb.Packs,0)>0 or IsNull(Rolls,0)>0 Or IsNull(LengthQty,0)>0 Or IsNull(WeightQty,0)>0)\r\nOrder by gb.SheetSeries,gb.ReceSheetNo) original_source WHERE 1=1",
+      "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+    },
+    "B089": {
+      "LookupID": "B089",
+      "LookupName": "生产工人",
+      "DataTableName": "h_EmployeeEdit",
+      "LookupDataFilter": "",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID],[IsCustomer]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu] \r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo],Ratio,IsNotKQ,ROUND(CAST(DATEDIFF(MONTH,InDate,GETDATE()) AS DECIMAL(4,1))/12,1) AS ProAge,isnull(datediff(yyyy,Birthday,getdate()),0) as Age\r\n,PwdUsefulLife, PwdExDate,EmpGroup,MFLevel,MFGiveOut ,CustomerID\r\n From h_Employee\r\nWhere isnull(IsOut,0)='0' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B090": {
+      "LookupID": "B090",
+      "LookupName": "回修原因",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='RedoReason'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "RedoReason"
+      }
+    },
+    "B091": {
+      "LookupID": "B091",
+      "LookupName": "生产班组",
+      "DataTableName": "p_Shift",
+      "LookupDataFilter": null,
+      "KeyField": "ShiftID",
+      "DisplayField": "Name",
+      "query": "select \r\n *\r\nfrom \r\np_Shift\r\nwhere 1=1 \r\nORDER BY ShiftID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B092": {
+      "LookupID": "B092",
+      "LookupName": "标签",
+      "DataTableName": "p_Label",
+      "LookupDataFilter": null,
+      "KeyField": "RptID",
+      "DisplayField": "RptTitle",
+      "query": "select RptID,RptTitle,ProdUnit  from dye.s_RptInfo where Rptid like ('%QC%')  AND RptID NOT IN ('QC31','QC32')",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B093": {
+      "LookupID": "B093",
+      "LookupName": "染化料品名",
+      "DataTableName": "p_Stuff",
+      "LookupDataFilter": "ISNULL(Status,0)=0",
+      "KeyField": "StuffID",
+      "DisplayField": "Name",
+      "query": "select * ,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '0'END)AS AutoID,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '手工备料'END)AS AutoName,\r\nCASE WHEN ISNULL(AutoSysID,0)='1' THEN AutoSysID ELSE 0 END AS AutoSysIDs,\r\nCAST(Price/ISNULL(WOF,1) AS DECIMAL(10,2)) AS NewPrice from  dye.p_Stuff",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B094": {
+      "LookupID": "B094",
+      "LookupName": "染化料仓",
+      "DataTableName": "WareHouseID",
+      "LookupDataFilter": "Code IN ('12','13','14')",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B095": {
+      "LookupID": "B095",
+      "LookupName": "染化料领用部门",
+      "DataTableName": "p_Dept",
+      "LookupDataFilter": "",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select *  from p_Dept where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B096": {
+      "LookupID": "B096",
+      "LookupName": "机物料品名资料",
+      "DataTableName": "p_Article",
+      "LookupDataFilter": null,
+      "KeyField": "ArticleID",
+      "DisplayField": "Name",
+      "query": "select a.*,b.Name as UnitName from p_Article a\r\nleft join p_FieldValid b\r\non a.Unit=b.code and FieldType='ArticleUnit'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B097": {
+      "LookupID": "B097",
+      "LookupName": "机物料全部仓库",
+      "DataTableName": "WareHouseID",
+      "LookupDataFilter": "DeptID IN ('17','18','19','20')",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID'",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select  Code AS DeptID,* from dye.p_FieldValid WHERE FieldType='WareHouseID') original_source WHERE DeptID IN ('17','18','19','20')",
+      "adaptation": "原动态追加WHERE引用同层别名或置于ORDER BY后；改为完整原查询外层过滤，保留全部原字段与原筛选条件。"
+    },
+    "B098": {
+      "LookupID": "B098",
+      "LookupName": "机物料领用部门",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ArticleDept'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ArticleDept"
+      }
+    },
+    "B099": {
+      "LookupID": "B099",
+      "LookupName": "机物料类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ArticleKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ArticleKind"
+      }
+    },
+    "B100": {
+      "LookupID": "B100",
+      "LookupName": "客样未打样",
+      "DataTableName": "GetDyeDipsRecordColorNum",
+      "LookupDataFilter": "SheetKind IN ('0','1')",
+      "KeyField": "ColorNum",
+      "DisplayField": "ColorNum",
+      "query": "select * from ( SELECT  [ColorNo], [CheckNo], [LabDipsSource], [ProdID], [LotNo], \r\n         [Spec],[ColorDepthID], [ColorID], [ColorE], [ColorNum], \r\n         [CustColorNum], [ColorRGB], [Price], [MainStuffKindID], \r\n         [IsToDoSample], [ColorCards], [Status], [StartTime], [LimitHours], [OverTimeReason], [ShiftID], \r\n         [EmpID], [WorkQty], [RedoTimes], [OriColorNo], [OriEmpID], [OriShifID], [JobSheetNo], [CustSelfProduct],\r\n DyeLabMain.* FROM  DyeLabColor LEFT JOIN DyeLabMain \r\nON DyeLabColor.SheetSeries = DyeLabMain.SheetSeries \r\nWHERE ColorNum NOT IN (SELECT ISNULL(ColorNum,'') FROM  DyeDipsRecord)) DyeLabMain   where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B101": {
+      "LookupID": "B101",
+      "LookupName": "染程名称",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DyePhase' AND  ISNULL(IsStop,0)=0",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B102": {
+      "LookupID": "B102",
+      "LookupName": "生产样未打样",
+      "DataTableName": "GetDyeDipsRecordColorNum",
+      "LookupDataFilter": "SheetKind=9",
+      "KeyField": "ColorNum",
+      "DisplayField": "ColorNum",
+      "query": "select * from ( SELECT  [ColorNo], [CheckNo], [LabDipsSource], [ProdID], [LotNo], \r\n         [Spec],[ColorDepthID], [ColorID], [ColorE], [ColorNum], \r\n         [CustColorNum], [ColorRGB], [Price], [MainStuffKindID], \r\n         [IsToDoSample], [ColorCards], [Status], [StartTime], [LimitHours], [OverTimeReason], [ShiftID], \r\n         [EmpID], [WorkQty], [RedoTimes], [OriColorNo], [OriEmpID], [OriShifID], [JobSheetNo], [CustSelfProduct],\r\n DyeLabMain.* FROM  DyeLabColor LEFT JOIN DyeLabMain \r\nON DyeLabColor.SheetSeries = DyeLabMain.SheetSeries \r\nWHERE ColorNum NOT IN (SELECT ISNULL(ColorNum,'') FROM  DyeDipsRecord)) DyeLabMain   where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B103": {
+      "LookupID": "B103",
+      "LookupName": "对色面",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ConfirmSide'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ConfirmSide"
+      }
+    },
+    "B104": {
+      "LookupID": "B104",
+      "LookupName": "染色工艺条件",
+      "DataTableName": "p_FieldValidDye",
+      "LookupDataFilter": "FieldType='Dye'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B105": {
+      "LookupID": "B105",
+      "LookupName": "布匹状态",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='RecordStatus'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "RecordStatus"
+      }
+    },
+    "B106": {
+      "LookupID": "B106",
+      "LookupName": "工艺曲线图片",
+      "DataTableName": "p_DyeCurve",
+      "LookupDataFilter": "ISNULL(DyePhase,0)=0",
+      "KeyField": "CurveID",
+      "DisplayField": "CurveID",
+      "query": "select * from p_DyeCurve WHERE ISNULL(DyePhase,0)=0 and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B107": {
+      "LookupID": "B107",
+      "LookupName": "序前工序参数",
+      "DataTableName": "p_CraftParam",
+      "LookupDataFilter": "ParamType='1'",
+      "KeyField": "ParamID",
+      "DisplayField": "ParamName",
+      "query": "select * from p_CraftParam",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B108": {
+      "LookupID": "B108",
+      "LookupName": "机物料工程项目",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ArticleProject'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ArticleProject"
+      }
+    },
+    "B109": {
+      "LookupID": "B109",
+      "LookupName": "工序缸号信息",
+      "DataTableName": "WPJobSheetList",
+      "LookupDataFilter": null,
+      "KeyField": "ID",
+      "DisplayField": "ID",
+      "query": "SELECT ROW_NUMBER()OVER(ORDER BY SheetNo,ProcessNo,ProcessID)ID,* \r\nFROM (SELECT SheetNo,a.CustomerID,c.ShortName,ProdID,d.NameC,OrderSheetNo,ColorNum,a.ColorID,\r\nISNULL(ProcessNo,1)ProcessNo,ISNULL(b.ProcessID,2)ProcessID,e.Name,b.StationID,SumAssignedRolls,SumAssignedWeightQty \r\nFROM dye.JobSheet a\r\nLEFT JOIN dye.JobProcess b\r\nON a.SheetSeries = b.SheetSeries\r\nLEFT JOIN dye.p_Customer c\r\nON a.CustomerID=c.CustomerID\r\nLEFT JOIN dye.p_Gray d\r\nON a.ProdID=d.GrayID\r\nLEFT JOIN dye.p_Process e\r\nON b.ProcessID=e.ProcessID\r\nWHERE a.SheetDate>'2018-01-01')a",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (SELECT ROW_NUMBER()OVER(ORDER BY SheetNo,ProcessNo,ProcessID)ID,* \r\nFROM (SELECT SheetNo,a.CustomerID,c.ShortName,ProdID,d.NameC,OrderSheetNo,ColorNum,a.ColorID,\r\nISNULL(ProcessNo,1)ProcessNo,ISNULL(b.ProcessID,2)ProcessID,e.Name,b.StationID,SumAssignedRolls,SumAssignedWeightQty \r\nFROM dye.JobSheet a\r\nLEFT JOIN dye.JobProcess b\r\nON a.SheetSeries = b.SheetSeries\r\nLEFT JOIN dye.p_Customer c\r\nON a.CustomerID=c.CustomerID\r\nLEFT JOIN dye.p_Gray d\r\nON a.ProdID=d.GrayID\r\nLEFT JOIN dye.p_Process e\r\nON b.ProcessID=e.ProcessID\r\nWHERE a.SheetDate>'2018-01-01')a) original_source WHERE 1=1",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B110": {
+      "LookupID": "B110",
+      "LookupName": "收费工序",
+      "DataTableName": "p_Process",
+      "LookupDataFilter": "IsExtraCharge=1 and IsNull(Price,0)>0",
+      "KeyField": "ProcessID",
+      "DisplayField": "Name",
+      "query": "select * from p_Process",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B111": {
+      "LookupID": "B111",
+      "LookupName": "料单号",
+      "DataTableName": "StuffWeightSheetNo",
+      "LookupDataFilter": "",
+      "KeyField": "WeightSheetNo",
+      "DisplayField": "WeightSheetNo",
+      "query": "select distinct isnull(SheetNo,'') as WeightSheetNo  from StuffWeight",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B112": {
+      "LookupID": "B112",
+      "LookupName": "染色流程",
+      "DataTableName": "DyePhase",
+      "LookupDataFilter": "",
+      "KeyField": "PhaseID",
+      "DisplayField": "Name",
+      "query": "SELECT a.SheetSeries,JobSheetNo,PhaseNo,PhaseID,Name FROM dye.StuffWeightPhase a\r\nINNER JOIN dye.StuffWeight b\r\nON a.SheetSeries = b.SheetSeries AND b.SheetKind=2 AND b.RecipeType IN (0,2)\r\nINNER JOIN dye.p_FieldValid c\r\nON a.PhaseID=c.Code AND c.FieldType='DyePhase' AND ISNULL(Description,'')='染色'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B113": {
+      "LookupID": "B113",
+      "LookupName": "搬运工",
+      "DataTableName": "h_EmployeeEditALL",
+      "LookupDataFilter": "EmpKind in ('N005','N019')",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu]\r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo]\r\n From h_Employee\r\nWhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B114": {
+      "LookupID": "B114",
+      "LookupName": "染部人员",
+      "DataTableName": "h_EmployeeEdit",
+      "LookupDataFilter": "ISNULL(DeptID,'')='03'",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID],[IsCustomer]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu] \r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo],Ratio,IsNotKQ,ROUND(CAST(DATEDIFF(MONTH,InDate,GETDATE()) AS DECIMAL(4,1))/12,1) AS ProAge,isnull(datediff(yyyy,Birthday,getdate()),0) as Age\r\n,PwdUsefulLife, PwdExDate,EmpGroup,MFLevel,MFGiveOut ,CustomerID\r\n From h_Employee\r\nWhere isnull(IsOut,0)='0' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B115": {
+      "LookupID": "B115",
+      "LookupName": "叉车工",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='CDriver'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "CDriver"
+      }
+    },
+    "B116": {
+      "LookupID": "B116",
+      "LookupName": "仓管员",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Keeper'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Keeper"
+      }
+    },
+    "B117": {
+      "LookupID": "B117",
+      "LookupName": "装卸人员",
+      "DataTableName": "CargadorList",
+      "LookupDataFilter": null,
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "SELECT Name FROM(SELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='CDriver'\r\nUNION \r\nSELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='Cargador'\r\nUNION \r\nSELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='Discharger')A",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (SELECT Name FROM(SELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='CDriver'\r\nUNION \r\nSELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='Cargador'\r\nUNION \r\nSELECT Name FROM dye.p_FieldValid a\r\nWHERE FieldType='Discharger')A) original_source WHERE 1=1",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B118": {
+      "LookupID": "B118",
+      "LookupName": "定型部班组",
+      "DataTableName": "p_Shift",
+      "LookupDataFilter": "DeptID='04'",
+      "KeyField": "ShiftID",
+      "DisplayField": "Name",
+      "query": "select \r\n *\r\nfrom \r\np_Shift\r\nwhere 1=1 \r\nORDER BY ShiftID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B119": {
+      "LookupID": "B119",
+      "LookupName": "染部班组",
+      "DataTableName": "p_Shift",
+      "LookupDataFilter": "DeptID='03'",
+      "KeyField": "ShiftID",
+      "DisplayField": "Name",
+      "query": "select \r\n *\r\nfrom \r\np_Shift\r\nwhere 1=1 \r\nORDER BY ShiftID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B120": {
+      "LookupID": "B120",
+      "LookupName": "质检班组",
+      "DataTableName": "p_Shift",
+      "LookupDataFilter": "DeptID='06'",
+      "KeyField": "ShiftID",
+      "DisplayField": "Name",
+      "query": "select \r\n *\r\nfrom \r\np_Shift\r\nwhere 1=1 \r\nORDER BY ShiftID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B122": {
+      "LookupID": "B122",
+      "LookupName": "生产班组(按部门筛选)",
+      "DataTableName": "p_Shift",
+      "LookupDataFilter": null,
+      "KeyField": "ShiftID",
+      "DisplayField": "Name",
+      "query": "select \r\n *\r\nfrom \r\np_Shift\r\nwhere 1=1 \r\nORDER BY ShiftID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B123": {
+      "LookupID": "B123",
+      "LookupName": "交坯人",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='JPR'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "JPR"
+      }
+    },
+    "B124": {
+      "LookupID": "B124",
+      "LookupName": "水量",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SL'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SL"
+      }
+    },
+    "B125": {
+      "LookupID": "B125",
+      "LookupName": "收坯人",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='SHR'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "SHR"
+      }
+    },
+    "B126": {
+      "LookupID": "B126",
+      "LookupName": "车牌号",
+      "DataTableName": "HUOCHEZL",
+      "LookupDataFilter": "",
+      "KeyField": "code",
+      "DisplayField": "name",
+      "query": "select newid() as id,a.code as code,a.name as name,a.ParentCode as WLLX from DYE.p_FieldValid a \r\nwhere FieldType='CVehicle' \r\nand 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B127": {
+      "LookupID": "B127",
+      "LookupName": "客户分类号",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='CustTypeNo'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "CustTypeNo"
+      }
+    },
+    "B128": {
+      "LookupID": "B128",
+      "LookupName": "色号",
+      "DataTableName": "QuotePrice",
+      "LookupDataFilter": "",
+      "KeyField": "ColorNum",
+      "DisplayField": "ColorNum",
+      "query": "SELECT NEWID() AS id,a.SheetNo,a.SheetDate,a.CustomerID,b.ProdID,(SELECT NameC FROM dye.p_Gray WHERE GrayID=b.ProdID) AS GrayName,\r\nb.ColorNum,b.ColorID,(SELECT Name FROM dye.p_FieldValid WHERE FieldType='Color' AND code=b.ColorID)AS ColorName,b.ColorDepthID,b.Price AS ColorPrice,b.ProcessPrice as ColorAddPrice,\r\nb.RecipePrice,c.ProcessID,c.Price AS ProcessPrice,d.AtteValue,d.Price AS AttePrice,a.Creater,a.CreateDate,b.CustColorNum \r\nFROM Quote a\r\nINNER JOIN QuoteDetail b\r\nON a.SheetSeries = b.SheetSeries\r\nLEFT JOIN QuotePriceProcess c\r\nON b.SheetSeries = c.SheetSeries\r\nLEFT JOIN QuoteAtte d\r\nON b.SheetSeries = d.SheetSeries",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B129": {
+      "LookupID": "B129",
+      "LookupName": "化验室员工",
+      "DataTableName": "Employee",
+      "LookupDataFilter": "ISNULL(IsOut,0)=0",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B130": {
+      "LookupID": "B130",
+      "LookupName": "仓库配布员",
+      "DataTableName": "h_EmployeeEditALL",
+      "LookupDataFilter": "DeptID='DT009'  and ISNULL(IsOut,0)=0",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu]\r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo]\r\n From h_Employee\r\nWhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B132": {
+      "LookupID": "B132",
+      "LookupName": "缸号",
+      "DataTableName": "GetJobSheetDate",
+      "LookupDataFilter": null,
+      "KeyField": "SheetNo",
+      "DisplayField": "SheetNo",
+      "query": "--SELECT SheetSeries,SheetNo,CustomerID,(SELECT shortName FROM dye.p_Customer WHERE \r\n--CustomerID=dye.JobSheet.CustomerID)Name,ProdID,ColorNum,ColorID,SumAssignedRolls,SumAssignedWeightQty FROM \r\n--dye.JobSheet\r\n\r\n\r\nSELECT * FROM\r\n(SELECT SheetSeries,SheetNo,CustomerID,\r\n(SELECT shortName FROM dye.p_Customer \r\nWHERE CustomerID=dye.JobSheet.CustomerID)Name,ProdID,ColorNum,ColorID,SumAssignedRolls,SumAssignedWeightQty \r\nFROM dye.JobSheet)j LEFT JOIN \r\n(SELECT SheetSeries aSheetSeries,AtteValue aAtteValue,Description aDescription FROM dye.JobAtte WHERE AtteValue='要求封度(实用)')a ON j.SheetSeries=aSheetSeries\r\nJOIN \r\n(SELECT SheetSeries bSheetSeries,AtteValue bAtteValue,Description bDescription FROM dye.JobAtte WHERE AtteValue='要求克重')b ON j.SheetSeries=bSheetSeries",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B133": {
+      "LookupID": "B133",
+      "LookupName": "客户送货地址",
+      "DataTableName": "v_Customer",
+      "LookupDataFilter": "CustKindID <>'1' and IsNUll(IsStop,0)=0",
+      "KeyField": "AddrDlv",
+      "DisplayField": "AddrDlv",
+      "query": "SELECT  \r\np.*,\r\nCONVERT(VARCHAR(10),\r\nISNULL(p.EnableOrders,0)) AS EbOd,\r\nc.Linker,\r\nLinkerTel \r\nFROM dye.p_Customer p \r\nLEFT JOIN \r\n(SELECT CustomerID,Name AS Linker,Mobile AS LinkerTel FROM dye.p_CustLinker WHERE RowNo='1')c \r\nON c.CustomerID = p.CustomerID\r\nWHERE\r\n p.CustKindID='0' \r\n--AND p.RightStatus=10\r\nAND 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B134": {
+      "LookupID": "B134",
+      "LookupName": "染色机台(排产)",
+      "DataTableName": "p_Machine",
+      "LookupDataFilter": "StationID='06' AND IsProcess=1",
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "Select * from p_Machine where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B135": {
+      "LookupID": "B135",
+      "LookupName": "计件方案",
+      "DataTableName": "p_DyeCurve",
+      "LookupDataFilter": null,
+      "KeyField": "CurveID",
+      "DisplayField": "Name",
+      "query": "select * from p_DyeCurve WHERE ISNULL(DyePhase,0)=0 and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B136": {
+      "LookupID": "B136",
+      "LookupName": "打样员",
+      "DataTableName": "Employee",
+      "LookupDataFilter": "ISNULL(IsOut,0)=0 and DeptID='DT022'",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID) original_source WHERE ISNULL(IsOut,0)=0 and DeptID='DT022'",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B137": {
+      "LookupID": "B137",
+      "LookupName": "其他料单流程",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DyePhase' AND ISNULL(Mnemonic,'')='QT'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B139": {
+      "LookupID": "B139",
+      "LookupName": "仓管员",
+      "DataTableName": "h_EmployeeEditALL",
+      "LookupDataFilter": "EmpKind in ('N025') AND DeptID='08' ",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu]\r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo]\r\n From h_Employee\r\nWhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B140": {
+      "LookupID": "B140",
+      "LookupName": "批色责任人",
+      "DataTableName": "h_EmployeeEdit",
+      "LookupDataFilter": "EmpKind='A09' AND ISNULL(IsOut,0)=0",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID],[IsCustomer]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu] \r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo],Ratio,IsNotKQ,ROUND(CAST(DATEDIFF(MONTH,InDate,GETDATE()) AS DECIMAL(4,1))/12,1) AS ProAge,isnull(datediff(yyyy,Birthday,getdate()),0) as Age\r\n,PwdUsefulLife, PwdExDate,EmpGroup,MFLevel,MFGiveOut ,CustomerID\r\n From h_Employee\r\nWhere isnull(IsOut,0)='0' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B141": {
+      "LookupID": "B141",
+      "LookupName": "染色加料备注",
+      "DataTableName": "p_DyeCurve",
+      "LookupDataFilter": "ISNULL(PhaseID,'')='' AND Description='加料'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_DyeCurve WHERE ISNULL(DyePhase,0)=0 and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B142": {
+      "LookupID": "B142",
+      "LookupName": "仓库配布员及搬运工",
+      "DataTableName": "h_EmployeeEditALL",
+      "LookupDataFilter": "EmpKind in ('N019','N005') and ISNULL(IsOut,0)=0 ",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select [EmpID],[Password],[Name],[NameE],[LoginName]\r\n      ,[InDate],[ProbationDate],[OutDate],[OutReason],[Sex]\r\n      ,[IdentityNo],[HomeAddr],[HomeTel],[MaritalStatus],[OfficeTel]\r\n      ,[Extension],[Mobile],[QQ],[EducationID],[DeptID]\r\n      ,CONVERT(image,null) AS [Photo],[IsOut],[Email],[Birthday],[PosDate]\r\n      ,[PosID],[NativeID],[HumanID],[InsuranceID],[InsuranceNo]\r\n      ,[StopDate],[EmpKind] ,[JobKindID] ,[LoginStatus],[Description]\r\n      ,[Remarks],[CreateDate],[Creater],[ModifyDate],[Modifyer]\r\n      ,[NumValue1] ,[NumValue2] ,[LoginIPAddress],[LoginNetPort],[SecuritySNID]\r\n      ,[IsReceiveMessage],[ChargStationID],[IsCanSendSMS],[FuncNo],[IntroducerDept]\r\n      ,[IntroducerPos] ,[Introducer],[BusinessUnitID] ,[ShiftNameID] ,[IntroducerRelation]\r\n      ,[TransferDate] ,[TransferOutDept] ,[TransferInDept],[BeforeTransferPos] ,[IsSign]\r\n      ,[SignDate] ,[SignNo] ,[IsInsurance] ,[InsuranceDate],[ShiftID]\r\n      ,[RFID] ,[BankAccount],[BankName],[fBasicSalary],[BasicSalary]\r\n      ,[shiyongqi] ,[shiyonggongzi] ,[jibingshi] ,[sushe] ,[zhengshu]\r\n      ,[CurrAddr]  ,[sEmpID],[hetongnum] ,[tijiannum],[Emergencycontact]\r\n      ,[EmergencycontactPhone] ,[sNational] ,[ExpiryDate],[GinsengProtectDate] ,[GinsengProtectType]\r\n      ,[GinsengProtectSum] ,[DDEmpId] ,[WeXinId] ,[RoomNo]\r\n From h_Employee\r\nWhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B143": {
+      "LookupID": "B143",
+      "LookupName": "仓库产量录入缸号",
+      "DataTableName": "WareHouseGetCard",
+      "LookupDataFilter": null,
+      "KeyField": "SheetNo",
+      "DisplayField": "SheetNo",
+      "query": "SELECT \r\nSheetSeries,\r\nColorID,\r\nColorNum,\r\nCustomerID,\r\nSheetNo,\r\nSumAssignedRolls,\r\nSumAssignedWeightQty \r\nFROM dye.JobSheet \r\nWHERE JobSheetType=0\r\nAND SheetNo IN(SELECT JobSheetNo FROM dye.ProdLoadingDetail)\r\nAND SheetNo NOT IN (SELECT JobSheetNo FROM dye.HS_JobSheetNo)",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B144": {
+      "LookupID": "B144",
+      "LookupName": "加色工序",
+      "DataTableName": "p_Process",
+      "LookupDataFilter": "StationID='02' ",
+      "KeyField": "ProcessID",
+      "DisplayField": "Name",
+      "query": "select * from p_Process",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B145": {
+      "LookupID": "B145",
+      "LookupName": "内部评审",
+      "DataTableName": "WDefectJudgeInterior1",
+      "LookupDataFilter": null,
+      "KeyField": "strSheetNo",
+      "DisplayField": "strSheetNo",
+      "query": "select SheetSeries,SheetNo AS strSheetNo,JobSheetNo AS SheetNo,ColorNum from dye.WDefect WHERE Kind='内部评审'\r\nAND NOT EXISTS(SELECT 1 FROM dye.JobSheet WHERE LossStr=dye.WDefect.SheetNo)",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B146": {
+      "LookupID": "B146",
+      "LookupName": "客退评审",
+      "DataTableName": "WDefectJudgeBack1",
+      "LookupDataFilter": null,
+      "KeyField": "SheetNo",
+      "DisplayField": "SheetNo",
+      "query": "select SheetSeries,SheetNo,JobSheetNo,ColorNum from WDefect WHERE Kind like '%评审%'\r\nAND NOT EXISTS(SELECT 1 FROM dye.JobSheet WHERE LossStr=dye.WDefect.SheetNo)",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B147": {
+      "LookupID": "B147",
+      "LookupName": "获取色号（打样任务）",
+      "DataTableName": "GetDyeDipsRecordColorNum1",
+      "LookupDataFilter": null,
+      "KeyField": "ColorNum",
+      "DisplayField": "ColorNum",
+      "query": "select * from ( SELECT  [ColorNo], [CheckNo], [LabDipsSource], [ProdID], [LotNo], \r\n         [Spec],[ColorDepthID], [ColorID], [ColorE], [ColorNum], \r\n         [CustColorNum], [ColorRGB], [Price], [MainStuffKindID], \r\n         [IsToDoSample], [ColorCards], [Status], [StartTime], [LimitHours], [OverTimeReason], [ShiftID], \r\n         [EmpID], [WorkQty], [RedoTimes], [OriColorNo], [OriEmpID], [OriShifID], [JobSheetNo], \r\n DyeLabMain.* FROM  DyeLabColor LEFT JOIN DyeLabMain \r\nON DyeLabColor.SheetSeries = DyeLabMain.SheetSeries \r\n) DyeLabMain   where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B148": {
+      "LookupID": "B148",
+      "LookupName": "缸号信息",
+      "DataTableName": "JobSheetRushList",
+      "LookupDataFilter": null,
+      "KeyField": "SheetNo",
+      "DisplayField": "SheetNo",
+      "query": "SELECT \r\n0 AS A,\r\nb.ShortName,\r\na.SheetNo,\r\nISNULL(a.Width,'')+ISNULL(a.WidthKindID,'') AS SWidth,\r\nISNULL(a.Weight,'')+ISNULL(a.WeightKindID,'') AS SWeight,\r\nc.NameC,\r\na.CustSelfProduct,\r\na.ColorID,\r\na.ColorNum,\r\n(CASE WHEN ISNULL(d.Name,'')='' THEN a.CurrProcessID ELSE d.Name END)Name,\r\na.SumAssignedRolls,\r\na.SumAssignedWeightQty,\r\na.CustomerID,\r\na.ProdID,\r\na.SheetDate,\r\na.CurrProcessID\r\nFROM dye.JobSheet a\r\nLEFT JOIN dye.p_Customer b\r\nON a.CustomerID = b.CustomerID\r\nLEFT JOIN dye.p_Gray c\r\nON a.ProdID=c.GrayID\r\nLEFT JOIN dye.p_Process d\r\nON a.CurrProcessID=d.ProcessID\r\nWHERE 1=1\r\nAND ISNULL(a.RightStatus,0)=0\r\nAND NOT EXISTS (SELECT JobSheetNo FROM dye.ProdOutDetail\r\nWHERE JobSheetNo=a.SheetNo)\r\nAND NOT EXISTS (SELECT JobSheetNo FROM dye.ProdIn\r\nWHERE JobSheetNo=a.SheetNo)",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B151": {
+      "LookupID": "B151",
+      "LookupName": "料单流程",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DyePhase' AND ISNULL(Mnemonic,'')='PS'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B152": {
+      "LookupID": "B152",
+      "LookupName": "质量问题",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='QCCD'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "QCCD"
+      }
+    },
+    "B153": {
+      "LookupID": "B153",
+      "LookupName": "落料号(立信中控)",
+      "DataTableName": "Stuff_Step_LX",
+      "LookupDataFilter": "",
+      "KeyField": "SType",
+      "DisplayField": "SType",
+      "query": "SELECT * FROM dye.V_Progs WHERE 1=1",
+      "adapter": {
+        "engine": "external"
+      }
+    },
+    "B154": {
+      "LookupID": "B154",
+      "LookupName": "跟单员下拉",
+      "DataTableName": "Employee",
+      "LookupDataFilter": "",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID",
+      "adapter": {
+        "table": "HEmployee"
+      }
+    },
+    "B156": {
+      "LookupID": "B156",
+      "LookupName": "印花打样要求",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='AtteKind' and NumValueNo=51",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B157": {
+      "LookupID": "B157",
+      "LookupName": "质量标准",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_Standard'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B158": {
+      "LookupID": "B158",
+      "LookupName": "确版方式",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_VerifyMethod'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B159": {
+      "LookupID": "B159",
+      "LookupName": "对色方法",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_MatchingColor'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B160": {
+      "LookupID": "B160",
+      "LookupName": "来样类别",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_Specimen'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B161": {
+      "LookupID": "B161",
+      "LookupName": "网版类型",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_ScreenName'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B162": {
+      "LookupID": "B162",
+      "LookupName": "配色类别",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_ColorSchemes'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B163": {
+      "LookupID": "B163",
+      "LookupName": "吃浆量范围单位",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_RangeUnit'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B164": {
+      "LookupID": "B164",
+      "LookupName": "单位吃浆量单位",
+      "DataTableName": "YHSys_Type",
+      "LookupDataFilter": "FieldType='YHSys_EveryUnit'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid where FieldType like 'YHSys_%'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B165": {
+      "LookupID": "B165",
+      "LookupName": "络筒机台(排产)",
+      "DataTableName": "p_Machine",
+      "LookupDataFilter": "StationID='08' ",
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "Select * from p_Machine where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B166": {
+      "LookupID": "B166",
+      "LookupName": "印花花号",
+      "DataTableName": "p_PrintCode",
+      "LookupDataFilter": null,
+      "KeyField": "PrintCode",
+      "DisplayField": "PrintName",
+      "query": "select distinct PrintCode,PrintName,GrayID  from PrintColorSeparate where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B167": {
+      "LookupID": "B167",
+      "LookupName": "花号色位",
+      "DataTableName": "P_ColorPlate",
+      "LookupDataFilter": null,
+      "KeyField": "ColorPlateID",
+      "DisplayField": "ColorPlateName",
+      "query": "select a.PrintCode,b.ColorPlateID, b.ColorPlateID+'#'+b.ColorPlateName as ColorPlateName ,b.ColorCount\r\nfrom PrintColorSeparateDetail b\r\nleft join PrintColorSeparate a on a.SheetSeries = b.SheetSeries\r\nwhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B168": {
+      "LookupID": "B168",
+      "LookupName": "洗水流程",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DyePhase' AND ISNULL(Mnemonic,'')='Wash'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B169": {
+      "LookupID": "B169",
+      "LookupName": "助剂品名",
+      "DataTableName": "p_Stuff",
+      "LookupDataFilter": "ISNULL(Status,0)=0 AND StuffType='A'",
+      "KeyField": "StuffID",
+      "DisplayField": "Name",
+      "query": "select * ,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '0'END)AS AutoID,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '手工备料'END)AS AutoName,\r\nCASE WHEN ISNULL(AutoSysID,0)='1' THEN AutoSysID ELSE 0 END AS AutoSysIDs,\r\nCAST(Price/ISNULL(WOF,1) AS DECIMAL(10,2)) AS NewPrice from  dye.p_Stuff",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B170": {
+      "LookupID": "B170",
+      "LookupName": "加捻机台(排产)",
+      "DataTableName": "p_Machine",
+      "LookupDataFilter": "StationID='02' AND IsProcess=1",
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "Select * from p_Machine where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B171": {
+      "LookupID": "B171",
+      "LookupName": "厨具用品",
+      "DataTableName": "p_Cook",
+      "LookupDataFilter": null,
+      "KeyField": "CookID",
+      "DisplayField": "Name",
+      "query": "select a.*,b.Name as UnitName from p_Cook a\r\nleft join p_FieldValid b\r\non a.Unit=b.code and FieldType='ArticleUnit'",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B172": {
+      "LookupID": "B172",
+      "LookupName": "厨用品类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='Cook'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "Cook"
+      }
+    },
+    "B173": {
+      "LookupID": "B173",
+      "LookupName": "报销类别",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ReimBursement'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ReimBursement"
+      }
+    },
+    "B174": {
+      "LookupID": "B174",
+      "LookupName": "染色计件项目",
+      "DataTableName": "p_DyeCurveJJ",
+      "LookupDataFilter": null,
+      "KeyField": "CurveID",
+      "DisplayField": "Name",
+      "query": "select * from p_DyeCurve WHERE ISNULL(DyePhase,0)=1 and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B175": {
+      "LookupID": "B175",
+      "LookupName": null,
+      "DataTableName": "DyeShift",
+      "LookupDataFilter": null,
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "SELECT * FROM (SELECT p.*,h.EmpID AS Code,h.Name FROM dye.p_ShiftEmp p JOIN dye.h_Employee h ON h.EmpID = p.EmpID ) a \r\nWHERE  a.ShiftID IN (SELECT ShiftID FROM dye.p_Shift WHERE DeptID='03')\r\nand 1=1 \r\nORDER BY a.ShiftID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B176": {
+      "LookupID": "B176",
+      "LookupName": "交接步骤",
+      "DataTableName": "p_DyeCurveQuery",
+      "LookupDataFilter": null,
+      "KeyField": "DyeProcessID",
+      "DisplayField": "DyeProcessID",
+      "query": "select NEWID()ID,a.CurveID,a.Name,a.PhaseID,a.MaxValue,b.StepNo,b.DyeProcessID ,b.DefaultValue from dye.p_DyeCurve a JOIN  dye.p_DyeCurveDetail b ON b.CurveID = a.CurveID WHERE ISNULL(DyePhase,0)=1 and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B177": {
+      "LookupID": "B177",
+      "LookupName": "单双染",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='RecipeKind'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "RecipeKind"
+      }
+    },
+    "B178": {
+      "LookupID": "B178",
+      "LookupName": "染化料(全部）",
+      "DataTableName": "p_Stuff",
+      "LookupDataFilter": null,
+      "KeyField": "StuffID",
+      "DisplayField": "Name",
+      "query": "select * ,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '0'END)AS AutoID,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '手工备料'END)AS AutoName,\r\nCASE WHEN ISNULL(AutoSysID,0)='1' THEN AutoSysID ELSE 0 END AS AutoSysIDs,\r\nCAST(Price/ISNULL(WOF,1) AS DECIMAL(10,2)) AS NewPrice from  dye.p_Stuff",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B179": {
+      "LookupID": "B179",
+      "LookupName": "染化料",
+      "DataTableName": "p_Stuff",
+      "LookupDataFilter": "ISNULL(Status,0)=0",
+      "KeyField": "StuffID",
+      "DisplayField": "Name",
+      "query": "select * ,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '0'END)AS AutoID,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '手工备料'END)AS AutoName,\r\nCASE WHEN ISNULL(AutoSysID,0)='1' THEN AutoSysID ELSE 0 END AS AutoSysIDs,\r\nCAST(Price/ISNULL(WOF,1) AS DECIMAL(10,2)) AS NewPrice from  dye.p_Stuff",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B180": {
+      "LookupID": "B180",
+      "LookupName": "对色员",
+      "DataTableName": "Employee",
+      "LookupDataFilter": "EmpKind IN ('GW050','GW052','GW043') AND ISNULL(IsOut,0)=0",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B181": {
+      "LookupID": "B181",
+      "LookupName": "色号类型",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ColorNumCode'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ColorNumCode"
+      }
+    },
+    "B182": {
+      "LookupID": "B182",
+      "LookupName": "工艺曲线图片(备注)",
+      "DataTableName": "p_DyeCurve",
+      "LookupDataFilter": "ISNULL(DyePhase,0)=0",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_DyeCurve WHERE ISNULL(DyePhase,0)=0 and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B183": {
+      "LookupID": "B183",
+      "LookupName": "染色计件染程",
+      "DataTableName": "p_DyeCurveJJ",
+      "LookupDataFilter": "ISNULL(DyePhase,0)=1",
+      "KeyField": "CurveID",
+      "DisplayField": "Name",
+      "query": "select * from p_DyeCurve WHERE ISNULL(DyePhase,0)=1 and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B184": {
+      "LookupID": "B184",
+      "LookupName": "值缸员",
+      "DataTableName": "Employee",
+      "LookupDataFilter": "DeptID='03' AND EmpKind='N026' AND ISNULL(IsOut,0)=0",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (Select \r\nh_Employee.EmpID,\r\nh_Employee.Name,\r\nh_Employee.IsOut,\r\nh_Employee.DeptID,\r\nh_Employee.EmpKind,\r\np_Dept.Name AS DeptIDName\r\nFROM dye.h_Employee \r\nLEFT JOIN dye.p_Dept ON p_Dept.DeptID = h_Employee.DeptID) original_source WHERE DeptID='03' AND EmpKind='N026' AND ISNULL(IsOut,0)=0",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B185": {
+      "LookupID": "B185",
+      "LookupName": "洗缸",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DyePhase' AND ISNULL(Mnemonic,'') ='洗缸' AND ISNULL(IsStop,0)=0",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B186": {
+      "LookupID": "B186",
+      "LookupName": "染色工序（料单）",
+      "DataTableName": "VW_JobProcess_Dye",
+      "LookupDataFilter": null,
+      "KeyField": "ProcessID",
+      "DisplayField": "Name",
+      "query": "SELECT * FROM dye.VW_JobProcess_Dye WHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B187": {
+      "LookupID": "B187",
+      "LookupName": "色号等级",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ColorNumGradeID'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ColorNumGradeID"
+      }
+    },
+    "B188": {
+      "LookupID": "B188",
+      "LookupName": "本厂规格对应成品",
+      "DataTableName": "V_GrayToProduct",
+      "LookupDataFilter": "",
+      "KeyField": "GrayID",
+      "DisplayField": "NameC",
+      "query": "SELECT * FROM dye.V_GrayToProduct WHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B189": {
+      "LookupID": "B189",
+      "LookupName": "荧光",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='fluorescence'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "fluorescence"
+      }
+    },
+    "B190": {
+      "LookupID": "B190",
+      "LookupName": "色号",
+      "DataTableName": "p_ColorNum",
+      "LookupDataFilter": "",
+      "KeyField": "ColorNum",
+      "DisplayField": "ColorNum",
+      "query": "select *,CustomerID AS CustomerCode from p_ColorNum where 1=1 and 1=2",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B191": {
+      "LookupID": "B191",
+      "LookupName": "仓位区域",
+      "DataTableName": "p_StorageUnitID_Area",
+      "LookupDataFilter": "FieldType='StorageArea'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "SELECT * FROM dye.p_StorageUnitID WHERE FieldType='StorageArea' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B192": {
+      "LookupID": "B192",
+      "LookupName": "客户全称",
+      "DataTableName": "v_Customer",
+      "LookupDataFilter": "CustKindID <>'1' and IsNUll(IsStop,0)=0",
+      "KeyField": "CustomerID",
+      "DisplayField": "NameC",
+      "query": "SELECT  \r\np.*,\r\nCONVERT(VARCHAR(10),\r\nISNULL(p.EnableOrders,0)) AS EbOd,\r\nc.Linker,\r\nLinkerTel \r\nFROM dye.p_Customer p \r\nLEFT JOIN \r\n(SELECT CustomerID,Name AS Linker,Mobile AS LinkerTel FROM dye.p_CustLinker WHERE RowNo='1')c \r\nON c.CustomerID = p.CustomerID\r\nWHERE\r\n p.CustKindID='0' \r\n--AND p.RightStatus=10\r\nAND 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B193": {
+      "LookupID": "B193",
+      "LookupName": "设备分类",
+      "DataTableName": "qry_MachineClass",
+      "LookupDataFilter": null,
+      "KeyField": "Class1",
+      "DisplayField": "Class1",
+      "query": "select distinct Class1 from p_MachineFaultClass where 1=1 ",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B194": {
+      "LookupID": "B194",
+      "LookupName": "故障分类",
+      "DataTableName": "p_MachineFaultClass",
+      "LookupDataFilter": null,
+      "KeyField": "value",
+      "DisplayField": "value",
+      "query": "select *,Class1+'/'+Class2+'/'+Class3 as value from p_MachineFaultClass where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B195": {
+      "LookupID": "B195",
+      "LookupName": "基础方案",
+      "DataTableName": "view_BaseCase",
+      "LookupDataFilter": null,
+      "KeyField": "SheetNo",
+      "DisplayField": "SheetNo",
+      "query": "select * from BaseCase where 1=1 and RightStatus = 10",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B196": {
+      "LookupID": "B196",
+      "LookupName": "中控染色机台",
+      "DataTableName": "vw_DyeMachine",
+      "LookupDataFilter": null,
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "SELECT * FROM dye.vw_DyeMachine WHERE 1=1",
+      "adapter": {
+        "engine": "external"
+      }
+    },
+    "B197": {
+      "LookupID": "B197",
+      "LookupName": "中控工艺号(立信中控)",
+      "DataTableName": "V_Machine_ProcessID",
+      "LookupDataFilter": null,
+      "KeyField": "ProgNo",
+      "DisplayField": "ProgNo",
+      "query": "SELECT * FROM dye.V_Machine_ProcessID where 1=1",
+      "adapter": {
+        "engine": "external"
+      }
+    },
+    "B198": {
+      "LookupID": "B198",
+      "LookupName": "立信中控（配方选择工艺号）",
+      "DataTableName": "VW_ProcessID_PS",
+      "LookupDataFilter": null,
+      "KeyField": "ProgNo",
+      "DisplayField": "ProgNo",
+      "query": "SELECT NEWID() ID,* FROM dye.VW_ProcessID_PS WHERE 1=1",
+      "adapter": {
+        "engine": "external"
+      }
+    },
+    "B199": {
+      "LookupID": "B199",
+      "LookupName": "染色机台出缸登记",
+      "DataTableName": "p_Machine",
+      "LookupDataFilter": "StationID='06' ",
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "Select * from p_Machine where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B200": {
+      "LookupID": "B200",
+      "LookupName": "定型助剂",
+      "DataTableName": "p_Stuff",
+      "LookupDataFilter": "ISNULL(Status,0)=0 and StuffKindID='9'",
+      "KeyField": "StuffID",
+      "DisplayField": "Name",
+      "query": "select * ,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '0'END)AS AutoID,(CASE WHEN  StuffType='S'  THEN NULL WHEN  StuffType='A'  AND ISNULL(AutoSysID,'')='1' THEN NULL ELSE '手工备料'END)AS AutoName,\r\nCASE WHEN ISNULL(AutoSysID,0)='1' THEN AutoSysID ELSE 0 END AS AutoSysIDs,\r\nCAST(Price/ISNULL(WOF,1) AS DECIMAL(10,2)) AS NewPrice from  dye.p_Stuff",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B201": {
+      "LookupID": "B201",
+      "LookupName": "接收部门",
+      "DataTableName": "p_Dept",
+      "LookupDataFilter": "",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select *  from p_Dept where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B202": {
+      "LookupID": "B202",
+      "LookupName": "责任部门",
+      "DataTableName": "p_Dept",
+      "LookupDataFilter": "",
+      "KeyField": "DeptID",
+      "DisplayField": "Name",
+      "query": "select *  from p_Dept where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B203": {
+      "LookupID": "B203",
+      "LookupName": "批色问题",
+      "DataTableName": "zhijianwenti",
+      "LookupDataFilter": "Kind_01='批色问题'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from dye.zhijianwenti where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B204": {
+      "LookupID": "B204",
+      "LookupName": "操作不当",
+      "DataTableName": "zhijianwenti",
+      "LookupDataFilter": "Kind_01='操作不当'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from dye.zhijianwenti where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B205": {
+      "LookupID": "B205",
+      "LookupName": "拆卡原因",
+      "DataTableName": "SplitCardTable",
+      "LookupDataFilter": "",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "SELECT NEWID()ID,*,CONVERT(nVarChar(256),'') As SplitCardReason FROM (SELECT DISTINCT SplitCardReason AS Name FROM dye.JobSheet)A WHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B208": {
+      "LookupID": "B208",
+      "LookupName": "客户端口",
+      "DataTableName": "v_Customer",
+      "LookupDataFilter": "IsNUll(PortNO,'')<>''",
+      "KeyField": "PortNO",
+      "DisplayField": "ShortName",
+      "query": "SELECT  \r\np.*,\r\nCONVERT(VARCHAR(10),\r\nISNULL(p.EnableOrders,0)) AS EbOd,\r\nc.Linker,\r\nLinkerTel \r\nFROM dye.p_Customer p \r\nLEFT JOIN \r\n(SELECT CustomerID,Name AS Linker,Mobile AS LinkerTel FROM dye.p_CustLinker WHERE RowNo='1')c \r\nON c.CustomerID = p.CustomerID\r\nWHERE\r\n p.CustKindID='0' \r\n--AND p.RightStatus=10\r\nAND 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B210": {
+      "LookupID": "B210",
+      "LookupName": "库存预配批号",
+      "DataTableName": "qry_SemiLotNo",
+      "LookupDataFilter": null,
+      "KeyField": "LotNo",
+      "DisplayField": "LotNo",
+      "query": "SELECT \r\nNewID() AS ID,\r\n*\r\nFROM \r\n(SELECT \r\nIIF(A.CustomerID='074','本厂采购','客户来纱') AS YarnCategory,\r\nA.ReceSheetNo,\r\nA.CustomerID,\r\nA.ProdID,\r\nA.LotNo,\r\nA.InSheetKind,\r\nA.ColorID,\r\nA.PurchaseOrders,\r\nA.FixedQty,\r\nA.A_A,\r\nA.A_B,\r\nA.Packs-ISNULL(B.TPacks,0.00) AS Packs,\r\nA.Rolls-ISNULL(B.TRolls,0.00)  AS Rolls,\r\nA.LengthQty-ISNULL(B.TLengthQty,0.00)  AS LengthQty,\r\nA.WeightQty-ISNULL(B.TWeightQty,0.00)  AS WeightQty\r\nFROM dye.vwSemiStockBook_New A\r\nLEFT JOIN (\r\nSELECT \r\nISNULL(Semi_Owner,'') AS CustomerID,\r\nISNULL(ProdID,'')ProdID,\r\nISNULL(LotNo,'')LotNo,\r\nISNULL(InSheetKind,'')InSheetKind,\r\nISNULL(ColorID,'')ColorID,\r\nISNULL(PurchaseOrders,'')PurchaseOrders,\r\nISNULL(FixedQty,0.0)FixedQty,\r\nISNULL(A_A,'')A_A,\r\nISNULL(A_B,'')A_B,\r\n0 AS TPacks,\r\nSUM(Rolls)TRolls,\r\n0 AS TLengthQty,\r\nSUM(Qty)AS TWeightQty\r\nFROM dye.CarryMaterialDetail C\r\nWHERE 1=1\r\nAND NOT EXISTS(SELECT 1 FROM dye.SemiOutDetail D WHERE D.JobSheetNo=C.JobSheetNo)\r\nAND EXISTS(SELECT 1 FROM dye.JobSheet J WHERE J.SheetNo=C.JobSheetNo)\r\nGROUP BY Semi_Owner,ProdID,LotNo,InSheetKind,ColorID,PurchaseOrders,FixedQty,A_A,A_B\r\n)B  ON 1=1\r\nAND B.CustomerID = A.CustomerID \r\nAND B.ProdID = A.ProdID\r\nAND B.LotNo = A.LotNo\r\nAND B.InSheetKind = A.InSheetKind\r\nAND B.ColorID = A.ColorID\r\nAND B.PurchaseOrders = A.PurchaseOrders\r\nAND B.FixedQty = A.FixedQty\r\nAND B.A_A = A.A_A \r\nAND B.A_B = A.A_B \r\n)E \r\nWHERE 1=1\r\nAND E.WeightQty>0",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (SELECT \r\nNewID() AS ID,\r\n*\r\nFROM \r\n(SELECT \r\nIIF(A.CustomerID='074','本厂采购','客户来纱') AS YarnCategory,\r\nA.ReceSheetNo,\r\nA.CustomerID,\r\nA.ProdID,\r\nA.LotNo,\r\nA.InSheetKind,\r\nA.ColorID,\r\nA.PurchaseOrders,\r\nA.FixedQty,\r\nA.A_A,\r\nA.A_B,\r\nA.Packs-ISNULL(B.TPacks,0.00) AS Packs,\r\nA.Rolls-ISNULL(B.TRolls,0.00)  AS Rolls,\r\nA.LengthQty-ISNULL(B.TLengthQty,0.00)  AS LengthQty,\r\nA.WeightQty-ISNULL(B.TWeightQty,0.00)  AS WeightQty\r\nFROM dye.vwSemiStockBook_New A\r\nLEFT JOIN (\r\nSELECT \r\nISNULL(Semi_Owner,'') AS CustomerID,\r\nISNULL(ProdID,'')ProdID,\r\nISNULL(LotNo,'')LotNo,\r\nISNULL(InSheetKind,'')InSheetKind,\r\nISNULL(ColorID,'')ColorID,\r\nISNULL(PurchaseOrders,'')PurchaseOrders,\r\nISNULL(FixedQty,0.0)FixedQty,\r\nISNULL(A_A,'')A_A,\r\nISNULL(A_B,'')A_B,\r\n0 AS TPacks,\r\nSUM(Rolls)TRolls,\r\n0 AS TLengthQty,\r\nSUM(Qty)AS TWeightQty\r\nFROM dye.CarryMaterialDetail C\r\nWHERE 1=1\r\nAND NOT EXISTS(SELECT 1 FROM dye.SemiOutDetail D WHERE D.JobSheetNo=C.JobSheetNo)\r\nAND EXISTS(SELECT 1 FROM dye.JobSheet J WHERE J.SheetNo=C.JobSheetNo)\r\nGROUP BY Semi_Owner,ProdID,LotNo,InSheetKind,ColorID,PurchaseOrders,FixedQty,A_A,A_B\r\n)B  ON 1=1\r\nAND B.CustomerID = A.CustomerID \r\nAND B.ProdID = A.ProdID\r\nAND B.LotNo = A.LotNo\r\nAND B.InSheetKind = A.InSheetKind\r\nAND B.ColorID = A.ColorID\r\nAND B.PurchaseOrders = A.PurchaseOrders\r\nAND B.FixedQty = A.FixedQty\r\nAND B.A_A = A.A_A \r\nAND B.A_B = A.A_B \r\n)E \r\nWHERE 1=1\r\nAND E.WeightQty>0) original_source WHERE 1=1",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B212": {
+      "LookupID": "B212",
+      "LookupName": "染色机台轮次",
+      "DataTableName": "qry_MachineRounds_RS",
+      "LookupDataFilter": null,
+      "KeyField": "RoundNo",
+      "DisplayField": "RoundNo",
+      "query": "select convert(bigint,1) as RoundNo,convert(varchar(50),'') as MachineID where 1=1 and 1=2",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B214": {
+      "LookupID": "B214",
+      "LookupName": "订单信息",
+      "DataTableName": "qry_JobCombineOrder",
+      "LookupDataFilter": null,
+      "KeyField": "ID",
+      "DisplayField": "ID",
+      "query": "SELECT \r\nJC.CheckNo+'|'+JC.JobSheetNo AS ID,\r\nJC.CheckNo,\r\nJC.CustomerID,\r\nISNULL(JC.CustSelfNo,'库存单')CustSelfNo,\r\nJC.ContractNo,\r\nJC.JobSheetNo,\r\nJC.ColorNum,\r\nJC.CustColorNum,\r\nJC.ColorID,\r\nJC.ProdID,\r\nJC.ColorRemarks,\r\nREPLACE(CustFabricName,'  ','')CustFabricName,\r\ndye.fn_A_GetRemarks(0,JC.CheckNo) AS LabelWareHouse,\r\ndye.fn_A_GetRemarks(1,JC.CheckNo) AS LabelRemarks,\r\nISNULL(J.SumAssignedRolls,J.PreRolls)SumAssignedRolls,\r\nISNULL(J.SumAssignedWeightQty,J.PreVatQty)SumAssignedWeightQty,\r\nJC.CustJobNo\r\nFROM dye.v_JobCombineOrder JC\r\nLEFT JOIN dye.JobSheet J ON JC.JobSheetNo=J.SheetNo\r\nWHERE 1=1\r\nAND ISNULL(JC.JobSheetNo,'')<>''\r\nAND ISNULL(JC.CheckNo,'')<>'A0001'\r\nAND EXISTS(SELECT 1 FROM dye.GrayMaterialDetail A LEFT JOIN dye.GrayMaterial B ON B.SheetSeries = A.Sheetseries WHERE B.SheetDate>DATEADD(MONTH,-1,GETDATE()) AND A.JobSheetNo=JC.JobSheetNo)",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B219": {
+      "LookupID": "B219",
+      "LookupName": "刷卡标签报表",
+      "DataTableName": "qry_SwipeRptMenu",
+      "LookupDataFilter": "FuncNo='601036'",
+      "KeyField": "RptID",
+      "DisplayField": "RptTitle",
+      "query": "Select a.RptID,FuncNo,a.RptNo,b.RptTitle,b.PrintNumber from dye.s_RptMenu  a \r\nleft Join dye.s_RptInfo b on a.RptID=b.RptID  Where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B222": {
+      "LookupID": "B222",
+      "LookupName": "过滤工序",
+      "DataTableName": "CurryJobProcess",
+      "LookupDataFilter": null,
+      "KeyField": "ProcessID",
+      "DisplayField": "Name",
+      "query": "SELECT \r\na.Name ,Pr.ProcessNo, \r\na.ProcessID,\r\na.StationID,\r\n'' AS  ShiftID,\r\nJ.PreRolls AS CurrRolls,\r\nJ.PreVatQty AS CurrKg,\r\nJ.ProdID,\r\nJ.ColorNum,\r\nJ.ColorID\r\nFROM  dye.p_Process a  \r\nLEFT JOIN dye.JobProcess Pr On a.ProcessID = Pr.ProcessID\r\nLEFT JOIN dye.JobSheet J ON J.SheetSeries = Pr.SheetSeries\r\nWHERE  1=1 and 1=2",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B304": {
+      "LookupID": "B304",
+      "LookupName": "串口表",
+      "DataTableName": "p_CommPort",
+      "LookupDataFilter": null,
+      "KeyField": "PortID",
+      "DisplayField": "PortID",
+      "query": "Select * from p_CommPort where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B305": {
+      "LookupID": "B305",
+      "LookupName": "收坯地址",
+      "DataTableName": "p_CustAddress",
+      "LookupDataFilter": null,
+      "KeyField": "address",
+      "DisplayField": "address",
+      "query": "SELECT * FROM dye.p_CustAddress WHERE 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B400": {
+      "LookupID": "B400",
+      "LookupName": "机物料货区",
+      "DataTableName": "p_ArticleStorageUnitID",
+      "LookupDataFilter": "FieldType='machinekw'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from dye.p_ArticleStorageUnitID\r\norder by code",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select * from dye.p_ArticleStorageUnitID\r\norder by code) original_source WHERE FieldType='machinekw'",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B401": {
+      "LookupID": "B401",
+      "LookupName": "染化料货区",
+      "DataTableName": "p_StuffStorageUnitID",
+      "LookupDataFilter": "FieldType='dyeingkw'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from dye.p_StuffStorageUnitID\r\norder by code",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (select * from dye.p_StuffStorageUnitID\r\norder by code) original_source WHERE FieldType='dyeingkw'",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B402": {
+      "LookupID": "B402",
+      "LookupName": "领用人资料",
+      "DataTableName": "p_Human",
+      "LookupDataFilter": "FieldType='Employee'",
+      "KeyField": "ID",
+      "DisplayField": "Name",
+      "query": "SELECT * FROM  dye.Human\r\norder by ID",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (SELECT * FROM  dye.Human\r\norder by ID) original_source WHERE FieldType='Employee'",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "B403": {
+      "LookupID": "B403",
+      "LookupName": "所属分厂",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='branch'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "branch"
+      }
+    },
+    "B404": {
+      "LookupID": "B404",
+      "LookupName": "松筒机台(排产)",
+      "DataTableName": "p_Machine",
+      "LookupDataFilter": "StationID='01' AND IsProcess=1",
+      "KeyField": "MachineID",
+      "DisplayField": "Name",
+      "query": "Select * from p_Machine where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "B405": {
+      "LookupID": "B405",
+      "LookupName": "本厂规格资料（中文）",
+      "DataTableName": "p_Gray",
+      "LookupDataFilter": null,
+      "KeyField": "NameC",
+      "DisplayField": "NameC",
+      "query": "SELECT *,StockUnit as unit FROM p_Gray where 1=1",
+      "adapter": {
+        "table": "PGray"
+      }
+    },
+    "B406": {
+      "LookupID": "B406",
+      "LookupName": "班组名称",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='ShiftName'",
+      "KeyField": "Name",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "ShiftName"
+      }
+    },
+    "B407": {
+      "LookupID": "B407",
+      "LookupName": "NFYEAR",
+      "DataTableName": "NianFen",
+      "LookupDataFilter": null,
+      "KeyField": null,
+      "DisplayField": null,
+      "query": "SELECT \r\nLEFT(CONVERT(VARCHAR(100),A.NFYEAR,120),4)AS NFYEAR \r\nFROM \r\n(SELECT DATEADD(YEAR, -1, GETDATE()) AS NFYEAR\r\nUNION ALL\r\nSELECT DATEADD(YEAR, -0, GETDATE()) AS NFYEAR\r\n)A",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT \r\nLEFT(CONVERT(VARCHAR(100),A.NFYEAR,120),4)AS NFYEAR \r\nFROM \r\n(SELECT DATEADD(YEAR, -1, GETDATE()) AS NFYEAR\r\nUNION ALL\r\nSELECT DATEADD(YEAR, -0, GETDATE()) AS NFYEAR\r\n)A",
+      "effective_key_field": "NFYEAR",
+      "effective_display_field": "NFYEAR",
+      "adaptation": "原键和显示列均缺失，按唯一投影NFYEAR提供年份。"
+    },
+    "S001": {
+      "LookupID": "S001",
+      "LookupName": "模块编号",
+      "DataTableName": "s_Module",
+      "LookupDataFilter": null,
+      "KeyField": "ModuleNo",
+      "DisplayField": "ModuleCaption",
+      "query": "Select * from s_Module Order by ModuleNo",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (Select * from s_Module Order by ModuleNo) original_source WHERE 1=1",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "S002": {
+      "LookupID": "S002",
+      "LookupName": "系统存储过程",
+      "DataTableName": "s_QuerySQL",
+      "LookupDataFilter": "QueryKind='Procedure'",
+      "KeyField": "QueryName",
+      "DisplayField": "QueryName",
+      "query": "Select * from s_QuerySQL where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "S003": {
+      "LookupID": "S003",
+      "LookupName": "数据集表",
+      "DataTableName": "s_DataTable",
+      "LookupDataFilter": "1=1",
+      "KeyField": "DataTableName",
+      "DisplayField": "Alias",
+      "query": "Select * from s_DataTable\r\nWhere 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "S005": {
+      "LookupID": "S005",
+      "LookupName": "经营单位",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='BusinessUnit'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "BusinessUnit"
+      }
+    },
+    "S006": {
+      "LookupID": "S006",
+      "LookupName": "下拉框参数",
+      "DataTableName": "s_Lookup",
+      "LookupDataFilter": null,
+      "KeyField": "LookupID",
+      "DisplayField": "LookupName",
+      "query": "Select * from s_Lookup\r\nOrder By Kind,LookupID",
+      "adapter": {
+        "engine": "static_sql"
+      },
+      "execution_query": "SELECT * FROM (Select * from s_Lookup\r\nOrder By Kind,LookupID) original_source WHERE 1=1",
+      "adaptation": "原动态拼接产生语法错误或歧义；按完整数据集的外层筛选办理，原查询和原筛选文本均留存。"
+    },
+    "S007": {
+      "LookupID": "S007",
+      "LookupName": "数据连接",
+      "DataTableName": "s_DataLink",
+      "LookupDataFilter": null,
+      "KeyField": "LinkNo",
+      "DisplayField": "LinkNo",
+      "query": "Select * FROM s_DataLink Where 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "S008": {
+      "LookupID": "S008",
+      "LookupName": "客户账号",
+      "DataTableName": "EmployeeCustomer",
+      "LookupDataFilter": null,
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select h.* From \r\n(Select 0 as LoginType,h.EmpID,h.ShiftNameID,h.Name,h.NameE,h.LoginName,h.Password,h.EmpKind,h.DeptID,h.PosID as PositionID,h.IsCanSendSMS,h.IsOut\r\n From dye.h_Employee h\r\nUnion All\r\nSelect 1 as LoginType,p.CustomerID as EmpID,''AS ShiftNameID,p.ShortName as Name,p.Mnemonic as NameE,p.LoginName,p.Password,Null as EmpKind,Null as DeptID,Null as PositionID,Null as IsCanSendSMS,''AS IsOut\r\n From dye.p_Customer p Where ISNULL(LoginName,'') <>''\r\n) h WHERE ISNULL(h.IsOut,'')<>1 AND  1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "S009": {
+      "LookupID": "S009",
+      "LookupName": "下拉组合参数",
+      "DataTableName": "s_Lookup_DBCombo",
+      "LookupDataFilter": null,
+      "KeyField": "LookupID",
+      "DisplayField": "LookupName",
+      "query": "SELECT  '下拉' ctype, LookupID ,LookupName, KeyField,DisplayField \r\nFROM s_Lookup  \r\nUNION ALL  \r\nSELECT  '组合', ComboID ,ComboName,'','' FROM s_DBCombo",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    },
+    "S011": {
+      "LookupID": "S011",
+      "LookupName": "是否判定",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='YesOrNo'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "YesOrNo"
+      }
+    },
+    "S020": {
+      "LookupID": "S020",
+      "LookupName": "订单加工要求",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='JiaGong'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "JiaGong"
+      }
+    },
+    "S021": {
+      "LookupID": "S021",
+      "LookupName": "规格染色分类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DyeClass'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "DyeClass"
+      }
+    },
+    "S022": {
+      "LookupID": "S022",
+      "LookupName": "规格加捻分类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='TwistClass'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "TwistClass"
+      }
+    },
+    "S023": {
+      "LookupID": "S023",
+      "LookupName": "规格松筒分类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='PineClass'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "PineClass"
+      }
+    },
+    "S024": {
+      "LookupID": "S024",
+      "LookupName": "规格装缸脱水分类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='DehydrationClass'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "DehydrationClass"
+      }
+    },
+    "S025": {
+      "LookupID": "S025",
+      "LookupName": "规格紧筒分类",
+      "DataTableName": "p_FieldValid",
+      "LookupDataFilter": "FieldType='tubeClass'",
+      "KeyField": "Code",
+      "DisplayField": "Name",
+      "query": "select * from p_FieldValid Where 1=1\r\nOrder by Code",
+      "adapter": {
+        "table": "PFieldValid",
+        "field_type": "tubeClass"
+      }
+    },
+    "S181": {
+      "LookupID": "S181",
+      "LookupName": "岗位打办员",
+      "DataTableName": "h_Employeelit",
+      "LookupDataFilter": "EmpKind in ('A07','A09')",
+      "KeyField": "EmpID",
+      "DisplayField": "Name",
+      "query": "Select * From h_Employee\r\nWhere isnull(IsOut,0)='0' and 1=1",
+      "adapter": {
+        "engine": "static_sql"
+      }
+    }
+  }
+}

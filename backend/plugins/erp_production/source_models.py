@@ -367,6 +367,62 @@ class SourceDyeGrayReturnApplyDetail(SourceRecord):
         verbose_name=verbose_name_plural='坯布半成品成品与仓储相关表（GrayReturnApplyDetail，待确认）'
         ordering=["-id"]
 
+class SourceDyeHSalaryWorkQty(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='h_SalaryWorkQty'
+    SOURCE_FIELDS={'ID': 'old_id', 'ShiftID': 'old_shift_id', 'EmpID': 'old_emp_id', 'ProcessID': 'old_process_id', 'WorkQty': 'old_work_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'Remarks': 'old_remarks', 'CalcMonth': 'old_calc_month', 'StationID': 'old_station_id'}
+    SOURCE_KEY=('ID', 'CalcMonth')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_id': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_calc_month': 'Chinese_PRC_CI_AS', 'old_station_id': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_id=models.CharField('ID', null=False, blank=True, max_length=50)
+    old_shift_id=models.CharField('ShiftID', null=True, blank=True, max_length=10)
+    old_emp_id=models.CharField('EmpID', null=True, blank=True, max_length=50)
+    old_process_id=models.CharField('ProcessID', null=True, blank=True, max_length=10)
+    old_work_qty=models.DecimalField('WorkQty', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_price=models.DecimalField('Price', null=True, blank=True, max_digits=10, decimal_places=4)
+    old_amount=models.DecimalField('Amount', null=True, blank=True, max_digits=16, decimal_places=2)
+    old_remarks=models.CharField('Remarks', null=True, blank=True, max_length=512)
+    old_calc_month=models.CharField('CalcMonth', null=False, blank=True, max_length=6)
+    old_station_id=models.CharField('StationID', null=True, blank=True, max_length=10)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_h_salaryworkqty'
+        indexes=[models.Index(fields=['source_batch', 'old_id', 'old_calc_month'],name='src_ddbc482a74bb986e'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_id'))),Upper(RTrim(models.F('old_calc_month'))),name='src_ci_ddbc482a74bb986e')]
+        verbose_name=verbose_name_plural='员工工序产量原始汇总（h_SalaryWorkQty）'
+        ordering=["-id"]
+
+class SourceDyeHSalaryWorkShift(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='h_SalaryWorkShift'
+    SOURCE_FIELDS={'CalcMonth': 'old_calc_month', 'ID': 'old_id', 'ShiftID': 'old_shift_id', 'ProcessID': 'old_process_id', 'WorkQty': 'old_work_qty', 'Price': 'old_price', 'Amount': 'old_amount', 'IsCalced': 'old_is_calced', 'Remarks': 'old_remarks', 'StationID': 'old_station_id'}
+    SOURCE_KEY=('CalcMonth', 'ID')
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_calc_month': 'Chinese_PRC_CI_AS', 'old_id': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_station_id': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_calc_month=models.CharField('CalcMonth', null=False, blank=True, max_length=6)
+    old_id=models.CharField('ID', null=False, blank=True, max_length=50)
+    old_shift_id=models.CharField('ShiftID', null=True, blank=True, max_length=10)
+    old_process_id=models.CharField('ProcessID', null=True, blank=True, max_length=10)
+    old_work_qty=models.DecimalField('WorkQty', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_price=models.DecimalField('Price', null=True, blank=True, max_digits=10, decimal_places=4)
+    old_amount=models.DecimalField('Amount', null=True, blank=True, max_digits=16, decimal_places=2)
+    old_is_calced=models.BooleanField('IsCalced', null=True, blank=True)
+    old_remarks=models.CharField('Remarks', null=True, blank=True, max_length=512)
+    old_station_id=models.CharField('StationID', null=True, blank=True, max_length=10)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_h_salaryworkshift'
+        indexes=[models.Index(fields=['source_batch', 'old_calc_month', 'old_id'],name='src_1866049b2b9b4c77'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_calc_month'))),Upper(RTrim(models.F('old_id'))),name='src_ci_1866049b2b9b4c77')]
+        verbose_name=verbose_name_plural='班组工序产量原始汇总（h_SalaryWorkShift）'
+        ordering=["-id"]
+
 class SourceDyeHSJobsheetNo(SourceRecord):
     SOURCE_SCHEMA='dye'
     SOURCE_TABLE='HS_JobsheetNo'
@@ -3097,6 +3153,66 @@ class SourceDyeRecordEmp(SourceRecord):
         db_table='src_dye_recordemp'
         indexes=[]
         verbose_name=verbose_name_plural='基础主数据相关表（RecordEmp，待确认）'
+        ordering=["-id"]
+
+class SourceDyeSalaryChanges(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='SalaryChanges'
+    SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'SheetNo': 'old_sheet_no', 'Kind': 'old_kind', 'RQ': 'old_rq', 'ShiftID': 'old_shift_id', 'Remarks': 'old_remarks', 'JobSheetNo': 'old_job_sheet_no', 'ProcessID': 'old_process_id', 'OtherAmount': 'old_other_amount', 'Creater': 'old_creater', 'CreateDate': 'old_create_date', 'Modifyer': 'old_modifyer', 'ModifyDate': 'old_modify_date', 'RightStatus': 'old_right_status', 'Approver': 'old_approver', 'ApproveDate': 'old_approve_date'}
+    SOURCE_KEY=('SheetSeries',)
+    SOURCE_DOCUMENT=True
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_sheet_no': 'Chinese_PRC_CI_AS', 'old_shift_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_process_id': 'Chinese_PRC_CI_AS', 'old_creater': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=30)
+    old_sheet_no=models.CharField('单号', null=False, blank=True, max_length=30)
+    old_kind=models.IntegerField('单据类别', null=True, blank=True)
+    old_rq=models.DateField('日期', null=True, blank=True)
+    old_shift_id=models.CharField('班组', null=True, blank=True, max_length=30)
+    old_remarks=models.CharField('备注', null=True, blank=True, max_length=200)
+    old_job_sheet_no=models.CharField('缸号', null=True, blank=True, max_length=30)
+    old_process_id=models.CharField('工序', null=True, blank=True, max_length=30)
+    old_other_amount=models.DecimalField('其他金额', null=True, blank=True, max_digits=10, decimal_places=2)
+    old_creater=models.CharField('创建人', null=True, blank=True, max_length=30)
+    old_create_date=models.DateTimeField('创建时间', null=True, blank=True)
+    old_modifyer=models.CharField('修改人', null=True, blank=True, max_length=30)
+    old_modify_date=models.DateTimeField('修改时间', null=True, blank=True)
+    old_right_status=models.IntegerField('审核状态', null=True, blank=True)
+    old_approver=models.CharField('审核人', null=True, blank=True, max_length=30)
+    old_approve_date=models.DateTimeField('审核时间', null=True, blank=True)
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_salarychanges'
+        indexes=[models.Index(fields=['source_batch', 'old_sheet_series'],name='src_8f44eae9fb0a8d49'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_sheet_series'))),name='src_ci_8f44eae9fb0a8d49')]
+        verbose_name=verbose_name_plural='工卡及人员调整原表（SalaryChanges）'
+        ordering=["-id"]
+
+class SourceDyeSalaryChangesDetail(SourceRecord):
+    SOURCE_SCHEMA='dye'
+    SOURCE_TABLE='SalaryChangesDetail'
+    SOURCE_FIELDS={'SheetSeries': 'old_sheet_series', 'DetailNo': 'old_detail_no', 'EmpID': 'old_emp_id', 'Amount': 'old_amount', 'SystemAmount': 'old_system_amount', 'OtherAmount': 'old_other_amount', 'Remarks': 'old_remarks'}
+    SOURCE_KEY=('DetailNo',)
+    SOURCE_DOCUMENT=False
+    SOURCE_COLLATIONS={'old_sheet_series': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_emp_id': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS'}
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '原关系：SalaryChanges', 'target': 'erp_production.SourceDyeSalaryChanges', 'source_fields': ['SheetSeries'], 'target_fields': ['SheetSeries'], 'evidence': ['原界面主从 SalaryChangesDetail → SalaryChanges；SalaryChanges各变体均按SheetSeries']}]
+    SOURCE_DEFAULTS={}
+    SOURCE_IDENTITIES=()
+    SOURCE_IDENTITY_RULES={}
+    old_sheet_series=models.CharField('流水号', null=False, blank=True, max_length=30)
+    old_detail_no=models.CharField('明细号', null=False, blank=True, max_length=30)
+    old_emp_id=models.CharField('员工', null=True, blank=True, max_length=30)
+    old_amount=models.DecimalField('变更金额', null=True, blank=True, max_digits=8, decimal_places=2)
+    old_system_amount=models.DecimalField('系统金额', null=True, blank=True, max_digits=8, decimal_places=2)
+    old_other_amount=models.DecimalField('其他金额', null=True, blank=True, max_digits=8, decimal_places=2)
+    old_remarks=models.CharField('备注', null=True, blank=True, max_length=300)
+    source_parent_1=models.ForeignKey('erp_production.SourceDyeSalaryChanges', verbose_name='原关系：SalaryChanges', null=True, blank=True, on_delete=models.PROTECT, related_name='+')
+
+    class Meta(SourceRecord.Meta):
+        db_table='src_dye_salarychangesdetail'
+        indexes=[models.Index(fields=['source_batch', 'old_detail_no'],name='src_1b20ff6e0164ebb9'),models.Index(models.F('source_batch'),Upper(RTrim(models.F('old_detail_no'))),name='src_ci_1b20ff6e0164ebb9')]
+        verbose_name=verbose_name_plural='工卡及人员调整明细原表（SalaryChangesDetail）'
         ordering=["-id"]
 
 class SourceDyeSemiOutWorkApply(SourceRecord):

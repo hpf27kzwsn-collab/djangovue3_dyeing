@@ -1,0 +1,479 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyegrayoutdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyegrayoutdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyesemioutdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyesemioutdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyegrayindetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyegrayindetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyesemiindetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyesemiindetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_qualityquantitybatch/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_qualityquantitybatch/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_qualityquantitysource/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_qualityquantitysource/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyewdefect/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_sourcedyewdefect/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_purchase_sourcedyepurdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_purchase_sourcedyepurdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_purchase_sourcedyearticlepurdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_purchase_sourcedyearticlepurdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_purchase_sourcedyestuffpurdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_purchase_sourcedyestuffpurdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-DS4BJ5mw.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-D54VcPNl.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_purchase_sourcedyepurdetail/355/purchase_movements/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyegrayoutdetail/6023/material_receipt_options/"
+    }
+  ],
+  "new_actions": 14,
+  "purchase_original_counts": [
+    {
+      "source_table": "ArticlePurMain",
+      "rows": 0
+    },
+    {
+      "source_table": "ArticlePurDetail",
+      "rows": 0
+    },
+    {
+      "source_table": "StuffPurMain",
+      "rows": 0
+    },
+    {
+      "source_table": "StuffPurDetail",
+      "rows": 0
+    },
+    {
+      "source_table": "PurDetail",
+      "rows": 580
+    }
+  ],
+  "models": 664,
+  "all_models_have_legacy_id": true,
+  "migration": "erp_quality.0010_qualityquantitybatch_qualityquantitysource",
+  "quality_mapping": {
+    "batch_id": 1,
+    "rows": 401,
+    "headers": 10,
+    "sha256": "d3295a7822a7d4470b41c3cdaeaa3b637a9b496bf4989f48fca681adb3c8dd8a",
+    "captured_at": "2026-10-15T09:05:05.240214+00:00",
+    "full_projected_fields_equal": true,
+    "length_available": false
+  },
+  "reports": [
+    {
+      "report": "Sp_ReworkCloth4",
+      "month": "2025-03",
+      "FARNum": 115,
+      "FARKg": "2.03",
+      "independent_old_sql_equal": true,
+      "visible_quantity_rows": 115
+    },
+    {
+      "report": "Sp_ReworkCloth4",
+      "month": "2025-04",
+      "FARNum": 76,
+      "FARKg": "4.10",
+      "independent_old_sql_equal": true,
+      "visible_quantity_rows": 76
+    },
+    {
+      "report": "Sp_ReworkCloth4",
+      "month": "2025-05",
+      "FARNum": 45,
+      "FARKg": "0.61",
+      "independent_old_sql_equal": true,
+      "visible_quantity_rows": 45
+    },
+    {
+      "report": "Sp_ReworkCloth4",
+      "month": "2025-07",
+      "FARNum": 41,
+      "FARKg": "2.21",
+      "independent_old_sql_equal": true,
+      "visible_quantity_rows": 41
+    },
+    {
+      "report": "Sp_ReworkCloth4",
+      "month": "2025-08",
+      "FARNum": 124,
+      "FARKg": "1.56",
+      "independent_old_sql_equal": true,
+      "visible_quantity_rows": 124
+    },
+    {
+      "report": "Rework_Comparison3",
+      "quantity_rows": 401,
+      "supplemental_rows": 401,
+      "rows": [
+        {
+          "month": "2025-03",
+          "JQty1": null,
+          "JMeter1": null,
+          "YQty1": null,
+          "YMeter1": null,
+          "JQty2": null,
+          "JMeter2": null,
+          "YQty2": null,
+          "YMeter2": null,
+          "Qty3": null,
+          "Meter3": null,
+          "Qty4": null,
+          "Meter4": null,
+          "Qty5": null,
+          "Meter5": null,
+          "AllQty": null,
+          "AllMeter": null
+        },
+        {
+          "month": "2025-04",
+          "JQty1": null,
+          "JMeter1": null,
+          "YQty1": null,
+          "YMeter1": null,
+          "JQty2": null,
+          "JMeter2": null,
+          "YQty2": null,
+          "YMeter2": null,
+          "Qty3": null,
+          "Meter3": null,
+          "Qty4": null,
+          "Meter4": null,
+          "Qty5": null,
+          "Meter5": null,
+          "AllQty": null,
+          "AllMeter": null
+        },
+        {
+          "month": "2025-05",
+          "JQty1": null,
+          "JMeter1": null,
+          "YQty1": null,
+          "YMeter1": null,
+          "JQty2": null,
+          "JMeter2": null,
+          "YQty2": null,
+          "YMeter2": null,
+          "Qty3": null,
+          "Meter3": null,
+          "Qty4": null,
+          "Meter4": null,
+          "Qty5": null,
+          "Meter5": null,
+          "AllQty": null,
+          "AllMeter": null
+        },
+        {
+          "month": "2025-06",
+          "JQty1": null,
+          "JMeter1": null,
+          "YQty1": null,
+          "YMeter1": null,
+          "JQty2": null,
+          "JMeter2": null,
+          "YQty2": null,
+          "YMeter2": null,
+          "Qty3": null,
+          "Meter3": null,
+          "Qty4": null,
+          "Meter4": null,
+          "Qty5": null,
+          "Meter5": null,
+          "AllQty": null,
+          "AllMeter": null
+        },
+        {
+          "month": "2025-07",
+          "JQty1": null,
+          "JMeter1": null,
+          "YQty1": null,
+          "YMeter1": null,
+          "JQty2": null,
+          "JMeter2": null,
+          "YQty2": null,
+          "YMeter2": null,
+          "Qty3": null,
+          "Meter3": null,
+          "Qty4": null,
+          "Meter4": null,
+          "Qty5": null,
+          "Meter5": null,
+          "AllQty": null,
+          "AllMeter": null
+        },
+        {
+          "month": "2025-08",
+          "JQty1": null,
+          "JMeter1": null,
+          "YQty1": null,
+          "YMeter1": null,
+          "JQty2": null,
+          "JMeter2": null,
+          "YQty2": null,
+          "YMeter2": null,
+          "Qty3": null,
+          "Meter3": null,
+          "Qty4": null,
+          "Meter4": null,
+          "Qty5": null,
+          "Meter5": null,
+          "AllQty": null,
+          "AllMeter": null
+        }
+      ],
+      "original_join_counts": {
+        "joined_rows": 401,
+        "zero_amount_rows": 394,
+        "matched_jobs": 401,
+        "jobs_with_review_code": 49,
+        "matched_reviews": 49,
+        "classified_rows": 0
+      },
+      "independent_old_quantity_sql_equal": true
+    },
+    {
+      "report": "Rework_Comparison2",
+      "mode": "legacy",
+      "FARKg1": null,
+      "FARKg2": null,
+      "quantity_sources": 124
+    },
+    {
+      "report": "Rework_Comparison2",
+      "mode": "same_period",
+      "FARKg1": "1.56",
+      "FARKg2": null,
+      "quantity_sources": 124
+    }
+  ],
+  "previews": [
+    {
+      "report": "purchase_movements",
+      "purchase_id": 355,
+      "purchase_number": "H251117001-01",
+      "source_rows": 247,
+      "PurchaseOrders_sample_id": 46424
+    },
+    {
+      "report": "material_receipt_options",
+      "family": "Gray",
+      "source_id": 6023,
+      "rows": [
+        {
+          "destination": "gray",
+          "receipt_kind": 21,
+          "header_id": 6013,
+          "dispatch_kind": 30,
+          "original_rolls_formula": "1000.00",
+          "remaining_weight": "1000.00",
+          "remaining_packs": "2.00",
+          "old_selection_available": true
+        },
+        {
+          "destination": "semi",
+          "receipt_kind": 25,
+          "header_id": 6013,
+          "dispatch_kind": 30,
+          "original_rolls_formula": "1000.00",
+          "remaining_weight": "1000.00",
+          "remaining_packs": "2.00",
+          "old_selection_available": true
+        }
+      ],
+      "matched_receipt_rows": 0
+    },
+    {
+      "report": "material_receipt_options",
+      "family": "Semi",
+      "matching_source_count": 0
+    }
+  ],
+  "history_mutations": {
+    "new_material_receipt_or_factory_return_operations": 0,
+    "quantity_projection_imported": 401,
+    "stock_or_finance_operations": []
+  },
+  "seconds": 56.335,
+  "limits": [
+    "旧SQL仅SELECT取数、原连接和数量聚合；自动来源是最新可读的已保存批次，不是每次报告实时连接旧SQL。",
+    "401条来源有401条工卡对应、49条评审对应，但没有满足原部门和班次非空的分类；保留全部补充明细。",
+    "原PreMeter不存在，未推算长度；未宣称旧客户端全部业务已等价验收。"
+  ],
+  "tests": {
+    "regression": {
+      "passed": 367,
+      "seconds": 244.425,
+      "new_tests": 28
+    },
+    "django_check": "passed",
+    "migration_drift": "none",
+    "frontend_build": "passed; existing bundle-size warning",
+    "running_http_checks": 47
+  }
+}

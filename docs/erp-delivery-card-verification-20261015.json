@@ -1,0 +1,444 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyegrayoutdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyegrayoutdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyesemioutdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyesemioutdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyerecordyield/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyeprodin/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyeprodin/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyeprodout/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyeprodout/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyeprodoutdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyeprodoutdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobcombineorder/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobcombineorder/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobprocess/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobprocess/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobcombine/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobcombine/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyegrayin/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyegrayin/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyesemiin/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyesemiin/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-D0PUUcTj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-B0-eh7ZA.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobcombine/1/combine_group/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyeprodin/1/continuation/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobcombineorder/1/continuation/"
+    }
+  ],
+  "registered_actions": {
+    "erp_warehouse_sourcedyegrayoutdetail": [
+      "return_material"
+    ],
+    "erp_warehouse_sourcedyesemioutdetail": [
+      "return_material"
+    ],
+    "erp_warehouse_sourcedyerecordyield": [
+      "receive_package",
+      "adopt_gray_record",
+      "continuation"
+    ],
+    "erp_warehouse_sourcedyeprodin": [
+      "factory_quality",
+      "dispatch_product",
+      "continuation"
+    ],
+    "erp_warehouse_sourcedyeprodout": [
+      "confirm_delivery",
+      "continuation"
+    ],
+    "erp_warehouse_sourcedyeprodoutdetail": [
+      "receive_return"
+    ],
+    "erp_production_sourcedyejobsheet": [
+      "split_card",
+      "merge_cards",
+      "combine_members",
+      "continuation"
+    ],
+    "erp_production_sourcedyejobcombineorder": [
+      "transfer_allocation",
+      "continuation"
+    ],
+    "erp_production_sourcedyejobprocess": [
+      "sync_combined_process",
+      "continuation"
+    ],
+    "erp_production_sourcedyejobcombine": [
+      "combine_group",
+      "adopt_combine_link",
+      "continuation"
+    ],
+    "erp_warehouse_sourcedyegrayin": [
+      "continuation"
+    ],
+    "erp_warehouse_sourcedyesemiin": [
+      "continuation"
+    ]
+  },
+  "registered_action_count": 24,
+  "current_history_counts": {
+    "RecordYield": 377215,
+    "ProdIn": 78114,
+    "ProdOut": 4964,
+    "JobSheet": 92538,
+    "JobCombine": 61,
+    "JobCombineOrder": 91455,
+    "JobGrayRecord": 0
+  },
+  "history_combine_report": {
+    "link_id": 1,
+    "sheet_series": "20231010002",
+    "source_rows": 1,
+    "reported_rows": 1,
+    "unmatched_header_rows": 61,
+    "orphan_groups": [
+      {
+        "SheetSeries": "23111520082342187085",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23123015403064275182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "20231026035",
+        "rows": 3
+      },
+      {
+        "SheetSeries": "23121316261127350182",
+        "rows": 3
+      },
+      {
+        "SheetSeries": "23122616225456612182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "20231110094",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23112710324107812182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "24010511542559375085",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23122614303137862182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "24010614270613312182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23121208472803912182",
+        "rows": 3
+      },
+      {
+        "SheetSeries": "23120311365832475183",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23122514300455050182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "24010109324731250182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23112917402370312085",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23123015412323650182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23122514391851925182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23112309484351562182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "24010114360440625182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23123015373043962182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23120414381043537182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "24010114331746875182",
+        "rows": 2
+      },
+      {
+        "SheetSeries": "23122514303201925182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23122514544890987182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23123009555601775182",
+        "rows": 2
+      },
+      {
+        "SheetSeries": "23112914390060937182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23112710331292187182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "24010309593164062182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23122515192194112182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23121416500749225182",
+        "rows": 3
+      },
+      {
+        "SheetSeries": "23122514555153487182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23122314532931612182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23123015243218962182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23121217123444537182",
+        "rows": 2
+      },
+      {
+        "SheetSeries": "23121010033088287182",
+        "rows": 3
+      },
+      {
+        "SheetSeries": "20231010002",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23112710311779687182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "20231112044",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23120910323264850182",
+        "rows": 3
+      },
+      {
+        "SheetSeries": "23121217135517975182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "23112317120862500182",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "24010115445090625182",
+        "rows": 3
+      },
+      {
+        "SheetSeries": "23121519272767187085",
+        "rows": 1
+      },
+      {
+        "SheetSeries": "20231024135",
+        "rows": 1
+      }
+    ]
+  },
+  "regression_tests": {
+    "passed": 167,
+    "failed": 0,
+    "seconds": 83.748,
+    "new_tests": 22,
+    "log": ".runtime-temp/erp-log-export/delivery-regression-20261015-complete.log"
+  },
+  "django_check": "passed",
+  "makemigrations_check": "No changes detected",
+  "frontend_typecheck_and_build": "passed",
+  "test_database": "test_erp_source_additions_20261014 on 5440; existing validated schema; per-test transaction isolation",
+  "source_evidence_snapshot": "2026-10-14 verified structure-and-logic.json and workflow_evidence.json",
+  "sql_server_program_parity_verified_this_turn": false,
+  "all_old_business_workflows_reproduced": false,
+  "exception_document": "旧ERP复刻异常与合理实现说明.md E41-E45"
+}

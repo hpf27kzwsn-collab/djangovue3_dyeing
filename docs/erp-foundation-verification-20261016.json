@@ -1,0 +1,191 @@
+{
+  "scope": "隔离验证库；全部来源逐行逐字段试导入，不是开发历史库采用或切换",
+  "database": "erp_foundation_compare_20261016",
+  "completed": true,
+  "batches": [
+    {
+      "manifest_sha256": "c20a3220b570359cdf2780d38979f941762eedb8b188c5e242c578038b5cbe34",
+      "tables": [
+        {
+          "table": "dye.ClothGetMoney",
+          "rows": 4,
+          "field_comparisons": 60,
+          "fields": 15,
+          "legacy_id_rows": 4
+        },
+        {
+          "table": "dye.ClothGetMoneyDetail",
+          "rows": 4,
+          "field_comparisons": 24,
+          "fields": 6,
+          "legacy_id_rows": 4
+        },
+        {
+          "table": "dye.FARDetail",
+          "rows": 401,
+          "field_comparisons": 16441,
+          "fields": 41,
+          "legacy_id_rows": 401
+        },
+        {
+          "table": "dye.FARMain",
+          "rows": 10,
+          "field_comparisons": 270,
+          "fields": 27,
+          "legacy_id_rows": 10
+        },
+        {
+          "table": "dye.FARRecord",
+          "rows": 779,
+          "field_comparisons": 7790,
+          "fields": 10,
+          "legacy_id_rows": 779
+        },
+        {
+          "table": "dye.SalaryChanges",
+          "rows": 124,
+          "field_comparisons": 1984,
+          "fields": 16,
+          "legacy_id_rows": 124
+        },
+        {
+          "table": "dye.SalaryChangesDetail",
+          "rows": 334,
+          "field_comparisons": 2338,
+          "fields": 7,
+          "legacy_id_rows": 334
+        },
+        {
+          "table": "dye.ZKAttendanceMonthStatistics",
+          "rows": 0,
+          "field_comparisons": 0,
+          "fields": 29,
+          "legacy_id_rows": 0
+        },
+        {
+          "table": "dye.h_SalaryAttend",
+          "rows": 0,
+          "field_comparisons": 0,
+          "fields": 9,
+          "legacy_id_rows": 0
+        },
+        {
+          "table": "dye.h_SalaryWorkQty",
+          "rows": 0,
+          "field_comparisons": 0,
+          "fields": 10,
+          "legacy_id_rows": 0
+        },
+        {
+          "table": "dye.h_SalaryWorkShift",
+          "rows": 0,
+          "field_comparisons": 0,
+          "fields": 10,
+          "legacy_id_rows": 0
+        }
+      ],
+      "relations": {
+        "SourceDyeClothGetMoneyDetail.source_parent_1": 4,
+        "SourceDyeFARDetail.source_parent_1": 401,
+        "SourceDyeFARRecord.source_parent_1": 779,
+        "SourceDyeSalaryChangesDetail.source_parent_1": 334
+      }
+    },
+    {
+      "manifest_sha256": "210d06db2dd25925d4dea89294a62b7f14b7aef47927fbe2e45c863f31f42156",
+      "tables": [
+        {
+          "table": "dye.h_Employee",
+          "rows": 274,
+          "field_comparisons": 26852,
+          "fields": 98,
+          "legacy_id_rows": 274
+        },
+        {
+          "table": "dye.p_Article",
+          "rows": 399,
+          "field_comparisons": 11571,
+          "fields": 29,
+          "legacy_id_rows": 399
+        },
+        {
+          "table": "dye.p_Dept",
+          "rows": 11,
+          "field_comparisons": 143,
+          "fields": 13,
+          "legacy_id_rows": 11
+        },
+        {
+          "table": "dye.p_FieldValid",
+          "rows": 827,
+          "field_comparisons": 20675,
+          "fields": 25,
+          "legacy_id_rows": 827
+        },
+        {
+          "table": "dye.p_Machine",
+          "rows": 120,
+          "field_comparisons": 6600,
+          "fields": 55,
+          "legacy_id_rows": 120
+        }
+      ],
+      "relations": {}
+    }
+  ],
+  "unit_probes": 320,
+  "employee_probes": 274,
+  "date_rows": 6,
+  "date_source_numbers": 2048,
+  "lookups": [
+    {
+      "lookup": "B049",
+      "key": "Name",
+      "display": "Name",
+      "rows": 53
+    },
+    {
+      "lookup": "B062",
+      "key": "DeptID",
+      "display": "Name",
+      "rows": 10
+    },
+    {
+      "lookup": "B084",
+      "key": "Code",
+      "display": "Name",
+      "rows": 9
+    },
+    {
+      "lookup": "B085",
+      "key": "Code",
+      "display": "Name",
+      "rows": 3
+    }
+  ],
+  "live_sha256": "c06371c067f6e738f44e2121f2be42cf69b03567c135ba0ddc9d45f6c83589ed",
+  "schema_verification": {
+    "captured_at": "2026-10-16T07:32:10.3385726+08:00",
+    "tables": 690,
+    "fields": 13268,
+    "all_field_definitions_match_generator_schema": true
+  },
+  "tests": {
+    "focused": {
+      "count": 22,
+      "seconds": 93.893,
+      "passed": true,
+      "log": ".runtime-temp/erp-phase1-20261016/focused-tests.log",
+      "sha256": "da883eae1270dd394aea6b1ea9cf6317b41f490f0f4e95caf174ab52ce70dde9"
+    },
+    "regression": {
+      "count": 651,
+      "seconds": 604.915,
+      "passed": true,
+      "log": ".runtime-temp/erp-phase1-20261016/regression.log",
+      "sha256": "11f5a4ad0f1993c55a1989f0b062a25a6f569808bcb72b78c92d23b52af73f89"
+    },
+    "django_system_check": "passed",
+    "model_migration_check": "no changes detected"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyerecordyield/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-GuY_F78i.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-BBbc47-H.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/377215/preview_package_replace/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92487/preview_package_pairing/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/377215/continuation/"
+    }
+  ],
+  "registered_actions": {
+    "erp_warehouse_sourcedyerecordyield": [
+      "preview_package_replace",
+      "replace_package",
+      "undo_package_replace",
+      "undo_gray_record"
+    ],
+    "erp_production_sourcedyejobsheet": [
+      "preview_package_pairing",
+      "apply_package_pairing",
+      "undo_package_pairing"
+    ]
+  },
+  "new_actions": 7,
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "schema_changes": false,
+  "source_program_sha256": {
+    "RecordYield_Add": "a8ba920cf816126089bcd341dcd2541b131e75144722cbccf0aede79657660aa",
+    "Sp_RecordYieldQuery": "c271eaebf65b1f4578cc470ef8197754822ec5a66c24c24090be0f724dbbe7cc",
+    "RecordYield_": "c6c1e9e11e9c22f946cdefa8c45b4a38853ec4efa4078b9d994060fcfefe9caa",
+    "RecordYield_INSERT": "4b56a60eb2b20d86bd2adea209221ff6942dac63743c7cefe8e85a65402fc146"
+  },
+  "history_counts": {
+    "RecordYield": 377215,
+    "JobGrayRecord": 0
+  },
+  "real_preview": {
+    "job_id": 92487,
+    "job_number": "S260814003",
+    "package_id": 377215,
+    "same_roll_count": 1,
+    "package_count": 34,
+    "matched_count": 0,
+    "unmatched_count": 34,
+    "seconds": 0.871
+  },
+  "history_mutations": {
+    "before_operation_facts": 0,
+    "after_operation_facts": 0,
+    "operations_executed": []
+  },
+  "limits": [
+    "历史库只读预览；替换/排序/撤回写入及库存链在独立测试库验证。",
+    "原投坯表为空时没有真实非空排序配对样本，不把构造用例算为原单等价验收。"
+  ],
+  "regression_tests": {
+    "passed": 280,
+    "new_tests": 26,
+    "failed": 0,
+    "seconds": 181.651,
+    "log": ".runtime-temp/erp-log-export/package-regression-final-20261015.log",
+    "database": "test_erp_source_additions_20261014",
+    "port": 5440,
+    "initial_run": "279通过，1项临时目录权限错误；最终完整280项复测通过。"
+  },
+  "checks": {
+    "django": "passed",
+    "migration_state": "no changes detected",
+    "git_diff_check": "passed",
+    "frontend_typecheck": "passed",
+    "frontend_build": "passed",
+    "frontend_log": ".runtime-temp/erp-log-export/package-frontend-20261015.log",
+    "frontend_warning": "既有部分构建包超过500 kB提示"
+  }
+}

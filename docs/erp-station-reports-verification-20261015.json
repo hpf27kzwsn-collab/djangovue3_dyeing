@@ -1,0 +1,500 @@
+{
+  "date": "2026-10-15",
+  "start": "2026-08-14T00:00:00+08:00",
+  "end": "2026-08-15T12:00:00+08:00",
+  "checks": [
+    {
+      "report": "Sp_DyeRateNew",
+      "rows": 3,
+      "columns": [
+        "ShiftID",
+        "ClassID",
+        "TotalKg",
+        "ZKg",
+        "JKg",
+        "RTKg",
+        "ZNum",
+        "JNum",
+        "RNum",
+        "TNum",
+        "Rate",
+        "RTRate"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "Sp_DyeRateNew_ColorMatching",
+      "rows": 3,
+      "columns": [
+        "ColorMatching",
+        "ClassID",
+        "TotalKg",
+        "ZKg",
+        "JKg",
+        "RTKg",
+        "ZNum",
+        "JNum",
+        "RNum",
+        "TNum",
+        "Rate",
+        "RTRate",
+        "JTimes"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "matching_dashboard",
+      "rows": 2,
+      "columns": [
+        "rowindex",
+        "GroupIndex",
+        "DayType",
+        "Name",
+        "TotalKg",
+        "ZKg",
+        "JKg",
+        "RTKg",
+        "ZNum",
+        "JNum",
+        "RNum",
+        "TNum",
+        "Rate",
+        "RTRate",
+        "DyeAdd"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "depth_dashboard",
+      "rows": 6,
+      "columns": [
+        "ColorDepthCode",
+        "ColorDepthName",
+        "Type",
+        "TotalKg"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "work_quantity",
+      "rows": 1252,
+      "columns": [
+        "WProcessNo",
+        "OrderSheetNo",
+        "CustomerID",
+        "ProdID",
+        "ColorNum",
+        "ColorID",
+        "JobSheetNo",
+        "ProcessNo",
+        "ProcessID",
+        "StationID",
+        "MachineID",
+        "ShiftID",
+        "StartTime",
+        "EndTime",
+        "CurrRolls",
+        "CurrKg",
+        "Days"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "sp_SimpleRecordYieldQuery",
+      "rows": 200,
+      "columns": [
+        "EmpID",
+        "ProdID",
+        "ColorNum",
+        "Packs",
+        "Rolls",
+        "NetKg",
+        "CustQty",
+        "SheetDate",
+        "ColorID",
+        "JobSheetNo",
+        "pinzhong",
+        "PackBag",
+        "TubeWeight"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "sp_RecordYieldByWinding",
+      "rows": 245,
+      "columns": [
+        "WindingID",
+        "SheetDate",
+        "ProdID",
+        "ColorNum",
+        "Rolls",
+        "NetKg",
+        "ColorID",
+        "JobSheetNo",
+        "CustSelfNo",
+        "EmpID"
+      ],
+      "independent_old_sql_equal": true
+    }
+  ],
+  "seconds": 14.759,
+  "sources": {
+    "Sp_DyeRateNew": {
+      "result_rows": 233,
+      "supplemental_rows": 0
+    },
+    "Sp_DyeRateNew_ColorMatching": {
+      "result_rows": 233,
+      "supplemental_rows": 0
+    },
+    "matching_dashboard": {
+      "result_rows": 0,
+      "supplemental_rows": 7073
+    },
+    "depth_dashboard": {
+      "result_rows": 14,
+      "supplemental_rows": 13
+    },
+    "work_quantity": {
+      "result_rows": 1252,
+      "supplemental_rows": 10
+    },
+    "sp_SimpleRecordYieldQuery": {
+      "result_rows": 1172,
+      "supplemental_rows": 7449
+    },
+    "sp_RecordYieldByWinding": {
+      "result_rows": 1172,
+      "supplemental_rows": 673
+    }
+  },
+  "schedule_and_denominator": {
+    "schedule_rows": 81,
+    "supplemental_schedules": 58,
+    "original_rank_equal": true,
+    "ambiguous_latest_time_rows": 0,
+    "denominator": {
+      "DayAllNum": "0",
+      "DayAllKg": null,
+      "MonthAllNum": "122",
+      "MonthAllKg": "1564.30"
+    },
+    "denominator_source_rows": 124,
+    "original_denominator_equal": true
+  },
+  "database": "erp_full_trial_20261014",
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyedyecheckout/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_sourcedyedyecheckout/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyewprocess/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyewprocess/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyerecordyield/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyeprocessschedule/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyeprocessschedule/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_base_sourcedyesdbcombovalue/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_base_sourcedyesdbcombovalue/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyewdefect/"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-DFh3L3KJ.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-BeJ3Qt5D.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyedyecheckout/dye_rate/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyedyecheckout/dye_rate/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyedyecheckout/station_dashboard/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyedyecheckout/station_dashboard/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/work_quantity/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/package_yield/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/package_yield/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyeprocessschedule/existing_schedules/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/process_status/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyewprocess/process_status/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/quality_statistics/"
+    }
+  ],
+  "final_http_report_comparisons": [
+    {
+      "report": "Sp_DyeRateNew",
+      "rows": 3,
+      "columns": [
+        "ShiftID",
+        "ClassID",
+        "TotalKg",
+        "ZKg",
+        "JKg",
+        "RTKg",
+        "ZNum",
+        "JNum",
+        "RNum",
+        "TNum",
+        "Rate",
+        "RTRate"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "Sp_DyeRateNew_ColorMatching",
+      "rows": 3,
+      "columns": [
+        "ColorMatching",
+        "ClassID",
+        "TotalKg",
+        "ZKg",
+        "JKg",
+        "RTKg",
+        "ZNum",
+        "JNum",
+        "RNum",
+        "TNum",
+        "Rate",
+        "RTRate",
+        "JTimes"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "matching_dashboard",
+      "rows": 2,
+      "columns": [
+        "rowindex",
+        "GroupIndex",
+        "DayType",
+        "Name",
+        "TotalKg",
+        "ZKg",
+        "JKg",
+        "RTKg",
+        "ZNum",
+        "JNum",
+        "RNum",
+        "TNum",
+        "Rate",
+        "RTRate",
+        "DyeAdd"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "depth_dashboard",
+      "rows": 6,
+      "columns": [
+        "ColorDepthCode",
+        "ColorDepthName",
+        "Type",
+        "TotalKg"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "work_quantity",
+      "rows": 1252,
+      "columns": [
+        "WProcessNo",
+        "OrderSheetNo",
+        "CustomerID",
+        "ProdID",
+        "ColorNum",
+        "ColorID",
+        "JobSheetNo",
+        "ProcessNo",
+        "ProcessID",
+        "StationID",
+        "MachineID",
+        "ShiftID",
+        "StartTime",
+        "EndTime",
+        "CurrRolls",
+        "CurrKg",
+        "Days"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "sp_SimpleRecordYieldQuery",
+      "rows": 200,
+      "columns": [
+        "EmpID",
+        "ProdID",
+        "ColorNum",
+        "Packs",
+        "Rolls",
+        "NetKg",
+        "CustQty",
+        "SheetDate",
+        "ColorID",
+        "JobSheetNo",
+        "pinzhong",
+        "PackBag",
+        "TubeWeight"
+      ],
+      "independent_old_sql_equal": true
+    },
+    {
+      "report": "sp_RecordYieldByWinding",
+      "rows": 245,
+      "columns": [
+        "WindingID",
+        "SheetDate",
+        "ProdID",
+        "ColorNum",
+        "Rolls",
+        "NetKg",
+        "ColorID",
+        "JobSheetNo",
+        "CustSelfNo",
+        "EmpID"
+      ],
+      "independent_old_sql_equal": true
+    }
+  ],
+  "models": 665,
+  "all_models_have_legacy_id": true,
+  "source_models": 554,
+  "source_fields": 11416,
+  "enum_import": {
+    "rows": 403,
+    "fields": 4,
+    "field_comparisons": 1612,
+    "latest_fields_equal": true,
+    "batch": "erp-combo-source-20261015"
+  },
+  "tests": {
+    "full_regression": 395,
+    "seconds": 226.576,
+    "final_focused": 28,
+    "focused_seconds": 15.278,
+    "frontend_build": "passed",
+    "django_check": "passed",
+    "migration_drift": "none"
+  },
+  "history_scope": "本次只新增403条基础枚举原行；既有553表、401条质量投影未重导；运行核验只调用报表，不创建报工、库存或财务动作。"
+}

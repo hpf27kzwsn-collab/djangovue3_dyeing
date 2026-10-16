@@ -598,4 +598,16 @@ OWNERS = {'erp_base.SourceDyeArrivalNoticeDetail': [{'field': 'source_parent_1',
  'erp_sales.SourceDyeZDAddPriceDetail': [{'field': 'source_parent_1',
                                           'source_fields': ['SheetSeries'],
                                           'target_fields': ['SheetSeries'],
-                                          'target': 'erp_sales.SourceDyeZDAddPrice'}]}
+                                      'target': 'erp_sales.SourceDyeZDAddPrice'}]}
+
+# 已核对当前旧入口的主从键；FAR细码必须同时匹配流水和明细号。
+OWNERS.update({
+    'erp_sales.SourceDyeClothGetMoneyDetail': [{'field': 'source_parent_1', 'source_fields': ['SheetSeries'],
+        'target_fields': ['SheetSeries'], 'target': 'erp_sales.SourceDyeClothGetMoney'}],
+    'erp_production.SourceDyeSalaryChangesDetail': [{'field': 'source_parent_1', 'source_fields': ['SheetSeries'],
+        'target_fields': ['SheetSeries'], 'target': 'erp_production.SourceDyeSalaryChanges'}],
+    'erp_quality.SourceDyeFARDetail': [{'field': 'source_parent_1', 'source_fields': ['SheetSeries'],
+        'target_fields': ['SheetSeries'], 'target': 'erp_quality.SourceDyeFARMain'}],
+    'erp_quality.SourceDyeFARRecord': [{'field': 'source_parent_1', 'source_fields': ['SheetSeries', 'DetailNo'],
+        'target_fields': ['SheetSeries', 'DetailNo'], 'target': 'erp_quality.SourceDyeFARDetail'}],
+})

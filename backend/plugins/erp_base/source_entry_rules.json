@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-14T13:07:46.3778449+08:00",
+  "captured_at": "2026-10-16T08:51:52.7617220+08:00",
   "models": {
     "erp_sampling.SourceDyeAddDyeWProcessStep": {
       "AddDyeWProcessStep": {
@@ -4041,6 +4041,88 @@
         "master_entry": null,
         "save_updates_stock": null,
         "number_fields": {},
+        "default_fields": {},
+        "formula_fields": {}
+      }
+    },
+    "erp_sales.SourceDyeClothGetMoney": {
+      "ClothGetMoney": {
+        "title": "坯布收货",
+        "master_entry": null,
+        "save_updates_stock": null,
+        "number_fields": {
+          "SheetNo": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 2,
+            "Prefix": "CM",
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          },
+          "SheetSeries": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 1,
+            "Prefix": "CM",
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      }
+    },
+    "erp_sales.SourceDyeClothGetMoneyDetail": {
+      "ClothGetMoneyDetail": {
+        "title": "坯布收货明细",
+        "master_entry": "ClothGetMoney",
+        "save_updates_stock": null,
+        "number_fields": {
+          "DetailNo": {
+            "FieldKind": "SeriesAndRowNo",
+            "GenerateTime": 1,
+            "Prefix": null,
+            "EndCode": null,
+            "YearCode": null,
+            "MonthCode": null,
+            "IsUseDayCode": null,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
         "default_fields": {},
         "formula_fields": {}
       }
@@ -31702,6 +31784,37 @@
         "formula_fields": {}
       }
     },
+    "erp_base.SourceDyeSDBComboValue": {
+      "s_DBComboValue": {
+        "title": "组合框值表",
+        "master_entry": "s_DBCombo",
+        "save_updates_stock": null,
+        "number_fields": {
+          "DisplayIndex": {
+            "FieldKind": "RowNo",
+            "GenerateTime": 1,
+            "Prefix": null,
+            "EndCode": null,
+            "YearCode": null,
+            "MonthCode": null,
+            "IsUseDayCode": null,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": true
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      }
+    },
     "erp_base.SourceDyePFabric": {
       "s_Fabric": {
         "title": "坯布品名",
@@ -31738,6 +31851,400 @@
         "master_entry": "s_FlowStep",
         "save_updates_stock": null,
         "number_fields": {},
+        "default_fields": {},
+        "formula_fields": {}
+      }
+    },
+    "erp_production.SourceDyeSalaryChanges": {
+      "SalaryChangesA": {
+        "title": "工资(内部调整)主表",
+        "master_entry": null,
+        "save_updates_stock": null,
+        "number_fields": {
+          "SheetNo": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 2,
+            "Prefix": null,
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          },
+          "SheetSeries": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 1,
+            "Prefix": "S",
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesB": {
+        "title": "工资(车间调整)主表",
+        "master_entry": null,
+        "save_updates_stock": null,
+        "number_fields": {
+          "SheetNo": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 2,
+            "Prefix": null,
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          },
+          "SheetSeries": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 1,
+            "Prefix": "S",
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesC": {
+        "title": "工资(染色变更)主表",
+        "master_entry": null,
+        "save_updates_stock": null,
+        "number_fields": {
+          "SheetNo": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 2,
+            "Prefix": null,
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          },
+          "SheetSeries": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 1,
+            "Prefix": "S",
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesD": {
+        "title": "工资(补漏刷卡)主表",
+        "master_entry": null,
+        "save_updates_stock": null,
+        "number_fields": {
+          "SheetNo": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 2,
+            "Prefix": null,
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          },
+          "SheetSeries": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 1,
+            "Prefix": "S",
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesE": {
+        "title": "补工资主表",
+        "master_entry": null,
+        "save_updates_stock": null,
+        "number_fields": {
+          "SheetNo": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 2,
+            "Prefix": null,
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          },
+          "SheetSeries": {
+            "FieldKind": "DateCode",
+            "GenerateTime": 1,
+            "Prefix": "S",
+            "EndCode": "3",
+            "YearCode": 2,
+            "MonthCode": 2,
+            "IsUseDayCode": true,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      }
+    },
+    "erp_production.SourceDyeSalaryChangesDetail": {
+      "SalaryChangesADetail": {
+        "title": "工资(内部调整)明细表",
+        "master_entry": "SalaryChangesA",
+        "save_updates_stock": null,
+        "number_fields": {
+          "DetailNo": {
+            "FieldKind": "SeriesAndRowNo",
+            "GenerateTime": 1,
+            "Prefix": null,
+            "EndCode": null,
+            "YearCode": null,
+            "MonthCode": null,
+            "IsUseDayCode": null,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesBDetail": {
+        "title": "工资(车间调整)明细表",
+        "master_entry": "SalaryChangesB",
+        "save_updates_stock": null,
+        "number_fields": {
+          "DetailNo": {
+            "FieldKind": "SeriesAndRowNo",
+            "GenerateTime": 1,
+            "Prefix": null,
+            "EndCode": null,
+            "YearCode": null,
+            "MonthCode": null,
+            "IsUseDayCode": null,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesCDetail": {
+        "title": "工资(染色变更)明细表",
+        "master_entry": "SalaryChangesC",
+        "save_updates_stock": null,
+        "number_fields": {
+          "DetailNo": {
+            "FieldKind": "SeriesAndRowNo",
+            "GenerateTime": 1,
+            "Prefix": null,
+            "EndCode": null,
+            "YearCode": null,
+            "MonthCode": null,
+            "IsUseDayCode": null,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesDDetail": {
+        "title": "工资(补漏刷卡)明细表",
+        "master_entry": "SalaryChangesD",
+        "save_updates_stock": null,
+        "number_fields": {
+          "DetailNo": {
+            "FieldKind": "SeriesAndRowNo",
+            "GenerateTime": 1,
+            "Prefix": null,
+            "EndCode": null,
+            "YearCode": null,
+            "MonthCode": null,
+            "IsUseDayCode": null,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
+        "default_fields": {},
+        "formula_fields": {}
+      },
+      "SalaryChangesEDetail": {
+        "title": "补工资明细表",
+        "master_entry": "SalaryChangesE",
+        "save_updates_stock": null,
+        "number_fields": {
+          "DetailNo": {
+            "FieldKind": "SeriesAndRowNo",
+            "GenerateTime": 1,
+            "Prefix": null,
+            "EndCode": null,
+            "YearCode": null,
+            "MonthCode": null,
+            "IsUseDayCode": null,
+            "FixedLength": null,
+            "YearMonthSplit": null,
+            "MonthDaySplit": null,
+            "DayQueueSplit": null,
+            "DefaultValue": null,
+            "CodeDependentField": null,
+            "DateDependentField": null,
+            "IsAlone": null,
+            "IsEnForceExpress": null,
+            "IsRequired": null,
+            "IsCopyField": null
+          }
+        },
         "default_fields": {},
         "formula_fields": {}
       }

@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "http_checks": [
+    "/readiness",
+    "/",
+    "/api/meta/erp_sales_sourcedyeordermain/",
+    "/api/system/erp_sales_sourcedyeordermain/?page=1&page_size=1",
+    "/api/meta/erp_sales_sourcedyeordercolor/",
+    "/api/system/erp_sales_sourcedyeordercolor/?page=1&page_size=1",
+    "/api/meta/erp_sales_sourcedyepriceadjust/",
+    "/api/system/erp_sales_sourcedyepriceadjust/?page=1&page_size=1",
+    "/api/meta/erp_sales_sourcedyepriceadjustdetail/",
+    "/api/system/erp_sales_sourcedyepriceadjustdetail/?page=1&page_size=1",
+    "/api/meta/erp_sales_sourcedyequotedetail/",
+    "/api/system/erp_sales_sourcedyequotedetail/?page=1&page_size=1",
+    "/api/meta/erp_sampling_sourcedyedyerecipe/",
+    "/api/system/erp_sampling_sourcedyedyerecipe/?page=1&page_size=1",
+    "/api/meta/erp_sampling_sourcedyedyerecipephase/",
+    "/api/system/erp_sampling_sourcedyedyerecipephase/?page=1&page_size=1",
+    "/api/meta/erp_sampling_sourcedyedyerecipedetail/",
+    "/api/system/erp_sampling_sourcedyedyerecipedetail/?page=1&page_size=1",
+    "/api/meta/erp_sampling_sourcedyedyelabcolor/",
+    "/api/system/erp_sampling_sourcedyedyelabcolor/?page=1&page_size=1"
+  ],
+  "new_order_action_registered": true,
+  "current_history_counts": {
+    "ordermain": 17032,
+    "ordercolor": 80053,
+    "jobcombineorder": 91455,
+    "quotedetail": 0,
+    "priceadjust": 0,
+    "priceadjustdetail": 0,
+    "dyerecipe": 65678,
+    "dyerecipephase": 197837,
+    "dyerecipedetail": 541217
+  },
+  "regression_tests": {
+    "count": 97,
+    "passed": 97,
+    "failed": 0,
+    "seconds": 57.449,
+    "log": ".runtime-temp/erp-log-export/business-chain-regression-20261015-permissions.log"
+  },
+  "django_check": "passed",
+  "makemigrations_check": "No changes detected",
+  "original_full_history_verification": "erp-full-original-verification-20261014.json",
+  "all_old_business_workflows_reproduced": false
+}

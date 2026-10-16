@@ -1,0 +1,168 @@
+{
+  "parameters": [
+    {
+      "ParamName": "EndProcessID",
+      "Description": "刷卡结束工序（即刷该工序工卡结案）"
+    }
+  ],
+  "months": [
+    {
+      "AccMonth": 1,
+      "StartTime": "01-01 00:00:00",
+      "EndTime": "01-31 23:59:59"
+    },
+    {
+      "AccMonth": 2,
+      "StartTime": "02-01 00:00:00",
+      "EndTime": "02-28 23:59:59"
+    },
+    {
+      "AccMonth": 3,
+      "StartTime": "03-01 00:00:00",
+      "EndTime": "03-31 23:59:59"
+    },
+    {
+      "AccMonth": 4,
+      "StartTime": "04-01 00:00:00",
+      "EndTime": "04-30 23:59:59"
+    },
+    {
+      "AccMonth": 5,
+      "StartTime": "05-01 00:00:00",
+      "EndTime": "05-31 23:59:59"
+    },
+    {
+      "AccMonth": 6,
+      "StartTime": "06-01 00:00:00",
+      "EndTime": "06-30 23:59:59"
+    },
+    {
+      "AccMonth": 7,
+      "StartTime": "07-01 00:00:00",
+      "EndTime": "07-31 23:59:59"
+    },
+    {
+      "AccMonth": 8,
+      "StartTime": "08-01 00:00:00",
+      "EndTime": "08-31 23:59:59"
+    },
+    {
+      "AccMonth": 9,
+      "StartTime": "09-01 00:00:00",
+      "EndTime": "09-30 23:59:59"
+    },
+    {
+      "AccMonth": 10,
+      "StartTime": "10-01 00:00:00",
+      "EndTime": "10-31 23:59:59"
+    },
+    {
+      "AccMonth": 11,
+      "StartTime": "11-01 00:00:00",
+      "EndTime": "11-30 23:59:59"
+    },
+    {
+      "AccMonth": 12,
+      "StartTime": "12-01 00:00:00",
+      "EndTime": "12-31 23:59:59"
+    }
+  ],
+  "probes": [
+    {
+      "input": "2024-01-01",
+      "result": {
+        "BeginDate": "2023-01-01T00:00:00",
+        "EndDate": "2024-01-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-01-26",
+      "result": {
+        "BeginDate": "2023-01-01T00:00:00",
+        "EndDate": "2024-01-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-01",
+      "result": {
+        "BeginDate": "2024-02-01T00:00:00",
+        "EndDate": "2024-02-29T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-27",
+      "result": {
+        "BeginDate": "2024-02-01T00:00:00",
+        "EndDate": "2024-02-29T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-28",
+      "result": {
+        "BeginDate": "2024-02-01T00:00:00",
+        "EndDate": "2024-02-29T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-02-29",
+      "result": {
+        "BeginDate": null,
+        "EndDate": null,
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-03-01",
+      "result": {
+        "BeginDate": "2024-03-01T00:00:00",
+        "EndDate": "2024-03-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-12-25",
+      "result": {
+        "BeginDate": "2024-12-01T00:00:00",
+        "EndDate": "2024-12-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-12-26",
+      "result": {
+        "BeginDate": "2024-12-01T00:00:00",
+        "EndDate": "2024-12-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2024-12-31",
+      "result": {
+        "BeginDate": "2024-12-01T00:00:00",
+        "EndDate": "2024-12-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2025-01-01",
+      "result": {
+        "BeginDate": "2024-01-01T00:00:00",
+        "EndDate": "2025-01-31T23:59:59",
+        "FirstDate": null
+      }
+    },
+    {
+      "input": "2026-10-16",
+      "result": {
+        "BeginDate": "2026-10-01T00:00:00",
+        "EndDate": "2026-10-31T23:59:59",
+        "FirstDate": null
+      }
+    }
+  ]
+}

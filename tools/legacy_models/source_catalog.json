@@ -3533,13 +3533,13 @@
     {
       "schema": "dye",
       "table": "ClothGetMoney",
-      "module": "erp_base",
+      "module": "erp_sales",
       "model": "SourceDyeClothGetMoney",
       "db_table": "src_dye_clothgetmoney",
-      "title": "财务结算与成本相关表（ClothGetMoney，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "提货记录原表（ClothGetMoney）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "SheetSeries"
       ],
@@ -3578,18 +3578,18 @@
         "SheetStatus": "SheetStatus"
       },
       "relations": [],
-      "document": false
+      "document": true
     },
     {
       "schema": "dye",
       "table": "ClothGetMoneyDetail",
-      "module": "erp_base",
+      "module": "erp_sales",
       "model": "SourceDyeClothGetMoneyDetail",
       "db_table": "src_dye_clothgetmoneydetail",
-      "title": "财务结算与成本相关表（ClothGetMoneyDetail，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "提货数量明细原表（ClothGetMoneyDetail）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "DetailNo"
       ],
@@ -3609,7 +3609,22 @@
         "ThisRolls": "收到条数",
         "Remarks": "备注"
       },
-      "relations": [],
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "原关系：ClothGetMoney",
+          "target": "erp_sales.SourceDyeClothGetMoney",
+          "source_fields": [
+            "SheetSeries"
+          ],
+          "target_fields": [
+            "SheetSeries"
+          ],
+          "evidence": [
+            "原界面主从 ClothGetMoneyDetail → ClothGetMoney；SalaryChanges各变体均按SheetSeries"
+          ]
+        }
+      ],
       "document": false
     },
     {
@@ -5463,7 +5478,7 @@
       "module": "erp_quality",
       "model": "SourceDyeDyeCheckout",
       "db_table": "src_dye_dyecheckout",
-      "title": "财务结算与成本相关表（dyeCheckout，待确认）",
+      "title": "染色出缸质量与产量（dyeCheckout）",
       "handling": "business_model",
       "reason": "明确质量/检验来源",
       "classification_basis": "明确质量/检验来源",
@@ -7810,13 +7825,13 @@
     {
       "schema": "dye",
       "table": "FARDetail",
-      "module": "erp_base",
+      "module": "erp_quality",
       "model": "SourceDyeFARDetail",
       "db_table": "src_dye_fardetail",
-      "title": "其他或待确认相关表（FARDetail，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "质量数量来源明细（原FARDetail）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "DetailNo"
       ],
@@ -7906,19 +7921,35 @@
         "ContractNo": "客户单号",
         "MinAmount": "最低消费"
       },
-      "relations": [],
-      "document": false
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "原关系：FARMain",
+          "target": "erp_quality.SourceDyeFARMain",
+          "source_fields": [
+            "SheetSeries"
+          ],
+          "target_fields": [
+            "SheetSeries"
+          ],
+          "evidence": [
+            "原界面主从 FARDetail → FARMain；SalaryChanges各变体均按SheetSeries"
+          ]
+        }
+      ],
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
       "table": "FARMain",
-      "module": "erp_base",
+      "module": "erp_quality",
       "model": "SourceDyeFARMain",
       "db_table": "src_dye_farmain",
-      "title": "其他或待确认相关表（FARMain，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "质量数量来源头（原FARMain）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "SheetSeries"
       ],
@@ -7981,7 +8012,8 @@
         "ATSheetSeries": "ATSheetSeries"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -8021,13 +8053,13 @@
     {
       "schema": "dye",
       "table": "FARRecord",
-      "module": "erp_base",
+      "module": "erp_quality",
       "model": "SourceDyeFARRecord",
       "db_table": "src_dye_farrecord",
-      "title": "其他或待确认相关表（FARRecord，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "质量数量来源细码（原FARRecord）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "DetailNo",
         "RollNo"
@@ -8056,8 +8088,26 @@
         "OutPacks": "出库件数",
         "FenTou": "分头"
       },
-      "relations": [],
-      "document": false
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "原关系：FARDetail",
+          "target": "erp_quality.SourceDyeFARDetail",
+          "source_fields": [
+            "SheetSeries",
+            "DetailNo"
+          ],
+          "target_fields": [
+            "SheetSeries",
+            "DetailNo"
+          ],
+          "evidence": [
+            "原界面主从 FARRecord → FARDetail；SalaryChanges各变体均按SheetSeries"
+          ]
+        }
+      ],
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -12330,10 +12380,10 @@
       "module": "erp_base",
       "model": "SourceDyeHSalaryAttend",
       "db_table": "src_dye_h_salaryattend",
-      "title": "财务结算与成本相关表（h_SalaryAttend，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "基础/人员/设备/共用配置来源",
+      "title": "人员出勤原始汇总（h_SalaryAttend）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "ID",
         "CalcMonth"
@@ -12477,13 +12527,13 @@
     {
       "schema": "dye",
       "table": "h_SalaryWorkQty",
-      "module": "erp_base",
+      "module": "erp_production",
       "model": "SourceDyeHSalaryWorkQty",
       "db_table": "src_dye_h_salaryworkqty",
-      "title": "财务结算与成本相关表（h_SalaryWorkQty，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "基础/人员/设备/共用配置来源",
+      "title": "员工工序产量原始汇总（h_SalaryWorkQty）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "ID",
         "CalcMonth"
@@ -12518,13 +12568,13 @@
     {
       "schema": "dye",
       "table": "h_SalaryWorkShift",
-      "module": "erp_base",
+      "module": "erp_production",
       "model": "SourceDyeHSalaryWorkShift",
       "db_table": "src_dye_h_salaryworkshift",
-      "title": "财务结算与成本相关表（h_SalaryWorkShift，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "基础/人员/设备/共用配置来源",
+      "title": "班组工序产量原始汇总（h_SalaryWorkShift）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "CalcMonth",
         "ID"
@@ -31511,10 +31561,10 @@
       "module": "erp_base",
       "model": "SourceDyeSAccMonth",
       "db_table": "src_dye_s_accmonth",
-      "title": "系统平台与配置相关表（s_AccMonth，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_AccMonth）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "AccMonth"
       ],
@@ -31529,7 +31579,8 @@
         "EndTime": "开始时间"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -32105,10 +32156,10 @@
       "module": "erp_base",
       "model": "SourceDyeSDataLink",
       "db_table": "src_dye_s_datalink",
-      "title": "系统平台与配置相关表（s_DataLink，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_DataLink）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "LinkNo"
       ],
@@ -32137,7 +32188,8 @@
         "IsWebSite": "网址"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -32182,10 +32234,10 @@
       "module": "erp_base",
       "model": "SourceDyeSDataTable",
       "db_table": "src_dye_s_datatable",
-      "title": "系统平台与配置相关表（s_DataTable，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_DataTable）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "DataTableName"
       ],
@@ -32282,7 +32334,8 @@
         "IsRequired": "数据必填"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -32323,10 +32376,10 @@
       "module": "erp_base",
       "model": "SourceDyeSDataTableField",
       "db_table": "src_dye_s_datatablefield",
-      "title": "系统平台与配置相关表（s_DataTableField，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_DataTableField）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "DataTableName",
         "FieldName"
@@ -32434,7 +32487,8 @@
         "DefaultLoadProc": "DefaultLoadProc"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -32529,10 +32583,10 @@
       "module": "erp_base",
       "model": "SourceDyeSDBCombo",
       "db_table": "src_dye_s_dbcombo",
-      "title": "系统平台与配置相关表（s_DBCombo，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_DBCombo）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "ComboID"
       ],
@@ -32549,7 +32603,8 @@
         "Kind": "类型"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -32557,10 +32612,10 @@
       "module": "erp_base",
       "model": "SourceDyeSDBComboValue",
       "db_table": "src_dye_s_dbcombovalue",
-      "title": "系统平台与配置相关表（s_DBComboValue，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "业务枚举字典原值（s_DBComboValue）",
+      "handling": "business_model",
+      "reason": "包装产量等业务查询直接依赖原枚举值，完整承接全部组合框值",
+      "classification_basis": "sp_SimpleRecordYieldQuery明确关联Z017品种字典；保留全表其他业务枚举，不按使用频次过滤",
       "primary_key": [
         "ComboID",
         "KeyValue"
@@ -32647,10 +32702,10 @@
       "module": "erp_base",
       "model": "SourceDyeSFieldRight",
       "db_table": "src_dye_s_fieldright",
-      "title": "系统平台与配置相关表（s_FieldRight，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_FieldRight）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "EmpID",
         "DataTableName",
@@ -32671,7 +32726,8 @@
         "Remarks": "Remarks"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -33104,10 +33160,10 @@
       "module": "erp_base",
       "model": "SourceDyeSFormParam",
       "db_table": "src_dye_s_formparam",
-      "title": "系统平台与配置相关表（s_FormParam，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_FormParam）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "FuncNo",
         "FormName"
@@ -33153,7 +33209,8 @@
         "NoShowQueryNo": "查询方案查询不弹窗"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -33161,10 +33218,10 @@
       "module": "erp_base",
       "model": "SourceDyeSFunctions",
       "db_table": "src_dye_s_functions",
-      "title": "系统平台与配置相关表（s_Functions，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_Functions）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "FuncNo"
       ],
@@ -33235,7 +33292,8 @@
         "HoldDownShow": "HoldDownShow"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -33243,10 +33301,10 @@
       "module": "erp_base",
       "model": "SourceDyeSFuncUser",
       "db_table": "src_dye_s_funcuser",
-      "title": "系统平台与配置相关表（s_FuncUser，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_FuncUser）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "EmpID",
         "FuncNo"
@@ -33262,7 +33320,8 @@
         "uiSerialNumber": "序号"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -33308,10 +33367,10 @@
       "module": "erp_base",
       "model": "SourceDyeSGridColumnParam",
       "db_table": "src_dye_s_gridcolumnparam",
-      "title": "系统平台与配置相关表（s_GridColumnParam，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_GridColumnParam）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "FuncNo",
         "FormName",
@@ -33392,7 +33451,8 @@
         "IsShowGroupPanel": "显示分组表头"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -33440,10 +33500,10 @@
       "module": "erp_base",
       "model": "SourceDyeSGridParam",
       "db_table": "src_dye_s_gridparam",
-      "title": "系统平台与配置相关表（s_GridParam，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_GridParam）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "FuncNo",
         "FormName",
@@ -33545,7 +33605,8 @@
         "PassUnEditableBackColor": "是否显示只读背景色"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -33718,10 +33779,10 @@
       "module": "erp_base",
       "model": "SourceDyeSLookup",
       "db_table": "src_dye_s_lookup",
-      "title": "系统平台与配置相关表（s_Lookup，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_Lookup）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "LookupID"
       ],
@@ -33776,7 +33837,8 @@
         "DisplayCaption": "弹出界面列名"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -33968,10 +34030,10 @@
       "module": "erp_base",
       "model": "SourceDyeSModule",
       "db_table": "src_dye_s_module",
-      "title": "系统平台与配置相关表（s_Module，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_Module）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "ModuleNo"
       ],
@@ -34002,7 +34064,8 @@
         "ShowFilter": "ShowFilter"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34207,10 +34270,10 @@
       "module": "erp_base",
       "model": "SourceDyeSPanelParam",
       "db_table": "src_dye_s_panelparam",
-      "title": "系统平台与配置相关表（s_PanelParam，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_PanelParam）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "Guid"
       ],
@@ -34237,7 +34300,8 @@
         "IsSelfTabIndex": "IsSelfTabIndex"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34245,10 +34309,10 @@
       "module": "erp_base",
       "model": "SourceDyeSPermission",
       "db_table": "src_dye_s_permission",
-      "title": "系统平台与配置相关表（s_Permission，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_Permission）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "RoleNo",
         "FuncNo"
@@ -34304,7 +34368,8 @@
         "IsCanSendMessage": "IsCanSendMessage"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34350,10 +34415,10 @@
       "module": "erp_base",
       "model": "SourceDyeSPivotGridColumnParam",
       "db_table": "src_dye_s_pivotgridcolumnparam",
-      "title": "系统平台与配置相关表（s_PivotGridColumnParam，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_PivotGridColumnParam）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "FuncNo",
         "FormName",
@@ -34394,7 +34459,8 @@
         "ShowGrandTotal": "ShowGrandTotal"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34402,10 +34468,10 @@
       "module": "erp_base",
       "model": "SourceDyeSPivotGridParam",
       "db_table": "src_dye_s_pivotgridparam",
-      "title": "系统平台与配置相关表（s_PivotGridParam，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_PivotGridParam）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "FuncNo",
         "FormName",
@@ -34437,7 +34503,8 @@
         "IsShowColumnTotal": "IsShowColumnTotal"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34501,10 +34568,10 @@
       "module": "erp_base",
       "model": "SourceDyeSQuerySQL",
       "db_table": "src_dye_s_querysql",
-      "title": "系统平台与配置相关表（s_QuerySQL，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_QuerySQL）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "QueryName",
         "QueryNo"
@@ -34566,7 +34633,8 @@
         "Remarks": "Remarks"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34713,10 +34781,10 @@
       "module": "erp_base",
       "model": "SourceDyeSRoles",
       "db_table": "src_dye_s_roles",
-      "title": "系统平台与配置相关表（s_Roles，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_Roles）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "RoleNo"
       ],
@@ -34731,7 +34799,8 @@
         "Description": "描述"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34739,10 +34808,10 @@
       "module": "erp_base",
       "model": "SourceDyeSRptInfo",
       "db_table": "src_dye_s_rptinfo",
-      "title": "系统平台与配置相关表（s_RptInfo，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_RptInfo）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "RptID"
       ],
@@ -34813,7 +34882,8 @@
         "PrintNumber": "打印份数"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34887,10 +34957,10 @@
       "module": "erp_base",
       "model": "SourceDyeSRptMenu",
       "db_table": "src_dye_s_rptmenu",
-      "title": "系统平台与配置相关表（s_RptMenu，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_RptMenu）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "RptID",
         "FuncNo",
@@ -34913,7 +34983,8 @@
         "Remarks": "Remarks"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -34974,10 +35045,10 @@
       "module": "erp_base",
       "model": "SourceDyeSRptRight",
       "db_table": "src_dye_s_rptright",
-      "title": "系统平台与配置相关表（s_RptRight，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_RptRight）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "RptID",
         "EmpID"
@@ -34995,7 +35066,8 @@
         "IsCanDesign": "IsCanDesign"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -35217,10 +35289,10 @@
       "module": "erp_base",
       "model": "SourceDyeSSysParams",
       "db_table": "src_dye_s_sysparams",
-      "title": "系统平台与配置相关表（s_SysParams，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原系统参数完整来源（s_SysParams）",
+      "handling": "business_model",
+      "reason": "基础函数及现场业务依赖；保留全部原参数和描述，不自动启用财务或设备功能",
+      "classification_basis": "GetSysParamValue和sp_App_sysGetSystemParams当前定义",
       "primary_key": [
         "ParamName"
       ],
@@ -35243,7 +35315,8 @@
         "ModuleNo": "模块编号"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -35510,10 +35583,10 @@
       "module": "erp_base",
       "model": "SourceDyeSUINav",
       "db_table": "src_dye_s_uinav",
-      "title": "系统平台与配置相关表（s_UINav，待确认）",
-      "handling": "platform_evidence",
-      "reason": "平台配置/权限/日志来源，保留结构及配置证据，作为现有平台/业务映射依据",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "原基础配置（s_UINav）",
+      "handling": "business_model",
+      "reason": "第一阶段基础编号、资料选择、原报表权限及业务期间的来源；配置原文存档，旧SQL文本不自动执行",
+      "classification_basis": "2026-10-16当前原程序逐项依赖核对",
       "primary_key": [
         "RecordID"
       ],
@@ -35536,7 +35609,8 @@
         "IndexNo": "序号"
       },
       "relations": [],
-      "document": false
+      "document": false,
+      "entry_scope": "business_source_only"
     },
     {
       "schema": "dye",
@@ -35656,13 +35730,13 @@
     {
       "schema": "dye",
       "table": "SalaryChanges",
-      "module": "erp_base",
+      "module": "erp_production",
       "model": "SourceDyeSalaryChanges",
       "db_table": "src_dye_salarychanges",
-      "title": "财务结算与成本相关表（SalaryChanges，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "工卡及人员调整原表（SalaryChanges）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "SheetSeries"
       ],
@@ -35703,18 +35777,18 @@
         "ApproveDate": "审核时间"
       },
       "relations": [],
-      "document": false
+      "document": true
     },
     {
       "schema": "dye",
       "table": "SalaryChangesDetail",
-      "module": "erp_base",
+      "module": "erp_production",
       "model": "SourceDyeSalaryChangesDetail",
       "db_table": "src_dye_salarychangesdetail",
-      "title": "财务结算与成本相关表（SalaryChangesDetail，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "用途未完全解释，先在基础信息原形承接；不丢字段/数据",
+      "title": "工卡及人员调整明细原表（SalaryChangesDetail）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [
         "DetailNo"
       ],
@@ -35736,7 +35810,22 @@
         "OtherAmount": "其他金额",
         "Remarks": "备注"
       },
-      "relations": [],
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "原关系：SalaryChanges",
+          "target": "erp_production.SourceDyeSalaryChanges",
+          "source_fields": [
+            "SheetSeries"
+          ],
+          "target_fields": [
+            "SheetSeries"
+          ],
+          "evidence": [
+            "原界面主从 SalaryChangesDetail → SalaryChanges；SalaryChanges各变体均按SheetSeries"
+          ]
+        }
+      ],
       "document": false
     },
     {
@@ -43168,13 +43257,13 @@
     {
       "schema": "dye",
       "table": "ZKAttendanceMonthStatistics",
-      "module": "erp_production",
+      "module": "erp_base",
       "model": "SourceDyeZKAttendanceMonthStatistics",
       "db_table": "src_dye_zkattendancemonthstatistics",
-      "title": "生产工单与排程相关表（ZKAttendanceMonthStatistics，待确认）",
-      "handling": "finance_excluded",
-      "reason": "此前明确排除的独立账款/发票/工资核算对象，共用字段不因此删除",
-      "classification_basis": "目录业务域候选；用途可继续核实，字段已建模",
+      "title": "考勤月统计原表（ZKAttendanceMonthStatistics）",
+      "handling": "business_model",
+      "reason": "P1盘点确认的提货、工卡调整、出勤产量或质量数量来源；原字段完整保留，独立财务办理暂缓",
+      "classification_basis": "2026-10-16最新结构、入口主从及原程序引用；见P1实施记录",
       "primary_key": [],
       "fields": [
         "Id",

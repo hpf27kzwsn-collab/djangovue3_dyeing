@@ -33,6 +33,8 @@ def persist(item, actor=None):
 
 
 def record(item, action, before, actor, reason=''):
+    from .source_chain_reverse import capture_change
+    capture_change(item,before,snapshot(item))
     return persist(BusinessAction(entity=item._meta.label, object_id=item.pk, action=action,
                                  reason=reason, before=before, after=snapshot(item)), actor)
 

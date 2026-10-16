@@ -1,0 +1,227 @@
+{
+  "database": "erp_full_trial_20261014",
+  "checks": [
+    {
+      "report": "RecordYield_EmpID",
+      "rows": 70751,
+      "groups": 70751,
+      "old_sql_equal": true,
+      "excluded": 306464
+    },
+    {
+      "report": "V_RecordYield",
+      "mode": "legacy_barcode",
+      "rows": 0,
+      "old_sql_equal": true,
+      "unmatched": [
+        377215,
+        577705
+      ]
+    },
+    {
+      "report": "V_RecordYield",
+      "mode": "entry_guid",
+      "rows": 0,
+      "old_sql_equal": true,
+      "unmatched": [
+        377215,
+        577705
+      ]
+    },
+    {
+      "report": "sp_AuTo_RecordYield",
+      "preview_job_id": 92538,
+      "targets": 0,
+      "mutation_run": false
+    }
+  ],
+  "http": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyewprocess/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyewprocess/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyerecordyield/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-Bkc0Fcu7.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-FQz8SlBy.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/package_people/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/package_people/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_warehouse_sourcedyerecordyield/package_people/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92538/preview_package_labels/"
+    }
+  ],
+  "old_sql_access": "SELECT only",
+  "history_imported_this_batch": false,
+  "tests": {
+    "full_regression": {
+      "passed": 416,
+      "seconds": 231.225
+    },
+    "final_focused": {
+      "passed": 23,
+      "seconds": 14.943
+    },
+    "note": "最终专项增加缺失表头流水两项；与全量测试有重叠，不能相加为独立用例数。"
+  },
+  "checks_system": {
+    "django_check": "passed",
+    "migrations": "no changes",
+    "frontend_build": "passed",
+    "git_diff_check": "passed"
+  },
+  "definition_sha256": {
+    "RecordYield_EmpID": "6734c42ac23f6cf2232ddfac19c434ffb57d49920c9250ef48a7188923a6deb6",
+    "sp_AuTo_RecordYield": "3c9e263eb69399b70667c3bca4e838bc21822677aee2385c93036e42c79e7c68",
+    "Sp_WprocessBackUp": "b503b546f5824ad6b2ccf7c86a002715d4db81493d4e53fd584d20c0d49bcaec",
+    "V_RecordYield": "19debb114202375af73912c8058285642417dda164afe55d12159351d56208f2"
+  },
+  "source_counts": [
+    {
+      "name": "RecordYield",
+      "rows": 377215
+    },
+    {
+      "name": "RecordEmp",
+      "rows": 577705
+    },
+    {
+      "name": "WProcessBak",
+      "rows": 0
+    },
+    {
+      "name": "WProcessStepBak",
+      "rows": 0
+    },
+    {
+      "name": "JobShiftEmpBak",
+      "rows": 0
+    }
+  ],
+  "trigger_states": [
+    {
+      "name": "RecordYield_",
+      "is_disabled": false,
+      "is_instead_of_trigger": false
+    },
+    {
+      "name": "RecordYieldDel",
+      "is_disabled": false,
+      "is_instead_of_trigger": false
+    },
+    {
+      "name": "RecordYield_INSERT",
+      "is_disabled": false,
+      "is_instead_of_trigger": false
+    },
+    {
+      "name": "WProcess_Insert",
+      "is_disabled": false,
+      "is_instead_of_trigger": false
+    },
+    {
+      "name": "WProcess_InsertNew",
+      "is_disabled": false,
+      "is_instead_of_trigger": false
+    },
+    {
+      "name": "WProcess_DELETE",
+      "is_disabled": false,
+      "is_instead_of_trigger": false
+    }
+  ]
+}

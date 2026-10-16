@@ -1,0 +1,369 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "http_checks": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyegrayindetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyegrayindetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_warehouse_sourcedyesemiindetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_warehouse_sourcedyesemiindetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_purchase_sourcedyepurdetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_purchase_sourcedyepurdetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyeoutworkapply/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyeoutworkapply/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyesemioutworkapply/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyesemioutworkapply/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyewdefect/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_sourcedyewdefect/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-2HC98V8e.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-DLRrgaCu.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_purchase_sourcedyepurdetail/580/purchase_movements/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyeoutworkapply/46/review_followup/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_daily/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_quality_sourcedyewdefect/rework_extended/"
+    }
+  ],
+  "registered_actions": {
+    "erp_warehouse_sourcedyegrayindetail": [
+      "return_raw_purchase"
+    ],
+    "erp_warehouse_sourcedyesemiindetail": [
+      "return_raw_purchase"
+    ],
+    "erp_purchase_sourcedyepurdetail": [
+      "purchase_movements"
+    ],
+    "erp_production_sourcedyeoutworkapply": [
+      "review_followup"
+    ],
+    "erp_production_sourcedyesemioutworkapply": [
+      "review_followup"
+    ],
+    "erp_quality_sourcedyewdefect": [
+      "rework_daily",
+      "rework_extended"
+    ]
+  },
+  "new_actions": 7,
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "schema_changes": false,
+  "source_program_sha256": {
+    "Sp_ReworkCloth1": "0cb5746191c63ceb879c92e9121032a6927f057826d6589d2aee965d90d42a07",
+    "Sp_ReworkCloth4": "9c9fb022b2be90a71100cbf119c59a322f3cac45fc94f2ce0ccf7abc52fac17b",
+    "Rework_Comparison1": "3dbd271f5fc695d90263fec1612bdb459fa2018bd22192585ea565e159188250",
+    "Rework_Comparison2": "d36c29ce158dbc2ca84ea84633b6152fea0f1361eb6b5b36fde47991a555cdb5",
+    "Rework_Comparison3": "112dc34f577276b7ee192d3995160c02bd78f6e8ce2057d4866147e3b469d523"
+  },
+  "history_counts": {
+    "PurDetail": 580,
+    "GrayInDetail": 46424,
+    "SemiInDetail": 135140,
+    "OutWorkApply": 46,
+    "SemiOutWorkApply": 0,
+    "WDefect": 11026
+  },
+  "previews": [
+    {
+      "table": "PurDetail",
+      "source_id": 580,
+      "legacy_id": "{\"key\":{\"DetailNo\":\"H260815001-01\"},\"schema\":\"dye\",\"table\":\"PurDetail\"}",
+      "rows": 0,
+      "supplemental_rows": 0
+    },
+    {
+      "table": "OutWorkApply",
+      "source_id": 46,
+      "legacy_id": "{\"key\":{\"SheetSeries\":\"OWA26081301\"},\"schema\":\"dye\",\"table\":\"OutWorkApply\"}",
+      "rows": 0,
+      "supplemental_rows": 0
+    },
+    {
+      "table": "SemiOutWorkApply",
+      "count": 0
+    }
+  ],
+  "quality_reports": [
+    {
+      "report": "Sp_ReworkCloth1",
+      "rows": [],
+      "supplemental_rows": 11916,
+      "positive_dosage": 0,
+      "independent_sql_equal": true
+    },
+    {
+      "report": "Sp_ReworkCloth4",
+      "rows": [
+        {
+          "month": "2026-08",
+          "FARNum": null,
+          "FARKg": null,
+          "AllNum": 5464,
+          "AllKg": 0,
+          "N_Num06": null,
+          "K_Num06": null,
+          "N_RKg06": null,
+          "K_RKg06": null,
+          "N_Num05": null,
+          "K_Num05": null,
+          "N_RKg05": null,
+          "K_RKg05": null
+        }
+      ],
+      "supplemental_rows": 11916,
+      "independent_sql_equal": true
+    },
+    {
+      "report": "Rework_Comparison1",
+      "mode": "legacy",
+      "rows": [],
+      "supplemental_rows": 34969,
+      "independent_sql_equal": true
+    },
+    {
+      "report": "Rework_Comparison1",
+      "mode": "same_period",
+      "rows": [],
+      "supplemental_rows": 34969,
+      "independent_sql_equal": true
+    },
+    {
+      "report": "Rework_Comparison2",
+      "mode": "legacy",
+      "rows": [
+        {
+          "YF": "8月",
+          "RQ1": "2025-08",
+          "RQ2": "2026-08",
+          "FARKg1": null,
+          "FARKg2": null,
+          "AllKg1": null,
+          "N_RKg1": null,
+          "K_RKg1": null,
+          "NRate1": null,
+          "KRate1": null,
+          "AllKg2": null,
+          "N_RKg2": null,
+          "K_RKg2": null,
+          "NRate2": null,
+          "KRate2": null
+        }
+      ],
+      "supplemental_rows": 34968,
+      "independent_sql_equal": true
+    },
+    {
+      "report": "Rework_Comparison2",
+      "mode": "same_period",
+      "rows": [
+        {
+          "YF": "8月",
+          "RQ1": "2025-08",
+          "RQ2": "2026-08",
+          "FARKg1": null,
+          "FARKg2": null,
+          "AllKg1": null,
+          "N_RKg1": null,
+          "K_RKg1": null,
+          "NRate1": null,
+          "KRate1": null,
+          "AllKg2": null,
+          "N_RKg2": null,
+          "K_RKg2": null,
+          "NRate2": null,
+          "KRate2": null
+        }
+      ],
+      "supplemental_rows": 34968,
+      "independent_sql_equal": true
+    },
+    {
+      "report": "Rework_Comparison3",
+      "rows": [
+        {
+          "month": "2026-08",
+          "JQty1": null,
+          "JMeter1": null,
+          "YQty1": null,
+          "YMeter1": null,
+          "JQty2": null,
+          "JMeter2": null,
+          "YQty2": null,
+          "YMeter2": null,
+          "Qty3": null,
+          "Meter3": null,
+          "Qty4": null,
+          "Meter4": null,
+          "Qty5": null,
+          "Meter5": null,
+          "AllQty": null,
+          "AllMeter": null
+        }
+      ],
+      "quantity_source_count": 0,
+      "scope": "未提供FAR及长度来源；空输入结果验证，不冒充完整历史原过程对照"
+    }
+  ],
+  "history_mutations": {
+    "before_operation_facts": 0,
+    "after_operation_facts": 0,
+    "operations_executed": []
+  },
+  "seconds": 34.416,
+  "limits": [
+    "独立SQL仅在已承接历史开发库只读事务中运行；采购退货和结案后收退写入在5440独立测试实例验证。",
+    "FAR来源没有自动提取；Comparison3原PreMeter在最新结构不存在，采用有依据的数量输入。",
+    "本次历史CurrDosage均NULL，非零、负数、重复连接等场景另有构造用例，不等同真实原客户端全面验收。"
+  ],
+  "validation": {
+    "full_regression": {
+      "tests": 338,
+      "seconds": 191.894,
+      "passed": true,
+      "log": ".runtime-temp/erp-log-export/test-rework-regression-final-20261015.log"
+    },
+    "final_scoped_regression": {
+      "tests": 59,
+      "seconds": 35.512,
+      "passed": true,
+      "includes": "本批28项和上一批跨卡/采购/返修31项；最后补充明细修正后运行",
+      "log": ".runtime-temp/erp-log-export/test-rework-focused-final-20261015.log"
+    },
+    "django_check": "passed",
+    "migration_check": "No changes detected",
+    "frontend_typecheck_and_build": "passed",
+    "git_diff_check": "passed"
+  }
+}

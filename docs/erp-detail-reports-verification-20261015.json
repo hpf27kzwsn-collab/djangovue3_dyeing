@@ -1,0 +1,417 @@
+{
+  "database": "erp_full_trial_20261014",
+  "definitions": [
+    {
+      "name": "DPJobStep_Test",
+      "sha256": "3d27a5ca3039bec778c6fd18e4a95dc522c5a86fc142df0fbeaa27d845970437",
+      "equal": true
+    },
+    {
+      "name": "DyeDipsRecordBulkCheckerID",
+      "sha256": "731eec0d91ba45b8c2fbf4b1379199f6d71c543b30f2a03ab2d3ea1843d2af78",
+      "equal": true
+    },
+    {
+      "name": "DyeDipsRecordCheckerID",
+      "sha256": "3fb4fbcbbd3905333f9442bce713222dbb9549a9415c421e00a731f1f2664f6c",
+      "equal": true
+    },
+    {
+      "name": "fn_GetDay_DyeDipsRecord_EmpID",
+      "sha256": "b0a57ce56d5e3a7d5375ce91c41eecf7cf0b73f1ae9504b2619d8ba495b5bb29",
+      "equal": true
+    },
+    {
+      "name": "QuoteDetail_Del",
+      "sha256": "67ec2edbf088d50165dbb0b73966dc2126d9bc806fb0b6559c5d67515786de43",
+      "equal": true
+    },
+    {
+      "name": "QuoteDetailInsert",
+      "sha256": "373d71af1c12684bea4cddbe0f875254f58908e7e061fdb48f4ebd0de2706d57",
+      "equal": true
+    },
+    {
+      "name": "QuoteDetailModify",
+      "sha256": "90bf305783730f5b084a260b3a7f4adb778bd15fd6620c417bc94fd0a677a36f",
+      "equal": true
+    },
+    {
+      "name": "Sp_DyeDipsRecord_CheckerID1",
+      "sha256": "5dd1d20c392abcc2e25d26034c4907b989a240eed03b68ae8e7c626211e05d44",
+      "equal": true
+    },
+    {
+      "name": "vw_DyeDipsRecord_EmpID",
+      "sha256": "5df630c24da27584cd9605fe3f2ca83e652b86e40322eaeef1aaea365e4e6887",
+      "equal": true
+    }
+  ],
+  "ui_definitions_equal": 3,
+  "old_counts": [
+    {
+      "name": "DyeDipsRecord",
+      "rows": 1
+    },
+    {
+      "name": "DyeReprint",
+      "rows": 0
+    },
+    {
+      "name": "QuoteDetail",
+      "rows": 0
+    }
+  ],
+  "step_source_counts": [
+    {
+      "name": "StuffWeight",
+      "rows": 248051
+    },
+    {
+      "name": "StuffWeightPhase",
+      "rows": 537050
+    },
+    {
+      "name": "p_DyeCurveDetail",
+      "rows": 119
+    },
+    {
+      "name": "p_DyeCurve",
+      "rows": 21
+    }
+  ],
+  "step_ranges": [
+    {
+      "name": "2类0或2配方称料",
+      "rows": 86353
+    },
+    {
+      "name": "活动染色曲线",
+      "rows": 21
+    },
+    {
+      "name": "称料阶段与活动染色曲线连接",
+      "rows": 0
+    }
+  ],
+  "checks": [
+    {
+      "report": "details",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "report": "summary",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "report": "checker",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "report": "emp1",
+      "rows": 1,
+      "old_sql_equal": true
+    },
+    {
+      "report": "days",
+      "rows": 0,
+      "old_sql_equal": true
+    },
+    {
+      "report": "missing_days",
+      "rows": 1,
+      "old_sql_equal": true
+    }
+  ],
+  "dp_scoping_readonly_probes": {
+    "with_other_curve": [
+      {
+        "CurveID": "C1",
+        "DyeProcessID": "D"
+      },
+      {
+        "CurveID": "C2",
+        "DyeProcessID": "D"
+      }
+    ],
+    "without_other_curve": [
+      {
+        "CurveID": "C2",
+        "DyeProcessID": "D"
+      }
+    ],
+    "matches_cross_curve_regression": true
+  },
+  "dp_current_data": {
+    "job_id": 92503,
+    "rows": 0,
+    "old_sql_cte_equal": true,
+    "eligible_old_weight_candidates": 0,
+    "full_nonempty_history_equivalence": false
+  },
+  "float_round_probes": [
+    {
+      "Num": 1.005,
+      "Rounded": 1.0
+    },
+    {
+      "Num": 2.675,
+      "Rounded": 2.67
+    },
+    {
+      "Num": -1.005,
+      "Rounded": -1.0
+    },
+    {
+      "Num": -2.675,
+      "Rounded": -2.67
+    },
+    {
+      "Num": 0.125,
+      "Rounded": 0.13
+    },
+    {
+      "Num": -0.125,
+      "Rounded": -0.13
+    }
+  ],
+  "old_sql_access": "SELECT only; no old trigger/procedure execution",
+  "history_imported_this_batch": false,
+  "historical_business_mutations": false,
+  "http": [
+    {
+      "method": "GET",
+      "path": "/readiness",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_sales_sourcedyequotedetail/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_sales_sourcedyequotedetail/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_sampling_sourcedyedyedipsrecord/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_sampling_sourcedyedyereprint/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_sampling_sourcedyedyereprint/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_production_sourcedyejobsheet/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_production_sourcedyejobsheet/?page=1&limit=1",
+      "parameters": null
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/sample_work_report/",
+      "parameters": {
+        "mode": "summary"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/sample_work_report/",
+      "parameters": {
+        "mode": "details"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/sample_work_report/",
+      "parameters": {
+        "mode": "daily"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/sample_work_report/",
+      "parameters": {
+        "mode": "days"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/sample_work_report/",
+      "parameters": {
+        "mode": "emp1"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/sample_checker_report/",
+      "parameters": {
+        "start": "2020-01-01T00:00:00+08:00",
+        "end": "2027-01-01T00:00:00+08:00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyereprint/sample_work_report/",
+      "parameters": {
+        "mode": "summary"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyereprint/sample_work_report/",
+      "parameters": {
+        "mode": "details"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyereprint/sample_work_report/",
+      "parameters": {
+        "mode": "daily"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyereprint/sample_work_report/",
+      "parameters": {
+        "mode": "days"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyereprint/sample_work_report/",
+      "parameters": {
+        "mode": "emp1"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyereprint/sample_checker_report/",
+      "parameters": {
+        "start": "2020-01-01T00:00:00+08:00",
+        "end": "2027-01-01T00:00:00+08:00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_production_sourcedyejobsheet/92503/trial_steps/",
+      "parameters": {
+        "process": "GX07",
+        "process_no": 1,
+        "employee": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-960o5KL3.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-CLNEoFqA.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js",
+      "parameters": null
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css",
+      "parameters": null
+    }
+  ],
+  "http_count": 38,
+  "page_action_count": 6,
+  "validation": {
+    "regression_tests": 463,
+    "final_focused_tests": 21,
+    "distinct_tests": 464,
+    "check": "passed",
+    "makemigrations_check": "no changes",
+    "frontend_build": "passed (existing large chunk warning)",
+    "quote_write_verification": "isolated test database only; current historical quotation details empty"
+  }
+}

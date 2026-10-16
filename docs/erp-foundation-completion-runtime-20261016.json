@@ -1,0 +1,192 @@
+{
+  "scope": "开发库迁移及APIClient真实路由检查；不等于浏览器/外部HTTP验收",
+  "migration": "erp_base.0027_foundation_platform_sources",
+  "new_source_rows": {
+    "SAccMonth": 0,
+    "SDataLink": 0,
+    "SDataTable": 0,
+    "SDataTableField": 0,
+    "SDBCombo": 0,
+    "SFieldRight": 0,
+    "SFormParam": 0,
+    "SFunctions": 0,
+    "SFuncUser": 0,
+    "SGridColumnParam": 0,
+    "SGridParam": 0,
+    "SLookup": 0,
+    "SModule": 0,
+    "SPanelParam": 0,
+    "SPermission": 0,
+    "SPivotGridColumnParam": 0,
+    "SPivotGridParam": 0,
+    "SQuerySQL": 0,
+    "SRoles": 0,
+    "SRptInfo": 0,
+    "SRptMenu": 0,
+    "SRptRight": 0,
+    "SUINav": 0
+  },
+  "adopted_original_rows_this_batch": 0,
+  "allocated_development_numbers": 0,
+  "checks": [
+    {
+      "action": "original_function",
+      "inputs": {
+        "function": "fn_GetDyeVat",
+        "value": "100"
+      },
+      "status": 200,
+      "rows": 1
+    },
+    {
+      "action": "original_shared_function",
+      "inputs": {
+        "function": "New_StringSplit",
+        "value": "A;B",
+        "extra": ";"
+      },
+      "status": 200,
+      "rows": 2
+    },
+    {
+      "action": "original_shared_function",
+      "inputs": {
+        "function": "f_splitWithRowNo",
+        "value": "A|B|",
+        "extra": "|"
+      },
+      "status": 200,
+      "rows": 3
+    },
+    {
+      "action": "original_shared_function",
+      "inputs": {
+        "function": "L2U",
+        "value": "123.45",
+        "extra": "0"
+      },
+      "status": 200,
+      "rows": 1
+    },
+    {
+      "action": "original_table_transform",
+      "inputs": {
+        "name": "spSqlPageByRowNumber",
+        "records": [
+          {
+            "n": 1
+          },
+          {
+            "n": 2
+          }
+        ],
+        "order_fields": [
+          "n"
+        ],
+        "size": 1,
+        "index": 1
+      },
+      "status": 200,
+      "rows": 1
+    },
+    {
+      "action": "original_field_number",
+      "inputs": {
+        "model": "erp_base.SourceDyePCustomer",
+        "field": "CustomerID",
+        "series": null,
+        "at": "2026-10-16T10:00:00+08:00",
+        "rule": {
+          "FieldKind": "AutoAdd_Time",
+          "Prefix": "",
+          "FixedLength": null,
+          "YearCode": null,
+          "YearMonthSplit": "",
+          "MonthDaySplit": "",
+          "DayQueueSplit": "",
+          "EndCode": null
+        }
+      },
+      "status": 200,
+      "rows": 1
+    },
+    {
+      "action": "original_table_export",
+      "inputs": {
+        "model": "erp_base.SourceDyeSAccMonth"
+      },
+      "status": 200,
+      "rows": 0
+    },
+    {
+      "action": "original_period",
+      "inputs": {
+        "value": "2026-10-16T10:00:00+08:00"
+      },
+      "status": 200,
+      "rows": 1
+    },
+    {
+      "action": "original_view",
+      "inputs": {
+        "name": "s_vwColorDepth"
+      },
+      "status": 200,
+      "rows": 3
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "A013",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 2
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "B083",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 2096
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "B407",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 2
+    },
+    {
+      "action": "original_lookup",
+      "inputs": {
+        "lookup_id": "B153",
+        "filter_text": ""
+      },
+      "status": 200,
+      "rows": 0
+    },
+    {
+      "action": "original_config.GetPrintRight",
+      "status": 200
+    }
+  ],
+  "number_extractor_checks": [
+    {
+      "action": "original_function",
+      "function": "F_Get_No",
+      "status": 200,
+      "result": "１２345678"
+    },
+    {
+      "action": "original_function",
+      "function": "Fn_Get_No",
+      "status": 200,
+      "result": "１２34567890"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-15",
+  "database": "erp_full_trial_20261014",
+  "models": 662,
+  "all_models_have_legacy_id": true,
+  "http_checks": [
+    "/readiness",
+    "/",
+    "/api/meta/erp_purchase_sourcedyepurdetail/",
+    "/api/system/erp_purchase_sourcedyepurdetail/?page=1&limit=1",
+    "/api/meta/erp_sales_sourcedyeordercolor/",
+    "/api/system/erp_sales_sourcedyeordercolor/?page=1&limit=1",
+    "/api/meta/erp_production_sourcedyeoutworkapplydetail/",
+    "/api/system/erp_production_sourcedyeoutworkapplydetail/?page=1&limit=1",
+    "/api/meta/erp_production_sourcedyesemioutworkapplydetail/",
+    "/api/system/erp_production_sourcedyesemioutworkapplydetail/?page=1&limit=1",
+    "/api/meta/erp_warehouse_sourcedyegrayoutdetail/",
+    "/api/system/erp_warehouse_sourcedyegrayoutdetail/?page=1&limit=1",
+    "/api/meta/erp_warehouse_sourcedyesemioutdetail/",
+    "/api/system/erp_warehouse_sourcedyesemioutdetail/?page=1&limit=1",
+    "/api/meta/erp_quality_sourcedyedefectiveindetail/",
+    "/api/system/erp_quality_sourcedyedefectiveindetail/?page=1&limit=1",
+    "/api/meta/erp_purchase_sourcedyepurmain/",
+    "/api/system/erp_purchase_sourcedyepurmain/?page=1&limit=1",
+    "/api/meta/erp_purchase_sourcedyepurapplymain/",
+    "/api/system/erp_purchase_sourcedyepurapplymain/?page=1&limit=1",
+    "/api/meta/erp_quality_sourcedyecoloringcheck/",
+    "/api/system/erp_quality_sourcedyecoloringcheck/?page=1&limit=1",
+    "/api/meta/erp_quality_sourcedyewdefect/",
+    "/api/system/erp_quality_sourcedyewdefect/?page=1&limit=1",
+    "/",
+    "/static/assets/index-D8ikNAxQ.js",
+    "/static/assets/rolldown-runtime-C0FnF6B9.js",
+    "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js",
+    "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js",
+    "/static/assets/set-B_OWwEUN.js",
+    "/static/assets/dist-DsBxLk65.js",
+    "/static/assets/api-DAkV4tF0.js",
+    "/static/assets/use-form-item-33qblBlf.js",
+    "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js",
+    "/static/assets/preload-helper-DjzSQ1t3.js",
+    "/static/assets/router-DeyO5dve.js",
+    "/static/assets/iconify-B5fgQta9.js",
+    "/static/assets/index-a44301d5-CIkq_0dM.js",
+    "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js",
+    "/static/assets/index-BiNaxPul.css"
+  ],
+  "registered_actions": {
+    "erp_purchase_sourcedyepurdetail": [
+      "receipt_progress",
+      "receive"
+    ],
+    "erp_sales_sourcedyeordercolor": [
+      "outwork_remaining",
+      "apply_outwork"
+    ],
+    "erp_production_sourcedyeoutworkapplydetail": [
+      "dispatch_outwork"
+    ],
+    "erp_production_sourcedyesemioutworkapplydetail": [
+      "dispatch_outwork"
+    ],
+    "erp_warehouse_sourcedyegrayoutdetail": [
+      "receive_outwork"
+    ],
+    "erp_warehouse_sourcedyesemioutdetail": [
+      "receive_outwork"
+    ],
+    "erp_quality_sourcedyedefectiveindetail": [
+      "defective_balance"
+    ]
+  },
+  "frontend_typecheck_and_build": "passed",
+  "current_history_counts": {
+    "purmain": 377,
+    "purdetail": 580,
+    "purapplymain": 407,
+    "purapplydetail": 0,
+    "outworkapply": 46,
+    "outworkapplydetail": 46,
+    "semioutworkapply": 0,
+    "semioutworkapplydetail": 0,
+    "coloringcheck": 0,
+    "colorshiftemp": 0,
+    "defectiveindetail": 1,
+    "defectiveoutdetail": 0,
+    "wdefect": 11026
+  },
+  "regression_tests": {
+    "count": 125,
+    "passed": 125,
+    "failed": 0,
+    "seconds": 63.147,
+    "log": ".runtime-temp/erp-log-export/purchase-quality-regression-20261015-final.log"
+  },
+  "django_check": "passed",
+  "makemigrations_check": "No changes detected",
+  "original_full_history_verification": "erp-full-original-verification-20261014.json",
+  "all_old_business_workflows_reproduced": false
+}

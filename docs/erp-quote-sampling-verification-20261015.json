@@ -1,0 +1,389 @@
+{
+  "database": "erp_full_trial_20261014",
+  "definitions": [
+    {
+      "object": "DPJobStep_Test",
+      "definition_equal": true,
+      "sha256": "3d27a5ca3039bec778c6fd18e4a95dc522c5a86fc142df0fbeaa27d845970437"
+    },
+    {
+      "object": "fn_ColorNum_BasicsPrice",
+      "definition_equal": true,
+      "sha256": "f6b3331b2265103edf41ebabf0e9c30e179c7ea40908e3488fe46acbd0d4e355"
+    },
+    {
+      "object": "fn_GetColorNumPrice",
+      "definition_equal": true,
+      "sha256": "05636427862fde94876c6bfa5403e324dbadf52070b6d3703bb7c44c22780e3b"
+    },
+    {
+      "object": "fn_GetDyePrice",
+      "definition_equal": true,
+      "sha256": "d894b25b222f5a135ffeaeb8882c1f36ead01b72df7ee3886bbff5db8fcc89e6"
+    },
+    {
+      "object": "fn_GetJObSheetNoAttePrice",
+      "definition_equal": true,
+      "sha256": "e274b04bb5cae43a0f13198e3240caa1452851e262a4683f10131a671d04c73a"
+    },
+    {
+      "object": "fn_GetJObSheetNoAttePriceUnit",
+      "definition_equal": true,
+      "sha256": "6d46c29be727e9079c1a475a2a37f8866decd802f2f60befd44847859b07cc6b"
+    },
+    {
+      "object": "fn_GetPackPrice",
+      "definition_equal": true,
+      "sha256": "288467d00284ea74180ed8033cbfa36d5d8ee4174b0ff8abce000ac681b56960"
+    },
+    {
+      "object": "fn_GetPackQtyPrice",
+      "definition_equal": true,
+      "sha256": "4f92d0ec645c03968b8c0b6a60375ed2e34e8d289a3139863b213c2ce5648484"
+    },
+    {
+      "object": "fn_GetPriceListVat",
+      "definition_equal": true,
+      "sha256": "7d0f25daf70adda8ae5d367360d8609c9524d16985f812869ca2712837fc145c"
+    },
+    {
+      "object": "fn_GetPriceRemark",
+      "definition_equal": true,
+      "sha256": "99461c2856a7e41f7f00dedaf7fb0133aa335c59fd133687adf905f6e2d50baa"
+    },
+    {
+      "object": "fn_GetPriceUnit",
+      "definition_equal": true,
+      "sha256": "efbe89d6be29ea1d0cf0c461de9944cb8489658ee36a30a4dab734b0959b6023"
+    },
+    {
+      "object": "fn_GetTechPrice",
+      "definition_equal": true,
+      "sha256": "6137d1734f2178c7e70c2c0516ef35748ed0c3021d47d4ece80a7e8299bca771"
+    },
+    {
+      "object": "fn_NewGetDyePrice",
+      "definition_equal": true,
+      "sha256": "8db052141cc45902815deae5bb6a6d9b454340691d136051d468aa6e3c8e54c7"
+    },
+    {
+      "object": "ProdTest_Add",
+      "definition_equal": true,
+      "sha256": "f2ed27a0bc13ecf0e11844935d9fb6f5cf3c7b5824dd32949f848bd6d6e90db0"
+    },
+    {
+      "object": "sp_AuTo_Quote",
+      "definition_equal": true,
+      "sha256": "ef96d16cbf6bb87262025aa5da2e08d4bea383ca0aa89b59b563a6dbf15be622"
+    },
+    {
+      "object": "Sp_DyeDipsRecord",
+      "definition_equal": true,
+      "sha256": "2f13cba3a3152c8f341268f78655bcadb16e485870701cd9cc9428a7fe3ca7a0"
+    },
+    {
+      "object": "Sp_DyeDipsRecord_EmpID",
+      "definition_equal": true,
+      "sha256": "5e02016bad50d9c9075389958c237467816f814dc13947c555c905286ce726e3"
+    },
+    {
+      "object": "Sp_DyeDipsRecord1",
+      "definition_equal": true,
+      "sha256": "0076a9ccf71e25112bcba1513ba4f6c5cafa066f46d7dcee3798f31fd9863195"
+    },
+    {
+      "object": "Sp_DyeDipsRecord10",
+      "definition_equal": true,
+      "sha256": "369503fc8338f728064c188eb0562d1f551c574fbf4a5cc1d5357f2abea79490"
+    },
+    {
+      "object": "Sp_DyeDipsRecord2",
+      "definition_equal": true,
+      "sha256": "1c8333e840f11f75cc062e4c20b58c7b71842af8041eb32083ef2b402af505d8"
+    },
+    {
+      "object": "Sp_DyeDipsRecord22",
+      "definition_equal": true,
+      "sha256": "57b71bca4beba661b187e361f88afa233f8c568d7680c0d01a38b735954b2e85"
+    }
+  ],
+  "old_counts": [
+    {
+      "name": "DyeDipsRecord",
+      "rows": 1
+    },
+    {
+      "name": "ProdTest",
+      "rows": 0
+    },
+    {
+      "name": "QuoteDetail",
+      "rows": 0
+    },
+    {
+      "name": "CusBasicsPriceDetail",
+      "rows": 48
+    }
+  ],
+  "comparisons": [
+    {
+      "function": "fn_GetPackPrice",
+      "rows": 18,
+      "mismatches": []
+    },
+    {
+      "function": "fn_GetDyePrice",
+      "rows": 21,
+      "mismatches": []
+    },
+    {
+      "function": "fn_NewGetDyePrice",
+      "rows": 12,
+      "mismatches": []
+    },
+    {
+      "function": "fn_ColorNum_BasicsPrice",
+      "rows": 48,
+      "mismatches": []
+    }
+  ],
+  "sample_previews": [
+    {
+      "variant": "Sp_DyeDipsRecord",
+      "targets": 4
+    },
+    {
+      "variant": "Sp_DyeDipsRecord1",
+      "targets": 4
+    },
+    {
+      "variant": "Sp_DyeDipsRecord2",
+      "targets": 4
+    },
+    {
+      "variant": "Sp_DyeDipsRecord10",
+      "targets": 4
+    },
+    {
+      "variant": "Sp_DyeDipsRecord22",
+      "targets": 4
+    },
+    {
+      "variant": "Sp_DyeDipsRecord_EmpID",
+      "targets": 1
+    }
+  ],
+  "missing_source_objects": [],
+  "old_sql_access": "SELECT only",
+  "history_imported_this_batch": false,
+  "historical_business_mutations": false,
+  "http": [
+    {
+      "method": "GET",
+      "path": "/readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_sales_sourcedyequote/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_sales_sourcedyequote/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_sales_sourcedyequotedetail/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_sales_sourcedyequotedetail/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_sampling_sourcedyedyedipsrecord/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_sampling_sourcedyedyelabcolor/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_sampling_sourcedyedyelabcolor/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/api/meta/erp_quality_sourcedyeprodtest/"
+    },
+    {
+      "method": "GET",
+      "path": "/api/system/erp_quality_sourcedyeprodtest/?page=1&limit=1"
+    },
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BZvpVswL.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/rolldown-runtime-C0FnF6B9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-core.esm-bundler-BiUfxSJj.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/runtime-dom.esm-bundler-2S0Kd0Dc.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/set-B_OWwEUN.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/dist-DsBxLk65.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/api-DAkV4tF0.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/use-form-item-33qblBlf.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/useApi-CUWMwLLw-CQIWD9ta.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/preload-helper-DjzSQ1t3.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/router-C5iXLF-s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/iconify-B5fgQta9.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-a44301d5-CIkq_0dM.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/_plugin-vue_export-helper-BDNMzG2s.js"
+    },
+    {
+      "method": "GET",
+      "path": "/static/assets/index-BiNaxPul.css"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sales_sourcedyequote/quote_function/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/1/preview_sample_variant/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/1/preview_sample_variant/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/1/preview_sample_variant/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/1/preview_sample_variant/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/1/preview_sample_variant/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyedipsrecord/1/preview_sample_variant/"
+    },
+    {
+      "method": "POST",
+      "path": "/api/system/erp_sampling_sourcedyedyelabcolor/1/sample_schedule_options/"
+    }
+  ],
+  "http_count": 46,
+  "page_action_count": 10,
+  "validation": {
+    "regression": {
+      "run": 441,
+      "passed": 440,
+      "environment_error": {
+        "test": "test_full_comparison_preserves_null_negative_identity_and_reports_changed_field",
+        "reason": "Windows sandbox temporary directory permission",
+        "normal_host_retry_passed": true
+      }
+    },
+    "final_focused": {
+      "run": 26,
+      "passed": 26,
+      "includes": "25 final quote/sample/trial tests and the one environment-blocked regression case"
+    },
+    "distinct_tests_passed_across_runs": 443,
+    "django_check": "passed",
+    "migration_check": "No changes detected",
+    "frontend_build": "passed; existing chunk size warning",
+    "git_diff_check": "passed"
+  }
+}

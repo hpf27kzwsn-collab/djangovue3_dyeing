@@ -1,0 +1,907 @@
+{
+  "scope": "本项目隔离核验库；完整试导入、未采用到开发历史库或正式切换库存",
+  "database": "erp_functions_compare_20261016",
+  "captured_at": "2026-10-16T08:28:29.6691912+08:00",
+  "sql_access": "SELECT only",
+  "completed": true,
+  "tables": [
+    {
+      "table": "dye.s_AutoID",
+      "rows": 0,
+      "field_comparisons": 0,
+      "legacy_id_rows": 0
+    },
+    {
+      "table": "dye.s_DBComboValue",
+      "rows": 403,
+      "field_comparisons": 1612,
+      "legacy_id_rows": 403
+    },
+    {
+      "table": "dye.s_SysParams",
+      "rows": 348,
+      "field_comparisons": 2436,
+      "legacy_id_rows": 348
+    },
+    {
+      "table": "dye.h_Employee",
+      "rows": 274,
+      "field_comparisons": 26852,
+      "legacy_id_rows": 274
+    },
+    {
+      "table": "dye.p_CustLinker",
+      "rows": 0,
+      "field_comparisons": 0,
+      "legacy_id_rows": 0
+    },
+    {
+      "table": "dye.p_Customer",
+      "rows": 182,
+      "field_comparisons": 12376,
+      "legacy_id_rows": 182
+    },
+    {
+      "table": "dye.p_Dept",
+      "rows": 11,
+      "field_comparisons": 143,
+      "legacy_id_rows": 11
+    },
+    {
+      "table": "dye.p_FieldValid",
+      "rows": 827,
+      "field_comparisons": 20675,
+      "legacy_id_rows": 827
+    },
+    {
+      "table": "dye.p_Gray",
+      "rows": 648,
+      "field_comparisons": 34344,
+      "legacy_id_rows": 648
+    }
+  ],
+  "all_latest_field_definitions_match": true,
+  "lookups": [
+    {
+      "lookup": "A001",
+      "rows": 26,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "A002",
+      "rows": 0,
+      "other_fields": [
+        "CustKindID"
+      ],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "A009",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "A010",
+      "rows": 15,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "A023",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "A025",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "A029",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B001",
+      "rows": 91,
+      "other_fields": [
+        "EbOd",
+        "Linker",
+        "LinkerTel"
+      ],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B003",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B005",
+      "rows": 10,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B006",
+      "rows": 163,
+      "other_fields": [
+        "IsOut",
+        "DeptID",
+        "EmpKind",
+        "DeptIDName"
+      ],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B007",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B008",
+      "rows": 9,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B009",
+      "rows": 14,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B0092",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B010",
+      "rows": 28,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B011",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B012",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B013",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B016",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B017",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B018",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B019",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B020",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B021",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B022",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B023",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B024",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B025",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B026",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B027",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B028",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B030",
+      "rows": 6,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B031",
+      "rows": 10,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B032",
+      "rows": 34,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B033",
+      "rows": 7,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B038",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B040",
+      "rows": 7,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B041",
+      "rows": 9,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B042",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B043",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B044",
+      "rows": 14,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B045",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B046",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B047",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B048",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B049",
+      "rows": 53,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B052",
+      "rows": 7,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B053",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B056",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B058",
+      "rows": 6,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B059",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B060",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B062",
+      "rows": 10,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B064",
+      "rows": 7,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B067",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B068",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B069",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B070",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B071",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B072",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B075",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B076",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B077",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B078",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B079",
+      "rows": 38,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B084",
+      "rows": 9,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B085",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B086",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B087",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B090",
+      "rows": 19,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B098",
+      "rows": 18,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B099",
+      "rows": 21,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B103",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B105",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B108",
+      "rows": 7,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B115",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B116",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B123",
+      "rows": 4,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B124",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B125",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B127",
+      "rows": 7,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B152",
+      "rows": 40,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B154",
+      "rows": 274,
+      "other_fields": [
+        "IsOut",
+        "DeptID",
+        "EmpKind",
+        "DeptIDName"
+      ],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B172",
+      "rows": 8,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B173",
+      "rows": 29,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B177",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B181",
+      "rows": 13,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B187",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B189",
+      "rows": 1,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B403",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B405",
+      "rows": 648,
+      "other_fields": [
+        "unit"
+      ],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "B406",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S005",
+      "rows": 0,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S011",
+      "rows": 2,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S020",
+      "rows": 1,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S021",
+      "rows": 5,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S022",
+      "rows": 1,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S023",
+      "rows": 1,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S024",
+      "rows": 3,
+      "other_fields": [],
+      "all_rows_equal": true
+    },
+    {
+      "lookup": "S025",
+      "rows": 7,
+      "other_fields": [],
+      "all_rows_equal": true
+    }
+  ],
+  "scalar_probes": 175,
+  "expected_scalar_errors": 13,
+  "date_groups": 35,
+  "date_rows": 390,
+  "parameter_probes": 348,
+  "combo_groups": 103,
+  "combo_rows": 403,
+  "lookup_definitions": 266,
+  "implemented_lookups": 101,
+  "pending_lookups": [
+    "A003",
+    "A004",
+    "A005",
+    "A006",
+    "A007",
+    "A008",
+    "A011",
+    "A012",
+    "A013",
+    "A014",
+    "A015",
+    "A016",
+    "A017",
+    "A018",
+    "A019",
+    "A020",
+    "A021",
+    "A022",
+    "A024",
+    "A026",
+    "A027",
+    "A028",
+    "A030",
+    "A031",
+    "A032",
+    "A033",
+    "B002",
+    "B004",
+    "B014",
+    "B015",
+    "B029",
+    "B034",
+    "B035",
+    "B036",
+    "B037",
+    "B0381",
+    "B0382",
+    "B039",
+    "B050",
+    "B051",
+    "B054",
+    "B055",
+    "B057",
+    "B061",
+    "B063",
+    "B065",
+    "B073",
+    "B074",
+    "B080",
+    "B081",
+    "B082",
+    "B083",
+    "B088",
+    "B089",
+    "B091",
+    "B092",
+    "B093",
+    "B094",
+    "B095",
+    "B096",
+    "B097",
+    "B100",
+    "B101",
+    "B102",
+    "B104",
+    "B106",
+    "B107",
+    "B109",
+    "B110",
+    "B111",
+    "B112",
+    "B113",
+    "B114",
+    "B117",
+    "B118",
+    "B119",
+    "B120",
+    "B122",
+    "B126",
+    "B128",
+    "B129",
+    "B130",
+    "B132",
+    "B133",
+    "B134",
+    "B135",
+    "B136",
+    "B137",
+    "B139",
+    "B140",
+    "B141",
+    "B142",
+    "B143",
+    "B144",
+    "B145",
+    "B146",
+    "B147",
+    "B148",
+    "B151",
+    "B153",
+    "B156",
+    "B157",
+    "B158",
+    "B159",
+    "B160",
+    "B161",
+    "B162",
+    "B163",
+    "B164",
+    "B165",
+    "B166",
+    "B167",
+    "B168",
+    "B169",
+    "B170",
+    "B171",
+    "B174",
+    "B175",
+    "B176",
+    "B178",
+    "B179",
+    "B180",
+    "B182",
+    "B183",
+    "B184",
+    "B185",
+    "B186",
+    "B188",
+    "B190",
+    "B191",
+    "B192",
+    "B193",
+    "B194",
+    "B195",
+    "B196",
+    "B197",
+    "B198",
+    "B199",
+    "B200",
+    "B201",
+    "B202",
+    "B203",
+    "B204",
+    "B205",
+    "B208",
+    "B210",
+    "B212",
+    "B214",
+    "B219",
+    "B222",
+    "B304",
+    "B305",
+    "B400",
+    "B401",
+    "B402",
+    "B404",
+    "B407",
+    "S001",
+    "S002",
+    "S003",
+    "S006",
+    "S007",
+    "S008",
+    "S009",
+    "S181"
+  ],
+  "live_sha256": "f552521ea4e0c8a0c47c4afb61a8defc3bcf83d12e95c67b351d4cad14bbd7a5",
+  "number_concurrency": {
+    "scope": "隔离库人工编号对象；原s_AutoID为空，不代表旧历史编号验收",
+    "workers": 4,
+    "allocations": 8,
+    "unique_sequential_codes": true,
+    "next_counter": 9
+  },
+  "inventory_delta": {
+    "source_table_change": [
+      [
+        "s_SysParams",
+        [
+          "handling",
+          "title",
+          "entry_scope",
+          "reason",
+          "classification_basis"
+        ]
+      ]
+    ],
+    "entry_rules_unchanged": true,
+    "sql_new_partial": 14,
+    "all_old_scope_counts_retained": true,
+    "models": 677,
+    "source_models": 566,
+    "source_fields": 11603,
+    "source_relations": 165
+  },
+  "tests": {
+    "focused_new_tests": 13,
+    "focused_result": "passed",
+    "full_suite": "plugins.erp_base.tests",
+    "full_count": 664,
+    "full_seconds": 687.513,
+    "full_result": "passed",
+    "schema_check": "no changes detected",
+    "django_check": "no issues",
+    "test_database_schema": "current model syncdb; official migration applied separately to development database",
+    "full_log_sha256": "d22d8616835e47c767197cf5afec9ee0494394c65f1bc928ebf87a45ed1f9726"
+  }
+}

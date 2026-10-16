@@ -17,6 +17,8 @@ def issue(item, actor, finished_at, evidence_kind, evidence_reference):
     if item.SOURCE_TABLE != 'StuffWeight':
         raise ValidationError({'source': '本动作适用于原染化料称料单。'})
     item = locked(item)
+    from .source_execution_state import require_available
+    require_available(item)
     if item.source_batch_id is not None or item.legacy_id is not None:
         raise ValidationError({'source': '历史称料与原自动出库已承接；本动作在明确的新接续称料单上办理。'})
     context = SourceDocumentContext.objects.select_for_update().filter(entity=item._meta.label, object_id=item.pk).first()

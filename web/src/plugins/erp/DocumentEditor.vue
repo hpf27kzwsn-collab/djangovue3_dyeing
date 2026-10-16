@@ -4,17 +4,19 @@ import {ElMessage} from 'element-plus'
 import {api} from '../../api'
 import {useAccount} from '../../store'
 import FieldInput from '../../components/FieldInput.vue'
+import {cloneDeep,isEqual} from 'lodash-es'
 const props=defineProps<{meta:any;row:any}>(),emit=defineEmits(['saved'])
 const account=useAccount(),head=ref<Record<string,any>>({}),children=ref<any[]>([]),saving=ref(false),ready=ref(false)
 const headFields=computed(()=>props.meta.fields.filter((f:any)=>!f.readonly&&f.is_update&&f.key!=='id'))
 function values(row:any,fields:any[]){return Object.fromEntries(fields.filter(f=>f.key in row).map(f=>[f.key,row[f.key]]))}
+function changed(row:any,original:any,fields:any[]){return Object.fromEntries(Object.entries(values(row,fields)).filter(([key,value])=>!isEqual(value,original[key])))}
 function add(child:any){child.rows.push({data:Object.fromEntries(child.fields.map((f:any)=>[f.key,f.default])),id:null})}
 function remove(child:any,index:string|number){const [row]=child.rows.splice(Number(index),1);if(row.id!==null)child.deleted.push(row.id)}
 async function save(){
   saving.value=true
   try{
-    const changes=Object.fromEntries(children.value.map(child=>[child.entity,{upsert:child.rows.map((row:any)=>({...values(row.data,child.fields.filter((field:any)=>row.id===null?field.is_create:field.is_update)),...(row.id!==null?{id:row.id}:{})})),delete:child.deleted}]))
-    await api(`/api/system/${props.meta.entity}/${props.row.id}/save_document/`,{method:'POST',data:{head:values(head.value,headFields.value),children:changes}})
+    const changes=Object.fromEntries(children.value.map(child=>[child.entity,{upsert:child.rows.map((row:any)=>({...((row.id!==null&&props.meta.workflow.source_model)?changed(row.data,row.original,child.fields.filter((field:any)=>field.is_update)):values(row.data,child.fields.filter((field:any)=>row.id===null?field.is_create:field.is_update))),...(row.id!==null?{id:row.id}:{})})).filter((row:any)=>!props.meta.workflow.source_model||!('id' in row)||Object.keys(row).length>1),delete:child.deleted}]))
+    await api(`/api/system/${props.meta.entity}/${props.row.id}/save_document/`,{method:'POST',data:{head:props.meta.workflow.source_model?changed(head.value,props.row,headFields.value):values(head.value,headFields.value),children:changes}})
     ElMessage.success('表头与全部明细已保存');emit('saved')
   }finally{saving.value=false}
 }
@@ -24,7 +26,7 @@ onMounted(async()=>{
     const meta=(await api('/api/meta/'+config.entity+'/')).data
     const child={...config,fields:meta.fields.filter((f:any)=>!f.readonly&&(f.is_create||f.is_update)&&!['id',config.key].includes(f.key)),rows:[] as any[],deleted:[] as number[]}
     let page=1,more=true
-    while(more){const response=await api(`/api/system/${config.entity}/`,{params:{[config.key]:props.row.id,limit:200,page}});child.rows.push(...response.data.map((row:any)=>({id:row.id,data:values(row,child.fields)})));more=response.is_next===true;page++}
+    while(more){const response=await api(`/api/system/${config.entity}/`,{params:{[config.key]:props.row.id,limit:200,page}});child.rows.push(...response.data.map((row:any)=>({id:row.id,data:values(row,child.fields),original:cloneDeep(values(row,child.fields))})));more=response.is_next===true;page++}
     children.value.push(child)
   }
   ready.value=true
