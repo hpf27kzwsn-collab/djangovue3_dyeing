@@ -1,5 +1,6 @@
 import csv
 import json
+from collections import Counter
 from datetime import date, datetime, time
 from decimal import Decimal
 from io import StringIO
@@ -16,6 +17,10 @@ from django_celery_results.models import TaskResult
 
 UPDATE_KEY = '更新主键(勿改)'
 SERIAL = '序号'
+NULL = '#NULL'
+EMPTY = '#EMPTY'
+KEEP = '#KEEP'
+TEXT = '#TEXT:'
 READ_ONLY = {OperationLog, LoginLog, DownloadCenter, TaskResult}
 USER_IMPORT = ['username', 'name', 'email', 'mobile', 'gender', 'is_active', 'dept', 'role']
 USER_EXPORT = ['username', 'name', 'email', 'mobile', 'gender', 'is_active', 'last_login', 'dept', 'dept_owner']
@@ -96,6 +101,11 @@ def columns_for(view, mode, queryset=None):
         elif isinstance(mf, (models.IntegerField, models.FloatField, models.DecimalField)) and not mf.primary_key:
             column.update(kind='number', decimals=mf.decimal_places if isinstance(mf, models.DecimalField) else None)
         columns.append(column)
+    titles=Counter(column['title'] for column in columns)
+    original={field:name for name,field in getattr(model,'SOURCE_FIELDS',{}).items()}
+    for column in columns:
+        if titles[column['title']]>1 or column['title'] in [SERIAL,UPDATE_KEY]:
+            column['title']+=' ['+original.get(column['key'],column['key'])+']'
     return columns
 
 
@@ -105,7 +115,12 @@ def multiple_text(values):
     return stream.getvalue()
 
 
-def encode(value, column):
+def encode(value, column, for_import=False):
+    if for_import:
+        if value is None:return NULL
+        if value == '':return EMPTY
+        if isinstance(value,str) and (value in [NULL,EMPTY,KEEP] or value.startswith(TEXT)):
+            return TEXT+value
     if value is None or value == '':
         return None
     kind = column['kind']
@@ -130,10 +145,14 @@ def encode(value, column):
 
 def decode(value, column):
     kind = column['kind']
+    if value == NULL:return None
+    if value == EMPTY:return [] if kind=='multi' else ''
+    if isinstance(value,str) and value.startswith(TEXT):value=value[len(TEXT):]
     if kind == 'choice':
         if not isinstance(value, str):
             return value
-        return {option['label']: option['value'] for option in column['options']}[value]
+        labels={option['label']: option['value'] for option in column['options']}
+        return labels[value] if value in labels else {option['value']:option['value'] for option in column['options']}[value]
     if kind in ['relation', 'multi']:
         values = {str(option['value']): option['value'] for option in column['options']}
 

@@ -5,6 +5,7 @@ from .business import locked, write, delete
 from .business_policies import policy_for, document_children
 from .source_documents import SourceRecord
 from . import source_services
+from .source_phase6_save_timing import document_formulas
 
 
 def write_row(model, data, item, actor, department):
@@ -18,6 +19,7 @@ def write_row(model, data, item, actor, department):
 
 
 @transaction.atomic
+@document_formulas()
 def save_document(item, actor, head, children):
     model = type(item)
     original = issubclass(model, SourceRecord)

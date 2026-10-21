@@ -102,7 +102,9 @@ class RemainingChainTests(TestCase):
         self.assertEqual(process.old_status,'0');self.assertIsNone(process.old_machine_id);self.assertIsNone(process.old_start_time)
         self.assertEqual(job.old_curr_process_id,'P1');self.assertEqual(job.old_next_process_id,'P2')
         self.assertTrue(type(old).objects.filter(pk=old.pk,source_batch=historical_batch()).exists())
-        self.assertFalse(type(new).objects.filter(pk=new.pk).exists())
+        self.assertTrue(type(new).objects.filter(pk=new.pk).exists())
+        from plugins.erp_base.source_execution_state import active
+        self.assertFalse(active(type(new).objects.all()).filter(pk__in=[old.pk,new.pk]).exists())
         self.assertTrue(BusinessAction.objects.filter(action='work_delete_keep_source',object_id=old.pk).exists())
 
     def test_remaining_work_uses_latest_number_and_duplicate_join_names(self):
@@ -158,7 +160,9 @@ class RemainingChainTests(TestCase):
         self.assertEqual(target.old_start_time,self.at);self.assertEqual(target.old_wpworker,'原人员')
         self.assertEqual(target.old_status,'0');self.assertIsNone(target.old_end_time)
         self.assertEqual(job.old_curr_process_id,'P1');self.assertIsNone(job.old_next_process_id)
-        self.assertEqual(job.old_sheet_status,0);self.assertFalse(type(step).objects.filter(pk=step.pk).exists())
+        self.assertEqual(job.old_sheet_status,0);self.assertTrue(type(step).objects.filter(pk=step.pk).exists())
+        from plugins.erp_base.source_execution_state import active
+        self.assertFalse(active(type(step).objects.all()).filter(pk=step.pk).exists())
         SourceBusinessParameter.objects.create(name='EndProcessID',value='P1;')
         maintain_removed(item,self.actor);job.refresh_from_db();self.assertEqual(job.old_sheet_status,10)
 

@@ -19,8 +19,10 @@ def retain(item, actor, reason):
     """原DELETE的业务效果；原行和删除前值留档，活动查询不再返回。"""
     context, _ = SourceDocumentContext.objects.get_or_create(entity=item._meta.label, object_id=item.pk,
         defaults={'entry_name': 'foundation_trigger', 'creator': actor, 'modifier': actor})
+    before=snapshot(context)
     context.effects['foundation_retained'] = {'active': True, 'reason': reason}
     persist(context, actor)
+    record(context,'foundation_retained',before,actor,reason)
     record(item, 'foundation_delete_retained', snapshot(item), actor, reason)
 
 
@@ -46,7 +48,7 @@ def userinfo_saved(item, actor):
 def check(item, data, created, actor):
     name = item.SOURCE_TABLE
     if name == 'p_Customer':
-        if not created and 'old_customer_id' in data and equal(raw(item, 'CustKindID'), '0'):
+        if not created and 'old_customer_id' in data and 'old_customer_id' not in getattr(item, '_numbering_protected', {}) and equal(raw(item, 'CustKindID'), '0'):
             raise ValidationError({'old_customer_id': '原p_Customer_UPDATE：客户编码不能修改（原UPDATE列判断包含同值赋值）。'})
         if created:
             counts = {kind: matching(rows('PCustomer', 'erp_base'), ShortName=raw(item, 'ShortName'), CustKindID=kind).count() for kind in ['0', '1']}
@@ -57,7 +59,7 @@ def check(item, data, created, actor):
         if matching(rows('PGray', 'erp_base'), NameC=raw(item, 'NameC')).count() > 1:
             record(item, 'original_master_duplicate', snapshot(item), actor,
                    'p_GrayModify原规格重名检查命中；按完整保留异常原行的要求保存，不去重')
-        if 'old_gray_id' in data:
+        if 'old_gray_id' in data and 'old_gray_id' not in getattr(item, '_numbering_protected', {}):
             raise ValidationError({'old_gray_id': '原p_GrayModify：规格编码不能修改（含同值赋值）。'})
 
 

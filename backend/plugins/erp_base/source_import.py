@@ -47,18 +47,24 @@ def import_table(table,actor,sample_rows=None):
     if model.objects.filter(source_batch=table.batch).exists():raise ValueError('该表已经承接本批原行，请先对照，不覆盖已有数据：'+table.table_name)
     count=0
     with transaction.atomic():
+        from .numbering import lock_model, sync_model
+        lock_model(model)
         if sample_rows is not None:
             originals=[rows(table,ordinal,1)[0] for ordinal in sample_rows]
             model.objects.bulk_create([make_record(model,table,row,actor) for row in originals],batch_size=500)
+            sync_model(model)
             return len(originals)
         if connection.vendor == 'postgresql':
-            return copy_original_table(model, table, actor)
+            count = copy_original_table(model, table, actor)
+            sync_model(model)
+            return count
         with source_path(table).open(encoding='utf-8') as stream:
             while chunk:=list(islice(stream,500)):
                 originals=[json.loads(line) for line in chunk]
                 objects=[make_record(model,table,row,actor) for row in originals]
                 model.objects.bulk_create(objects,batch_size=500);count+=len(objects)
         if count!=table.row_count:raise ValueError('来源行数与已承接数不一致：'+table.table_name)
+        sync_model(model)
     return count
 
 

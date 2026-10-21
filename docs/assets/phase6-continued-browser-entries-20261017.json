@@ -1,0 +1,352 @@
+[
+  {
+    "entry": "AddStuffWeightPhaseDetailPrint",
+    "count": 7,
+    "expectedCount": 7,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": true,
+    "sample": "旧业务入口\n染料称料明细/染程（加料打印） · AddStuffWeightPhaseDetailPrint\n\n染料称料明细/染程（加料打印） · Bill · 47 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n原公式来源调整依据\n\n本次完整结果 7 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n流程流水号 [phasesheetseries]\n\t\n流程序号 [phasephaseno]\n\t\n染程名称 [phaseid]\n\t\n浴比 [bathratio]\n\t\nPH值 [ph]\n\t\n工艺编码 [programid]\n\t\nWaterQty [waterqty]\n\t\n备注 [remarks]\n\t\nPrintTimes [printtimes]\n\t\n温度 [temperature]\n\t\n分钟 [minutes]\n\t\nMachineTypeID [machinetypeid]\n\t\nStepIndex [stepindex]\n\t\n明细流水号 [sheetseries]\n\t\n序号 [phaseno]\n\t\n染料序号 [stuffno]\n\t\n染化料名称 [stuffid]\n\t\n批号 [lotno]\n\t\n染化料类型 [stufftype]\n\t\n单价 [price]\n\t\n称料单位 [weightunit]\n\t\n比例 [dosage]\n\t\n配方单位 [recipeunit]\n\t\nNeedQty [needqty]\n\t\n实际用量 [realqty]\n\t\n需求金额 [needmoney]\n\t\n实际金额 [realmoney]\n\t\n领料时间 [outtime]\n\t\n确认否 [isconfirmed]\n\t\n明细备注 [detailnote]\n\t\nAddScale [addscale]\n\t\nStatus [status]\n\t\nAddQty [addqty]\n\t\nOriNeedQty [orineedqty]\n\t\nOutDate [outdate]\n\t\n追加比例 [adddosage]\n\t\n加料量 [addneedqty]\n\t\n金额 [money]\n\t\nCarryIndex [carryindex]\n\t\n落料号 [stepname]\n\t\nStepNo [stepno]\n\t\nIsFinished [isfinished]\n\t\nautosysids [autosysids]\n\t\noirdosage [oirdosage]\n\t\nadjustdosage [adjustdosage]\n\t\nweiUnit [weiunit]\n\t\nrepUnit [repunit]\n\t\nSelfDefineImage [selfdefineimage]\n\t\n染化料编码 [namee]\n\t\n配送序号 [uitransindex]\n\t\n浴比（试算） [BathRatio__formula]\n\t\nNeedQty（试算） [NeedQty__formula]\n\t\n实际金额（试算） [RealMoney__formula]\n\t\n金额（试算） [Money__formula]\nCONTB-W\n\t\n1\n\t\n〈NULL〉\n\t\n19.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONTB-W\n\t\n1\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n3.000000\n\t\nK\n\t\n-3.000000\n\t\n〈NU"
+  },
+  {
+    "entry": "ArticleStockToCheck",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n获取机物料要盘点的数据 · ArticleStockToCheck\n\n获取机物料要盘点的数据 · Bill · 14 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nGUID [guid]\n\t\n仓库 [warehouseid]\n\t\n物料编码 [articleid]\n\t\n入库明细号 [indetailno]\n\t\n实际数量 [realqty]\n\t\n实际金额 [realmoney]\n\t\n调整数量 [adjustqty]\n\t\n调整金额 [adjustmoney]\n\t\n账面数量 [paperqty]\n\t\n账面金额 [papermoney]\n\t\n物料种类 [articlekindid]\n\t\n物料名称 [name]\n\t\n单位 [unit]\n\t\n单价 [price]\n\t\n调整数量（试算） [AdjustQty__formula]\n\t\n实际金额（试算） [RealMoney__formula]\n\t\n调整金额（试算） [AdjustMoney__formula]\nb2256b51-25dd-4da5-b7cb-10a1bd8fcf5b\n\t\n\t\nUI-PART\n\t\nUI-ISS-D2\n\t\n-5.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n-5.00\n\t\n〈NULL〉\n\t\n\t\nUI-PART\n\t\n件\n\t\n〈NULL〉\n\t\n0.00\n\t\n〈NULL〉\n\t\n0\n1\n共 1 条\n原查询及差异依据"
+  },
+  {
+    "entry": "CheckResultDetailNew",
+    "count": 6,
+    "expectedCount": 6,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\nQC检验四分制疵点打印 · CheckResultDetailNew\n\nQC检验四分制疵点打印 · BillList · 235 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 6 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nSheetSeries [sheetseries]\n\t\nGuid [guid]\n\t\nBarCode [barcode]\n\t\nMachineID [machineid]\n\t\n箱号 [rollno]\n\t\nUnit [unit]\n\t\nrolls [rolls]\n\t\nKg [kg]\n\t\nMeter [meter]\n\t\nPound [pound]\n\t\nYard [yard]\n\t\nRealQty [realqty]\n\t\nStorageUnitID [storageunitid]\n\t\nDefectCount [defectcount]\n\t\nDots [dots]\n\t\nStatus [status]\n\t\n色号等级 [gradeid]\n\t\nPackTime [packtime]\n\t\nEmpID [empid]\n\t\nTubeWeight [tubeweight]\n\t\nTubes [tubes]\n\t\nThick [thick]\n\t\nWidth [width]\n\t\nPackID [packid]\n\t\nBowing [bowing]\n\t\nRemarks [remarks]\n\t\n缸号 [jobsheetno]\n\t\nAddQty [addqty]\n\t\nSampleQty [sampleqty]\n\t\nCutQty [cutqty]\n\t\nCutTimes [cuttimes]\n\t\nFullWidth [fullwidth]\n\t\nT1 [t1]\n\t\nT2 [t2]\n\t\nT3 [t3]\n\t\nT4 [t4]\n\t\nT5 [t5]\n\t\nQ1 [q1]\n\t\nQ2 [q2]\n\t\nQ3 [q3]\n\t\nQ4 [q4]\n\t\nQ5 [q5]\n\t\nQ6 [q6]\n\t\nQ7 [q7]\n\t\nQ8 [q8]\n\t\nQ9 [q9]\n\t\nQ10 [q10]\n\t\nQ11 [q11]\n\t\nQ12 [q12]\n\t\nQ13 [q13]\n\t\nQ14 [q14]\n\t\nQ15 [q15]\n\t\nLotNo [lotno]\n\t\nColorNum [colornum]\n\t\nInSheetNo [insheetno]\n\t\nCustQty [custqty]\n\t\nCustomerID [customerid]\n\t\nLabelID [labelid]\n\t\nWeight [weight]\n\t\nColorDiff [colordiff]\n\t\nModifyDate [modifydate]\n\t\nModifyer [modifyer]\n\t\nGradeReasonID [gradereasonid]\n\t\nStandardWidth [standardwidth]\n\t\n明细客户 [detailcustname]\n\t\nOriDetailCustomer [oridetailcustomer]\n\t\nOrderSheetNo [ordersheetno]\n\t\nOriOderSheetNo [oriodersheetno]\n\t\nQCResultID [qcresultid]\n\t\nMainNo [mainno]\n\t\nDetailNo [detailno]\n\t\n本厂规格 [prodid]\n\t\nDefectEmpID [defectempid]"
+  },
+  {
+    "entry": "ColorNumToQuotePrice",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n色号信息转色号报价 · ColorNumToQuotePrice\n\n色号信息转色号报价 · BillList · 59 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nSheetSeries [sheetseries]\n\t\nColorNo [colorno]\n\t\nCheckNo [checkno]\n\t\nLabDipsSource [labdipssource]\n\t\n本厂规格 [prodid]\n\t\nLotNo [lotno]\n\t\nSpec [spec]\n\t\n颜色深浅 [colordepthid]\n\t\n颜色 [colorid]\n\t\n色号 [colornum]\n\t\nColorE [colore]\n\t\n客户色号 [custcolornum]\n\t\nRGB值 [colorrgb]\n\t\nPrice [price]\n\t\n是否套染 [mainstuffkindid]\n\t\nIsToDoSample [istodosample]\n\t\nColorCards [colorcards]\n\t\nStatus [status]\n\t\nStartTime [starttime]\n\t\nLimitHours [limithours]\n\t\nOverTimeReason [overtimereason]\n\t\nShiftID [shiftid]\n\t\n打样员 [empid]\n\t\nWorkQty [workqty]\n\t\nRedoTimes [redotimes]\n\t\n原色号明细 [oricolorno]\n\t\nOriEmpID [oriempid]\n\t\nOriShifID [orishifid]\n\t\n缸号 [jobsheetno]\n\t\n备注 [remarks]\n\t\nWidth [width]\n\t\nWeight [weight]\n\t\n客户规格 [custselfproduct]\n\t\n颜色代号 [colormark]\n\t\n色号类型 [colornummark]\n\t\nR [r]\n\t\nG [g]\n\t\nB [b]\n\t\nRGB [rgb]\n\t\n客户 [customerid]\n\t\n创建日期 [createdate]\n\t\n创建人 [creater]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n确板时间 [oktime]\n\t\n完成时间 [endtime]\n\t\n跟单员 [salerid]\n\t\n确板 [colornumno]\n\t\n是否开卡 [isorder]\n\t\nIsOrderTime [isordertime]\n\t\n打样要求 [cusremark]\n\t\n送版日期 [istosampledate]\n\t\n主光源 [verlight1id]\n\t\n副光源 [verlight2id]\n\t\n染化料用量 [stuffdosage]\n\t\n染色工艺 [dyephasename]\n\t\n高牢度 [gaolaodu]\n\t\nNote [note]\n\t\ndaipaidaban [daipaidaban]\n\t\nduiseluogang [duiseluogang]\n\t\ndabanpise [dabanpise]\n\t\nkindtype [kindtype]\n\t\nisdoubledye [isdoubledye]\n\t\ngradeid [gradeid]\n\t\ncostquote [costquote]\n\t\n单位 [priceunit]\n\t\nRGB（试算） [RGB__for"
+  },
+  {
+    "entry": "DyeDipsRecordPhaseDetail",
+    "count": 3,
+    "expectedCount": 3,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n打样记录染程/明细信息 · DyeDipsRecordPhaseDetail\n\n打样记录染程/明细信息 · Bill · 27 个原字段配置\n\n打开对应原表 SourceDyeDyeDipsRecordPhase\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 3 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n染程流水号 [phasesheetseries]\n\t\n染程序号 [phasephaseno]\n\t\n染程名称 [phaseid]\n\t\n浴比 [bathratio]\n\t\nPH值 [ph]\n\t\n工艺 [programid]\n\t\n水量 [waterqty]\n\t\n备注 [remarks]\n\t\nminutes [minutes]\n\t\ntemperature [temperature]\n\t\n表单流水号 [sheetseries]\n\t\n染程序号 [phaseno]\n\t\n染料序号 [stuffno]\n\t\n染料类别 [stufftype]\n\t\n染料名称 [stuffid]\n\t\n单价 [price]\n\t\n比例(A) [dosagea]\n\t\n金额(A) [amounta]\n\t\n比例(B) [dosageb]\n\t\n金额(B) [amountb]\n\t\n比例(C) [dosagec]\n\t\n金额(C) [amountc]\n\t\n比例(D) [dosaged]\n\t\n金额(D) [amountd]\n\t\n比例(E) [dosagee]\n\t\n金额(E) [amounte]\n\t\ndosagef [dosagef]\n\t\namountf [amountf]\n\t\n单位 [recipeunit]\n\t\n明细备注 [detailnote]\n\t\nnewstuffid [newstuffid]\n\t\n金额(A)（试算） [AmountA__formula]\n\t\n金额(B)（试算） [AmountB__formula]\n\t\n金额(C)（试算） [AmountC__formula]\n\t\n金额(D)（试算） [AmountD__formula]\n\t\n金额(E)（试算） [AmountE__formula]\n\t\n水量（试算） [WaterQty__formula]\nCONT-DIP\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DIP\n\t\n1\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n3.00\n\t\n-3.000000\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0.000000\n\t\n〈NULL〉\n\t\n3.000000\n\t\n〈NULL〉\n\t\n-3.000000\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n-90.00000000\n\t\n〈NULL〉\n\t\n0E-8\n\t\n90.00000000\n\t\n-90.00000000\n\t\n〈NULL〉\n\n\nCONT-DIP\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DIP\n\t\n1\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n3.00\n\t\n2.000000\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0.000000\n\t\n〈NULL〉\n\t\n-2.0000"
+  },
+  {
+    "entry": "GrayIn",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n胚纱入库主表 · GrayIn\n\n胚纱入库主表 · Bill · 70 个原字段配置\n\n打开对应原表 SourceDyeGrayIn\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n经营单位代码 [businessunitid]\n\t\n仓库代码 [warehouseid]\n\t\n业务组别 [salergroupid]\n\t\n录入码单明细否 [isinputrecord]\n\t\n单据类别 [sheetkind]\n\t\n胚纱类别 [graykindid]\n\t\n供应商代码 [supplierid]\n\t\nFactDlvNo [factdlvno]\n\t\n单位 [stockunit]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n打印次数 [printtimes]\n\t\n修改次数 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建时间 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n工作流节点号 [stepno]\n\t\n业务类别 [businesskind]\n\t\n客户名称 [customerid]\n\t\n加工商 [factid]\n\t\n司机 [driver]\n\t\n车牌号 [carno]\n\t\n班组 [shiftid]\n\t\nGeterID [geterid]\n\t\nGetDate [getdate]\n\t\nCheckerID [checkerid]\n\t\nDefectDate [defectdate]\n\t\nDefectShiftID [defectshiftid]\n\t\n业务员 [salerid]\n\t\n明细客户 [detailcustname]\n\t\nApproveDate [approvedate]\n\t\nApprover [approver]\n\t\n收货员 [takeover]\n\t\n搬运工1 [cargador1]\n\t\n搬运工2 [cargador2]\n\t\n搬运工3 [cargador3]\n\t\n送货地址 [cargador4]\n\t\n搬运工5 [cargador5]\n\t\n叉车1 [driver1]\n\t\n叉车2 [driver2]\n\t\n叉车3 [driver3]\n\t\n交胚人 [sender]\n\t\n装卸工1 [discharger1]\n\t\n装卸工2 [discharger2]\n\t\n水量 [water]\n\t\nIngredients [ingredients]\n\t\n过软 [toosoft]\n\t\nIsdecrement [isdecrement]\n\t\nLoss [loss]\n\t\n包装 [packagehtt]\n\t\nWidth [width]\n\t\n手感 [handfeel]\n\t\n收货人 [receiver]\n\t\n收胚粒数 [dlvrolls]\n\t\n收胚重量 [dlvweightqty]\n\t\n客户全称 [customercode]\n\t\n送货地址 [dlvaddress]\n\t\n客退原因 [ktyy]\n\t\n物流类型 [wllx]\n\t\n收发地点 [combo1]\n\t\n收胚运输编号 [spyspc]\n\t\nSemiOutSheetNo [semioutsheetno]\n\t\n物料屈戌 [a_a]\n\t\n单位 [unit]\n\t\n修改记录"
+  },
+  {
+    "entry": "GrayInWork",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n胚纱入库主表 · GrayInWork\n\n胚纱入库主表 · Bill · 70 个原字段配置\n\n打开对应原表 SourceDyeGrayIn\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n经营单位代码 [businessunitid]\n\t\n仓库代码 [warehouseid]\n\t\n业务组别 [salergroupid]\n\t\n录入码单明细否 [isinputrecord]\n\t\n单据类别 [sheetkind]\n\t\n胚纱类别 [graykindid]\n\t\n供应商代码 [supplierid]\n\t\nFactDlvNo [factdlvno]\n\t\n单位 [stockunit]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n打印次数 [printtimes]\n\t\n修改次数 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建时间 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n工作流节点号 [stepno]\n\t\n业务类别 [businesskind]\n\t\n客户名称 [customerid]\n\t\n加工商 [factid]\n\t\n司机 [driver]\n\t\n车牌号 [carno]\n\t\n班组 [shiftid]\n\t\nGeterID [geterid]\n\t\nGetDate [getdate]\n\t\nCheckerID [checkerid]\n\t\nDefectDate [defectdate]\n\t\nDefectShiftID [defectshiftid]\n\t\n业务员 [salerid]\n\t\n明细客户 [detailcustname]\n\t\nApproveDate [approvedate]\n\t\nApprover [approver]\n\t\n收货员 [takeover]\n\t\n搬运工1 [cargador1]\n\t\n搬运工2 [cargador2]\n\t\n搬运工3 [cargador3]\n\t\n送货地址 [cargador4]\n\t\n搬运工5 [cargador5]\n\t\n叉车1 [driver1]\n\t\n叉车2 [driver2]\n\t\n叉车3 [driver3]\n\t\n交胚人 [sender]\n\t\n装卸工1 [discharger1]\n\t\n装卸工2 [discharger2]\n\t\n水量 [water]\n\t\nIngredients [ingredients]\n\t\n过软 [toosoft]\n\t\nIsdecrement [isdecrement]\n\t\nLoss [loss]\n\t\n包装 [packagehtt]\n\t\nWidth [width]\n\t\n手感 [handfeel]\n\t\n收货人 [receiver]\n\t\n收胚粒数 [dlvrolls]\n\t\n收胚重量 [dlvweightqty]\n\t\n客户全称 [customercode]\n\t\n送货地址 [dlvaddress]\n\t\n客退原因 [ktyy]\n\t\n物流类型 [wllx]\n\t\n收发地点 [combo1]\n\t\n收胚运输编号 [spyspc]\n\t\nSemiOutSheetNo [semioutsheetno]\n\t\nA_A [a_a]\n\t\n单位 [unit]\n\t\n修"
+  },
+  {
+    "entry": "GrayStockToCheck",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n获取胚纱要盘点的数据 · GrayStockToCheck\n\n获取胚纱要盘点的数据 · BillList · 37 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nID [id]\n\t\nbIsselect [bisselect]\n\t\n规格编号 [code]\n\t\n入库单号 [sheetno]\n\t\n入库类型 [sheetkind]\n\t\n入库日期 [sheetdate]\n\t\n客户 [customerid]\n\t\n供应商 [supplierid]\n\t\n本厂规格 [grayid]\n\t\n批号 [lotno]\n\t\n物料分类 [insheetkind]\n\t\n捻度(H/S) [prefield1]\n\t\n物料颜色 [colorid]\n\t\n锭重 [fixedqty]\n\t\n采购单号 [purchaseorders]\n\t\n物料区域 [a_a]\n\t\n物料等级 [a_b]\n\t\nSalerGroupID [salergroupid]\n\t\nSalerID [salerid]\n\t\n仓库 [warehouseid]\n\t\nSemiKindID [semikindid]\n\t\n入库明细号 [recesheetno]\n\t\n单价 [price]\n\t\nStorageUnitID [storageunitid]\n\t\nRemarks [remarks]\n\t\n实际粒数 [realrolls]\n\t\n实际件数 [realpacks]\n\t\n实际长度 [reallengthqty]\n\t\n实际重量 [realweightqty]\n\t\n账面粒数 [paperrolls]\n\t\n账面件数 [paperpacks]\n\t\n账面长度 [paperlengthqty]\n\t\n账面数量 [paperweightqty]\n\t\n调整粒数 [adjustrolls]\n\t\n调整件数 [adjustpacks]\n\t\n调整长度 [adjustlengthqty]\n\t\n调整数量 [adjustweightqty]\n\t\n调整长度（试算） [AdjustLengthQty__formula]\n\t\n调整件数（试算） [AdjustPacks__formula]\n\t\n调整粒数（试算） [AdjustRolls__formula]\n\t\n调整数量（试算） [AdjustWeightQty__formula]\n22446a8d-6002-4f26-a6bc-5339d3829698\n\t\n0\n\t\nCONT-G\n\t\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONTB-C\n\t\n\t\nCONT-G\n\t\nCONT-LOT\n\t\n\t\n\t\n\t\n0\n\t\n\t\n\t\n\t\n\t\n\t\n0801\n\t\n\t\n\t\n0\n\t\n\t\n\t\n3.00\n\t\n0\n\t\n0.00\n\t\n30.00\n\t\n3.00\n\t\n0\n\t\n0.00\n\t\n30.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0\n\t\n0.00\n\t\n0.00\n1\n共 1 条\n原查询及差异依据"
+  },
+  {
+    "entry": "JiaNianGrayIn",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n加捻胚纱入库主表 · JiaNianGrayIn\n\n加捻胚纱入库主表 · Bill · 70 个原字段配置\n\n打开对应原表 SourceDyeGrayIn\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n经营单位代码 [businessunitid]\n\t\n仓库代码 [warehouseid]\n\t\n业务组别 [salergroupid]\n\t\n录入码单明细否 [isinputrecord]\n\t\n单据类别 [sheetkind]\n\t\n胚纱类别 [graykindid]\n\t\n供应商代码 [supplierid]\n\t\nFactDlvNo [factdlvno]\n\t\n单位 [stockunit]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n打印次数 [printtimes]\n\t\n修改次数 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建时间 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n工作流节点号 [stepno]\n\t\n业务类别 [businesskind]\n\t\n客户名称 [customerid]\n\t\n加工商 [factid]\n\t\n司机 [driver]\n\t\n车牌号 [carno]\n\t\n班组 [shiftid]\n\t\nGeterID [geterid]\n\t\nGetDate [getdate]\n\t\nCheckerID [checkerid]\n\t\nDefectDate [defectdate]\n\t\nDefectShiftID [defectshiftid]\n\t\n业务员 [salerid]\n\t\n明细客户 [detailcustname]\n\t\nApproveDate [approvedate]\n\t\nApprover [approver]\n\t\n收货员 [takeover]\n\t\n搬运工1 [cargador1]\n\t\n搬运工2 [cargador2]\n\t\n搬运工3 [cargador3]\n\t\n送货地址 [cargador4]\n\t\n搬运工5 [cargador5]\n\t\n叉车1 [driver1]\n\t\n叉车2 [driver2]\n\t\n叉车3 [driver3]\n\t\n交胚人 [sender]\n\t\n装卸工1 [discharger1]\n\t\n装卸工2 [discharger2]\n\t\n水量 [water]\n\t\nIngredients [ingredients]\n\t\n过软 [toosoft]\n\t\nIsdecrement [isdecrement]\n\t\nLoss [loss]\n\t\n包装 [packagehtt]\n\t\nWidth [width]\n\t\n手感 [handfeel]\n\t\n收货人 [receiver]\n\t\n收胚粒数 [dlvrolls]\n\t\n收胚重量 [dlvweightqty]\n\t\n客户全称 [customercode]\n\t\n送货地址 [dlvaddress]\n\t\n客退原因 [ktyy]\n\t\n物流类型 [wllx]\n\t\n收发地点 [combo1]\n\t\n收胚运输编号 [spyspc]\n\t\nSemiOutSheetNo [semioutsheetno]\n\t\nA_A [a_a]\n\t\n单位 [un"
+  },
+  {
+    "entry": "JobSheet",
+    "count": 2,
+    "expectedCount": 2,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n工卡主表（染整） · JobSheet\n\n工卡主表（染整） · Bill · 216 个原字段配置\n\n打开对应原表 SourceDyeJobSheet\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 2 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nOrderNum [ordernum]\n\t\n修改记录链接 [to_030218]\n\t\n订单数量 [sumorderqty]\n\t\nCombineQty [combineqty]\n\t\n客户单号 [str_custselfno]\n\t\n制单 [str_contractno]\n\t\n订单明细客户 [str_detailcustname]\n\t\n订单备注明细 [str_remarks]\n\t\n染色日期 [str_dlvdate]\n\t\n客户全称 [customercode]\n\t\n表单流水号 [sheetseries]\n\t\n缸号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n单据类别 [sheetkind]\n\t\n单据类型 [sheettype]\n\t\nJobKindID [jobkindid]\n\t\n订单明细号 [checkno]\n\t\n经营单位代码 [businessunitid]\n\t\n业务类别 [businesskind]\n\t\n客户代码 [customerid]\n\t\n明细客户 [detailcustname]\n\t\n业务组别 [salergroupid]\n\t\n业务员 [salerid]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n规格 [spec]\n\t\n组织 [structure]\n\t\n生产工艺编码 [productionid]\n\t\n联系人 [linker]\n\t\n库存单位 [stockunit]\n\t\n幅宽单位 [widthkindid]\n\t\n工厂代码 [factid]\n\t\n原工卡号 [orijobsheetno]\n\t\n颜色深浅 [colordepthid]\n\t\n颜色英文名 [colore]\n\t\n颜色 [colorid]\n\t\n色号 [colornum]\n\t\n花型号 [designno]\n\t\n连缸 [iscontinue]\n\t\n加急 [ishurry]\n\t\n特殊颜色 [isspeccolor]\n\t\n是否洗缸 [isspecvat]\n\t\n客户色号 [custcolornum]\n\t\n排单重量 [prevatqty]\n\t\n排单粒数 [prerolls]\n\t\nPrePacks [prepacks]\n\t\n实发重量 [sumassignedweightqty]\n\t\n实发粒数 [sumassignedrolls]\n\t\nSumAssignedPacks [sumassignedpacks]\n\t\n翻纱数量 [sumprocessqty]\n\t\n缸号 [vatno]\n\t\n交货日期 [dlvdate]\n\t\n结案日期 [finishdate]\n\t\n当前工序编码 [currprocessid]\n\t\n当前工序号 [currprocessno]\n\t\n当前站别编码 [currstationid]\n\t\n开始日期 [startdate]\n\t\n重修责任人 [redoempid]\n\t\n重修工序 [redoprocessid]\n\t\n重修原因代码 [redoreasonid]\n\t\n重修班组 [redoshiftid]\n\t\n生产车间代码 [workshopid]\n\t\n机型代码 [machinekindid]\n\t\nAssignUnit [assignunit]\n\t"
+  },
+  {
+    "entry": "KeTuiGrayIn",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n客退胚纱入库主表 · KeTuiGrayIn\n\n客退胚纱入库主表 · Bill · 70 个原字段配置\n\n打开对应原表 SourceDyeGrayIn\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n经营单位代码 [businessunitid]\n\t\n仓库代码 [warehouseid]\n\t\n业务组别 [salergroupid]\n\t\n录入码单明细否 [isinputrecord]\n\t\n单据类别 [sheetkind]\n\t\n胚纱类别 [graykindid]\n\t\n供应商代码 [supplierid]\n\t\nFactDlvNo [factdlvno]\n\t\n单位 [stockunit]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n打印次数 [printtimes]\n\t\n修改次数 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建时间 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n工作流节点号 [stepno]\n\t\n业务类别 [businesskind]\n\t\n客户名称 [customerid]\n\t\n加工商 [factid]\n\t\n司机 [driver]\n\t\n车牌号 [carno]\n\t\n班组 [shiftid]\n\t\nGeterID [geterid]\n\t\nGetDate [getdate]\n\t\nCheckerID [checkerid]\n\t\nDefectDate [defectdate]\n\t\nDefectShiftID [defectshiftid]\n\t\n业务员 [salerid]\n\t\n明细客户 [detailcustname]\n\t\nApproveDate [approvedate]\n\t\nApprover [approver]\n\t\n收货员 [takeover]\n\t\n搬运工1 [cargador1]\n\t\n搬运工2 [cargador2]\n\t\n搬运工3 [cargador3]\n\t\n送货地址 [cargador4]\n\t\n搬运工5 [cargador5]\n\t\n叉车1 [driver1]\n\t\n叉车2 [driver2]\n\t\n叉车3 [driver3]\n\t\n交胚人 [sender]\n\t\n装卸工1 [discharger1]\n\t\n装卸工2 [discharger2]\n\t\n水量 [water]\n\t\nIngredients [ingredients]\n\t\n过软 [toosoft]\n\t\nIsdecrement [isdecrement]\n\t\nLoss [loss]\n\t\n包装 [packagehtt]\n\t\nWidth [width]\n\t\n手感 [handfeel]\n\t\n收货人 [receiver]\n\t\n收胚粒数 [dlvrolls]\n\t\n收胚重量 [dlvweightqty]\n\t\n客户全称 [customercode]\n\t\n送货地址 [dlvaddress]\n\t\n客退原因 [ktyy]\n\t\n物流类型 [wllx]\n\t\n收发地点 [combo1]\n\t\n收胚运输编号 [spyspc]\n\t\nSemiOutSheetNo [semioutsheetno]\n\t\n物料区域 [a_a]\n\t\n单位 [uni"
+  },
+  {
+    "entry": "NormalStuffWeightPhaseDetailPrint",
+    "count": 7,
+    "expectedCount": 7,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": true,
+    "sample": "旧业务入口\n染料称料明细/染程（正常打印） · NormalStuffWeightPhaseDetailPrint\n\n染料称料明细/染程（正常打印） · Bill · 47 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n原公式来源调整依据\n\n本次完整结果 7 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n流程流水号 [phasesheetseries]\n\t\n流程序号 [phasephaseno]\n\t\n染程名称 [phaseid]\n\t\n浴比 [bathratio]\n\t\nPH值 [ph]\n\t\n工艺编码 [programid]\n\t\n水量 [waterqty]\n\t\n备注 [remarks]\n\t\nPrintTimes [printtimes]\n\t\n温度 [temperature]\n\t\n分钟 [minutes]\n\t\nMachineTypeID [machinetypeid]\n\t\nStepIndex [stepindex]\n\t\n明细流水号 [sheetseries]\n\t\n序号 [phaseno]\n\t\n染料序号 [stuffno]\n\t\n染化料名称 [stuffid]\n\t\n批号 [lotno]\n\t\n染化料类型 [stufftype]\n\t\n单价 [price]\n\t\n称料单位 [weightunit]\n\t\n比例 [dosage]\n\t\n配方单位 [recipeunit]\n\t\n领用量 [needqty]\n\t\n实际数量 [realqty]\n\t\n需求金额 [needmoney]\n\t\n实际金额 [realmoney]\n\t\n领料时间 [outtime]\n\t\n确认否 [isconfirmed]\n\t\n明细备注 [detailnote]\n\t\nAddScale [addscale]\n\t\nStatus [status]\n\t\nAddQty [addqty]\n\t\nOriNeedQty [orineedqty]\n\t\nOutDate [outdate]\n\t\nAddDosage [adddosage]\n\t\nAddNeedQty [addneedqty]\n\t\n金额 [money]\n\t\nCarryIndex [carryindex]\n\t\n落料号 [stepname]\n\t\nStepNo [stepno]\n\t\nIsFinished [isfinished]\n\t\nautosysids [autosysids]\n\t\noirdosage [oirdosage]\n\t\nadjustdosage [adjustdosage]\n\t\nweiUnit [weiunit]\n\t\nrepUnit [repunit]\n\t\nSelfDefineImage [selfdefineimage]\n\t\nNameE [namee]\n\t\n配送序号 [uitransindex]\n\t\n浴比（试算） [BathRatio__formula]\n\t\n金额（试算） [Money__formula]\n\t\n实际金额（试算） [RealMoney__formula]\nCONTB-W\n\t\n1\n\t\n〈NULL〉\n\t\n19.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONTB-W\n\t\n1\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n3.000000\n\t\nK\n\t\n-3.000000\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n-3.00\n\t\n〈NULL"
+  },
+  {
+    "entry": "OrderColor",
+    "count": 6,
+    "expectedCount": 6,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n订单颜色表 · OrderColor\n\n订单颜色表 · Bill · 146 个原字段配置\n\n打开对应原表 SourceDyeOrderColor\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 6 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n订单明细号 [checkno]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n规格 [spec]\n\t\n参考批号 [relalotno]\n\t\n颜色编码 [colorid]\n\t\n颜色英文名 [colore]\n\t\n色号 [colornum]\n\t\n花号 [designno]\n\t\n门幅下限 [widthdn]\n\t\n门幅上限 [widthup]\n\t\n幅宽种类 [widthkindid]\n\t\n克重下限 [weightdn]\n\t\n克重上限 [weightup]\n\t\n成品数量 [orderqty]\n\t\n订单粒数 [orderrolls]\n\t\n投坏数量 [grayqty]\n\t\n染整价格 [price]\n\t\n费用 [fee]\n\t\n金额 [amount]\n\t\n染色日期 [dlvdate]\n\t\n合计交货粒数 [sumdlvrolls]\n\t\n合计交货数量 [sumdlvqty]\n\t\n交货地点 [toplace]\n\t\n备注 [remarks]\n\t\n客户规格 [custselfproduct]\n\t\n颜色深浅 [colordepthid]\n\t\n客户色号 [custcolornum]\n\t\n工艺线路 [productionid]\n\t\n缸数 [cardqty]\n\t\n标准工艺号 [standcraftno]\n\t\n工艺审核状态 [craftcheck]\n\t\n技术审核状态 [techcheck]\n\t\n计划审核状态 [plancheck]\n\t\n客户规格 [custfabricname]\n\t\n明细客户 [detailcustname]\n\t\n客户单号 [contractno]\n\t\n制单号 [custselfno]\n\t\n客户单号明细 [custselfnodetail]\n\t\n主染料类别 [mainstuffkindid]\n\t\n协议交货日期 [finaldlvdate]\n\t\n打样安排 [istodosample]\n\t\n打样是否收费 [issamplecharge]\n\t\n工艺审核意见 [craftcheckidea]\n\t\n工艺审核时间 [craftchecktime]\n\t\n计划审核意见 [plancheckidea]\n\t\n计划审核时间 [planchecktime]\n\t\n技术审核意见 [techcheckidea]\n\t\n技术审核时间 [techchecktime]\n\t\n颜色RGB [colorrgb]\n\t\n合计成品粒数 [sumprodrolls]\n\t\n合计成品数量 [sumprodqty]\n\t\nIsContinue [iscontinue]\n\t\n是否要确认 [istoconfirmed]\n\t\n特殊颜色 [isspeccolor]\n\t\n小缸 [isspecvat]\n\t\n色卡份数 [colorcards]\n\t\n特殊事项 [atte]\n\t\n染色工艺分类 [programkindid]\n\t\n有头缸 [ishavefirstvat]\n\t\n对色面 [confirmsideid]\n\t\n另收费项目单价 [processprice]\n\t\n价格审核状态 [pricecheck]\n\t\n价格审核意见 [pricecheckidea]\n\t\n价格"
+  },
+  {
+    "entry": "OrderColorChange",
+    "count": 6,
+    "expectedCount": 6,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n订单颜色表（更改） · OrderColorChange\n\n订单颜色表（更改） · Bill · 128 个原字段配置\n\n打开对应原表 SourceDyeOrderColor\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 6 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n订单明细号 [checkno]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n规格 [spec]\n\t\n参考批号 [relalotno]\n\t\n颜色编码 [colorid]\n\t\n颜色英文名 [colore]\n\t\n色号 [colornum]\n\t\n花号 [designno]\n\t\n门幅下限 [widthdn]\n\t\n门幅上限 [widthup]\n\t\n幅宽种类 [widthkindid]\n\t\n克重下限 [weightdn]\n\t\n克重上限 [weightup]\n\t\n成品数量 [orderqty]\n\t\n订单粒数 [orderrolls]\n\t\n投坏数量 [grayqty]\n\t\n价格 [price]\n\t\n费用 [fee]\n\t\n金额 [amount]\n\t\n交货日期 [dlvdate]\n\t\n合计交货粒数 [sumdlvrolls]\n\t\n合计交货数量 [sumdlvqty]\n\t\n交货地点 [toplace]\n\t\n备注 [remarks]\n\t\n客户规格 [custselfproduct]\n\t\n颜色深浅 [colordepthid]\n\t\n客户色号 [custcolornum]\n\t\n工艺线路 [productionid]\n\t\n缸数 [cardqty]\n\t\n标准工艺号 [standcraftno]\n\t\n工艺审核状态 [craftcheck]\n\t\n技术审核状态 [techcheck]\n\t\n计划审核状态 [plancheck]\n\t\n客户品名 [custfabricname]\n\t\n明细客户 [detailcustname]\n\t\ncontractno [contractno]\n\t\n制单号 [custselfno]\n\t\ncustselfnodetail [custselfnodetail]\n\t\n主染料类别 [mainstuffkindid]\n\t\n协议交货日期 [finaldlvdate]\n\t\n打样安排 [istodosample]\n\t\n打样是否收费 [issamplecharge]\n\t\n工艺审核意见 [craftcheckidea]\n\t\n工艺审核时间 [craftchecktime]\n\t\n计划审核意见 [plancheckidea]\n\t\n计划审核时间 [planchecktime]\n\t\n技术审核意见 [techcheckidea]\n\t\n技术审核时间 [techchecktime]\n\t\n颜色RGB [colorrgb]\n\t\n合计成品粒数 [sumprodrolls]\n\t\n合计成品数量 [sumprodqty]\n\t\n连缸 [iscontinue]\n\t\n是否要确认 [istoconfirmed]\n\t\n特殊颜色 [isspeccolor]\n\t\n小缸 [isspecvat]\n\t\n色卡份数 [colorcards]\n\t\n特殊事项 [atte]\n\t\n染色工艺分类 [programkindid]\n\t\n有头缸 [ishavefirstvat]\n\t\n对色面 [confirmsideid]\n\t\n收费工序单价 [processprice]\n\t\n价格审核状态 [pricecheck]\n\t\n价格审核意见 [p"
+  },
+  {
+    "entry": "OrderColorSup",
+    "count": 6,
+    "expectedCount": 6,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n订单颜色表（补单） · OrderColorSup\n\n订单颜色表（补单） · Bill · 127 个原字段配置\n\n打开对应原表 SourceDyeOrderColor\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 6 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n订单明细号 [checkno]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n规格 [spec]\n\t\n参考批号 [relalotno]\n\t\n颜色编码 [colorid]\n\t\n颜色英文名 [colore]\n\t\n色号 [colornum]\n\t\n花号 [designno]\n\t\n门幅下限 [widthdn]\n\t\n门幅上限 [widthup]\n\t\n幅宽种类 [widthkindid]\n\t\n克重下限 [weightdn]\n\t\n克重上限 [weightup]\n\t\n成品数量 [orderqty]\n\t\n订单粒数 [orderrolls]\n\t\n投坏数量 [grayqty]\n\t\n价格 [price]\n\t\n费用 [fee]\n\t\n金额 [amount]\n\t\n交货日期 [dlvdate]\n\t\n合计交货粒数 [sumdlvrolls]\n\t\n合计交货数量 [sumdlvqty]\n\t\n交货地点 [toplace]\n\t\n备注 [remarks]\n\t\n客户规格 [custselfproduct]\n\t\n颜色深浅 [colordepthid]\n\t\n客户色号 [custcolornum]\n\t\n工艺线路 [productionid]\n\t\n缸数 [cardqty]\n\t\n标准工艺号 [standcraftno]\n\t\n工艺审核状态 [craftcheck]\n\t\n技术审核状态 [techcheck]\n\t\n计划审核状态 [plancheck]\n\t\n客户品名 [custfabricname]\n\t\n明细客户 [detailcustname]\n\t\ncontractno [contractno]\n\t\n制单号 [custselfno]\n\t\ncustselfnodetail [custselfnodetail]\n\t\n主染料类别 [mainstuffkindid]\n\t\n协议交货日期 [finaldlvdate]\n\t\n打样安排 [istodosample]\n\t\n打样是否收费 [issamplecharge]\n\t\n工艺审核意见 [craftcheckidea]\n\t\n工艺审核时间 [craftchecktime]\n\t\n计划审核意见 [plancheckidea]\n\t\n计划审核时间 [planchecktime]\n\t\n技术审核意见 [techcheckidea]\n\t\n技术审核时间 [techchecktime]\n\t\n颜色RGB [colorrgb]\n\t\n合计成品粒数 [sumprodrolls]\n\t\n合计成品数量 [sumprodqty]\n\t\n连缸 [iscontinue]\n\t\n是否要确认 [istoconfirmed]\n\t\n特殊颜色 [isspeccolor]\n\t\n小缸 [isspecvat]\n\t\n色卡份数 [colorcards]\n\t\n特殊事项 [atte]\n\t\n染色工艺分类 [programkindid]\n\t\n有头缸 [ishavefirstvat]\n\t\n对色面 [confirmsideid]\n\t\n收费工序单价 [processprice]\n\t\n价格审核状态 [pricecheck]\n\t\n价格审核意见 [pric"
+  },
+  {
+    "entry": "p_MachineFaultClass",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n故障类别 · p_MachineFaultClass\n\n故障类别 · Basic · 7 个原字段配置\n\n打开对应原表 SourceDyePMachineFaultClass\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n唯一ID [recordid]\n\t\n序号 [sortno]\n\t\n一级分类 [class1]\n\t\n二级分类 [class2]\n\t\n三级分类 [class3]\n\t\n维修分组 [empgroup]\n\t\n值 [value]\n\t\n值（试算） [value__formula]\nc3da7e53-357c-44c7-9486-90c46501231a\n\t\nCONT\n\t\n机械\n\t\n泵\n\t\n漏液\n\t\nCONT\n\t\n机械/泵/漏液\n\t\n机械/泵/漏液\n1\n共 1 条\n原查询及差异依据"
+  },
+  {
+    "entry": "PrintOrderColor",
+    "count": 6,
+    "expectedCount": 6,
+    "countMatches": true,
+    "differenceHeading": "逐行公式差异（10）",
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n订单颜色表 · PrintOrderColor\n\n订单颜色表 · Bill · 116 个原字段配置\n\n打开对应原表 SourceDyeOrderColor\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n逐行公式差异（10）\n\n本次完整结果 6 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n订单明细号 [checkno]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n规格 [spec]\n\t\n参考批号 [relalotno]\n\t\n颜色编码 [colorid]\n\t\n颜色英文名 [colore]\n\t\n底色色号 [colornum]\n\t\n花号 [designno]\n\t\n门幅下限 [widthdn]\n\t\n门幅上限 [widthup]\n\t\n门幅种类 [widthkindid]\n\t\n克重下限 [weightdn]\n\t\n克重上限 [weightup]\n\t\n成品数量 [orderqty]\n\t\n订单粒数 [orderrolls]\n\t\n投坏数量 [grayqty]\n\t\n价格 [price]\n\t\n费用 [fee]\n\t\n金额 [amount]\n\t\n交货日期 [dlvdate]\n\t\n合计交货粒数 [sumdlvrolls]\n\t\n合计交货数量 [sumdlvqty]\n\t\n交货地点 [toplace]\n\t\n备注 [remarks]\n\t\n客户规格 [custselfproduct]\n\t\n颜色深浅 [colordepthid]\n\t\n客户色号 [custcolornum]\n\t\n工艺线路 [productionid]\n\t\n缸数 [cardqty]\n\t\n标准工艺号 [standcraftno]\n\t\n工艺审核状态 [craftcheck]\n\t\n技术审核状态 [techcheck]\n\t\n计划审核状态 [plancheck]\n\t\n客户品名 [custfabricname]\n\t\n明细客户 [detailcustname]\n\t\ncontractno [contractno]\n\t\n制单号 [custselfno]\n\t\ncustselfnodetail [custselfnodetail]\n\t\n主染料类别 [mainstuffkindid]\n\t\n协议交货日期 [finaldlvdate]\n\t\n打样安排 [istodosample]\n\t\n打样是否收费 [issamplecharge]\n\t\n工艺审核意见 [craftcheckidea]\n\t\n工艺审核时间 [craftchecktime]\n\t\n计划审核意见 [plancheckidea]\n\t\n计划审核时间 [planchecktime]\n\t\n技术审核意见 [techcheckidea]\n\t\n技术审核时间 [techchecktime]\n\t\n颜色RGB [colorrgb]\n\t\n合计成品粒数 [sumprodrolls]\n\t\n合计成品数量 [sumprodqty]\n\t\n连缸 [iscontinue]\n\t\n是否要确认 [istoconfirmed]\n\t\n特殊颜色 [isspeccolor]\n\t\n小缸 [isspecvat]\n\t\n色卡份数 [colorcards]\n\t\n特殊事项 [atte]\n\t\n染色工艺分类 [programkindid]\n\t\n有头缸 [ishavefirstvat]\n\t\n对色面 [confirmsideid]\n\t\n收费工序单价 [processprice]\n\t\n价格审核状态 [pricecheck]\n\t\n价格审核"
+  },
+  {
+    "entry": "ProdOutRecord",
+    "count": 3,
+    "expectedCount": 3,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n成品出库条码 · ProdOutRecord\n\n成品出库条码 · Bill · 26 个原字段配置\n\n打开对应原表 SourceDyeProdOutRecord\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 3 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n出库单流水号 [sheetseries]\n\t\n箱号 [rollno]\n\t\n成品长度 [lengthqty]\n\t\n毛重 [weightqty]\n\t\n库位 [storageunitid]\n\t\n状态 [status]\n\t\nOutDetailNo [outdetailno]\n\t\n条码 [barcode]\n\t\n色号等级 [gradeid]\n\t\n胚纱重量 [grayqty]\n\t\nAdjustQty [adjustqty]\n\t\n出库明细号 [detailno]\n\t\n实重 [realqty]\n\t\n长度 [meter]\n\t\n胚纱长度 [yard]\n\t\nGrayBarCode [graybarcode]\n\t\n箱号2 [rollno3]\n\t\nGUnit [gunit]\n\t\nPUnit [punit]\n\t\n粒数 [rolls]\n\t\nGKg [gkg]\n\t\nGPound [gpound]\n\t\nPKg [pkg]\n\t\nPPound [ppound]\n\t\n箱号2 [rollno2]\n\t\nYSD [ysd]\n\t\nGKg（试算） [GKg__formula]\n\t\nGPound（试算） [GPound__formula]\n\t\nPKg（试算） [PKg__formula]\n\t\nPPound（试算） [PPound__formula]\n\t\n箱号2（试算） [RollNo2__formula]\nCONT-PROD\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n2.0\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0.9071940488070398258187426290\n\t\n4.40920\n\t\nCONT-DUP\n\n\nCONT-PROD\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n2.0\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0.9071940488070398258187426290\n\t\n4.40920\n\t\nCONT-DUP\n\n\nCONT-PROD\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n-3.0\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t"
+  },
+  {
+    "entry": "ProdOutRecordUpdate",
+    "count": 3,
+    "expectedCount": 3,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n成品出库条码（订单调整） · ProdOutRecordUpdate\n\n成品出库条码（订单调整） · Bill · 26 个原字段配置\n\n打开对应原表 SourceDyeProdOutRecord\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 3 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n出库单流水号 [sheetseries]\n\t\n箱号 [rollno]\n\t\n成品长度 [lengthqty]\n\t\n毛重 [weightqty]\n\t\n库位 [storageunitid]\n\t\n状态 [status]\n\t\nOutDetailNo [outdetailno]\n\t\n条码 [barcode]\n\t\n色号等级 [gradeid]\n\t\n胚纱重量 [grayqty]\n\t\nAdjustQty [adjustqty]\n\t\n出库明细号 [detailno]\n\t\n实重 [realqty]\n\t\n长度 [meter]\n\t\n胚纱长度 [yard]\n\t\nGrayBarCode [graybarcode]\n\t\n箱号2 [rollno3]\n\t\nGUnit [gunit]\n\t\nPUnit [punit]\n\t\n粒数 [rolls]\n\t\nGKg [gkg]\n\t\nGPound [gpound]\n\t\nPKg [pkg]\n\t\nPPound [ppound]\n\t\n箱号2 [rollno2]\n\t\nYSD [ysd]\n\t\nGKg（试算） [GKg__formula]\n\t\nGPound（试算） [GPound__formula]\n\t\nPKg（试算） [PKg__formula]\n\t\nPPound（试算） [PPound__formula]\n\t\n箱号2（试算） [RollNo2__formula]\nCONT-PROD\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n2.0\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0.9071940488070398258187426290\n\t\n4.40920\n\t\nCONT-DUP\n\n\nCONT-PROD\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n2.0\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0.9071940488070398258187426290\n\t\n4.40920\n\t\nCONT-DUP\n\n\nCONT-PROD\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n-3.0\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONT-DUP\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈"
+  },
+  {
+    "entry": "ProdStocktoCheck",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n成品盘点数据 · ProdStocktoCheck\n\n成品盘点数据 · BillList · 19 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nGUID [guid]\n\t\n事业部 [businessunitid]\n\t\n客户 [customerid]\n\t\n仓库 [warehouseid]\n\t\n本厂规格 [prodid]\n\t\n缸号 [jobsheetno]\n\t\n颜色 [colorid]\n\t\n色号 [colornum]\n\t\n单位 [stockunit]\n\t\n盘点粒数 [realrolls]\n\t\n盘点长度 [reallengthqty]\n\t\n盘点重量 [realweightqty]\n\t\n账面粒数 [paperrolls]\n\t\n账面长度 [paperlengthqty]\n\t\n账面重量 [paperweightqty]\n\t\n调整粒数 [adjustrolls]\n\t\n调整长度 [adjustlengthqty]\n\t\n调整重量 [adjustweightqty]\n\t\n客户规格 [custselfproduct]\n\t\n调整长度（试算） [AdjustLengthQty__formula]\n\t\n调整粒数（试算） [AdjustRolls__formula]\n\t\n调整重量（试算） [AdjustWeightQty__formula]\n915cb107-28fe-44ee-aca4-405e2a67eceb\n\t\n〈NULL〉\n\t\nCONTB-C\n\t\n0803\n\t\nCONT-G\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n\t\n3.00\n\t\n0.00\n\t\n30.00\n\t\n3.00\n\t\n0.00\n\t\n30.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n〈NULL〉\n\t\n0.00\n\t\n0.00\n\t\n0.00\n1\n共 1 条\n原查询及差异依据"
+  },
+  {
+    "entry": "PurGrayIn",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n胚纱入库主表(采购) · PurGrayIn\n\n胚纱入库主表(采购) · Bill · 70 个原字段配置\n\n打开对应原表 SourceDyeGrayIn\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n经营单位代码 [businessunitid]\n\t\n仓库代码 [warehouseid]\n\t\n业务组别 [salergroupid]\n\t\n录入码单明细否 [isinputrecord]\n\t\n单据类别 [sheetkind]\n\t\n胚纱类别 [graykindid]\n\t\n供应商代码 [supplierid]\n\t\nFactDlvNo [factdlvno]\n\t\n单位 [stockunit]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n打印次数 [printtimes]\n\t\n修改次数 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建时间 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n工作流节点号 [stepno]\n\t\n业务类别 [businesskind]\n\t\n客户名称 [customerid]\n\t\n加工商 [factid]\n\t\n司机 [driver]\n\t\n车牌号 [carno]\n\t\n班组 [shiftid]\n\t\nGeterID [geterid]\n\t\nGetDate [getdate]\n\t\nCheckerID [checkerid]\n\t\nDefectDate [defectdate]\n\t\nDefectShiftID [defectshiftid]\n\t\n业务员 [salerid]\n\t\n明细客户 [detailcustname]\n\t\nApproveDate [approvedate]\n\t\nApprover [approver]\n\t\n收货员 [takeover]\n\t\n搬运工1 [cargador1]\n\t\n搬运工2 [cargador2]\n\t\n搬运工3 [cargador3]\n\t\n送货地址 [cargador4]\n\t\n搬运工5 [cargador5]\n\t\n叉车1 [driver1]\n\t\n叉车2 [driver2]\n\t\n叉车3 [driver3]\n\t\n交胚人 [sender]\n\t\n装卸工1 [discharger1]\n\t\n装卸工2 [discharger2]\n\t\n水量 [water]\n\t\nIngredients [ingredients]\n\t\n过软 [toosoft]\n\t\nIsdecrement [isdecrement]\n\t\nLoss [loss]\n\t\n包装 [packagehtt]\n\t\nWidth [width]\n\t\n手感 [handfeel]\n\t\n收货人 [receiver]\n\t\n收胚粒数 [dlvrolls]\n\t\n收胚重量 [dlvweightqty]\n\t\n客户全称 [customercode]\n\t\n送货地址 [dlvaddress]\n\t\n客退原因 [ktyy]\n\t\n物流类型 [wllx]\n\t\n收发地点 [combo1]\n\t\n收胚运输编号 [spyspc]\n\t\nSemiOutSheetNo [semioutsheetno]\n\t\nA_A [a_a]\n\t\n单位 [un"
+  },
+  {
+    "entry": "qry_DyeColorNum",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n未打样色号 · qry_DyeColorNum\n\n未打样色号 · Bill · 65 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nSheetSeries [sheetseries]\n\t\nColorNo [colorno]\n\t\nCheckNo [checkno]\n\t\nLabDipsSource [labdipssource]\n\t\n本厂规格 [prodid]\n\t\nLotNo [lotno]\n\t\nSpec [spec]\n\t\n颜色深浅 [colordepthid]\n\t\n颜色 [colorid]\n\t\n色号 [colornum]\n\t\nColorE [colore]\n\t\n客户色号 [custcolornum]\n\t\nRGB值 [colorrgb]\n\t\nPrice [price]\n\t\n是否套染 [mainstuffkindid]\n\t\nIsToDoSample [istodosample]\n\t\nColorCards [colorcards]\n\t\nStatus [status]\n\t\nStartTime [starttime]\n\t\nLimitHours [limithours]\n\t\nOverTimeReason [overtimereason]\n\t\nShiftID [shiftid]\n\t\n打样员 [empid]\n\t\nWorkQty [workqty]\n\t\nRedoTimes [redotimes]\n\t\n原色号明细 [oricolorno]\n\t\nOriEmpID [oriempid]\n\t\nOriShifID [orishifid]\n\t\n缸号 [jobsheetno]\n\t\n备注 [remarks]\n\t\nWidth [width]\n\t\nWeight [weight]\n\t\n客户规格 [custselfproduct]\n\t\n颜色代号 [colormark]\n\t\n色号类型 [colornummark]\n\t\nR [r]\n\t\nG [g]\n\t\nB [b]\n\t\nRGB [rgb]\n\t\n客户 [customerid]\n\t\n创建日期 [createdate]\n\t\n创建人 [creater]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n确板开卡时间 [oktime]\n\t\n开卡时间 [endtime]\n\t\n跟单员 [salerid]\n\t\n确板 [colornumno]\n\t\n是否开卡 [isorder]\n\t\nIsOrderTime [isordertime]\n\t\n打样要求 [cusremark]\n\t\n送版日期 [istosampledate]\n\t\n主光源 [verlight1id]\n\t\n副光源 [verlight2id]\n\t\n染化料用量 [stuffdosage]\n\t\n染色工艺 [dyephasename]\n\t\n高牢度 [gaolaodu]\n\t\n配方 [note]\n\t\n待排打板 [daipaidaban]\n\t\n对色落缸 [duiseluogang]\n\t\n打板批色 [dabanpise]\n\t\n打板需求 [kindtype]\n\t\nIsDoubleDye [isdoubledye]\n\t\n色号等级 [gradeid]\n\t\ncostquote [costquote]\n\t\n客户名称 [customercode]\n\t\nRGB（试算） [RGB__formula]\n〈NULL〉\n\t\nCONT-COLOR\n\t\n〈NULL〉\n\t\n〈N"
+  },
+  {
+    "entry": "qry_OriJobSheet",
+    "count": 2,
+    "expectedCount": 2,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n回修卡原卡主表 · qry_OriJobSheet\n\n回修卡原卡主表 · Query · 211 个原字段配置\n\n打开对应原表 SourceDyeJobSheet\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 2 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n单据类别 [sheetkind]\n\t\n单据类型 [sheettype]\n\t\n流程卡类别 [jobkindid]\n\t\n订单明细号 [checkno]\n\t\n经营单位代码 [businessunitid]\n\t\n业务类别 [businesskind]\n\t\n客户代码 [customerid]\n\t\n明细客户 [detailcustname]\n\t\n业务组别 [salergroupid]\n\t\n业务员 [salerid]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n规格 [spec]\n\t\n组织 [structure]\n\t\n生产工艺编码 [productionid]\n\t\n联系人 [linker]\n\t\n库存单位 [stockunit]\n\t\n门幅种类 [widthkindid]\n\t\n工厂代码 [factid]\n\t\n原工卡号 [orijobsheetno]\n\t\n颜色深浅 [colordepthid]\n\t\n颜色英文名 [colore]\n\t\n颜色代码 [colorid]\n\t\n色号 [colornum]\n\t\n花型号 [designno]\n\t\n连缸 [iscontinue]\n\t\n加急 [ishurry]\n\t\n特殊颜色 [isspeccolor]\n\t\n小缸 [isspecvat]\n\t\n客户色号 [custcolornum]\n\t\n排单数量 [prevatqty]\n\t\n排单粒数 [prerolls]\n\t\nprepacks [prepacks]\n\t\n实发数量 [sumassignedweightqty]\n\t\n实发粒数 [sumassignedrolls]\n\t\nsumassignedpacks [sumassignedpacks]\n\t\n翻纱数量 [sumprocessqty]\n\t\n缸号 [vatno]\n\t\n交货时间 [dlvdate]\n\t\n完工时间 [finishdate]\n\t\n当前工序代码 [currprocessid]\n\t\n当前工序序号 [currprocessno]\n\t\n当前站别代码 [currstationid]\n\t\n开始时间 [startdate]\n\t\n回修责任人 [redoempid]\n\t\n回修工序 [redoprocessid]\n\t\n回修原因 [redoreasonid]\n\t\n回修责任班组 [redoshiftid]\n\t\n生产车间代码 [workshopid]\n\t\n机型代码 [machinekindid]\n\t\n配纱方式 [assignunit]\n\t\n原订单流水 [oriorderseries]\n\t\n翻纱粒数 [sumprocessrolls]\n\t\n标签代码 [labelid]\n\t\n制单号 [custselfno]\n\t\n客户规格 [custselfproduct]\n\t\nCraftCheck [craftcheck]\n\t\n订单号 [ordersheetno]\n\t\nNextProcessID [nextprocessid]\n\t\nNextStationID [nextstationid]\n\t\nProgramID "
+  },
+  {
+    "entry": "qry_QuoteRelaRecipe",
+    "count": 3,
+    "expectedCount": 3,
+    "countMatches": true,
+    "differenceHeading": "逐行公式差异（3）",
+    "hasFormulaColumns": true,
+    "hasSourceResolution": true,
+    "sample": "旧业务入口\n报价单相关配方信息 · qry_QuoteRelaRecipe\n\n报价单相关配方信息 · Query · 83 个原字段配置\n\n打开对应原表 SourceDyeDyeRecipe\n\n本入口采用 DyeRecipe：原联查中的DeptID对应配方表头DyeRecipe；编辑选定表头原行，原染程和物料查询不合并、不回写。\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n原公式来源调整依据\n逐行公式差异（3）\n\n本次完整结果 3 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n缸号 [jobsheetno]\n\t\n染程序号 [phasephaseno]\n\t\n染化料序号 [phasestuffno]\n\t\n明细流水号 [sheetseries]\n\t\n配方编号 [sheetno]\n\t\n配方类型 [sheetkind]\n\t\n配方料单类别 [sheettype]\n\t\n单据日期 [sheetdate]\n\t\n经营单位 [businessunitid]\n\t\n部门 [deptid]\n\t\n客户 [customerid]\n\t\n业务员 [salerid]\n\t\n订单明细号 [checkno]\n\t\n工序名称 [processid]\n\t\n染化料主料类别 [mainstuffkindid]\n\t\n任务颜色明细号 [colorno]\n\t\n颜色 [colorid]\n\t\n色号 [colornum]\n\t\n英文名称 [colore]\n\t\n颜色RGB [colorrgb]\n\t\n颜色深浅 [colordepthid]\n\t\n客户色号 [custcolornum]\n\t\nCIE色度L值 [l]\n\t\nCIE色度A值 [a]\n\t\nCIE色度B值 [b]\n\t\n原配方编号 [orirecipesheetno]\n\t\n本厂规格 [prodid]\n\t\n规格 [spec]\n\t\n批号 [lotno]\n\t\n组织 [structure]\n\t\n交货地址 [toplace]\n\t\n单价源 [recipepricesource]\n\t\n成本 [cost]\n\t\n成本单位 [costunit]\n\t\n是否头缸 [ishavefirstvat]\n\t\n检验员 [checkerid]\n\t\n复样员 [makerid]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n节点号 [stepno]\n\t\n打印次数 [printtimes]\n\t\n修改次数 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建日期 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n审核日期 [approvedate]\n\t\n审核人 [approver]\n\t\n成品类别 [prodkindid]\n\t\n标准配方号 [standrecipeno]\n\t\n色版号 [colorversion]\n\t\n光源1 [verlight1id]\n\t\ncustselfproduct [custselfproduct]\n\t\ngradeid [gradeid]\n\t\ncolornummark [colornummark]\n\t\ndepthe [depthe]\n\t\nrevise [revise]\n\t\nfluorescence [fluorescence]\n\t\noricolorno [oricolorno]\n\t\nwhether [whether]\n\t\nstaff [staff]\n\t\n明细流水号 [sheetseries]\n"
+  },
+  {
+    "entry": "qry_QuoteRelaStuff",
+    "count": 7,
+    "expectedCount": 7,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": true,
+    "sample": "旧业务入口\n报价单相关料单信息 · qry_QuoteRelaStuff\n\n报价单相关料单信息 · Query · 111 个原字段配置\n\n打开对应原表 SourceDyeStuffWeight\n\n本入口采用 StuffWeight：原联查中的Creater/DeptID对应料单表头StuffWeight；编辑选定表头，原染程和物料查询不合并、不回写。\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n原公式来源调整依据\n\n本次完整结果 7 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n流程序号 [phasephaseno]\n\t\nPhaseStuffNo [phasestuffno]\n\t\n明细流水号 [sheetseries]\n\t\n称料单号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n单据类型 [sheetkind]\n\t\n配方类型 [recipetype]\n\t\n部门 [deptid]\n\t\n经营单位 [businessunitid]\n\t\n客户 [customerid]\n\t\n明细客户 [detailcustname]\n\t\n本厂规格 [prodid]\n\t\n规格 [spec]\n\t\n批号 [lotno]\n\t\n颜色 [colorid]\n\t\n色号 [colornum]\n\t\n胚重 [clothqtykg]\n\t\n减量率 [subrate]\n\t\n胚纱净重 [clothnetkg]\n\t\n成本 [cost]\n\t\n粒数 [rolls]\n\t\n单价 [price]\n\t\n缸号 [jobsheetno]\n\t\n配方单号 [recipesheetno]\n\t\n工序名称 [processid]\n\t\n接收人 [receiver]\n\t\n最后领料日期 [finishdate]\n\t\n是否头缸 [isfirstvat]\n\t\n仓库名称 [warehouseid]\n\t\n班别 [shiftid]\n\t\n机台 [machineno]\n\t\n单据状态 [sheetstatus]\n\t\n节点号 [stepno]\n\t\n打印次数 [printtimes]\n\t\n修改人 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建日期 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n审核日期 [approvedate]\n\t\n审核人 [approver]\n\t\nWeighterID [weighterid]\n\t\nRightStatus [rightstatus]\n\t\nStandRecipeNo [standrecipeno]\n\t\n幅宽 [width]\n\t\nStartTime [starttime]\n\t\nCompleteTime [completetime]\n\t\nLastTime [lasttime]\n\t\nSpeed [speed]\n\t\nPressure1 [pressure1]\n\t\nPressure2 [pressure2]\n\t\nPressure3 [pressure3]\n\t\nWeight1 [weight1]\n\t\nWeight2 [weight2]\n\t\nWeight3 [weight3]\n\t\nMoisture1 [moisture1]\n\t\nMoisture2 [moisture2]\n\t\nMoisture3 [moisture3]\n\t\nTakeRate1 [takerate1]\n\t\nTakeRate2 [takerate2]\n\t\nTakeRate3 [takera"
+  },
+  {
+    "entry": "qry_SemiStockToCarryMaterial",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n半成品当前库存转提料单 · qry_SemiStockToCarryMaterial\n\n半成品当前库存转提料单 · Query · 22 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nID [id]\n\t\n半成品类别 [yarncategory]\n\t\n入库明细号 [recesheetno]\n\t\n客户 [customerid]\n\t\n供应商 [supplierid]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n物料分类 [insheetkind]\n\t\n物料颜色 [colorid]\n\t\n采购单号 [purchaseorders]\n\t\n锭重 [fixedqty]\n\t\n物料区域 [a_a]\n\t\n物料等级 [a_b]\n\t\n捻度(H/S) [prefield1]\n\t\n件数 [packs]\n\t\n粒数 [rolls]\n\t\n长度 [lengthqty]\n\t\n重量 [weightqty]\n\t\n需求粒数 [uprolls]\n\t\n需求重量 [upweightqty]\n\t\n排单粒数 [pdrolls]\n\t\n排单重量 [pdqty]\n\t\n需求重量（试算） [UpWeightQty__formula]\n644ba459-0d11-4001-9b8b-29e5805854bf\n\t\n客户来纱\n\t\nB00001\n\t\nCONTB-C\n\t\n〈NULL〉\n\t\nCONT-G\n\t\nCONT-LOT\n\t\n\t\n\t\n\t\n0\n\t\n\t\n\t\n\t\n0.00\n\t\n3.00\n\t\n0.00\n\t\n30.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n1\n共 1 条\n原查询及差异依据"
+  },
+  {
+    "entry": "QueryRecordCheck",
+    "count": 6,
+    "expectedCount": 6,
+    "countMatches": true,
+    "differenceHeading": "逐行公式差异（8）",
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\nQC匹号信息 · QueryRecordCheck\n\nQC匹号信息 · Bill · 147 个原字段配置\n\n打开对应原表 SourceDyeRecordYield\n\n本入口采用 RecordYield：原写入表RecordYieldCheck在最新旧结构中不存在；展示A.*来自RecordYield，SpecDefects/Weight/Width均实际存在。明确采用选定包装原行，不冒充找回旧写入表。\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n逐行公式差异（8）\n\n本次完整结果 6 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nGuid [guid]\n\t\nBarCode [barcode]\n\t\n机台号 [machineid]\n\t\n箱号 [rollno]\n\t\n单位 [unit]\n\t\nrolls [rolls]\n\t\n千克 [kg]\n\t\n米数 [meter]\n\t\n镑数 [pound]\n\t\n码数 [yard]\n\t\n真实数量 [realqty]\n\t\n仓位代码 [storageunitid]\n\t\n疵点数量 [defectcount]\n\t\n疵点扣分 [dots]\n\t\n状态 [status]\n\t\n色号等级 [gradeid]\n\t\n检验时间 [packtime]\n\t\n员工编号 [empid]\n\t\n筒管重 [tubeweight]\n\t\n筒管数 [tubes]\n\t\n厚度 [thick]\n\t\n门幅 [width]\n\t\n包装形式代码 [packid]\n\t\n纬斜 [bowing]\n\t\n验货意见 [remarks]\n\t\n缸号 [jobsheetno]\n\t\n补码 [addqty]\n\t\nSampleQty [sampleqty]\n\t\n开剪 [cutqty]\n\t\nCutTimes [cuttimes]\n\t\n门幅 [fullwidth]\n\t\nT1 [t1]\n\t\nT2 [t2]\n\t\nT3 [t3]\n\t\nT4 [t4]\n\t\nT5 [t5]\n\t\nQ1 [q1]\n\t\nQ2 [q2]\n\t\nQ3 [q3]\n\t\nQ4 [q4]\n\t\nQ5 [q5]\n\t\nQ6 [q6]\n\t\nQ7 [q7]\n\t\nQ8 [q8]\n\t\nQ9 [q9]\n\t\nQ10 [q10]\n\t\nQ11 [q11]\n\t\nQ12 [q12]\n\t\nQ13 [q13]\n\t\nQ14 [q14]\n\t\nQ15 [q15]\n\t\n批号 [lotno]\n\t\nColorNum [colornum]\n\t\nInSheetNo [insheetno]\n\t\n原长 [custqty]\n\t\nCustomerID [customerid]\n\t\nLabelID [labelid]\n\t\n克重 [weight]\n\t\nColorDiff [colordiff]\n\t\nModifyDate [modifydate]\n\t\nModifyer [modifyer]\n\t\n降等原因 [gradereasonid]\n\t\nStandardWidth [standardwidth]\n\t\n明细客户 [detailcustname]\n\t\nOriDetailCustomer [oridetailcustomer]\n\t\nOrderSheetNo [ordersheetno]\n\t\nOriOderSheetNo [oriodersheetno]\n\t\nQCResultID [qcresultid]\n\t\n主单号 [mainno]\n\t\n明细单号 [detailno]\n\t\n本厂规格 [prodid]\n\t\nDefectEmpID [defect"
+  },
+  {
+    "entry": "QueryWorkList2",
+    "count": 2,
+    "expectedCount": 2,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\nQC检验信息2 · QueryWorkList2\n\nQC检验信息2 · Bill · 43 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 2 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nsales [sales]\n\t\nSheetSeries [sheetseries]\n\t\n流转卡号 [sheetno]\n\t\n明细号 [detailno]\n\t\n本廠批號 [mainno]\n\t\n客户合同号 [orderno]\n\t\n客户编码 [customerid]\n\t\n审核人 [approver]\n\t\nCutomerID_R [cutomerid_r]\n\t\n纱类 [fabric]\n\t\n色号 [colornum]\n\t\n颜色 [color]\n\t\n总评语 [memo]\n\t\n审核状态 [rightstatus]\n\t\n纱封 [width]\n\t\n重量 [weightqty]\n\t\n备注 [remarks]\n\t\n标签 [labelid]\n\t\n克重 [weight]\n\t\n回后克重 [prodweight]\n\t\n纱封 [width]\n\t\n回后间距 [prodrepeatcnt]\n\t\n回后斜纹 [prodskewing]\n\t\n回后幅宽 [prodwidth]\n\t\nSheetDate [sheetdate]\n\t\nIsOver [isover]\n\t\n粒数 [rolls]\n\t\n排单数量 [prevatqty]\n\t\n已检粒数 [recordcnt]\n\t\n已检重量 [prodkg]\n\t\n已检长度（码） [lengthqyt]\n\t\n总扣分 [dots]\n\t\nPDots [pdots]\n\t\nPlengthQyt [plengthqyt]\n\t\nPRolls [prolls]\n\t\nPkg [pkg]\n\t\n审核人 [checker]\n\t\nShippingMarkID [shippingmarkid]\n\t\n客户评级标准 [gradedots]\n\t\n扣分标准 [checkdots]\n\t\n等级 [grade]\n\t\n整缸百码扣分 [yavgdots]\n\t\n净损耗率 [f_loss]\n\t\n总扣分（试算） [Dots__formula]\n\t\nPkg（试算） [Pkg__formula]\n\t\nPlengthQyt（试算） [PlengthQyt__formula]\n\t\nPRolls（试算） [PRolls__formula]\n\t\nPDots（试算） [PDots__formula]\n\t\n整缸百码扣分（试算） [YAvgdots__formula]\n\t\n等级（试算） [Grade__formula]\n〈NULL〉\n\t\nUI-CHAIN\n\t\nUI-CHAIN\n\t\nUI-CHAIN\n\t\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n2.00\n\t\n20.00\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n1\n\t\n20.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n25\n\t\n〈NULL〉\n\t\nA\n\t\n〈NULL〉\n\t\n0.00\n\t\n〈NULL〉\n\t\n〈NULL〉"
+  },
+  {
+    "entry": "ReworkStuffWeightPhaseDetailPrint",
+    "count": 7,
+    "expectedCount": 7,
+    "countMatches": true,
+    "differenceHeading": "逐行公式差异（5）",
+    "hasFormulaColumns": true,
+    "hasSourceResolution": true,
+    "sample": "旧业务入口\n染料称料明细/染程（回修打印） · ReworkStuffWeightPhaseDetailPrint\n\n染料称料明细/染程（回修打印） · Bill · 45 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n原公式来源调整依据\n逐行公式差异（5）\n\n本次完整结果 7 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n流程流水号 [phasesheetseries]\n\t\n流程序号 [phasephaseno]\n\t\n染程名称 [phaseid]\n\t\n浴比 [bathratio]\n\t\nPH值 [ph]\n\t\n工艺编码 [programid]\n\t\n水重 [waterqty]\n\t\n备注 [remarks]\n\t\nPrintTimes [printtimes]\n\t\n温度 [temperature]\n\t\n分钟 [minutes]\n\t\nMachineTypeID [machinetypeid]\n\t\nStepIndex [stepindex]\n\t\n明细流水号 [sheetseries]\n\t\n序号 [phaseno]\n\t\n染料序号 [stuffno]\n\t\n染化料名称 [stuffid]\n\t\n批号 [lotno]\n\t\n染化料类型 [stufftype]\n\t\n单价 [price]\n\t\n称料单位 [weightunit]\n\t\n比例 [dosage]\n\t\n配方单位 [recipeunit]\n\t\n领用量 [needqty]\n\t\n实际用量 [realqty]\n\t\n需求金额 [needmoney]\n\t\n实际金额 [realmoney]\n\t\n领料时间 [outtime]\n\t\n确认否 [isconfirmed]\n\t\n明细备注 [detailnote]\n\t\nAddScale [addscale]\n\t\nStatus [status]\n\t\nAddQty [addqty]\n\t\nOriNeedQty [orineedqty]\n\t\nOutDate [outdate]\n\t\nAddDosage [adddosage]\n\t\nAddNeedQty [addneedqty]\n\t\n金额 [money]\n\t\nCarryIndex [carryindex]\n\t\n落料号 [stepname]\n\t\nStepNo [stepno]\n\t\nIsFinished [isfinished]\n\t\nautosysids [autosysids]\n\t\noirdosage [oirdosage]\n\t\nadjustdosage [adjustdosage]\n\t\nSelfDefineImage [selfdefineimage]\n\t\n染化料编码 [namee]\n\t\n配送序号 [uitransindex]\n\t\n浴比（试算） [BathRatio__formula]\n\t\n金额（试算） [Money__formula]\n\t\n实际金额（试算） [RealMoney__formula]\nCONTB-W\n\t\n1\n\t\n〈NULL〉\n\t\n19.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONTB-W\n\t\n1\n\t\n1\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n3.000000\n\t\nK\n\t\n-3.000000\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n-3.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t"
+  },
+  {
+    "entry": "SemiStockToCheck",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n获取坯布要盘点的数据 · SemiStockToCheck\n\n获取坯布要盘点的数据 · BillList · 33 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nID [id]\n\t\n纱编码 [code]\n\t\n入库单号 [sheetno]\n\t\n入库类型 [sheetkind]\n\t\n入库日期 [sheetdate]\n\t\n客户 [customerid]\n\t\n供应商 [supplierid]\n\t\n本厂规格 [prodid]\n\t\n批号 [lotno]\n\t\n物料分类 [insheetkind]\n\t\n物料颜色 [colorid]\n\t\n捻度(H/S) [prefield1]\n\t\n采购单号 [purchaseorders]\n\t\n锭重 [fixedqty]\n\t\n物料区域 [a_a]\n\t\n物料等级 [a_b]\n\t\n业务组别 [salergroupid]\n\t\n业务员 [salerid]\n\t\n仓库 [warehouseid]\n\t\n胚纱类型 [semikindid]\n\t\n入库明细号 [recesheetno]\n\t\n单价 [price]\n\t\n库位 [storageunitid]\n\t\nRemarks [remarks]\n\t\n实际粒数 [realrolls]\n\t\n实际长度 [reallengthqty]\n\t\n实际重量 [realweightqty]\n\t\n账面粒数 [paperrolls]\n\t\n账面长度 [paperlengthqty]\n\t\n账面数量 [paperweightqty]\n\t\n调整长度 [adjustlengthqty]\n\t\n调整数量 [adjustweightqty]\n\t\n调整粒数 [adjustrolls]\n\t\n调整长度（试算） [AdjustLengthQty__formula]\n\t\n调整粒数（试算） [AdjustRolls__formula]\n\t\n调整数量（试算） [AdjustWeightQty__formula]\n7e544e46-1853-475c-9e5f-eaef6aa0451b\n\t\nCONT-G\n\t\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\nCONTB-C\n\t\n\t\nCONT-G\n\t\nCONT-LOT\n\t\n\t\n\t\n\t\n\t\n0\n\t\n\t\n\t\n\t\n\t\n0803\n\t\n\t\n\t\n0\n\t\n\t\n\t\n3.00\n\t\n0.00\n\t\n30.00\n\t\n3.00\n\t\n0.00\n\t\n30.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n0.00\n1\n共 1 条\n原查询及差异依据"
+  },
+  {
+    "entry": "SemiToGrayIn",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n胚纱入库主表(转仓) · SemiToGrayIn\n\n胚纱入库主表(转仓) · Bill · 68 个原字段配置\n\n打开对应原表 SourceDyeGrayIn\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n经营单位代码 [businessunitid]\n\t\n仓库代码 [warehouseid]\n\t\n业务组别 [salergroupid]\n\t\n录入码单明细否 [isinputrecord]\n\t\n单据类别 [sheetkind]\n\t\n胚纱类别 [graykindid]\n\t\n供应商代码 [supplierid]\n\t\nFactDlvNo [factdlvno]\n\t\n单位 [stockunit]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n打印次数 [printtimes]\n\t\n修改次数 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建时间 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n工作流节点号 [stepno]\n\t\n业务类别 [businesskind]\n\t\n客户名称 [customerid]\n\t\n加工商 [factid]\n\t\n司机 [driver]\n\t\n车牌号 [carno]\n\t\n班组 [shiftid]\n\t\nGeterID [geterid]\n\t\nGetDate [getdate]\n\t\nCheckerID [checkerid]\n\t\nDefectDate [defectdate]\n\t\nDefectShiftID [defectshiftid]\n\t\n业务员 [salerid]\n\t\n明细客户 [detailcustname]\n\t\nApproveDate [approvedate]\n\t\nApprover [approver]\n\t\n收货员 [takeover]\n\t\n搬运工1 [cargador1]\n\t\n搬运工2 [cargador2]\n\t\n搬运工3 [cargador3]\n\t\n送货地址 [cargador4]\n\t\n搬运工5 [cargador5]\n\t\n叉车1 [driver1]\n\t\n叉车2 [driver2]\n\t\n叉车3 [driver3]\n\t\n交胚人 [sender]\n\t\n装卸工1 [discharger1]\n\t\n装卸工2 [discharger2]\n\t\n水量 [water]\n\t\nIngredients [ingredients]\n\t\n过软 [toosoft]\n\t\nIsdecrement [isdecrement]\n\t\nLoss [loss]\n\t\n包装 [packagehtt]\n\t\nWidth [width]\n\t\n手感 [handfeel]\n\t\n收货人 [receiver]\n\t\n收胚粒数 [dlvrolls]\n\t\n收胚重量 [dlvweightqty]\n\t\n客户全称 [customercode]\n\t\n送货地址 [dlvaddress]\n\t\n客退原因 [ktyy]\n\t\n物流类型 [wllx]\n\t\n收发地点 [combo1]\n\t\n收胚运输编号 [spyspc]\n\t\nsemioutsheetno [semioutsheetno]\n\t\na_a [a_a]\n\t\n单位 "
+  },
+  {
+    "entry": "StuffInDetail",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n染化料入库明细表 · StuffInDetail\n\n染化料入库明细表 · Bill · 25 个原字段配置\n\n打开对应原表 SourceDyeStuffInDetail\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单明细号（子表） [detailno]\n\t\n采购单明细号 [purdetailno]\n\t\n染化名称 [stuffid]\n\t\n单价 [price]\n\t\n含税价 [taxprice]\n\t\n税率 [taxrate]\n\t\n税金 [taxmoney]\n\t\n金额 [amount]\n\t\n数量 [qty]\n\t\n应付单细号 [apdetailno]\n\t\n批号 [lotno]\n\t\n备注 [remarks]\n\t\n包装单位 [packunit]\n\t\n包装数量 [packqty]\n\t\nNewStuffID [newstuffid]\n\t\nStuffType [stufftype]\n\t\nStuffKindID [stuffkindid]\n\t\nStuffName [stuffname]\n\t\n原入库明细 [oriindetailno]\n\t\n单位 [stockunit]\n\t\n染化料名称 [name]\n\t\n产品名称 [namee]\n\t\n编码 [stuffcode]\n\t\n采购申请单号 [pursheetno]\n\t\n金额（试算） [Amount__formula]\n\t\n编码（试算） [StuffCode__formula]\n〈NULL〉\n\t\nCONT-STUFFIN\n\t\n〈NULL〉\n\t\nCONTB-S\n\t\n3.000000\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n-3.000000\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n-9.000000000000\n\t\nCONTB-S\n1\n共 1 条\n原查询及差异依据"
+  },
+  {
+    "entry": "StuffStockToCheck",
+    "count": 2,
+    "expectedCount": 2,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": true,
+    "sample": "旧业务入口\n获取染化料小仓要盘点的数据 · StuffStockToCheck\n\n获取染化料小仓要盘点的数据 · Bill · 17 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n原公式来源调整依据\n\n本次完整结果 2 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nGUID [guid]\n\t\n仓库 [warehouseid]\n\t\n编码 [stuffid]\n\t\n染化料编码 [stuffnewid]\n\t\n批号 [lotno]\n\t\n盘点数量 [realqty]\n\t\n盘点金额 [realmoney]\n\t\n调整数量 [adjustqty]\n\t\n调整金额 [adjustmoney]\n\t\n账面数量 [paperqty]\n\t\n账面金额 [papermoney]\n\t\n类别 [stufftype]\n\t\n子类别 [stuffkindid]\n\t\n染化料名称 [namee]\n\t\n单位 [stockunit]\n\t\n账面单价 [mprice]\n\t\n单价 [price]\n\t\n调整数量（试算） [AdjustQty__formula]\n\t\n盘点金额（试算） [RealMoney__formula]\n\t\n编码（试算） [StuffID__formula]\n\t\n仓库（试算） [WareHouseID__formula]\n\t\n调整金额（试算） [AdjustMoney__formula]\ne6bac563-64dc-4f3e-80d5-9a4c09af0b91\n\t\n14\n\t\nCONTB-S\n\t\nCONTB-S\n\t\nCONTB-L\n\t\n-5.000000\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n-5.000000\n\t\n0.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n\t\n\t\n0.0000\n\t\n〈NULL〉\n\t\n0.000000\n\t\n〈NULL〉\n\t\nCONTB-S\n\t\n14\n\t\n0.00\n\n\n201a6a8a-caee-48ce-819e-a2110b010723\n\t\n13\n\t\nCONTB-S\n\t\nCONTB-S\n\t\nCONTB-L\n\t\n-5.000000\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n-5.000000\n\t\n0.00\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n\t\n\t\n0.0000\n\t\n〈NULL〉\n\t\n0.000000\n\t\n〈NULL〉\n\t\nCONTB-S\n\t\n13\n\t\n0.00\n1\n共 2 条\n原查询及差异依据"
+  },
+  {
+    "entry": "StuffStockToCheckBig",
+    "count": 3,
+    "expectedCount": 3,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": true,
+    "sample": "旧业务入口\n获取染化料大仓要盘点的数据 · StuffStockToCheckBig\n\n获取染化料大仓要盘点的数据 · Bill · 17 个原字段配置\n\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n原公式来源调整依据\n\n本次完整结果 3 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\nGUID [guid]\n\t\n仓库 [warehouseid]\n\t\n编码 [stuffid]\n\t\n染化料编码 [stuffnewid]\n\t\n染化料名称 [namee]\n\t\n单位 [stockunit]\n\t\n批号 [lotno]\n\t\n单价 [price]\n\t\n类别 [stufftype]\n\t\n子类别 [stuffkindid]\n\t\n入库明细单号 [indetailno]\n\t\n盘点数量 [realqty]\n\t\n盘点金额 [realmoney]\n\t\n调整数量 [adjustqty]\n\t\n调整金额 [adjustmoney]\n\t\n账面数量 [paperqty]\n\t\n账面金额 [papermoney]\n\t\n调整数量（试算） [AdjustQty__formula]\n\t\n盘点金额（试算） [RealMoney__formula]\n\t\n编码（试算） [StuffID__formula]\n\t\n仓库（试算） [WareHouseID__formula]\n\t\n调整金额（试算） [AdjustMoney__formula]\ne845c91b-1e64-4772-9cbc-c9c2383a728d\n\t\n14\n\t\nCONTB-S\n\t\nCONTB-S\n\t\n\t\n\t\nCONTB-L\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0\n\t\n-5.000000\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n-5.000000\n\t\n0.00\n\t\n0.000000\n\t\n〈NULL〉\n\t\nCONTB-S\n\t\n14\n\t\n0.00\n\n\n44d947bf-0f84-46e3-b3fc-5ae86fd8f6d6\n\t\n13\n\t\nCONTB-S\n\t\nCONTB-S\n\t\n\t\n\t\nCONTB-L\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0\n\t\n-5.000000\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n-5.000000\n\t\n0.00\n\t\n0.000000\n\t\n〈NULL〉\n\t\nCONTB-S\n\t\n13\n\t\n0.00\n\n\nd7dbeea6-f103-4239-b736-f8a6679bc62a\n\t\n01\n\t\nCONTB-S\n\t\nCONTB-S\n\t\n\t\n\t\nCONTB-L\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n〈NULL〉\n\t\n0\n\t\n-5.000000\n\t\n0.00\n\t\n0.00\n\t\n0.00\n\t\n-5.000000\n\t\n0.00\n\t\n0.000000\n\t\n〈NULL〉\n\t\nCONTB-S\n\t\n01\n\t\n0.00\n1\n共 3 条\n原查询及差异依据"
+  },
+  {
+    "entry": "TuiHuoGrayIn",
+    "count": 1,
+    "expectedCount": 1,
+    "countMatches": true,
+    "differenceHeading": null,
+    "hasFormulaColumns": true,
+    "hasSourceResolution": false,
+    "sample": "旧业务入口\n胚纱退货主表 · TuiHuoGrayIn\n\n胚纱退货主表 · Bill · 70 个原字段配置\n\n打开对应原表 SourceDyeGrayIn\n原查询与数据\n原字段设置\n保存、审核及打印时机\n全部原打印配置（290）\n加载记录（解除旧界面外层的空表初始化条件）\n包含已撤回留档的原行\n附加原公式试算列\n查询\n\n试算列单独追加，不覆盖原列或写回数据；缺来源、重名来源及除零逐行列明。\n\n本次完整结果 1 行；每页 50 行。重复行、重名列保留；〈NULL〉表示未填写，空白表示空字符串。\n\n导出本次全部结果 CSV\n表单流水号 [sheetseries]\n\t\n表单编号 [sheetno]\n\t\n单据日期 [sheetdate]\n\t\n经营单位代码 [businessunitid]\n\t\n仓库代码 [warehouseid]\n\t\n业务组别 [salergroupid]\n\t\n录入码单明细否 [isinputrecord]\n\t\n单据类别 [sheetkind]\n\t\n胚纱类别 [graykindid]\n\t\n供应商代码 [supplierid]\n\t\nFactDlvNo [factdlvno]\n\t\n单位 [stockunit]\n\t\n单据状态 [sheetstatus]\n\t\n审核状态 [rightstatus]\n\t\n打印次数 [printtimes]\n\t\n供应商 [revisions]\n\t\n备注 [remarks]\n\t\n创建人 [creater]\n\t\n创建时间 [createdate]\n\t\n修改人 [modifyer]\n\t\n修改日期 [modifydate]\n\t\n工作流节点号 [stepno]\n\t\n业务类别 [businesskind]\n\t\n客户名称 [customerid]\n\t\n加工商 [factid]\n\t\n司机 [driver]\n\t\n车牌号 [carno]\n\t\n班组 [shiftid]\n\t\nGeterID [geterid]\n\t\nGetDate [getdate]\n\t\nCheckerID [checkerid]\n\t\nDefectDate [defectdate]\n\t\nDefectShiftID [defectshiftid]\n\t\n业务员 [salerid]\n\t\n明细客户 [detailcustname]\n\t\nApproveDate [approvedate]\n\t\nApprover [approver]\n\t\n收货员 [takeover]\n\t\n搬运工1 [cargador1]\n\t\n搬运工2 [cargador2]\n\t\n搬运工3 [cargador3]\n\t\n送货地址 [cargador4]\n\t\n搬运工5 [cargador5]\n\t\n叉车1 [driver1]\n\t\n叉车2 [driver2]\n\t\n叉车3 [driver3]\n\t\n交胚人 [sender]\n\t\n装卸工1 [discharger1]\n\t\n装卸工2 [discharger2]\n\t\n水量 [water]\n\t\nIngredients [ingredients]\n\t\n过软 [toosoft]\n\t\nIsdecrement [isdecrement]\n\t\nLoss [loss]\n\t\n包装 [packagehtt]\n\t\nWidth [width]\n\t\n手感 [handfeel]\n\t\n收货人 [receiver]\n\t\n收胚粒数 [dlvrolls]\n\t\n收胚重量 [dlvweightqty]\n\t\n客户全称 [customercode]\n\t\n送货地址 [dlvaddress]\n\t\n客退原因 [ktyy]\n\t\n物流类型 [wllx]\n\t\n收发地点 [combo1]\n\t\n收胚运输编号 [spyspc]\n\t\nSemiOutSheetNo [semioutsheetno]\n\t\nA_A [a_a]\n\t\n单位 [unit]\n\t\n"
+  }
+]

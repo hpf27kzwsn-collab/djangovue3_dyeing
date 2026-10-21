@@ -1,0 +1,297 @@
+{
+  "verified_at": "2026-10-18T02:32:50.283156+08:00",
+  "document": "2026-10-18Excel导入与手工录入验证清单.md",
+  "development": "本次Excel录入通路及所列样本验证通过；非全业务完成",
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "historical_import_rows_this_run": 0,
+  "sql_server_access_this_run": "未连接或查询；验证使用独立PostgreSQL测试库和浏览器验证库",
+  "synthetic_source_rows_added": 14,
+  "tests": {
+    "regression": {
+      "count": 90,
+      "seconds": "295.062",
+      "log": ".runtime-temp/phase6/excel-regression-final.log",
+      "sha256": "f96be13cce6383a6ae9ee712e86d367c12b4edfee35da0a2f5064afa8b3ad8f9"
+    },
+    "final_targeted": {
+      "count": 17,
+      "seconds": "13.218",
+      "log": ".runtime-temp/phase6/excel-target-final.log",
+      "sha256": "a219e52069119e4b9f3862613130e37330bffb39b91fa8874af91635e1429b4a"
+    },
+    "note": "90项相关回归；最终17项专项中16项重叠、1项新增，共91项不同用例，不能相加为107项。"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n",
+    "schema_basis": "当前Django模型；本轮没有重新提取旧SQL Server结构"
+  },
+  "browser_cases": [
+    {
+      "step": "基础资料新增",
+      "text": "往来单位（客户/供应商） · xlsx 导入业务入口全部客户主表编辑 · p_Customer下载新增模板下载批量更新模板空白或 #KEEP：新增采用默认值，更新保留原值。#NULL：设为空值；#EMPTY：清空文本或多选。0、负数和空格文本照常提交。新增单据按业务入口生成编号并执行保存联动。表格逐行入口优先，其次模板保存的入口，最后使用这里的选择；已有单据保留原入口。含“更新主键”的模板用于更新。标记本身作为文本时加 #TEXT: 前缀，例如 #TEXT:#NULL。重复数据逐行处理，一行失败则整批不保存。点击选择 xlsx 文件，或将文件拖到这里手机可使用系统文件选择器。字段说明、关系选项和日期格式见模板中的“填写说明”。导入完成：新增 3 条，更新 0 条，跳过空白 0 行Excel行结果记录ID2已新增1333已新增1344已新增135关闭提交导入"
+    },
+    {
+      "step": "业务单据新增",
+      "text": "其他或待确认相关表（CookIn，待确认） · xlsx 导入业务入口厨房采购单入库主表 · CookIn下载新增模板下载批量更新模板空白或 #KEEP：新增采用默认值，更新保留原值。#NULL：设为空值；#EMPTY：清空文本或多选。0、负数和空格文本照常提交。新增单据按业务入口生成编号并执行保存联动。表格逐行入口优先，其次模板保存的入口，最后使用这里的选择；已有单据保留原入口。含“更新主键”的模板用于更新。标记本身作为文本时加 #TEXT: 前缀，例如 #TEXT:#NULL。重复数据逐行处理，一行失败则整批不保存。点击选择 xlsx 文件，或将文件拖到这里手机可使用系统文件选择器。字段说明、关系选项和日期格式见模板中的“填写说明”。导入完成：新增 3 条，更新 0 条，跳过空白 0 行Excel行结果记录ID2已新增73已新增84已新增9关闭提交导入"
+    },
+    {
+      "step": "错误入口整批回滚",
+      "text": "其他或待确认相关表（CookIn，待确认） · xlsx 导入业务入口厨房采购单入库主表 · CookIn下载新增模板下载批量更新模板空白或 #KEEP：新增采用默认值，更新保留原值。#NULL：设为空值；#EMPTY：清空文本或多选。0、负数和空格文本照常提交。新增单据按业务入口生成编号并执行保存联动。表格逐行入口优先，其次模板保存的入口，最后使用这里的选择；已有单据保留原入口。含“更新主键”的模板用于更新。标记本身作为文本时加 #TEXT: 前缀，例如 #TEXT:#NULL。重复数据逐行处理，一行失败则整批不保存。点击选择 xlsx 文件，或将文件拖到这里手机可使用系统文件选择器。字段说明、关系选项和日期格式见模板中的“填写说明”。异常整批回滚.xlsx按 Delete 键可删除数据，第 3 行，业务入口：选项或填写格式不正确：'p_Customer'关闭提交导入"
+    },
+    {
+      "step": "禁止修改客户编码：整批回滚",
+      "text": "往来单位（客户/供应商） · xlsx 导入业务入口全部客户主表编辑 · p_Customer下载新增模板下载批量更新模板空白或 #KEEP：新增采用默认值，更新保留原值。#NULL：设为空值；#EMPTY：清空文本或多选。0、负数和空格文本照常提交。新增单据按业务入口生成编号并执行保存联动。表格逐行入口优先，其次模板保存的入口，最后使用这里的选择；已有单据保留原入口。含“更新主键”的模板用于更新。标记本身作为文本时加 #TEXT: 前缀，例如 #TEXT:#NULL。重复数据逐行处理，一行失败则整批不保存。点击选择 xlsx 文件，或将文件拖到这里手机可使用系统文件选择器。字段说明、关系选项和日期格式见模板中的“填写说明”。基础资料更新.xlsx按 Delete 键可删除数据，第 3 行，客户编码：{\"old_customer_id\":[\"原p_Customer_UPDATE：客户编码不能修改（原UPDATE列判断包含同值赋值）。\"]}关闭提交导入"
+    },
+    {
+      "step": "空值、空文本和同一记录重复更新成功",
+      "text": "往来单位（客户/供应商） · xlsx 导入业务入口全部客户主表编辑 · p_Customer下载新增模板下载批量更新模板空白或 #KEEP：新增采用默认值，更新保留原值。#NULL：设为空值；#EMPTY：清空文本或多选。0、负数和空格文本照常提交。新增单据按业务入口生成编号并执行保存联动。表格逐行入口优先，其次模板保存的入口，最后使用这里的选择；已有单据保留原入口。含“更新主键”的模板用于更新。标记本身作为文本时加 #TEXT: 前缀，例如 #TEXT:#NULL。重复数据逐行处理，一行失败则整批不保存。点击选择 xlsx 文件，或将文件拖到这里手机可使用系统文件选择器。字段说明、关系选项和日期格式见模板中的“填写说明”。导入完成：新增 0 条，更新 3 条，跳过空白 0 行Excel行结果记录ID2已更新1333已更新1334已更新134关闭提交导入"
+    }
+  ],
+  "database_result": {
+    "scope": "独立浏览器验证库合成数据；只读核对",
+    "rollback_before_success": {
+      "customers_after_rejected_update": [
+        {
+          "id": 133,
+          "old_customer_id": "001801",
+          "old_short_name": "Excel重复客户甲",
+          "old_remarks": "",
+          "old_num": "K001801"
+        },
+        {
+          "id": 134,
+          "old_customer_id": "001801",
+          "old_short_name": "Excel重复客户乙",
+          "old_remarks": "#NULL",
+          "old_num": null
+        }
+      ],
+      "failed_create_persisted": false
+    },
+    "customers": [
+      {
+        "id": 133,
+        "old_customer_id": "001801",
+        "old_short_name": "",
+        "old_name_c": null,
+        "old_remarks": "#NULL",
+        "old_num": "K001801"
+      },
+      {
+        "id": 134,
+        "old_customer_id": "001801",
+        "old_short_name": "Excel重复客户乙",
+        "old_name_c": null,
+        "old_remarks": "#NULL",
+        "old_num": null
+      },
+      {
+        "id": 135,
+        "old_customer_id": "EX-S01",
+        "old_short_name": "Excel供应商",
+        "old_name_c": null,
+        "old_remarks": null,
+        "old_num": "EX-S01"
+      }
+    ],
+    "documents": [
+      {
+        "id": 7,
+        "series": "P26101801",
+        "number": "26101801",
+        "date": "2026-10-17 18:20:36.115758+00:00",
+        "entry": "CookIn"
+      },
+      {
+        "id": 8,
+        "series": "P26101802",
+        "number": "26101802",
+        "date": "2026-10-17 18:20:36.189776+00:00",
+        "entry": "CookIn"
+      },
+      {
+        "id": 9,
+        "series": "EXCEL-EVENT",
+        "number": "26101803",
+        "date": "2026-10-17 18:20:36.224305+00:00",
+        "entry": "CookIn"
+      }
+    ],
+    "materials": [
+      {
+        "id": 178,
+        "Price": "-7.000000",
+        "LastPrice": "-7.000000",
+        "event": {
+          "entry": "CookIn",
+          "source_entry_id": 9,
+          "source_sheet_series": "EXCEL-EVENT",
+          "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+          "candidates": [
+            {
+              "article_in_id": 155,
+              "detail_id": 234,
+              "TaxPrice": "2.000000"
+            },
+            {
+              "article_in_id": 155,
+              "detail_id": 235,
+              "TaxPrice": "-3.000000"
+            },
+            {
+              "article_in_id": 155,
+              "detail_id": 236,
+              "TaxPrice": "-7.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 234,
+              "TaxPrice": "2.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 235,
+              "TaxPrice": "-3.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 236,
+              "TaxPrice": "-7.000000"
+            }
+          ],
+          "chosen_detail_id": 236,
+          "updated_values": {
+            "LastPrice": "-7.000000",
+            "Price": "-7.000000"
+          }
+        }
+      },
+      {
+        "id": 179,
+        "Price": "-7.000000",
+        "LastPrice": "-7.000000",
+        "event": {
+          "entry": "CookIn",
+          "source_entry_id": 9,
+          "source_sheet_series": "EXCEL-EVENT",
+          "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+          "candidates": [
+            {
+              "article_in_id": 155,
+              "detail_id": 234,
+              "TaxPrice": "2.000000"
+            },
+            {
+              "article_in_id": 155,
+              "detail_id": 235,
+              "TaxPrice": "-3.000000"
+            },
+            {
+              "article_in_id": 155,
+              "detail_id": 236,
+              "TaxPrice": "-7.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 234,
+              "TaxPrice": "2.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 235,
+              "TaxPrice": "-3.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 236,
+              "TaxPrice": "-7.000000"
+            }
+          ],
+          "chosen_detail_id": 236,
+          "updated_values": {
+            "LastPrice": "-7.000000",
+            "Price": "-7.000000"
+          }
+        }
+      },
+      {
+        "id": 180,
+        "Price": "9.000000",
+        "LastPrice": "-7.000000",
+        "event": {
+          "entry": "CookIn",
+          "source_entry_id": 9,
+          "source_sheet_series": "EXCEL-EVENT",
+          "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+          "candidates": [
+            {
+              "article_in_id": 155,
+              "detail_id": 234,
+              "TaxPrice": "2.000000"
+            },
+            {
+              "article_in_id": 155,
+              "detail_id": 235,
+              "TaxPrice": "-3.000000"
+            },
+            {
+              "article_in_id": 155,
+              "detail_id": 236,
+              "TaxPrice": "-7.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 234,
+              "TaxPrice": "2.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 235,
+              "TaxPrice": "-3.000000"
+            },
+            {
+              "article_in_id": 154,
+              "detail_id": 236,
+              "TaxPrice": "-7.000000"
+            }
+          ],
+          "chosen_detail_id": 236,
+          "updated_values": {
+            "LastPrice": "-7.000000"
+          }
+        }
+      }
+    ],
+    "failed_create_persisted": false,
+    "synthetic_source_rows_added": 14,
+    "historical_rows_imported_this_run": 0
+  },
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "fixed_ids_preserved": true,
+  "paused_queries_unchanged": true,
+  "printing_paused": true,
+  "finance_paused": true,
+  "frontend": {
+    "typecheck": "通过",
+    "build": "通过",
+    "build_warning": "既有分包体积提示",
+    "typecheck_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build_log_sha256": "3c3de78824eaaec568c7e7a620d1dfa49f463d5bfa8632879abe14df87707b94"
+  },
+  "code_sha256": {
+    "backend/system/excel.py": "525ec35b2854a61d3dd6237b1d85ba96480698fb7323bb2ab32fccd9b9a6a32f",
+    "backend/system/excel_fields.py": "5602c971c414786a59000c2e843d481d6d56d0ef71ed8992a1891aa2af8b6461",
+    "backend/system/tests/test_excel.py": "755c014aa9fc2f634ba074a95bb6836b60618bc398eada22ff25c8915b452346",
+    "backend/plugins/erp_base/source_excel.py": "ff985dae2adfe7e0f7d10cd7ea77ce0eb7c80491fb325f7cf0c50e84a02c0f40",
+    "backend/plugins/erp_base/source_api.py": "e3ee4cf8c4414ad8db71b5197c403b7c86df3ee27a8c248161344930c1adc1a1",
+    "backend/plugins/erp_base/tests/test_source_excel_entry.py": "9f6c79a4d1023dfb6aef52fb44b03b4df584ef18bfe7b22005efb3cd7987af6d",
+    "web/src/components/ExcelImport.vue": "8a1c05aba70f34d16df39935e64acd1faf3328bfa4273d045b6a3bc6f31ec348",
+    "web/src/components/ResourceTable.vue": "c3fd5d2721036aa23733c579a7f453d18b82c3381450898bbf4cc3619e627210"
+  },
+  "previous_evidence": "erp-phase6-print-metadata-verification-20261018.json"
+}

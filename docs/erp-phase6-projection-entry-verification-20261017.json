@@ -1,0 +1,1891 @@
+{
+  "captured_at": "2026-10-17T22:17:09.448487+08:00",
+  "database": "erp_phase6_browser_20261017",
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "entries": [
+    {
+      "entry": "AddStuffWeightPhaseDetailPrint",
+      "ids": [
+        "F011",
+        "F012",
+        "F013",
+        "F014"
+      ],
+      "fields": [
+        "BathRatio",
+        "Money",
+        "NeedQty",
+        "RealMoney"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 7,
+      "calculations": {
+        "BathRatio": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "parent.[Rate]",
+          "configuration_issue": null
+        },
+        "NeedQty": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "0",
+          "configuration_issue": null
+        },
+        "RealMoney": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[Dosage]*[RealQty]",
+          "configuration_issue": null
+        },
+        "Money": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "IIF([WeightUnit]='G',[Price]*([NeedQty]/1000),[Price]*[NeedQty])",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [
+        {
+          "field": "BathRatio",
+          "original_expression": "parent.[Rate]",
+          "implemented_expression": "parent.[Rate]",
+          "basis": "按原SheetSeries连接AddStuffWeight.Rate；替代原缺失/指向明细的父配置"
+        }
+      ],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    },
+    {
+      "entry": "ArticleStockToCheck",
+      "ids": [
+        "F024",
+        "F025",
+        "F026"
+      ],
+      "fields": [
+        "AdjustMoney",
+        "AdjustQty",
+        "RealMoney"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "AdjustQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealQty],0)-ISNULL([PaperQty],0)",
+          "configuration_issue": null
+        },
+        "RealMoney": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealQty],0)*[Price]",
+          "configuration_issue": null
+        },
+        "AdjustMoney": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealMoney],0)-ISNULL([PaperMoney],0)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 3
+    },
+    {
+      "entry": "CheckResultDetailNew",
+      "ids": [
+        "F028"
+      ],
+      "fields": [
+        "Avgdots"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 6,
+      "calculations": {
+        "Avgdots": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "SUMDots*36*100/(Width*Yard)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 1
+    },
+    {
+      "entry": "ColorNumToQuotePrice",
+      "ids": [
+        "F029"
+      ],
+      "fields": [
+        "RGB"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "RGB": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "(ISNULL([R],0)-255)*256*256+(ISNULL([G],0)-255)*256+(ISNULL([B],0)-255)-1",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "RGB__formula",
+          "fixture": "CONT-COLOR",
+          "expected": [
+            -65536
+          ],
+          "actual": [
+            "-65536"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 1
+    },
+    {
+      "entry": "DyeDipsRecordPhaseDetail",
+      "ids": [
+        "F049",
+        "F050",
+        "F051",
+        "F052",
+        "F053"
+      ],
+      "fields": [
+        "AmountA",
+        "AmountB",
+        "AmountC",
+        "AmountD",
+        "AmountE"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 3,
+      "calculations": {
+        "AmountA": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[DosageA]*IIF([RecipeUnit]=0,10,ISNULL([BathRatio],10))",
+          "configuration_issue": null
+        },
+        "AmountB": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[DosageB]*IIF([RecipeUnit]=0,10,ISNULL([BathRatio],10))",
+          "configuration_issue": null
+        },
+        "AmountC": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[DosageC]*IIF([RecipeUnit]=0,10,ISNULL([BathRatio],10))",
+          "configuration_issue": null
+        },
+        "AmountD": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[DosageD]*IIF([RecipeUnit]=0,10,ISNULL([BathRatio],10))",
+          "configuration_issue": null
+        },
+        "AmountE": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[DosageE]*IIF([RecipeUnit]=0,10,ISNULL([BathRatio],10))",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "AmountA__formula",
+          "fixture": "CONT-DIP",
+          "expected": [
+            60,
+            60,
+            -90
+          ],
+          "actual": [
+            "-90.00000000",
+            "60.00000000",
+            "60.00000000"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AmountB__formula",
+          "fixture": "CONT-DIP",
+          "expected": [
+            null,
+            null,
+            null
+          ],
+          "actual": [
+            null,
+            null,
+            null
+          ],
+          "passed": true
+        },
+        {
+          "field": "AmountC__formula",
+          "fixture": "CONT-DIP",
+          "expected": [
+            0,
+            0,
+            0
+          ],
+          "actual": [
+            "0E-8",
+            "0E-8",
+            "0E-8"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AmountD__formula",
+          "fixture": "CONT-DIP",
+          "expected": [
+            -60,
+            -60,
+            90
+          ],
+          "actual": [
+            "90.00000000",
+            "-60.00000000",
+            "-60.00000000"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AmountE__formula",
+          "fixture": "CONT-DIP",
+          "expected": [
+            60,
+            60,
+            -90
+          ],
+          "actual": [
+            "-90.00000000",
+            "60.00000000",
+            "60.00000000"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 6
+    },
+    {
+      "entry": "GrayIn",
+      "ids": [
+        "F062"
+      ],
+      "fields": [
+        "unit"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "unit": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StockUnit]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    },
+    {
+      "entry": "GrayInWork",
+      "ids": [
+        "F068"
+      ],
+      "fields": [
+        "unit"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "unit": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StockUnit]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    },
+    {
+      "entry": "GrayStockToCheck",
+      "ids": [
+        "F078",
+        "F079",
+        "F080",
+        "F081"
+      ],
+      "fields": [
+        "AdjustLengthQty",
+        "AdjustPacks",
+        "AdjustRolls",
+        "AdjustWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "AdjustLengthQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealLengthQty],0)-ISNULL([PaperLengthQty],0)",
+          "configuration_issue": null
+        },
+        "AdjustPacks": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealPacks],0)-ISNULL([PaperPacks],0)",
+          "configuration_issue": null
+        },
+        "AdjustRolls": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealRolls],0)-ISNULL([PaperRolls],0)",
+          "configuration_issue": null
+        },
+        "AdjustWeightQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealWeightQty],0)-ISNULL([PaperWeightQty],0)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "AdjustRolls__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AdjustPacks__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AdjustWeightQty__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AdjustLengthQty__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "realweightqty",
+          "fixture": "CONT-G",
+          "expected": [
+            30
+          ],
+          "actual": [
+            "30.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "realrolls",
+          "fixture": "CONT-G",
+          "expected": [
+            3
+          ],
+          "actual": [
+            "3.00"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    },
+    {
+      "entry": "ImpairmentPayouts",
+      "ids": [
+        "F091"
+      ],
+      "fields": [
+        "ARMoney"
+      ],
+      "state": "财务暂缓"
+    },
+    {
+      "entry": "ImpairmentPayoutsDetail",
+      "ids": [
+        "F092",
+        "F093",
+        "F094",
+        "F095"
+      ],
+      "fields": [
+        "ARMoney",
+        "AtteFee",
+        "Price",
+        "PriceQty"
+      ],
+      "state": "财务暂缓"
+    },
+    {
+      "entry": "ImpairmentPayoutsTJ",
+      "ids": [
+        "F096"
+      ],
+      "fields": [
+        "ARMoney"
+      ],
+      "state": "财务暂缓"
+    },
+    {
+      "entry": "ImpairmentPayoutsTJDetail",
+      "ids": [
+        "F097",
+        "F098",
+        "F099",
+        "F100"
+      ],
+      "fields": [
+        "ARMoney",
+        "AtteFee",
+        "Price",
+        "PriceQty"
+      ],
+      "state": "财务暂缓"
+    },
+    {
+      "entry": "JiaNianGrayIn",
+      "ids": [
+        "F104"
+      ],
+      "fields": [
+        "unit"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "unit": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StockUnit]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    },
+    {
+      "entry": "JobSheet",
+      "ids": [
+        "F107",
+        "F114",
+        "F115",
+        "F116"
+      ],
+      "fields": [
+        "CombineQty",
+        "SumOrderQty",
+        "WeightSpec",
+        "WidthSpec"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 2,
+      "calculations": {
+        "CombineQty": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(JobSheet_JobCombineOrder).[CombineQty])",
+          "configuration_issue": null
+        },
+        "SumOrderQty": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(JobSheet_JobCombineOrder).[OrderQty])",
+          "configuration_issue": null
+        },
+        "WeightSpec": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([Weight],'')+ISNULL([WeightKindID],'')",
+          "configuration_issue": null
+        },
+        "WidthSpec": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([Width],'')+ISNULL([WidthKindID],'')",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 10
+    },
+    {
+      "entry": "KeTuiGrayIn",
+      "ids": [
+        "F126"
+      ],
+      "fields": [
+        "unit"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "unit": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StockUnit]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    },
+    {
+      "entry": "NormalStuffWeightPhaseDetailPrint",
+      "ids": [
+        "F147",
+        "F148",
+        "F149"
+      ],
+      "fields": [
+        "BathRatio",
+        "Money",
+        "RealMoney"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 7,
+      "calculations": {
+        "BathRatio": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "parent.[Rate]",
+          "configuration_issue": null
+        },
+        "Money": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "IIF([WeightUnit]='G',[Price]*([NeedQty]/1000),[Price]*[NeedQty])",
+          "configuration_issue": null
+        },
+        "RealMoney": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[Dosage]*[RealQty]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [
+        {
+          "field": "BathRatio",
+          "original_expression": "parent.[Rate]",
+          "implemented_expression": "parent.[Rate]",
+          "basis": "按原SheetSeries连接NormalStuffWeight.Rate；替代原缺失/指向明细的父配置"
+        }
+      ],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 3
+    },
+    {
+      "entry": "OrderColor",
+      "ids": [
+        "F150",
+        "F151",
+        "F152",
+        "F153"
+      ],
+      "fields": [
+        "SumAssignLengthQty",
+        "SumAssignPacks",
+        "SumAssignRolls",
+        "SumAssignWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 6,
+      "calculations": {
+        "SumAssignLengthQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColor_OrderAssign).[LengthQty])",
+          "configuration_issue": null
+        },
+        "SumAssignPacks": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColor_OrderAssign).[Packs])",
+          "configuration_issue": null
+        },
+        "SumAssignRolls": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColor_OrderAssign).[Rolls])",
+          "configuration_issue": null
+        },
+        "SumAssignWeightQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColor_OrderAssign).[WeightQty])",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 5
+    },
+    {
+      "entry": "OrderColorChange",
+      "ids": [
+        "F154",
+        "F155",
+        "F156",
+        "F157"
+      ],
+      "fields": [
+        "SumAssignLengthQty",
+        "SumAssignPacks",
+        "SumAssignRolls",
+        "SumAssignWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 6,
+      "calculations": {
+        "SumAssignLengthQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorChange_OrderAssignChange).[LengthQty])",
+          "configuration_issue": null
+        },
+        "SumAssignPacks": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorChange_OrderAssignChange).[Packs])",
+          "configuration_issue": null
+        },
+        "SumAssignRolls": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorChange_OrderAssignChange).[Rolls])",
+          "configuration_issue": null
+        },
+        "SumAssignWeightQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorChange_OrderAssignChange).[WeightQty])",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 5
+    },
+    {
+      "entry": "OrderColorSup",
+      "ids": [
+        "F158",
+        "F159",
+        "F160",
+        "F161"
+      ],
+      "fields": [
+        "SumAssignLengthQty",
+        "SumAssignPacks",
+        "SumAssignRolls",
+        "SumAssignWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 6,
+      "calculations": {
+        "SumAssignLengthQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorSup_OrderAssignSup).[LengthQty])",
+          "configuration_issue": null
+        },
+        "SumAssignPacks": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorSup_OrderAssignSup).[Packs])",
+          "configuration_issue": null
+        },
+        "SumAssignRolls": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorSup_OrderAssignSup).[Rolls])",
+          "configuration_issue": null
+        },
+        "SumAssignWeightQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(OrderColorSup_OrderAssignSup).[WeightQty])",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 5
+    },
+    {
+      "entry": "p_MachineFaultClass",
+      "ids": [
+        "F168"
+      ],
+      "fields": [
+        "value"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "value": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "IsNull(Class1,'')+IsNull('/'+Class2,'')+IsNull('/'+Class3,'')",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "value__formula",
+          "fixture": "CONT",
+          "expected": [
+            "机械/泵/漏液"
+          ],
+          "actual": [
+            "机械/泵/漏液"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 1
+    },
+    {
+      "entry": "PrintOrderColor",
+      "ids": [
+        "F189",
+        "F190",
+        "F191",
+        "F192"
+      ],
+      "fields": [
+        "SumAssignLengthQty",
+        "SumAssignPacks",
+        "SumAssignRolls",
+        "SumAssignWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 6,
+      "calculations": {
+        "SumAssignLengthQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(PrintOrderColor_PrintOrderAssign).[LengthQty])",
+          "configuration_issue": null
+        },
+        "SumAssignPacks": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(PrintOrderColor_PrintOrderAssign).[Packs])",
+          "configuration_issue": null
+        },
+        "SumAssignRolls": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(PrintOrderColor_PrintOrderAssign).[Rolls])",
+          "configuration_issue": null
+        },
+        "SumAssignWeightQty": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(PrintOrderColor_PrintOrderAssign).[WeightQty])",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [
+        {
+          "row": 2,
+          "field": "PrintCode",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 3,
+          "field": "PrintCode",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 4,
+          "field": "PrintCode",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 5,
+          "field": "PrintCode",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 6,
+          "field": "PrintCode",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 2,
+          "field": "ProdID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 3,
+          "field": "ProdID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 4,
+          "field": "ProdID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 5,
+          "field": "ProdID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 6,
+          "field": "ProdID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        }
+      ],
+      "full_entry_trial_field_count": 7
+    },
+    {
+      "entry": "ProdOutRecord",
+      "ids": [
+        "F220"
+      ],
+      "fields": [
+        "RollNo2"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 3,
+      "calculations": {
+        "RollNo2": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[RollNo]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "RollNo2__formula",
+          "fixture": "CONT-PROD",
+          "expected": [
+            "CONT-DUP",
+            "CONT-DUP",
+            "CONT-DUP"
+          ],
+          "actual": [
+            "CONT-DUP",
+            "CONT-DUP",
+            "CONT-DUP"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 5
+    },
+    {
+      "entry": "ProdOutRecordUpdate",
+      "ids": [
+        "F221"
+      ],
+      "fields": [
+        "RollNo2"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 3,
+      "calculations": {
+        "RollNo2": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[RollNo]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "RollNo2__formula",
+          "fixture": "CONT-PROD",
+          "expected": [
+            "CONT-DUP",
+            "CONT-DUP",
+            "CONT-DUP"
+          ],
+          "actual": [
+            "CONT-DUP",
+            "CONT-DUP",
+            "CONT-DUP"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 5
+    },
+    {
+      "entry": "ProdStocktoCheck",
+      "ids": [
+        "F225",
+        "F226",
+        "F227"
+      ],
+      "fields": [
+        "AdjustLengthQty",
+        "AdjustRolls",
+        "AdjustWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "AdjustLengthQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealLengthQty],0)-ISNULL([PaperLengthQty],0)",
+          "configuration_issue": null
+        },
+        "AdjustRolls": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealRolls],0)-ISNULL([PaperRolls],0)",
+          "configuration_issue": null
+        },
+        "AdjustWeightQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealWeightQty],0)-ISNULL([PaperWeightQty],0)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "AdjustRolls__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AdjustWeightQty__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AdjustLengthQty__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "realweightqty",
+          "fixture": "CONT-G",
+          "expected": [
+            30
+          ],
+          "actual": [
+            "30.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "realrolls",
+          "fixture": "CONT-G",
+          "expected": [
+            3
+          ],
+          "actual": [
+            "3.00"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 3
+    },
+    {
+      "entry": "PurGrayIn",
+      "ids": [
+        "F236"
+      ],
+      "fields": [
+        "unit"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "unit": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StockUnit]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    },
+    {
+      "entry": "qry_DyeColorNum",
+      "ids": [
+        "F255"
+      ],
+      "fields": [
+        "RGB"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "RGB": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "(ISNULL([R],0)-255)*256*256+(ISNULL([G],0)-255)*256+(ISNULL([B],0)-255)-1",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "RGB__formula",
+          "fixture": "CONT-COLOR",
+          "expected": [
+            -65536
+          ],
+          "actual": [
+            "-65536"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 1
+    },
+    {
+      "entry": "qry_OriJobSheet",
+      "ids": [
+        "F256"
+      ],
+      "fields": [
+        "SumInnerReWorkQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 2,
+      "calculations": {
+        "SumInnerReWorkQty": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(qry_OriJobSheet_qry_OriJobCombineOrder).[InnerReWorkQty])",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 1
+    },
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "ids": [
+        "F260"
+      ],
+      "fields": [
+        "Amount"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 3,
+      "calculations": {
+        "Amount": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[Dosage]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [
+        {
+          "field": "Amount",
+          "original_expression": "[Price]*[Dosage]",
+          "implemented_expression": "[_formula_DetailPrice]*[Dosage]",
+          "basis": "按原JOIN中d明细的Price计算染化料金额；原同名单头价格列全部保留，附加明确来源列"
+        }
+      ],
+      "expected_value_checks": [
+        {
+          "field": "Amount__formula",
+          "fixture": "CONT-RECIPE",
+          "expected": [
+            6,
+            6,
+            -9
+          ],
+          "actual": [
+            "-9.000000000000",
+            "6.000000000000",
+            "6.000000000000"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [
+        {
+          "row": 1,
+          "field": "Remarks",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 2,
+          "field": "Remarks",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 3,
+          "field": "Remarks",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        }
+      ],
+      "full_entry_trial_field_count": 2
+    },
+    {
+      "entry": "qry_QuoteRelaStuff",
+      "ids": [
+        "F262",
+        "F263"
+      ],
+      "fields": [
+        "NeedMoney",
+        "RealMoney"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 7,
+      "calculations": {
+        "NeedMoney": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[Dosage]*[NeedQty]",
+          "configuration_issue": null
+        },
+        "RealMoney": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[Dosage]*[RealQty]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [
+        {
+          "field": "NeedMoney",
+          "original_expression": "[Price]*[Dosage]*[NeedQty]",
+          "implemented_expression": "[_formula_DetailPrice]*[Dosage]*[NeedQty]",
+          "basis": "按原JOIN中d明细的Price计算染化料金额；原同名单头价格列全部保留，附加明确来源列"
+        },
+        {
+          "field": "RealMoney",
+          "original_expression": "[Price]*[Dosage]*[RealQty]",
+          "implemented_expression": "[_formula_DetailPrice]*[Dosage]*[RealQty]",
+          "basis": "按原JOIN中d明细的Price计算染化料金额；原同名单头价格列全部保留，附加明确来源列"
+        }
+      ],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 3
+    },
+    {
+      "entry": "qry_SemiStockToCarryMaterial",
+      "ids": [
+        "F264"
+      ],
+      "fields": [
+        "UpWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "UpWeightQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([FixedQty],0)*ISNULL([UpRolls],0)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "UpWeightQty__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 1
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "ids": [
+        "F271"
+      ],
+      "fields": [
+        "avgdots"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 6,
+      "calculations": {
+        "avgdots": {
+          "calculated_rows": 6,
+          "unresolved_rows": 0,
+          "expression": "IIF(IsNull([Width]*[PAYard],0)>0,[Dots]*3600/[Width]/[PAYard],0)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [
+        {
+          "row": 1,
+          "field": "GradeID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 2,
+          "field": "GradeID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 3,
+          "field": "GradeID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 6,
+          "field": "GradeID",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 1,
+          "field": "Tubes",
+          "reason": "依赖公式GradeID未能计算，不能改用原列冒充本次结果"
+        },
+        {
+          "row": 2,
+          "field": "Tubes",
+          "reason": "依赖公式GradeID未能计算，不能改用原列冒充本次结果"
+        },
+        {
+          "row": 3,
+          "field": "Tubes",
+          "reason": "依赖公式GradeID未能计算，不能改用原列冒充本次结果"
+        },
+        {
+          "row": 6,
+          "field": "Tubes",
+          "reason": "依赖公式GradeID未能计算，不能改用原列冒充本次结果"
+        }
+      ],
+      "full_entry_trial_field_count": 8
+    },
+    {
+      "entry": "QueryWorkList2",
+      "ids": [
+        "F274",
+        "F275",
+        "F276",
+        "F277",
+        "F278",
+        "F279",
+        "F280"
+      ],
+      "fields": [
+        "Dots",
+        "Grade",
+        "PDots",
+        "Pkg",
+        "PlengthQyt",
+        "PRolls",
+        "YAvgdots"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 2,
+      "calculations": {
+        "Dots": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "Sum(Child(QueryWorkList2_QueryRecordCheck).[Dots])",
+          "configuration_issue": null
+        },
+        "Pkg": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "[prodkg]",
+          "configuration_issue": null
+        },
+        "PlengthQyt": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "[lengthQyt]",
+          "configuration_issue": null
+        },
+        "PRolls": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "[Recordcnt]",
+          "configuration_issue": null
+        },
+        "PDots": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "[Dots]",
+          "configuration_issue": null
+        },
+        "YAvgdots": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "IIF(IsNull([ProdWidth]*[lengthQyt],0)>0,[Dots]*3600/[ProdWidth]/[lengthQyt],0)",
+          "configuration_issue": null
+        },
+        "Grade": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "IIF([YAvgdots]>16,'B','A')",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 7
+    },
+    {
+      "entry": "ReworkStuffWeightPhaseDetailPrint",
+      "ids": [
+        "F294",
+        "F295",
+        "F296"
+      ],
+      "fields": [
+        "BathRatio",
+        "Money",
+        "RealMoney"
+      ],
+      "state": "非空有逐行差异",
+      "query_count": 7,
+      "calculations": {
+        "BathRatio": {
+          "calculated_rows": 2,
+          "unresolved_rows": 5,
+          "expression": "parent.[Rate]",
+          "configuration_issue": null
+        },
+        "Money": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "IIF([WeightUnit]='G',[Price]*([NeedQty]/1000),[Price]*[NeedQty])",
+          "configuration_issue": null
+        },
+        "RealMoney": {
+          "calculated_rows": 7,
+          "unresolved_rows": 0,
+          "expression": "[Price]*[Dosage]*[RealQty]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [
+        {
+          "row": 3,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 4,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 5,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 6,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 7,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        }
+      ],
+      "source_resolutions": [
+        {
+          "field": "BathRatio",
+          "original_expression": "parent.[Rate]",
+          "implemented_expression": "parent.[Rate]",
+          "basis": "按原SheetSeries连接ReworkStuffWeight.Rate；替代原缺失/指向明细的父配置"
+        }
+      ],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [
+        {
+          "row": 3,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 4,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 5,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 6,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        },
+        {
+          "row": 7,
+          "field": "BathRatio",
+          "reason": "父查询匹配行数0；保留全部候选，不选第一行"
+        }
+      ],
+      "full_entry_trial_field_count": 3
+    },
+    {
+      "entry": "SemiStockToCheck",
+      "ids": [
+        "F317",
+        "F318",
+        "F319"
+      ],
+      "fields": [
+        "AdjustLengthQty",
+        "AdjustRolls",
+        "AdjustWeightQty"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "AdjustLengthQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[RealLengthQty]-[PaperLengthQty]",
+          "configuration_issue": null
+        },
+        "AdjustRolls": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[RealRolls]-[PaperRolls]",
+          "configuration_issue": null
+        },
+        "AdjustWeightQty": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[RealWeightQty]-[PaperWeightQty]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "AdjustRolls__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AdjustWeightQty__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "AdjustLengthQty__formula",
+          "fixture": "CONT-G",
+          "expected": [
+            0
+          ],
+          "actual": [
+            "0.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "realweightqty",
+          "fixture": "CONT-G",
+          "expected": [
+            30
+          ],
+          "actual": [
+            "30.00"
+          ],
+          "passed": true
+        },
+        {
+          "field": "realrolls",
+          "fixture": "CONT-G",
+          "expected": [
+            3
+          ],
+          "actual": [
+            "3.00"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 3
+    },
+    {
+      "entry": "SemiToGrayIn",
+      "ids": [
+        "F321"
+      ],
+      "fields": [
+        "unit"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "unit": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StockUnit]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 2
+    },
+    {
+      "entry": "StuffInDetail",
+      "ids": [
+        "F327"
+      ],
+      "fields": [
+        "StuffCode"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "StuffCode": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StuffID]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [
+        {
+          "field": "StuffCode__formula",
+          "fixture": "CONT-STUFFIN",
+          "expected": [
+            "CONTB-S"
+          ],
+          "actual": [
+            "CONTB-S"
+          ],
+          "passed": true
+        }
+      ],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 2
+    },
+    {
+      "entry": "StuffStockToCheck",
+      "ids": [
+        "F328",
+        "F329",
+        "F330",
+        "F331",
+        "F332"
+      ],
+      "fields": [
+        "AdjustMoney",
+        "AdjustQty",
+        "RealMoney",
+        "StuffID",
+        "WareHouseID"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 2,
+      "calculations": {
+        "AdjustQty": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealQty],0)-ISNULL([PaperQty],0)",
+          "configuration_issue": null
+        },
+        "RealMoney": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealQty],0)*[Price]",
+          "configuration_issue": null
+        },
+        "StuffID": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "B093",
+          "configuration_issue": null
+        },
+        "WareHouseID": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "B097",
+          "configuration_issue": null
+        },
+        "AdjustMoney": {
+          "calculated_rows": 2,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealMoney],0)-ISNULL([PaperMoney],0)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [
+        {
+          "field": "StuffID",
+          "original_expression": "B093",
+          "implemented_expression": "[StuffID]",
+          "basis": "原Express为选择器编号B093；保留原查询的代码值，不把编号当字段或常量写回"
+        },
+        {
+          "field": "WareHouseID",
+          "original_expression": "B097",
+          "implemented_expression": "[WareHouseID]",
+          "basis": "原Express为选择器编号B097；保留原查询的代码值，不把编号当字段或常量写回"
+        }
+      ],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 5
+    },
+    {
+      "entry": "StuffStockToCheckBig",
+      "ids": [
+        "F333",
+        "F334",
+        "F335",
+        "F336",
+        "F337"
+      ],
+      "fields": [
+        "AdjustMoney",
+        "AdjustQty",
+        "RealMoney",
+        "StuffID",
+        "WareHouseID"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 3,
+      "calculations": {
+        "AdjustQty": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealQty],0)-ISNULL([PaperQty],0)",
+          "configuration_issue": null
+        },
+        "RealMoney": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealQty],0)*[Price]",
+          "configuration_issue": null
+        },
+        "StuffID": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "B093",
+          "configuration_issue": null
+        },
+        "WareHouseID": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "B097",
+          "configuration_issue": null
+        },
+        "AdjustMoney": {
+          "calculated_rows": 3,
+          "unresolved_rows": 0,
+          "expression": "ISNULL([RealMoney],0)-ISNULL([PaperMoney],0)",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [
+        {
+          "field": "StuffID",
+          "original_expression": "B093",
+          "implemented_expression": "[StuffID]",
+          "basis": "原Express为选择器编号B093；保留原查询的代码值，不把编号当字段或常量写回"
+        },
+        {
+          "field": "WareHouseID",
+          "original_expression": "B097",
+          "implemented_expression": "[WareHouseID]",
+          "basis": "原Express为选择器编号B097；保留原查询的代码值，不把编号当字段或常量写回"
+        }
+      ],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 5
+    },
+    {
+      "entry": "TuiHuoGrayIn",
+      "ids": [
+        "F349"
+      ],
+      "fields": [
+        "unit"
+      ],
+      "state": "非空固定公式运行通过",
+      "query_count": 1,
+      "calculations": {
+        "unit": {
+          "calculated_rows": 1,
+          "unresolved_rows": 0,
+          "expression": "[StockUnit]",
+          "configuration_issue": null
+        }
+      },
+      "issues": [],
+      "source_resolutions": [],
+      "expected_value_checks": [],
+      "full_entry_trial_issues": [],
+      "full_entry_trial_field_count": 4
+    }
+  ],
+  "historical_reconciliation": "未完成；本文件是合成测试库入口运行结果",
+  "field_acceptance": "未现场验收"
+}

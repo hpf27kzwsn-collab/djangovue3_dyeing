@@ -120,20 +120,20 @@ def preview(job, query=reader, series=None):
 
 
 @transaction.atomic
-def synchronize(job, actor, at, reason, query=reader, series=None):
+def synchronize(job, actor, at, reason, query=reader, series=None, automatic=False):
     job = scoped(job, query)
     require_available(job)
     previous = effect(job, 'package_label_sync')
-    if previous is not None and previous['state'] == 'applied':
+    if previous is not None and previous['state'] == 'applied' and not automatic:
         raise ValidationError({'source': '请先撤回本工卡上次标签同步，再重新同步。'})
     report, targets, sources = plan(job, query, lock=True, series=series)
-    changes = []
+    changes = list(previous['changes']) if automatic and previous is not None and previous['state']=='applied' else []
     for row in report['rows']:
         item = targets[row['record_id']]
         require_available(item)
         if row['after']:
             change(item, row['after'], changes, actor, reason)
-    from .source_chain_reverse import capture
+    from .source_chain_reverse import capture,include_nested_changes
     from .source_packaging_flow import start_packing
     with capture() as progress_changes:
         for row in report['rows']:
@@ -143,6 +143,7 @@ def synchronize(job, actor, at, reason, query=reader, series=None):
             item.refresh_from_db()
             start_packing(item, actor)
     check_scope([apps.get_model(row['entity']).objects.get(pk=row['id']) for row in progress_changes], query)
+    include_nested_changes(progress_changes)
     changes.extend(progress_changes)
     save_effect(job, 'package_label_sync', {'state': 'applied', 'at': at, 'reason': reason,
         'changes': changes, 'report': report, 'sources': [origin(item) for item in sources]}, actor, reason)

@@ -139,9 +139,12 @@ def refresh(item, actor):
     from .source_execution_state import require_available
     require_available(item)
     context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
-    if context is None or context.entry_name in ['explicit_outwork_closure','explicit_business_continuation']:
+    if context is None or context.entry_name in ['explicit_outwork_closure','explicit_business_continuation','print_snapshot']:
         return
     if 'derived_from' in context.effects:
+        return
+    if context.entry_name == 'GrayOutShenHe':
+        # 原入口在审核/反审核事件显式用GrayOut配置过账，避免另生成一套库存。
         return
     context = locked(context)
     rule = ENTRY_RULES[item._meta.label][context.entry_name]

@@ -21,25 +21,40 @@ LAB_FIELDS = ['CustomerID', 'CreateDate', 'Creater', 'VerLight1ID', 'VerLight2ID
               'Duiseluogang', 'Daipaidaban', 'Dabanpise', 'KindType']
 
 
+@transaction.atomic
 def sync_lab(item, actor):
     if item.SOURCE_TABLE != 'DyeLabMain' or entry_for(item) != 'ShowDyeLabMain':
         return
-    for color in matching(rows('DyeLabColor'), SheetSeries=raw(item, 'SheetSeries')).order_by('pk'):
-        values = {name: raw(color, name) for name in COLOR_FIELDS}
-        values.update({name: raw(item, name) for name in LAB_FIELDS})
-        values.update(SheetSeries=raw(item, 'SheetSeries'), ColorMark=raw(color, 'ColorMarkt'),
-                      CusRemark=raw(item, 'Remarks'), Modifyer=None, ModifyDate=None)
-        targets = matching(rows('PColorNum', 'erp_base'), SheetSeries=raw(item, 'SheetSeries'), ColorNo=raw(color, 'ColorNo'))
-        if targets.exists():
-            change(targets, values, actor)
-        else:
-            model = targets.model
-            master = persist(model(**{model.SOURCE_FIELDS[key]: value for key, value in values.items()}), actor)
-            record(master, 'lab_color_register', {'exists': False}, actor, f'来样颜色原行：{color.pk}')
-        latest = matching(rows('DyeDipsRecord'), ColorNum=raw(color, 'ColorNum')).order_by(
-            F('old_sheet_date').desc(nulls_last=True), '-pk').first()
-        if latest is not None:
-            change(targets, {key: raw(latest, key) for key in ['StuffDosage', 'CostQuote', 'ColorDepthID']}, actor)
+    from .source_phase3_operations import retire
+    from .source_phase2_triggers import color_registered
+    series = raw(item, 'SheetSeries')
+    heads = list(matching(rows('DyeLabMain'), SheetSeries=series).order_by('pk'))
+    # 原游标来自主从连接；不能按色号或颜色编码去重。
+    cursor = [(raw(color, 'ColorNum'), raw(color, 'ColorNo')) for head in heads
+              for color in matching(rows('DyeLabColor'), SheetSeries=raw(head, 'SheetSeries')).order_by('pk')]
+    for color_num, color_no in cursor:
+        retire(matching(rows('PColorNum', 'erp_base'), SheetSeries=series, ColorNo=color_no), actor,
+               '原来样保存删除后重建色号；被替换的完整原行留档')
+        for color in matching(rows('DyeLabColor'), SheetSeries=series, ColorNum=color_num).order_by('pk'):
+            for head in heads:
+                values = {name: raw(color, name) for name in COLOR_FIELDS}
+                values.update({name: raw(head, name) for name in LAB_FIELDS})
+                values.update(SheetSeries=series, ColorMark=raw(color, 'ColorMarkt'),
+                              CusRemark=raw(head, 'Remarks'), Modifyer=None, ModifyDate=None)
+                model = rows('PColorNum', 'erp_base').model
+                master = persist(model(**{model.SOURCE_FIELDS[key]: value for key, value in values.items()}), actor)
+                color_registered(master, actor)
+                record(master, 'lab_color_register', {'exists': False}, actor,
+                       f'来样主行：{head.pk}；颜色原行：{color.pk}；游标：{color_num}/{color_no}')
+        # 原UPDATE未排序；明确采用承接行顺序末项，保留全部来源及候选审计。
+        for master in matching(rows('PColorNum', 'erp_base'), SheetSeries=series).order_by('pk'):
+            candidates = list(matching(rows('DyeDipsRecord'), ColorNum=raw(master, 'ColorNum')).order_by('pk'))
+            if candidates:
+                change(type(master).objects.filter(pk=master.pk),
+                       {key: raw(candidates[-1], key) for key in ['StuffDosage', 'CostQuote', 'ColorDepthID']}, actor)
+                if len(candidates) > 1:
+                    record(master, 'lab_trial_candidates', snapshot(master), actor,
+                           '原无序UPDATE候选：'+str([row.pk for row in candidates]))
 
 
 @transaction.atomic

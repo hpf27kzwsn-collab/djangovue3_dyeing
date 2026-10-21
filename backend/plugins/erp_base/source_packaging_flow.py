@@ -76,7 +76,11 @@ def saved(item, created, actor):
     change(type(item).objects.filter(pk=item.pk),values,actor)
     item.refresh_from_db()
     start_packing(item,actor)
-    if entry_for(item) in ['QC_Record','QFQC_Record']:
+
+
+def after_saved(item,actor):
+    """原 AfterSaveSQL 在本次明细汇总完成后回写工卡。"""
+    if item.SOURCE_TABLE=='RecordYield' and not is_historical(item) and entry_for(item) in ['QC_Record','QFQC_Record']:
         qc_totals(item,actor)
 
 

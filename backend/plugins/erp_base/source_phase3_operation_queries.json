@@ -1,0 +1,428 @@
+{
+  "235": {
+    "temps": {
+      "t": "SELECT a.* FROM dye.GrayInRecord_Test AS a",
+      "r": "SELECT SheetSeries, CustJobNo, SheetDate, CustomerID, GrayID, PreField1, MachineID, PreField3, PreField5, Area, StorageUnitIDs, GUnit, SUM(Rolls) AS Rolls, SUM(WeightQty) AS WeightQty, SUM(LengthQty) AS LengthQty FROM #t GROUP BY SheetSeries, CustJobNo, SheetDate, CustomerID, GrayID, PreField1, MachineID, PreField3, PreField5, Area, StorageUnitIDs, GUnit ORDER BY SheetSeries"
+    },
+    "inserts": [
+      {
+        "table": "GrayIn",
+        "sql": "SELECT CustomerID AS CustomerID, SheetSeries AS SheetSeries, SheetSeries AS SheetNo, SheetDate AS SheetDate, '0801' AS WareHouseID, 11 AS SheetKind, SheetSeries AS FactDlvNo, r.GUnit AS StockUnit, '期初导入数据' AS Remarks FROM #r AS r",
+        "parameters": [],
+        "branch": ""
+      },
+      {
+        "table": "GrayInDetail",
+        "sql": "SELECT r.SheetSeries AS SheetSeries, r.SheetSeries AS ReceSheetNo, r.CustJobNo AS CustJobNo, GrayID AS GrayID, PreField1 AS PreField1, MachineID AS MachineID, PreField3 AS PreField3, PreField5 AS PreField5, Area AS Area, StorageUnitIDs AS StorageUnitIDs, Rolls AS Rolls, WeightQty AS WeightQty, LengthQty AS LengthQty FROM #r AS r",
+        "parameters": [],
+        "branch": ""
+      },
+      {
+        "table": "GrayInRecord",
+        "sql": "SELECT t.SheetSeries AS ReceSheetNo, t.RollNo AS RollNo, t.LengthQty AS LengthQty, t.WeightQty AS WeightQty, t.BarCode AS BarCode, t.RollNo AS RollNo2, t.GUnit AS GUnit, t.Rolls AS Rolls FROM #t AS t",
+        "parameters": [],
+        "branch": ""
+      }
+    ]
+  },
+  "238": {
+    "temps": {
+      "t": "SELECT a.* FROM dye.ProdIn_to AS a",
+      "r": "SELECT SheetSeries, JobSheetNo, SheetDate, CustomerID, ProdID, FabricID, ColorID, ColorNum, CustColorNum, StorageUnitID, Area, AtteFee, VatFee, Width, Weight, COUNT(BarCode) AS SumRolls, SUM(WeightQty) AS SumWeightQty, SUM(GrayQty) AS SumGaryWeight FROM #t GROUP BY SheetSeries, JobSheetNo, SheetDate, CustomerID, ProdID, FabricID, ColorID, ColorNum, CustColorNum, StorageUnitID, Area, AtteFee, VatFee, Width, Weight ORDER BY SheetSeries"
+    },
+    "inserts": [
+      {
+        "table": "ProdIn",
+        "sql": "SELECT SheetSeries AS SheetSeries, SheetSeries AS SheetNo, JobSheetNo AS JobSheetNo, SheetDate AS SheetDate, CustomerID AS CustomerID, ProdID AS ProdID, FabricID AS FabricID, ColorID AS ColorID, ColorNum AS ColorNum, CustColorNum AS CustColorNum, StorageUnitID AS StorageUnitID, Area AS Area, AtteFee AS AtteFee, VatFee AS VatFee, Width AS Width, Weight AS Weight, SumRolls AS Rolls, SumWeightQty AS WeightQty, SumGaryWeight AS GaryWeight, 1 AS StockUnit, 10 AS SheetKind, '0802' AS WareHouseID FROM #r AS r",
+        "parameters": [],
+        "branch": ""
+      },
+      {
+        "table": "ProdInRecord",
+        "sql": "SELECT t.SheetSeries AS SheetSeries, t.RollNo AS RollNo, t.WeightQty AS WeightQty, t.BarCode AS BarCode, t.GrayQty AS GrayQty, t.WeightQty AS RealQty, t.BarCode AS GrayBarCode, t.RollNo AS RollNo3, 1 AS GUnit, 1 AS PUnit, t.BarCode AS ProdBarCode, 1 AS InRolls FROM #t AS t",
+        "parameters": [],
+        "branch": ""
+      }
+    ]
+  },
+  "302": {
+    "temps": {
+      "t_detail": "SELECT D.NUM, D.SheetSeries, D.BarCode, IIF(D.NUM = 1, D.LengthQty + D.SumAssignedLengthQty - D.SumLengthQty, D.LengthQty) AS LengthQty, IIF(D.NUM = 1, D.GrayQty + D.GaryWeight - D.SumGrayQty, D.GrayQty) AS GrayQty, D.Rolls, D.SumAssignedLengthQty, D.GaryWeight, D.SumGrayQty, D.SumLengthQty FROM (SELECT *, SUM(C.GrayQty) OVER (ORDER BY C.SheetSeries) AS SumGrayQty, SUM(C.LengthQty) OVER (ORDER BY C.SheetSeries) AS SumLengthQty FROM (SELECT ROW_NUMBER() OVER (ORDER BY A.RollNo) AS NUM, A.SheetSeries AS SheetSeries, A.BarCode AS BarCode, CONVERT(NUMERIC(10, 2), IIF(ISNULL(B.Rolls, 0) = 0, NULL, B.SumAssignedLengthQty / B.Rolls)) AS LengthQty, CONVERT(NUMERIC(10, 2), IIF(ISNULL(B.Rolls, 0) = 0, NULL, B.GaryWeight / B.Rolls)) AS GrayQty, B.Rolls AS Rolls, B.SumAssignedLengthQty AS SumAssignedLengthQty, B.GaryWeight AS GaryWeight FROM dye.ProdInRecord AS A LEFT JOIN dye.ProdIn AS B ON B.SheetSeries = A.SheetSeries WHERE A.SheetSeries = @SheetSeries) AS C) AS D"
+    },
+    "inserts": []
+  },
+  "303": {
+    "temps": {
+      "t_grayoutdetail": "SELECT ReceSheetNo, AssignedNo, Rolls, WeightQty FROM dye.GrayOutDetail WHERE SheetSeries = @GrayOutSheetSeries",
+      "j_record": "SELECT * FROM (SELECT B.SheetSeries AS SheetSeries, A.ReceSheetNo AS ReceSheetNo, A.BarCode AS GrayBarCode, A.BarCode AS BarCode, A.RollNo AS RollNo, B.WeightQty AS WeightQty, SUM(A.Rolls) AS Rolls FROM (SELECT ReceSheetNo, BarCode, RollNo, -Rolls AS Rolls FROM dye.GrayOutRecord UNION ALL SELECT IIF(GI.SheetKind = 16, GIR.OriReceSheetNo, GIR.ReceSheetNo) AS ReceSheetNo, IIF(GI.SheetKind = 16, GIR.OriBarCode, GIR.BarCode) AS BarCode, GIR.RollNo, IIF(GI.SheetKind = 16, -GIR.Rolls, GIR.Rolls) AS Rolls FROM dye.GrayInRecord AS GIR LEFT JOIN dye.GrayInDetail AS GID ON GIR.ReceSheetNo = GID.ReceSheetNo LEFT JOIN dye.GrayIn AS GI ON GI.SheetSeries = GID.SheetSeries) AS A LEFT JOIN dye.JobAssign AS B ON B.ReceSheetNo = A.ReceSheetNo WHERE B.SheetSeries = @JobSheetSeries GROUP BY B.SheetSeries, A.ReceSheetNo, A.BarCode, A.RollNo, B.WeightQty) AS C WHERE C.Rolls > 0",
+      "t_record": "SELECT A.SheetSeries, A.ReceSheetNo, B.AssignedNo, A.RollNo, A.GrayBarCode, A.Rolls AS PRolls, B.Rolls AS GrayRolls, SUM(A.Rolls) OVER (PARTITION BY A.SheetSeries, A.ReceSheetNo ORDER BY A.GrayBarCode) AS SUMRolls, (B.Rolls - SUM(A.Rolls) OVER (PARTITION BY A.SheetSeries, A.ReceSheetNo ORDER BY A.GrayBarCode)) AS DYRolls, A.WeightQty AS PWeightQty FROM #J_Record AS A LEFT JOIN #T_GrayOutDetail AS B ON A.ReceSheetNo = B.ReceSheetNo WHERE SheetSeries = @JobSheetSeries",
+      "t_newrecord": "SELECT *, CASE WHEN GrayRolls >= SUMRolls THEN PRolls WHEN LAG(DYRolls, 1, GrayRolls) OVER (PARTITION BY SheetSeries, ReceSheetNo ORDER BY GrayBarCode) < PRolls AND LAG(DYRolls, 1, GrayRolls) OVER (PARTITION BY SheetSeries, ReceSheetNo ORDER BY GrayBarCode) > 0 THEN PRolls + DYRolls ELSE 0.00 END AS KRolls FROM #T_Record",
+      "t_new": "SELECT *, IIF(ID = 1, F.PWeightQty - F.ZONGPWeightQty + F.NewPWeightQty, F.NewPWeightQty) AS KWeightQty FROM (SELECT *, SUM(E.NewPWeightQty) OVER (PARTITION BY ReceSheetNo, AssignedNo ORDER BY AssignedNo) AS ZONGPWeightQty FROM (SELECT ROW_NUMBER() OVER (PARTITION BY ReceSheetNo, AssignedNo ORDER BY AssignedNo) AS ID, *, CONVERT(NUMERIC(10, 2), KRolls / GrayRolls * PWeightQty) AS NewPWeightQty FROM #T_NewRecord WHERE KRolls > 0) AS E) AS F"
+    },
+    "inserts": [
+      {
+        "table": "GrayOutRecord",
+        "sql": "SELECT @GrayOutSheetSeries AS SheetSeries, AssignedNo AS AssignedNo, RollNo AS RollNo, GrayBarCode AS BarCode, ReceSheetNo AS ReceSheetNo, NULL AS LengthQty, KWeightQty AS WeightQty, NULL AS StorageUnitID, NULL AS Status, NULL AS Remarks, NULL AS GUnit, KRolls AS Rolls, NULL AS JobSheetNo FROM #T_New WHERE KRolls > 0",
+        "parameters": [
+          "grayoutsheetseries"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "304": {
+    "temps": {
+      "t_semioutdetail": "SELECT SheetSeries, ReceSheetNo, AssignedNo, Rolls, WeightQty FROM dye.SemiOutDetail WHERE SheetSeries = @SemiOutSheetSeries",
+      "j_record": "SELECT * FROM (SELECT B.SheetSeries AS SheetSeries, A.ReceSheetNo AS ReceSheetNo, A.BarCode AS GrayBarCode, A.BarCode AS BarCode, A.RollNo AS RollNo, SUM(A.WeightQty) AS WeightQty, SUM(A.Packs) AS Packs, SUM(A.Rolls) AS Rolls FROM (SELECT ReceSheetNo, BarCode, RollNo, Packs, -Rolls AS Rolls, WeightQty FROM dye.SemiOutRecord UNION ALL SELECT IIF(GI.SheetKind = 16, GIR.OriReceSheetNo, GIR.ReceSheetNo) AS ReceSheetNo, IIF(GI.SheetKind = 16, GIR.OriBarCode, GIR.BarCode) AS BarCode, GIR.RollNo, IIF(GI.SheetKind = 16, -GIR.Packs, GIR.Packs) AS Packs, IIF(GI.SheetKind = 16, -GIR.Rolls, GIR.Rolls) AS Rolls, IIF(GI.SheetKind = 16, -GIR.WeightQty, GIR.WeightQty) AS WeightQty FROM dye.SemiInRecord AS GIR LEFT JOIN dye.SemiInDetail AS GID ON GIR.ReceSheetNo = GID.ReceSheetNo LEFT JOIN dye.SemiIn AS GI ON GI.SheetSeries = GID.SheetSeries) AS A LEFT JOIN #T_SemiOutDetail AS B ON B.ReceSheetNo = A.ReceSheetNo WHERE B.SheetSeries = @SemiOutSheetSeries GROUP BY B.SheetSeries, A.ReceSheetNo, A.BarCode, A.RollNo, B.WeightQty) AS C WHERE C.Rolls > 0",
+      "t_record": "SELECT A.SheetSeries, A.ReceSheetNo, B.AssignedNo, A.RollNo, A.GrayBarCode, A.Packs, C.Rolls AS InRolls, A.Rolls AS PRolls, B.Rolls AS GrayRolls, SUM(A.Rolls) OVER (PARTITION BY A.SheetSeries, A.ReceSheetNo ORDER BY A.GrayBarCode) AS SUMRolls, (B.Rolls - SUM(A.Rolls) OVER (PARTITION BY A.SheetSeries, A.ReceSheetNo ORDER BY A.GrayBarCode)) AS DYRolls, A.WeightQty AS PWeightQty, B.WeightQty AS GrayWeightQty, SUM(A.WeightQty) OVER (PARTITION BY A.SheetSeries, A.ReceSheetNo ORDER BY A.GrayBarCode) AS SUMWeightQty, (B.WeightQty - SUM(A.WeightQty) OVER (PARTITION BY A.SheetSeries, A.ReceSheetNo ORDER BY A.GrayBarCode)) AS DYWeightQty FROM #J_Record AS A LEFT JOIN #T_SemiOutDetail AS B ON A.ReceSheetNo = B.ReceSheetNo LEFT JOIN dye.SemiInRecord AS C ON A.BarCode = C.BarCode WHERE B.SheetSeries = @SemiOutSheetSeries",
+      "t_newrecord": "SELECT *, CASE WHEN GrayRolls >= SUMRolls THEN PRolls WHEN LAG(DYRolls, 1, GrayRolls) OVER (PARTITION BY SheetSeries, ReceSheetNo ORDER BY GrayBarCode) < PRolls AND LAG(DYRolls, 1, GrayRolls) OVER (PARTITION BY SheetSeries, ReceSheetNo ORDER BY GrayBarCode) > 0 THEN PRolls + DYRolls ELSE 0.00 END AS KRolls, CASE WHEN GrayWeightQty >= SUMWeightQty THEN PWeightQty WHEN LAG(DYWeightQty, 1, GrayWeightQty) OVER (PARTITION BY SheetSeries, ReceSheetNo ORDER BY GrayBarCode) < PWeightQty AND LAG(DYWeightQty, 1, GrayWeightQty) OVER (PARTITION BY SheetSeries, ReceSheetNo ORDER BY GrayBarCode) > 0 THEN PWeightQty + DYWeightQty ELSE 0.00 END AS KWeightQty FROM #T_Record",
+      "t_new": "SELECT *, IIF(E.Packs = 0, 0, IIF(E.InRolls > E.KRolls, 0, 1)) AS KPacks FROM (SELECT ROW_NUMBER() OVER (PARTITION BY ReceSheetNo, AssignedNo ORDER BY AssignedNo) AS ID, * FROM #T_NewRecord WHERE KRolls > 0 OR KWeightQty > 0) AS E"
+    },
+    "inserts": [
+      {
+        "table": "SemiOutRecord",
+        "sql": "SELECT @SemiOutSheetSeries AS SheetSeries, AssignedNo AS AssignedNo, RollNo AS RollNo, GrayBarCode AS BarCode, ReceSheetNo AS ReceSheetNo, NULL AS LengthQty, KWeightQty AS WeightQty, NULL AS StorageUnitID, NULL AS Status, NULL AS Remarks, NULL AS GUnit, KRolls AS Rolls, KPacks AS Packs, NULL AS JobSheetNo FROM #T_New WHERE KRolls > 0 OR KWeightQty > 0",
+        "parameters": [
+          "semioutsheetseries"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "338": {
+    "temps": {
+      "master": "SELECT * FROM dye.GrayIn WHERE SheetSeries = @GrayInSheetSeries AND SheetKind = 20",
+      "graydetail": "SELECT * FROM dye.GrayInDetail WHERE SheetSeries = @GrayInSheetSeries"
+    },
+    "inserts": [
+      {
+        "table": "SemiOut",
+        "sql": "SELECT @ss AS SheetSeries, @sn AS SheetNo, @SheetDate AS SheetDate, @SheetKind AS SheetKind, [SalerGroupID] AS SalerGroupID, [SalerID] AS SalerID, [CustomerID] AS CustomerID, [StockUnit] AS StockUnit, [Revisions] AS Revisions, [Remarks] AS Remarks, [Creater] AS Creater, [CreateDate] AS CreateDate, [Modifyer] AS Modifyer, [ModifyDate] AS ModifyDate, [BusinessUnitID] AS BusinessUnitID, '0803' AS WareHouseID FROM #Master",
+        "parameters": [
+          "sheetdate",
+          "sheetkind",
+          "sn",
+          "ss"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "SemiOutDetail",
+        "sql": "SELECT @ss AS SheetSeries, @ss + '-' + SUBSTRING([ReceSheetNo], CHARINDEX('-', [ReceSheetNo]) + 1, LEN([ReceSheetNo]) - CHARINDEX('-', [ReceSheetNo])) AS AssignedNo, [TrunReceSheetNo] AS ReceSheetNo, [Spec] AS Spec, [LotNo] AS LotNo, [ColorID] AS ColorID, [MachineID] AS MachineID, [Price] AS Price, [Rolls] AS Rolls, [WeightQty] AS WeightQty, [LengthQty] AS LengthQty, [Packs] AS Packs, [FixedQty] AS FixedQty, [Amount] AS Amount, a.GrayID AS ProdID, @ss + '-' + SUBSTRING([ReceSheetNo], CHARINDEX('-', [ReceSheetNo]) + 1, LEN([ReceSheetNo]) - CHARINDEX('-', [ReceSheetNo])) AS DetailNo, b.SupplierID AS SupplierID FROM dye.#GrayDetail AS a LEFT JOIN #Master AS b ON a.SheetSeries = b.SheetSeries",
+        "parameters": [
+          "ss"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "SemiStockBook",
+        "sql": "SELECT b.SheetNo AS SheetNo, a.DetailNo AS DetailNo, a.ReceSheetNo AS ReceSheetNo, a.JobSheetNo AS JobSheetNo, b.SheetDate AS BookDate, GETDATE() AS CurrDate, 1 AS BookKind, b.CustomerID AS CustomerID, b.SemiKindID AS SemiKindID, b.BusinessUnitID AS BusinessUnitID, b.WareHouseID AS WareHouseID, a.StorageUnitID AS StorageUnitIDs, a.ProdID AS ProdID, a.LotNo AS LotNo, a.Rolls AS OutRolls, (SELECT SUM(c.Packs) FROM dye.SemiOutRecord AS c WHERE c.AssignedNo = a.AssignedNo) AS OutPacks, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Amount AS OutMoney, a.Remarks AS Remarks, b.SheetSeries AS SheetSeries, b.SheetKind AS SheetKind, a.SupplierID AS SupplierID, a.ColorID AS ColorID, a.InSheetKind AS InSheetKind, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B FROM dye.SemiOutDetail AS a WITH (NOLOCK) LEFT JOIN dye.SemiOut AS b WITH (NOLOCK) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @ss",
+        "parameters": [
+          "ss"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "394": {
+    "temps": {
+      "master": "SELECT * FROM dye.SemiIn WHERE SheetSeries = @SemiInSheetSeries AND SheetKind = 24",
+      "semidetail": "SELECT * FROM dye.SemiInDetail WHERE SheetSeries = @SemiInSheetSeries"
+    },
+    "inserts": [
+      {
+        "table": "GrayOut",
+        "sql": "SELECT @ss AS SheetSeries, @sn AS SheetNo, @SheetDate AS SheetDate, @SheetKind AS SheetKind, [SalerGroupID] AS SalerGroupID, [SalerID] AS SalerID, [CustomerID] AS CustomerID, [StockUnit] AS StockUnit, [Revisions] AS Revisions, [Remarks] AS Remarks, [Creater] AS Creater, [CreateDate] AS CreateDate, [Modifyer] AS Modifyer, [ModifyDate] AS ModifyDate, [BusinessUnitID] AS BusinessUnitID, '0803' AS WareHouseID FROM #Master",
+        "parameters": [
+          "sheetdate",
+          "sheetkind",
+          "sn",
+          "ss"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "GrayOutDetail",
+        "sql": "SELECT @ss AS SheetSeries, @ss + '-' + SUBSTRING([ReceSheetNo], CHARINDEX('-', [ReceSheetNo]) + 1, LEN([ReceSheetNo]) - CHARINDEX('-', [ReceSheetNo])) AS AssignedNo, [TrunReceSheetNo] AS ReceSheetNo, [Spec] AS Spec, [LotNo] AS LotNo, [ColorID] AS ColorID, [MachineID] AS MachineID, [Price] AS Price, [Rolls] AS Rolls, [WeightQty] AS WeightQty, [LengthQty] AS LengthQty, [Packs] AS Packs, [FixedQty] AS FixedQty, [Amount] AS Amount, a.ProdID AS GrayID, b.SupplierID AS SupplierID FROM dye.#SemiDetail AS a LEFT JOIN #Master AS b ON a.SheetSeries = b.SheetSeries",
+        "parameters": [
+          "ss"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "GrayStockBook",
+        "sql": "SELECT b.SheetNo AS SheetNo, a.AssignedNo AS DetailNo, a.ReceSheetNo AS ReceSheetNo, CASE WHEN b.SheetKind = 21 THEN a.JobSheetNo ELSE a.JobSheetSeries END AS JobSheetNo, b.SheetDate AS BookDate, GETDATE() AS CurrDate, b.SheetKind AS BookKind, b.CustomerID AS CustomerID, b.FactID AS FactID, b.GrayKindID AS GrayKindID, b.BusinessUnitID AS BusinessUnitID, b.WareHouseID AS WareHouseID, a.StorageUnitIDs AS StorageUnitIDs, a.GrayID AS GrayID, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, a.Rolls AS OutRolls, a.Packs AS OutPacks, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Remarks AS Remarks, b.SheetSeries AS SheetSeries, a.SupplierID AS SupplierID, a.InSheetKind AS InSheetKind, a.PreField1 AS PreField1, a.ColorID AS ColorID, a.PurchaseOrders AS PurchaseOrders, a.A_A AS A_A, a.A_B AS A_B FROM GrayOutDetail AS a WITH (nolock) LEFT JOIN GrayOut AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @ss",
+        "parameters": [
+          "ss"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "301": {
+    "temps": {
+      "graystock": "SELECT gi.SheetNo, gi.SheetSeries, gi.SheetDate, CONVERT(VARCHAR(10), gi.SheetDate, 23) AS InSheetDate, gi.WareHouseID, gi.SheetKind, gi.StockUnit, gi.CustomerID, gi.SupplierID, gid.YarnCategory, gid.ReceSheetNo, gid.GrayID AS Code, gid.GrayID, gid.Packs, gid.Rolls, gid.WeightQty, gid.LengthQty, gid.PreField1, gid.FixedQty, gid.InSheetKind, gid.LotNo, gid.ColorID, gid.PurchaseOrders, gid.A_A, gid.A_B, gid.InputCode FROM dye.GrayIn AS gi INNER JOIN dye.GrayInDetail AS gid ON gi.SheetSeries = gid.SheetSeries WHERE 1 = 1 AND gid.InPutCode = @BarCode",
+      "g_stock": "SELECT AA.InputCode, SUM(AA.Packs) AS Packs, SUM(AA.Rolls) AS Rolls, SUM(AA.WeightQty) AS WeightQty FROM (SELECT InputCode, Packs, Rolls, WeightQty FROM #GrayStock UNION ALL SELECT InputCode, -Packs, -Rolls, -WeightQty FROM dye.GrayOutDetail WHERE InputCode = @BarCode) AS AA GROUP BY AA.InputCode",
+      "ja": "SELECT TOP 1 A.Semi_Owner, A.InSheetKind, A.GrayID, A.LotNo, A.ColorID, A.FixedQty, A.PreField1, A.PurchaseOrders, A.A_A, A.A_B FROM dye.JobAssign AS A LEFT JOIN dye.JobSheet AS B ON B.SheetSeries = A.SheetSeries WHERE 1 = 1 AND B.JobSheetType IN ('1', '2') AND B.SheetNo = @JobSheetNo"
+    },
+    "inserts": []
+  },
+  "373": {
+    "temps": {
+      "semistock": "SELECT B.CustomerID, A.InSheetKind, A.ProdID, A.LotNo, A.ColorID, A.FixedQty, A.PreField1, A.PurchaseOrders, A.A_A, A.A_B, A.Packs, A.Rolls, A.WeightQty, InputCode FROM dye.SemiInDetail AS A LEFT JOIN dye.SemiIn AS B ON B.SheetSeries = A.SheetSeries WHERE 1 = 1 AND InputCode = @BarCode",
+      "ja": "SELECT TOP 1 ISNULL(A.Semi_Owner, '') AS Semi_Owner, ISNULL(A.InSheetKind, '') AS InSheetKind, ISNULL(A.ProdID, '') AS ProdID, ISNULL(A.LotNo, '') AS LotNo, ISNULL(A.ColorID, '') AS ColorID, ISNULL(A.FixedQty, 0) AS FixedQty, ISNULL(A.PreField1, '') AS PreField1, ISNULL(A.PurchaseOrders, '') AS PurchaseOrders, ISNULL(A.A_A, '') AS A_A, ISNULL(A.A_B, '') AS A_B, B.SheetNo AS JobSheetNo FROM dye.CarryMaterialDetail AS A LEFT JOIN dye.JobSheet AS B ON A.JobSheetNo = B.SheetNo WHERE 1 = 1 AND (A.JobSheetNo = @JobSheetNo OR B.BarCode = @JobSheetNo)",
+      "s_stock": "SELECT AA.InputCode, SUM(AA.Packs) AS Packs, SUM(AA.Rolls) AS Rolls, SUM(AA.WeightQty) AS WeightQty FROM (SELECT InputCode, Packs, Rolls, WeightQty FROM #SemiStock UNION ALL SELECT InputCode, -Packs, -Rolls, -WeightQty FROM dye.SemiOutDetail WHERE InputCode = @BarCode) AS AA GROUP BY AA.InputCode"
+    },
+    "inserts": [
+      {
+        "table": "SemiStock",
+        "sql": "SELECT A.Semi_Owner AS CustomerID, A.InSheetKind AS InSheetKind, A.ProdID AS ProdID, A.LotNo AS LotNo, A.ColorID AS ColorID, A.FixedQty AS FixedQty, A.PreField1 AS PreField1, A.PurchaseOrders AS PurchaseOrders, A.A_A AS A_A, A.A_B AS A_B, Packs AS Packs, Rolls AS Rolls, WeightQty AS WeightQty, @BarCode AS InputCode FROM #JA AS A JOIN dye.vwSemiStockBook_New ON vwSemiStockBook_New.A_A = A.A_A AND vwSemiStockBook_New.A_B = A.A_B AND vwSemiStockBook_New.ColorID = A.ColorID AND vwSemiStockBook_New.FixedQty = A.FixedQty AND vwSemiStockBook_New.InSheetKind = A.InSheetKind AND vwSemiStockBook_New.LotNo = A.LotNo AND vwSemiStockBook_New.PreField1 = A.PreField1 AND vwSemiStockBook_New.ProdID = A.ProdID AND vwSemiStockBook_New.PurchaseOrders = A.PurchaseOrders",
+        "parameters": [
+          "barcode"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "299": {
+    "temps": {},
+    "inserts": [
+      {
+        "table": "SemiIn",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetNoOut AS SheetNo, @SheetDate AS SheetDate, 24 AS SheetKind, NULL AS SemiKindID, @CustomerID AS CustomerID, NULL AS SalerGroupID, NULL AS SalerID, '1' AS StockUnit, NULL AS SheetStatus, 10 AS RightStatus, NULL AS PrintTimes, NULL AS Revisions, '坯纱转仓出库' AS Remarks, @Creater AS Creater, GETDATE() AS CreateDate, NULL AS Modifyer, NULL AS ModifyDate, NULL AS StepNo, NULL AS BusinessUnitID, NULL AS ApproveDate, NULL AS Approver, '0803' AS WareHouseID, @SupplierID AS SupplierID, @GrayOutSheetSeries AS GrayOutSheetNo",
+        "parameters": [
+          "creater",
+          "customerid",
+          "grayoutsheetseries",
+          "sheetdate",
+          "sheetnoout",
+          "sheetseriesout",
+          "supplierid"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "SemiInDetail",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetSeriesOut + '-' + RIGHT('000' + CONVERT(VARCHAR(10), RowIndex), 2) AS ReceSheetNo, m.FabricID AS FabricID, m.Spec AS Spec, m.LotNo AS LotNo, m.ColorID AS ColorID, m.Rolls AS InRolls, m.WeightQty AS InQty, m.StorageUnitIDs AS StorageUnitID, m.OrderNo AS OrderNo, m.CheckNo AS CheckNo, m.ShiftID AS ShiftID, m.EmpID AS EmpID, m.MachineID AS MachineID, m.OriReceSheetNo AS OriReceSheetNo, m.Remarks AS Remarks, m.NewLotNo AS NewLotNo, m.Width AS Width, m.JobSheetNo AS JobSheetNo, m.Area AS Area, m.GrayID AS ProdID, m.GrainQty AS GrainQty, m.Rolls AS Rolls, m.WeightQty AS WeightQty, m.LengthQty AS LengthQty, m.Packs AS Packs, m.PCS AS PCS, m.FixedQty AS FixedQty, m.Price AS Price, m.PreField1 AS PreField1, m.PreField2 AS PreField2, m.PreField3 AS PreField3, m.PreField4 AS PreField4, m.PreField5 AS PreField5, m.Amount AS Amount, m.PurDetailNo AS PurDetailNo, m.YarnCategory AS YarnCategory, m.Classify AS Classify, m.ColorNum AS ColorNum, m.PurchaseOrders AS PurchaseOrders, m.A_A AS A_A, m.A_B AS A_B, NULL AS TrunReceSheetNo, '' AS InSheetKind, m.ReceSheetNo AS GrayOutDetailNo FROM (SELECT ROW_NUMBER() OVER (ORDER BY a.ReceSheetNo) AS ROWINDEX, a.FabricID AS FabricID, a.Spec AS Spec, a.LotNo AS LotNo, a.ColorID AS ColorID, a.Rolls AS InRolls, a.WeightQty AS InQty, a.StorageUnitIDs AS StorageUnitIDs, NULL AS OrderNo, a.CheckNo AS CheckNo, NULL AS ShiftID, NULL AS EmpID, a.MachineID AS MachineID, NULL AS OriReceSheetNo, a.Remarks AS Remarks, NULL AS NewLotNo, a.Width AS Width, a.JobSheetNo AS JobSheetNo, a.Area AS Area, a.GrayID AS GrayID, NULL AS GrainQty, A.Rolls AS Rolls, A.WeightQty AS WeightQty, A.LengthQty AS LengthQty, A.Packs AS Packs, A.PCS AS PCS, A.FixedQty AS FixedQty, a.Price AS Price, a.PreField1 AS PreField1, a.PreField2 AS PreField2, a.PreField3 AS PreField3, a.PreField4 AS PreField4, a.PreField5 AS PreField5, a.Amount AS Amount, NULL AS PurDetailNo, IIF(b.CustomerID = '074', '本厂采购', '客户来纱') AS YarnCategory, NULL AS Classify, a.ColorNum AS ColorNum, a.PurchaseOrders AS PurchaseOrders, a.A_A AS A_A, a.A_B AS A_B, a.SheetSeries AS SheetSeries, a.InSheetKind AS InSheetKind, a.ReceSheetNo AS ReceSheetNo FROM dye.GrayOutDetail AS a JOIN dye.GrayOut AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetSeries = @GrayOutSheetSeries) AS m",
+        "parameters": [
+          "grayoutsheetseries",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "372": {
+    "temps": {},
+    "inserts": [
+      {
+        "table": "GrayIn",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetNoOut AS SheetNo, @SheetDate AS SheetDate, NULL AS BusinessUnitID, '0801' AS WareHouseID, NULL AS SalerGroupID, NULL AS IsInputRecord, 20 AS SheetKind, NULL AS GrayKindID, @SupplierID AS SupplierID, NULL AS FactDlvNo, '1' AS StockUnit, NULL AS SheetStatus, 10 AS RightStatus, NULL AS PrintTimes, NULL AS Revisions, '半成品转仓出库' AS Remarks, @Creater AS Creater, GETDATE() AS CreateDate, NULL AS Modifyer, NULL AS ModifyDate, NULL AS StepNo, NULL AS BusinessKind, @CustomerID AS CustomerID, @SemiOutSheetSeries AS SemiOutSheetNo",
+        "parameters": [
+          "creater",
+          "customerid",
+          "semioutsheetseries",
+          "sheetdate",
+          "sheetnoout",
+          "sheetseriesout",
+          "supplierid"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "GrayInDetail",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetSeriesOut + '-' + RIGHT('000' + CONVERT(VARCHAR(10), RowIndex), 2) AS ReceSheetNo, m.Spec AS Spec, m.StorageUnitID AS StorageUnitIDs, m.Rolls AS Rolls, m.Packs AS Packs, m.WeightQty AS WeightQty, m.LengthQty AS LengthQty, m.Price AS Price, m.Amount AS Amount, DlvRolls AS DlvRolls, DlvPacks AS DlvPacks, DlvQty AS DlvQty, m.CheckNo AS CheckNo, APDetailNo AS APDetailNo, OriReceSheetNo AS OriReceSheetNo, m.Remarks AS Remarks, m.ColorID AS ColorID, m.MachineID AS MachineID, m.GrayID AS GrayID, m.LotNo AS LotNo, PreField1 AS PreField1, PreField2 AS PreField2, PreField3 AS PreField3, PreField4 AS PreField4, PreField5 AS PreField5, m.PCS AS PCS, m.FixedQty AS FixedQty, m.StockUnit AS GUnit, m.DetailNo AS TrunReceSheetNo, m.PurchaseOrders AS PurchaseOrders, m.A_A AS A_A, m.A_B AS A_B, m.ProdID AS ProdID, m.InSheetKind AS InSheetKind, m.YarnCategory AS YarnCategory FROM (SELECT ROW_NUMBER() OVER (ORDER BY a.ReceSheetNo) AS ROWINDEX, a.Spec AS Spec, a.StorageUnitID AS StorageUnitID, a.Rolls AS Rolls, a.Packs AS Packs, a.WeightQty AS WeightQty, a.LengthQty AS LengthQty, a.Price AS Price, a.Amount AS Amount, NULL AS DlvRolls, NULL AS DlvPacks, NULL AS DlvQty, a.CheckNo AS CheckNo, NULL AS APDetailNo, NULL AS OriReceSheetNo, a.Remarks AS Remarks, a.ColorID AS ColorID, a.MachineID AS MachineID, a.ProdID AS GrayID, a.LotNo AS LotNo, PreField1 AS PreField1, PreField2 AS PreField2, PreField3 AS PreField3, PreField4 AS PreField4, PreField5 AS PreField5, a.PCS AS PCS, a.FixedQty AS FixedQty, b.StockUnit AS StockUnit, a.DetailNo AS DetailNo, a.PurchaseOrders AS PurchaseOrders, a.A_A AS A_A, a.A_B AS A_B, a.ProdID AS ProdID, a.InSheetKind AS InSheetKind, '客户来纱' AS YarnCategory FROM dye.SemiOutDetail AS a JOIN dye.SemiOut AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetSeries = @SemiOutSheetSeries) AS m",
+        "parameters": [
+          "semioutsheetseries",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "92": {
+    "temps": {},
+    "inserts": [
+      {
+        "table": "DyeStuffOut",
+        "sql": "SELECT s.SheetSeries,s.SheetNo,s.SheetDate,s.SheetKind,s.Remarks,s.Creater,s.CreateDate,\nEmpID,p.Name AS WareHouseID,s.Keeper,s.Approver,s.ApproveDate,s.FactID,s.RightStatus,s.SQSheetNo,1 AS Status\nFROM dye.StuffOut s LEFT JOIN dye.p_Dept p ON p.DeptID=s.WareHouseID\nWHERE s.SheetSeries=@DyeSheetSeries AND s.SheetKind<>21"
+      },
+      {
+        "table": "DyeStuffOutDetail",
+        "sql": "SELECT a.SheetSeries AS SheetSeries, a.DetailNo AS DetailNo, a.PurDetailNo AS PurDetailNo, a.StuffID AS StuffID, a.Price AS Price, a.TaxPrice AS TaxPrice, a.TaxRate AS TaxRate, a.TaxMoney AS TaxMoney, a.Amount AS Amount, a.Qty AS Qty, a.APDetailNo AS APDetailNo, a.LotNo AS LotNo, a.DlvQty AS DlvQty, a.Remarks AS Remarks, a.InDetailNo AS InDetailNo, CASE StockUnit WHEN 'K' THEN '千克' WHEN 'G' THEN '克' ELSE StockUnit END AS Unit FROM dye.StuffOutDetail AS a LEFT JOIN dye.p_stuff AS b ON b.StuffID = a.StuffID WHERE SheetSeries = @DyeSheetSeries",
+        "parameters": [
+          "dyesheetseries"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "98": {
+    "source": "SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY A.LotNo) AS id, A.CustomerID AS CustomerID, A.GrayID AS GrayID, A.LotNo AS LotNo, A.InSheetKind AS InSheetKind, A.PreField1 AS PreField1, A.FixedQty AS FixedQty, A.PurchaseOrders AS PurchaseOrders, A.A_A AS A_A, A.A_B AS A_B, A.ColorID AS ColorID, A.Area AS field1, C.NewArea AS field2 FROM (SELECT ISNULL(B.CustomerID, '') AS CustomerID, ISNULL(A.GrayID, '') AS GrayID, ISNULL(A.LotNo, '') AS LotNo, ISNULL(C.InSheetKind, '') AS InSheetKind, ISNULL(A.PreField1, '') AS PreField1, ISNULL(A.FixedQty, 0) AS FixedQty, ISNULL(A.PurchaseOrders, '') AS PurchaseOrders, ISNULL(A.A_A, '') AS A_A, ISNULL(A.A_B, '') AS A_B, ISNULL(A.ColorID, '') AS ColorID, STRING_AGG(ISNULL(A.Area, ''), ';') AS Area FROM dye.GrayInDetail AS A LEFT JOIN dye.GrayIn AS B ON B.SheetSeries = A.SheetSeries LEFT JOIN dye.GrayStockBook AS C ON C.DetailNo = A.ReceSheetNo WHERE 1 = 1 AND A.SheetSeries = @SheetSeries AND ISNULL(A.Area, '') <> '' GROUP BY ISNULL(B.CustomerID, ''), ISNULL(A.GrayID, ''), ISNULL(A.LotNo, ''), ISNULL(C.InSheetKind, ''), ISNULL(A.PreField1, ''), ISNULL(A.FixedQty, 0), ISNULL(A.PurchaseOrders, ''), ISNULL(A.A_A, ''), ISNULL(A.A_B, ''), ISNULL(A.ColorID, '')) AS A LEFT JOIN dye.VWGrayPostionUp AS C ON ISNULL(A.CustomerID, '') = C.CustomerID AND ISNULL(A.InSheetKind, '') = C.InSheetKind AND ISNULL(A.GrayID, '') = C.ProdID AND ISNULL(A.LotNo, '') = C.LotNo AND ISNULL(A.PreField1, '') = C.PreField1 AND ISNULL(A.ColorID, '') = C.ColorID AND ISNULL(A.FixedQty, 0) = C.FixedQty AND ISNULL(A.PurchaseOrders, '') = C.PurchaseOrders AND ISNULL(A.A_A, '') = C.A_A AND ISNULL(A.A_B, '') = C.A_B) AS A"
+  },
+  "99": {
+    "source": "SELECT * FROM (SELECT ROW_NUMBER() OVER (ORDER BY A.LotNo) AS id, A.CustomerID AS CustomerID, A.ProdID AS ProdID, A.LotNo AS LotNo, A.InSheetKind AS InSheetKind, A.PreField1 AS PreField1, A.FixedQty AS FixedQty, A.PurchaseOrders AS PurchaseOrders, A.A_A AS A_A, A.A_B AS A_B, A.ColorID AS ColorID, A.Area AS field1, C.NewArea AS field2 FROM (SELECT ISNULL(B.CustomerID, '') AS CustomerID, ISNULL(A.ProdID, '') AS ProdID, ISNULL(A.LotNo, '') AS LotNo, ISNULL(C.InSheetKind, '') AS InSheetKind, ISNULL(A.PreField1, '') AS PreField1, ISNULL(A.FixedQty, 0) AS FixedQty, ISNULL(A.PurchaseOrders, '') AS PurchaseOrders, ISNULL(A.A_A, '') AS A_A, ISNULL(A.A_B, '') AS A_B, ISNULL(A.ColorID, '') AS ColorID, STRING_AGG(ISNULL(A.Area, ''), ';') AS Area FROM dye.SemiInDetail AS A LEFT JOIN dye.SemiIn AS B ON B.SheetSeries = A.SheetSeries LEFT JOIN dye.SemiStockBook AS C ON C.DetailNo = A.ReceSheetNo WHERE 1 = 1 AND A.SheetSeries = @SheetSeries AND ISNULL(A.Area, '') <> '' GROUP BY ISNULL(B.CustomerID, ''), ISNULL(A.ProdID, ''), ISNULL(A.LotNo, ''), ISNULL(C.InSheetKind, ''), ISNULL(A.PreField1, ''), ISNULL(A.FixedQty, 0), ISNULL(A.PurchaseOrders, ''), ISNULL(A.A_A, ''), ISNULL(A.A_B, ''), ISNULL(A.ColorID, '')) AS A LEFT JOIN dye.VWGrayPostionUp AS C ON ISNULL(A.CustomerID, '') = C.CustomerID AND ISNULL(A.InSheetKind, '') = C.InSheetKind AND ISNULL(A.ProdID, '') = C.ProdID AND ISNULL(A.LotNo, '') = C.LotNo AND ISNULL(A.PreField1, '') = C.PreField1 AND ISNULL(A.ColorID, '') = C.ColorID AND ISNULL(A.FixedQty, 0) = C.FixedQty AND ISNULL(A.PurchaseOrders, '') = C.PurchaseOrders AND ISNULL(A.A_A, '') = C.A_A AND ISNULL(A.A_B, '') = C.A_B) AS A"
+  },
+  "236": {
+    "inserts": [
+      {
+        "table": "GrayOut",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetSeriesOut AS SheetNo, GETDATE() AS SheetDate, 21 AS SheetKind, NULL AS BusinessUnitID, '0801' AS WareHouseID, @CustomerID AS CustomerID, '2' AS StockUnit, '自动出库' AS Creater, GETDATE() AS CreateDate, NULL AS ModifyDate",
+        "parameters": [
+          "customerid",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "GrayOutDetail",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @sheetseriesout + '-' + CASE WHEN ROWINDEX < 100 THEN RIGHT('00' + CAST(ROWINDEX AS VARCHAR(10)), 2) ELSE NULL END AS AssignedNo, ReceSheetNo AS ReceSheetNo, m.CustJobNo AS CustJobNo, LotNo AS LotNo, Rolls AS Rolls, WeightQty AS WeightQty, m.LengthQty AS LengthQty, GrayID AS GrayID, @JobSheetNo AS JobSheetNo, StorageUnitIDs AS StorageUnitIDs, m.Area AS Area FROM (SELECT ROW_NUMBER() OVER (ORDER BY a.ReceSheetNo) AS ROWINDEX, a.ReceSheetNo AS ReceSheetNo, b.CustJobNo AS CustJobNo, b.StorageUnitIDs AS StorageUnitIDs, b.Area AS Area, b.GrayID AS GrayID, b.LotNo AS LotNo, SUM(a.WeightQty) AS WeightQty, SUM(a.LengthQty) AS LengthQty, COUNT(*) AS Rolls FROM dye.JobGrayRecord AS a JOIN dye.GrayInDetail AS b ON a.ReceSheetNo = b.ReceSheetNo JOIN dye.JobSheet AS j ON a.SheetSeries = j.SheetSeries WHERE SheetNo = @JobSheetNo GROUP BY a.ReceSheetNo, b.CustJobNo, b.StorageUnitIDs, b.Area, b.GrayID, b.LotNo) AS m",
+        "parameters": [
+          "jobsheetno",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "GrayOutRecord",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, c.AssignedNo AS AssignedNo, a.RollNo AS RollNo, GrayBarCode AS BarCode, a.ReceSheetNo AS ReceSheetNo, a.WeightQty AS WeightQty, @JobSheetNo AS JobSheetNo, 4 AS GUnit, 1 AS Rolls, a.LengthQty AS LengthQty FROM dye.JobGrayRecord AS a JOIN dye.JobSheet AS b ON a.SheetSeries = b.SheetSeries JOIN dye.GrayOutDetail AS c ON c.JobSheetNo = b.SheetNo AND a.ReceSheetNo = c.ReceSheetNo WHERE b.SheetNo = @JobSheetNo",
+        "parameters": [
+          "jobsheetno",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "243": {
+    "inserts": [
+      {
+        "table": "StuffOut",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetNoOut AS SheetNo, @OutTime AS SheetDate, 21 AS SheetKind, '' AS BusinessUnitID, 13 /* ---15小仓 */ AS WareHouseID, '' AS DeptID, '' AS CustomerID, '自动出库' AS Keeper, '自动出库' AS EmpID, @SheetNo AS WeightSheetNo, 1 AS RightStatus, 10 AS SheetStatus, 0 AS StepNo, 0 AS PrintTimes, 0 AS Revisions, '' AS Remarks, '自动出库' AS Creater, @JobSheetNo AS JobSheetNo",
+        "parameters": [
+          "jobsheetno",
+          "outtime",
+          "sheetno",
+          "sheetnoout",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "StuffOutDetail",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetSeriesOut + '-' + '01' AS DetailNo, @StuffID AS StuffID, '' AS LotNo, @RealQty AS Qty, @Price AS Price, @Price * @RealQty AS Amount, @PhaseID AS PhaseID, @PhaseNo AS PhaseNo, @StuffNo AS StuffNo",
+        "parameters": [
+          "phaseid",
+          "phaseno",
+          "price",
+          "realqty",
+          "sheetseriesout",
+          "stuffid",
+          "stuffno"
+        ],
+        "branch": ""
+      }
+    ],
+    "source": "SELECT SheetNo AS SheetNo, JobSheetNo AS JobSheetNo, StuffID AS StuffID, PhaseID AS PhaseID, NeedQty AS NeedQty, RealQty / 1000 AS RealQty, StuffNo AS StuffNo, PhaseNo AS PhaseNo, OutTime AS OutTime FROM dye.v_StuffWeightDetailQuery WHERE ISNULL(RealQty, 0) > 0 AND (OutTime BETWEEN DATEADD(HOUR, -24, GETDATE()) AND GETDATE())"
+  },
+  "244": {
+    "inserts": [
+      {
+        "table": "StuffOut",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetNoOut AS SheetNo, GETDATE() AS SheetDate, 21 AS SheetKind, '' AS BusinessUnitID, '13' /* ---15小仓 */ AS WareHouseID, '' AS DeptID, '' AS CustomerID, '自动出库' AS Keeper, '自动出库' AS EmpID, @SheetNo AS WeightSheetNo, 1 AS RightStatus, 10 AS SheetStatus, 0 AS StepNo, 0 AS PrintTimes, 0 AS Revisions, '' AS Remarks, '自动出库' AS Creater, @JobSheetNo AS JobSheetNo",
+        "parameters": [
+          "jobsheetno",
+          "sheetno",
+          "sheetnoout",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "StuffOutDetail",
+        "sql": "SELECT @SheetSeriesOut AS SheetSeries, @SheetSeriesOut + '-' + CAST(ROW_NUMBER() OVER (ORDER BY b.PhaseNo, StuffNo) AS VARCHAR(10)) AS DetailNo, b.StuffID AS StuffID, '' AS LotNo, CONVERT(NUMERIC(10, 6), (CASE WHEN b.WeightUnit = 'G' THEN (CASE WHEN ISNULL(RealQty, 0) <> 0 THEN RealQty ELSE NeedQty END) / 1000 ELSE (CASE WHEN ISNULL(RealQty, 0) <> 0 THEN RealQty ELSE NeedQty END) END) / (CASE WHEN ISNULL(c.WOF, 0) > 0 THEN c.WOF ELSE 1 END)) AS Qty, c.[Price] AS Price, CONVERT(NUMERIC(10, 6), (CASE WHEN b.WeightUnit = 'G' THEN (CASE WHEN ISNULL(RealQty, 0) <> 0 THEN RealQty ELSE NeedQty END) / 1000 ELSE (CASE WHEN ISNULL(RealQty, 0) <> 0 THEN RealQty ELSE NeedQty END) END) / (CASE WHEN ISNULL(c.WOF, 0) > 0 THEN c.WOF ELSE 1 END)) * c.Price AS Amount, PhaseID AS PhaseID, b.PhaseNo AS PhaseNo, StuffNo AS StuffNo, StuffNo AS InDetailNo FROM dye.StuffWeight AS a JOIN dye.StuffWeightPhase AS d ON a.SheetSeries = d.SheetSeries JOIN dye.StuffWeightDetail AS b ON d.SheetSeries = b.SheetSeries AND d.PhaseNo = b.PhaseNo LEFT JOIN dye.p_Stuff AS c ON b.StuffID = c.StuffID WHERE NOT EXISTS(SELECT StuffID FROM dye.StuffOut AS o1 JOIN dye.StuffOutDetail AS o2 ON o1.SheetSeries = o2.SheetSeries WHERE o1.WeightSheetNo = a.SheetNo AND o2.StuffNo = b.StuffNo AND o2.StuffID = b.StuffID AND o2.PhaseNo = b.PhaseNo AND o2.PhaseID = d.PhaseID) AND ISNULL(b.StuffID, '') <> '' AND ISNULL(SheetNo, '') = @SheetNo ORDER BY a.SheetSeries, d.PhaseID, b.PhaseNo, b.StuffNo",
+        "parameters": [
+          "sheetno",
+          "sheetseriesout"
+        ],
+        "branch": ""
+      }
+    ],
+    "source": "SELECT SheetNo AS SheetNo FROM dye.StuffWeight AS a WHERE JobSheetNo = @JobSheetNo AND NOT EXISTS(SELECT * FROM dye.StuffOut AS b WHERE a.SheetNo = b.WeightSheetNo)"
+  },
+  "378": {
+    "inserts": [
+      {
+        "table": "Fig",
+        "sql": "SELECT a.SheetSeries AS FigSheetSeries, a.SheetNo AS FigSheetNo, a.PhaseNo AS PhaseNo, StuffNo AS StuffNo, a.StuffID AS StuffID, a.NeedQty AS NeedQty, a.Price AS Price, a.NeedMoney AS NeedMoney, a.EndTime AS EndTime, a.CustomerID AS CustomerID, a.DeptID AS DeptID FROM (SELECT a.SheetSeries AS SheetSeries, a.SheetNo AS SheetNo, c.PhaseNo AS PhaseNo, c.StuffNo AS StuffNo, c.StuffID AS StuffID, (CASE WHEN WeightUnit = 'K' THEN c.NeedQty ELSE NeedQty / 1000 END) AS NeedQty, c.Price AS Price, (CASE WHEN WeightUnit = 'K' THEN c.NeedQty ELSE NeedQty / 1000 END) * c.Price AS NeedMoney, a.CustomerID AS CustomerID, a.SheetDate AS EndTime, DeptID AS DeptID FROM dye.StuffWeight AS a INNER JOIN dye.StuffWeightDetail AS c ON a.SheetSeries = c.SheetSeries WHERE ISNULL(StuffID, '') <> '' AND ISNULL(NeedQty, 0) > 0 AND NOT EXISTS(SELECT 1 FROM dye.StuffOut WHERE WeightSheetNo = a.SheetNo)) AS a WHERE a.EndTime > '2017-10-01'",
+        "parameters": [],
+        "branch": ""
+      },
+      {
+        "table": "TFig",
+        "sql": "SELECT FigSheetSeries AS FigSheetSeries, FigSheetNo AS FigSheetNo, EndTime AS EndTime, CustomerID AS CustomerID, DeptID AS DeptID FROM #fig GROUP BY FigSheetSeries, FigSheetNo, EndTime, CustomerID, DeptID",
+        "parameters": [
+          "fig"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "StuffOut",
+        "sql": "SELECT @SheetSeriesCode AS SheetSeries, @SheetNoCode AS SheetNo, @AutoTime AS SheetDate, 21 AS SheetKind, '自动出库' AS Remarks, '自动出库' AS Creater, GETDATE() AS CreateDate, '12' AS WareHouseID, @AutoDeptID AS DeptID, '自动出库' AS Keeper, @AutoSheetNo AS WeightSheetNo, @AutoCustomerID AS CustomerID",
+        "parameters": [
+          "autocustomerid",
+          "autodeptid",
+          "autosheetno",
+          "autotime",
+          "sheetnocode",
+          "sheetseriescode"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "StuffOutDetail",
+        "sql": "SELECT @SheetSeriesCode AS SheetSeries, @SheetSeriesCode + '-' + RIGHT('00' + CONVERT(VARCHAR(3), ROW_NUMBER() OVER (ORDER BY a.FigSheetSeries)), 2) AS DetailNo, a.StuffID AS StuffID, a.Price AS Price, a.NeedQty / ISNULL(WOF, 1) AS Qty, a.NeedMoney / ISNULL(WOF, 1) AS Amount, a.PhaseNo AS APDetailNo, a.StuffNo AS InDetailNo FROM #fig AS a INNER JOIN dye.p_Stuff AS b ON b.StuffID = a.StuffID WHERE ISNULL(a.StuffID, '') <> '' AND a.FigSheetSeries = @AutoSheetSeries",
+        "parameters": [
+          "autosheetseries",
+          "fig",
+          "sheetseriescode"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "433": {
+    "inserts": [
+      {
+        "table": "GrayBalanceDetail",
+        "sql": "SELECT @SheetSeries AS SheetSeries, @SheetSeries + '-' + RIGHT('000000' + CONVERT(VARCHAR(10), RowIndex), 6) AS DetailNo, x.ReceSheetNo AS ReceSheetNo, x.GrayID AS GrayID, x.WareHouseID AS WareHouseID, x.StorageUnitIDs AS StorageUnitIDs, Qty AS Piece, Wth AS WeightQty, x.GrainQty AS GrainQty, x.Price AS Price, x.Amount AS Amount, '自动平账' AS Remarks, BookDate AS LastBookDate, r.CustomerID AS CustomerID, p.LotNo AS LotNo FROM (SELECT WareHouseID AS WareHouseID, c.GrayID AS GrayID, ISNULL(StorageUnitIDs, '') AS StorageUnitIDs, ReceSheetNo AS ReceSheetNo, SUM(ISNULL(InRolls, 0)) - SUM(ISNULL(OutRolls, 0)) AS Qty, SUM(ISNULL(InWeightQty, 0)) - SUM(ISNULL(OutWeightQty, 0)) AS Wth, SUM(ISNULL(c.InLengthQty, 0)) - SUM(ISNULL(c.OutLengthQty, 0)) AS GrainQty, SUM(ISNULL(InMoney, 0)) - SUM(ISNULL(OutMoney, 0)) AS Amount, SUM(ISNULL(InMoney, 0)) - SUM(ISNULL(OutMoney, 0)) AS TaxAmount, MAX(BookDate) AS BookDate, MAX(Price) AS Price, ROW_NUMBER() OVER (ORDER BY c.ReceSheetNo) AS RowIndex FROM dye.GrayStockBook AS c WHERE BookDate <= GETDATE() AND c.ReceSheetNo IN (SELECT ReceSheetNo FROM dye.GrayOutDetail WHERE SheetSeries = @OutSheetSeries) GROUP BY WareHouseID, c.GrayID, ISNULL(StorageUnitIDs, ''), ReceSheetNo) AS x LEFT JOIN dye.GrayInDetail AS p ON x.ReceSheetNo = p.ReceSheetNo LEFT JOIN dye.GrayIn AS r ON r.SheetSeries = p.SheetSeries WHERE 1 = 1 AND NOT EXISTS(SELECT 1 FROM (SELECT GA.ReceSheetNo AS ReceSheetNo, SUM(GA.Rolls) AS Rolls, SUM(GA.WeightQty) AS WeightQty, SUM(GA.LengthQty) AS LengthQty FROM (SELECT ReceSheetNo AS ReceSheetNo, ISNULL(InRolls, 0) - ISNULL(OutRolls, 0) AS Rolls, ISNULL(InWeightQty, 0) - ISNULL(OutWeightQty, 0) AS WeightQty, ISNULL(InLengthQty, 0) - ISNULL(OutLengthQty, 0) AS LengthQty FROM dye.GrayStockBook) AS GA GROUP BY GA.ReceSheetNo) AS GB WHERE GB.ReceSheetNo = x.ReceSheetNo AND GB.Rolls = 0 AND GB.WeightQty = 0 AND GB.LengthQty = 0)",
+        "parameters": [
+          "outsheetseries",
+          "sheetseries"
+        ],
+        "branch": ""
+      },
+      {
+        "table": "GrayBalance",
+        "sql": "SELECT TOP 1 SheetSeries /* SheetSeries - varchar(20) */ AS SheetSeries, @SheetNo /* SheetNo - varchar(20) */ AS SheetNo, GETDATE() /* SheetDate - datetime */ AS SheetDate, NULL /* BusinessUnitID - varchar(10) */ AS BusinessUnitID, WareHouseID /* WareHouseID - varchar(10) */ AS WareHouseID, 55 /* SheetKind - smallint */ AS SheetKind, NULL /* Keeper - varchar(20) */ AS Keeper, NULL /* PrintTimes - tinyint */ AS PrintTimes, 0 /* SheetStatus - smallint */ AS SheetStatus, 0 /* RightStatus - smallint */ AS RightStatus, NULL /* StepNo - tinyint */ AS StepNo, '出库流水号' + @OutSheetSeries + /* Remarks - varchar(512) */ '自动平账' AS Remarks, NULL /* Creater - varchar(10) */ AS Creater, NULL /* CreateDate - datetime */ AS CreateDate, NULL /* Modifyer - varchar(10) */ AS Modifyer, NULL /* ModifyDate - datetime */ AS ModifyDate, NULL /* Approver - varchar(20) */ AS Approver, NULL /* ApproveDate - datetime */ AS ApproveDate FROM #Out_t",
+        "parameters": [
+          "outsheetseries",
+          "sheetno"
+        ],
+        "branch": ""
+      }
+    ]
+  },
+  "405": {
+    "queries": {
+      "GrayIn": "SELECT CAST(b.SheetNo AS VARCHAR(20)) AS sheetno, CAST(a.ReceSheetNo AS VARCHAR(20)) AS detailno, CAST((CASE ISNULL(b.SheetKind, '') WHEN '16' THEN a.OriReceSheetNo ELSE a.ReceSheetNo END) AS VARCHAR(20)) AS recesheetno, CAST(b.SheetDate AS DATETIME) AS bookdate, CAST(b.SheetKind AS TINYINT) AS bookkind, CAST(b.GrayKindID AS VARCHAR(10)) AS graykindid, CAST(BusinessUnitID AS VARCHAR(10)) AS businessunitid, CAST(b.CustomerID AS VARCHAR(10)) AS customerid, CAST(b.SupplierID AS VARCHAR(20)) AS supplierid, CAST(b.FactID AS VARCHAR(10)) AS factid, CAST(b.WareHouseID AS VARCHAR(10)) AS warehouseid, CAST(a.StorageUnitIDs AS VARCHAR(100)) AS storageunitids, CAST(a.GrayID AS VARCHAR(10)) AS grayid, CAST(a.Spec AS VARCHAR(50)) AS spec, CAST(a.LotNo AS VARCHAR(20)) AS lotno, CAST(b.SalerGroupID AS VARCHAR(10)) AS salergroupid, CAST(a.Rolls AS NUMERIC(7, 2)) AS inrolls, CAST(a.Packs AS NUMERIC(7, 2)) AS inpacks, CAST(a.LengthQty AS NUMERIC(10, 2)) AS inlengthqty, CAST(a.WeightQty AS NUMERIC(10, 2)) AS inweightqty, CAST(a.Price AS NUMERIC(5, 2)) AS price, CAST(a.Remarks AS VARCHAR(100)) AS remarks FROM GrayInDetail AS a LEFT JOIN GrayIn AS b ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "GrayOut": "SELECT CAST(b.SheetNo AS VARCHAR(20)) AS sheetno, CAST(a.AssignedNo AS VARCHAR(20)) AS detailno, CAST(a.ReceSheetNo AS VARCHAR(20)) AS recesheetno, CAST(a.JobSheetNo AS VARCHAR(20)) AS jobsheetno, CAST(b.SheetDate AS DATETIME) AS bookdate, CAST(b.SheetKind AS TINYINT) AS bookkind, CAST(b.CustomerID AS VARCHAR(10)) AS customerid, CAST(b.FactID AS VARCHAR(10)) AS factid, CAST(b.GrayKindID AS VARCHAR(10)) AS graykindid, CAST(b.BusinessUnitID AS VARCHAR(10)) AS businessunitid, CAST(b.WareHouseID AS VARCHAR(10)) AS warehouseid, CAST(a.StorageUnitIDs AS VARCHAR(100)) AS storageunitids, CAST(a.GrayID AS VARCHAR(10)) AS grayid, CAST(a.Spec AS VARCHAR(50)) AS spec, CAST(a.LotNo AS VARCHAR(20)) AS lotno, CAST(b.SalerGroupID AS VARCHAR(10)) AS salergroupid, CAST(a.Rolls AS NUMERIC(7, 2)) AS outrolls, CAST(a.Packs AS NUMERIC(7, 2)) AS outpacks, CAST(a.LengthQty AS NUMERIC(10, 2)) AS outlengthqty, CAST(a.WeightQty AS NUMERIC(10, 2)) AS outweightqty, CAST(a.Price AS NUMERIC(5, 2)) AS price, CAST(a.Remarks AS VARCHAR(100)) AS remarks FROM GrayOutDetail AS a LEFT JOIN GrayOut AS b ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "GrayStockAdjust": "SELECT CAST(b.SheetNo AS VARCHAR(20)) AS sheetno, CAST(a.DetailNo AS VARCHAR(20)) AS detailno, CAST('' AS VARCHAR(20)) AS recesheetno, CAST(b.SheetDate AS DATETIME) AS bookdate, CAST(b.SheetKind AS TINYINT) AS bookkind, CAST(b.GrayKindID AS VARCHAR(10)) AS graykindid, CAST(BusinessUnitID AS VARCHAR(10)) AS businessunitid, CAST(b.CustomerID AS VARCHAR(10)) AS customerid, CAST('' AS VARCHAR(20)) AS supplierid, CAST('' AS VARCHAR(10)) AS factid, CAST(b.WareHouseID AS VARCHAR(10)) AS warehouseid, CAST(a.StorageUnitIDs AS VARCHAR(100)) AS storageunitids, CAST(a.GrayID AS VARCHAR(10)) AS grayid, CAST(a.Spec AS VARCHAR(50)) AS spec, CAST(a.LotNo AS VARCHAR(20)) AS lotno, CAST(b.SalerGroupID AS VARCHAR(10)) AS salergroupid, CAST(a.AdjustRolls AS NUMERIC(7, 2)) AS inrolls, CAST(0 AS NUMERIC(7, 2)) AS inpacks, CAST(a.AdjustLengthQty AS NUMERIC(10, 2)) AS inlengthqty, CAST(a.AdjustWeightQty AS NUMERIC(10, 2)) AS inweightqty, CAST(a.Price AS NUMERIC(5, 2)) AS price, CAST(a.Remarks AS VARCHAR(100)) AS remarks FROM GrayStockAdjustDetail AS a LEFT JOIN GrayStockAdjust AS b ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries"
+    },
+    "cleanup": {
+      "GrayIn": "SELECT BookNo FROM GrayStockBook where BookKind in (11,12,13,14,15,16,19) and exists(select 'X' from GrayInDetail left join GrayIn on GrayInDetail.SheetSeries = GrayIn.SheetSeries where GrayInDetail.SheetSeries =@SheetSeries and GrayIn.SheetNo = GrayStockBook.SheetNo) and BookNo not in ( select BookNo from GrayStockBook where BookKind in (11,12,13,14,15,16,19) and exists(select 'X' from GrayInDetail left join GrayIn on GrayInDetail.SheetSeries = GrayIn.SheetSeries where GrayInDetail.SheetSeries =@SheetSeries and GrayInDetail.ReceSheetNo = GrayStockBook.ReceSheetNo  and GrayIn.SheetNo = GrayStockBook.SheetNo))",
+      "GrayOut": "SELECT BookNo FROM GrayStockBook where BookKind in (21,22,23,24,25,29) and exists(select 'X' from GrayOutDetail left join GrayOut on GrayOutDetail.SheetSeries = GrayOut.SheetSeries where GrayOutDetail.SheetSeries =@SheetSeries and GrayOut.SheetNo = GrayStockBook.SheetNo) and BookNo not in ( select BookNo from GrayStockBook where BookKind in (21,22,23,24,25,29) and exists(select 'X' from GrayOutDetail left join GrayOut on GrayOutDetail.SheetSeries = GrayOut.SheetSeries where GrayOutDetail.SheetSeries =@SheetSeries and GrayOutDetail.AssignedNo = GrayStockBook.DetailNo  and GrayOut.SheetNo = GrayStockBook.SheetNo))",
+      "GrayStockAdjust": "SELECT BookNo FROM GrayStockBook where BookKind in (11,12,13,14,15,16,19) and exists(select 'X' from GrayInDetail left join GrayIn on GrayInDetail.SheetSeries = GrayIn.SheetSeries where GrayInDetail.SheetSeries =@SheetSeries and GrayIn.SheetNo = GrayStockBook.SheetNo) and BookNo not in ( select BookNo from GrayStockBook where BookKind in (11,12,13,14,15,16,19) and exists(select 'X' from GrayInDetail left join GrayIn on GrayInDetail.SheetSeries = GrayIn.SheetSeries where GrayInDetail.SheetSeries =@SheetSeries and GrayInDetail.ReceSheetNo = GrayStockBook.ReceSheetNo  and GrayIn.SheetNo = GrayStockBook.SheetNo))"
+    }
+  }
+}

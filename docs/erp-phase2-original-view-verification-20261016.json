@@ -1,0 +1,22 @@
+[
+  {
+    "executable": false,
+    "error": "列名 'ContractNo' 不明确。\r\n由于绑定错误，无法使用视图或函数 'dye.vw_OrderColor'。",
+    "view": "vw_OrderColor"
+  },
+  {
+    "executable": false,
+    "error": "列名 'ApproveDate' 不明确。\r\n由于绑定错误，无法使用视图或函数 'dye.vwDyeDipsRecord'。",
+    "view": "vwDyeDipsRecord"
+  },
+  {
+    "executable": false,
+    "error": "列名 'SheetStatus' 不明确。\r\n列名 'SheetStatus' 不明确。\r\n由于绑定错误，无法使用视图或函数 'dye.vwOrderGrayPreemption'。",
+    "view": "vwOrderGrayPreemption"
+  },
+  {
+    "executable": false,
+    "error": "列名 'ContractNo' 不明确。\r\n列名 'ProdID' 不明确。\r\n由于绑定错误，无法使用视图或函数 'dye.vwOrder'。",
+    "view": "vwOrder"
+  }
+]

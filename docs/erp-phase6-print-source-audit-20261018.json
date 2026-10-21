@@ -1,0 +1,5328 @@
+{
+  "scope": "本轮开始时133份非财务打印差异，固定编号不删减；原35查询与财务继续暂缓",
+  "reports_checked": 133,
+  "reports_with_script_events": 90,
+  "reports_with_missing_script_definitions": 67,
+  "reports_with_scripts_source": 49,
+  "remaining_report_count": 130,
+  "script_method_note": "排除C#注释和字符串后匹配方法声明，用于定位来源，未执行或验证原脚本；无声明也可能依赖未提供客户端程序集，不能视为空事件。",
+  "rows": [
+    {
+      "id": "P002",
+      "report": "H001",
+      "title": "HF染整流程卡",
+      "entry": "JobSheet",
+      "xml_sha256": "86256329f5a1224d7dee07073b568bcb34dc877f56ded1257475a8c473745ec4",
+      "template_sha256": "a4d377e73366ce9bc61ed6e6e4f8c54bb3731883593b62d0b7bc821808c9028e",
+      "template_bytes": 81765,
+      "prior_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "二维码字节编码脚本未对应",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "二维码字节编码脚本未对应",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "LbSheetSeries",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "LbSheetSeries_BeforePrint",
+        "Detail_BeforePrint",
+        "LbSheetSeries_BeforePrint",
+        "LbSheetSeries_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P003",
+      "report": "H001-1",
+      "title": "HF染整流程卡(new)",
+      "entry": "JobSheet",
+      "xml_sha256": "8a30a7aa6ac1b80f495dca99497390d336f3c4a6f0e564ad8001d5f1888bb09d",
+      "template_sha256": "0e129c328f97108390865accff3cd20d9c68ff46683ef4803020430bdd90735e",
+      "template_bytes": 86844,
+      "prior_issues": [
+        "未实现原属性：StyleName",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：StyleName",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "LbSheetSeries",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "LbSheetSeries_BeforePrint",
+        "Detail_BeforePrint",
+        "LbSheetSeries_BeforePrint",
+        "LbSheetSeries_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P012",
+      "report": "H008",
+      "title": "送货单打印",
+      "entry": "ProdOutDetailSum",
+      "xml_sha256": "f1ae291ac8c5c8be8d52db2ce48a0b8d2b8ebfa38655b40be552d8ee79eace09",
+      "template_sha256": "fb53885d489734751ba791585dc3ba42cfdc0fc0aab68f93fde42b8a550554d7",
+      "template_bytes": 66251,
+      "prior_issues": [
+        "未实现属性绑定：Bookmark",
+        "未实现属性绑定：Tag"
+      ],
+      "current_issues": [],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P013",
+      "report": "H009",
+      "title": "小标签(本厂)",
+      "entry": "MinLableList",
+      "xml_sha256": "3ed3af6c6d4e29dfe645461b49a91f343b66f500a1b36be006fa18cc72c63980",
+      "template_sha256": "372268fc6d6a24649bcbd4a30e3b95b1dfd65ed07c6d88ef5d08dd09061e7492",
+      "template_bytes": 59611,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应"
+      ],
+      "script_events": [
+        {
+          "control": "label15",
+          "event": "OnBeforePrint",
+          "method": "label15_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label14",
+          "event": "OnBeforePrint",
+          "method": "label14_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label13",
+          "event": "OnBeforePrint",
+          "method": "label13_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label9",
+          "event": "OnBeforePrint",
+          "method": "label9_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label10",
+          "event": "OnBeforePrint",
+          "method": "label10_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label11",
+          "event": "OnBeforePrint",
+          "method": "label11_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label4",
+          "event": "OnBeforePrint",
+          "method": "label4_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label6",
+          "event": "OnBeforePrint",
+          "method": "label6_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label7",
+          "event": "OnBeforePrint",
+          "method": "label7_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label3",
+          "event": "OnBeforePrint",
+          "method": "label3_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label2",
+          "event": "OnBeforePrint",
+          "method": "label2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P014",
+      "report": "H010",
+      "title": "小标签(外厂)",
+      "entry": "MinLableList",
+      "xml_sha256": "9ef6ccb61bdb34d48e589219bee8743596ae0c0aa2fa5b0dc15d9cc65b47b298",
+      "template_sha256": "8863b5eeec94f3a3e0a31f833821218179072b5f34569f63a6d1929a586d4616",
+      "template_bytes": 59619,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "label18",
+          "event": "OnBeforePrint",
+          "method": "label18_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label17",
+          "event": "OnBeforePrint",
+          "method": "label17_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label13",
+          "event": "OnBeforePrint",
+          "method": "label13_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label9",
+          "event": "OnBeforePrint",
+          "method": "label9_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label10",
+          "event": "OnBeforePrint",
+          "method": "label10_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label11",
+          "event": "OnBeforePrint",
+          "method": "label11_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label4",
+          "event": "OnBeforePrint",
+          "method": "label4_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label6",
+          "event": "OnBeforePrint",
+          "method": "label6_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label7",
+          "event": "OnBeforePrint",
+          "method": "label7_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label3",
+          "event": "OnBeforePrint",
+          "method": "label3_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label2",
+          "event": "OnBeforePrint",
+          "method": "label2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P017",
+      "report": "H013",
+      "title": "采购打印",
+      "entry": "PurDetail",
+      "xml_sha256": "e88482196d2340458ecd7a773555204825c07ebe28188348e5245fd2653456a5",
+      "template_sha256": "e5eb15ca662fc544cb8d7b182f06108e8be1c1cb8c209fa4b64b80057acc8cc6",
+      "template_bytes": 56943,
+      "prior_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnFillEmptySpace",
+          "method": "XRMainReport_FillEmptySpace",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "XRMainReport",
+          "event": "OnParametersRequestValueChanged",
+          "method": "XRMainReport_ParametersRequestValueChanged",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "PageFooter",
+          "event": "OnBeforePrint",
+          "method": "PageFooter_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "XRMainReport_FillEmptySpace",
+        "XRMainReport_ParametersRequestValueChanged",
+        "PageFooter_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P018",
+      "report": "H014",
+      "title": "打印",
+      "entry": "JobSheetReceiveUpdate",
+      "xml_sha256": "df126dac7cbe18035669b01a2082097199f4c9e31bf2fd4bc307298f79a5eb76",
+      "template_sha256": "32e75236ce9f83f279220de361ddd9f60cea84f9ae1db0b88ebd964ba7c9562a",
+      "template_bytes": 44876,
+      "prior_issues": [
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "current_issues": [
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P023",
+      "report": "H020",
+      "title": "紧筒排产",
+      "entry": "TightTubePlanDetail",
+      "xml_sha256": "ca5a39c5238382da0279f39f0d53d35fb7d47b99f5ea7d29cd63fcdd125f46d8",
+      "template_sha256": "00caf68146bce34f89eb69cc6622c1ccb63e68b7aff3da1e1b12e4f4d2527a1b",
+      "template_bytes": 61954,
+      "prior_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ],
+      "current_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P024",
+      "report": "H021",
+      "title": "本厂标签",
+      "entry": "WRYPrintList",
+      "xml_sha256": "5c96e787baf68c9d72577f8ab935119fb86ff5af07a56a3129adb5a346c61ee7",
+      "template_sha256": "b363c572fe7bad7a2ea8ae1d61fd75cf21f19863c2d66e7e3473f89087c5b42e",
+      "template_bytes": 65111,
+      "prior_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "未实现文字旋转：Angle",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "未实现文字旋转：Angle",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell10",
+          "event": "OnBeforePrint",
+          "method": "tableCell10_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label4",
+          "event": "OnBeforePrint",
+          "method": "label4_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "tableCell10_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P025",
+      "report": "H022",
+      "title": "外厂标签",
+      "entry": "WRYPrintList",
+      "xml_sha256": "9e8a2d04357eee64320b047fdaadee71a7bf37926eb95fb247ef9daeca959752",
+      "template_sha256": "e3091cf8917cda55194ac5521f5532b8db8d92fb3aca243edf7c21d378f2f12b",
+      "template_bytes": 77582,
+      "prior_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QC_Record.NetKg",
+        "缺跨表关联：QCPrintList.ColorRemarks",
+        "缺跨表关联：QC_Record.PackTime"
+      ],
+      "current_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QC_Record.NetKg",
+        "缺跨表关联：QCPrintList.ColorRemarks",
+        "缺跨表关联：QC_Record.PackTime"
+      ],
+      "script_events": [
+        {
+          "control": "label2",
+          "event": "OnBeforePrint",
+          "method": "label2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label3",
+          "event": "OnBeforePrint",
+          "method": "label3_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P026",
+      "report": "H023",
+      "title": "紧筒排产",
+      "entry": "JobSheetRegister",
+      "xml_sha256": "74d0061dced228e4ea46322a850352c7dc8d9f476288eca7be575d97d58b539e",
+      "template_sha256": "15ad1335aac52b13e72aecc9dbaf0bb63b473868fd7a6348fe8f1704a2103629",
+      "template_bytes": 32844,
+      "prior_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对"
+      ],
+      "current_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P027",
+      "report": "H024",
+      "title": "LB送货单打印",
+      "entry": "ProdOutDetailSum",
+      "xml_sha256": "ba1b21c9e95602f97ea65ab457ad34bec0ef94fc9bd1ee03d9886a100af62b9b",
+      "template_sha256": "4e585c3eded5ad833ef32954e406aff549b2efb5a835518b8c39754863ef1f6e",
+      "template_bytes": 64454,
+      "prior_issues": [
+        "未实现属性绑定：Bookmark",
+        "未实现属性绑定：Tag"
+      ],
+      "current_issues": [],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P029",
+      "report": "H026",
+      "title": "小标签(排产)",
+      "entry": "JobSheetRegister",
+      "xml_sha256": "f57e7574bc6cd5a7c19621871becb54dc4fe07770c9975c5607348f044c2fa25",
+      "template_sha256": "fbb2d9e49cf650e8c78a07d815f20a11e42cf95fbb36d98c75d05cedb142aab4",
+      "template_bytes": 43517,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "label14",
+          "event": "OnBeforePrint",
+          "method": "label14_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label13",
+          "event": "OnBeforePrint",
+          "method": "label13_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label4",
+          "event": "OnBeforePrint",
+          "method": "label4_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label6",
+          "event": "OnBeforePrint",
+          "method": "label6_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label2",
+          "event": "OnBeforePrint",
+          "method": "label2_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label7",
+          "event": "OnBeforePrint",
+          "method": "label7_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label3",
+          "event": "OnBeforePrint",
+          "method": "label3_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "label2_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P033",
+      "report": "H121",
+      "title": "小标签(本厂)",
+      "entry": "SwipeLabelPrint",
+      "xml_sha256": "2533e1fa05fcd7db2afa5dcdd6ac649b872e34c96a8d5bb2f223536671d4f4d0",
+      "template_sha256": "b07377e5d85d30cbd246e5de887e06bd31ccd0af1c84a9d960daab13a2dc8185",
+      "template_bytes": 61157,
+      "prior_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应"
+      ],
+      "current_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应"
+      ],
+      "script_events": [
+        {
+          "control": "label15",
+          "event": "OnBeforePrint",
+          "method": "label15_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label11",
+          "event": "OnBeforePrint",
+          "method": "label11_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label10",
+          "event": "OnBeforePrint",
+          "method": "label10_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label9",
+          "event": "OnBeforePrint",
+          "method": "label9_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label13",
+          "event": "OnBeforePrint",
+          "method": "label13_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label7",
+          "event": "OnBeforePrint",
+          "method": "label7_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label6",
+          "event": "OnBeforePrint",
+          "method": "label6_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label4",
+          "event": "OnBeforePrint",
+          "method": "label4_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label14",
+          "event": "OnBeforePrint",
+          "method": "label14_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label3",
+          "event": "OnBeforePrint",
+          "method": "label3_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label2",
+          "event": "OnBeforePrint",
+          "method": "label2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P034",
+      "report": "H122",
+      "title": "小标签(外厂)",
+      "entry": "SwipeLabelPrint",
+      "xml_sha256": "2d4b1d91a57d6510914c1c42f2651cf0a698a55d10983930729f124c313a210c",
+      "template_sha256": "6148a1879c9d1f9f9b889b86788dc4983702ad3ab1eb6653f64190d55bcb7e85",
+      "template_bytes": 63994,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "label18",
+          "event": "OnBeforePrint",
+          "method": "label18_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label17",
+          "event": "OnBeforePrint",
+          "method": "label17_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label13",
+          "event": "OnBeforePrint",
+          "method": "label13_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label9",
+          "event": "OnBeforePrint",
+          "method": "label9_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label10",
+          "event": "OnBeforePrint",
+          "method": "label10_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label11",
+          "event": "OnBeforePrint",
+          "method": "label11_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label4",
+          "event": "OnBeforePrint",
+          "method": "label4_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label6",
+          "event": "OnBeforePrint",
+          "method": "label6_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label7",
+          "event": "OnBeforePrint",
+          "method": "label7_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label3",
+          "event": "OnBeforePrint",
+          "method": "label3_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label2",
+          "event": "OnBeforePrint",
+          "method": "label2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P035",
+      "report": "K001",
+      "title": "染整流程卡",
+      "entry": "JobSheet",
+      "xml_sha256": "b2006beb124f0e4c58e0e7f38b1fadce8c52ae56c255fe95a753bc3f0c89712e",
+      "template_sha256": "8db286a57ed90718aac4f4622af1b21287ab75113bde5ff900c177ce66da062e",
+      "template_bytes": 78922,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：JobSheetPrintList.MachineID",
+        "缺跨表关联：JobSheetPrintList.StorageUnitIDs",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：JobSheetPrintList.MachineID",
+        "缺跨表关联：JobSheetPrintList.StorageUnitIDs",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "PageHeader",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "LbSheetSeries_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P036",
+      "report": "K002",
+      "title": "染整流程卡(批量打印)",
+      "entry": "JobSheet",
+      "xml_sha256": "e782f6569ac62aeca27d3d04db3b3e271f7376b0d6afc50329ad98d8519ad840",
+      "template_sha256": "120791c8ac75a001074fa438cabee8065069444d94f514cc358efc0f12f06196",
+      "template_bytes": 65526,
+      "prior_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "LbSheetSeries",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P040",
+      "report": "K006",
+      "title": "染整厂出货清单",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "f5d3a33ff9400e98538e84a01d33872b564d9210b48617f0774dec9bf8ac73f8",
+      "template_sha256": "4ab838c260da86fa75f5c259d656cc5b0cd6b499c6daea25bdc4136e4fc4cff9",
+      "template_bytes": 65388,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "未实现显式分页：AfterBand"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "未实现显式分页：AfterBand"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P043",
+      "report": "K009",
+      "title": "染整厂出货清单2",
+      "entry": "ProdOutDetailManifest",
+      "xml_sha256": "86661be3b5954903ae72a370c30b9e677d4e4b1c3c8e210e6605d9321c828224",
+      "template_sha256": "69280974d83dab19abf87cb9615e4b7c41b36c0faaca396bc31f09a4e4693a76",
+      "template_bytes": 138038,
+      "prior_issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P044",
+      "report": "K010",
+      "title": "染色领料单",
+      "entry": "NormalStuffWeightPhaseDetail",
+      "xml_sha256": "4428398416e7149e3926a902633add75c675a748a2645a367bebcb89cd77b839",
+      "template_sha256": "18e32ead7d803f94ee2d104a0dea6ee30656f4211dc108bafa0028926ed9b9c2",
+      "template_bytes": 70016,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P045",
+      "report": "K011",
+      "title": "染色加料单",
+      "entry": "AddStuffWeightPhaseDetail",
+      "xml_sha256": "6ecc71afac8608ab1bc1714acf4abb6cc075996a9c5ace06c8f7775a3e0c24ab",
+      "template_sha256": "6324460d5284635552f3ba81be09750cf2daa570a4c4d6c274090fb64dc1281d",
+      "template_bytes": 50320,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：AddStuffWeight.MachineNo_RNew",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：MachineNo_RNew"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：AddStuffWeight.MachineNo_RNew",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：MachineNo_RNew"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P046",
+      "report": "K012",
+      "title": "洗缸料单",
+      "entry": "NormalStuffWeightPhaseDetail_Wash",
+      "xml_sha256": "d1b7cfb29720fe2bab3eed711a96ebc11e9d2544999c24e92f03db00616910fe",
+      "template_sha256": "c8be5b13da14c6e61c904096671a0a964944ea41988f870ba0566eb1c19f420b",
+      "template_bytes": 56940,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.Rate"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.Rate"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P047",
+      "report": "K013",
+      "title": "染整流程卡(New)",
+      "entry": "JobSheet",
+      "xml_sha256": "7481bc8b39416b53e5748f8a6ae26f8446b1a67531fcdffa39b5ca31788a5b6a",
+      "template_sha256": "b5daf027e32ec6dfb5d39d942a04adf019b6ae13697137ef9a380ad9945703ed",
+      "template_bytes": 79098,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：JobSheetPrintList.PreField1",
+        "缺跨表关联：JobSheetPrintList.MachineID",
+        "缺跨表关联：JobSheetPrintList.StorageUnitIDs",
+        "缺跨表关联：JobSheetPrintList.PBXX",
+        "缺跨表关联：JobSheetPrintList.StereotypesName",
+        "缺跨表关联：JobSheetPrintList.WidthSpec",
+        "缺跨表关联：JobSheetPrintList.WeightSpec",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：JobSheetPrintList.PreField1",
+        "缺跨表关联：JobSheetPrintList.MachineID",
+        "缺跨表关联：JobSheetPrintList.StorageUnitIDs",
+        "缺跨表关联：JobSheetPrintList.PBXX",
+        "缺跨表关联：JobSheetPrintList.StereotypesName",
+        "缺跨表关联：JobSheetPrintList.WidthSpec",
+        "缺跨表关联：JobSheetPrintList.WeightSpec",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "PageHeader",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "LbSheetSeries_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P048",
+      "report": "K014",
+      "title": "染整厂出货清单3",
+      "entry": "ProdOutDetailManifest",
+      "xml_sha256": "2a8710e09c007eed0124fc8ff8469d2522a63cb088c214ccbd2c9e1cc365b936",
+      "template_sha256": "fe6dd391a99bdcdbb8cedbc93b41ceb7b93db6ccbb25198a4f77c9ca5a0a0875",
+      "template_bytes": 136212,
+      "prior_issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P049",
+      "report": "K015",
+      "title": "异常联络单(内部)",
+      "entry": "WDefectPenaltyInterior",
+      "xml_sha256": "45936cc91843a0b29afc84d643f3a5243f47bfabb23180f17104a2a316f2927e",
+      "template_sha256": "3c99094bd243e030dc007b854a625f825df7ba33eef32711d02589192f4b89ff",
+      "template_bytes": 58024,
+      "prior_issues": [
+        "当前原查询未提供排序/分组字段：NewLineNumber"
+      ],
+      "current_issues": [
+        "当前原查询未提供排序/分组字段：NewLineNumber"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P050",
+      "report": "K016",
+      "title": "异常联络单(客退)",
+      "entry": "WDefectPenaltyBack",
+      "xml_sha256": "6eaedd9627b74a635e52a0581acda446aee50079e93fc95258977197de73c468",
+      "template_sha256": "63e78ea185df5da139a1d3ea594a3f207fc29b1c4eef70ad33dcdfaa8b0acfb1",
+      "template_bytes": 58081,
+      "prior_issues": [
+        "当前原查询未提供排序/分组字段：NewLineNumber"
+      ],
+      "current_issues": [
+        "当前原查询未提供排序/分组字段：NewLineNumber"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P051",
+      "report": "K017",
+      "title": "染料入库单",
+      "entry": "StuffInDetail",
+      "xml_sha256": "bb4538e248a78309b8195d9d33c4ec8d3bd28f4e096098a647b473ea0688a984",
+      "template_sha256": "907ecdf501293baa3eae677549fe936f7a02aa7f818d0a7a8e755291fc37f2f7",
+      "template_bytes": 48641,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.Creater"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.Creater"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P052",
+      "report": "K018",
+      "title": "染料申购库单",
+      "entry": "StuffPurApplyDetail",
+      "xml_sha256": "c88646e75b70f430f027ba519cee60bd7c3c3d119533ddb383595b2289eac110",
+      "template_sha256": "c958a9a02cdf2b0f0c5cc121b9c2be1cce4415d167461e6cc55b0db82f941203",
+      "template_bytes": 43181,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P053",
+      "report": "K019",
+      "title": "机物料入库单",
+      "entry": "ArticleInDetail",
+      "xml_sha256": "ea0b9ecb0fd1ea92415488cbc3ecd40fda9a360969f97adc1d73c691d2317f38",
+      "template_sha256": "ce58ec03c5e088612222fd96fae74d5df616dc4396967068e73dbe04bd53ae17",
+      "template_bytes": 49153,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P054",
+      "report": "K020",
+      "title": "机物料申购单",
+      "entry": "ArticlePurApplyDetail",
+      "xml_sha256": "ac8754486864bac1883e0705df7aefbbf68402cbb438970c218dab0b01c48c4d",
+      "template_sha256": "2caea49fa04a247e797b2401640ba41880cd8c735ec572c4c5c71f4d0bfa020d",
+      "template_bytes": 43205,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P057",
+      "report": "K023",
+      "title": "染整流程卡(New-11-04)",
+      "entry": "JobSheet",
+      "xml_sha256": "b2c8352ccef1a265b30929e3da7acc585f5289e69c96ac27ab044bb090a971c0",
+      "template_sha256": "e8ad1bd7a50125d38770fe54facd736864c6c23d9daaebcf88638d923cf7e16f",
+      "template_bytes": 84034,
+      "prior_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "LbSheetSeries",
+          "event": "OnBeforePrint",
+          "method": "LbSheetSeries_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P061",
+      "report": "K025",
+      "title": "采购价格调整(机物料)",
+      "entry": "AMaterialPriceAdjustDetail",
+      "xml_sha256": "9aaecf5c3efc95e049424144b974138f3b325bffa0b8b7a5eabe4dd1afb10671",
+      "template_sha256": "56a62979ef7e4cffaf3eaae55611cbc98b05760033a2eb4b27eb18436f42af8d",
+      "template_bytes": 33083,
+      "prior_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P062",
+      "report": "K026",
+      "title": "采购价格调整(染化料)",
+      "entry": "SMaterialPriceAdjustDetail",
+      "xml_sha256": "39dcec101dc84f7273a46fe1f5ccc68fc155af914a7a212630664ad528b2079c",
+      "template_sha256": "cfc416855aeaa41216bd76532a9ca550341e8004db663f0fea5ba6ee7f9da191",
+      "template_bytes": 32734,
+      "prior_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P063",
+      "report": "K027",
+      "title": "减值折让明细",
+      "entry": "ImpairmentsSummary",
+      "xml_sha256": "c9b57356b76efc32487b9622a9c4591f6a6c2cc44b990ee5a2db5da7d4435e5d",
+      "template_sha256": "afa9d0de9ed0fb63d12eb5b3768b75a991ff234175395ae7c8234f874a66a2e2",
+      "template_bytes": 41977,
+      "prior_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P064",
+      "report": "K028",
+      "title": "物料消耗汇总(财务)",
+      "entry": "WLXHHZ",
+      "xml_sha256": "7ebd2ea971d66674748743756825484e91bf7b2bca7b0318740fa4d7482f1bd5",
+      "template_sha256": "3a285c8c1c646a113e79697a80795d3c991fce051e47e0f8ae9018d1c6d7c5c7",
+      "template_bytes": 39495,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P069",
+      "report": "K033",
+      "title": "采购入库汇总(财务)",
+      "entry": "WLCGHZ",
+      "xml_sha256": "4413c5b017c9af986966ddfa54d47537f10a604a06e358b25ca9609782cec95e",
+      "template_sha256": "4a44a3f7e1035ba2b7f8c1faca49a8b41dc4edd8991b99c205ae18b32946238b",
+      "template_bytes": 39701,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P070",
+      "report": "K034",
+      "title": "采购明细表（化工）",
+      "entry": "StuffInAccount",
+      "xml_sha256": "978c8f635cd9c37944fdce536d5c27bf2b2ea8b5dac2a8060925c7edcc80caa3",
+      "template_sha256": "637d1da584c6bc628e7d63364859dba842e27ad41eb904d7afe08550aa491600",
+      "template_bytes": 38916,
+      "prior_issues": [
+        "未实现原属性：FilterString"
+      ],
+      "current_issues": [
+        "未实现原属性：FilterString"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P073",
+      "report": "K037",
+      "title": "开卡出货统计",
+      "entry": "JobSheetNum",
+      "xml_sha256": "6b2f9acb2d5a5a5582d28a6a4676dc1a2ea0ce5afe680d548fff527000d95078",
+      "template_sha256": "7a1a171232deafa589c94e2c3ddc74b6a674d830852b66721d8caad5f97fcbbb",
+      "template_bytes": 47954,
+      "prior_issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "未实现原计算字段：未实现此计算表达式：(Sum([F2Qty])/SUM([FQty]))*100"
+      ],
+      "current_issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "未实现原计算字段：未实现此计算表达式：(Sum([F2Qty])/SUM([FQty]))*100"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "XRMainReport_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "XRMainReport_BeforePrint",
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P074",
+      "report": "K038",
+      "title": "不计费出货统计",
+      "entry": "FARMainBilled",
+      "xml_sha256": "ee5237b7a5c6a5fec4f08f3d198c1c2b0c14270ecd0bb952047521d416363551",
+      "template_sha256": "7507a84f6ee9a36afa343f0a107d198141dc89cf9e51c5c8d078a7aa3a0600a4",
+      "template_bytes": 40865,
+      "prior_issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "XRMainReport_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "XRMainReport_BeforePrint",
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P082",
+      "report": "K046",
+      "title": "每日开卡统计",
+      "entry": "JobSheetNum2",
+      "xml_sha256": "09b480e61bd9eb73bd4780a9e34919e52e2c1871435aee678ec9f82eff7bbc57",
+      "template_sha256": "9dce5f23aa3cbcceff986db5f9eb77cab37e68ff10ba94674aba253791543e17",
+      "template_bytes": 47995,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "script_events": [
+        {
+          "control": "XRMainReport",
+          "event": "OnBeforePrint",
+          "method": "XRMainReport_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "XRMainReport_BeforePrint",
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P089",
+      "report": "K053",
+      "title": "煤本厂布入库单",
+      "entry": "FabricArticleInDetail",
+      "xml_sha256": "77a2e54d470bc011a3b0dccd03bc0bb13799c0ef0b565c40c9c81df07c019b64",
+      "template_sha256": "99df2acf7122dd4c4ffce5df7d8b88088c279b7b63e08a4df5adf907fb0191d3",
+      "template_bytes": 49240,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P095",
+      "report": "K059",
+      "title": "染料报废出库单",
+      "entry": "StuffOutDetail",
+      "xml_sha256": "434bb25184b8013a9d716e85994f92d476b6f72e17b20a42bbb438be2f5f047d",
+      "template_sha256": "fa48f313ca797cfddbb025eb37cd1cb818bad22143a7bcd93ca73ee2dc13f7b9",
+      "template_bytes": 47299,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P096",
+      "report": "K060",
+      "title": "染料调拨单",
+      "entry": "StuffAllotDetail",
+      "xml_sha256": "051c5c5849307f9ea86c3ddf5a47c6267195a2947d596009b6c4ddd476d2e950",
+      "template_sha256": "613b6dea2734b05d90001665b433201c256ad8409143fcb9b288ae9316a3edb2",
+      "template_bytes": 40804,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P097",
+      "report": "K061",
+      "title": "销售收入汇总",
+      "entry": "FARSumMainMoney",
+      "xml_sha256": "ee55e9558603308f0603d6287d5c248bf741082d581e9dc745be48e7914b1773",
+      "template_sha256": "677e6c00109f7ee3f65f2a2801af492e4fdd40e16b0c8ac248dff9ad03b6695e",
+      "template_bytes": 38699,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P098",
+      "report": "K062",
+      "title": "坯布入库单",
+      "entry": "GrayInDetail",
+      "xml_sha256": "9a8411604529737d8abdb0b1b5aaf39a8e092e377f1774c205a2bee5570db02d",
+      "template_sha256": "2f8fe876e2eb5deb0c5daf3ca0ba2b40ad1e929b6bb26f883c90e9be74b5dc8c",
+      "template_bytes": 50302,
+      "prior_issues": [
+        "原打印父投影缺字段：GrayIn.ATAITOU",
+        "未实现原计算字段：计算字段缺跨表关系：ATAITOU"
+      ],
+      "current_issues": [
+        "原打印父投影缺字段：GrayIn.ATAITOU",
+        "未实现原计算字段：计算字段缺跨表关系：ATAITOU"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P104",
+      "report": "K068",
+      "title": "年度销量明细表",
+      "entry": "Revenue_Collection2",
+      "xml_sha256": "deb3449e37a5867b6c260ea9a6b777c9b8eb5ba92f5cd83977f97cd77ac60830",
+      "template_sha256": "f0c0f8c35efbf6255d7fb1977ce0ce854d75e45d4f834f4b775a27871b28cf29",
+      "template_bytes": 48131,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P106",
+      "report": "K070",
+      "title": "针织布质量分析表",
+      "entry": "QualityIssues2",
+      "xml_sha256": "d8bb6c776d4be4fc2dd0706ea8d150bd600ab55f78ff50d60fd7329914a04ef8",
+      "template_sha256": "d3592341c6bfee66bf77940592cb0fd41f6b8e1b67c907694f06182ff97bca68",
+      "template_bytes": 57198,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P107",
+      "report": "K071",
+      "title": "针织布质量问题汇总",
+      "entry": "QualityIssues3",
+      "xml_sha256": "cc9e42f3c7815a8caaf4840e8477c0e43a5692d2fc3584b09aa7d06c91dc3120",
+      "template_sha256": "ce2242cf21efba5a2a2e1c7c769219d6d45d07d26c85400409b276347caa5f6a",
+      "template_bytes": 42957,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P108",
+      "report": "K072",
+      "title": "返修布日报表",
+      "entry": "ReworkCloth1",
+      "xml_sha256": "ce1e370a08d16f08e42bd0e84b640ba0e6294e9b9ba44c0e270ef17367103dda",
+      "template_sha256": "dd3b8bb21ffbd92e1239f9d23302f0c54005c6cf847dd0b59adbca45301686e5",
+      "template_bytes": 46944,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P109",
+      "report": "K073",
+      "title": "定型返修布汇总",
+      "entry": "ReworkCloth2",
+      "xml_sha256": "6f7dd48727d23bd5b9b89560b23b07c9c64e348144dae07cfe295925fe1e113e",
+      "template_sha256": "22e92bfb3a2beb37ff5f18508c34edfadf68cdad386480c0c387646c4ba590c4",
+      "template_bytes": 46474,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "未实现原计算字段：未实现表达式片段：[]."
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "未实现原计算字段：未实现表达式片段：[]."
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P110",
+      "report": "K074",
+      "title": "溢流返修布汇总",
+      "entry": "ReworkCloth3",
+      "xml_sha256": "34cb3a418c4f7189349928e789baec657791d05b6a95fdd59a55b7b0e5b65671",
+      "template_sha256": "7c99677bc3dd1c0dec67e6a31616f3f066934bb7e29996c636209f07e1668343",
+      "template_bytes": 46474,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "未实现原计算字段：未实现表达式片段：[]."
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "未实现原计算字段：未实现表达式片段：[]."
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P111",
+      "report": "K075",
+      "title": "针织布出货返修对比",
+      "entry": "ReworkCloth4",
+      "xml_sha256": "0c2946f17a6333f88c832d4f7d59cd95865f19e95e944a4e806f87deded27887",
+      "template_sha256": "672ca3ac85a496c2943652f794ebd4dee94d9a46475c3070c78dbb482467c2c6",
+      "template_bytes": 40060,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P112",
+      "report": "K076",
+      "title": "退货返修布明细表",
+      "entry": "Rework_Comparison3",
+      "xml_sha256": "47e8c083ef99da2da19529c2f040462a36f886a37d6216e402f2b8df89a80a65",
+      "template_sha256": "9e6e5f42c3e3e6e14ffb6af617a09d86e95bc8558f6bd6afcac872dd047be58c",
+      "template_bytes": 68045,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P113",
+      "report": "K077",
+      "title": "定型工艺单",
+      "entry": "SterotypeTech",
+      "xml_sha256": "595ddaf64259344929020a611c694ff6a350c241c51a5ddc62b0f954fa2920b3",
+      "template_sha256": "a2d9b11237b233caf95b29d9242186932592639bbcbb1f923b52b157434af6cf",
+      "template_bytes": 105858,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P114",
+      "report": "K078",
+      "title": "生产日报表",
+      "entry": "ProductionReports1",
+      "xml_sha256": "2eb17522f7410742d0ed187c52651150fca27ed6874fe1472b091ea370b6c547",
+      "template_sha256": "1bc29bfbd0d7d18b440f54637968c199535542ebdb5111d37e88d7dfc55472f1",
+      "template_bytes": 33777,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P115",
+      "report": "K079",
+      "title": "水洗生产日报表",
+      "entry": "ProductionReports2",
+      "xml_sha256": "8f6723125683994ed093943120ffe5b379ada7ab1f29388593d77feccecf7f1a",
+      "template_sha256": "30527e866fd143c5b30273a395617dfc1c469838204fca444e55e3df6afbfa48",
+      "template_bytes": 37860,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P116",
+      "report": "K080",
+      "title": "定型生产日报表",
+      "entry": "ProductionReports3",
+      "xml_sha256": "34b6c63e3c9aa5c46257ba177c296cb43e715940855665f7785bcbb4be7e3ac1",
+      "template_sha256": "75e45ca646370fe1570c4df53ade1a3ca8fea3b8e2aeeb2147f6b178c16406d2",
+      "template_bytes": 37862,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P117",
+      "report": "K081",
+      "title": "染色生产日报表",
+      "entry": "ProductionReports4",
+      "xml_sha256": "9fe62dc728c753e2b1e940d38ab09346c17e68ca01b8d1be38dec4d8a100afa1",
+      "template_sha256": "0e7f0a670882cfeec9772d2058239a64fda3faaab0c65c6dea272d8bfda375e3",
+      "template_bytes": 37785,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P118",
+      "report": "K082",
+      "title": "包装生产日报表",
+      "entry": "ProductionReports5",
+      "xml_sha256": "8235b9369298b592a1ac3d213f999f98c77b2b74182e28a1e72b27482f53cded",
+      "template_sha256": "a0ac0acda903fec4614fec66beb77e72c1b2a1c2ec9ade3ecb53bfa75b4ca4a3",
+      "template_bytes": 37860,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P119",
+      "report": "K083",
+      "title": "每缸毛利核算明细表",
+      "entry": "ProductionReports6",
+      "xml_sha256": "5bc7dad863c960b9301e80df822acdf1982cb35c15490e5020a0cfc172173074",
+      "template_sha256": "26941d106e1f0117c308bc7552ab27724684237b8fb90f7674e679d1bac8cc54",
+      "template_bytes": 49999,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P120",
+      "report": "K084",
+      "title": "每缸生产成本明细表",
+      "entry": "ProductionReports7",
+      "xml_sha256": "3aea20c6ca8566fbf7ad6d038e26c6cf57dc335a752be76550d6bc0167f07db3",
+      "template_sha256": "d56af87c87f381c8ab7fadcaeeb4a3bc871c372afd3d0cd2e206f33c2a093a0e",
+      "template_bytes": 45627,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P121",
+      "report": "K085",
+      "title": "车间工资调整",
+      "entry": "SalaryChangesBDetail",
+      "xml_sha256": "cbd7549290f389448af891d2a42edc5a698fc1ee520c04409a970c884dad02ff",
+      "template_sha256": "f12451a44a5d09180465d0e6c53fc4da257267a45273006ab2e9f90ba910f8b3",
+      "template_bytes": 36699,
+      "prior_issues": [
+        "组尾缺同Level的组头",
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.calculatedField1",
+        "未实现动态高度：CanShrink",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ],
+      "current_issues": [
+        "组尾缺同Level的组头",
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.calculatedField1",
+        "未实现动态高度：CanShrink",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P122",
+      "report": "K086",
+      "title": "后处理领料单",
+      "entry": "AfterNormalStuffWeightPhaseDetail",
+      "xml_sha256": "4449edd3bee25765d051522f1325ed3e5d6ad473dfd6ec3ce88087477f0429b8",
+      "template_sha256": "04cff659db7cc1e05040a6807f919aefd62db8da85df530e21de82fffd09dbbf",
+      "template_bytes": 67010,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：NormalStuffWeight.SheetNo",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：Num"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：NormalStuffWeight.SheetNo",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：Num"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P123",
+      "report": "K087",
+      "title": "后处理领料单(小)",
+      "entry": "AfterNormalStuffWeightPhaseDetail",
+      "xml_sha256": "97e2f40c74a0e1cc311fcb3280dc11e4cd4a786d88bc147d6802f4efd26ea5fb",
+      "template_sha256": "d0313726f92fcf7b7cc93b29a741a1b8361b1020de15f4d346d814afef03b406",
+      "template_bytes": 49158,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：AfterNormalStuffWeight.MachineNo_RNew",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：MachineNo_RNew"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：AfterNormalStuffWeight.MachineNo_RNew",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：MachineNo_RNew"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P124",
+      "report": "K088",
+      "title": "染色领料单(A5)",
+      "entry": "NormalStuffWeightPhaseDetail",
+      "xml_sha256": "55a68122c6d8d1e9848c6f60bb8ac2a439b7289cef52ca2f5bac8a80b764d1a9",
+      "template_sha256": "64432368b2146d0fdf30dd0d31b2d47ada61f5d5b26813f90e6839c6557f6226",
+      "template_bytes": 73721,
+      "prior_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P125",
+      "report": "QC01",
+      "title": "本厂标签",
+      "entry": "QC_Record",
+      "xml_sha256": "e793be32aced4c4f3865dfc8a6f7578720d07db97dfbf306eec9446cfe13a48c",
+      "template_sha256": "9f1ea9195c23b83d6dee99d98e3d2794d1160ea4726ff52d9aec787683ab6266",
+      "template_bytes": 64668,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：QCPrintList.ColorID",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo",
+        "未实现文字旋转：Angle",
+        "缺跨表关联：QCPrintList.CustSelfProduct"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：QCPrintList.ColorID",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo",
+        "未实现文字旋转：Angle",
+        "缺跨表关联：QCPrintList.CustSelfProduct"
+      ],
+      "script_events": [
+        {
+          "control": "label4",
+          "event": "OnBeforePrint",
+          "method": "label4_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P126",
+      "report": "QC02",
+      "title": "外厂标签",
+      "entry": "QC_Record",
+      "xml_sha256": "8c6b684a8a964236125d88cc11803cd8b371da89ec5958ba3d51d33c303b9a77",
+      "template_sha256": "611473692fdd0797993ce1afac55151e00bd24d03777eca33e8f54431f6da0a1",
+      "template_bytes": 78350,
+      "prior_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：QCPrintList.ColorID",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo",
+        "缺跨表关联：QCPrintList.CustomerNameC",
+        "二维码字节编码脚本未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QCPrintList.ColorRemarks"
+      ],
+      "current_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：QCPrintList.ColorID",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo",
+        "缺跨表关联：QCPrintList.CustomerNameC",
+        "二维码字节编码脚本未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QCPrintList.ColorRemarks"
+      ],
+      "script_events": [
+        {
+          "control": "label2",
+          "event": "OnBeforePrint",
+          "method": "label2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label3",
+          "event": "OnBeforePrint",
+          "method": "label3_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label1",
+          "event": "OnBeforePrint",
+          "method": "label1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P127",
+      "report": "QC03",
+      "title": "外贸标签",
+      "entry": "QC_Record",
+      "xml_sha256": "76f2eeb8e6375b16002ed0670e91c310f28c0f80306df7e2c3d3469f666c773b",
+      "template_sha256": "0df0d8694746201ceb8b833b24ded0d2963d1fe2dec4797149eeb6de4f0e98bb",
+      "template_bytes": 60667,
+      "prior_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QCPrintList.CustomerNameC",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct",
+        "缺跨表关联：QCPrintList.ColorID",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo"
+      ],
+      "current_issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QCPrintList.CustomerNameC",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct",
+        "缺跨表关联：QCPrintList.ColorID",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell17",
+          "event": "OnBeforePrint",
+          "method": "tableCell17_BeforePrint_1",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell12",
+          "event": "OnBeforePrint",
+          "method": "tableCell12_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell2",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell6",
+          "event": "OnBeforePrint",
+          "method": "tableCell6_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell10",
+          "event": "OnBeforePrint",
+          "method": "tableCell10_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "tableCell17_BeforePrint_1"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P128",
+      "report": "QC04",
+      "title": "白胚标签",
+      "entry": "QC_Record",
+      "xml_sha256": "8c6a791021024e5d319e1784e087bf5418e455aa579f4bde370711c754551657",
+      "template_sha256": "735ea4e7edc4299d268ea78f5bacc3205768fdd7ec97e7e5f5055cf5ff19dc99",
+      "template_bytes": 56576,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell12",
+          "event": "OnBeforePrint",
+          "method": "tableCell12_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell2",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell5",
+          "event": "OnBeforePrint",
+          "method": "tableCell5_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell10",
+          "event": "OnBeforePrint",
+          "method": "tableCell10_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "tableCell10_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P133",
+      "report": "R001",
+      "title": "坯布进出存报表",
+      "entry": "GrayStockInAndOut",
+      "xml_sha256": "a5bd63eec780f67606320a5d06ae8ee49725169a30442679c0daad563fc08e7d",
+      "template_sha256": "49b49cc43dfd39f77404fe2a336deca4ae24312d3911b95350100faab2322be8",
+      "template_bytes": 74185,
+      "prior_issues": [
+        "原库存数量是客户端待填的0占位；缺期间结存和退料分类填数来源，不能作为真实库存打印",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "原库存数量是客户端待填的0占位；缺期间结存和退料分类填数来源，不能作为真实库存打印",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P134",
+      "report": "R002",
+      "title": "成品出库细码单（针织）",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "a267c08ec03b8ca0749be2bf9311652ff4ede509a617b698c67a27e900221bb0",
+      "template_sha256": "ef66a5be4e9af8344e0dfb5365856d05dba9afee626f2782eeb2b42be06bd378",
+      "template_bytes": 116426,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "R06131",
+          "event": "OnBeforePrint",
+          "method": "Z06102_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint",
+        "Z06102_BeforePrint",
+        "TopMargin_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P135",
+      "report": "R002-1",
+      "title": "成品出库细码单（梭织）",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "c3d8890366985f252930d760d6ce2995fac8682b7fb9386e4b366f23fee9ed17",
+      "template_sha256": "742ab13e8adaf3154f04aee470696af5367c072007d3e2cf849b2513785ca0f1",
+      "template_bytes": 110123,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "R00201",
+          "event": "OnBeforePrint",
+          "method": "Z06102_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint",
+        "Z06102_BeforePrint",
+        "TopMargin_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P136",
+      "report": "R002-2",
+      "title": "成品出库细码单（旧系统）",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "d833298ab37c7c110319698cb13e8d0cf1aa991817dcc19703bf29b747ed5681",
+      "template_sha256": "36ed805ba4a8f2b8b2e9d193413c50cf1e15d31406724f7ac679a1bf70185a29",
+      "template_bytes": 109724,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "R06131",
+          "event": "OnBeforePrint",
+          "method": "Z06102_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint",
+        "Z06102_BeforePrint",
+        "TopMargin_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P137",
+      "report": "R002-3",
+      "title": "成品出库细码单(润誉)",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "94dd6f3562d4adc198709e4ab3b9bcc2ae94999ee039cc6cfcca4fdfb23003aa",
+      "template_sha256": "1435525b25d4ce5f55da45a52345221f9cc7985c7a4ac36c4a5d72bcefa55654",
+      "template_bytes": 87551,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.DlvAddress_R",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.DlvAddress_R",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "R06131",
+          "event": "OnBeforePrint",
+          "method": "Z06102_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint",
+        "Z06102_BeforePrint",
+        "TopMargin_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P138",
+      "report": "R002-4",
+      "title": "成品出库细码单（显示码数）",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "d2eb9732ade0bffd27901f72531715d01ef07cfa5de8662d91d4f6bb034fd605",
+      "template_sha256": "5fed77cba6840755a9cfdf0b019bfeabcc74e33ae6372f263aec887d58346403",
+      "template_bytes": 118091,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint",
+        "TopMargin_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P139",
+      "report": "R002-5",
+      "title": "成品出库细码单（按原缸号出货）",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "fae84bfbbd80e155ebce71efb0a119690fbfdfd1a60287cbbde05849c32b1f9e",
+      "template_sha256": "0a6de7a9101f794c6d32087997cb2e809cdd68f9ea8f0b211fad53827e36c672",
+      "template_bytes": 116771,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "R06131",
+          "event": "OnBeforePrint",
+          "method": "Z06102_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint",
+        "Z06102_BeforePrint",
+        "TopMargin_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P141",
+      "report": "R003",
+      "title": "成品送货出仓单",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "4a27eb216ff1c2e146a0d8786d3fe074c75bea0773189eaf7995858e07aab836",
+      "template_sha256": "fa171d3cb78a75b23c147bd667494be3ab09393653d5606c77b435e177e64d55",
+      "template_bytes": 73703,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P142",
+      "report": "R005",
+      "title": "染色领料单旧",
+      "entry": "NormalStuffWeightPhaseDetail",
+      "xml_sha256": "34bc84127d3f43db12e9a6961a82a6134282aac2afd2722ab1387c337db2e499",
+      "template_sha256": "878ae9219ef0efd3fb5d5cf2a23548579cddbc26edc6497d7f3a477fb2c48e58",
+      "template_bytes": 95424,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "原打印父投影缺字段：NormalStuffWeight.JobRemarks",
+        "未实现控件/分组：XRShape",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "原打印父投影缺字段：NormalStuffWeight.JobRemarks",
+        "未实现控件/分组：XRShape",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell18",
+          "event": "OnBeforePrint",
+          "method": "tableCell18_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell56",
+          "event": "OnBeforePrint",
+          "method": "tableCell56_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell22",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell23",
+          "event": "OnBeforePrint",
+          "method": "tableCell23_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell24",
+          "event": "OnBeforePrint",
+          "method": "tableCell8_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell14",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P143",
+      "report": "R005-1",
+      "title": "染色领料单",
+      "entry": "NormalStuffWeightPhaseDetail",
+      "xml_sha256": "36a941915337f972f023a834f202f087f90a45812027811fb9779f66c54dd58d",
+      "template_sha256": "8d002fad4c5408a3c7ee3ced70dbb3a1d24a216d759bff3ad0f4da0757e1499a",
+      "template_bytes": 94389,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRShape",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRShape",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell18",
+          "event": "OnBeforePrint",
+          "method": "tableCell18_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell56",
+          "event": "OnBeforePrint",
+          "method": "tableCell56_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell22",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell23",
+          "event": "OnBeforePrint",
+          "method": "tableCell23_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell24",
+          "event": "OnBeforePrint",
+          "method": "tableCell8_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell14",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P144",
+      "report": "R006",
+      "title": "染色加料单",
+      "entry": "AddStuffWeightPhaseDetail",
+      "xml_sha256": "732329d269cd43cad1414f75844111fe6972f742052f9cba6436a9472e7ef5b3",
+      "template_sha256": "dc7e2667036300965077cee069b9b5b1166e0a2af4d78e97b70f66bdee47a138",
+      "template_bytes": 92019,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.SheetNo",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.SheetNo",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell18",
+          "event": "OnBeforePrint",
+          "method": "tableCell18_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell55",
+          "event": "OnBeforePrint",
+          "method": "tableCell55_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell24",
+          "event": "OnBeforePrint",
+          "method": "tableCell8_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell14",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P145",
+      "report": "R007",
+      "title": "定型领料单",
+      "entry": "ProcessStuffWeightPhaseDetail",
+      "xml_sha256": "5ebab2c23f5e28d933690f491b3e19ce16895bf92950fee2f2221757c76978de",
+      "template_sha256": "d4b8fe5d6e7610cf7e0c2bdca16acc511b5ae6e976be8925f74930c88469a5a9",
+      "template_bytes": 82897,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell10",
+          "event": "OnBeforePrint",
+          "method": "tableCell10_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P150",
+      "report": "R010",
+      "title": "成品进仓明细",
+      "entry": "ProdInList",
+      "xml_sha256": "30fe47187098d041e6b2f55ecae93a7f13a662c5310e1cb810202de6292de048",
+      "template_sha256": "2ea231f030a1e124a5f4c7a73d91d46b2f6b905b98d3bc2a1b819045733c809d",
+      "template_bytes": 55453,
+      "prior_issues": [
+        "当前原查询未提供版式字段：ProdInList.grayQty",
+        "当前原查询未提供排序/分组字段：KKind",
+        "当前原查询未提供计算来源：KKind"
+      ],
+      "current_issues": [
+        "当前原查询未提供版式字段：ProdInList.grayQty",
+        "当前原查询未提供排序/分组字段：KKind",
+        "当前原查询未提供计算来源：KKind"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P151",
+      "report": "R011",
+      "title": "染整出货明细单",
+      "entry": "ProdOutList",
+      "xml_sha256": "e3717cf0bc99c6b3f5d81f9e63a331cab924bc86f7225f03327647974a6d348a",
+      "template_sha256": "4a81302ea29b79f8edad6ff8813435e31c038446a76b66edd06483d21a6e5ad7",
+      "template_bytes": 55758,
+      "prior_issues": [
+        "未实现原分组字段或排序规则"
+      ],
+      "current_issues": [
+        "当前原查询未提供版式字段：ProdOutList.Structure",
+        "当前原查询未提供版式字段：ProdOutList.JobSheetNo",
+        "当前原查询未提供版式字段：ProdOutList.CusProName",
+        "当前原查询未提供版式字段：ProdOutList.SumAssignedWeightQty",
+        "当前原查询未提供计算来源：JobKind"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P152",
+      "report": "R012",
+      "title": "返工布进出存报表",
+      "entry": "GrayStockInAndOutF",
+      "xml_sha256": "a9f68d17faacf4437ff5a0330507053ea18d8bb3f56efee83058adaa2c4559d9",
+      "template_sha256": "8af8919bd2e7b65dd484b5a77faa764d21057268991ece0e699e958bebf43ef3",
+      "template_bytes": 65462,
+      "prior_issues": [
+        "缺跨表关联：GrayStockInAndOut.CustomerID_R",
+        "缺跨表关联：GrayStockInAndOut.GUID",
+        "缺跨表关联：GrayStockInAndOut.LastRemainRolls",
+        "缺跨表关联：GrayStockInAndOut.LastRemainWeightQty",
+        "缺跨表关联：GrayStockInAndOut.CurrentInRolls",
+        "缺跨表关联：GrayStockInAndOut.CurrentInWeightQty",
+        "缺跨表关联：GrayStockInAndOut.CurrentOutRolls",
+        "缺跨表关联：GrayStockInAndOut.CurrentOutWeightQty",
+        "缺跨表关联：GrayStockInAndOut.RemainRolls",
+        "缺跨表关联：GrayStockInAndOut.RemainWeightQty",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：GrayStockInAndOut.CustomerID_R",
+        "缺跨表关联：GrayStockInAndOut.GUID",
+        "缺跨表关联：GrayStockInAndOut.LastRemainRolls",
+        "缺跨表关联：GrayStockInAndOut.LastRemainWeightQty",
+        "缺跨表关联：GrayStockInAndOut.CurrentInRolls",
+        "缺跨表关联：GrayStockInAndOut.CurrentInWeightQty",
+        "缺跨表关联：GrayStockInAndOut.CurrentOutRolls",
+        "缺跨表关联：GrayStockInAndOut.CurrentOutWeightQty",
+        "缺跨表关联：GrayStockInAndOut.RemainRolls",
+        "缺跨表关联：GrayStockInAndOut.RemainWeightQty",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P157",
+      "report": "R017",
+      "title": "打办个人统计表",
+      "entry": "qryDyeDipsRecord2",
+      "xml_sha256": "314c28d4847fd35fdb5a7e9ef5192fd7ee162a9ff709ce0e272c7039b89b6b9a",
+      "template_sha256": "82ef5eec6cf527ac34bb31866622ebf4f202672ae4a2e3011f4401bd9008aaac",
+      "template_bytes": 26212,
+      "prior_issues": [
+        "未实现控件/分组：XRPivotGrid"
+      ],
+      "current_issues": [
+        "未实现控件/分组：XRPivotGrid"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P158",
+      "report": "R018",
+      "title": "打样成本表",
+      "entry": "DyeDipsRecordStuffDosage",
+      "xml_sha256": "fd2b0977ab144dd3683ab556481ffc2c943288e6b2022b89b1b222dc0ef025a6",
+      "template_sha256": "8f3ad782a565de5c55d00dd1d41eeb4bc5375d2415db155239f84bb51ea4576c",
+      "template_bytes": 47192,
+      "prior_issues": [
+        "未实现控件/分组：XRRichText",
+        "未实现属性绑定：Rtf",
+        "未实现原规则：MultiColumn",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现控件/分组：XRRichText",
+        "未实现属性绑定：Rtf",
+        "未实现原规则：MultiColumn",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P159",
+      "report": "R019",
+      "title": "配方工艺卡",
+      "entry": "TrialDyeRecipePhaseDetail",
+      "xml_sha256": "10ee004e5c75b596fd643db012e567801a5c30cec72ca5c4d3f72bfba1d6f287",
+      "template_sha256": "d93d8bcd2b2b27664f8f49ed3392d801f2c24bed494323c2f456f710b890be97",
+      "template_bytes": 57839,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P160",
+      "report": "R020",
+      "title": "配方工艺封面",
+      "entry": "DyeLabColor",
+      "xml_sha256": "d8062e732c4fe77aa216aa212aa20daa4b65b4315d774ee0cbde034c4ad61617",
+      "template_sha256": "84d80a5aef76e3906f97aba963b5593cc3ee57c7f1e3fc0a1449fbe86dfefc8d",
+      "template_bytes": 24408,
+      "prior_issues": [
+        "未实现文字旋转：Angle"
+      ],
+      "current_issues": [
+        "未实现文字旋转：Angle"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P162",
+      "report": "R022",
+      "title": "回修领料单",
+      "entry": "ReworkStuffWeightPhaseDetail",
+      "xml_sha256": "c5b9fb3ddda11e6fdcc6d2b8d50a4214528607b5e3a255967240084ed03abe4b",
+      "template_sha256": "4d32fd326ca789c6ef3d50226742e8d2d28f60533783032a99690f687b65945e",
+      "template_bytes": 97132,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：XRShape",
+        "缺跨表关联：ReworkStuffWeight.ReworkStuffWeight_ReworkStuffWeightPhaseDetail.WaterQty",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：XRShape",
+        "缺跨表关联：ReworkStuffWeight.ReworkStuffWeight_ReworkStuffWeightPhaseDetail.WaterQty",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell18",
+          "event": "OnBeforePrint",
+          "method": "tableCell18_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell56",
+          "event": "OnBeforePrint",
+          "method": "tableCell56_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell22",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell23",
+          "event": "OnBeforePrint",
+          "method": "tableCell23_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell24",
+          "event": "OnBeforePrint",
+          "method": "tableCell8_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell14",
+          "event": "OnBeforePrint",
+          "method": "tableCell2_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P164",
+      "report": "R025-1",
+      "title": "长车水洗领料单",
+      "entry": "WashProcessStuffWeightPhaseDetail",
+      "xml_sha256": "869416d601c1115a53210b69f098dec618afa1535ee5f322ce9801756a1b5a52",
+      "template_sha256": "47eb6335a26e81e6311af8019b75a30e7ba35df80dac01ea4aaa6e79aec80351",
+      "template_bytes": 62232,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：ProcessStuffWeight.Creater"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：ProcessStuffWeight.Creater"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell11",
+          "event": "OnBeforePrint",
+          "method": "tableCell11_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell10",
+          "event": "OnBeforePrint",
+          "method": "tableCell10_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P171",
+      "report": "R034",
+      "title": "坯布入库单（收坯单）",
+      "entry": "GrayIn",
+      "xml_sha256": "af35f0bb37a7115e10c573be5edd3fe343801241269c02c026bb785feeb977fb",
+      "template_sha256": "a94574e23e56a714fcbef0361393f053ebb158cee0fe564f7d6cb76df2539f6a",
+      "template_bytes": 65435,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原属性：FilterString",
+        "未实现原规则：Scripts",
+        "缺跨表关联：GrayInDetail.Rolls",
+        "缺跨表关联：GrayInDetail.StorageUnitIDs_R",
+        "缺跨表关联：GrayInDetail.WeightQty",
+        "缺跨表关联：GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayInDetail.LengthQty",
+        "缺跨表关联：ProdOut.Creater"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原属性：FilterString",
+        "未实现原规则：Scripts",
+        "缺跨表关联：GrayInDetail.Rolls",
+        "缺跨表关联：GrayInDetail.StorageUnitIDs_R",
+        "缺跨表关联：GrayInDetail.WeightQty",
+        "缺跨表关联：GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayInDetail.LengthQty",
+        "缺跨表关联：ProdOut.Creater"
+      ],
+      "script_events": [
+        {
+          "control": "Detail1",
+          "event": "OnBeforePrint",
+          "method": "Detail1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label12",
+          "event": "OnBeforePrint",
+          "method": "label28_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label24",
+          "event": "OnBeforePrint",
+          "method": "label33_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label18",
+          "event": "OnBeforePrint",
+          "method": "label33_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label32",
+          "event": "OnBeforePrint",
+          "method": "label32_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label28",
+          "event": "OnBeforePrint",
+          "method": "label28_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label33",
+          "event": "OnBeforePrint",
+          "method": "label33_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label44",
+          "event": "OnBeforePrint",
+          "method": "label44_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "label33_BeforePrint",
+        "label33_BeforePrint",
+        "label32_BeforePrint",
+        "label33_BeforePrint",
+        "label44_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P172",
+      "report": "R034-1",
+      "title": "客退入库单（收坯单）",
+      "entry": "GrayIn",
+      "xml_sha256": "24b1247006c6cee939115e8d21c566c9f229658cea7c7e836d9b2399221f35fb",
+      "template_sha256": "f13195bcc1d8b06aa44c2e94143e3dc8067a9ed13f0343ee6f6f13d40d236aa4",
+      "template_bytes": 65985,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：DetailReportBand",
+        "缺跨表关联：GrayInDetail.OriJobsheetNo",
+        "未实现原规则：Scripts",
+        "缺跨表关联：GrayInDetail.StorageUnitIDs_R",
+        "缺跨表关联：GrayInDetail.Rolls",
+        "缺跨表关联：GrayInDetail.WeightQty",
+        "缺跨表关联：GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayInDetail.LengthQty",
+        "缺跨表关联：ProdOut.Creater"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：DetailReportBand",
+        "缺跨表关联：GrayInDetail.OriJobsheetNo",
+        "未实现原规则：Scripts",
+        "缺跨表关联：GrayInDetail.StorageUnitIDs_R",
+        "缺跨表关联：GrayInDetail.Rolls",
+        "缺跨表关联：GrayInDetail.WeightQty",
+        "缺跨表关联：GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayInDetail.LengthQty",
+        "缺跨表关联：ProdOut.Creater"
+      ],
+      "script_events": [
+        {
+          "control": "Detail1",
+          "event": "OnBeforePrint",
+          "method": "Detail1_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label24",
+          "event": "OnBeforePrint",
+          "method": "label33_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label18",
+          "event": "OnBeforePrint",
+          "method": "label33_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label32",
+          "event": "OnBeforePrint",
+          "method": "label32_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label28",
+          "event": "OnBeforePrint",
+          "method": "label28_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label33",
+          "event": "OnBeforePrint",
+          "method": "label33_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label44",
+          "event": "OnBeforePrint",
+          "method": "label44_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "label33_BeforePrint",
+        "label33_BeforePrint",
+        "label32_BeforePrint",
+        "label33_BeforePrint",
+        "label44_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P174",
+      "report": "R035",
+      "title": "坯布退货单",
+      "entry": "GrayInDetail",
+      "xml_sha256": "60ef3b5a12b59ac5076c62b931dd29e2a3827677e156dc52870c70af72e72b39",
+      "template_sha256": "699846a0be32f1146e6a4cbfcaf6fef3fbd072bc2877e727bef6e4071e375f65",
+      "template_bytes": 128774,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "缺跨表关联：GrayIn.GrayIn_GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayIn.GrayIn_GrayInDetail.StorageUnitIDs_R",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "缺跨表关联：GrayIn.GrayIn_GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayIn.GrayIn_GrayInDetail.StorageUnitIDs_R",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "fRoll_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "fRoll_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P177",
+      "report": "R038",
+      "title": "成品出货报表",
+      "entry": "ProdOutList",
+      "xml_sha256": "3ac51dd84a8b6b4bb86052dccc573d8a2f7efa9445d6a6687068a729ee0dd32a",
+      "template_sha256": "e5647a4bd7ad6c9debfc732d482853a8c3887f7b3c41a620575d354922ac4b69",
+      "template_bytes": 43412,
+      "prior_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P180",
+      "report": "R041",
+      "title": "返工出库明细",
+      "entry": "GrayOutWaste",
+      "xml_sha256": "7278ef46c6044e466c7fcd8c2a69d8c2434d9822d1a4c3d77c870bffd2feb98a",
+      "template_sha256": "08ccc2e029eec2522efc66a950d2069cca7439a6e4ba54921e30a0782370fe26",
+      "template_bytes": 46902,
+      "prior_issues": [
+        "未实现原属性：FilterString"
+      ],
+      "current_issues": [
+        "未实现原属性：FilterString"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P202",
+      "report": "R062-1",
+      "title": "送货单A4（汇年丰）",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "6ca666830339b787ad2fdf53dc1e56688322d94c88bf7f1096ad93de827ba2b3",
+      "template_sha256": "a1fb220adc67d8e7ef19e807c22ba86264ff013eb58f5dcd290c8229092c7043",
+      "template_bytes": 77063,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell28",
+          "event": "OnBeforePrint",
+          "method": "tableCell28_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "label44",
+          "event": "OnBeforePrint",
+          "method": "label44_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P216",
+      "report": "R09",
+      "title": "胚布入库统计表",
+      "entry": "GrayInWaste",
+      "xml_sha256": "0c001dfbf5721fb593172a1de4d8c0040a780c6b6d49fb922d8ed937aea4ecce",
+      "template_sha256": "af55671d56170c22ccceb3ae7b71afba9ca44db2d9585f0f7dc4959f635a54a4",
+      "template_bytes": 37600,
+      "prior_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P220",
+      "report": "R101",
+      "title": "染色确板配方（弘益）",
+      "entry": "TrialDyeRecipePhaseDetail",
+      "xml_sha256": "599613fa71dc9dda34ba1cd8286508377ccd698c20e43651285c9b4de1185332",
+      "template_sha256": "2d2b05bd050607c2450db4d6342eabae711d5e1e2e1e14278a5cdb088b268103",
+      "template_bytes": 54451,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：TrialDyeRecipe.ColorID_R"
+      ],
+      "current_issues": [
+        "原打印父投影缺字段：TrialDyeRecipe.ColorID_R"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell13",
+          "event": "OnBeforePrint",
+          "method": "tableCell13_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P221",
+      "report": "R101-1",
+      "title": "染色确板配方（弘益）",
+      "entry": "TrialDyeRecipePhaseDetail",
+      "xml_sha256": "04a74281a800a87534b6dc10c2784a3351901742bc88f76ee1c348116c2a86e3",
+      "template_sha256": "67c433736579760e76dcb3b1ed0fbad13b91538922fda7781f11aba4b5c09b3a",
+      "template_bytes": 54835,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：TrialDyeRecipe.ColorID_R"
+      ],
+      "current_issues": [
+        "原打印父投影缺字段：TrialDyeRecipe.ColorID_R"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell13",
+          "event": "OnBeforePrint",
+          "method": "tableCell13_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P229",
+      "report": "R109",
+      "title": "司机产量汇总查询",
+      "entry": "ProdOutEditsj",
+      "xml_sha256": "d85ab9670d84a593157ff3ff3ccf0221701f1b8a54213b329cac18361d353d42",
+      "template_sha256": "66405726141b1f46d9827cd3898efe722e2c0df73302ddad0c0c23b5df6fac85",
+      "template_bytes": 39696,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P231",
+      "report": "R111",
+      "title": "机物料入库账打印",
+      "entry": "ArticleInAccount",
+      "xml_sha256": "7ad29107524b356cd90ff375a41f7ba7b9a324efb141c8efb32b1f6cdd194311",
+      "template_sha256": "c07a8a7497a545a80ef0aaab9a0f2dec715eaec4161b4e70d57d73e33491d16e",
+      "template_bytes": 42262,
+      "prior_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P232",
+      "report": "R112",
+      "title": "染化料入库账",
+      "entry": "StuffInAccount",
+      "xml_sha256": "a9ccf7aaf689fb29f66bda9f852ae4daf09c6079b308f4ff331e7a448457b7d2",
+      "template_sha256": "7c0bb8250cf8ca67c44f70c1dcffcf80a1b288ce9219af618e0d79702aa6998f",
+      "template_bytes": 36485,
+      "prior_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P235",
+      "report": "R115",
+      "title": "配方表",
+      "entry": "DyeLabColor",
+      "xml_sha256": "5673634a295c64ee0acf6798b5dbdf1999b23d27ab74732548302a8657e3a9fe",
+      "template_sha256": "88bba6598fe542db90b21bf2c5efca1ac0e842e0c5e211effff8531075b7081f",
+      "template_bytes": 28690,
+      "prior_issues": [
+        "原打印父投影缺字段：DyeLabMain.calculatedField2",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField2"
+      ],
+      "current_issues": [
+        "原打印父投影缺字段：DyeLabMain.calculatedField2",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField2"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P236",
+      "report": "R116",
+      "title": "极丰色卡(正)",
+      "entry": "DyeLabColor",
+      "xml_sha256": "539edfb34d5e058aabe1893add143ba05e8c9ef93edadd9632de6dbaafe06a98",
+      "template_sha256": "55bb6d078672a79672a3108618e04f6de807e3814e2b6a6afe973e033832b68f",
+      "template_bytes": 22684,
+      "prior_issues": [
+        "未实现文字旋转：Angle",
+        "原打印父投影缺字段：DyeLabMain.calculatedField1",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ],
+      "current_issues": [
+        "未实现文字旋转：Angle",
+        "原打印父投影缺字段：DyeLabMain.calculatedField1",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P237",
+      "report": "R117",
+      "title": "极丰色卡(反)",
+      "entry": "DyeLabColor",
+      "xml_sha256": "f9343f0a8b39fc6ed602b6ed67656b1f1f60255739c0fe2148a20f1efc8672d7",
+      "template_sha256": "b2eb8346f15390cff6a14c37b7b68935c2853bd7895213d935622c19ef9d9449",
+      "template_bytes": 34413,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现原规则：MultiColumn"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现原规则：MultiColumn"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P238",
+      "report": "R119",
+      "title": "胚布对数表",
+      "entry": "GPInAndOutTotal",
+      "xml_sha256": "8c30c730c042ebfccaeb18e8f69654fa77dd5498db9b20b0faae44d9f332128a",
+      "template_sha256": "a3eba9a9b17e0e9e1ddcc3e8dae58c8109c76a7b33456d6a379daad9c981d3d2",
+      "template_bytes": 81521,
+      "prior_issues": [
+        "缺跨表关联：qry_Login.Name",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：qry_Login.Name",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P239",
+      "report": "R121",
+      "title": "胚布每日进仓明细单",
+      "entry": "GrayInWaste",
+      "xml_sha256": "deb1121afc05ebbd1b86fc3cc07782efaf52b42f45a3901f9830e29118304e0c",
+      "template_sha256": "ed3e0e6720efea063728f54e50968b8b866fc7e52094a54a192e29150d8a7972",
+      "template_bytes": 55700,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [],
+      "script_events": [
+        {
+          "control": "tableCell28",
+          "event": "OnBeforePrint",
+          "method": "tableCell28_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P240",
+      "report": "R122",
+      "title": "成品出货汇总表",
+      "entry": "ProdOutList",
+      "xml_sha256": "00c58a51538f68c6496b39c31d1a6d2732341860b677380e9c6bd8f3e3d50fae",
+      "template_sha256": "77ebf7650d445f2acc7c286514632069d1a211bc00ee446f46d852609f93f095",
+      "template_bytes": 44589,
+      "prior_issues": [
+        "当前原查询未提供计算来源：JobKind"
+      ],
+      "current_issues": [
+        "当前原查询未提供计算来源：JobKind"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P241",
+      "report": "R123",
+      "title": "胚布每日出仓明细单",
+      "entry": "GrayOutWaste",
+      "xml_sha256": "480b3bde90e19a58975f576a30c00c2f81245f9b2e3e93e3077149828449d65e",
+      "template_sha256": "07c6d5282dbc862c8095377f49efde3f0f6826816f02b4497b5230a87c29048b",
+      "template_bytes": 52183,
+      "prior_issues": [
+        "未实现原计算字段：计算字段缺跨表关系：GRAYKIND"
+      ],
+      "current_issues": [
+        "未实现原计算字段：计算字段缺跨表关系：GRAYKIND"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P242",
+      "report": "R124",
+      "title": "坯布结存明细表",
+      "entry": "GPInAndOutTotal",
+      "xml_sha256": "4e6960b8817d573b1f44ead331e57771e8453637326c7195f28c379c29f767ec",
+      "template_sha256": "8a6f074292d24a1101b5247519e1b9011a2b9e4341f552f56cfc3aa85e478a2b",
+      "template_bytes": 58020,
+      "prior_issues": [
+        "缺跨表关联：qry_Login.LoginName",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "缺跨表关联：GrayInWaste.NameC",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：qry_Login.LoginName",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "缺跨表关联：GrayInWaste.NameC",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P243",
+      "report": "R125",
+      "title": "返工布对数表",
+      "entry": "FGPInAndOutTotal",
+      "xml_sha256": "3fe6c731a0e5675ff66ed83fb380a59eac190d79812b8185eea43cdc7513fb32",
+      "template_sha256": "3a65127ff2595887ecf8787d159de243d661c5a116995532088075fe5aa58626",
+      "template_bytes": 79357,
+      "prior_issues": [
+        "缺跨表关联：GPInAndOutTotal.GrayID",
+        "缺跨表关联：GPInAndOutTotal.GrayID_R",
+        "缺跨表关联：GPInAndOutTotal.LastRemainRolls",
+        "缺跨表关联：GPInAndOutTotal.LastRemainWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentInRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentInWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentOutRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentOutWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentTOutRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentTOutWeightQty",
+        "缺跨表关联：GPInAndOutTotal.RemainRolls",
+        "缺跨表关联：GPInAndOutTotal.RemainWeightQty",
+        "缺跨表关联：qry_Login.LoginName",
+        "缺跨表关联：GPInAndOutTotal.CustomerID_R",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：GPInAndOutTotal.GrayID",
+        "缺跨表关联：GPInAndOutTotal.GrayID_R",
+        "缺跨表关联：GPInAndOutTotal.LastRemainRolls",
+        "缺跨表关联：GPInAndOutTotal.LastRemainWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentInRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentInWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentOutRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentOutWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentTOutRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentTOutWeightQty",
+        "缺跨表关联：GPInAndOutTotal.RemainRolls",
+        "缺跨表关联：GPInAndOutTotal.RemainWeightQty",
+        "缺跨表关联：qry_Login.LoginName",
+        "缺跨表关联：GPInAndOutTotal.CustomerID_R",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P244",
+      "report": "R126",
+      "title": "返工布进出存报表",
+      "entry": "GrayStockInAndOutF",
+      "xml_sha256": "e6c834a480e9e6a9979aee5e5f1185631e3daed9e6b6b57e888c02ccce46160f",
+      "template_sha256": "1c4dd2caf00d67f05766218ffe2624401f14b03aaf35b1a6b9efc570b44f7828",
+      "template_bytes": 74055,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P245",
+      "report": "R127",
+      "title": "退胚送货出仓单",
+      "entry": "GrayInDetail",
+      "xml_sha256": "4609a0ba9cfde9b3f88af64e478f57391a5fa1ac0c639ee20b16f3f6d1c44975",
+      "template_sha256": "88ee503f00cfa17da89e982b2115ea634e08fc5a39d3ec88da9735d8d5d4dca5",
+      "template_bytes": 69423,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：ProdOutDetail.ContractNo",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：GrayIn.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：ProdOutDetail.ContractNo",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：GrayIn.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P246",
+      "report": "R128",
+      "title": "退胚出库细码单",
+      "entry": "GrayInDetail",
+      "xml_sha256": "f76312aa093582d4f5b4f891d2e1d5ead7e9cd26c226f17803d7cc4e38c3466b",
+      "template_sha256": "f8be17b561baf860d6990282f752687752e9b413403c24ca0614a3ee897ea102",
+      "template_bytes": 97379,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "R06131",
+          "event": "OnBeforePrint",
+          "method": "Z06102_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint",
+        "Z06102_BeforePrint",
+        "TopMargin_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P247",
+      "report": "R129",
+      "title": "当前成品库存表",
+      "entry": "ProdInAndOutList",
+      "xml_sha256": "43443c979a6591af64af2841464345cd1f353c6e37d615692399a80a0e13c2c8",
+      "template_sha256": "46c21824e59d25bb36af76a6cb23e5b304368369c63880a4b6a774fedfaa80d0",
+      "template_bytes": 41374,
+      "prior_issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：FilterString",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "未实现原属性：FilterString",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P248",
+      "report": "R130",
+      "title": "成品进出月报表",
+      "entry": "ProdInAndOutList",
+      "xml_sha256": "2bdc1386424f6c1d8712a024e7d0e6e4a812c04cc729f07e821dba4e9781c8b0",
+      "template_sha256": "6df6a0d80de2224baf148632ee3f7b9f4e54daa68a7d93db495de63f7805f467",
+      "template_bytes": 68448,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P250",
+      "report": "R132",
+      "title": "出入布汇总",
+      "entry": "GPInOutTotal",
+      "xml_sha256": "a6563e483ed6080d4021a95799dfb9b36de58cf89ace3e2050ed8d007916c8f0",
+      "template_sha256": "cef64781574c14a8a5adbd07e4214598fae9047630c47f2f5705cc9c2250216c",
+      "template_bytes": 43285,
+      "prior_issues": [
+        "当前原查询未提供排序/分组字段：GrayID"
+      ],
+      "current_issues": [
+        "当前原查询未提供排序/分组字段：GrayID"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P251",
+      "report": "R133",
+      "title": "成品进出日报表",
+      "entry": "ProdInAndOutList",
+      "xml_sha256": "926314b50ec61e40832b21ecdb287806952e6e32c064fb1deeda7c8bbe0ad3cd",
+      "template_sha256": "cc05a34c641ff46177e6477430f600d92920ee3859086974abfa214f51a1e03e",
+      "template_bytes": 68992,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P252",
+      "report": "R134",
+      "title": "染化料进出月报表",
+      "entry": "StuffInOutCheckStock",
+      "xml_sha256": "7346043bbad66a7ed888c7a032041431b03a16408c6fd0c9bb22b1cf13ff044b",
+      "template_sha256": "dc246aad07eb8a6e7b1f2fca7e0c30a7d56a5b7f38fa4de441904a59ab596815",
+      "template_bytes": 96671,
+      "prior_issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：RPStuffInOut.LastRemainQty",
+        "缺跨表关联：s_QueryParamSelected.ENDTIME",
+        "缺跨表关联：s_QueryParamSelected.STARTTIME",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：RPStuffInOut.LastRemainQty",
+        "缺跨表关联：s_QueryParamSelected.ENDTIME",
+        "缺跨表关联：s_QueryParamSelected.STARTTIME",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "PageHeader",
+          "event": "OnBeforePrint",
+          "method": "PageHeader_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P253",
+      "report": "R135",
+      "title": "成品送货单(损耗)",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "13c8923a4c3cbcd9c3f897d9318db9081ddbb1dd395d160dd9bc997ad5797237",
+      "template_sha256": "86af4d2b883cb1c09751ab98e5ae9f77666c557b15f2aeef9e66bb49db78ebd7",
+      "template_bytes": 76372,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Detail_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P254",
+      "report": "R136",
+      "title": "洗缸料单",
+      "entry": "NormalStuffWeightPhaseDetail_Wash",
+      "xml_sha256": "70818bb6a8df59ef227e276bb1e72bd02656fb8cd1ce62daaff961eb7751d264",
+      "template_sha256": "8a9a5bd1a0cd0572b6400664c8fe6eb52c120cbdc59aa387a8df781a5ddd95ed",
+      "template_bytes": 54022,
+      "prior_issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [
+        {
+          "control": "tableCell37",
+          "event": "OnBeforePrint",
+          "method": "tableCel37_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [
+        "tableCel37_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P256",
+      "report": "R138",
+      "title": "成品进出月报表（汇总）",
+      "entry": "ProdInAndOutTotalP",
+      "xml_sha256": "eb98e906b3d1f092b937657d6258612a4c69e8fe70cd697b666b823cebf1b113",
+      "template_sha256": "406d5de013f636f072d815d955a016f7592dbe8f09dc15b1e38ce7fc05fdc7f9",
+      "template_bytes": 68664,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P257",
+      "report": "R139",
+      "title": "成品进出日报表（汇总）",
+      "entry": "ProdInAndOutTotalP",
+      "xml_sha256": "f2e535bee4ba3a6e10b5ab476e960539c5dc3f5348c2b1fe5df74f7d3c144a65",
+      "template_sha256": "116bf03b0f1af1222f972d6879771715b0ad0cef699315c9c805c416edd66557",
+      "template_bytes": 68530,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P264",
+      "report": "R145",
+      "title": "成品出库细码",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "7075118e8a5d4be8f0f495d7206803de9f518609df4e4184f4c2f1804ac05210",
+      "template_sha256": "c517d918e00f179868e6d7da844c083595ee65be958527649ee70313e09091f5",
+      "template_bytes": 76634,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P265",
+      "report": "R146",
+      "title": "成品送货单（针织）",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "60444f1f265d880516bbbef3b781c4e731a03af55e79f4c0d804f9c594550a64",
+      "template_sha256": "267bd6ccc340b001916293aee6978ef66bba0a46b6a26a31175d434fd3b998b8",
+      "template_bytes": 50816,
+      "prior_issues": [
+        "未实现原计算字段：计算字段缺跨表关系：KType"
+      ],
+      "current_issues": [
+        "未实现原计算字段：计算字段缺跨表关系：KType"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P266",
+      "report": "R147",
+      "title": "成品出库码单(码数)",
+      "entry": "ProdOutDetail",
+      "xml_sha256": "66cc4316bbd196a77b5851176a4a02fdbb0826cf389d134547e113c6fc3a5567",
+      "template_sha256": "46c3b4dc492d7df930e30c08ae5d70dde261a2740c1046fd4edba50d82163738",
+      "template_bytes": 110748,
+      "prior_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ],
+      "script_events": [
+        {
+          "control": "Detail",
+          "event": "OnBeforePrint",
+          "method": "Detail_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        },
+        {
+          "control": "R14701",
+          "event": "OnBeforePrint",
+          "method": "Z06102_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "TopMargin",
+          "event": "OnBeforePrint",
+          "method": "TopMargin_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        },
+        {
+          "control": "tableCell44",
+          "event": "OnBeforePrint",
+          "method": "tableCell44_BeforePrint",
+          "xml_method_declaration": false,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [
+        "Z06102_BeforePrint",
+        "TopMargin_BeforePrint",
+        "tableCell44_BeforePrint"
+      ],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P267",
+      "report": "R148",
+      "title": "打样未报价色号",
+      "entry": "DyeLabColorColorNumNoPrice",
+      "xml_sha256": "1194e18b6c72b24106fc70096f465a3294eef9b6573cc3ed643a7be90390eb60",
+      "template_sha256": "e984a3a53876499b5e31d20af6c2d5de7f06801dd61f3454d5b6d418ae537e78",
+      "template_bytes": 53637,
+      "prior_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "current_issues": [
+        "未实现动态高度：CanShrink"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P271",
+      "report": "R151",
+      "title": "成品进出月报表（按客户）",
+      "entry": "ProdInAndOutTotalP",
+      "xml_sha256": "fc114a962a605d3b6a5971eee9418a9a6ff40015b36d6dbd53e4fefe02c133cc",
+      "template_sha256": "d89c1e304bd0346b780886b436cf1dda539171734b2fcc767bf83b6c620d0e76",
+      "template_bytes": 74575,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P272",
+      "report": "R1511",
+      "title": "改色风险报告",
+      "entry": "JobSheet",
+      "xml_sha256": "fba66368895a4a1ee683188cfa08d8ab011530a9aec76eada3613fc3e516334b",
+      "template_sha256": "190a19f32357b21a95eea95087ba55b83ee2a004921b86abd3e61bebb90f4c8d",
+      "template_bytes": 57464,
+      "prior_issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRPictureBox",
+        "缺跨表关联：s_QueryParamSelected.BEGINEDATE",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原规则：Scripts"
+      ],
+      "current_issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRPictureBox",
+        "缺跨表关联：s_QueryParamSelected.BEGINEDATE",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原规则：Scripts"
+      ],
+      "script_events": [
+        {
+          "control": "DetailReport",
+          "event": "OnBeforePrint",
+          "method": "DetailReport_BeforePrint",
+          "xml_method_declaration": true,
+          "template_method_declaration": false
+        }
+      ],
+      "scripts_source_nonempty": true,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P273",
+      "report": "R151A",
+      "title": "成品进出月报表（客退）",
+      "entry": "ProdInAndOutTotalP",
+      "xml_sha256": "2005a8393eddc70ace1e7030f0a2c9033907f0af9909cdce16c3bf1793bb02db",
+      "template_sha256": "a6f1497128c1cf60a39209d3c3676210331cb68a93181c1ef13936c03ea11bd6",
+      "template_bytes": 74581,
+      "prior_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "current_issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P277",
+      "report": "R155",
+      "title": "订单交货情况",
+      "entry": "qry_Order_ToCustomer",
+      "xml_sha256": "0534ca53786ae90f9405adfdb5c9fb4bbaf6900790fb7851453cbb907538fd5f",
+      "template_sha256": "f49bd869a320d3a876ea8dc4e8fe271bab0b5833a8c321d8c334902f9e11ec49",
+      "template_bytes": 86071,
+      "prior_issues": [
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.FabricKindID_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.OrderRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.AssignUnit_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReceSheetNo",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CustFabricName_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInGaryWeight",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.出货率",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.完成情况"
+      ],
+      "current_issues": [
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.FabricKindID_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.OrderRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.AssignUnit_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReceSheetNo",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CustFabricName_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInGaryWeight",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.出货率",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.完成情况"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P280",
+      "report": "R300",
+      "title": "配方工艺封面(CE)",
+      "entry": "DyeLabColor",
+      "xml_sha256": "86a09ff8bc2416b3173d6636016df5bb1575ed57d1251898dd48bbac9230169d",
+      "template_sha256": "667f7e7c70180c39eb069e8f305b9bb2545578daf6000b228be2dc8c7025c23f",
+      "template_bytes": 25193,
+      "prior_issues": [
+        "未实现文字旋转：Angle"
+      ],
+      "current_issues": [
+        "未实现文字旋转：Angle"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "id": "P290",
+      "report": "R66-3",
+      "title": "商业发票单",
+      "entry": "ProdLoadingDetail2",
+      "xml_sha256": "cfd270c040765a56e8e187ec0dcaa0e1972a93fec62f9961ad838b17192d4da6",
+      "template_sha256": "bd998a7aa880886f3e62a772927b1c596977f1fc314bbcf3c5c9260e171f3abe",
+      "template_bytes": 80334,
+      "prior_issues": [
+        "组尾缺同Level的组头",
+        "原打印父投影缺字段：ProdLoading.calculatedField2",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ],
+      "current_issues": [
+        "组尾缺同Level的组头",
+        "原打印父投影缺字段：ProdLoading.calculatedField2",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ],
+      "script_events": [],
+      "scripts_source_nonempty": false,
+      "missing_script_definitions": [],
+      "development": "已有可执行内容继续逐项开发；仅解析或找到方法声明不代表实现",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ]
+}

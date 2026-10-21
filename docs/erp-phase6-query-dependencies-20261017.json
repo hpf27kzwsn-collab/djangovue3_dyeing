@@ -1,0 +1,791 @@
+{
+  "source_snapshot_at": "2026-10-17T08:19:16.5131669+08:00",
+  "method": "原SQL直接表来源、限定字段及单源未限定字段，加递归可见视图；多源未限定列和动态客户端填数不推断。外部库存在性由本轮只读sys.databases/sys.servers另核。",
+  "entries": [
+    {
+      "entry": "DPWPProcess",
+      "original_first_error_category": "缺本地原对象",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "WPProcess"
+      ],
+      "missing_fields": [],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorDetail",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[Link_Pclbase].[Pclbase].[dbo].[文件管理表]"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorMain",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[Link_Pclbase].[Pclbase].[dbo].[文件管理表]"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeStuffSum",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "TF_METER.dbo.dbflloutput AS a",
+        "TF_METER.dbo.dbflloutputmx AS b",
+        "TF_METER.dbo.称料表",
+        "TF_METER.dbo.称料表 AS c"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySelect",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_DayTimeEnergy AS a"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySum",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_DayTimeEnergy AS a"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDate",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_DayEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_dayenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDateForChart",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_DayEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_dayenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachine",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_ShiftEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_shiftenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachineForChart",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_ShiftEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_shiftenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyPrice",
+      "original_first_error_category": "缺本地原对象",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "dye.EnergyPrice"
+      ],
+      "missing_fields": [],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShift",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_ShiftEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_shiftenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftForChart",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_ShiftEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_shiftenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftTJ",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "TFEMS.dbo.e_DayTimeEnergy"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTime",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_DayTimeEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_daytimeenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTimeForChart",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_DayTimeEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_daytimeenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "GrayInRecord_Test",
+      "original_first_error_category": "缺本地原对象",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [
+        "dye.GrayInRecord_Test"
+      ],
+      "missing_fields": [],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffcount",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "TF_METER.dbo.dbflloutput AS a",
+        "TF_METER.dbo.dbflloutputmx AS b",
+        "TF_METER.dbo.称料表",
+        "TF_METER.dbo.称料表 AS c"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffGraycount",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "TF_METER.dbo.dbflloutput AS a",
+        "TF_METER.dbo.dbflloutputmx AS b",
+        "TF_METER.dbo.称料表",
+        "TF_METER.dbo.称料表 AS c"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "MachineCarePlanArticle",
+      "original_first_error_category": "缺本地原对象",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [
+        "MachineCarePlanArticle"
+      ],
+      "missing_fields": [],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "ProdStockToOutPlanList",
+      "original_first_error_category": "缺本地原对象",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [
+        "ProdInDetail",
+        "vwProdStockBook"
+      ],
+      "missing_fields": [
+        "ProdIn.ProdKindID"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "PurToProdIn",
+      "original_first_error_category": "缺本地原对象",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [
+        "ProdInDetail"
+      ],
+      "missing_fields": [],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_AnnualEnergy",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[TFEMS].dbo.e_DayEnergy AS GO"
+      ],
+      "examined_views": [
+        "e_dayenergy"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisAnnualChart",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "p_ProcessEnergyColor AS pec",
+        "p_ProcessEnergyMachine AS pem",
+        "p_ProcessEnergyProd AS pep"
+      ],
+      "missing_fields": [
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.ColorDepthID",
+        "ProcessSchedule.ProdID"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnAnnual",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "p_ProcessEnergyColor AS pec",
+        "p_ProcessEnergyMachine AS pem",
+        "p_ProcessEnergyProd AS pep"
+      ],
+      "missing_fields": [
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.ColorDepthID",
+        "ProcessSchedule.ProdID"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnShift",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "p_ProcessEnergyColor AS pec",
+        "p_ProcessEnergyMachine AS pem",
+        "p_ProcessEnergyProd AS pep"
+      ],
+      "missing_fields": [
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.ColorDepthID",
+        "ProcessSchedule.ProdID"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisShiftChart",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "p_ProcessEnergyColor AS pec",
+        "p_ProcessEnergyMachine AS pem",
+        "p_ProcessEnergyProd AS pep"
+      ],
+      "missing_fields": [
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.ColorDepthID",
+        "ProcessSchedule.ProdID"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyHistoricalPrice",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [
+        "ProcessSchedule.ActFinishTime",
+        "ProcessSchedule.EPrice_Auxiliary",
+        "ProcessSchedule.EPrice_CleanWater",
+        "ProcessSchedule.EPrice_Coal",
+        "ProcessSchedule.EPrice_Elec",
+        "ProcessSchedule.EPrice_Gas",
+        "ProcessSchedule.EPrice_H2O2",
+        "ProcessSchedule.EPrice_LowSteam",
+        "ProcessSchedule.EPrice_MidSteam",
+        "ProcessSchedule.EPrice_NaOH",
+        "ProcessSchedule.EPrice_RiverWater",
+        "ProcessSchedule.EPrice_Steam",
+        "ProcessSchedule.EPrice_TapWater"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyDetails",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "p_ProcessEnergyColor AS pec",
+        "p_ProcessEnergyMachine AS pem",
+        "p_ProcessEnergyProd AS pep"
+      ],
+      "missing_fields": [
+        "ProcessSchedule.ActFinishTime",
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.ColorDepthID",
+        "ProcessSchedule.EmpID",
+        "ProcessSchedule.Energy_CleanWater",
+        "ProcessSchedule.Energy_Coal",
+        "ProcessSchedule.Energy_Elec",
+        "ProcessSchedule.Energy_Gas",
+        "ProcessSchedule.Energy_H2O2",
+        "ProcessSchedule.Energy_LowSteam",
+        "ProcessSchedule.Energy_MidSteam",
+        "ProcessSchedule.Energy_NaOH",
+        "ProcessSchedule.Energy_RiverWater",
+        "ProcessSchedule.Energy_Steam",
+        "ProcessSchedule.Energy_TapWater",
+        "ProcessSchedule.InLengthQty",
+        "ProcessSchedule.ProdID",
+        "p_Process.Energy_CleanWater",
+        "p_Process.Energy_Coal",
+        "p_Process.Energy_Elec",
+        "p_Process.Energy_Gas",
+        "p_Process.Energy_H2O2",
+        "p_Process.Energy_LowSteam",
+        "p_Process.Energy_MidSteam",
+        "p_Process.Energy_NaOH",
+        "p_Process.Energy_RiverWater",
+        "p_Process.Energy_Steam",
+        "p_Process.Energy_TapWater"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyOfOrders",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "p_ProcessEnergyColor AS pec",
+        "p_ProcessEnergyMachine AS pem",
+        "p_ProcessEnergyProd AS pep"
+      ],
+      "missing_fields": [
+        "ProcessSchedule.ActFinishTime",
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.ColorDepthID",
+        "ProcessSchedule.Energy_CleanWater",
+        "ProcessSchedule.Energy_Coal",
+        "ProcessSchedule.Energy_Elec",
+        "ProcessSchedule.Energy_Gas",
+        "ProcessSchedule.Energy_H2O2",
+        "ProcessSchedule.Energy_LowSteam",
+        "ProcessSchedule.Energy_MidSteam",
+        "ProcessSchedule.Energy_NaOH",
+        "ProcessSchedule.Energy_RiverWater",
+        "ProcessSchedule.Energy_Steam",
+        "ProcessSchedule.Energy_TapWater",
+        "ProcessSchedule.InLengthQty",
+        "ProcessSchedule.OrderSheetNo",
+        "ProcessSchedule.ProdID",
+        "p_Process.Energy_CleanWater",
+        "p_Process.Energy_Coal",
+        "p_Process.Energy_Elec",
+        "p_Process.Energy_Gas",
+        "p_Process.Energy_H2O2",
+        "p_Process.Energy_LowSteam",
+        "p_Process.Energy_MidSteam",
+        "p_Process.Energy_NaOH",
+        "p_Process.Energy_RiverWater",
+        "p_Process.Energy_Steam",
+        "p_Process.Energy_TapWater"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyTotal",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [
+        "ProcessSchedule.ActFinishTime",
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.EPrice_CleanWater",
+        "ProcessSchedule.EPrice_Coal",
+        "ProcessSchedule.EPrice_Elec",
+        "ProcessSchedule.EPrice_Gas",
+        "ProcessSchedule.EPrice_H2O2",
+        "ProcessSchedule.EPrice_LowSteam",
+        "ProcessSchedule.EPrice_MidSteam",
+        "ProcessSchedule.EPrice_NaOH",
+        "ProcessSchedule.EPrice_RiverWater",
+        "ProcessSchedule.EPrice_Steam",
+        "ProcessSchedule.EPrice_TapWater",
+        "ProcessSchedule.Energy2_CleanWater",
+        "ProcessSchedule.Energy2_Coal",
+        "ProcessSchedule.Energy2_Elec",
+        "ProcessSchedule.Energy2_Gas",
+        "ProcessSchedule.Energy2_H2O2",
+        "ProcessSchedule.Energy2_LowSteam",
+        "ProcessSchedule.Energy2_MidSteam",
+        "ProcessSchedule.Energy2_NaOH",
+        "ProcessSchedule.Energy2_RiverWater",
+        "ProcessSchedule.Energy2_Steam",
+        "ProcessSchedule.Energy2_TapWater",
+        "ProcessSchedule.Energy_CleanWater",
+        "ProcessSchedule.Energy_Coal",
+        "ProcessSchedule.Energy_Elec",
+        "ProcessSchedule.Energy_Gas",
+        "ProcessSchedule.Energy_H2O2",
+        "ProcessSchedule.Energy_LowSteam",
+        "ProcessSchedule.Energy_MidSteam",
+        "ProcessSchedule.Energy_NaOH",
+        "ProcessSchedule.Energy_RiverWater",
+        "ProcessSchedule.Energy_Steam",
+        "ProcessSchedule.Energy_TapWater",
+        "ProcessSchedule.InLengthQty"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MachineEnergyDetails",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [
+        "p_ProcessEnergyColor AS pec",
+        "p_ProcessEnergyMachine AS pem",
+        "p_ProcessEnergyProd AS pep"
+      ],
+      "missing_fields": [
+        "ProcessSchedule.ActFinishTime",
+        "ProcessSchedule.ActStartTime",
+        "ProcessSchedule.ColorDepthID",
+        "ProcessSchedule.EmpID",
+        "ProcessSchedule.Energy_CleanWater",
+        "ProcessSchedule.Energy_Coal",
+        "ProcessSchedule.Energy_Elec",
+        "ProcessSchedule.Energy_Gas",
+        "ProcessSchedule.Energy_H2O2",
+        "ProcessSchedule.Energy_LowSteam",
+        "ProcessSchedule.Energy_MidSteam",
+        "ProcessSchedule.Energy_NaOH",
+        "ProcessSchedule.Energy_RiverWater",
+        "ProcessSchedule.Energy_Steam",
+        "ProcessSchedule.Energy_TapWater",
+        "ProcessSchedule.InLengthQty",
+        "ProcessSchedule.ProdID",
+        "p_Process.Energy_CleanWater",
+        "p_Process.Energy_Coal",
+        "p_Process.Energy_Elec",
+        "p_Process.Energy_Gas",
+        "p_Process.Energy_H2O2",
+        "p_Process.Energy_LowSteam",
+        "p_Process.Energy_MidSteam",
+        "p_Process.Energy_NaOH",
+        "p_Process.Energy_RiverWater",
+        "p_Process.Energy_Steam",
+        "p_Process.Energy_TapWater"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_OrderDlvApply",
+      "original_first_error_category": "缺本地原对象",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [
+        "p_DlvAbility AS a"
+      ],
+      "missing_fields": [],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "s_RptRemoteItem",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "ReportServer.dbo.Catalog"
+      ],
+      "examined_views": [
+        "rp_items"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "Stuff_Step_LX",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[192.168.23.254].ccs_erp.dbo.FunctionTxt",
+        "[192.168.23.254].ccs_erp.dbo.McOprText",
+        "[192.168.23.254].ccs_erp.dbo.McProg",
+        "[192.168.23.254].ccs_erp.dbo.PSParaDef",
+        "[192.168.23.254].ccs_erp.dbo.PSParaValue",
+        "[192.168.23.254].ccs_erp.dbo.ProgStep",
+        "[192.168.23.254].ccs_erp.dbo.Progs"
+      ],
+      "examined_views": [
+        "v_progs"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "StuffWeighingSystem",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[WeighingSystem].[dbo].[OrderStatus] AS os",
+        "[WeighingSystem].[dbo].[WeighRecords] AS wr",
+        "[WeighingSystem].dbo.WeighRecordDetails AS wrd"
+      ],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "V_Machine_ProcessID",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[192.168.23.254].ccs_erp.dbo.Machines",
+        "[192.168.23.254].ccs_erp.dbo.McProg",
+        "[192.168.23.254].ccs_erp.dbo.Progs"
+      ],
+      "examined_views": [
+        "v_machine_processid"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vw_DyeMachine",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[192.168.23.254].ccs_erp.dbo.Machines AS b"
+      ],
+      "examined_views": [
+        "vw_dyemachine"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "VW_ProcessID_PS",
+      "original_first_error_category": "缺外部库或链接",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [],
+      "external_sources": [
+        "[192.168.23.254].ccs_erp.dbo.Machines",
+        "[192.168.23.254].ccs_erp.dbo.McProg",
+        "[192.168.23.254].ccs_erp.dbo.Progs"
+      ],
+      "examined_views": [
+        "vw_processid_ps"
+      ],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwGrayAccount",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [
+        "GrayStockBook.StockUnit"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdAccount",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "unresolved",
+      "missing_objects": [],
+      "missing_fields": [
+        "ProdStockBook.FabricID",
+        "ProdStockBook.StockUnit"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdStock",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [],
+      "missing_fields": [
+        "ProdStock.CheckNo",
+        "ProdStock.PreMonthQty",
+        "ProdStock.StockUnit",
+        "ProdStock.StorageUnitIDs",
+        "ProdStockBook.InQty",
+        "ProdStockBook.OutQty",
+        "ProdStockBook.StockUnit"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdStockTotal",
+      "original_first_error_category": "原字段已不存在",
+      "query_state": "reconstructed_missing_projection",
+      "missing_objects": [],
+      "missing_fields": [
+        "ProdStockBook.FabricID",
+        "ProdStockBook.InQty",
+        "ProdStockBook.OutQty",
+        "ProdStockBook.ProdKindID"
+      ],
+      "external_sources": [],
+      "examined_views": [],
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ]
+}

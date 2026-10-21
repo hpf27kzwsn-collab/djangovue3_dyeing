@@ -253,7 +253,8 @@ def entry_values(item, entry):
         elif table == 'StuffWeight':
             values = weight_header_values(item, entry)
         elif table == 'DyeRecipe':
-            values = {'Cost': subtotal(nested_details(item, 'erp_sampling.SourceDyeDyeRecipeDetail'), 'Amount')}
+            from .source_sampling_services import recipe_cost
+            values = {'Cost': recipe_cost(item)}
         elif table == 'DyeLabColor':
             values = lab_color_values(item)
         elif table == 'OrderColor':

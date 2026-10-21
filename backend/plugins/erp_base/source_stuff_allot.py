@@ -21,7 +21,7 @@ def create(table, values, actor, origin, parent=None):
     return item
 
 
-def derive(item, context, actor):
+def derive(item, context, actor, details=None):
     suffix = raw(item, 'SheetSeries')[-8:]
     at = timezone.now(); empty_date = timezone.make_aware(datetime(1900, 1, 1))
     original_empty = lambda name: '' if raw(item, name) is None else raw(item, name)
@@ -40,13 +40,18 @@ def derive(item, context, actor):
                out._meta.label: [out.pk], incoming._meta.label: [incoming.pk]}
     material = apps.get_model('erp_base.SourceDyePStuff')
     joined = []
-    for line in detail_rows(item, 'StuffAllotDetail'):
+    for line in detail_rows(item, 'StuffAllotDetail') if details is None else details:
         code = raw(line, 'StuffID')
         matches = [] if code is None else list(material.objects.alias(code=Upper(RTrim('old_stuff_id'))).filter(code=code.rstrip(' ').upper()).order_by('pk'))
         joined.extend((line, source) for source in matches or [None])  # 原LEFT JOIN缺失时仍生成对应行，WOF按明确ISNULL取1。
     books = []
     parameter = SourceBusinessParameter.objects.filter(name='CostMethodOfStuff').first()
     update_price = parameter is not None and parameter.value is not None and parameter.value.rstrip(' ').upper() == 'M' and raw(incoming, 'WareHouseID') in ['13', '14']
+    if details is not None:
+        from .source_business_updates import matching
+        from .source_quality_reports import rows
+        setting=matching(rows('SSysParams','erp_base'),ParamName='CostMethodOfStuff').order_by('pk').last()
+        update_price=setting is not None and raw(setting,'ParamValue')=='M' and raw(incoming,'WareHouseID') in ['13','14']
     for ordinal, (line, source) in enumerate(joined, 1):
         quantity = 0 if raw(line, 'Qty') is None else raw(line, 'Qty')
         price = 0 if raw(line, 'Price') is None else raw(line, 'Price')

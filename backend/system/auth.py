@@ -126,7 +126,15 @@ class Account(AuditAPIView):
         menus = Menu.objects.filter(status=True)
         buttons = MenuButton.objects.all()
         if not user.is_superuser:
-            menus = menus.filter(rolemenupermission__role__in=user.role.filter(status=True)).distinct()
+            selected = set(menus.filter(rolemenupermission__role__in=user.role.filter(status=True)).values_list('pk', flat=True))
+            parents = dict(menus.values_list('id', 'parent_id'))
+            # 授权叶页的目录是导航必需项；补祖先不授予同级页或任何接口权限。
+            for menu_id in list(selected):
+                parent_id = parents[menu_id]
+                while parent_id in parents:
+                    selected.add(parent_id)
+                    parent_id = parents[parent_id]
+            menus = menus.filter(pk__in=selected)
             buttons = buttons.filter(rolemenubuttonpermission__role__in=user.role.filter(status=True)).distinct()
         return success({'user': AccountSerializer(user).data,
                         'first_password': config('login.first_password', True),

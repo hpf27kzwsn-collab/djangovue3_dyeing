@@ -1,0 +1,1231 @@
+{
+  "verified_at": "2026-10-17T18:17:43.319121+08:00",
+  "scope": "17入口25条保存公式；2类明确父行参数回写；3入口成本保存与两类试算口径统一。不是20个完整入口全部复刻。",
+  "new_save_entries": 17,
+  "new_save_formulas": 25,
+  "cost_service_entries": 3,
+  "cost_service_formulas": 3,
+  "browser_formula_entries": 20,
+  "parent_refresh_kinds": 2,
+  "parent_rows_edited_in_browser": 3,
+  "formula_registrations": [
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "DyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage"
+      ]
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "OtherDyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage"
+      ]
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "PrepareDyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage"
+      ]
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "ReworkDyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage"
+      ]
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "WashDyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage"
+      ]
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "BulkDyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage",
+        "RecipeUnit"
+      ]
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "StandardDyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage",
+        "RecipeUnit"
+      ]
+    },
+    {
+      "table": "DyeRecipeDetail",
+      "entry": "FinishDyeRecipePhaseDetail",
+      "field": "Amount",
+      "inputs": [
+        "Price",
+        "Dosage",
+        "StuffType"
+      ]
+    },
+    {
+      "table": "p_DyeCurveDetail",
+      "entry": "p_DyeCurveDetail",
+      "field": "Price",
+      "inputs": [
+        "DefaultValue"
+      ]
+    },
+    {
+      "table": "p_DyeCurveDetail",
+      "entry": "p_DyeCurveDetailJJ",
+      "field": "Price",
+      "inputs": [
+        "DefaultValue"
+      ]
+    },
+    {
+      "table": "QuoteDetail",
+      "entry": "FixedPriceDetail",
+      "field": "Pricesum",
+      "inputs": [
+        "Price",
+        "ProcessPrice"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "JobGrayPreRecord",
+      "field": "Kg",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "JobGrayPreRecord",
+      "field": "Pound",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "JobGrayRecord",
+      "field": "Kg",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "JobGrayRecord",
+      "field": "Pound",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "PrintJobGrayRecord",
+      "field": "Kg",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "PrintJobGrayRecord",
+      "field": "Pound",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "SaleJobGrayRecord",
+      "field": "Kg",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "SaleJobGrayRecord",
+      "field": "Pound",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "TwiJobGrayRecord",
+      "field": "Kg",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "JobGrayRecord",
+      "entry": "TwiJobGrayRecord",
+      "field": "Pound",
+      "inputs": [
+        "WeightQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "DefectiveOutRecord",
+      "entry": "DefectiveOutRecord",
+      "field": "GKg",
+      "inputs": [
+        "GrayQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "DefectiveOutRecord",
+      "entry": "DefectiveOutRecord",
+      "field": "GPound",
+      "inputs": [
+        "GrayQty",
+        "GUnit"
+      ]
+    },
+    {
+      "table": "DefectiveOutRecord",
+      "entry": "DefectiveOutRecord",
+      "field": "PKg",
+      "inputs": [
+        "WeightQty",
+        "PUnit"
+      ]
+    },
+    {
+      "table": "DefectiveOutRecord",
+      "entry": "DefectiveOutRecord",
+      "field": "PPound",
+      "inputs": [
+        "WeightQty",
+        "PUnit"
+      ]
+    }
+  ],
+  "audit_counts": {
+    "all_entries": 1682,
+    "nonfinancial_entries": 1574,
+    "finance_entries": 108,
+    "nonfinancial_bound_entries": 818,
+    "nonfinancial_formula_entries": 208,
+    "nonfinancial_formulas": 497,
+    "save_registry_formulas": 130,
+    "outside_save_registry_formulas": 367,
+    "new_local_formula_entries": 14,
+    "new_local_formulas": 24
+  },
+  "execution_path_counts": {
+    "本轮尚未定位自动路径": 338,
+    "统一保存登记": 130,
+    "另有明确自动汇总服务": 29
+  },
+  "outside_registry_categories": {
+    "本行或SQL函数公式": 116,
+    "父子来源公式": 156,
+    "未绑定模型": 54,
+    "非物理目标": 41
+  },
+  "browser": {
+    "database": "erp_phase6_browser_20261017",
+    "data_kind": "synthetic",
+    "historical_import_rows": 0,
+    "save_formula_entries_verified": 17,
+    "checks": [
+      {
+        "entry": "DyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 167,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-8"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "DyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 234,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-8"
+        },
+        "actual": {
+          "Cost": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "OtherDyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 168,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-8"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "OtherDyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 235,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-8"
+        },
+        "actual": {
+          "Cost": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "PrepareDyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 169,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-8"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "PrepareDyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 236,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-8"
+        },
+        "actual": {
+          "Cost": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "ReworkDyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 170,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-8"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "ReworkDyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 237,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-8"
+        },
+        "actual": {
+          "Cost": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "WashDyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 171,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-8"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "WashDyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 238,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-8"
+        },
+        "actual": {
+          "Cost": "-8.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "BulkDyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 172,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-40"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-40.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "BulkDyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 239,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-70"
+        },
+        "actual": {
+          "Cost": "-70.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "StandardDyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 174,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-56"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-56.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "StandardDyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 240,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-56"
+        },
+        "actual": {
+          "Cost": "-56.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "FinishDyeRecipePhaseDetail",
+        "table": "DyeRecipeDetail",
+        "id": 175,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": "-80"
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": "-80.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "FinishDyeRecipePhaseDetail_head",
+        "table": "DyeRecipe",
+        "id": 241,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-80"
+        },
+        "actual": {
+          "Cost": "-80.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "bulk_duplicate",
+        "table": "DyeRecipeDetail",
+        "id": 173,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "StuffNo": 1,
+          "Amount": "5"
+        },
+        "actual": {
+          "StuffNo": 1,
+          "Amount": "5.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "BulkDyeRecipePhaseDetail_phase",
+        "table": "DyeRecipePhase",
+        "id": 185,
+        "entity": "erp_sampling_sourcedyedyerecipephase",
+        "expected": {
+          "PhaseNo": 1,
+          "BathRatio": "5"
+        },
+        "actual": {
+          "PhaseNo": 1,
+          "BathRatio": "5.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "duplicate_phase",
+        "table": "DyeRecipePhase",
+        "id": 189,
+        "entity": "erp_sampling_sourcedyedyerecipephase",
+        "expected": {
+          "PhaseNo": 1,
+          "BathRatio": "99"
+        },
+        "actual": {
+          "PhaseNo": 1,
+          "BathRatio": "99.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_DyeCurveDetail",
+        "table": "p_DyeCurveDetail",
+        "id": 111,
+        "entity": "erp_base_sourcedyepdyecurvedetail",
+        "expected": {
+          "DefaultValue": "-4",
+          "Price": "-20"
+        },
+        "actual": {
+          "DefaultValue": "-4.00",
+          "Price": "-20.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_DyeCurveDetail_head",
+        "table": "p_DyeCurve",
+        "id": 125,
+        "entity": "erp_base_sourcedyepdyecurve",
+        "expected": {
+          "MaxValue": "5"
+        },
+        "actual": {
+          "MaxValue": "5.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_DyeCurveDetailJJ",
+        "table": "p_DyeCurveDetail",
+        "id": 113,
+        "entity": "erp_base_sourcedyepdyecurvedetail",
+        "expected": {
+          "DefaultValue": "-4",
+          "Price": "-20"
+        },
+        "actual": {
+          "DefaultValue": "-4.00",
+          "Price": "-20.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_DyeCurveDetailJJ_head",
+        "table": "p_DyeCurve",
+        "id": 126,
+        "entity": "erp_base_sourcedyepdyecurve",
+        "expected": {
+          "MaxValue": "5"
+        },
+        "actual": {
+          "MaxValue": "5.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "curve_duplicate",
+        "table": "p_DyeCurveDetail",
+        "id": 112,
+        "entity": "erp_base_sourcedyepdyecurvedetail",
+        "expected": {
+          "StepNo": 1,
+          "DefaultValue": "2",
+          "Price": "10"
+        },
+        "actual": {
+          "StepNo": 1,
+          "DefaultValue": "2.00",
+          "Price": "10.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "FixedPriceDetail",
+        "table": "QuoteDetail",
+        "id": 350,
+        "entity": "erp_sales_sourcedyequotedetail",
+        "expected": {
+          "Price": "-4",
+          "ProcessPrice": "3",
+          "Pricesum": "-1"
+        },
+        "actual": {
+          "Price": "-4.00",
+          "ProcessPrice": "3.00",
+          "Pricesum": "-1.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "JobGrayPreRecord",
+        "table": "JobGrayRecord",
+        "id": 5278,
+        "entity": "erp_production_sourcedyejobgrayrecord",
+        "expected": {
+          "WeightQty": "-20",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20"
+        },
+        "actual": {
+          "WeightQty": "-20.00",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "JobGrayRecord",
+        "table": "JobGrayRecord",
+        "id": 5279,
+        "entity": "erp_production_sourcedyejobgrayrecord",
+        "expected": {
+          "WeightQty": "-20",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20"
+        },
+        "actual": {
+          "WeightQty": "-20.00",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "PrintJobGrayRecord",
+        "table": "JobGrayRecord",
+        "id": 5280,
+        "entity": "erp_production_sourcedyejobgrayrecord",
+        "expected": {
+          "WeightQty": "-20",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20"
+        },
+        "actual": {
+          "WeightQty": "-20.00",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "SaleJobGrayRecord",
+        "table": "JobGrayRecord",
+        "id": 5281,
+        "entity": "erp_production_sourcedyejobgrayrecord",
+        "expected": {
+          "WeightQty": "-20",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20"
+        },
+        "actual": {
+          "WeightQty": "-20.00",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "TwiJobGrayRecord",
+        "table": "JobGrayRecord",
+        "id": 5282,
+        "entity": "erp_production_sourcedyejobgrayrecord",
+        "expected": {
+          "WeightQty": "-20",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20"
+        },
+        "actual": {
+          "WeightQty": "-20.00",
+          "GUnit": 3,
+          "Kg": "-9.07",
+          "Pound": "-20.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "DefectiveOutRecord",
+        "table": "DefectiveOutRecord",
+        "id": 1,
+        "entity": "erp_quality_sourcedyedefectiveoutrecord",
+        "expected": {
+          "GrayQty": "-10",
+          "WeightQty": "-20",
+          "GUnit": 3,
+          "PUnit": 1,
+          "GKg": "-4.54",
+          "GPound": "-10",
+          "PKg": "-20",
+          "PPound": "-44.09"
+        },
+        "actual": {
+          "GrayQty": "-10.00",
+          "WeightQty": "-20.00",
+          "GUnit": 3,
+          "PUnit": 1,
+          "GKg": "-4.54",
+          "GPound": "-10.00",
+          "PKg": "-20.00",
+          "PPound": "-44.09"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "orphan",
+        "table": "DyeRecipeDetail",
+        "id": 176,
+        "entity": "erp_sampling_sourcedyedyerecipedetail",
+        "expected": {
+          "Price": "-4",
+          "Dosage": "2",
+          "Amount": null
+        },
+        "actual": {
+          "Price": "-4.000000",
+          "Dosage": "2.000000",
+          "Amount": null
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "TrialDyeRecipe_head",
+        "table": "DyeRecipe",
+        "id": 242,
+        "entity": "erp_sampling_sourcedyedyerecipe",
+        "expected": {
+          "Cost": "-11"
+        },
+        "actual": {
+          "Cost": "-11.00"
+        },
+        "result": "passed"
+      }
+    ],
+    "orphan_events": [
+      {
+        "id": 42406,
+        "reason": "BulkDyeRecipePhaseDetail：Amount缺明确父行关联，原行及原值照存；不按同编号任选父行。"
+      },
+      {
+        "id": 42382,
+        "reason": "BulkDyeRecipePhaseDetail：Amount缺明确父行关联，原行及原值照存；不按同编号任选父行。"
+      }
+    ],
+    "fixture_origin": "测试来源由服务夹具准备；本轮17入口编辑、3个父表参数修改、缺父行记录修改及成本操作由浏览器执行。重复染程补充夹具不是页面创建。",
+    "cost_browser_reports": [
+      {
+        "entry": "BulkDyeRecipe",
+        "id": 239,
+        "before": "-70.00",
+        "value": "-70.00",
+        "mode": "preview",
+        "dedicated_calculation": "-70.00",
+        "prior_to_duplicate_phase_apply": "-35.00",
+        "result": "passed"
+      },
+      {
+        "entry": "FinishDyeRecipe",
+        "id": 241,
+        "before": "-80.00",
+        "value": "-80.00",
+        "mode": "preview",
+        "result": "passed"
+      },
+      {
+        "entry": "TrialDyeRecipe",
+        "id": 242,
+        "before": "-11.00",
+        "value": "-11.00",
+        "mode": "preview",
+        "result": "passed"
+      }
+    ]
+  },
+  "tests": [
+    {
+      "log": ".runtime-temp/phase6/service-values-regression.log",
+      "count": 376,
+      "seconds": 118.24,
+      "result": "passed"
+    },
+    {
+      "log": ".runtime-temp/phase6/service-values-final-targeted.log",
+      "count": 11,
+      "seconds": 3.073,
+      "result": "passed"
+    }
+  ],
+  "regression_modules": 27,
+  "test_scope": "376项扩大回归通过；随后仅收紧普通配方的依赖输入并补充对应断言，11项针对性复验通过，后者不重复累计。",
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "frontend": "未修改前端源码；使用既有构建读取本轮后端元数据并操作页面。不重复算作本轮前端构建。",
+  "paused_query_count": 35,
+  "paused_nonfinancial_queries": [
+    {
+      "entry": "DPWPProcess",
+      "category": "缺本地原对象",
+      "error": "'wpprocess'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorDetail",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorMain",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeStuffSum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySelect",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDate",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDateForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachine",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachineForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyPrice",
+      "category": "缺本地原对象",
+      "error": "'energyprice'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShift",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftTJ",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tfems.dbo.e_daytimeenergy",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTime",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTimeForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffcount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffGraycount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_AnnualEnergy",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisAnnualChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnAnnual",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnShift",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisShiftChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyHistoricalPrice",
+      "category": "原字段已不存在",
+      "error": "Unknown column: actfinishtime",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyOfOrders",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyTotal",
+      "category": "原字段已不存在",
+      "error": "Column 'inlengthqty' could not be resolved. Line: 1, Col: 76",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MachineEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "s_RptRemoteItem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：reportserver.dbo.catalog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "Stuff_Step_LX",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.progs",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "StuffWeighingSystem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"weighingsystem\".dbo.weighrecorddetails AS wrd",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "V_Machine_ProcessID",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "VW_ProcessID_PS",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwGrayAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'stockunit' could not be resolved. Line: 1, Col: 62",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'fabricid' could not be resolved. Line: 1, Col: 27",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "manual_parent_formulas": [
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "field": "Remarks",
+      "original": "Parent.[Remarks]",
+      "handling": "选定配方表头允许显式录入备注；不按重复工卡原码选任意父行。"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "GradeID",
+      "original": "IIF([avgdots]>parent.[CHECKDots],'B','A')",
+      "handling": "保留原GradeID默认配置和显式等级；未确认查询父行与avgdots口径前不自动覆盖等级。"
+    }
+  ],
+  "new_missing_formula_input": {
+    "entry": "Quote",
+    "table": "FixedPrice",
+    "target": "IsConfirmed",
+    "missing": "Price",
+    "replacement": "手工录入原字段"
+  },
+  "whole_entry_development_completed": 0,
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "original_print_complete": 0,
+  "original_print_proofs": 5,
+  "exception_ids": [
+    "E229",
+    "E230"
+  ],
+  "screenshots": [
+    "docs/assets/phase6-service-values-20261017.png"
+  ],
+  "files_sha256": {
+    "backend/plugins/erp_base/source_phase6_service_values.py": "9e0d10d87143202b67ac86fb8ee57d18eea541e2fe9e47e14e34f796e0f9a4cf",
+    "backend/plugins/erp_base/source_phase6_auto_values.py": "a8e359b7340d8384a1df32009a46d9f368e5d45549525470438d97fd9d4f6ba5",
+    "backend/plugins/erp_base/source_phase6_forms.py": "c97de3ca43493718a4a464c0b3f5aadb1f3a1ec48c28d9cd7cc4201373ece346",
+    "backend/plugins/erp_base/source_services.py": "3e497c0ec7b738b1b128a01d7e13a16bdc1e6adfb470e099bd3186e3c68ae23f",
+    "backend/plugins/erp_base/source_sampling_services.py": "1376bc1fadbe9e56cdd4794ac25d586983f620e35335d6ef97077c800e6d4536",
+    "backend/plugins/erp_base/source_entry_calculations.py": "68cfba5f9c746ad1b0629e178926d9d3343e63269693d4d1d9c8022cdba99913",
+    "backend/plugins/erp_base/source_phase6_expressions.py": "99986d3fc2cf92dd6769b845df2010359e2a37ff66f80530c6fb8f87c50f6850",
+    "backend/plugins/erp_base/tests/test_source_phase6_service_values.py": "e64d678033add5f43e8501393ea19e98b6da76df36c4e0b6efcab51a3215f5c4",
+    "tools/legacy_models/audit_phase6_entry_formulas.py": "0f41874b658970ef281bf3aa301448f2e3ada409ae20f8441e1610757713d468",
+    ".runtime-temp/phase6/service-values-regression.log": "05730ecc15bacee8e4cfbb5c9f322615d789b20183d03e232bf843b2ce91bbaf",
+    ".runtime-temp/phase6/service-values-final-targeted.log": "1d73c509cdb7c03d4ec963371db9f90cd8ac1447ad20ebf40c2931c94ae6fb9a"
+  }
+}

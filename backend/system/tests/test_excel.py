@@ -217,6 +217,36 @@ class ExcelTests(TestCase):
         response = self.client.get('/api/system/operation_log/import_template/')
         self.assertEqual(response.status_code, 400)
 
+    def test_explicit_null_and_empty_clear_relations_and_multiple_choices(self):
+        role=Role.objects.create(name='待清空角色',key='clear-role')
+        user=Users.objects.create_user(username='clear-user',mobile='001',dept=self.root.dept)
+        user.role.add(role)
+        book=self.template('user',update=True,username='clear-user')
+        self.fill(book,[{UPDATE_KEY:user.pk,'手机号码':'#EMPTY','部门':'#NULL','角色':'#EMPTY','账号状态':False,'用户性别':0}])
+        response=self.upload('user',book)
+        self.assertEqual(response.status_code,200,response.data)
+        user.refresh_from_db()
+        self.assertEqual((user.mobile,user.dept_id,user.is_active,user.gender),('',None,False,0))
+        self.assertFalse(user.role.exists())
+
+    def test_nonnullable_null_is_error_and_rolls_back_all_rows(self):
+        book=self.template('post')
+        self.fill(book,[{'岗位名称':'有效岗位','岗位编码':'valid','排序':1},{'岗位名称':'空排序','岗位编码':'null','排序':'#NULL'}])
+        response=self.upload('post',book)
+        self.assertEqual(response.status_code,400,response.data)
+        self.assertEqual(str(response.data['data']['row']),'3')
+        self.assertFalse(Post.objects.filter(code__in=['valid','null']).exists())
+
+    def test_reserved_literal_string_primary_roundtrips(self):
+        area=Area.objects.create(code='#NULL',name='原名称')
+        book=self.template('area',update=True)
+        sheet=book['数据'];columns={c.value:c.column for c in sheet[1]}
+        row=next(r for r in range(2,sheet.max_row+1) if sheet.cell(r,columns[UPDATE_KEY]).value=='#TEXT:#NULL')
+        sheet.cell(row,columns['名称'],'新名称')
+        response=self.upload('area',book)
+        self.assertEqual(response.status_code,200,response.data)
+        area.refresh_from_db();self.assertEqual(area.name,'新名称')
+
     def test_synchronous_and_task_export_share_results_and_digest(self):
         Post.objects.create(name='异步岗位', code='001', sort=0)
         sync = self.export_book('post', code='001')

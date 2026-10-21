@@ -36,6 +36,13 @@ def owner_scope(item, key):
 
 def generate(item, old, rule, actor, at):
     key = item.SOURCE_FIELDS[old]
+    from .source_entry_registry import ENTRY_RULES
+    from .numbering import generate_for_entry
+    entry = next((name for name, definition in ENTRY_RULES.get(item._meta.label, {}).items()
+                  if definition['number_fields'].get(old) is rule), None)
+    number = generate_for_entry(item, key, entry)
+    if number is not None:
+        return number
     kind = rule['FieldKind']
     if kind == 'Guid':
         value = str(uuid4())

@@ -1,0 +1,1250 @@
+{
+  "0": {
+    "bindings": [
+      [
+        "AddStuffWeight",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "AfterNormalStuffWeight",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "NormalStuffWeight",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN ISNULL(c.SheetStatus, 0) = 9 THEN N'料单已作废，不能修改' WHEN EXISTS(SELECT 1 FROM dye.StuffWeightDetail WHERE SheetSeries = c.SheetSeries1 AND ISNULL(RealQty, 0) > 0) THEN N'料单已经称料，不能修改' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetSeries AS SheetSeries1, SheetStatus AS SheetStatus FROM dye.StuffWeight WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetSeries1],c.[SheetStatus]",
+    "mode": "last",
+    "original_sha256": "b448cb10e6c07bfdb38b12daed724b5e9310998272504960c1ab99518b38ba3d",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "77": {
+    "bindings": [
+      [
+        "ProcessStuffWeight",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "ReworkStuffWeight",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN ISNULL(c.SheetStatus, 0) = 9 THEN N'料单已作废，不能修改' WHEN EXISTS(SELECT 1 FROM dye.StuffWeightDetail WHERE SheetSeries = c.SheetSeries1 AND ISNULL(RealQty, 0) > 0) THEN N'料单已经称料，不能修改' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetSeries AS SheetSeries1, SheetStatus AS SheetStatus FROM dye.StuffWeight WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetSeries1],c.[SheetStatus]",
+    "mode": "last",
+    "original_sha256": "186a1c39cf7f9e8f5c68c1f9a4206cc3b3a5146e2690e37599f306daa29d5918",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "1": {
+    "bindings": [
+      [
+        "AddStuffWeight",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "NormalStuffWeight_Wash",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.StuffOut WHERE WeightSheetNo = c.SheetNo) THEN N'称料单已经领料，不能删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.StuffWeight WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "e110decae128e74fd1289dfd8ab68bc4c7f513cf0345aeba86448c7c2a686514",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "3": {
+    "bindings": [
+      [
+        "AfterNormalStuffWeight",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "NormalStuffWeight",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.StuffOut WHERE WeightSheetNo = c.SheetNo) THEN N'称料单已经领料，不能删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.StuffWeight WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "9fb70b6601dd234e70f12341af0eea51c1b77921e4072e39a1591f7991aca60e",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "78": {
+    "bindings": [
+      [
+        "ProcessStuffWeight",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "ReworkStuffWeight",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "WashProcessStuffWeight",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.StuffWeightDetail WHERE SheetSeries = c.SheetSeries1 AND ISNULL(RealQty, 0) > 0) THEN N'料单已经称料，不能修改或删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetSeries AS SheetSeries1 FROM dye.StuffWeight WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetSeries1]",
+    "mode": "last",
+    "original_sha256": "64da9445cbcd87aa6883f0b9a5984bbc08b0dea4ceb270c722c574537bf44838",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "138": {
+    "bindings": [
+      [
+        "WashProcessStuffWeight",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.StuffWeightDetail WHERE SheetSeries = c.SheetSeries1 AND ISNULL(RealQty, 0) > 0) THEN N'料单已经称料，不能修改或删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetSeries AS SheetSeries1 FROM dye.StuffWeight WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetSeries1]",
+    "mode": "last",
+    "original_sha256": "dee17e51d67f4b98a0744cc2c56d81e219603171e9a42e900d015f04310fae87",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "8": {
+    "bindings": [
+      [
+        "ArticlePurApplyMain",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "ArticlePurApplyMain",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ArticleInDetail WHERE PurDetailNo = c.DetailNo) THEN N'采购申请明细已经采购入库' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS OrderSheetNo, b.DetailNo AS DetailNo FROM dye.PurApplyMain AS a INNER JOIN dye.PurApplyDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "ead4d7a0162e4132e49b3e3d3c50c43fbc4fd2f43805c2748486b5f9d0d90d2d",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "9": {
+    "bindings": [
+      [
+        "ArticlePurApplyMain",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ArticleInDetail WHERE PurDetailNo = c.DetailNo) THEN N'采购申请明细已经采购入库' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS OrderSheetNo, b.DetailNo AS DetailNo FROM dye.PurApplyMain AS a INNER JOIN dye.PurApplyDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "db53b71f2fae663a6eafa97334d8ec80343ca463872737865e10dda0add18469",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "133": {
+    "bindings": [
+      [
+        "StuffPurApplyMain",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "StuffPurApplyMain",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.StuffInDetail WHERE PurDetailNo = c.DetailNo) THEN N'采购申请明细已经采购入库' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS OrderSheetNo, b.DetailNo AS DetailNo FROM dye.PurApplyMain AS a INNER JOIN dye.PurApplyDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "5947a39b10dd761eff07c01deca97094f7cebdb8f743a22e13d1aa5b6a498299",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "134": {
+    "bindings": [
+      [
+        "StuffPurApplyMain",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.StuffInDetail WHERE PurDetailNo = c.DetailNo) THEN N'采购申请明细已经采购入库' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS OrderSheetNo, b.DetailNo AS DetailNo FROM dye.PurApplyMain AS a INNER JOIN dye.PurApplyDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "7233e513fd2d31c764e213fdb37da5286bb65aa4c2c7dbb7affbd23b89f7464c",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "10": {
+    "bindings": [
+      [
+        "CarryMaterial",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.SemiOutDetail WHERE JobSheetNo = c.JobSheetNo) THEN N'提料缸号已半成品出库，不能删除' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo FROM dye.CarryMaterialDetail WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo]",
+    "mode": "any",
+    "original_sha256": "cd593d2f602d49416c562ae2acc53c9bca37e8132f95b41a6c471b137a027402",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "11": {
+    "bindings": [
+      [
+        "ChengBen_Gray",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "ChengBen_Kind",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 1 = 1 THEN N'当前成本入口不能删除规格编码' ELSE NULL END AS original_message FROM (SELECT GrayID AS JobSheetNo FROM dye.p_Gray WHERE GrayID = @GrayID) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "7e47f837e111be1519b2aa9910c6c25d5643e59aa745ad4d691a77e60b504900",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "13": {
+    "bindings": [
+      [
+        "CusAddPrice",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM (SELECT SheetSeries AS SheetSeries, ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY SheetDate DESC, SheetSeries DESC) AS Num FROM dye.CusAddPrice) AS r WHERE r.SheetSeries = @SheetSeries AND Num > 1) THEN N'客户加工单价历史单据不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS SheetNo FROM dye.CusAddPrice AS a WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "cb86bb274937e3404afa15cf2998ed090b19a9bc1cfce0f5a6488765eb351139",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "14": {
+    "bindings": [
+      [
+        "CusAddPrice",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM (SELECT SheetSeries AS SheetSeries, ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY SheetDate DESC, SheetSeries DESC) AS Num FROM dye.CusAddPrice) AS r WHERE r.SheetSeries = @SheetSeries AND Num > 1) THEN N'客户加工单价历史单据不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS SheetNo FROM dye.CusAddPrice AS a WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "32e6e8c5c8ec0eab09a585eb5b4ca81df3031160a80dfb58dc9430a7700b6294",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "15": {
+    "bindings": [
+      [
+        "CusAddPrice",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM (SELECT SheetSeries AS SheetSeries, ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY SheetDate DESC, SheetSeries DESC) AS Num FROM dye.CusAddPrice) AS r WHERE r.SheetSeries = @SheetSeries AND Num > 1) THEN N'客户加工单价历史单据不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS SheetNo FROM dye.CusAddPrice AS a WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "3d87a5fbbd38159cb0755ca7ea8792816aa7358cc17e0dafca5accc4d77ddac0",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "141": {
+    "bindings": [
+      [
+        "ZDAddPrice",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM (SELECT SheetSeries AS SheetSeries, ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY SheetDate DESC, SheetSeries DESC) AS Num FROM dye.ZDAddPrice) AS r WHERE r.SheetSeries = @SheetSeries AND Num > 1) THEN N'客户加工单价历史单据不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS SheetNo FROM dye.ZDAddPrice AS a WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "779fada0b1f53d7ae95a95d0beea0b25a0c0d282b512c750a0b4e3dbe59e6972",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "142": {
+    "bindings": [
+      [
+        "ZDAddPrice",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM (SELECT SheetSeries AS SheetSeries, ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY SheetDate DESC, SheetSeries DESC) AS Num FROM dye.ZDAddPrice) AS r WHERE r.SheetSeries = @SheetSeries AND Num > 1) THEN N'客户加工单价历史单据不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS SheetNo FROM dye.ZDAddPrice AS a WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "66a9b981a4465c32e553e55ef431095ca9860cc44f8a555c277bae2fa69e5c77",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "143": {
+    "bindings": [
+      [
+        "ZDAddPrice",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM (SELECT SheetSeries AS SheetSeries, ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY SheetDate DESC, SheetSeries DESC) AS Num FROM dye.ZDAddPrice) AS r WHERE r.SheetSeries = @SheetSeries AND Num > 1) THEN N'客户加工单价历史单据不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS SheetNo FROM dye.ZDAddPrice AS a WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "dc8a3f6dfbcbb00ad50ab8fe90a08cfd13a2b3e546e46ed41928cf02635fdabc",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "23": {
+    "bindings": [
+      [
+        "GrayInDetailUpdate",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 1 = 1 THEN N'当前入库明细调整界面不能删除' ELSE NULL END AS original_message FROM (SELECT ReceSheetNo AS ReceSheetNo FROM dye.GrayInDetail WHERE 1 = 1 AND ReceSheetNo = @ReceSheetNo) c ORDER BY c.[ReceSheetNo]",
+    "mode": "last",
+    "original_sha256": "882faf57bfab0d94d26f43e8c3b366d795aab0030144ea370180202a34bc9a0b",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "31": {
+    "bindings": [
+      [
+        "GrayReturnApply",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayInDetail WHERE GrayApplyNo = c.DetailNo) THEN N'该退货申请已经退货出库，不能反审' ELSE NULL END AS original_message FROM (SELECT ReceSheetNo AS ReceSheetNo, SheetKind AS SheetKind, LotNo AS LotNo, DetailNo AS DetailNo FROM dye.GrayReturnApplyDetail INNER JOIN dye.GrayReturnApply ON dye.GrayReturnApply.SheetSeries = dye.GrayReturnApplyDetail.SheetSeries WHERE GrayReturnApply.SheetSeries = @SheetSeries) c ORDER BY c.[ReceSheetNo],c.[SheetKind],c.[LotNo],c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "b788907704be8d89f657bf7573599d1d6c0efc5fcacb04807c62c17fb1942d1b",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "32": {
+    "bindings": [
+      [
+        "GrayStockAdjust",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "6b9073f653760ee12b184aa57f5801f504ecb0a68fc297f6bee18113397cd442",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "33": {
+    "bindings": [
+      [
+        "GrayStockAdjust",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "fd9baa7ca342cb8bb35866c1349821bf2851f5585c20cb9907255e408caf70aa",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "34": {
+    "bindings": [
+      [
+        "GrayStockAdjust",
+        "BeforeApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "a89226f2b84ce031dec0ec1a2658b8a60a33ae7f5842f56190c5078aef278c2e",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "35": {
+    "bindings": [
+      [
+        "GrayStockAdjust",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.GrayStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "9970eee9cba092e74f39ed327796d38661f30558ed50fc0dfcf4a73524678cbb",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "119": {
+    "bindings": [
+      [
+        "SemiStockAdjust",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "e8342bfeb9b75ca4386e3ad34bafc6c222209957b7dcfedc6a1e035cbf1f7ce6",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "120": {
+    "bindings": [
+      [
+        "SemiStockAdjust",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "b5e1e1e05b550cf5a4345dfa81eddfdcb2333c0782629735c48cd4091ae1255c",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "121": {
+    "bindings": [
+      [
+        "SemiStockAdjust",
+        "BeforeApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "4d9f08902f5ec0526faf988bdeb6ce2b6dcf782bfd609c42e0373cb137246557",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "122": {
+    "bindings": [
+      [
+        "SemiStockAdjust",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries AND SheetDate < DATEADD(MONTH, -1, @ActionTime)) THEN N'调整单据日期超过一个月，不能办理此动作' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.SemiStockAdjust WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "fbebe0db2f84f5caa5bb4cc009b5e678bf420a7e971ad9f198c6a64bd5a9b1f0",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "40": {
+    "bindings": [
+      [
+        "JobInWareEdit",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobOutWareEdit WHERE InWareSheetNo = c.SheetNo) THEN N'进仓单已经出库，不能修改或删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.JobInWareEdit WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "c7fd1443719f0f214cecc725a96b9b0886ca47441d8dd9de0b813935a168acb6",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "41": {
+    "bindings": [
+      [
+        "JobInWareEdit",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobOutWareEdit WHERE InWareSheetNo = c.SheetNo) THEN N'进仓单已经出库，不能修改或删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.JobInWareEdit WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "aa37535cc0023791d92b7825a345bfe8fc7a371bfe6ae7278d306acbbd874648",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "42": {
+    "bindings": [
+      [
+        "JobSheet",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN (SELECT COUNT(*) FROM dye.ProdIn WHERE JobSheetNo = c.JobSheetNo) < 0 THEN N'工卡已有成品入库' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "58f388699804ecf74f9440a60c9542c829aa68b7109147c35932a79dece6b176",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "43": {
+    "bindings": [
+      [
+        "JobSheet",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.SemiOutDetail WHERE JobSheetNo = c.JobSheetNo) THEN N'工卡已经半成品出库' WHEN EXISTS(SELECT 1 FROM dye.JobSheet WHERE ISNULL(OriSourceJobNo, '') = c.JobSheetNo) THEN N'工卡已经拆卡或返修' WHEN EXISTS(SELECT 1 FROM dye.CarryMaterialDetail WHERE JobSheetNo = c.JobSheetNo) THEN N'工卡已经提料' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo, SumAssignedRolls AS Qty, SumAssignedWeightQty AS Weight FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[Qty],c.[Weight]",
+    "mode": "last",
+    "original_sha256": "2809fccccd027f71a524e5bda815d1dff3185dcb513c23f278f68e47b997d084",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "44": {
+    "bindings": [
+      [
+        "JobSheet",
+        "BeforeUnAbortSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayInDetail AS a JOIN dye.GrayIn AS b ON a.SheetSeries = b.SheetSeries WHERE b.SheetKind = 14 AND a.OriJobsheetNo = c.JobSheetNo) THEN N'工卡已车间退用到仓库，不能反中止' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo, SheetStatus AS SheetStatus, CurrProcessID AS CurrStatus FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetStatus],c.[CurrStatus]",
+    "mode": "last",
+    "original_sha256": "65f2c660e1f3a57913409e00187f23dbff5824f211ce186219701324149ed815",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "49": {
+    "bindings": [
+      [
+        "JobSheetQuery",
+        "BeforeUnAbortSQL"
+      ],
+      [
+        "PrintJobSheet",
+        "BeforeUnAbortSQL"
+      ],
+      [
+        "SaleJobSheet",
+        "BeforeUnAbortSQL"
+      ],
+      [
+        "TwiJobSheet",
+        "BeforeUnAbortSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayInDetail AS a JOIN dye.GrayIn AS b ON a.SheetSeries = b.SheetSeries WHERE b.SheetKind = 14 AND a.OriJobsheetNo = c.JobSheetNo) THEN N'工卡已车间退用到仓库，不能反中止' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo, SheetStatus AS SheetStatus, CurrProcessID AS CurrStatus FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetStatus],c.[CurrStatus]",
+    "mode": "last",
+    "original_sha256": "6f1e281ce6078204156fae1abec429882d65801c79e1092bc5c90c1094910b22",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "46": {
+    "bindings": [
+      [
+        "Jobsheetprogress",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "JobsheetprogressRS",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 1 = 1 THEN N'当前查询界面不能删除业务原记录' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo, SumAssignedRolls AS Qty, SumAssignedWeightQty AS Weight FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[Qty],c.[Weight]",
+    "mode": "last",
+    "original_sha256": "aedd766ec76919e4f700a5a880018d8f962629fa8297041a86e2c17947c474fe",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "51": {
+    "bindings": [
+      [
+        "JobSheetReceiveUpdate",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 1 = 1 THEN N'当前查询界面不能删除业务原记录' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo FROM dye.JobSheetReceive WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "e428ebae0e45a7d8a13205af9f52067ec492336d0a6620f57a697ec484bee223",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "47": {
+    "bindings": [
+      [
+        "JobSheetQuery",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = c.JobSheetNo) THEN N'工卡已经成品出库，不能修改' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "98b57f37d567e57e2ae3e6212e90195fcbd12e99f79fc54d3bc4fa119c773ed1",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "48": {
+    "bindings": [
+      [
+        "JobSheetQuery",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "PrintJobSheet",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayOutDetail WHERE JobSheetNo = c.JobSheetNo) THEN N'工卡已经坯布出库，不能删除' WHEN (CHARINDEX('C', c.JobSheetNo) > 0 OR CHARINDEX('H', c.JobSheetNo) > 0) AND c.Qty > 0 AND c.Weight > 0 THEN N'工卡已经拆分或返修，不能删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo, SumAssignedRolls AS Qty, SumAssignedWeightQty AS Weight FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[Qty],c.[Weight]",
+    "mode": "last",
+    "original_sha256": "45f9bc27122f76a2a44cdcba1caa9505f4a87edb63ecc458bf30bfefb7390dd8",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "115": {
+    "bindings": [
+      [
+        "SaleJobSheet",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "TwiJobSheet",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayOutDetail WHERE JobSheetNo = c.JobSheetNo) THEN N'工卡已经坯布出库，不能删除' WHEN (CHARINDEX('C', c.JobSheetNo) > 0 OR CHARINDEX('H', c.JobSheetNo) > 0) AND c.Qty > 0 AND c.Weight > 0 THEN N'工卡已经拆分或返修，不能删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo, SumAssignedRolls AS Qty, SumAssignedWeightQty AS Weight FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[Qty],c.[Weight]",
+    "mode": "last",
+    "original_sha256": "b2575578dea7358aea6224aeedbe4b63a4c9a0c649d09d9a8ca5eb94adbc3f95",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "52": {
+    "bindings": [
+      [
+        "NewFuBan",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "qry_NewFuBan",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 1 = 1 THEN N'原复板入口不能删除' ELSE NULL END AS original_message FROM (SELECT 1 AS present) c ORDER BY c.[present]",
+    "mode": "last",
+    "original_sha256": "b9357664bb35d84c6a2cb69d33ca8760b7e6bf5cc5c03707781a997e5c3c23ae",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "56": {
+    "bindings": [
+      [
+        "OrderMain",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobCombineOrder WHERE CheckNo = c.CheckNo AND OrderSheetNo = c.OrderSheetNo) THEN N'订单已经合单开卡，不能删除' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS OrderSheetNo, b.CheckNo AS CheckNo FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[CheckNo]",
+    "mode": "any",
+    "original_sha256": "fc9cbdcdc18e6835de21b68c56c859aa7d88f9427e33a7ec421c41ca2059d2a6",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "57": {
+    "bindings": [
+      [
+        "OrderMainChange",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "OrderMainSup",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobSheet WHERE CheckNo = c.CheckNo AND OrderSheetNo = c.OrderSheetNo) THEN N'订单已经开卡，不能修改或删除' ELSE NULL END AS original_message FROM (SELECT b.SheetSeries AS OrderSheetNo, b.CheckNo AS CheckNo FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[CheckNo]",
+    "mode": "any",
+    "original_sha256": "3417de1ce18c98e2a37abadb9f5ce289f7434f06b01120fcb49d144863df1b2a",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "75": {
+    "bindings": [
+      [
+        "PrintOrderMain",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "qry_PrintOrder",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobSheet WHERE CheckNo = c.CheckNo AND OrderSheetNo = c.OrderSheetNo) THEN N'订单已经开卡，不能修改或删除' ELSE NULL END AS original_message FROM (SELECT b.SheetSeries AS OrderSheetNo, b.CheckNo AS CheckNo FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[CheckNo]",
+    "mode": "any",
+    "original_sha256": "5811904f3965e9bfa9735ce3fd6e20a9f57f4ff7483de8e8d79224441d716d76",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "58": {
+    "bindings": [
+      [
+        "OrderMainChange",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "OrderMainSup",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobSheet WHERE CheckNo = c.CheckNo AND OrderSheetNo = c.OrderSheetNo) THEN N'订单已经开卡，不能删除' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS OrderSheetNo, b.CheckNo AS CheckNo FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[CheckNo]",
+    "mode": "last",
+    "original_sha256": "5b04ac1ce7025eb1bedc43dea4540d32a15c23f07a1ba67ebfbc7fde8c6a7f2e",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "60": {
+    "bindings": [
+      [
+        "OutPlan",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.RecordYield WHERE OutPlanSheetNo = c.SheetNo) THEN N'发货通知单已经扫描，不能删除' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.OutPlan WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "ff24b408840ec7181c8218c08cfc060a2df1be11387c7aa8cdc667a7dcd30ff7",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "61": {
+    "bindings": [
+      [
+        "OutPlanDetail",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.RecordYield WHERE OutPlanDetailNo = c.DetailNo) THEN N'发货通知明细已经扫描，不能删除' ELSE NULL END AS original_message FROM (SELECT @DetailNo AS DetailNo) c ORDER BY c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "4ee4354380b4232710180a5512e687c4942b451b4a7b53349d0b597fb3a3102f",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "62": {
+    "bindings": [
+      [
+        "OutWorkApply",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayOut AS a JOIN dye.GrayOutDetail AS b ON a.SheetSeries = b.SheetSeries WHERE b.JobSheetNo = c.DetailNo) THEN N'外协加工单已经发外出库，不能删除' ELSE NULL END AS original_message FROM (SELECT b.DetailNo AS DetailNo FROM dye.OutWorkApply AS a INNER JOIN dye.OutWorkApplyDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "1b0b196fd451e0a8765892d8857d367db8f6025f873caf5d246fb025a765125a",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "63": {
+    "bindings": [
+      [
+        "p_Article",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ArticleInDetail WHERE ArticleID = c.ArticleID) THEN N'机物料已经入库' WHEN EXISTS(SELECT 1 FROM dye.PurApplyDetail WHERE ArticleID = c.ArticleID) THEN N'机物料已经采购申请' ELSE NULL END AS original_message FROM (SELECT ArticleID AS ArticleID FROM dye.p_Article WHERE ArticleID = @ArticleID) c ORDER BY c.[ArticleID]",
+    "mode": "last",
+    "original_sha256": "f4c48dc6a7a29aede97a8ff988e61901f5da7332b4789f0b7b416306cb44e0c4",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "64": {
+    "bindings": [
+      [
+        "p_Article",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ArticleInDetail WHERE ArticleID = c.ArticleID) THEN N'机物料已经入库' WHEN EXISTS(SELECT 1 FROM dye.PurApplyDetail WHERE ArticleID = c.ArticleID) THEN N'机物料已经采购申请' ELSE NULL END AS original_message FROM (SELECT ArticleID AS ArticleID FROM dye.p_Article WHERE ArticleID = @ArticleID) c ORDER BY c.[ArticleID]",
+    "mode": "last",
+    "original_sha256": "0cbbeb6c25e6c1c8361fa4b871d262ea37e09068885ccff4d0d708d7aec9c662",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "65": {
+    "bindings": [
+      [
+        "p_Cook",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.CookInDetail WHERE CookID = c.JobSheetNo) THEN N'器具已经入库，不能删除' ELSE NULL END AS original_message FROM (SELECT CookID AS JobSheetNo FROM dye.p_Cook WHERE CookID = @CookID) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "4fcba238f97dd1f04a2e59741a8efd382b1b0ce518b4c58932d61ecb49f0683f",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "66": {
+    "bindings": [
+      [
+        "p_Customer",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.RightStatus = 10 THEN N'客户已经审核，不能修改' ELSE NULL END AS original_message FROM (SELECT CustomerID AS CustomerID, RightStatus AS RightStatus, ShortName AS ShortName FROM dye.p_Customer WHERE CustomerID = @CustomerID) c ORDER BY c.[CustomerID],c.[RightStatus],c.[ShortName]",
+    "mode": "last",
+    "original_sha256": "889c9981a0741273e7f0308bfd5dbefc70323e7fd56767f2cf0db2068fbaea14",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "68": {
+    "bindings": [
+      [
+        "p_Gray",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayInDetail WHERE GrayID = c.JobSheetNo) THEN N'坯纱规格已经入库，不能删除' ELSE NULL END AS original_message FROM (SELECT GrayID AS JobSheetNo FROM dye.p_Gray WHERE GrayID = @GrayID) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "e6745755022dce221e28be3fc11cd154b0be98ac65d3976530d793b86d518435",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "70": {
+    "bindings": [
+      [
+        "p_ShiftHZ",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "p_ShiftRB",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "p_ShiftZJ",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN (SELECT COUNT(EmpID) FROM dye.p_ShiftEmp WHERE ShiftID = c.ShiftID) > 0 THEN N'班组仍有员工信息，不能删除' ELSE NULL END AS original_message FROM (SELECT @ShiftID AS ShiftID) c ORDER BY c.[ShiftID]",
+    "mode": "last",
+    "original_sha256": "d9a1c630cdc9e5966b8a5f8d251d2c93b5c47cef2ba07cfd94cf3d0cd0e2d9e3",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "73": {
+    "bindings": [
+      [
+        "PrintJobSheet",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "SaleJobSheet",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "TwiJobSheet",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 0 > 0 THEN N'原固定为零条件，不产生拦截' ELSE NULL END AS original_message FROM (SELECT SheetNo AS JobSheetNo FROM dye.JobSheet WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "ae5227c60afe78e645919dcb494b55ee3010d7784a58ac7d804b7cf856a090ac",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "81": {
+    "bindings": [
+      [
+        "ProdIn",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = c.JobSheetNo AND InSheetNo = c.SheetNo) THEN N'成品入库单已经出库' WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdIn WHERE JobSheetNo = c.JobSheetNo AND ProdInOriSheetNo = c.SheetNo) THEN N'成品入库单已经退车间回修' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, SheetKind AS SheetKind, SheetNo AS SheetNo FROM dye.ProdIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetKind],c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "45e4e7b48c17cbc18e08eb5edd203e5ff16538e5b00fff14c351c7f6f187207c",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "82": {
+    "bindings": [
+      [
+        "ProdIn",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = c.JobSheetNo AND InSheetNo = c.SheetNo) THEN N'成品入库单已经出库' WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdIn WHERE JobSheetNo = c.JobSheetNo AND ProdInOriSheetNo = c.SheetNo) THEN N'成品入库单已经退车间回修' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, SheetKind AS SheetKind, SheetNo AS SheetNo FROM dye.ProdIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetKind],c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "9bac2b689e294fa5a77f29eb6e48494b9c25ec76a2936ee8e603882ae1652422",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "85": {
+    "bindings": [
+      [
+        "ProdInWork",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = c.JobSheetNo AND InSheetNo = c.SheetNo) THEN N'成品入库单已经出库' WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdIn WHERE JobSheetNo = c.JobSheetNo AND ProdInOriSheetNo = c.SheetNo) THEN N'成品入库单已经退车间回修' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, SheetKind AS SheetKind, SheetNo AS SheetNo FROM dye.ProdIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetKind],c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "f28540c31accd08ac192f70d65cb61c777cb16b398db4bfd33948f26481073bd",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "86": {
+    "bindings": [
+      [
+        "ProdInWork",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = c.JobSheetNo AND InSheetNo = c.SheetNo) THEN N'成品入库单已经出库' WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdIn WHERE JobSheetNo = c.JobSheetNo AND ProdInOriSheetNo = c.SheetNo) THEN N'成品入库单已经退车间回修' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, SheetKind AS SheetKind, SheetNo AS SheetNo FROM dye.ProdIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetKind],c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "0c558a5764e0b0c290f6075f6a829ac4a78ad906c39c6fe45e13116123fdc91f",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "83": {
+    "bindings": [
+      [
+        "ProdIn_ht",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = c.JobSheetNo AND InSheetNo = c.SheetNo) THEN N'成品入库单已经出库' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, SheetKind AS SheetKind, SheetNo AS SheetNo FROM dye.ProdIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetKind],c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "228a1263ae89ab5ceaadf52ed77a543e22e36e04af03cb908f67128439bbbbff",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "84": {
+    "bindings": [
+      [
+        "ProdIn_ht",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = c.JobSheetNo AND InSheetNo = c.SheetNo) THEN N'成品入库单已经出库' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, SheetKind AS SheetKind, SheetNo AS SheetNo FROM dye.ProdIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[SheetKind],c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "0ea8be45e23e24f6575e67be04b699ecc40c402d6b332c6939b205e448a09406",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "89": {
+    "bindings": [
+      [
+        "ProdOut",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "ProdOutUpdate",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ProdLoadingDetail WHERE JobSheetNo = c.JobSheetNo AND OutDetailNo = c.OutDetailNo) THEN N'成品出库明细已经装车' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, DetailNo AS OutDetailNo FROM dye.ProdOutDetail WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[OutDetailNo]",
+    "mode": "last",
+    "original_sha256": "331f22e045335ef0ab61aa6b3b5af20d855ffc564899922bb2302bd8cc241b55",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "90": {
+    "bindings": [
+      [
+        "ProdOut",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "ProdOutUpdate",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ProdLoadingDetail WHERE JobSheetNo = c.JobSheetNo AND OutDetailNo = c.OutDetailNo) THEN N'成品出库明细已经装车' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, DetailNo AS OutDetailNo FROM dye.ProdOutDetail WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[OutDetailNo]",
+    "mode": "last",
+    "original_sha256": "16a58bc72eea12225c737cf18639983ef2e7daf572ff9fbf03a9f45fdbb8a37a",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "93": {
+    "bindings": [
+      [
+        "PurGrayIn",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.JobAssign WHERE ReceSheetNo = c.ReceSheetNo) THEN N'坯料批号已经开卡预配' WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.GrayOutDetail WHERE ReceSheetNo = c.ReceSheetNo) THEN N'坯料批号已经出库' WHEN c.SheetKind <> 16 AND EXISTS(SELECT 1 FROM dye.GrayInDetail WHERE OriReceSheetNo = c.ReceSheetNo) THEN N'坯料批号已经退库' WHEN (c.SheetKind = 16 OR c.SheetKind IS NULL) AND EXISTS(SELECT 1 FROM dye.GrayReturnApplyDetail AS a WHERE a.ReceSheetNo = c.OriReceSheetNo AND NOT EXISTS(SELECT 1 FROM dye.GrayInDetail AS b WHERE a.DetailNo = b.GrayApplyNo)) THEN N'存在尚未退货出库的申请，不能删除当前退货单' ELSE NULL END AS original_message FROM (SELECT ReceSheetNo AS ReceSheetNo, OriJobsheetNo AS JobSheetNo, SheetKind AS SheetKind, OriReceSheetNo AS OriReceSheetNo, LotNo AS LotNo FROM dye.GrayInDetail INNER JOIN dye.GrayIn ON dye.GrayInDetail.SheetSeries = dye.GrayIn.SheetSeries WHERE GrayIn.SheetSeries = @SheetSeries) c ORDER BY c.[ReceSheetNo],c.[JobSheetNo],c.[SheetKind],c.[OriReceSheetNo],c.[LotNo]",
+    "mode": "last",
+    "original_sha256": "f5e05bec2fd8a7a0ef72d71dbda39c733cf190868f14e738d39d3fa0a3d4d965",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "94": {
+    "bindings": [
+      [
+        "PurMain",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayInDetail WHERE PurchaseOrders = c.DetailNo) THEN N'采购明细已经采购入库' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS PurSheetNo, b.DetailNo AS DetailNo FROM dye.PurMain AS a INNER JOIN dye.PurDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[PurSheetNo],c.[DetailNo]",
+    "mode": "any",
+    "original_sha256": "5ab44f9ebe67bf97b0e869b75319f29e464cf1e37b041999e9102d3ac00e2fd6",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "95": {
+    "bindings": [
+      [
+        "PurMain",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.GrayInDetail WHERE PurchaseOrders = c.DetailNo) THEN N'采购明细已经采购入库' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS PurSheetNo, b.DetailNo AS DetailNo FROM dye.PurMain AS a INNER JOIN dye.PurDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[PurSheetNo],c.[DetailNo]",
+    "mode": "any",
+    "original_sha256": "1ca408df822bc147e420004716347ce3f4b280e81386e1f230c1b724f1073d27",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "99": {
+    "bindings": [
+      [
+        "qry_Order_ToCustomer",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 1 = 1 THEN N'该旧查询入口不允许删除已排单记录' ELSE NULL END AS original_message FROM (SELECT b.CheckNo AS DetailNo FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON a.SheetSeries = b.SheetSeries WHERE b.CheckNo = @CheckNo) c ORDER BY c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "e71c41f23a4d2c4634b5f2ae6c041a2486749bb051d5b7b85f817f2110cd31e6",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "100": {
+    "bindings": [
+      [
+        "qry_Winding_ToCustomer",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN 1 = 1 THEN N'该旧查询入口不允许删除已排单记录' ELSE NULL END AS original_message FROM (SELECT b.DetailNo AS DetailNo FROM dye.GrayMaterial AS a INNER JOIN dye.GrayMaterialDetail AS b ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[DetailNo]",
+    "mode": "last",
+    "original_sha256": "c0b9fbe0ef47fae6c2ad86e801093b6679fe56baabd8e615cd1dd4f93e84095e",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "130": {
+    "bindings": [
+      [
+        "StuffOut",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind = 24 THEN N'调拨出库单不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetKind AS SheetKind FROM dye.StuffOut WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetKind]",
+    "mode": "last",
+    "original_sha256": "16fd0f8997676659478f3135b57b6d095baf789a5d1cd84b89b41d4679a7923a",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "131": {
+    "bindings": [
+      [
+        "StuffOut",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind = 24 THEN N'调拨出库单不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetKind AS SheetKind FROM dye.StuffOut WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetKind]",
+    "mode": "last",
+    "original_sha256": "c228f673e32c9f7565a99178c92eb84612f4ca4170c40d14d94e57ed0acf804f",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "132": {
+    "bindings": [
+      [
+        "StuffOut",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind = 24 THEN N'调拨出库单不能修改、删除或反审' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetKind AS SheetKind FROM dye.StuffOut WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetKind]",
+    "mode": "last",
+    "original_sha256": "5c1c35f3e864e9cc64c7f4adb8f9e8b8f2b8296f10f8c70820a9d8b17513444d",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "137": {
+    "bindings": [
+      [
+        "v_Customer",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.OrderMain WHERE CustomerID = c.CustomerID1) THEN N'客户已用于订单，不能删除' ELSE NULL END AS original_message FROM (SELECT CustomerID AS CustomerID1, ShortName AS ShortName, CustKindID AS CustKindID FROM dye.p_Customer WHERE CustomerID = @CustomerID) c ORDER BY c.[CustomerID1],c.[ShortName],c.[CustKindID]",
+    "mode": "last",
+    "original_sha256": "508513d53a94dbc5eeae8597f5dd51bcaa8de389a673292372570be85cb8a96e",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "139": {
+    "bindings": [
+      [
+        "WDefectJudgeBack",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "WDefectJudgeInterior",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobSheet WHERE LossStr = c.SheetNo) THEN N'质量评审单已经开回修卡，不能删除' ELSE NULL END AS original_message FROM (SELECT SheetSeries AS SheetSeries, SheetNo AS SheetNo, JobSheetNo AS JobSheetNo FROM dye.WDefect WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetSeries],c.[SheetNo],c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "86bec54ba5a7918ca81b56351db8ccb9b2fd07238c82e7fb3d55c860bc6aa08a",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "140": {
+    "bindings": [
+      [
+        "WeighRecordYield",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ProdInRecord WHERE ProdBarCode = c.BarCode) THEN N'包装条码已成品入库，不能删除' ELSE NULL END AS original_message FROM (SELECT BarCode AS BarCode FROM dye.RecordYield WHERE Guid = @Guid) c ORDER BY c.[BarCode]",
+    "mode": "last",
+    "original_sha256": "0eeaaefabc91bbadae93605419f189c095b4c5e577b3c2f76cc1420605ce684c",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "5": {
+    "bindings": [
+      [
+        "ArticleIn",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "FabricArticleIn",
+        "BeforeUpdateSQL"
+      ],
+      [
+        "FabricArticleIn",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ArticleOutDetail AS o LEFT JOIN dye.ArticleOut AS h ON h.SheetSeries = o.SheetSeries LEFT JOIN dye.ArticleInDetail AS i ON i.DetailNo = o.InDetailNo WHERE i.SheetSeries = @SheetSeries) THEN N'入库单明细已经出库' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.ArticleIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "b652fa7ba9efe3bdedd16459e442f3c14c557cf31bf569d03e2a0ac0fba3c197",
+    "cursor_order": "all_projected_columns_ascending",
+    "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行"
+  },
+  "6": {
+    "bindings": [
+      [
+        "ArticleIn",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ArticleOutDetail AS o LEFT JOIN dye.ArticleOut AS h ON h.SheetSeries = o.SheetSeries LEFT JOIN dye.ArticleInDetail AS i ON i.DetailNo = o.InDetailNo WHERE i.SheetSeries = @SheetSeries) THEN N'入库单明细已经出库' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.ArticleIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "50a1470dd62abcb5f60e4638ae58a929191ff4ca1e2f08bb26c214c0e3ad4faf",
+    "cursor_order": "all_projected_columns_ascending",
+    "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行"
+  },
+  "7": {
+    "bindings": [
+      [
+        "ArticleIn",
+        "BeforeUnApproveSQL"
+      ],
+      [
+        "FabricArticleIn",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ArticleOutDetail AS o LEFT JOIN dye.ArticleOut AS h ON h.SheetSeries = o.SheetSeries LEFT JOIN dye.ArticleInDetail AS i ON i.DetailNo = o.InDetailNo WHERE i.SheetSeries = @SheetSeries) THEN N'入库单明细已经出库' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo FROM dye.ArticleIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo]",
+    "mode": "last",
+    "original_sha256": "ac2bc9a95e96b8b2fadf0662f3b182cb0c9afe57a17fe61f11f5bf0a989a15ff",
+    "cursor_order": "all_projected_columns_ascending",
+    "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行"
+  },
+  "127": {
+    "bindings": [
+      [
+        "StuffIn",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind = 15 THEN N'调拨入库单不能修改、删除或反审' WHEN EXISTS(SELECT 1 FROM dye.StuffOutDetail AS o LEFT JOIN dye.StuffOut AS h ON h.SheetSeries = o.SheetSeries LEFT JOIN dye.StuffInDetail AS i ON i.DetailNo = o.InDetailNo WHERE i.SheetSeries = @SheetSeries AND h.WareHouseID = 12) THEN N'入库单明细已经出库' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetKind AS SheetKind FROM dye.StuffIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetKind]",
+    "mode": "last",
+    "original_sha256": "397afd75a4311c2c2fe592467caeb8e55db6eaf48fd9c16d9c52398a84904c01",
+    "cursor_order": "all_projected_columns_ascending",
+    "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行"
+  },
+  "128": {
+    "bindings": [
+      [
+        "StuffIn",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind = 15 THEN N'调拨入库单不能修改、删除或反审' WHEN EXISTS(SELECT 1 FROM dye.StuffOutDetail AS o LEFT JOIN dye.StuffOut AS h ON h.SheetSeries = o.SheetSeries LEFT JOIN dye.StuffInDetail AS i ON i.DetailNo = o.InDetailNo WHERE i.SheetSeries = @SheetSeries AND h.WareHouseID = 12) THEN N'入库单明细已经出库' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetKind AS SheetKind FROM dye.StuffIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetKind]",
+    "mode": "last",
+    "original_sha256": "3a1126efe9b9715a3708676ed53c44be0d4c8a93ce6ae426e1fb60988cae555c",
+    "cursor_order": "all_projected_columns_ascending",
+    "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行"
+  },
+  "129": {
+    "bindings": [
+      [
+        "StuffIn",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN c.SheetKind = 15 THEN N'调拨入库单不能修改、删除或反审' WHEN EXISTS(SELECT 1 FROM dye.StuffOutDetail AS o LEFT JOIN dye.StuffOut AS h ON h.SheetSeries = o.SheetSeries LEFT JOIN dye.StuffInDetail AS i ON i.DetailNo = o.InDetailNo WHERE i.SheetSeries = @SheetSeries AND h.WareHouseID = 12) THEN N'入库单明细已经出库' ELSE NULL END AS original_message FROM (SELECT SheetNo AS SheetNo, SheetKind AS SheetKind FROM dye.StuffIn WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetNo],c.[SheetKind]",
+    "mode": "last",
+    "original_sha256": "0c4512ad0d410aeab4859a3e483c8bbe4e80f7e6dfaa6151a0ee8b73dea3cd59",
+    "cursor_order": "all_projected_columns_ascending",
+    "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行"
+  },
+  "67": {
+    "bindings": [
+      [
+        "p_Customer",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.JobSheet WHERE CustomerID = c.CustomerID) THEN N'客户已用于工卡' WHEN EXISTS(SELECT 1 FROM dye.GrayIn WHERE CustomerID = c.CustomerID) THEN N'客户已用于坯料入库' WHEN EXISTS(SELECT 1 FROM dye.FARMain WHERE CustomerID = c.CustomerID) THEN N'客户已有原应收引用' ELSE NULL END AS original_message FROM (SELECT CustomerID AS CustomerID, ShortName AS ShortName, CustKindID AS CustKindID FROM dye.p_Customer WHERE CustomerID = @CustomerID) c ORDER BY c.[CustomerID],c.[ShortName],c.[CustKindID]",
+    "mode": "last",
+    "original_sha256": "0e171790bf95adc773fc8b007c1b3b3ab5b0ef3e8e06ebc6c94868357f8d82d9",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "87": {
+    "bindings": [
+      [
+        "ProdLoading",
+        "BeforeUpdateSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.FARDetail WHERE JobSheetNo = c.JobSheetNo AND OutDetailNo = c.OutDetailNo) THEN N'装车明细已经转应收' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, OutDetailNo AS OutDetailNo FROM dye.ProdLoadingDetail WHERE SheetSeries = @SheetSeries) c ORDER BY c.JobSheetNo ASC",
+    "mode": "last",
+    "original_sha256": "52e59a695d165ce61d35c7930d511b27e027d60f2f811478fcec02073ead6a21",
+    "cursor_order": "original"
+  },
+  "88": {
+    "bindings": [
+      [
+        "ProdLoading",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.FARDetail WHERE JobSheetNo = c.JobSheetNo AND OutDetailNo = c.OutDetailNo) THEN N'装车明细已经转应收' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, OutDetailNo AS OutDetailNo FROM dye.ProdLoadingDetail WHERE SheetSeries = @SheetSeries) c ORDER BY c.JobSheetNo ASC",
+    "mode": "last",
+    "original_sha256": "13250452e39e414483977044ce5ae88f44f313cfab2fd92f10d2dea7305bee99",
+    "cursor_order": "original"
+  },
+  "76": {
+    "bindings": [
+      [
+        "ProcessScheduleRS",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.WProcess WHERE JobSheetNo = c.JobSheetNo) AND @EmpID <> 'Admin' THEN N'缸号已登记产量，不能删除排产' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo FROM dye.ProcessSchedule WHERE ID = @ID) c ORDER BY c.[JobSheetNo]",
+    "mode": "last",
+    "original_sha256": "2f5f2e3b5b6383e6ceed047d3b5b80c44da8f5d5cac0d9bae9c94575715cdc3b",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "104": {
+    "bindings": [
+      [
+        "RequestLimit",
+        "BeforeApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN @EmpID <> c.DesigneeID THEN N'只有单据指定审核人可以审核或反审' ELSE NULL END AS original_message FROM (SELECT SheetSeries AS SheetSeries, SheetNo AS SheetNo, DesigneeID AS DesigneeID FROM dye.RequestLimit WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetSeries],c.[SheetNo],c.[DesigneeID]",
+    "mode": "last",
+    "original_sha256": "2cbf92f7d43979b1681d4bd6a939012db826c9003bc10f7fbb3bca4738d47fd8",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "105": {
+    "bindings": [
+      [
+        "RequestLimit",
+        "BeforeUnApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN @EmpID <> c.DesigneeID THEN N'只有单据指定审核人可以审核或反审' ELSE NULL END AS original_message FROM (SELECT SheetSeries AS SheetSeries, SheetNo AS SheetNo, DesigneeID AS DesigneeID FROM dye.RequestLimit WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetSeries],c.[SheetNo],c.[DesigneeID]",
+    "mode": "last",
+    "original_sha256": "14dba2a6ac60876df17c7c0ede351dbf0c95c7e55b9aa2a815fa42861cce5366",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "113": {
+    "bindings": [
+      [
+        "SalaryChangesA",
+        "BeforeApproveSQL"
+      ],
+      [
+        "SalaryChangesB",
+        "BeforeApproveSQL"
+      ],
+      [
+        "SalaryChangesC",
+        "BeforeApproveSQL"
+      ],
+      [
+        "SalaryChangesD",
+        "BeforeApproveSQL"
+      ],
+      [
+        "SalaryChangesE",
+        "BeforeApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN (SELECT TOP 1 Name FROM dye.h_Employee WHERE EmpID = @EmpID ORDER BY Name DESC) = c.Creater THEN N'不能审核自己创建的调整单据' WHEN (SELECT TOP 1 Name FROM dye.h_Employee WHERE EmpID = @EmpID ORDER BY Name DESC) = c.Modifyer THEN N'不能审核自己修改的调整单据' ELSE NULL END AS original_message FROM (SELECT SheetSeries AS SheetSeries, SheetNo AS SheetNo, Creater AS Creater, Modifyer AS Modifyer FROM dye.SalaryChanges WHERE SheetSeries = @SheetSeries) c ORDER BY c.[SheetSeries],c.[SheetNo],c.[Creater],c.[Modifyer]",
+    "mode": "last",
+    "original_sha256": "2674f2ac4cc5f5510018f216e667f298ccab92e5c4b98bf6116bd9ebedb1cc67",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "53": {
+    "bindings": [
+      [
+        "NewFuBan",
+        "BeforeApproveSQL"
+      ],
+      [
+        "qry_NewFuBan",
+        "BeforeApproveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN ISNULL((SELECT TOP 1 b.ClassID FROM dye.p_ShiftEmp AS a LEFT JOIN dye.p_Shift AS b ON a.ShiftID = b.ShiftID WHERE @ActionTime >= b.StratDate AND @ActionTime <= b.EndDate AND b.StationID = '09' AND a.EmpID = @EmpID ORDER BY b.ClassID, b.ShiftID), '') = '' THEN N'登录人没有排班，不能审核' WHEN (SELECT TOP 1 b.ClassID FROM dye.p_ShiftEmp AS a LEFT JOIN dye.p_Shift AS b ON a.ShiftID = b.ShiftID WHERE @ActionTime >= b.StratDate AND @ActionTime <= b.EndDate AND b.StationID = '09' AND a.EmpID = @EmpID ORDER BY b.ClassID, b.ShiftID) = '04' AND NOT (DATEPART(HOUR, CAST(@ActionTime AS DATETIME)) < 8 OR DATEPART(HOUR, CAST(@ActionTime AS DATETIME)) >= 20) THEN N'当前时间为白班，登录人排夜班，不能审核' WHEN (SELECT TOP 1 b.ClassID FROM dye.p_ShiftEmp AS a LEFT JOIN dye.p_Shift AS b ON a.ShiftID = b.ShiftID WHERE @ActionTime >= b.StratDate AND @ActionTime <= b.EndDate AND b.StationID = '09' AND a.EmpID = @EmpID ORDER BY b.ClassID, b.ShiftID) <> '04' AND (DATEPART(HOUR, CAST(@ActionTime AS DATETIME)) < 8 OR DATEPART(HOUR, CAST(@ActionTime AS DATETIME)) >= 20) THEN N'当前时间为夜班，登录人排白班，不能审核' ELSE NULL END AS original_message FROM (SELECT 1 AS present) c ORDER BY c.[present]",
+    "mode": "last",
+    "original_sha256": "b114a608b3ed2d81c1168664f0b66d7293f53cb6ad86f84e08754237d461f6c4",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "59": {
+    "bindings": [
+      [
+        "OrderMainChange",
+        "AfterSaveSQL"
+      ],
+      [
+        "OrderMainSup",
+        "AfterSaveSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN NOT EXISTS(SELECT 1 FROM dye.P_ColorNum AS p WHERE dye.F_Get_No(p.ColorNum) = dye.F_Get_No(c.ColorNum) AND p.ProdID = c.ProdID) THEN N'下单色号、布种与化验室打样资料不对应' ELSE NULL END AS original_message FROM (SELECT a.SheetNo AS OrderSheetNo, b.CheckNo AS CheckNo, b.ColorNum AS ColorNum, b.CustFabricName AS ProdID, p.NameC AS NameC FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON a.SheetSeries = b.SheetSeries LEFT JOIN dye.p_Product AS p ON b.CustFabricName = p.ProdID WHERE a.SheetSeries = @SheetSeries) c ORDER BY c.[OrderSheetNo],c.[CheckNo],c.[ColorNum],c.[ProdID],c.[NameC]",
+    "mode": "last",
+    "original_sha256": "fc8ec292de288a22e6d7835a470268784d37337893f112a1f9fb953e743a056f",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "136": {
+    "bindings": [
+      [
+        "TSGrayOut",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.ProdIn WHERE JobSheetNo = c.JobSheetNo) THEN N'特殊坯料出库的工卡已经成品入库' WHEN EXISTS(SELECT 1 FROM dye.JobSheet WHERE OriSourceJobNo = c.JobSheetNo) THEN N'特殊坯料出库的工卡已经拆卡或返修' ELSE NULL END AS original_message FROM (SELECT JobSheetNo AS JobSheetNo, AssignedNo AS AssignedNo, recesheetno AS recesheetno FROM dye.GrayOutDetail WHERE SheetSeries = @SheetSeries) c ORDER BY c.[JobSheetNo],c.[AssignedNo],c.[recesheetno]",
+    "mode": "last",
+    "original_sha256": "70e18fdebb04e2ef70b15b38cd888807c859e4fd62c841a772a6e230116d9219",
+    "cursor_order": "all_projected_columns_ascending"
+  },
+  "71": {
+    "bindings": [
+      [
+        "p_ShiftKF",
+        "BeforeDeleteSQL"
+      ],
+      [
+        "p_ShiftPB",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN (SELECT COUNT(EmpID) FROM dye.p_ShiftEmp WHERE ShiftID = c.ShiftID) > 0 THEN N'班组仍有员工信息，不能删除' ELSE NULL END AS original_message FROM (SELECT @ShiftID AS ShiftID) c ORDER BY c.[ShiftID]",
+    "mode": "last",
+    "original_sha256": "ba01e95eaaef929daf54802674a3222193829d0c3db0267297ebe799d16985e8",
+    "cursor_order": "all_projected_columns_ascending",
+    "reconstruction": "原正文只有dechare；按同表其余三个班组入口的明确员工引用规则实现，不能认作原文等价"
+  },
+  "106": {
+    "bindings": [
+      [
+        "RequireClass",
+        "BeforeDeleteSQL"
+      ]
+    ],
+    "sql": "SELECT c.*,CASE WHEN EXISTS(SELECT 1 FROM dye.p_FieldValidSub AS s LEFT JOIN dye.p_FieldValid AS f ON s.FieldType = f.FieldType AND s.Code = f.Code WHERE s.FieldType = 'AtteKind' AND f.Code = c.Code AND EXISTS(SELECT 1 FROM dye.OrderAtte AS a WHERE a.AtteCode = s.SubCode)) THEN N'加工要求子类型已经用于订单；原返回码仍为1' ELSE NULL END AS original_message FROM (SELECT @Code AS Code) c ORDER BY c.[Code]",
+    "mode": "last",
+    "original_sha256": "5a322799f3975a528c04065a404fc295e0e152b7efb38eb2095d137299adb69c",
+    "cursor_order": "all_projected_columns_ascending",
+    "advisory": true
+  }
+}

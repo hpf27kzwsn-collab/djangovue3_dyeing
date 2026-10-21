@@ -1,0 +1,2749 @@
+{
+  "database": "erp_master_xlsx_verify_20261021",
+  "port": 5440,
+  "passed": 18,
+  "results": [
+    {
+      "name": "重复整理保留全部来源行、编号配置、接口权限、字段权限及指定部门",
+      "passed": true,
+      "detail": {
+        "source_models": 655,
+        "source_rows": 109088
+      }
+    },
+    {
+      "name": "重复整理幂等",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "六分组及总览",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "33个管理功能复用原模型入口",
+      "passed": true,
+      "detail": 33
+    },
+    {
+      "name": "全部分类资料按业务归属",
+      "passed": true,
+      "detail": 499
+    },
+    {
+      "name": "幅宽克重选项留在业务模块",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "业务参数留在生产管理",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "质量数量来源留在质量管理",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "三类设备配置复用",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "演示入口退出导航",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "非超级管理员取得原有管理接口",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "仅叶页授权自动返回祖先且不扩展同级",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "业务账号不出现系统管理或登录账号菜单",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "业务账号不能访问管理数据",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "只读账号可以查询编号",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "只读账号不能修改规则",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "只读账号不能试算或同步",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "未增加业务模型或旧erpID字段",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "preservation": {
+    "source": {
+      "erp_base.SourceDboAA": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboAAA": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboAAKC1": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboABC": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboADD": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboAEE": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboC": {
+        "rows": 12,
+        "sha256": "29ce1236917952da93fab1f29dfd079bf86d1e9d67a348ab149319d9bf09efbf"
+      },
+      "erp_base.SourceDboCbbz1109": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboCkpd20221024": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboCkpd20221024bak": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboCkpd20221027": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboCksgz20221024": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboCpdqkc20221024": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboDXCHANLIANG": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboHypf": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboItbak20221120": {
+        "rows": 444,
+        "sha256": "f96cdc983c815fc6204420a9ccc5f7d4be4c81b1a89c4d0e6ffb5a60f9c3dbc5"
+      },
+      "erp_base.SourceDboItbak20221121": {
+        "rows": 444,
+        "sha256": "fb1f814e6b69781ce19bf0d11fb404f372ceb66f6b010828be5e3d1f1b0dd9ee"
+      },
+      "erp_base.SourceDboJxtbzyq": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboJxtkckh": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboNHTJ": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboPbpd20230422": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboPS20221218": {
+        "rows": 80,
+        "sha256": "512a4676e0daf21925b518df144079c7e4f7331530ed5cde1b23ebd4a22619fe"
+      },
+      "erp_base.SourceDboRansechugangtongji": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboRansetongji": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboRCDDZJB": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboShda": {
+        "rows": 58930,
+        "sha256": "6408b21155a922589469efdda630fbcfd3b660bfffdfecd2d2ca1fa6de0f92eb"
+      },
+      "erp_base.SourceDboSHIFT": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboSHLEIXING": {
+        "rows": 20,
+        "sha256": "04bf8e35f63f489c0b5176ec8c75f25d35f21de895bcdbb929c703a585f44854"
+      },
+      "erp_base.SourceDboTmp20221104": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboXxtcbkc20221023": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboXxtzzp20221024": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboZhenzhibaobiao": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDboZJHXMXBB": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeACGroup": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeAcholiday": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeACUnlockComb": {
+        "rows": 10,
+        "sha256": "6e1cd329c4c64f7c50669d95db2f379f6daf35e0cd227d51db5a68267becb804"
+      },
+      "erp_base.SourceDyeAPPUploadFilesInfo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeAPPUploadFilesInfoDel": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeArrivalNotice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeArrivalNoticeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeAttachment": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeAttParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeAuditedExc": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeAUTHDEVICE": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeBalancingConditions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeBaseCase": {
+        "rows": 1,
+        "sha256": "12a856f870b14e27008a30f28f975273cdf6c46644a133b6a3bf70b268bddd49"
+      },
+      "erp_base.SourceDyeBaseCaseDetail": {
+        "rows": 2,
+        "sha256": "bf1e44b067dc44321c7a83f1873d56412a11df85f12aa6ff7cdd5428820073f2"
+      },
+      "erp_base.SourceDyeBiotemplate": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeClockShift": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeCompensatedetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeCompensatemain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeCookIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeDEPARTMENTS": {
+        "rows": 14,
+        "sha256": "9c621604dd01d2195462e918252da528e922c04e50cfacbde5c6a8d609fc2d7b"
+      },
+      "erp_base.SourceDyeDeptUsedSchs": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeDyeProcessPrice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeEmpRoom": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeEnableCard": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeEXCNOTES": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeFaceTemp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeFeelOfferDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeFeelOfferMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeFixedCanDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeFixedCanRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeFMoneyInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeGetJobSheetReceive": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeGWName": {
+        "rows": 45,
+        "sha256": "3a68a3da5ec0e6d6fc5ae8ff65d6096a83e6819828eb109b47d3727613fa594e"
+      },
+      "erp_base.SourceDyeHContract": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHEmpAppNotice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHEmpDeptPerm": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHEmployee": {
+        "rows": 274,
+        "sha256": "6f6cabe496fafe9fb60d185d9b3f2dbfa4a898f3f36af0d7214826e7506c1132"
+      },
+      "erp_base.SourceDyeHEmployee2": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHEmployeeIORecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHEmpRole": {
+        "rows": 53,
+        "sha256": "789857cbc44ed9b338da72630732c8eb97024e8e00d53408c8aebe3e7037af11"
+      },
+      "erp_base.SourceDyeHLeave": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHPositionChange": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHRewardPunish": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHSalaryAttend": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHOLIDAYS": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeHuman": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeITMANAGE": {
+        "rows": 452,
+        "sha256": "fd358900e61de81558c293d0d2c96a89b44e122f52d56eae60247ad991804838"
+      },
+      "erp_base.SourceDyeKindLimit": {
+        "rows": 5,
+        "sha256": "ec56f412ebb9221dddac2d1a99813adf0650f522259e64fd4558ec4d0d020d61"
+      },
+      "erp_base.SourceDyeKQ": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeKQQuery": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeLeaveClass": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeLeaveClass1": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeLimit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeLossBill": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeMaterialPriceAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeMaterialPriceAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeNoLimit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeNUMRUN": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeNUMRUNDEIL": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePArticle": {
+        "rows": 399,
+        "sha256": "758b79319d4f6d917c0195014147687b96642db67ca73b8b27693cc8a3038155"
+      },
+      "erp_base.SourceDyePArticleStorageUnitID": {
+        "rows": 208,
+        "sha256": "d1c292f9b2f5ac083d66ef50fd6a1ce30951453ce1adbbf03dd7d57265e44b4d"
+      },
+      "erp_base.SourceDyePAtteSub": {
+        "rows": 102,
+        "sha256": "d9609604c0b2b986d0bb8a749fc9c99efbd21451c00219a2b4f09424f14d9767"
+      },
+      "erp_base.SourceDyePAtteType": {
+        "rows": 5,
+        "sha256": "5d1badb103c70d9ee2b632d3cfb51a2a245dd45bd0dad4c064932b4c554c6489"
+      },
+      "erp_base.SourceDyePAuxRule": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePAuxRuleDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePBalanceType": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePColorNum": {
+        "rows": 41706,
+        "sha256": "26756a2b583c120847dba46922f5e331380adb62b93cb1293b5976ef3439227d"
+      },
+      "erp_base.SourceDyePCommissionRatio": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePCommMethod": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePCommModule": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePCommPort": {
+        "rows": 11,
+        "sha256": "8c059e2c7facb045125840174466a08acd1e50e950ffc0616c0287c2d2077e36"
+      },
+      "erp_base.SourceDyePCook": {
+        "rows": 208,
+        "sha256": "33b04a59c6b44b9ac65a60b72b01947426aa066fbef2607f8c8ff177bf0a84d7"
+      },
+      "erp_base.SourceDyePCraftParam": {
+        "rows": 34,
+        "sha256": "2cd4faa798b03f7f0f0a6f73659aa79fa703e747e38f9e321facfc7b5aba9eb2"
+      },
+      "erp_base.SourceDyePCraftPParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePCustAddress": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePCustCategory": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePCustLinker": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePCustomer": {
+        "rows": 182,
+        "sha256": "cf42c88f1ece3a1d6d7e03ce8f9ee10cc026f2c7f5393cd1434d9363467bb432"
+      },
+      "erp_base.SourceDyePCustRelation": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePDept": {
+        "rows": 11,
+        "sha256": "7c3fbb79cb05b6300be47b74f788654049d3d3e60ff9c8d5b031fb2ad3410391"
+      },
+      "erp_base.SourceDyePDyeCurve": {
+        "rows": 21,
+        "sha256": "3d16271b7ff0603b9a5e56e436215bc51a51ab944d075602534c924dacc6dda5"
+      },
+      "erp_base.SourceDyePDyeCurveDetail": {
+        "rows": 119,
+        "sha256": "a627f62b7435760d3f5ebb9b7b1c5b87daca0d940e7e6f7d9e9f48e9cba3361c"
+      },
+      "erp_base.SourceDyePDyeProgram": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePDyeProgramDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePFabric": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePFabricCust": {
+        "rows": 50,
+        "sha256": "cc1f27f39e709c7796d3ab230aa0abf2cf7153b12484d58f4bc06e03a83461bc"
+      },
+      "erp_base.SourceDyePFabricFact": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePFabricOther": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePFeelCode": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePFieldMemo": {
+        "rows": 6,
+        "sha256": "61ba1ea7e01cd930c92999b6c58f98e4eb91a267570bf5de9aecb7d85b63679d"
+      },
+      "erp_base.SourceDyePFieldValid": {
+        "rows": 760,
+        "sha256": "827b4a0b37ff15b0ac37465b4294afaa6ad062572b42785b14caa409996c7328"
+      },
+      "erp_base.SourceDyePFieldValidSub": {
+        "rows": 175,
+        "sha256": "8e9ca8a4c0b148bed74b8bd4150f2281491c836d97fc01e483ff48cc1ef7c070"
+      },
+      "erp_base.SourceDyePFieldValidSubCust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePGray": {
+        "rows": 648,
+        "sha256": "f2253e43f7c690be31e3157b928f0c2dd0549a17a8b52bb3d22a750abbf0fcfb"
+      },
+      "erp_base.SourceDyePGrayBak": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePITOnRest": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePITWatch": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePLable": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMachine": {
+        "rows": 120,
+        "sha256": "2d455295ec83131b994dedd3d7d89d5d97b5cce4bd9e064c1b9556c7c309560c"
+      },
+      "erp_base.SourceDyePMachineColor": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMachineFaultClass": {
+        "rows": 2,
+        "sha256": "0cb5d93ec4e350a1a71ddb1cdd06703cf0bc17e742d2f01e69afb864b9663fc5"
+      },
+      "erp_base.SourceDyePMachineFaultStatus": {
+        "rows": 6,
+        "sha256": "aa6470a9f42cb29eb58a1c468d1a25eb72100682b38e97ccb5f184b1316bf917"
+      },
+      "erp_base.SourceDyePMachinePart": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMachinePoint": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMachinePort": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMachineProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMachineProd": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMachineShift": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMeter": {
+        "rows": 8,
+        "sha256": "4fefb73a7bf173592dcdba0370e4487109be56deaad42a66720073e98b1ff2b1"
+      },
+      "erp_base.SourceDyePMeterAlarm": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePMeterMachine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePPDesign": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePPDesignDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePPDesignSet": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePPriceList": {
+        "rows": 6,
+        "sha256": "c2b2c3601a0b43164edd87941a3bb2ce1a1b7a950aa03d81b808e12ef7d917e9"
+      },
+      "erp_base.SourceDyePPriceListAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePPriceListColor": {
+        "rows": 8,
+        "sha256": "f0d86b29c80c69b1abd1753bbafa3328b290dd77701602011d0ada297514f9d2"
+      },
+      "erp_base.SourceDyePPriceListProcess": {
+        "rows": 9,
+        "sha256": "2bbff4099250a9b63f5d19d49b837f96215e2dc89f99690f8d9c3b54e907c3fc"
+      },
+      "erp_base.SourceDyePPriceListVat": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProcess": {
+        "rows": 18,
+        "sha256": "4eb3aa7eeee364aedacda1ad44ae90489ec332e8fcfd8a0754d318d35e227f7e"
+      },
+      "erp_base.SourceDyePProcessArea": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProcessChemical": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProcessCraft": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProcessCraft1": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProcessDefect": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProcessPCraft": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProcessPrice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePProduct": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePShift": {
+        "rows": 33,
+        "sha256": "355fc6d3e7914e03a97b999668c4a87861fdc40b7b562f1803041504a83f6c41"
+      },
+      "erp_base.SourceDyePShiftArrange": {
+        "rows": 12,
+        "sha256": "c33d80362acf33c494f43326cc8625c663ab980850e46ff22fb91e8c383173ca"
+      },
+      "erp_base.SourceDyePShiftArrangeDetail": {
+        "rows": 1460,
+        "sha256": "2bbc6b3d1f28749ec8da5475a9f46557be3f2e3f932d04e7d98f9643c65621cc"
+      },
+      "erp_base.SourceDyePShiftEmp": {
+        "rows": 156,
+        "sha256": "423f18233023bbc8f3f899d4c518949955a28a065c36f2d34bc99a8d254e1829"
+      },
+      "erp_base.SourceDyePShiftMachine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePStorageUnitID": {
+        "rows": 833,
+        "sha256": "24e8f02955bce391a7b68af2f5cbee500554752d010195158662de846acdb797"
+      },
+      "erp_base.SourceDyePStuff": {
+        "rows": 329,
+        "sha256": "4ab97a11fdc712b723f2886c23c0d43e470bd36dd95803a0cbcd575d92c4c428"
+      },
+      "erp_base.SourceDyePStuffStorageUnitID": {
+        "rows": 13,
+        "sha256": "41c3a1581ae8d53ad8a4363bcc86a055ce8627d079145119da8aacfd9b33672b"
+      },
+      "erp_base.SourceDyePVehicle": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePWareHouse": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePPasteDosage": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePPasteDosageDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePrintDipsRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePrintScreen": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePrintScreenDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyePrintScreenRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeReportItem": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeRequestLimit": {
+        "rows": 6,
+        "sha256": "703ec775535e2ae7d4578fff204ba5c920027ed7258c708e4eafd008b7c9b954"
+      },
+      "erp_base.SourceDyeSAccMonth": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAutoID": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSCorpTitle": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDataLink": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDataTable": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDataTableField": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDBCombo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDBComboValue": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFieldRight": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFlow": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFlowRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFlowStep": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFlowStepEmp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFlowTask": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFormParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFunctions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFuncUser": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSGridColumnParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSGridParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSLookup": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSModule": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSPanelParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSPermission": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSPivotGridColumnParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSPivotGridParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSQuerySQL": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRevision": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRevisionDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRoles": {
+        "rows": 12,
+        "sha256": "8b289549a6d50e88a864ed9baee56c6eae687c2226819e3e44b43d8a0d5a388e"
+      },
+      "erp_base.SourceDyeSRptInfo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRptMenu": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRptRight": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSSaveMessRule": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSSaveMessRuleDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSSheetNo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSSysParams": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSTimerJob": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSUINav": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSchClass": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSHIFT": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSHOUPITONGZHIDAN": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeStaffEstablishing": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSwipeEmpEdit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSwipeEmpEditDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeTBKEY": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeTBSMSALLOT": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeTBSMSINFO": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeTEMPLATE": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeUSEROFRUN": {
+        "rows": 231,
+        "sha256": "5b7f2a9886e095d54cb556e250230116a0db5e6623cf4c75308e21339e18ae09"
+      },
+      "erp_base.SourceDyeUSERSPEDAY": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeUSERTEMPSCH": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeUSERINFO": {
+        "rows": 159,
+        "sha256": "7f91fafae5c4f66b8ae0b60b894ee8cc2a31a7f58bc57248d402d3aa965db3fe"
+      },
+      "erp_base.SourceDyeUserUsedSClasses": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeYunfeibiaozhun": {
+        "rows": 39,
+        "sha256": "e8540780592daa988a9b56e1e7e27de242f06462ffbfe55a262b6f4f78754190"
+      },
+      "erp_base.SourceDyeZAccessLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeZRevisionDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeZRevisionKey": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeZKAttendanceMonthStatistics": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAlertFormat": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAlertItem": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAlertLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAlertParams": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAlertUser": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSApp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAppFuncs": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAppQuerys": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAppTables": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDataTableCopy": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDataTableFieldRely": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFormButton": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSGridCondition": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSGridParamChart": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSGridUser": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSLanguage": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSLookupColumn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSManagerSQL": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSMessage": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSNotice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSPanelFieldParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSQueryParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRecordRight": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRptInfoDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRptInfoSub": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSRptParam": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSSubscribePage": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSTimerJobField": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSTimerJobParams": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSUIModule": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSUpgradeFile": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeAlarmLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeEmOpLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeRpPermission": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAccessLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAlertEmp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAlertSender": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSAppApiLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSClientMacAddress": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDataRelation": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSDataTableRelation": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSException": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFieldCopy": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFormFormat": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSFunDesktop": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSLanguage1": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSLocalAdmins": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSManagerSetting": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSModuleDesktop": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSMonthEnd": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSPersonalDataRight": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSSecurityInfo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSSysAdmins": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSTVScreenReport": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSTVScreenReportDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSWeiXinAgent": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSWeiXinMenu": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSECURITYDETAILS": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeServerLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSystemLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeUserACPrivilege": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeUserUpdates": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_base.SourceDyeSManagerSQLDash": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeClothGetMoney": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeClothGetMoneyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCusAddPrice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCusAddPriceDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCusBasicsPrice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCusBasicsPriceDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCusExtraCharge": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCustomerNoLimit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCustomerTS": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeCustomerTSDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeFixedPrice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeFixedPriceAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeFixedPriceDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeFixedPriceProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderAssign": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderAssign2": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderColor": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderCombine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderDlvApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderDlvApplyLock": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderDlvApplySheet": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderFee": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderInfo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderInfoProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderPriceProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeOrderProcessPre": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyePriceAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyePriceAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeQuote": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeQuoteAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeQuoteDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeQuoteItemPrice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeQuotePriceAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeQuotePriceProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeRCORDERCOLOR": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeRCORDERMAIN": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeZDAddPrice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sales.SourceDyeZDAddPriceDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyeArticlePurDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyeArticlePurMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyeFabricPurDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyeFabricPurMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyePurApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyePurApplyMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyePurDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyePurMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyeStuffPurDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_purchase.SourceDyeStuffPurMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDboBackDyeRecipePhase": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeAddDyeWProcessStep": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeColorCard": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeColorCardDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeColorCardFlow": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeColorChangeRisk": {
+        "rows": 4,
+        "sha256": "64eb943bddc6dde90e2fe6ce0bb4ec455cd738d3208512441bbcc2b88199b5fe"
+      },
+      "erp_sampling.SourceDyeCptLabRecipe": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeCptLabRecipeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeCurSmpPrescriptEntry": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeColor": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeDipsRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeDipsRecordDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeDipsRecordEmp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeDipsRecordNote": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeDipsRecordPhase": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeLabAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeLabColor": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeLabColorRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeLabMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeProduceItem": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeRecipe": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeRecipeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeRecipeJob": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeRecipePhase": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeReprint": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeDyeStartDateTime": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeLabDips": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintColorSeparate": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintColorSeparateDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintColorSeparateRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintingTest": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintingTestColor": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintingTestDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintingTestStuff": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintLabAttach": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintLabAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintLabMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintRecipe": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintRecipeColor": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePrintRecipeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePTSampleRegist": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePTSampleRegistAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyePTSampleRegistDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeSampleChoice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeSampleIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeSampleInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeSampleOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeSampleOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeSampleStockBook": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeSmpPrescriptEntry": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_sampling.SourceDyeYeDye": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeColorShiftEmp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeDPWorkQty": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeEEnergyDay": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeEYardMeterGether": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeEmpShiftClock": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeEnergyConsumption": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeEnergyConsumptionDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeEnergyRecords": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeGetClothNotice": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeGetClothNoticeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeGrayReturnApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeGrayReturnApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeHSalaryWorkQty": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeHSalaryWorkShift": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeHSJobsheetNo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJingShaRegister": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJingShaRegisterDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobAssign": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobColor": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobCombine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobCombineOrder": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobExceptions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobGrayRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobInWareEdit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobOutWareEdit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobPreRegist": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobProcessPre": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobSheet": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobSheetMasrkCar": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobSheetNoRushOrder": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobSheetOther": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobSheetReceive": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobSheetRegister": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobSheetSchedule": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobShiftEmp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobShiftEmpBak": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeJobStartRollNo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineCarePlan": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineCarePlanDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineCareProject": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineCareRecords": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineCase": {
+        "rows": 4,
+        "sha256": "fc140fafed3c99ac747f3de6db77faf6052005dc1daefce3a79c4c7b95b24ce3"
+      },
+      "erp_production.SourceDyeMachineCaseDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineCaseProject": {
+        "rows": 40,
+        "sha256": "d0dbfdedfaa3fbf6f4f5333c753cea3555d2b2ede9d01ee52a802c4069836e4c"
+      },
+      "erp_production.SourceDyeMachineFault": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineFaultArticleInfo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineFaultComment": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachineFaultFilter": {
+        "rows": 6,
+        "sha256": "84f910e780f62cf10414f6270c6f3acbd57921aac7a0fb5aa73fa6515e5e2e1b"
+      },
+      "erp_production.SourceDyeMachineFaultRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMachines": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeMoveShiftBill": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeOutWorkApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeOutWorkApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyePlanDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyePlanMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyePrePlanOrder": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeProcessCraft": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeProcessCraftJobNo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeProcessCraftOrderNo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeProcessSchedule": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeProcessSchedulebak": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyePStuffWeight": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyePStuffWeightDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyePStuffWeightPhase": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeRecordEmp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeSalaryChanges": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeSalaryChangesDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeSemiOutWorkApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeSemiOutWorkApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeShiftArrange": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeShiftArrangeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeShiftPlan": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeShiftPlanDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStandCraft": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStandCraftBeforeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStandCraftDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStandCraftJobNo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeSterotypeTech": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffCombineSheets": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffDeptApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffDeptApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffOutApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffOutApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffWeight": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffWeightDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffWeightJobSheetNo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffWeightPhase": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeStuffWeightPrint": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeTightTube": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeTightTubeDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeTightTubePlan": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeTightTubePlanDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeUserACMachines": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeUsersMachines": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWashTheTankDye": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWProcessBak": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWProcessStep": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWProcessStepBak": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWVehicle": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWWorkRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_production.SourceDyeWWorkTime": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDboProdin1029": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeAProdRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleDeptApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleDeptApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleOutApply": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleOutApplyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleStock": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleStockAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleStockAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeArticleStockBook": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeCarryMaterial": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeCarryMaterialDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeCookInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeDyeStuffOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeDyeStuffOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayBalance": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayBalanceDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayInDefect": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayInRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayMaterial": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayMaterialDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayOutRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayPostionUp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayRecordCutLogs": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStock": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStockAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStockAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStockAllot": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStockBook": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStockCheck": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStockSpecUp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStockSpecUpDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStorageAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStorageAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeGrayStorageAdjustRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeODMIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeODMInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeODMInRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeODMOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeODMOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeODMOutRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeOtherIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeOtherInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeOutGoingBill": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeOutGoingBillDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeOutPlan": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeOutPlanDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyePackQty": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyePackQty1": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyePackWorkQty": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyePackWorkQty1": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyePackWorkQtyDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyePackWorkSumQty": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdInTo": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdInPDARecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdInPriceAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdInPriceProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdInRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdLoading": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdLoadingDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdOutPDARecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdOutPriceAtte": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdOutPriceProcess": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdOutRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStock": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStockAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStockAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStockAllot": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStockBook": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStockCheck": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStockCheckDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStorageAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStorageAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeProdStorageAdjustRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeRecordYield": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiAxisBook": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiAxisRemain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiInRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiOutRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiPostionUp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiStock": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiStockAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiStockAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiStockBook": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiStockSpecUp": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSemiStockSpecUpDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffStep": {
+        "rows": 70,
+        "sha256": "cd27c83d1a121b8c538a0a8181c26788c96e1e82cc0ecfb3e662a6d2d8a2d608"
+      },
+      "erp_warehouse.SourceDyeStuffAllot": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffAllotDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffChange": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffStock": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffStockAdjust": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffStockAdjustDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeStuffStockBook": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeSwipeLabelPrint": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeUrgentInStruct": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeUrgentInStructDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeWareHouseProdCount": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_warehouse.SourceDyeWeightTechInfo": {
+        "rows": 6,
+        "sha256": "b8c024f47a933d0f41255922f8c8274c87581dd8e715d0b20f703cb02edbaef1"
+      },
+      "erp_warehouse.SourceDyeWidthGramWeight": {
+        "rows": 23,
+        "sha256": "8a144f83bc5183bc48c879e18ccb07630a60584777148d6dc0fe5ae866f75a6a"
+      },
+      "erp_quality.SourceDyeCHECKEXACT": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeCHECKINOUT": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeColoringCheck": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDefectiveIn": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDefectiveInDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDefectiveInRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDefectiveOut": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDefectiveOutDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDefectiveOutRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDyeCheck": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeDyeCheckout": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeFARDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeFARMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeFARRecord": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeInspectionLog": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeInspectionLogDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeInspectionProject": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyePTestItem": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeProdTest": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeQualityAccident": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeQualityDeduction": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeQualityRegister": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeRecordDefect": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeTestDetail": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeTestMain": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeWDefect": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeWDefectPenalty": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "erp_quality.SourceDyeZhijianwenti": {
+        "rows": 44,
+        "sha256": "d1ca34ace6fd23960d3f1031a414dca26cdb53cbf77a933509e87ea0cd9351fa"
+      }
+    },
+    "numbering": {
+      "rows": 29,
+      "sha256": "2d71a937166fe82099a0bdad9ef0cc0fd34f6e5e2a300e9293be339c9c77e352"
+    },
+    "buttons": {
+      "rows": 46840,
+      "sha256": "7c4578c7834f32d0c9237e3dd9d018487a724c3e57e8688a5c45485ec8361a4e"
+    },
+    "fields": {
+      "rows": 20131,
+      "sha256": "29eee3e90f4bf5f8da264f4b15f590acf0c05cf5dec112973574ac3729ab70f1"
+    },
+    "button_grants": {
+      "rows": 111122,
+      "sha256": "8eae972769ec435de8bf9dd1438f35355344dc41f8e44e35d06ef19070d7f97c"
+    },
+    "field_grants": {
+      "rows": 71841,
+      "sha256": "d12cd696647adf78d6bfefb1f68a9c81d09dd2c36bd3158c0d99ca8b4bb678ef"
+    },
+    "department_grants": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "scope": "开发验证及独立库数据保留检查；不代表正式历史数据对账或现场验收"
+}

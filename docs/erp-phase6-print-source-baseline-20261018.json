@@ -1,0 +1,1292 @@
+{
+  "basis": "erp-phase6-delivery-quality-verification-20261018.json；本轮开始133份差异，不随完成数变化",
+  "rows": [
+    {
+      "id": "P002",
+      "report": "H001",
+      "issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "二维码字节编码脚本未对应",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P003",
+      "report": "H001-1",
+      "issues": [
+        "未实现原属性：StyleName",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P012",
+      "report": "H008",
+      "issues": [
+        "未实现属性绑定：Bookmark",
+        "未实现属性绑定：Tag"
+      ]
+    },
+    {
+      "id": "P013",
+      "report": "H009",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应"
+      ]
+    },
+    {
+      "id": "P014",
+      "report": "H010",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P017",
+      "report": "H013",
+      "issues": [
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P018",
+      "report": "H014",
+      "issues": [
+        "缺跨表关联：qry_Login.Name"
+      ]
+    },
+    {
+      "id": "P023",
+      "report": "H020",
+      "issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ]
+    },
+    {
+      "id": "P024",
+      "report": "H021",
+      "issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "未实现文字旋转：Angle",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P025",
+      "report": "H022",
+      "issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QC_Record.NetKg",
+        "缺跨表关联：QCPrintList.ColorRemarks",
+        "缺跨表关联：QC_Record.PackTime"
+      ]
+    },
+    {
+      "id": "P026",
+      "report": "H023",
+      "issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对"
+      ]
+    },
+    {
+      "id": "P027",
+      "report": "H024",
+      "issues": [
+        "未实现属性绑定：Bookmark",
+        "未实现属性绑定：Tag"
+      ]
+    },
+    {
+      "id": "P029",
+      "report": "H026",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P033",
+      "report": "H121",
+      "issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "二维码字节编码脚本未对应"
+      ]
+    },
+    {
+      "id": "P034",
+      "report": "H122",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P035",
+      "report": "K001",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：JobSheetPrintList.MachineID",
+        "缺跨表关联：JobSheetPrintList.StorageUnitIDs",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P036",
+      "report": "K002",
+      "issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P040",
+      "report": "K006",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "未实现显式分页：AfterBand"
+      ]
+    },
+    {
+      "id": "P043",
+      "report": "K009",
+      "issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ]
+    },
+    {
+      "id": "P044",
+      "report": "K010",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ]
+    },
+    {
+      "id": "P045",
+      "report": "K011",
+      "issues": [
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：AddStuffWeight.MachineNo_RNew",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：MachineNo_RNew"
+      ]
+    },
+    {
+      "id": "P046",
+      "report": "K012",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.Rate"
+      ]
+    },
+    {
+      "id": "P047",
+      "report": "K013",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：JobSheetPrintList.PreField1",
+        "缺跨表关联：JobSheetPrintList.MachineID",
+        "缺跨表关联：JobSheetPrintList.StorageUnitIDs",
+        "缺跨表关联：JobSheetPrintList.PBXX",
+        "缺跨表关联：JobSheetPrintList.StereotypesName",
+        "缺跨表关联：JobSheetPrintList.WidthSpec",
+        "缺跨表关联：JobSheetPrintList.WeightSpec",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P048",
+      "report": "K014",
+      "issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ]
+    },
+    {
+      "id": "P049",
+      "report": "K015",
+      "issues": [
+        "当前原查询未提供排序/分组字段：NewLineNumber"
+      ]
+    },
+    {
+      "id": "P050",
+      "report": "K016",
+      "issues": [
+        "当前原查询未提供排序/分组字段：NewLineNumber"
+      ]
+    },
+    {
+      "id": "P051",
+      "report": "K017",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.Creater"
+      ]
+    },
+    {
+      "id": "P052",
+      "report": "K018",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P053",
+      "report": "K019",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P054",
+      "report": "K020",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P057",
+      "report": "K023",
+      "issues": [
+        "原固定明细及页眉页脚高度超过纸张可用高度；原裁切/缩放设置未核对",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P061",
+      "report": "K025",
+      "issues": [
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P062",
+      "report": "K026",
+      "issues": [
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P063",
+      "report": "K027",
+      "issues": [
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P064",
+      "report": "K028",
+      "issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ]
+    },
+    {
+      "id": "P069",
+      "report": "K033",
+      "issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ]
+    },
+    {
+      "id": "P070",
+      "report": "K034",
+      "issues": [
+        "未实现原属性：FilterString"
+      ]
+    },
+    {
+      "id": "P073",
+      "report": "K037",
+      "issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "未实现原计算字段：未实现此计算表达式：(Sum([F2Qty])/SUM([FQty]))*100"
+      ]
+    },
+    {
+      "id": "P074",
+      "report": "K038",
+      "issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P082",
+      "report": "K046",
+      "issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ]
+    },
+    {
+      "id": "P089",
+      "report": "K053",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P095",
+      "report": "K059",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P096",
+      "report": "K060",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P097",
+      "report": "K061",
+      "issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P098",
+      "report": "K062",
+      "issues": [
+        "原打印父投影缺字段：GrayIn.ATAITOU",
+        "未实现原计算字段：计算字段缺跨表关系：ATAITOU"
+      ]
+    },
+    {
+      "id": "P104",
+      "report": "K068",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P106",
+      "report": "K070",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ]
+    },
+    {
+      "id": "P107",
+      "report": "K071",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ]
+    },
+    {
+      "id": "P108",
+      "report": "K072",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE"
+      ]
+    },
+    {
+      "id": "P109",
+      "report": "K073",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "未实现原计算字段：未实现表达式片段：[]."
+      ]
+    },
+    {
+      "id": "P110",
+      "report": "K074",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则",
+        "未实现原计算字段：未实现表达式片段：[]."
+      ]
+    },
+    {
+      "id": "P111",
+      "report": "K075",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P112",
+      "report": "K076",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P113",
+      "report": "K077",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P114",
+      "report": "K078",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P115",
+      "report": "K079",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P116",
+      "report": "K080",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P117",
+      "report": "K081",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P118",
+      "report": "K082",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P119",
+      "report": "K083",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P120",
+      "report": "K084",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现明细排序规则"
+      ]
+    },
+    {
+      "id": "P121",
+      "report": "K085",
+      "issues": [
+        "组尾缺同Level的组头",
+        "未实现原规则：Scripts",
+        "缺跨表关联：s_QueryParamSelected.calculatedField1",
+        "未实现动态高度：CanShrink",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ]
+    },
+    {
+      "id": "P122",
+      "report": "K086",
+      "issues": [
+        "未实现原规则：Scripts",
+        "缺跨表关联：NormalStuffWeight.SheetNo",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：Num"
+      ]
+    },
+    {
+      "id": "P123",
+      "report": "K087",
+      "issues": [
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：AfterNormalStuffWeight.MachineNo_RNew",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "未实现原计算字段：计算字段缺跨表关系：MachineNo_RNew"
+      ]
+    },
+    {
+      "id": "P124",
+      "report": "K088",
+      "issues": [
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应"
+      ]
+    },
+    {
+      "id": "P125",
+      "report": "QC01",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：QCPrintList.ColorID",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo",
+        "未实现文字旋转：Angle",
+        "缺跨表关联：QCPrintList.CustSelfProduct"
+      ]
+    },
+    {
+      "id": "P126",
+      "report": "QC02",
+      "issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：QCPrintList.ColorID",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo",
+        "缺跨表关联：QCPrintList.CustomerNameC",
+        "二维码字节编码脚本未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QCPrintList.ColorRemarks"
+      ]
+    },
+    {
+      "id": "P127",
+      "report": "QC03",
+      "issues": [
+        "未实现原格式规则引用：FormattingRules",
+        "未实现原属性：ScriptsSource",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "缺跨表关联：QCPrintList.CustomerNameC",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct",
+        "缺跨表关联：QCPrintList.ColorID",
+        "缺跨表关联：QCPrintList.ColorNum",
+        "缺跨表关联：QCPrintList.JobSheetNo"
+      ]
+    },
+    {
+      "id": "P128",
+      "report": "QC04",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "二维码字节编码脚本未对应",
+        "二维码附加文字布局未对应",
+        "缺跨表关联：QCPrintList.BarCode",
+        "未实现原规则：Scripts",
+        "缺跨表关联：QCPrintList.CustSelfProduct"
+      ]
+    },
+    {
+      "id": "P133",
+      "report": "R001",
+      "issues": [
+        "原库存数量是客户端待填的0占位；缺期间结存和退料分类填数来源，不能作为真实库存打印",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P134",
+      "report": "R002",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P135",
+      "report": "R002-1",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P136",
+      "report": "R002-2",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P137",
+      "report": "R002-3",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.DlvAddress_R",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P138",
+      "report": "R002-4",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P139",
+      "report": "R002-5",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P141",
+      "report": "R003",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P142",
+      "report": "R005",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "原打印父投影缺字段：NormalStuffWeight.JobRemarks",
+        "未实现控件/分组：XRShape",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ]
+    },
+    {
+      "id": "P143",
+      "report": "R005-1",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRShape",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ]
+    },
+    {
+      "id": "P144",
+      "report": "R006",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：NormalStuffWeight.SheetNo",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ]
+    },
+    {
+      "id": "P145",
+      "report": "R007",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P150",
+      "report": "R010",
+      "issues": [
+        "当前原查询未提供版式字段：ProdInList.grayQty",
+        "当前原查询未提供排序/分组字段：KKind",
+        "当前原查询未提供计算来源：KKind"
+      ]
+    },
+    {
+      "id": "P151",
+      "report": "R011",
+      "issues": [
+        "未实现原分组字段或排序规则"
+      ]
+    },
+    {
+      "id": "P152",
+      "report": "R012",
+      "issues": [
+        "缺跨表关联：GrayStockInAndOut.CustomerID_R",
+        "缺跨表关联：GrayStockInAndOut.GUID",
+        "缺跨表关联：GrayStockInAndOut.LastRemainRolls",
+        "缺跨表关联：GrayStockInAndOut.LastRemainWeightQty",
+        "缺跨表关联：GrayStockInAndOut.CurrentInRolls",
+        "缺跨表关联：GrayStockInAndOut.CurrentInWeightQty",
+        "缺跨表关联：GrayStockInAndOut.CurrentOutRolls",
+        "缺跨表关联：GrayStockInAndOut.CurrentOutWeightQty",
+        "缺跨表关联：GrayStockInAndOut.RemainRolls",
+        "缺跨表关联：GrayStockInAndOut.RemainWeightQty",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P157",
+      "report": "R017",
+      "issues": [
+        "未实现控件/分组：XRPivotGrid"
+      ]
+    },
+    {
+      "id": "P158",
+      "report": "R018",
+      "issues": [
+        "未实现控件/分组：XRRichText",
+        "未实现属性绑定：Rtf",
+        "未实现原规则：MultiColumn",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P159",
+      "report": "R019",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "缺跨表关联：qry_Login.Name"
+      ]
+    },
+    {
+      "id": "P160",
+      "report": "R020",
+      "issues": [
+        "未实现文字旋转：Angle"
+      ]
+    },
+    {
+      "id": "P162",
+      "report": "R022",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：XRShape",
+        "缺跨表关联：ReworkStuffWeight.ReworkStuffWeight_ReworkStuffWeightPhaseDetail.WaterQty",
+        "未实现控件/分组：XRPictureBox",
+        "未实现属性绑定：Image"
+      ]
+    },
+    {
+      "id": "P164",
+      "report": "R025-1",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink",
+        "缺跨表关联：ProcessStuffWeight.Creater"
+      ]
+    },
+    {
+      "id": "P171",
+      "report": "R034",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原属性：FilterString",
+        "未实现原规则：Scripts",
+        "缺跨表关联：GrayInDetail.Rolls",
+        "缺跨表关联：GrayInDetail.StorageUnitIDs_R",
+        "缺跨表关联：GrayInDetail.WeightQty",
+        "缺跨表关联：GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayInDetail.LengthQty",
+        "缺跨表关联：ProdOut.Creater"
+      ]
+    },
+    {
+      "id": "P172",
+      "report": "R034-1",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：DetailReportBand",
+        "缺跨表关联：GrayInDetail.OriJobsheetNo",
+        "未实现原规则：Scripts",
+        "缺跨表关联：GrayInDetail.StorageUnitIDs_R",
+        "缺跨表关联：GrayInDetail.Rolls",
+        "缺跨表关联：GrayInDetail.WeightQty",
+        "缺跨表关联：GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayInDetail.LengthQty",
+        "缺跨表关联：ProdOut.Creater"
+      ]
+    },
+    {
+      "id": "P174",
+      "report": "R035",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "缺跨表关联：GrayIn.GrayIn_GrayInDetail.GrayID_R",
+        "缺跨表关联：GrayIn.GrayIn_GrayInDetail.StorageUnitIDs_R",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P177",
+      "report": "R038",
+      "issues": [
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P180",
+      "report": "R041",
+      "issues": [
+        "未实现原属性：FilterString"
+      ]
+    },
+    {
+      "id": "P202",
+      "report": "R062-1",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P216",
+      "report": "R09",
+      "issues": [
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P220",
+      "report": "R101",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：TrialDyeRecipe.ColorID_R"
+      ]
+    },
+    {
+      "id": "P221",
+      "report": "R101-1",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：TrialDyeRecipe.ColorID_R"
+      ]
+    },
+    {
+      "id": "P229",
+      "report": "R109",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P231",
+      "report": "R111",
+      "issues": [
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P232",
+      "report": "R112",
+      "issues": [
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P235",
+      "report": "R115",
+      "issues": [
+        "原打印父投影缺字段：DyeLabMain.calculatedField2",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField2"
+      ]
+    },
+    {
+      "id": "P236",
+      "report": "R116",
+      "issues": [
+        "未实现文字旋转：Angle",
+        "原打印父投影缺字段：DyeLabMain.calculatedField1",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ]
+    },
+    {
+      "id": "P237",
+      "report": "R117",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "未实现原规则：MultiColumn"
+      ]
+    },
+    {
+      "id": "P238",
+      "report": "R119",
+      "issues": [
+        "缺跨表关联：qry_Login.Name",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P239",
+      "report": "R121",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P240",
+      "report": "R122",
+      "issues": [
+        "当前原查询未提供计算来源：JobKind"
+      ]
+    },
+    {
+      "id": "P241",
+      "report": "R123",
+      "issues": [
+        "未实现原计算字段：计算字段缺跨表关系：GRAYKIND"
+      ]
+    },
+    {
+      "id": "P242",
+      "report": "R124",
+      "issues": [
+        "缺跨表关联：qry_Login.LoginName",
+        "缺跨表关联：s_QueryParamSelected.ENDDATE",
+        "缺跨表关联：GrayInWaste.NameC",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P243",
+      "report": "R125",
+      "issues": [
+        "缺跨表关联：GPInAndOutTotal.GrayID",
+        "缺跨表关联：GPInAndOutTotal.GrayID_R",
+        "缺跨表关联：GPInAndOutTotal.LastRemainRolls",
+        "缺跨表关联：GPInAndOutTotal.LastRemainWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentInRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentInWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentOutRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentOutWeightQty",
+        "缺跨表关联：GPInAndOutTotal.CurrentTOutRolls",
+        "缺跨表关联：GPInAndOutTotal.CurrentTOutWeightQty",
+        "缺跨表关联：GPInAndOutTotal.RemainRolls",
+        "缺跨表关联：GPInAndOutTotal.RemainWeightQty",
+        "缺跨表关联：qry_Login.LoginName",
+        "缺跨表关联：GPInAndOutTotal.CustomerID_R",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P244",
+      "report": "R126",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P245",
+      "report": "R127",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：ProdOutDetail.ContractNo",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：GrayIn.Driver_R"
+      ]
+    },
+    {
+      "id": "P246",
+      "report": "R128",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox"
+      ]
+    },
+    {
+      "id": "P247",
+      "report": "R129",
+      "issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：FilterString",
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P248",
+      "report": "R130",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P250",
+      "report": "R132",
+      "issues": [
+        "当前原查询未提供排序/分组字段：GrayID"
+      ]
+    },
+    {
+      "id": "P251",
+      "report": "R133",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P252",
+      "report": "R134",
+      "issues": [
+        "未实现控件/分组：XRReport",
+        "未实现原属性：ScriptsSource",
+        "缺跨表关联：RPStuffInOut.LastRemainQty",
+        "缺跨表关联：s_QueryParamSelected.ENDTIME",
+        "缺跨表关联：s_QueryParamSelected.STARTTIME",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P253",
+      "report": "R135",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现原规则：Scripts",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P254",
+      "report": "R136",
+      "issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原规则：Scripts",
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P256",
+      "report": "R138",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P257",
+      "report": "R139",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P264",
+      "report": "R145",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现动态高度：CanShrink",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P265",
+      "report": "R146",
+      "issues": [
+        "未实现原计算字段：计算字段缺跨表关系：KType"
+      ]
+    },
+    {
+      "id": "P266",
+      "report": "R147",
+      "issues": [
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRSubreport",
+        "未实现原规则：Scripts",
+        "未实现控件/分组：XRPictureBox",
+        "原打印父投影缺字段：ProdOut.Driver_R"
+      ]
+    },
+    {
+      "id": "P267",
+      "report": "R148",
+      "issues": [
+        "未实现动态高度：CanShrink"
+      ]
+    },
+    {
+      "id": "P271",
+      "report": "R151",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P272",
+      "report": "R1511",
+      "issues": [
+        "未实现原分组字段或排序规则",
+        "未实现原属性：ScriptsSource",
+        "未实现控件/分组：XRPictureBox",
+        "缺跨表关联：s_QueryParamSelected.BEGINEDATE",
+        "未实现动态高度：CanShrink",
+        "未实现控件/分组：DetailReportBand",
+        "未实现原规则：Scripts"
+      ]
+    },
+    {
+      "id": "P273",
+      "report": "R151A",
+      "issues": [
+        "缺跨表关联：s_QueryParamSelected.STARTDATE"
+      ]
+    },
+    {
+      "id": "P277",
+      "report": "R155",
+      "issues": [
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.FabricKindID_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.OrderRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.AssignUnit_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReceSheetNo",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.GrayOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CustFabricName_R",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInGaryWeight",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdInLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ProdOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturninLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.ReturnOutLengthQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrRolls",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrGrayQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.CurrWeightQty",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.出货率",
+        "当前原查询未提供版式字段：qry_Order_ToCustomer.完成情况"
+      ]
+    },
+    {
+      "id": "P280",
+      "report": "R300",
+      "issues": [
+        "未实现文字旋转：Angle"
+      ]
+    },
+    {
+      "id": "P290",
+      "report": "R66-3",
+      "issues": [
+        "组尾缺同Level的组头",
+        "原打印父投影缺字段：ProdLoading.calculatedField2",
+        "未实现原计算字段：计算字段缺跨表关系：calculatedField1"
+      ]
+    }
+  ]
+}

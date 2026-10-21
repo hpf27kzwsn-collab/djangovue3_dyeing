@@ -12,7 +12,9 @@ def identifier(name):
     words=re.sub(r'([a-z0-9])([A-Z])',r'\1_\2',name)
     return 'old_'+re.sub(r'\W','_',words.lower()).strip('_')
 
-def model_name(schema,table):return 'Source'+schema.title()+''.join(word[:1].upper()+word[1:] for word in re.split(r'[^\w]|_',table) if word)
+def model_name(schema,table):
+    if (schema,table)==('dye','s_ManagerSQL-'):return 'SourceDyeSManagerSQLDash'
+    return 'Source'+schema.title()+''.join(word[:1].upper()+word[1:] for word in re.split(r'[^\w]|_',table) if word)
 
 def original_default(definition):
     value=definition
@@ -264,8 +266,21 @@ def generate(schema_path,registry_path):
             options['workflow']['children']=children
             for child in children:
                 child['parent_states']=['draft',None] if child['atomic'] else ['draft','confirmed','approved',None]
+            if table['table']=='FMoneyInDetail':
+                options['viewset']='plugins.erp_base.source_api.SourceSalesLimitReadOnlyViewSet'
+                options['workflow'].update(actions=[],entries=[],children=[],readonly=True)
             resources.append('    '+repr(name)+': '+repr(options)+',')
         resources.append('}')
+        resources.append('from plugins.erp_base.source_phase2_actions import extend as extend_phase2_actions')
+        resources.append('extend_phase2_actions(RESOURCE_OPTIONS)')
+        resources.append('from plugins.erp_base.source_phase3_actions import extend as extend_phase3_actions')
+        resources.append('extend_phase3_actions(RESOURCE_OPTIONS)')
+        resources.append('from plugins.erp_base.source_phase4_actions import extend as extend_phase4_actions')
+        resources.append('extend_phase4_actions(RESOURCE_OPTIONS)')
+        resources.append('from plugins.erp_base.source_phase5_actions import extend as extend_phase5_actions')
+        resources.append('extend_phase5_actions(RESOURCE_OPTIONS)')
+        resources.append('from plugins.erp_base.source_phase6_forms import extend as extend_phase6_forms')
+        resources.append('extend_phase6_forms(RESOURCE_OPTIONS)')
         code_text='\n'.join(code)+'\n';ast.parse(code_text)
         (ROOT/'backend/plugins'/module/'source_models.py').write_text(code_text,encoding='utf-8',newline='\n')
         (ROOT/'backend/plugins'/module/'source_resources.py').write_text('\n'.join(resources)+'\n',encoding='utf-8',newline='\n')

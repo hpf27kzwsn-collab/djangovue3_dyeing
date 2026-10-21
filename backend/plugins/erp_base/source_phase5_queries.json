@@ -1,0 +1,101 @@
+{
+  "SP_APP_QueryClothGetMoney": {
+    "kind": "paged",
+    "sql": [
+      "Select\nROW_NUMBER()OVER(ORDER BY gid.SheetDate Desc) AS rowIndex,\ngid.SheetSeries,CONVERT(Varchar(19),gid.SheetDate,21)SheetDate,gid.CustomerID,\npc.ShortName As CustomerName,gid.AddrDlv,gid.Remarks\n\nFROM  dye.ClothGetMoney gid\nleft JOIN dye.p_Customer pc ON gid.CustomerID=pc.CustomerID\nWHERE  1=1\nAnd gid.SheetDate>=@dtStart And gid.SheetDate <=@dtEnd\nAnd (ISNULL(@SheetSeries,'')='' Or gid.SheetSeries Like '%'+@SheetSeries+'%')\nand  (ISNULL(@CustomerID,'')='' OR gid.CustomerID = @CustomerID)",
+      "Select SheetSeries,DetailNo,ProdID,FK.Name AS ProdName,Rolls,\n'' ReceivingType,0.00 NetReceiptsRolls,0.00 NotReceivedRolls\nfrom dye.ClothGetMoneyDetail a\nLeft Join (Select Code,Name from dye.p_FieldValid Where FieldType='FabricKind') FK On a.ProdID=FK.Code\nWhere SheetSeries In(Select SheetSeries from #t)"
+    ],
+    "source": "SQL165",
+    "temps": {
+      "t": "Select\nROW_NUMBER()OVER(ORDER BY gid.SheetDate Desc) AS rowIndex,\ngid.SheetSeries,CONVERT(Varchar(19),gid.SheetDate,21)SheetDate,gid.CustomerID,\npc.ShortName As CustomerName,gid.AddrDlv,gid.Remarks\n\nFROM  dye.ClothGetMoney gid\nleft JOIN dye.p_Customer pc ON gid.CustomerID=pc.CustomerID\nWHERE  1=1\nAnd gid.SheetDate>=@dtStart And gid.SheetDate <=@dtEnd\nAnd (ISNULL(@SheetSeries,'')='' Or gid.SheetSeries Like '%'+@SheetSeries+'%')\nand  (ISNULL(@CustomerID,'')='' OR gid.CustomerID = @CustomerID)"
+    }
+  },
+  "SP_App_QueryClothGetMoneyInfo": {
+    "kind": "all_paged",
+    "sql": [
+      "Select ROW_NUMBER()OVER(ORDER BY b.SheetDate Desc) AS rowIndex,\na.SheetSeries,a.DetailNo,CONVERT(Varchar(19),b.SheetDate,21) As SheetDate,\nb.CustomerID,cu.ShortName AS CustomerName,b.AddrDlv,a.ProdID,FK.Name AS ProdName,\n(a.Rolls - IsNull(ThisRolls,0))ResidueRolls\n\nfrom dye.ClothGetMoneyDetail a Left JOin  dye.ClothGetMoney b On a.SheetSeries=b.SheetSeries\nleft Join dye.p_Customer cu On b.CustomerID=cu.CustomerID\nLeft Join (Select Code,Name from dye.p_FieldValid Where FieldType='FabricKind') FK On a.ProdID=FK.Code\nwhere 1=1\nAnd (ISNULL(@conFilter,'')='' OR cu.ShortName Like '%'+@conFilter+'%' Or a.DetailNo Like '%'+@conFilter+'%' Or FK.Name Like '%'+@conFilter+'%')\nAnd ISnull(ThisRolls,0) < Rolls"
+    ],
+    "source": "SQL166"
+  },
+  "Sp_App_QueryDriverLoading": {
+    "kind": "paged",
+    "sql": [
+      "Select ROW_NUMBER()OVER(ORDER BY b.SheetDate Desc) AS rowIndex,\na.SheetSeries,a.DetailNo,CONVERT(Varchar(19),b.SheetDate,21) As SheetDate,\nCONVERT(Varchar(19),a.ReceivingDate,21) ReceivingDate,\nb.Driver,Dr.Name As DriverName,a.AddrDlv,a.CustomerID,cu.ShortName As  CustomerName,a.ProdID,FK.Name As ProdName,\nIsnull(Rolls,0) Rolls,IsNull(ReceivingType,0) ReceivingType,\nCase When ISNull(ReceivingType,0)=0  Then '未收货'\nWhen IsNull(ReceivingType,0)=1  Then '已收货'\nWhen IsNull(ReceivingType,0)=2  Then '部分收获'\nWhen IsNull(ReceivingType,0)=3  Then '暂时不收货' End ReceivingTypeName,\nIsNUll(ReceivingRolls,0) ReceivingRolls,(Isnull(Rolls,0) - IsNUll(ReceivingRolls,0)) ResidueRolls\n\nfrom dye.GetClothNoticeDetail a Left JOin  dye.GetClothNotice b On a.SheetSeries=b.SheetSeries\nleft Join dye.p_Customer cu On a.CustomerID=cu.CustomerID\nLeft Join (Select Code,Name from dye.p_FieldValid Where FieldType='FabricKind') FK On a.ProdID=FK.Code\nLeft Join (Select Code,Name from dye.p_FieldValid Where FieldType='Driver') Dr On b.Driver=Dr.Code\nWhere 1=1\nAnd a.ReceivingDate>=@dtStart And a.ReceivingDate <@dtEnd\nand  (ISNULL(@CustomerID,'')='' OR a.CustomerID = @CustomerID)\nAnd (ISNULL(@Driver,'')='' Or b.Driver =@Driver)"
+    ],
+    "source": "SQL169"
+  },
+  "Sp_AppQueryProdOut": {
+    "kind": "paged",
+    "sql": [
+      "Select\nROW_NUMBER()OVER(ORDER BY b.DetailNo Desc) AS rowIndex,\nCONVERT(Varchar(19),a.SheetDate,21)As SheetDate,\na.SheetNo,\nb.DetailNo,\na.CustomerID,\np.ShortName As CustomerName,\nb.JobSheetNo,\nb.ProdID,\nGr.NameC As ProdName,\nb.ColorID,\nb.ColorNum,\nb.Rolls,\nb.GrayQty,\nb.WeightQty,\nb.LengthQty\n\nFROM dye.ProdOut a\nINNER JOIN dye.ProdOutDetail b ON b.SheetSeries = a.SheetSeries\nLEFT JOIN dye.JobSheet j ON j.SheetNo=b.JobSheetNo\nLEFT JOIN dye.p_Customer p ON p.CustomerID = a.CustomerID\nleft Join dye.p_Gray Gr on Gr.GrayID=b.ProdID\nWhere 1=1\nAnd EXISTS (SELECT 1 FROM dye.ProdLoadingDetail pl\nLEFT JOIN dye.ProdLoading pd ON pd.SheetSeries = pl.SheetSeries WHERE b.DetailNo=pl.OutDetailNo AND pd.RightStatus=10)\nAnd a.SheetDate>=@dtStart And a.SheetDate <@dtEnd\nand  (ISNULL(@CustomerID,'')='' OR a.CustomerID = @CustomerID)\nand  (ISNULL(@ProdID,'')='' OR b.ProdID = @ProdID)\nand  (ISNULL(@ColorNum,'')='' OR b.ColorNum = @ColorNum)\nand  (ISNULL(@JobSheetNo,'')='' OR b.JobSheetNo like '%'+ @JobSheetNo +'%')",
+      "Select\nROW_NUMBER()OVER(ORDER BY b.DetailNo Desc) AS rowIndex,\nCONVERT(Varchar(19),a.SheetDate,21)As SheetDate,\na.SheetNo,\nb.DetailNo,\na.CustomerID,\np.ShortName As CustomerName,\nb.JobSheetNo,\nb.ProdID,\nGr.NameC As ProdName,\nb.ColorID,\nb.ColorNum,\nb.Rolls,\nb.GrayQty,\nb.WeightQty,\nb.LengthQty\n\nFROM dye.ProdOut a\nINNER JOIN dye.ProdOutDetail b ON b.SheetSeries = a.SheetSeries\nLEFT JOIN dye.JobSheet j ON j.SheetNo=b.JobSheetNo\nLEFT JOIN dye.p_Customer p ON p.CustomerID = a.CustomerID\nleft Join dye.p_Gray Gr on Gr.GrayID=b.ProdID\nWhere 1=1\nAnd a.SheetDate>=@dtStart And a.SheetDate <=@dtEnd\nand  (ISNULL(@CustomerID,'')='' OR a.CustomerID = @CustomerID)\nand  (ISNULL(@ProdID,'')='' OR b.ProdID = @ProdID)\nand  (ISNULL(@ColorNum,'')='' OR b.ColorNum = @ColorNum)\nand  (ISNULL(@JobSheetNo,'')='' OR b.JobSheetNo like '%'+ @JobSheetNo +'%')"
+    ],
+    "source": "SQL226"
+  },
+  "Sp_APP_SheetNoQueryClothGetMoney": {
+    "kind": "multiple",
+    "sql": [
+      "Select SheetSeries,a.CustomerID,b.ShortName As CustomerName ,a.AddrDlv,a.Remarks from dye.ClothGetMoney a\nleft join dye.p_Customer b On a.CustomerID=b.CustomerID\nWhere SheetSeries=@SheetSeries",
+      "Select SheetSeries,DetailNo,ProdID,FK.Name AS ProdName,Rolls from dye.ClothGetMoneyDetail a\nLeft Join (Select Code,Name from dye.p_FieldValid Where FieldType='FabricKind') FK On a.ProdID=FK.Code\nWhere SheetSeries=@SheetSeries"
+    ],
+    "source": "SQL207"
+  },
+  "Sp_qry_DyeQueryRateNew_ColorMatching": {
+    "kind": "multiple",
+    "sql": [
+      "SELECT * FROM dye.dyeCheckout WHERE EndTime>=@startdate AND EndTime<=@enddate AND (@colormatching='合计汇总' OR (ColorMatching=@colormatching AND ClassID=@classid))"
+    ],
+    "source": "SQL349"
+  },
+  "Sp_ProdOut_Query": {
+    "kind": "multiple",
+    "sql": [
+      "SELECT Days,SUM(WeightQty)WeightQty\nFROM dye.vw_ProdOut_Query WHERE Days>=@dsDate AND Days<= @dtDate GROUP BY Days"
+    ],
+    "source": "SQL335"
+  },
+  "A_ProdOutModify": {
+    "kind": "view",
+    "source": "SQL564"
+  },
+  "A_ProdOutModify_SELECT": {
+    "kind": "view",
+    "source": "SQL565"
+  },
+  "v_JobCombineOrder": {
+    "kind": "view",
+    "source": "SQL612"
+  },
+  "v_KQ_CheckRecord": {
+    "kind": "view",
+    "source": "SQL615"
+  },
+  "v_ProdOutRecord": {
+    "kind": "view",
+    "source": "SQL629"
+  },
+  "vw_ProdOut_Query": {
+    "kind": "view",
+    "source": "SQL682"
+  },
+  "Sp_QueryDyeLoading": {
+    "kind": "loading",
+    "temps": {
+      "t_a": "SELECT\n*\n\nFROM(\nSELECT\nROW_NUMBER()OVER (PARTITION BY JobSheetNo ORDER BY StartTime DESC)AS NUM,\nJobSheetNo,\nStartTime\nFROM dye.WProcess\nWHERE 1=1\nAND ProcessID='GX07'\nAND DyeState IN ('3','7')\n)W\nWHERE 1=1\nAND W.NUM=1\nAND W.StartTime>=@StartTime\nAND W.StartTime< @EndTime",
+      "t_worksumnew": "SELECT x.Years,''AS RQ,x.ShiftID,x.JobSheetNo,x.Kind,x.EmpID,x.SK_Qty\n\nFROM (\nSELECT AR.JobSheetNo,'A' AS Kind,EmpID,SUM(SK_Qty) AS SK_Qty,'' AS ShiftID,'' AS Years FROM dye.A_RSGX AR\nWHERE 1=1\nAND EXISTS(SELECT 1 FROM #T_A WHERE #T_A.JobSheetNo=AR.JobSheetNo)\nGROUP BY AR.JobSheetNo,EmpID\nUNION ALL\nSELECT AR.JobSheetNo,'B' AS Kind,'HF0000' AS EmpID,SUM(SK_Qty) AS SK_Qty,'' AS ShiftID,'' AS Years FROM dye.A_RSGX AR\nWHERE 1=1\nAND EXISTS(SELECT 1 FROM #T_A WHERE #T_A.JobSheetNo=AR.JobSheetNo)\nGROUP BY AR.JobSheetNo\nUNION ALL\nSELECT JobSheetNo,'C' AS Kind,ColorMatching AS EmpID,1 AS SK_Qty,'' AS ShiftID,'' AS Years FROM dye.JobSheetRegister JR\nWHERE 1=1\nAND EXISTS(SELECT 1 FROM #T_A WHERE #T_A.JobSheetNo=JR.JobSheetNo)\nGROUP BY JobSheetNo,ColorMatching\n)x",
+      "t_b": "SELECT * \nFROM (SELECT\nY.JobSheetNo,\nJ.ColorID,\nJ.ColorNum,\n'OK'AS LaoDu,\nDB.KindName AS PinZhong,\nCONVERT(INT,RIGHT(DB.RSKind,2)) AS DaiHao,\nJ.ProdID,\nJR.Rolls,\nJR.WeightQty,\n(SELECT COUNT(*) FROM dye.StuffWeightPhase A\nLEFT JOIN dye.StuffWeight B ON B.SheetSeries = A.SheetSeries\nLEFT JOIN (SELECT  * FROM dye.p_FieldValid WHERE FieldType='DyePhase')PF ON PF.Code=A.PhaseID\nWHERE B.JobSheetNo=Y.JobSheetNo AND PF.Name LIKE '%后处理%') AS GuSheChiShu,\n(SELECT MAX(B.AddColorNum) FROM dye.StuffWeightPhase A\nLEFT JOIN dye.StuffWeight B ON B.SheetSeries = A.SheetSeries\nWHERE B.JobSheetNo=Y.JobSheetNo AND B.SheetKind=2 AND B.RecipeType=1) AS JiaSheChiShu,\n(SELECT TOP 1 W.StartTime FROM dye.WProcess W WHERE W.JobSheetNo=Y.JobSheetNo AND W.ProcessID='GX07' ORDER BY W.StartTime ASC)AS InDate,\n(SELECT TOP 1 W.StartTime FROM dye.WProcess W WHERE W.JobSheetNo=Y.JobSheetNo AND W.ProcessID='GX07' AND W.DyeState IN ('3','4','7') ORDER BY W.StartTime DESC) AS OutDate,\nJR.ShiftID,\nJR.ColorMatching,\n(SELECT TOP 1 LEFT(W.MachineID,1) FROM dye.WProcess W WHERE W.JobSheetNo=Y.JobSheetNo AND W.ProcessID='GX07' AND ISNULL(MachineID,'')<>'')AS GangXing\nFROM (SELECT DISTINCT JobSheetNo FROM #T_WorkSumNew)Y\nLEFT JOIN dye.JobSheetRegister JR ON JR.JobSheetNo = Y.JobSheetNo\nLEFT JOIN dye.JobSheet J ON J.SheetNo=Y.JobSheetNo\nLEFT JOIN dye.p_Gray PG  ON PG.GrayID=J.ProdID\nLEFT JOIN(SELECT KeyValue AS RSKind,DisplayValue AS KindName FROM dye.s_DBComboValue WHERE ComboID='Z017')DB ON DB.RSKind = PG.RSKind\n)z\nWHERE 1=1\nAND z.OutDate>=@StartTime\nAND z.OutDate< @EndTime"
+    },
+    "source": "SQL358"
+  },
+  "Sp_QueryYarnLoading": {
+    "kind": "loading",
+    "temps": {
+      "t_worksumnew": "SELECT C.Years,\nC.ShiftID,\nC.RQ,\nC.EmpID,\nSUM(C01_Q)C01_Q,\nSUM(C02_Q)C02_Q,\nSUM(C03_Q)C03_Q,\nSUM(C01_A)C01_A,\nSUM(C02_A)C02_A,\nSUM(C03_A)C03_A,\nSUM(T_Q)T_Q,\nSUM(T_A)T_A,\nSUM(Sum_A)Sum_A\n\nFROM\n(SELECT\nCONVERT(VARCHAR(4),B.RQ) AS Years,\nCONVERT(VARCHAR(100),'') AS ShiftID,\nB.RQ,\nB.EmpID,\nB.C01_Q,\nB.C02_Q,\nB.C03_Q,\nB.C01_A,\nB.C02_A,\nB.C03_A,\nB.T_Q,\nB.T_A,\nB.C01_A+B.C02_A+B.C03_A+B.T_A AS Sum_A\nFROM\n(SELECT\nA.RQ,\nA.EmpID,\nCONVERT(DECIMAL(8,2),IIF(ISNULL(DB.ZTKind,'')='C01'AND A.ProcessID='GX03',A.SK_Qty,0))AS C01_Q,\nCONVERT(DECIMAL(8,2),IIF(ISNULL(DB.ZTKind,'')='C02'AND A.ProcessID='GX03',A.SK_Qty,0))AS C02_Q,\nCONVERT(DECIMAL(8,2),IIF(ISNULL(DB.ZTKind,'')='C03'AND A.ProcessID='GX03',A.SK_Qty,0))AS C03_Q,\nCONVERT(DECIMAL(8,2),IIF(ISNULL(DB.ZTKind,'')='C01'AND A.ProcessID='GX03',[dye].[fn_ProcessIDPrice](A.JobSheetNo,A.ProcessID,1)*A.SK_Qty,0))AS C01_A,\nCONVERT(DECIMAL(8,2),IIF(ISNULL(DB.ZTKind,'')='C02'AND A.ProcessID='GX03',[dye].[fn_ProcessIDPrice](A.JobSheetNo,A.ProcessID,1)*A.SK_Qty,0))AS C02_A,\nCONVERT(DECIMAL(8,2),IIF(ISNULL(DB.ZTKind,'')='C03'AND A.ProcessID='GX03',[dye].[fn_ProcessIDPrice](A.JobSheetNo,A.ProcessID,1)*A.SK_Qty,0))AS C03_A,\nCONVERT(DECIMAL(8,2),IIF(A.ProcessID='GX04',A.SK_Qty,0)) AS T_Q,\nCONVERT(DECIMAL(8,2),IIF(A.ProcessID='GX04',[dye].[fn_ProcessIDPrice](A.JobSheetNo,A.ProcessID,1)*A.SK_Qty,0)) AS T_A\nFROM dye.A_PTGX A\nLEFT JOIN dye.JobSheet J ON A.JobSheetNo=J.SheetNo\nLEFT JOIN dye.p_Gray PG ON PG.GrayID=J.ProdID\nLEFT JOIN(SELECT KeyValue AS ZTKind,DisplayValue AS KindName FROM dye.s_DBComboValue WHERE ComboID='Z016')DB ON DB.ZTKind = PG.ZTKind\nWHERE 1=1\nAND A.StationID='03'\nAND A.RQDate>=@StartTime\nAND A.RQDate< @EndTime\n)B\n)C\nWHERE 1=1\nGROUP BY Years,ShiftID,RQ,EmpID"
+    },
+    "source": "SQL363"
+  },
+  "vwDefectiveStock": {
+    "kind": "view",
+    "source": "SQL692"
+  }
+}

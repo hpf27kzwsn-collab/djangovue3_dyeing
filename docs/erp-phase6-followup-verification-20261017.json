@@ -1,0 +1,112 @@
+{
+  "verified_at": "2026-10-17T09:14:43.939796+08:00",
+  "scope": "隔离测试库回归与旧库只读元数据核验；不冒充历史业务结果对账和现场验收",
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "full_initial_run": {
+    "total": 993,
+    "seconds": 1975.902,
+    "passed": 987,
+    "failures": [
+      "plugins.erp_base.tests.test_quality_quantity_mapping.MaterialContinuationTests.test_shared_purchase_original_headers_retained_and_api_available",
+      "plugins.erp_base.tests.test_quality_quantity_mapping.MaterialContinuationTests.test_typed_purchase_tables_all_receipt_entries_and_source_units",
+      "plugins.erp_base.tests.test_source_material_issue.OriginalMaterialIssueTests.test_material_issue_preserves_plan_and_measured_and_posts_adopted_quantity_once",
+      "plugins.erp_base.tests.test_source_material_issue.OriginalMaterialIssueTests.test_negative_quantity_is_saved_and_explicitly_reported_as_not_auto_generated",
+      "plugins.erp_base.tests.test_source_material_issue.OriginalMaterialIssueTests.test_zero_wof_rolls_back_automatic_issue_without_discarding_source",
+      "plugins.erp_base.tests.test_source_stock.OriginalStockPostingTests.test_stuff_allot_generates_both_documents_and_keeps_save_mode_after_reopen"
+    ],
+    "log_sha256": "067d967a98313f4f9862c2668943f35c51e2d8f16b41caa282f3607edc89b6a9"
+  },
+  "final_targeted_run": {
+    "total": 171,
+    "seconds": 83.611,
+    "passed": 171,
+    "failures": [],
+    "log_sha256": "f69b3ee069c07cf743fca8b69a54504ab82199617afa3c22a9f515bcb9e25a12"
+  },
+  "intermediate_targeted_runs": [
+    {
+      "total": 170,
+      "seconds": 83.422,
+      "passed": 166,
+      "failures": [
+        "plugins.erp_base.tests.test_source_phase6_remaining.OriginalConditionTests.test_all_five_weighing_print_bindings_keep_original_last_row_rule",
+        "plugins.erp_base.tests.test_source_phase6_remaining.OriginalConditionTests.test_existing_status_and_date_hooks_update_all_matching_original_rows",
+        "plugins.erp_base.tests.test_source_phase6_remaining.OriginalConditionTests.test_gray_review_uses_original_gray_out_stock_setting_once",
+        "plugins.erp_base.tests.test_source_phase6_remaining.OriginalConditionTests.test_original_success_code_with_warning_is_advisory"
+      ],
+      "log_sha256": "3ad7a74ec86a5aa064cca07a2a34afa2c8550260b0e4cba8568352dbdcd50c91"
+    },
+    {
+      "total": 170,
+      "seconds": 82.824,
+      "passed": 169,
+      "failures": [
+        "plugins.erp_base.tests.test_source_phase6_remaining.OriginalConditionTests.test_existing_status_and_date_hooks_update_all_matching_original_rows"
+      ],
+      "log_sha256": "7fe75afba47bac4b2d4b0620b908284688821dc0d22074b3ba2d65689b9caf8b"
+    }
+  ],
+  "fixes": [
+    "生成采购收货明细与已有调拨单编辑分别处理",
+    "已称料测试数据按原修改限制准备",
+    "派生调拨单保留从来源单据修改的提示顺序",
+    "报价LastTime使用最新原字段规范大小写",
+    "缺RecordYieldCheck原表明确列异常并回滚审核",
+    "测试编号长度、原字段名、SortValue必填值按原表准备"
+  ],
+  "covered_distinct_test_cases": 1013,
+  "initial_failures_retested_successfully": [
+    "plugins.erp_base.tests.test_quality_quantity_mapping.MaterialContinuationTests.test_shared_purchase_original_headers_retained_and_api_available",
+    "plugins.erp_base.tests.test_quality_quantity_mapping.MaterialContinuationTests.test_typed_purchase_tables_all_receipt_entries_and_source_units",
+    "plugins.erp_base.tests.test_source_material_issue.OriginalMaterialIssueTests.test_material_issue_preserves_plan_and_measured_and_posts_adopted_quantity_once",
+    "plugins.erp_base.tests.test_source_material_issue.OriginalMaterialIssueTests.test_negative_quantity_is_saved_and_explicitly_reported_as_not_auto_generated",
+    "plugins.erp_base.tests.test_source_material_issue.OriginalMaterialIssueTests.test_zero_wof_rolls_back_automatic_issue_without_discarding_source",
+    "plugins.erp_base.tests.test_source_stock.OriginalStockPostingTests.test_stuff_allot_generates_both_documents_and_keeps_save_mode_after_reopen"
+  ],
+  "validation_limit": "最后代码修正后复测受影响范围，未再次重跑整套七模块；两轮结果集合有重叠，不相加",
+  "live_query_counts": {
+    "缺本地原对象": 12,
+    "缺外部库或链接": 23,
+    "原字段已不存在": 20
+  },
+  "live_snapshot_sha256": "5b2176ad6dab8bdf98f77878105a3b7864649b0ea3d3c156bce4aae0e2667250",
+  "live_metadata_sha256": "2eb21393aa6da7daed0ac3a267437233512be7d989aab97898d7982ca7832f92",
+  "template_hash_pairs_matched": 290,
+  "layout_counts": {
+    "reports": 290,
+    "parsed_xml": 261,
+    "no_xml": 29,
+    "control_entity_templates": 7,
+    "script_templates": 156,
+    "fully_replicated_print_layouts": 0
+  },
+  "hook_counts": {
+    "已接入动作条件，必要用例仍逐规则记录": 128,
+    "已定位service接线，待逐入口验证": 51,
+    "已接入保存或逆向副作用，待逐入口验收": 14,
+    "独立财务分支暂缓": 8,
+    "已定位既有服务及回归用例，仍有原行为差异需核对": 10,
+    "缺外部调用及回执": 3,
+    "缺本地原表定义": 2
+  },
+  "frontend": {
+    "typecheck": "passed",
+    "build": "passed",
+    "log_sha256": "cf285f4db11badc8f84549da05d52a6acfbedd5ece66c08a31724f3fe85a9870"
+  },
+  "historical_import_rows": 0,
+  "historical_business_results_reconciled": 0,
+  "onsite_accepted": 0
+}

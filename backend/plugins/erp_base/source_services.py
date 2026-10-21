@@ -36,6 +36,8 @@ def owner_relations(model):
 
 
 def parents(item):
+    if item.SOURCE_TABLE=='RecordDefect' and item.source_parent_1_id is not None and entries.entry_for(item.source_parent_1) in ['QueryRecordCheck','QC_Record','QueryRecord']:
+        return [item.source_parent_1]
     return [getattr(item, rule['field']) for rule in owner_relations(type(item))
             if getattr(item, rule['field'] + '_id') is not None]
 
@@ -99,13 +101,14 @@ def assign_owner_values(item, data):
             setattr(item, key, value)
 
 
-def assign_reference_values(item,data):
+def assign_reference_values(item,data,entry=None):
     assigned={}
     for rule in item.SOURCE_RELATIONS:
         if getattr(item,rule['field']+'_id') is None:
             continue
         parent=getattr(item,rule['field'])
-        for old,parent_old in zip(rule['source_fields'],rule['target_fields']):
+        targets=['BarCode'] if item.SOURCE_TABLE=='RecordDefect' and entry=='QueryRecordDefect2' and rule['field']=='source_parent_1' else rule['target_fields']
+        for old,parent_old in zip(rule['source_fields'],targets):
             key=item.SOURCE_FIELDS[old]
             value=getattr(parent,parent.SOURCE_FIELDS[parent_old])
             if key in data and data[key]!=value:
@@ -137,13 +140,22 @@ def apply_defaults(item, data):
 
 def refresh_totals(items, actor):
     for item in reversed(items):
-        if item.SOURCE_TABLE not in AGGREGATES:
+        twisting=item.SOURCE_TABLE=='ProdIn' and entries.entry_for(item)=='TwistingIn'
+        check_dots=item.SOURCE_TABLE=='RecordYield' and entries.entry_for(item)=='QueryRecordCheck'
+        if item.SOURCE_TABLE not in AGGREGATES and not twisting and not check_dots:
             continue
         original = item
         item = locked(item)
         if is_historical(item):
             continue
-        values = aggregate_values(item)
+        values = entry_values(item,'TwistingIn') if twisting else aggregate_values(item)
+        if check_dots:
+            from django.db.models import Sum
+            from .source_execution_state import active
+            from .source_calculations import store_value
+            defects=apps.get_model('erp_quality.SourceDyeRecordDefect')
+            dots=active(defects.objects.filter(source_parent_1=item)).aggregate(value=Sum(defects.SOURCE_FIELDS['SumDots']))['value']
+            values=dict([store_value(item,'Dots',dots)])
         changed = {key: value for key, value in values.items() if getattr(item, key) != value}
         if changed:
             before = snapshot(item)
@@ -157,33 +169,55 @@ def refresh_totals(items, actor):
 
 
 def finish(items, actor):
+    from .source_phase6_save_timing import flush
+    flush()
+    from .source_phase6_formula_runtime import refresh_totals as remaining_totals
+    remaining_totals(items,actor)
     refresh_totals(items, actor)
+    for item in items:packing.after_saved(item,actor)
     stock.refresh_chain(items, actor)
     workflow.refresh_chain(items, actor)
     sampling.refresh_chain(items, actor)
     from .source_sample_flow import sync_lab
     for item in items:
         sync_lab(item, actor)
+    from .source_phase6_hooks import saved as entry_saved
+    for item in items:entry_saved(item,actor)
+    from .source_phase6_guards import before as entry_before
+    for item in items:entry_before(item,'AfterSaveSQL',actor)
 
 
 @transaction.atomic
-def write(model, data, instance=None, actor=None, apply_effects=True):
+def write(model, data, instance=None, actor=None, apply_effects=True, check_entry_update=True):
+    from . import numbering
+    from copy import copy
+    numbering.lock_model(model)
     data = dict(data)
     selected_entry = data.pop('_entry', None)
+    copy_from = data.pop('_entry_copy_from', None)
+    if instance is not None and copy_from is not None:
+        raise ValidationError({'_entry_copy_from': '续行只在新增记录时使用。'})
     denied = managed_fields(model).intersection(data)
     if denied:
         raise ValidationError({key: '由来源导入或明确办理动作维护。' for key in denied})
     item = model() if instance is None else lock_chain(instance)[-1]
+    previous_numbering = None if instance is None else copy(item)
     for parent in chain(item):
         if parent.pk is not None:
             purchase.require_change(parent, '修改')
     if instance is None:
         apply_defaults(item, data)
     editable(chain(item))
+    if instance is not None and check_entry_update:
+        from .source_phase6_guards import before as entry_before
+        for parent in chain(item):entry_before(parent,'BeforeUpdateSQL',actor)
+        status=model.SOURCE_FIELDS.get('SheetStatus')
+        if status in data and getattr(item,status)==9 and data[status]!=9:
+            entry_before(item,'BeforeUnAbortSQL',actor)
     if instance is not None and model.SOURCE_TABLE not in ['p_Customer', 'p_Gray', 'p_Dept', 'h_Employee', 'USERINFO']:
         for old in model.SOURCE_KEY:
             key = model.SOURCE_FIELDS[old]
-            if key in data and data[key] != getattr(item, key):
+            if key in data and data[key] != getattr(item, key) and not numbering.managed(item, key, selected_entry or entries.entry_for(item)):
                 raise ValidationError({key: '原业务身份建立后保持不变，变更另建明确记录。'})
     for rule in owner_relations(model):
         field = rule['field']
@@ -204,13 +238,23 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
         for job in matching(jobs.objects.all(),SheetNo=stock.raw(item,'JobSheetNo')):require_available(locked(job))
     if instance is None:
         for parent in chain(item)[:-1]:
+            from .source_phase6_guards import before as entry_before
+            if check_entry_update:entry_before(parent,'BeforeUpdateSQL',actor)
             purchase.require_change(parent, '修改')
     editable(lock_chain(item) if item.pk is not None else [locked(parent) for parent in chain(item)[:-1]])
+    entry = entries.resolve_entry(item, selected_entry, chain(item)[:-1])
     if not is_historical(item):
         assign_owner_values(item, data)
-        assign_reference_values(item,data)
-    entry = entries.resolve_entry(item, selected_entry, chain(item)[:-1])
+        assign_reference_values(item,data,entry)
+    if copy_from is not None:
+        from .source_entry_copy import apply as copy_entry_fields
+        copied_fields = copy_entry_fields(item, data, copy_from, entry)
+    protected_numbers = numbering.prepare(item, data, entry, instance is None, previous_numbering)
+    if instance is None:
+        data.update(protected_numbers)
     if instance is None and entry is not None:
+        from .source_phase6_local_values import prepare_numbers
+        prepare_numbers(item,data,entry)
         entries.apply_new_rules(item, data, actor, entry)
         from .source_site_work import bind
         bind(item,data,entry)
@@ -223,11 +267,25 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
             item.creator = actor
             owner_chain = chain(item)
             item.dept_belong_id = actor.dept_id if len(owner_chain) == 1 else owner_chain[0].dept_belong_id
+    from .source_phase6_auto_values import before_save as entry_auto_values
+    entry_auto_values(item, data, entry, instance is None)
     result = persist(item)
     from .source_master_data import saved as master_saved
     master_saved(item, data, instance is None, actor)
+    from .source_phase2_triggers import saved as phase2_saved
+    phase2_saved(item, data, instance is None, actor)
+    from .source_phase3_triggers import saved as phase3_saved
+    phase3_saved(item, data, instance is None, actor)
+    from .source_phase4_triggers import saved as phase4_saved
+    phase4_saved(item, data, instance is None, actor)
+    from .source_phase5_triggers import saved as phase5_saved
+    phase5_saved(item, data, instance is None, actor)
     if entry is not None:
         entries.save_context(item, actor, entry)
+    from .source_phase6_service_values import saved as service_values_saved
+    service_values_saved(item,data,entry,instance is None,actor)
+    from .source_phase6_formula_runtime import saved as remaining_values_saved
+    remaining_values_saved(item,data,entry,instance is None,actor)
     sales.saved(item, data, instance is None, actor)
     charges.saved(item, actor)
     sampling.saved(item, actor)
@@ -244,8 +302,16 @@ def write(model, data, instance=None, actor=None, apply_effects=True):
         salary_changes_saved(item)
     if actor is not None:
         record(item, 'create' if instance is None else 'edit', before, actor)
+        if copy_from is not None:
+            record(item, 'entry_copy_fields', {'source': snapshot(copy_from), 'fields': copied_fields}, actor,
+                   '按用户选定上一行应用原复制字段；手填值及显式NULL优先，来源原行不变')
     if apply_effects:
         finish(chain(item), actor)
+    if instance is not None and model.SOURCE_FIELDS.get('SheetStatus') in data:
+        status=model.SOURCE_FIELDS['SheetStatus']
+        if data[status]==9 and before.get(status)!=9:
+            from .source_phase6_hooks import aborted as entry_aborted
+            entry_aborted(item,actor)
     if item.SOURCE_TABLE=='ProdTest':
         from .source_trial_variants import saved as trial_saved
         trial_saved(item,entry,actor)
@@ -260,6 +326,7 @@ def require_operation_retention(item):
             raise ValidationError({'source':'本包装参与已生效的标签同步，请先撤回对应同步，保留原字段恢复链。'})
     context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
     if context is not None and any(key in context.effects for key in [
+        'quote_adjustment_origin','quote_transfer_origin','purchase_product_origin','field_copy_origin','department_purchase_origin','care_plan_article_origin','transfer_retained',
         'card_adoption','order_transfer_origin','combine_link_origin','combine_link_reversal','gray_operation','gray_lineage','gray_consumed',
         'history_gray_recovery','history_gray_origin','quality_rebuild_origin','quality_replaced',
         'execution_chain','chain_cancelled','chain_container','chain_compensation',
@@ -268,7 +335,7 @@ def require_operation_retention(item):
         'sample_variant','trial_work','trial_retained','trial_origin',
         'shift_work','shift_retained','shift_origin','shift_master_sync',
         'calendar_generation','calendar_retained','calendar_origin',
-        'equipment_operation','equipment_retained','equipment_origin',
+        'equipment_operation','equipment_retained','equipment_origin','foundation_retained',
         'cross_card_issue','cross_card_transfer']):
         raise ValidationError({'source':'此记录是拆合/转移办理事实，使用对应撤回动作并保留记录，不能直接删除。'})
 
@@ -288,6 +355,8 @@ def delete_documents(queryset, actor):
     for item in queryset.order_by('pk'):
         require_operation_retention(item)
         editable(lock_chain(item))
+        from .source_phase6_guards import before as entry_before
+        entry_before(item,'BeforeDeleteSQL',actor)
         sales.removing(item)
         purchase.require_change(item, '删除')
         if not item.SOURCE_DOCUMENT or item.SOURCE_TABLE == 'WProcess':
@@ -316,13 +385,23 @@ def delete(queryset,actor=None,apply_effects=True):
         editable(lock_chain(item))
         if is_historical(item):
             raise ValidationError({'source_batch': '历史来源记录保留原行，不从普通删除入口删除。'})
+        from .source_phase6_guards import before as entry_before
+        entry_before(item,'BeforeDeleteSQL',actor)
         sales.removing(item)
         sampling.removing(item, actor)
+        from .source_phase6_hooks import before_delete as entry_before_delete
+        entry_before_delete(item,actor)
         from .source_master_data import removing as master_removing
         master_removing(item, actor)
+        from .source_phase2_triggers import removing as phase2_removing
+        phase2_removing(item, actor)
+        from .source_phase3_triggers import removing as phase3_removing
+        phase3_removing(item, actor)
+        from .source_phase5_triggers import removing as phase5_removing
+        phase5_removing(item, actor)
         for parent in chain(item):
             purchase.require_change(parent, '删除')
-        quality.removing(item)
+        quality.removing(item,actor)
         packing.removing(item)
         if item.SOURCE_TABLE == 'WProcess':
             from .source_work_delete import prepare_delete
@@ -333,7 +412,8 @@ def delete(queryset,actor=None,apply_effects=True):
             if outgoing.objects.filter(old_weight_sheet_no__iexact=item.old_sheet_no).exists():
                 raise ValidationError({'source': '此称料单已有实际出库，按原规则保留来源称料单。'})
         removed.append(item)
-        for parent in chain(item)[:-1]:
+        from .source_phase6_formula_links import parent_rows as raw_formula_parents
+        for parent in [*chain(item)[:-1],*raw_formula_parents(item)]:
             affected[(parent._meta.label, parent.pk)] = parent
         from .source_context import SourceDocumentContext
         context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
@@ -358,6 +438,8 @@ def delete(queryset,actor=None,apply_effects=True):
         quality.removed(item, actor)
         from .source_work_delete import trigger_removed
         trigger_removed(item, actor)
+        from .source_phase5_triggers import removed as phase5_removed
+        if item.SOURCE_TABLE not in ['DyeRecipe','DefectiveInDetail']:phase5_removed(item, actor)
     if apply_effects:
         finish(list(affected.values()), actor)
         for item in removed:
@@ -374,6 +456,9 @@ def advance(item, actor, expected, target):
     if item.approval_stage != expected:
         raise ValidationError({'approval_stage': '当前办理阶段不允许此动作。'})
     validate_document(item)
+    if target=='approved':
+        from .source_phase6_guards import before as entry_before
+        entry_before(item,'BeforeApproveSQL',actor)
     before = snapshot(item)
     item.approval_stage = target
     at = timezone.now()
@@ -395,6 +480,10 @@ def advance(item, actor, expected, target):
         trigger(item,actor,at)
     stock.refresh(item, actor)
     workflow.refresh_chain([item], actor)
+    if target=='approved':
+        from .source_phase6_hooks import approved as entry_approved
+        entry_before(item,'AfterApproveSQL',actor)
+        entry_approved(item,actor,True)
     record(item, target, before, actor)
     return item
 
@@ -424,6 +513,8 @@ def reopen(item, actor, reason):
     before = snapshot(item)
     was_approved = item.approval_stage == 'approved'
     if was_approved:
+        from .source_phase6_guards import before as entry_before
+        entry_before(item,'BeforeUnApproveSQL',actor)
         purchase.require_change(item, 'reopen')
     item.approval_stage = 'draft'
     item.confirmed_at = item.approved_at = None
@@ -441,6 +532,9 @@ def reopen(item, actor, reason):
         trigger(item,actor)
     stock.refresh(item, actor)
     workflow.refresh_chain([item], actor)
+    if was_approved:
+        from .source_phase6_hooks import approved as entry_approved
+        entry_approved(item,actor,False)
     record(item, 'reopen', before, actor, reason)
     return item
 

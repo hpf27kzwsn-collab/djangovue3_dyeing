@@ -1,0 +1,375 @@
+[
+  {
+    "name": "部门",
+    "target_model": "erp_base.SourceDyePDept",
+    "target_field": "old_dept_id",
+    "scope_key": "all",
+    "source_filters": {},
+    "prefix": "",
+    "digits": 2,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "员工",
+    "target_model": "erp_base.SourceDyeHEmployee",
+    "target_field": "old_emp_id",
+    "scope_key": "all",
+    "source_filters": {},
+    "prefix": "HF",
+    "digits": 4,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "坯纱规格",
+    "target_model": "erp_base.SourceDyePGray",
+    "target_field": "old_gray_id",
+    "scope_key": "all",
+    "source_filters": {},
+    "prefix": "",
+    "digits": 5,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "生产班组",
+    "target_model": "erp_base.SourceDyePShift",
+    "target_field": "old_shift_id",
+    "scope_key": "all",
+    "source_filters": {},
+    "prefix": "A",
+    "digits": 3,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "染色曲线",
+    "target_model": "erp_base.SourceDyePDyeCurve",
+    "target_field": "old_curve_id",
+    "scope_key": "all",
+    "source_filters": {},
+    "prefix": "",
+    "digits": 3,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "幅宽克重单位共用号码池",
+    "target_model": "erp_warehouse.SourceDyeWidthGramWeight",
+    "target_field": "old_code",
+    "scope_key": "all",
+    "source_filters": {},
+    "prefix": "",
+    "digits": 3,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "客户",
+    "target_model": "erp_base.SourceDyePCustomer",
+    "target_field": "old_customer_id",
+    "scope_key": "suggested_7",
+    "source_filters": {
+      "CustKindID": "0"
+    },
+    "prefix": "",
+    "digits": 3,
+    "start_number": 0,
+    "notes": "90条3位、1条2位原样保留；新码采用3位"
+  },
+  {
+    "name": "供应商",
+    "target_model": "erp_base.SourceDyePCustomer",
+    "target_field": "old_customer_id",
+    "scope_key": "suggested_8",
+    "source_filters": {
+      "CustKindID": "1"
+    },
+    "prefix": "G",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "CustomerID与Num按原保存关联办理，只消费一次编号"
+  },
+  {
+    "name": "仓库注册",
+    "target_model": "erp_base.SourceDyePFieldValid",
+    "target_field": "old_code",
+    "scope_key": "suggested_9",
+    "source_filters": {
+      "FieldType": "WareHouseID"
+    },
+    "prefix": "",
+    "digits": 4,
+    "start_number": 1,
+    "notes": "旧2位和4位混存；仅新码采用4位"
+  },
+  {
+    "name": "后纺包装",
+    "target_model": "erp_base.SourceDyePFieldValid",
+    "target_field": "old_code",
+    "scope_key": "suggested_10",
+    "source_filters": {
+      "FieldType": "PackBag"
+    },
+    "prefix": "A",
+    "digits": 2,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "前纺包装",
+    "target_model": "erp_base.SourceDyePFieldValid",
+    "target_field": "old_code",
+    "scope_key": "suggested_11",
+    "source_filters": {
+      "FieldType": "PackBag_QF"
+    },
+    "prefix": "D",
+    "digits": 2,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "后纺纸筒",
+    "target_model": "erp_base.SourceDyePFieldValid",
+    "target_field": "old_code",
+    "scope_key": "suggested_12",
+    "source_filters": {
+      "FieldType": "TubeWeight"
+    },
+    "prefix": "B",
+    "digits": 2,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "前纺纸筒",
+    "target_model": "erp_base.SourceDyePFieldValid",
+    "target_field": "old_code",
+    "scope_key": "suggested_13",
+    "source_filters": {
+      "FieldType": "TubeWeight_QF"
+    },
+    "prefix": "C",
+    "digits": 2,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "销售区域",
+    "target_model": "erp_base.SourceDyePFieldValid",
+    "target_field": "old_code",
+    "scope_key": "suggested_14",
+    "source_filters": {
+      "FieldType": "Area"
+    },
+    "prefix": "A",
+    "digits": 2,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "白坯库位",
+    "target_model": "erp_base.SourceDyePStorageUnitID",
+    "target_field": "old_code",
+    "scope_key": "suggested_15",
+    "source_filters": {
+      "FieldType": "GrayStorage"
+    },
+    "prefix": "",
+    "digits": 4,
+    "start_number": 1,
+    "notes": ""
+  },
+  {
+    "name": "A系列染化料",
+    "target_model": "erp_base.SourceDyePStuff",
+    "target_field": "old_stuff_id",
+    "scope_key": "suggested_16",
+    "source_filters": {
+      "StuffKindID": [
+        "FS",
+        "HX",
+        "SX"
+      ]
+    },
+    "prefix": "A",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "A系列三个类别共用同一流水；原StuffID为全表身份"
+  },
+  {
+    "name": "W系列染化料",
+    "target_model": "erp_base.SourceDyePStuff",
+    "target_field": "old_stuff_id",
+    "scope_key": "suggested_17",
+    "source_filters": {
+      "StuffKindID": [
+        "ZJ"
+      ]
+    },
+    "prefix": "W",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "A系列三个类别共用同一流水；原StuffID为全表身份"
+  },
+  {
+    "name": "Z系列染化料",
+    "target_model": "erp_base.SourceDyePStuff",
+    "target_field": "old_stuff_id",
+    "scope_key": "suggested_18",
+    "source_filters": {
+      "StuffKindID": [
+        "GY"
+      ]
+    },
+    "prefix": "Z",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "A系列三个类别共用同一流水；原StuffID为全表身份"
+  },
+  {
+    "name": "机物料类别03",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_19",
+    "source_filters": {
+      "ArticleKindID": "03"
+    },
+    "prefix": "PD-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别04",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_20",
+    "source_filters": {
+      "ArticleKindID": "04"
+    },
+    "prefix": "ZC-",
+    "digits": 4,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别05",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_21",
+    "source_filters": {
+      "ArticleKindID": "05"
+    },
+    "prefix": "DJ-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别07",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_22",
+    "source_filters": {
+      "ArticleKindID": "07"
+    },
+    "prefix": "JX-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别08",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_23",
+    "source_filters": {
+      "ArticleKindID": "08"
+    },
+    "prefix": "YF-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别09",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_24",
+    "source_filters": {
+      "ArticleKindID": "09"
+    },
+    "prefix": "FM-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别12",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_25",
+    "source_filters": {
+      "ArticleKindID": "12"
+    },
+    "prefix": "BL-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别13",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_26",
+    "source_filters": {
+      "ArticleKindID": "13"
+    },
+    "prefix": "YL-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别14",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_27",
+    "source_filters": {
+      "ArticleKindID": "14"
+    },
+    "prefix": "HT-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别15",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_28",
+    "source_filters": {
+      "ArticleKindID": "15"
+    },
+    "prefix": "WX-",
+    "digits": 4,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  },
+  {
+    "name": "机物料类别20",
+    "target_model": "erp_base.SourceDyePArticle",
+    "target_field": "old_article_id",
+    "scope_key": "suggested_29",
+    "source_filters": {
+      "ArticleKindID": "20"
+    },
+    "prefix": "MEI-",
+    "digits": 3,
+    "start_number": 1,
+    "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+  }
+]

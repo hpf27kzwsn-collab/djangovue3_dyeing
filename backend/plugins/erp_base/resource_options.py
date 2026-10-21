@@ -130,3 +130,15 @@ RESOURCE_OPTIONS['SourceBusinessParameter'] = {
     'fields': {'captured_at': {'readonly': True}},
 }
 MODEL_FIELDS['SourceBusinessParameter'] = 'name value captured_at'
+
+RESOURCE_OPTIONS['NumberingRule'] = {
+    'viewset': 'plugins.erp_base.numbering_api.NumberingViewSet',
+    'serializer': 'plugins.erp_base.numbering_api.NumberingSerializer',
+    'label_field': 'name',
+    'crud_fields': ['id', 'name', 'target_model', 'target_field', 'scope_key', 'scope_filters', 'entry_name',
+                    'prefix', 'digits', 'start_number', 'last_number', 'auto_enabled',
+                    'allow_manual_input', 'allow_code_change', 'notes', 'create_datetime', 'update_datetime'],
+}
+
+from plugins.erp_base.foundation_catalog import configure_resources
+configure_resources(RESOURCE_OPTIONS, 'erp_base')

@@ -1,0 +1,5076 @@
+{
+  "phase": 2,
+  "nonfinancial_objects": 104,
+  "financial_deferred": [
+    "dye.vwSalesReceivables"
+  ],
+  "counts": {
+    "开发完成": 104
+  },
+  "code_paths_registered": 104,
+  "original_table_fields": 12036,
+  "source_models": 590,
+  "objects": [
+    {
+      "id": "SQL010",
+      "name": "dye.fn_A_GetRemarks",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py",
+        "backend/plugins/erp_base/source_static_lookup.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_foundation_completion.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md",
+        "docs/erp-phase2-live-verification-20261016.json"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain",
+        "p_FieldValid"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_foundation_completion.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "9782d82f9049226bc57bf549d18019c4a5dc29623cbf4d8542277475214cda93"
+      },
+      "historical_reconciliation": {
+        "status": "已有专项对照，整项待对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL016",
+      "name": "dye.fn_ColorNum_BasicsPrice",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/erp-quote-sampling-verification-20261015.json",
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusBasicsPriceDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "quote_function",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f6b3331b2265103edf41ebabf0e9c30e179c7ea40908e3488fe46acbd0d4e355"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。"
+    },
+    {
+      "id": "SQL023",
+      "name": "dye.fn_FARMainPrice",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FixedPrice",
+        "FixedPriceDetail",
+        "OrderAtte",
+        "p_FieldValidSub"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "480d0cf64e26c266e237a885e9cac65166ea78ef2449cb5a29439b440796cce4"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL030",
+      "name": "dye.fn_GetColorNumPrice",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "F_Get_No",
+        "PriceAdjust",
+        "PriceAdjustDetail",
+        "Quote",
+        "QuoteDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "quote_function",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "05636427862fde94876c6bfa5403e324dbadf52070b6d3703bb7c44c22780e3b"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL031",
+      "name": "dye.fn_GetDay_DyeDipsRecord_EmpID",
+      "type": "FN",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用原打样工作日、对色员计件和日报服务及既有差异记录。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "vw_DyeDipsRecord_EmpID"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "sample_work_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "b0a57ce56d5e3a7d5375ce91c41eecf7cf0b73f1ae9504b2619d8ba495b5bb29"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用原打样工作日、对色员计件和日报服务及既有差异记录。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL033",
+      "name": "dye.fn_GetDyeStuffDosage",
+      "type": "FN",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md",
+        "docs/erp-phase2-live-verification-20261016.json"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "Fn_Get_No",
+        "P_ColorNum"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "853f2ba68e6c2dc383d3ce3caed4821aff2f8cf7a01f0b5d6bc1d3e7202cabce"
+      },
+      "historical_reconciliation": {
+        "status": "已有专项对照，整项待对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL037",
+      "name": "dye.fn_GetFlowSheetInfo",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md",
+        "docs/erp-phase2-live-verification-20261016.json"
+      ],
+      "external": [],
+      "refs": [
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "a621e605cc52e25af333f2d2953eada0a38b2886af95b7d26aa8b0e44a5e32ff"
+      },
+      "historical_reconciliation": {
+        "status": "已有专项对照，整项待对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL044",
+      "name": "dye.fn_GetPriceAtte",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用原附加收费及排除手感口径，保留单位、空值和来源。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_charge_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_charges.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusExtraCharge",
+        "JobAtte",
+        "JobSheet",
+        "QuoteItemPrice"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "charge_quote",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_charges.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "218dffbeaa857b8bd7080da17c34618e5c1ba366d078eba0da81b20173e45eca"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用原附加收费及排除手感口径，保留单位、空值和来源。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL045",
+      "name": "dye.fn_GetPriceAtteWITHOUTSG",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用原附加收费及排除手感口径，保留单位、空值和来源。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_charge_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_charges.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusExtraCharge",
+        "JobAtte",
+        "JobSheet",
+        "QuoteItemPrice"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "charge_quote",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_charges.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f19329cd022c95f4743f7440bd174241e9920e5bde26d78d4693975eca927f53"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用原附加收费及排除手感口径，保留单位、空值和来源。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL046",
+      "name": "dye.fn_GetPriceListVat",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "F_Get_No",
+        "PriceAdjust",
+        "PriceAdjustDetail",
+        "Quote",
+        "QuoteDetail",
+        "p_PriceListVat"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "quote_function",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "7d0f25daf70adda8ae5d367360d8609c9524d16985f812869ca2712837fc145c"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL047",
+      "name": "dye.fn_GetPriceRemark",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "F_Get_No",
+        "QuoteDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "quote_function",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "99461c2856a7e41f7f00dedaf7fb0133aa335c59fd133687adf905f6e2d50baa"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL055",
+      "name": "dye.fn_MaterialPriceAdjust",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "ArticleIn",
+        "ArticleInDetail",
+        "MaterialPriceAdjust",
+        "StuffIn",
+        "StuffInDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "7912a83db2d7ab0381ef1a32c0fa3d136e5ada0f9c73f3be203fd57f94a14b60"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL056",
+      "name": "dye.fn_NewGetDyePrice",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_functions.py",
+        "backend/plugins/erp_base/source_quote_components.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeRecipe",
+        "FixedCanDetail",
+        "FixedPrice",
+        "FixedPriceAtte",
+        "FixedPriceDetail",
+        "JobAtte",
+        "JobSheet",
+        "QuoteItemPrice",
+        "p_FieldValid",
+        "p_Gray"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "quote_function",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "8db052141cc45902815deae5bb6a6d9b454340691d136051d468aa6e3c8e54c7"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用已实现原报价函数及既有核验；未用本轮新增查询替代既有价格口径。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL060",
+      "name": "dye.fn_RKL",
+      "type": "FN",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原销售限制日期与历史核销来源聚合已接入；共享来源完整性见E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_limits.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FARMain",
+        "FMoneyInDetail",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "6d6f84f7a99a380b3a6116ee388079259508948d05e69e6b2b8d63b22a737bbb"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原销售限制日期与历史核销来源聚合已接入；共享来源完整性见E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL085",
+      "name": "dye.AutoCalcPhaseNo",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Smp_PrescriptEntry"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "complete_sample_phases",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f8da446b4421068d71fb38b73da07002a1bd710d013ec5e0d7193afd69bb03f3"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL091",
+      "name": "dye.DyeDipsRecord_Add",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原49参数逐列插入经测试；完整录入页面共用原表CRUD，不新增另一套字段。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_sampling.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原打样单新增（49列及其余原字段）",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "c6fe99f2c958b3e3b0826c7fc26e838755c3495e1a23c4a7d033e5963edff6be"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原49参数逐列插入经测试；完整录入页面共用原表CRUD，不新增另一套字段。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL102",
+      "name": "dye.MaterialPriceAdjustUpdate",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "ArticleIn",
+        "ArticleInDetail",
+        "MaterialPriceAdjust",
+        "MaterialPriceAdjustDetail",
+        "StuffIn",
+        "StuffInDetail",
+        "fn_MaterialPriceAdjust"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "material_price_adjustment",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "020e6bbdc7b8a3fe896739a12cf64487b8ede399c85d07a350751c42d643ccec"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL103",
+      "name": "dye.OrderAtte_Price_Update",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusExtraCharge",
+        "OrderAtte",
+        "OrderColor",
+        "OrderMain",
+        "QuoteItemPrice"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "refresh_order_prices",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "023a67c5da5e86472dee9db659defbfcc0d155413358cd016673598617bc82b1"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL129",
+      "name": "dye.sp_App_CheckModifyOrder",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_orders.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "app_order_check",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "308540dd798eb710372d945486305249b781902c0d5603322a196ac090333b08"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL130",
+      "name": "dye.sp_App_CheckSaveOrder",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。窄范围原无写入返回行为已验证。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_orders.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "app_order_check",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "9238d30753954328714e57a491d77a5d821f2cfc2f7762c51e10c95da0da46fe"
+      },
+      "historical_reconciliation": {
+        "status": "不适用全量数据导入",
+        "note": "纯计算或原空操作；已有参数/边界验证与整库数据采用分开。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。窄范围原无写入返回行为已验证。"
+    },
+    {
+      "id": "SQL163",
+      "name": "dye.sp_APP_ModifyOrder",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_orders.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderAtte",
+        "OrderColor",
+        "OrderMain",
+        "f_splitWithRowNo",
+        "h_Employee",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "app_order_modify",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "7fd823511285bc11c7c474c9e8950a24e3e2661e98515fe789c20c24cc95c0db"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL190",
+      "name": "dye.SP_APP_QueryOrderMain",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderMain",
+        "h_Employee",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "507eabc426d34247e999bee0877070e139308c95a2541f398de7d109891bf8fe"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL205",
+      "name": "dye.sp_APP_SaveOrder",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_orders.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FD_GetFieldSeries",
+        "OrderAtte",
+        "OrderColor",
+        "OrderMain",
+        "f_splitWithRowNo",
+        "h_Employee",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "app_order_save",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "05ca80921d54f1a6174f61fe2251367f7b7540fca75d08111325eab8b08c73de"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入结构化订单录入/整单替换及原检查；重复明细、空列表项、旧版行保留，见E115。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL215",
+      "name": "dye.SP_APP_UrgentOrderInfo",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobSheet",
+        "ProdOutDetail",
+        "Prodin",
+        "p_Customer",
+        "p_Gray",
+        "p_Process"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "0ac7a45ee5fa6a3509e1bbb597594ac990a4b416cc9e74df17c9fdfd0bc98601"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL216",
+      "name": "dye.Sp_APPCustQueryQuotePrice",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FixedCanDetail",
+        "FixedPrice",
+        "FixedPriceAtte",
+        "FixedPriceDetail",
+        "QuoteItemPrice",
+        "p_Customer",
+        "p_FieldValid",
+        "p_FieldValidSub"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "0187528ab43f1c1d2996e46e42997c05ed9e94074011fe5c1cc06847038f7bf4"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL217",
+      "name": "dye.Sp_AppOrderQuery",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain",
+        "p_Customer",
+        "p_Gray"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "969286c0a1f47667b105d64e9e6ef9bca92f8b7257517fec64fce4540775c9cf"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL218",
+      "name": "dye.Sp_AppQueryColorQuote",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Quote",
+        "QuoteDetail",
+        "p_FieldValid",
+        "p_Product",
+        "v_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "c39e3b6659245a440e321a362a52a72a21a5881b1bcfe72f3d048f90bde30bd9"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL225",
+      "name": "dye.Sp_AppQueryOrderInfo",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain",
+        "fn_GetFeelCode",
+        "orderAtte",
+        "p_FieldValid",
+        "p_Gray",
+        "p_Product",
+        "v_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "560334c8eb9bef149a1531cce8d22c692606fb19331104d048469a61d6e4a4ee"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL265",
+      "name": "dye.Sp_DyeDipsRecord",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_variants.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordDetail",
+        "DyeDipsRecordNote",
+        "DyeDipsRecordPhase",
+        "DyeLabColor",
+        "P_ColorNum",
+        "p_FieldValid",
+        "p_Stuff",
+        "v_DyePhase"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "preview_sample_variant / apply_sample_variant / undo_sample_variant",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "2f13cba3a3152c8f341268f78655bcadb16e485870701cd9cc9428a7fe3ca7a0"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL266",
+      "name": "dye.Sp_DyeDipsRecord_CheckerID1",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用原打样工作日、对色员计件和日报服务及既有差异记录。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecordBulkCheckerID",
+        "DyeDipsRecordCheckerID"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "sample_checker_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "5dd1d20c392abcc2e25d26034c4907b989a240eed03b68ae8e7c626211e05d44"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用原打样工作日、对色员计件和日报服务及既有差异记录。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL267",
+      "name": "dye.Sp_DyeDipsRecord_EmpID",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_variants.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "preview_sample_variant / apply_sample_variant / undo_sample_variant",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "5e02016bad50d9c9075389958c237467816f814dc13947c555c905286ce726e3"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL268",
+      "name": "dye.Sp_DyeDipsRecord_update",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "复用结果回写及旧版失效规则；来样登记新色号补上原P_ColorNum插入联动。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_flow.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sample_flow.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordDetail",
+        "DyeDipsRecordNote",
+        "DyeDipsRecordPhase",
+        "DyeLabColor",
+        "Fn_Get_No",
+        "P_ColorNum",
+        "p_FieldValid",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "客样/打样办理→sync_lab 原色号回写",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sample_flow.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "c926517f1163ab72c0b313ce14ee8bfc7871e4aeba6c8fdb020938e2333eab61"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "复用结果回写及旧版失效规则；来样登记新色号补上原P_ColorNum插入联动。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL269",
+      "name": "dye.Sp_DyeDipsRecord1",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_variants.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordDetail",
+        "DyeDipsRecordNote",
+        "DyeDipsRecordPhase",
+        "DyeLabColor",
+        "P_ColorNum",
+        "p_FieldValid",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "preview_sample_variant / apply_sample_variant / undo_sample_variant",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "0076a9ccf71e25112bcba1513ba4f6c5cafa066f46d7dcee3798f31fd9863195"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL270",
+      "name": "dye.Sp_DyeDipsRecord10",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_variants.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordDetail",
+        "DyeDipsRecordNote",
+        "DyeDipsRecordPhase",
+        "DyeLabColor",
+        "P_ColorNum",
+        "p_FieldValid",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "preview_sample_variant / apply_sample_variant / undo_sample_variant",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "369503fc8338f728064c188eb0562d1f551c574fbf4a5cc1d5357f2abea79490"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL271",
+      "name": "dye.Sp_DyeDipsRecord2",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_variants.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordDetail",
+        "DyeDipsRecordNote",
+        "DyeDipsRecordPhase",
+        "DyeLabColor",
+        "P_ColorNum",
+        "p_FieldValid",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "preview_sample_variant / apply_sample_variant / undo_sample_variant",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "1c8333e840f11f75cc062e4c20b58c7b71842af8041eb32083ef2b402af505d8"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL272",
+      "name": "dye.Sp_DyeDipsRecord22",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sample_variants.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordDetail",
+        "DyeDipsRecordNote",
+        "DyeDipsRecordPhase",
+        "DyeLabColor",
+        "P_ColorNum",
+        "p_FieldValid",
+        "p_Stuff",
+        "v_DyePhase"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "preview_sample_variant / apply_sample_variant / undo_sample_variant",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "57b71bca4beba661b187e361f88afa233f8c568d7680c0d01a38b735954b2e85"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "六种既有打样预览/回写/撤回继续承接；缺失P_ColorNum3及无序来源沿用E78～E80，不删除变体。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL278",
+      "name": "dye.Sp_DyeRecipe",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeRecipe",
+        "DyeRecipeDetail",
+        "DyeRecipePhase"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "refresh_recipe_costs",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "21ba1d8bf40d3e2c57b2ef85029949b173aa0e53404e2dd1a81a4392f3918fb0"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL279",
+      "name": "dye.Sp_DyeReprint",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeReprint"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "reprint_allocation",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "d0514dc89a6de3c6f3ee701577139e16cd23a6d1a8a4027e206bf151c88e60f2"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL293",
+      "name": "dye.sp_GetPrintWeightByOrderNo",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_printing.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderMain",
+        "PPasteDosage",
+        "PPasteDosageDetail",
+        "PrintingTest",
+        "PrintingTestColor",
+        "PrintingTestDetail",
+        "PrintingTestStuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "e795ee33fff38abccdd26801ff2cfd792f7f36571775c0d184852624d14a3eed"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL325",
+      "name": "dye.sp_Order_ToCustomer",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "GWName",
+        "JobSheetReceive",
+        "Order_Jobsheet",
+        "ProdOutDetail",
+        "p_Gray",
+        "v_JobCombineOrder",
+        "vw_OrderQuery"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "e331348ba2906b7a497c9dedf8e65f03979231407979ffe528ebcc5d5bc93ee2"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL326",
+      "name": "dye.sp_Order_ToCustomer_t",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "GrayOut",
+        "GrayOutDetail",
+        "JobSheet",
+        "OrderColor",
+        "ProdIn",
+        "ProdOut",
+        "ProdOutDetail",
+        "vw_OrderQuery"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "5163ea4f198287345ef3be1545798e37bcf0e740ff0f1cf48e4563ce5c07c421"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL327",
+      "name": "dye.sp_Order_ToCustomer1",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CarryMaterialDetail",
+        "GWName",
+        "JobCombineOrder",
+        "JobSheet",
+        "JobSheetReceive",
+        "Order_Jobsheet",
+        "ProdOutDetail",
+        "RecordYield",
+        "p_Gray",
+        "vw_JobSheetCarry",
+        "vw_OrderQuery"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "6db360b3ffe72e9c47d1509b8cf6b4db3393ee639ec01fa55b6fe0bd4a8437fb"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL328",
+      "name": "dye.sp_Order_ToCustomer2",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CarryMaterialDetail",
+        "GWName",
+        "JobCombineOrder",
+        "JobSheet",
+        "JobSheetReceive",
+        "Order_Jobsheet",
+        "ProdOut",
+        "ProdOutDetail",
+        "RecordYield",
+        "p_Gray",
+        "vw_JobSheetCarry",
+        "vw_OrderQuery"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "ebe89b726ce62127ed74adc47fd2bb57d0b18019598887f9b2e79f0b67871f03"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL329",
+      "name": "dye.Sp_OrderAtte_update",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusExtraCharge",
+        "OrderAtte",
+        "OrderColor",
+        "OrderMain",
+        "QuoteItemPrice"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "refresh_order_prices",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "a7f542c846e5d9ec9180898d42d52ef6c84a789e710ad5ee265cbfc5a9e39eae"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL332",
+      "name": "dye.sp_PrintOrderToPasteDosageDetail",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_printing.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain",
+        "PPasteDosageDetail",
+        "PrintColorSeparate",
+        "PrintColorSeparateDetail",
+        "PrintColorSeparateRecord",
+        "PrintingTest",
+        "PrintingTestColor",
+        "PrintingTestDetail",
+        "ProcessSchedule",
+        "p_FieldValid",
+        "p_FieldValidSub"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "ff6ceea7291f34df868802e6e3794b454223c133d754186cc788431c7d28f9e5"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL339",
+      "name": "dye.Sp_ProduceColorNum",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。窄范围原无写入返回行为已验证。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeLabColor"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "ee294da628dd3f386f56ba66342e2ca7d09ee87787969774bc3f3fb6096b7897"
+      },
+      "historical_reconciliation": {
+        "status": "不适用全量数据导入",
+        "note": "纯计算或原空操作；已有参数/边界验证与整库数据采用分开。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。窄范围原无写入返回行为已验证。"
+    },
+    {
+      "id": "SQL355",
+      "name": "dye.Sp_QueryColorNum_BasicsPrice",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusBasicsPriceDetail",
+        "DyeDipsRecord",
+        "Fn_Get_No",
+        "P_ColorNum"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "fc306c3b35eb2522dba410bfaf1c36e73cd7e04b0ebac059331c988def6f0226"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL356",
+      "name": "dye.Sp_QueryColorNumPrice",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_functions.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusBasicsPriceDetail",
+        "DyeDipsRecord",
+        "Fn_Get_No",
+        "P_ColorNum"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_price",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "c31c0a968434e2c35c7a7a204279629987a34300aa0ff6f525fd9ddeab29a986"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原参数、空值、重复连接及取价方向已接入；价格候选与无序取值差异见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL357",
+      "name": "dye.Sp_QueryDyeingOrder",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_daily.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "GrayIn",
+        "GrayInDetail",
+        "GrayMaterial",
+        "GrayMaterialDetail",
+        "JobSheet",
+        "JobSheetRegister",
+        "OrderColor",
+        "OrderMain",
+        "ProdOut",
+        "ProdOutDetail",
+        "RecordYield",
+        "SemiIn",
+        "SemiInDetail",
+        "WDefect",
+        "p_Gray",
+        "s_DBComboValue"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f1554562fbd04b6a909526257d292c4d0de9f78395fe08a807142555f229e982"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL360",
+      "name": "dye.Sp_QueryNotEndOrder",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobCombineOrder",
+        "JobSheet",
+        "OrderColor",
+        "OrderMain",
+        "ProdIn",
+        "ProdInRecord",
+        "ProdOutDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "2890d4cf17fbb1d325f875520c6a4797817df3e3eac8edf58c8737b66be44725"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL413",
+      "name": "dye.SP_UpdateQuotePrice",
+      "type": "P",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "PriceAdjust",
+        "PriceAdjustDetail",
+        "QuoteDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "original_quote_adjustment",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "74c397e163a8ecc8ae072c3f2299e68e45040e8a3f6bf3573358981459a3ac8e"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL414",
+      "name": "dye.Sp_UpdateSampleStockBook",
+      "type": "P",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_operations.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "SampleIn",
+        "SampleInDetail",
+        "SampleOut",
+        "SampleOutDetail",
+        "SampleStockBook"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "refresh_sample_book",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f645e59da9deb0c08e915a47929d72eb45a99f9d6d2bf10dc7bbff474a180e3b"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入明确办理入口，保留原连接倍数、原负数和空值；原删除/替换行留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL450",
+      "name": "dye.CustomerNoLimitInsert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_triggers.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CustomerNoLimit",
+        "Inserted",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.CustomerNoLimit",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "5110d6b9bc74bba856698eafa74caf1e99079621de6aa4746bfa02e5f3347b3e"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL454",
+      "name": "dye.DyeDipsRecordDetail_INSERT",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sampling_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "inserted",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.DyeDipsRecordDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "595d824c6f56d4250a78c2fd2f38bcd3eba801bc06ddd6bb1e04f70f89398e18"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL455",
+      "name": "dye.DyeDipsRecordPhase_Insert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sampling_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordPhase",
+        "Inserted",
+        "p_FieldValid"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.DyeDipsRecordPhase",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "6d5a2be8ed2ad1beb517ef2fc5d88d70c3a37bf72626d6970194b35740b4f29b"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL457",
+      "name": "dye.DyeLabColor_UPDATE",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。",
+      "code": [
+        "backend/plugins/erp_base/source_sampling_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+      ],
+      "proof": [
+        "docs/旧ERP复刻异常与合理实现说明.md",
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "Fn_Get_No",
+        "INSERTED"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.DyeLabColor",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "8c1378d3ab51a354c30c06601c138811152f08dfd1e6f3a8289884bd91b969ed"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。"
+    },
+    {
+      "id": "SQL459",
+      "name": "dye.DyeRecipe_IU",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。",
+      "code": [
+        "backend/plugins/erp_base/source_sampling_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+      ],
+      "proof": [
+        "docs/旧ERP复刻异常与合理实现说明.md",
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Inserted"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.DyeRecipe",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "b77bd979e29a0fcba4785c2f8cc108756358907d1e5a5e74fc418975bbb28212"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。"
+    },
+    {
+      "id": "SQL460",
+      "name": "dye.DyeRecipeDetail_INSERT",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sampling_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "inserted",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.DyeRecipeDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "00bd768551ec60f8b9b896a14155a396a53bcc260aecd578d2f6a898048bf8b9"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL461",
+      "name": "dye.DyeRecipeInsert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_triggers.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeRecipe",
+        "DyeRecipeDetail",
+        "DyeRecipePhase"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.DyeRecipe",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "ca9f28e03a6496b07d8b452399fbc3b160e5b53388e9394f3e8766b1377c7b20"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL462",
+      "name": "dye.DyeRecipePhase_Insert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sampling_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeRecipePhase",
+        "Inserted",
+        "p_FieldValid"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.DyeRecipePhase",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sampling_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "31d1bc4972dd47889eb9377242b1fcb04e43e2d38b0780add3a224b3cd5bd216"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原用料与染程规则复用；已注释的旧检查不启用，重复阶段原行照存并留检查记录，见E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL467",
+      "name": "dye.FixedPriceDetail_Del",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_rules.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Deleted"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.FixedPriceDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "2dfd18120445cc2b3757949c893d120d165720428aa5eda6d10d0aaca022d624"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL468",
+      "name": "dye.FixedPriceDetail_Insert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_rules.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FixedPrice",
+        "FixedPriceDetail",
+        "Inserted",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.FixedPriceDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "d86f1f2c6d2e5e7b0a01cccc2a57d193d99097c2828e6d07b3d58b80dcee0e3e"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL469",
+      "name": "dye.FixedPriceDetail_Modify",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_rules.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FixedPrice",
+        "FixedPriceDetail",
+        "Inserted",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.FixedPriceDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "a6c0278a8011d73a4534bc9213ffaf62271bc30a319e4754592ef77223e06d4d"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL497",
+      "name": "dye.OrderAtte_Insert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原另收费保存联动复用；全局手感与所选订单价格刷新分别接入，不混淆调用范围。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_charge_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_charges.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CusBasicsPrice",
+        "CusExtraCharge",
+        "INSERTED",
+        "OrderAtte",
+        "OrderColor",
+        "OrderMain",
+        "QuoteItemPrice",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.OrderAtte",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_charges.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "a01b65c081ca75bc63a391e6fa21bd32b06a3e370dff1905f192060041875eff"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原另收费保存联动复用；全局手感与所选订单价格刷新分别接入，不混淆调用范围。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL498",
+      "name": "dye.OrderColorInsert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原订单到工卡、调价到报价保存联动复用；新增活动范围排除已替换留档版本，原行仍可查询。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sales_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sales_links.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "GrayMaterialDetail",
+        "INSERTED",
+        "JobCombineOrder",
+        "JobSheet",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.OrderColor",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sales_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "260d384d950a100d6c6c2831993d2a149e5fd975156e7a725968c44d343b9dcd"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原订单到工卡、调价到报价保存联动复用；新增活动范围排除已替换留档版本，原行仍可查询。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL499",
+      "name": "dye.OrderMainUpdate",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原订单到工卡、调价到报价保存联动复用；新增活动范围排除已替换留档版本，原行仍可查询。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sales_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sales_links.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "INSERTED",
+        "JobCombineOrder",
+        "JobSheet",
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.OrderMain",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sales_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "6f2b67fcb37d11f1fe4b3904553fd13cb0f51758c05fda26208b6c5171ef0b3a"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原订单到工卡、调价到报价保存联动复用；新增活动范围排除已替换留档版本，原行仍可查询。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL500",
+      "name": "dye.P_ColorNum_UPDATE",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_triggers.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeDipsRecordNote",
+        "DyeLabColor",
+        "DyeRecipe",
+        "INSERTED",
+        "P_ColorNum"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.P_ColorNum",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "42afa7a55fa14fcd89a488ea66d7f53c8222ca7157d4159293ee483327bc184c"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL511",
+      "name": "dye.p_ProductUpdate",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_triggers.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "INSERTED",
+        "OrderColor",
+        "p_Product"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.p_Product",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "481027913f7167d17c633d792a6bc5ed8a73199615a5cd25745044374c4a2bc1"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL517",
+      "name": "dye.PriceAdjustDetail_Insert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原订单到工卡、调价到报价保存联动复用；新增活动范围排除已替换留档版本，原行仍可查询。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_sales_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_sales_links.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "F_Get_No",
+        "INSERTED",
+        "PriceAdjust",
+        "QuoteDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.PriceAdjustDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_sales_links.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "b01088d3c48aa4eb6d721cab9fab14c03f87ac181dbaa6a0677201282220424c"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原订单到工卡、调价到报价保存联动复用；新增活动范围排除已替换留档版本，原行仍可查询。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL527",
+      "name": "dye.ProdTest_Add",
+      "type": "TR",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原试验材料对照规则及既有试验变体继续保留；历史异常录入不重演新办理检查。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_trial_steps.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "INSERTED",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.ProdTest",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f2ed27a0bc13ecf0e11844935d9fb6f5cf3c7b5824dd32949f848bd6d6e90db0"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原试验材料对照规则及既有试验变体继续保留；历史异常录入不重演新办理检查。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL528",
+      "name": "dye.QuoteDetail_Del",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_rules.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Deleted"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.QuoteDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "67ec2edbf088d50165dbb0b73966dc2126d9bc806fb0b6559c5d67515786de43"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL529",
+      "name": "dye.QuoteDetailInsert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_rules.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Inserted",
+        "Quote",
+        "QuoteDetail",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.QuoteDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "373d71af1c12684bea4cddbe0f875254f58908e7e061fdb48f4ebd0de2706d57"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL530",
+      "name": "dye.QuoteDetailModify",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_quote_rules.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Inserted",
+        "Quote",
+        "QuoteDetail",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.QuoteDetail",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "90bf305783730f5b084a260b3a7f4adb778bd15fd6620c417bc94fd0a677a36f"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "报价与确价的原重复阈值、UPDATE列判断、已审核修改/删除规则已接入；重复原行照存，见E82/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL531",
+      "name": "dye.QuoteItemPrice_Insert",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原另收费保存联动复用；全局手感与所选订单价格刷新分别接入，不混淆调用范围。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_charge_services.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_charges.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Inserted",
+        "p_FieldValidSub"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.QuoteItemPrice",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_charges.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "bcea62fd2b7a7eb22417afa84068c76c911e0224edc4a9600dc38f67148c49bd"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原另收费保存联动复用；全局手感与所选订单价格刷新分别接入，不混淆调用范围。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL548",
+      "name": "dye.tgr_OrderInfo",
+      "type": "TR",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_triggers.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "原表增改删→service联动：dye.OrderInfo",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "687461a294d4bffcb253f88c513b8dc93cc1516b2e5d17e1f3bc56b039cb9d26"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "已接入真实保存/删除联动；重复检查留事实，原孤立配方删除改为留档，见E115/E116。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL572",
+      "name": "dye.DyeDipsRecordBulkCheckerID",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "731eec0d91ba45b8c2fbf4b1379199f6d71c543b30f2a03ab2d3ea1843d2af78"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL573",
+      "name": "dye.DyeDipsRecordCheckerID",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "3fb4fbcbbd3905333f9442bce713222dbb9549a9415c421e00a731f1f2664f6c"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL578",
+      "name": "dye.Order_Jobsheet",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobCombineOrder",
+        "JobSheet",
+        "ProdIn",
+        "ProdLoading",
+        "ProdLoadingDetail",
+        "p_Process"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "cd311bd650f53d5fd4f622a2b8c5ba02741a946a9608586778af51c17afc894c"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL579",
+      "name": "dye.Order_Jobsheet_Detail",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobCombineOrder",
+        "JobSheet",
+        "JobSheetReceive"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "a4a93dd1021b8b0ee996a688bf0568abc0afab7c9d7b35127f02f65dd7b67692"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL581",
+      "name": "dye.RKLimit",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_limits.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FARMain",
+        "FMoneyInDetail",
+        "p_Customer"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "a2f5438fb288609e00158cfe9753974a878289df3bd3cb891262b1d74d845ae5"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL656",
+      "name": "dye.View_zhenzhiRKchangzhi",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FeelOfferDetail",
+        "JobSheet",
+        "OrderAtte",
+        "OrderColor",
+        "OrderMain",
+        "ProdIn",
+        "ProdStockBook",
+        "p_Product"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "0421f96dd8cb2c4d844752b817b86c5bdf8aab533a0c5036085ed480500d956e"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL657",
+      "name": "dye.View_zhenzhiSHchangzhi",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "FeelOfferDetail",
+        "JobSheet",
+        "OrderAtte",
+        "OrderColor",
+        "ProdStockBook"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "752c3291249dcc9b2c67bb929079ddc0ed6a67236e48918d0893c0fc766de556"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL658",
+      "name": "dye.vw_DyeDipsRecord_EmpID",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py",
+        "backend/plugins/erp_base/source_sample_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py",
+        "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "DyeDipsRecord",
+        "DyeReprint"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_detail_reports.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py",
+          "backend/plugins/erp_base/tests/test_source_quote_sample.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "5df630c24da27584cd9605fe3f2ca83e652b86e40322eaeef1aaea365e4e6887"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL673",
+      "name": "dye.vw_Newview",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain",
+        "ProdOutDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "fb989676552f1008543d97f2b41b0db0b5ab8903a2dfe0394b065df1e0f7cd16"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL674",
+      "name": "dye.vw_OrderColor",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "12e4d2d8cb8a31f55a4d4cfb09a01cb2796df433171813ed502ce58bc4e02214"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL675",
+      "name": "dye.vw_OrderQuery",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain",
+        "p_Gray"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "855968d18d66238802d7dc51967ab46b5b9b8632f07a28db70503f1938c09caf"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL690",
+      "name": "dye.vwCptLabRecipe",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CptLabRecipe"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "6da13cb414ea8c173b09f7844586594cac0cecf6b93e61c8dc7edc2750675f49"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL691",
+      "name": "dye.vwCptLabRecipeDetail",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "CptLabRecipeDetail",
+        "p_Stuff"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "84937173f4100a79cbcc82abd16d736a130a92fd9348baf9f7dac716e295674e"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL693",
+      "name": "dye.vwDyeDipsRecord",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "Quote",
+        "QuoteDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "2f3d8e4ddafc20912b833208359ab0b6f3b5cabb5b3b584ca8bd784e0a12eb0c"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL695",
+      "name": "dye.vwGrayOrderOccupy",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "GrayOutDetail",
+        "OrderAssign",
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "9edfec6f711b52fcde5efa5a4c30e235c049f0ff075202c0257d7e00125d4a3e"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL707",
+      "name": "dye.vwNoOrderSettleData",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "6f018ce94dd68903279d691f0b18bb4797e3b42dba60249b39627a473a721682"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL709",
+      "name": "dye.vwOrder",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f53870a4334864ada9ea4f2e2ffd5b0d1d825decdabf26c55f32c8a0dc1bf971"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL710",
+      "name": "dye.vwOrderGrayPreemption",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "GrayOutDetail",
+        "JobSheet",
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "a688ea10070c033bf2267937b9655c50138cb9752e02785f7a9a420aedc83edf"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL711",
+      "name": "dye.vwOrderInfo",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "1d7c306e5a16daeca35a9b619f33cc442e4d8508ce313ac529ae58c0b4c629bf"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL712",
+      "name": "dye.vwOrderToJob",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobSheet",
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "21a6ffb458d73fbd2e1a20932a8869281d506f62c7b24d77478b59a0876e8ae2"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL713",
+      "name": "dye.vwOrderToPlan",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "OrderColor",
+        "OrderMain",
+        "PlanDetail",
+        "PrePlanOrder"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "91b3aff64e237694781a7080e2a298744861c250c33de382d2068b6afec21a6b"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL714",
+      "name": "dye.vwPreTransOrderColor",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobCombineOrder",
+        "JobSheet",
+        "OrderColor",
+        "OrderMain",
+        "SemiOutWorkApply",
+        "SemiOutWorkApplyDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "cc60828209d184c866510c424b4ec043ca345479f81db9fade01ab073ec116e8"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL715",
+      "name": "dye.vwPreTransOrderColor_New",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "F_Get_No",
+        "JobSheet",
+        "OrderColor",
+        "OrderMain",
+        "Quote",
+        "QuoteDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "b157dcde5d37dc832133b3e3cb961456fe6aed18d6e4675f62420e5bf17ac130"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL716",
+      "name": "dye.vwPreTransOrderColorByPlan",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobSheet",
+        "OrderColor",
+        "OrderMain",
+        "PlanDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f76e6df88cd639a830d6b361f216b01f17ad6fd75b4600ef993bee1eeeeb2f70"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL717",
+      "name": "dye.vwPreTransOrderColorPrepare",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobSheet",
+        "OrderColor",
+        "OrderMain"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "7dd568a4494280035d892c3ab6c7a0d67ced72d6893f3ca13857b2642c8b9841"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL718",
+      "name": "dye.vwPreTransOrderColorPrepareByPlan",
+      "type": "V",
+      "status": "已完成",
+      "module": "销售管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "JobSheet",
+        "OrderColor",
+        "OrderMain",
+        "PlanDetail"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "6c525f90d58ca32a4a2a39f04eecb37b0aebb867fee198aadae8dab5b6a52490"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL723",
+      "name": "dye.vwSampleInQuery",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "SampleIn",
+        "SampleInDetail",
+        "p_Fabric"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "f21359cd711b229eed70c763d126fdc5135c864611accbd4add955f815df01f2"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL724",
+      "name": "dye.vwSampleOutQuery",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "SampleOut",
+        "SampleOutDetail",
+        "p_Fabric"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "ca1b3db691bee21caa130d4d9959f7fe43d69c86118f359f2a52152419fd13df"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    },
+    {
+      "id": "SQL725",
+      "name": "dye.vwSampleStockBook",
+      "type": "V",
+      "status": "已完成",
+      "module": "打样管理",
+      "phase": 2,
+      "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+      "legacy_status": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。",
+      "code": [
+        "backend/plugins/erp_base/source_phase2_reports.py"
+      ],
+      "tests": [
+        "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+        "backend/plugins/erp_base/tests/test_source_phase2.py"
+      ],
+      "proof": [
+        "docs/2026-10-16第二阶段销售订单与打样配方实施记录.md"
+      ],
+      "external": [],
+      "refs": [
+        "SampleStockBook",
+        "p_Fabric",
+        "p_FieldValid"
+      ],
+      "candidate_missing_refs": [],
+      "implementation_stage": "第二阶段本地代码路径已接入",
+      "development": {
+        "status": "开发完成",
+        "entry": "phase2_report",
+        "reason": "原字段/原键核对、service路径、实际入口及必要回归已核查；已知移植差异按异常文档明确处理。",
+        "validation_files": [
+          "backend/plugins/erp_base/tests/test_phase_report_audit.py",
+          "backend/plugins/erp_base/tests/test_source_phase2.py"
+        ],
+        "evidence": "docs/erp-phase12-verification-20261016.json",
+        "source_definition_sha256": "466839d95654d17f5dbf56de7e2eec1f4b6a10884c07546c908f7a4579d26199"
+      },
+      "historical_reconciliation": {
+        "status": "业务结果待全量对账",
+        "note": "既有原行/原字段承接证据保留；未证明本对象全部参数、来源、时点和执行结果全量一致。本轮没有新历史导入。"
+      },
+      "field_acceptance": {
+        "status": "待现场验收",
+        "note": "随所属业务流程合并验收；不是每个SQL对象新增一个现场问题。没有逐项现场签认依据。"
+      },
+      "previous_mixed_reason": "原固定投影/参数已接入并通过结构执行；保留重复连接与多结果集。原失配修正及完整历史核对边界见E114/E117/E118。本地实现已接入；完整历史、原客户端时点及所列差异尚不属于整项验收通过。"
+    }
+  ],
+  "previous_mixed_counts": {
+    "部分完成": 99,
+    "已完成": 5
+  },
+  "completion_basis": "开发完成与历史数据对账、现场验收分别列示；当前以phase12复核为准",
+  "counts_basis": "development.status；历史数据对账与现场验收分别列示"
+}

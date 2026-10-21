@@ -1,0 +1,15 @@
+{
+  "reports": [
+    "H008",
+    "H024",
+    "R121"
+  ],
+  "independent_html_verified": true,
+  "bookmark_navigation": [
+    "H008#original-bookmark-3",
+    "H024#original-bookmark-3"
+  ],
+  "render_notes": "应用内iframe已返回正确行数/页数/srcdoc，但本次IAB截图中纸张空白；使用同一HTML在本机独立页面验证布局和书签。内嵌显示未判定通过，未修改sandbox权限。",
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成"
+}

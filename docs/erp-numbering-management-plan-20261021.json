@@ -1,0 +1,4348 @@
+{
+  "date": "2026-10-21",
+  "stage": "29条建议规则已实施；已引用资料改码/复杂单号变更有明确限制；正式历史全量对账和现场验收未完成",
+  "source_rows_date": "2026-10-21",
+  "business_snapshot_date": "2026-10-14",
+  "suggested_rule_count": 29,
+  "suggestions": [
+    {
+      "title": "部门",
+      "model": "erp_base.SourceDyePDept",
+      "source_table": "dye.p_Dept",
+      "old_field": "DeptID",
+      "target_field": "old_dept_id",
+      "filters": {},
+      "prefix": "",
+      "digits": 2,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 11,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 2,
+            "rows": 11
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 10
+        },
+        "examples": [
+          "00",
+          "01",
+          "02",
+          "03",
+          "04"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "11",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "员工",
+      "model": "erp_base.SourceDyeHEmployee",
+      "source_table": "dye.h_Employee",
+      "old_field": "EmpID",
+      "target_field": "old_emp_id",
+      "filters": {},
+      "prefix": "HF",
+      "digits": 4,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 274,
+        "patterns": [
+          {
+            "prefix": "HF",
+            "digits": 4,
+            "rows": 274
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "HF": 1686
+        },
+        "examples": [
+          "HF0000",
+          "HF0018",
+          "HF1000",
+          "HF1001",
+          "HF1002"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "HF1687",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "坯纱规格",
+      "model": "erp_base.SourceDyePGray",
+      "source_table": "dye.p_Gray",
+      "old_field": "GrayID",
+      "target_field": "old_gray_id",
+      "filters": {},
+      "prefix": "",
+      "digits": 5,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 648,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 5,
+            "rows": 648
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 714
+        },
+        "examples": [
+          "00001",
+          "00002",
+          "00003",
+          "00004",
+          "00005"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "00715",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "生产班组",
+      "model": "erp_base.SourceDyePShift",
+      "source_table": "dye.p_Shift",
+      "old_field": "ShiftID",
+      "target_field": "old_shift_id",
+      "filters": {},
+      "prefix": "A",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 33,
+        "patterns": [
+          {
+            "prefix": "A",
+            "digits": 3,
+            "rows": 33
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "A": 197
+        },
+        "examples": [
+          "A001",
+          "A002",
+          "A048",
+          "A064",
+          "A086"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "A198",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "染色曲线",
+      "model": "erp_base.SourceDyePDyeCurve",
+      "source_table": "dye.p_DyeCurve",
+      "old_field": "CurveID",
+      "target_field": "old_curve_id",
+      "filters": {},
+      "prefix": "",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 21,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 3,
+            "rows": 21
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 23
+        },
+        "examples": [
+          "001",
+          "002",
+          "003",
+          "004",
+          "005"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "024",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "幅宽克重单位共用号码池",
+      "model": "erp_warehouse.SourceDyeWidthGramWeight",
+      "source_table": "dye.WidthGramWeight",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {},
+      "prefix": "",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 18,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 3,
+            "rows": 18
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 18
+        },
+        "examples": [
+          "004",
+          "005",
+          "006",
+          "007",
+          "009"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "019",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "客户",
+      "model": "erp_base.SourceDyePCustomer",
+      "source_table": "dye.p_Customer",
+      "old_field": "CustomerID",
+      "target_field": "old_customer_id",
+      "filters": {
+        "CustKindID": "0"
+      },
+      "prefix": "",
+      "digits": 3,
+      "initial_number": 0,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 91,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 3,
+            "rows": 90
+          },
+          {
+            "prefix": "",
+            "digits": 2,
+            "rows": 1
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 106
+        },
+        "examples": [
+          "000",
+          "001",
+          "002",
+          "003",
+          "004"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "107",
+      "fits_digits": true,
+      "notes": "90条3位、1条2位原样保留；新码采用3位"
+    },
+    {
+      "title": "供应商",
+      "model": "erp_base.SourceDyePCustomer",
+      "source_table": "dye.p_Customer",
+      "old_field": "CustomerID",
+      "target_field": "old_customer_id",
+      "filters": {
+        "CustKindID": "1"
+      },
+      "prefix": "G",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 91,
+        "patterns": [
+          {
+            "prefix": "G",
+            "digits": 3,
+            "rows": 91
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "G": 93
+        },
+        "examples": [
+          "G001",
+          "G002",
+          "G003",
+          "G004",
+          "G005"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "G094",
+      "fits_digits": true,
+      "notes": "CustomerID与Num按原保存关联办理，只消费一次编号"
+    },
+    {
+      "title": "仓库注册",
+      "model": "erp_base.SourceDyePFieldValid",
+      "source_table": "dye.p_FieldValid",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {
+        "FieldType": "WareHouseID"
+      },
+      "prefix": "",
+      "digits": 4,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 10,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 2,
+            "rows": 7
+          },
+          {
+            "prefix": "",
+            "digits": 4,
+            "rows": 3
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 803
+        },
+        "examples": [
+          "0801",
+          "0802",
+          "0803",
+          "12",
+          "13"
+        ]
+      },
+      "number_pool": "原复合键的分类范围",
+      "next_example": "0804",
+      "fits_digits": true,
+      "notes": "旧2位和4位混存；仅新码采用4位"
+    },
+    {
+      "title": "后纺包装",
+      "model": "erp_base.SourceDyePFieldValid",
+      "source_table": "dye.p_FieldValid",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {
+        "FieldType": "PackBag"
+      },
+      "prefix": "A",
+      "digits": 2,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 10,
+        "patterns": [
+          {
+            "prefix": "A",
+            "digits": 2,
+            "rows": 10
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "A": 13
+        },
+        "examples": [
+          "A01",
+          "A03",
+          "A04",
+          "A06",
+          "A07"
+        ]
+      },
+      "number_pool": "原复合键的分类范围",
+      "next_example": "A14",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "前纺包装",
+      "model": "erp_base.SourceDyePFieldValid",
+      "source_table": "dye.p_FieldValid",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {
+        "FieldType": "PackBag_QF"
+      },
+      "prefix": "D",
+      "digits": 2,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 5,
+        "patterns": [
+          {
+            "prefix": "D",
+            "digits": 2,
+            "rows": 5
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "D": 6
+        },
+        "examples": [
+          "D01",
+          "D03",
+          "D04",
+          "D05",
+          "D06"
+        ]
+      },
+      "number_pool": "原复合键的分类范围",
+      "next_example": "D07",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "后纺纸筒",
+      "model": "erp_base.SourceDyePFieldValid",
+      "source_table": "dye.p_FieldValid",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {
+        "FieldType": "TubeWeight"
+      },
+      "prefix": "B",
+      "digits": 2,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 6,
+        "patterns": [
+          {
+            "prefix": "B",
+            "digits": 2,
+            "rows": 6
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "B": 7
+        },
+        "examples": [
+          "B01",
+          "B02",
+          "B03",
+          "B05",
+          "B06"
+        ]
+      },
+      "number_pool": "原复合键的分类范围",
+      "next_example": "B08",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "前纺纸筒",
+      "model": "erp_base.SourceDyePFieldValid",
+      "source_table": "dye.p_FieldValid",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {
+        "FieldType": "TubeWeight_QF"
+      },
+      "prefix": "C",
+      "digits": 2,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 7,
+        "patterns": [
+          {
+            "prefix": "C",
+            "digits": 2,
+            "rows": 7
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "C": 8
+        },
+        "examples": [
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06"
+        ]
+      },
+      "number_pool": "原复合键的分类范围",
+      "next_example": "C09",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "销售区域",
+      "model": "erp_base.SourceDyePFieldValid",
+      "source_table": "dye.p_FieldValid",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {
+        "FieldType": "Area"
+      },
+      "prefix": "A",
+      "digits": 2,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 5,
+        "patterns": [
+          {
+            "prefix": "A",
+            "digits": 2,
+            "rows": 5
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "A": 5
+        },
+        "examples": [
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A05"
+        ]
+      },
+      "number_pool": "原复合键的分类范围",
+      "next_example": "A06",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "白坯库位",
+      "model": "erp_base.SourceDyePStorageUnitID",
+      "source_table": "dye.p_StorageUnitID",
+      "old_field": "Code",
+      "target_field": "old_code",
+      "filters": {
+        "FieldType": "GrayStorage"
+      },
+      "prefix": "",
+      "digits": 4,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 801,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 4,
+            "rows": 801
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 800
+        },
+        "examples": [
+          "0000",
+          "0001",
+          "0002",
+          "0003",
+          "0004"
+        ]
+      },
+      "number_pool": "原复合键的分类范围",
+      "next_example": "0801",
+      "fits_digits": true,
+      "notes": ""
+    },
+    {
+      "title": "A系列染化料",
+      "model": "erp_base.SourceDyePStuff",
+      "source_table": "dye.p_Stuff",
+      "old_field": "StuffID",
+      "target_field": "old_stuff_id",
+      "filters": {
+        "StuffKindID": [
+          "FS",
+          "HX",
+          "SX"
+        ]
+      },
+      "prefix": "A",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 221,
+        "patterns": [
+          {
+            "prefix": "A",
+            "digits": 3,
+            "rows": 221
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "A": 230
+        },
+        "examples": [
+          "A001",
+          "A002",
+          "A003",
+          "A007",
+          "A008"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "A231",
+      "fits_digits": true,
+      "notes": "A系列三个类别共用同一流水；原StuffID为全表身份"
+    },
+    {
+      "title": "W系列染化料",
+      "model": "erp_base.SourceDyePStuff",
+      "source_table": "dye.p_Stuff",
+      "old_field": "StuffID",
+      "target_field": "old_stuff_id",
+      "filters": {
+        "StuffKindID": [
+          "ZJ"
+        ]
+      },
+      "prefix": "W",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 105,
+        "patterns": [
+          {
+            "prefix": "W",
+            "digits": 3,
+            "rows": 105
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "W": 106
+        },
+        "examples": [
+          "W001",
+          "W002",
+          "W003",
+          "W004",
+          "W005"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "W107",
+      "fits_digits": true,
+      "notes": "A系列三个类别共用同一流水；原StuffID为全表身份"
+    },
+    {
+      "title": "Z系列染化料",
+      "model": "erp_base.SourceDyePStuff",
+      "source_table": "dye.p_Stuff",
+      "old_field": "StuffID",
+      "target_field": "old_stuff_id",
+      "filters": {
+        "StuffKindID": [
+          "GY"
+        ]
+      },
+      "prefix": "Z",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 3,
+        "patterns": [
+          {
+            "prefix": "Z",
+            "digits": 3,
+            "rows": 3
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "Z": 3
+        },
+        "examples": [
+          "Z001",
+          "Z002",
+          "Z003"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "Z004",
+      "fits_digits": true,
+      "notes": "A系列三个类别共用同一流水；原StuffID为全表身份"
+    },
+    {
+      "title": "机物料类别03",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "03"
+      },
+      "prefix": "PD-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 51,
+        "patterns": [
+          {
+            "prefix": "PD-",
+            "digits": 3,
+            "rows": 45
+          },
+          {
+            "prefix": "PD-",
+            "digits": 1,
+            "rows": 6
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "PD-": 226
+        },
+        "examples": [
+          "PD-001",
+          "PD-003",
+          "PD-004",
+          "PD-005",
+          "PD-006"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "PD-227",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别04",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "04"
+      },
+      "prefix": "ZC-",
+      "digits": 4,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 53,
+        "patterns": [
+          {
+            "prefix": "ZC-",
+            "digits": 3,
+            "rows": 35
+          },
+          {
+            "prefix": "ZC-",
+            "digits": 4,
+            "rows": 11
+          },
+          {
+            "prefix": "ZC-",
+            "digits": 1,
+            "rows": 5
+          },
+          {
+            "prefix": "ZC-",
+            "digits": 2,
+            "rows": 2
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "ZC-": 2119
+        },
+        "examples": [
+          "ZC-001",
+          "ZC-002",
+          "ZC-003",
+          "ZC-006",
+          "ZC-007"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "ZC-2120",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别05",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "05"
+      },
+      "prefix": "DJ-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 13,
+        "patterns": [
+          {
+            "prefix": "DJ-",
+            "digits": 3,
+            "rows": 12
+          },
+          {
+            "prefix": "DJ-",
+            "digits": 2,
+            "rows": 1
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "DJ-": 82
+        },
+        "examples": [
+          "DJ-001",
+          "DJ-002",
+          "DJ-003",
+          "DJ-005",
+          "DJ-010"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "DJ-083",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别07",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "07"
+      },
+      "prefix": "JX-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 14,
+        "patterns": [
+          {
+            "prefix": "JX-",
+            "digits": 3,
+            "rows": 13
+          },
+          {
+            "prefix": "JX-",
+            "digits": 1,
+            "rows": 1
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "JX-": 64
+        },
+        "examples": [
+          "JX-001",
+          "JX-003",
+          "JX-007",
+          "JX-010",
+          "JX-013"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "JX-065",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别08",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "08"
+      },
+      "prefix": "YF-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 19,
+        "patterns": [
+          {
+            "prefix": "YF-",
+            "digits": 3,
+            "rows": 16
+          },
+          {
+            "prefix": "YF-",
+            "digits": 1,
+            "rows": 3
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "YF-": 97
+        },
+        "examples": [
+          "YF-001",
+          "YF-006",
+          "YF-007",
+          "YF-012",
+          "YF-020"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "YF-098",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别09",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "09"
+      },
+      "prefix": "FM-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 10,
+        "patterns": [
+          {
+            "prefix": "FM-",
+            "digits": 3,
+            "rows": 7
+          },
+          {
+            "prefix": "FM-",
+            "digits": 1,
+            "rows": 3
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "FM-": 151
+        },
+        "examples": [
+          "FM-001",
+          "FM-002",
+          "FM-003",
+          "FM-004",
+          "FM-005"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "FM-152",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别12",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "12"
+      },
+      "prefix": "BL-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 20,
+        "patterns": [
+          {
+            "prefix": "BL-",
+            "digits": 3,
+            "rows": 15
+          },
+          {
+            "prefix": "BL-",
+            "digits": 1,
+            "rows": 5
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "BL-": 162
+        },
+        "examples": [
+          "BL-001",
+          "BL-004",
+          "BL-006",
+          "BL-009",
+          "BL-015"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "BL-163",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别13",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "13"
+      },
+      "prefix": "YL-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 26,
+        "patterns": [
+          {
+            "prefix": "YL-",
+            "digits": 3,
+            "rows": 25
+          },
+          {
+            "prefix": "YL-",
+            "digits": 1,
+            "rows": 1
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "YL-": 81
+        },
+        "examples": [
+          "YL-001",
+          "YL-002",
+          "YL-003",
+          "YL-005",
+          "YL-007"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "YL-082",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别14",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "14"
+      },
+      "prefix": "HT-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 10,
+        "patterns": [
+          {
+            "prefix": "HT-",
+            "digits": 3,
+            "rows": 10
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "HT-": 187
+        },
+        "examples": [
+          "HT-001",
+          "HT-005",
+          "HT-010",
+          "HT-054",
+          "HT-099"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "HT-188",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别15",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "15"
+      },
+      "prefix": "WX-",
+      "digits": 4,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 10,
+        "patterns": [
+          {
+            "prefix": "WX-",
+            "digits": 3,
+            "rows": 7
+          },
+          {
+            "prefix": "WX-",
+            "digits": 4,
+            "rows": 3
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "WX-": 51
+        },
+        "examples": [
+          "WX-0001",
+          "WX-0003",
+          "WX-0004",
+          "WX-004",
+          "WX-005"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "WX-0052",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    },
+    {
+      "title": "机物料类别20",
+      "model": "erp_base.SourceDyePArticle",
+      "source_table": "dye.p_Article",
+      "old_field": "ArticleID",
+      "target_field": "old_article_id",
+      "filters": {
+        "ArticleKindID": "20"
+      },
+      "prefix": "MEI-",
+      "digits": 3,
+      "initial_number": 1,
+      "allow_manual_create": true,
+      "allow_code_change": false,
+      "proposed_auto_enabled": true,
+      "profile": {
+        "rows": 1,
+        "patterns": [
+          {
+            "prefix": "MEI-",
+            "digits": 3,
+            "rows": 1
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "MEI-": 99
+        },
+        "examples": [
+          "MEI-099"
+        ]
+      },
+      "number_pool": "全模型同一字段同一前缀",
+      "next_example": "MEI-100",
+      "fits_digits": true,
+      "notes": "同前缀位数不同时，新码采用已见最大尾号宽度；旧码不变"
+    }
+  ],
+  "article_groups": [
+    {
+      "kind": "01",
+      "rows": 35,
+      "patterns": [
+        {
+          "prefix": "BG-",
+          "digits": 3,
+          "rows": 24
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 3,
+          "rows": 10
+        },
+        {
+          "prefix": "BJ-",
+          "digits": 3,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "BG-": 126,
+        "BJ-": 12,
+        "ZC-": 324
+      },
+      "examples": [
+        "BG-001",
+        "BG-002",
+        "BG-003",
+        "BG-004",
+        "BG-005"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    },
+    {
+      "kind": "02",
+      "rows": 21,
+      "patterns": [
+        {
+          "prefix": "LB-",
+          "digits": 3,
+          "rows": 19
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 3,
+          "rows": 2
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "LB-": 40,
+        "ZC-": 320
+      },
+      "examples": [
+        "LB-001",
+        "LB-002",
+        "LB-003",
+        "LB-004",
+        "LB-005"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    },
+    {
+      "kind": "03",
+      "rows": 51,
+      "patterns": [
+        {
+          "prefix": "PD-",
+          "digits": 3,
+          "rows": 45
+        },
+        {
+          "prefix": "PD-",
+          "digits": 1,
+          "rows": 6
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "PD-": 226
+      },
+      "examples": [
+        "PD-001",
+        "PD-003",
+        "PD-004",
+        "PD-005",
+        "PD-006"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "04",
+      "rows": 53,
+      "patterns": [
+        {
+          "prefix": "ZC-",
+          "digits": 3,
+          "rows": 35
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 4,
+          "rows": 11
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 1,
+          "rows": 5
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 2,
+          "rows": 2
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "ZC-": 2119
+      },
+      "examples": [
+        "ZC-001",
+        "ZC-002",
+        "ZC-003",
+        "ZC-006",
+        "ZC-007"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "05",
+      "rows": 13,
+      "patterns": [
+        {
+          "prefix": "DJ-",
+          "digits": 3,
+          "rows": 12
+        },
+        {
+          "prefix": "DJ-",
+          "digits": 2,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "DJ-": 82
+      },
+      "examples": [
+        "DJ-001",
+        "DJ-002",
+        "DJ-003",
+        "DJ-005",
+        "DJ-010"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "06",
+      "rows": 21,
+      "patterns": [
+        {
+          "prefix": "DQ-",
+          "digits": 3,
+          "rows": 16
+        },
+        {
+          "prefix": "DQ-",
+          "digits": 1,
+          "rows": 2
+        },
+        {
+          "prefix": "DQ-",
+          "digits": 4,
+          "rows": 2
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 3,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "DQ-": 4308,
+        "ZC-": 323
+      },
+      "examples": [
+        "DQ-003",
+        "DQ-005",
+        "DQ-006",
+        "DQ-007",
+        "DQ-045"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    },
+    {
+      "kind": "07",
+      "rows": 14,
+      "patterns": [
+        {
+          "prefix": "JX-",
+          "digits": 3,
+          "rows": 13
+        },
+        {
+          "prefix": "JX-",
+          "digits": 1,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "JX-": 64
+      },
+      "examples": [
+        "JX-001",
+        "JX-003",
+        "JX-007",
+        "JX-010",
+        "JX-013"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "08",
+      "rows": 19,
+      "patterns": [
+        {
+          "prefix": "YF-",
+          "digits": 3,
+          "rows": 16
+        },
+        {
+          "prefix": "YF-",
+          "digits": 1,
+          "rows": 3
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "YF-": 97
+      },
+      "examples": [
+        "YF-001",
+        "YF-006",
+        "YF-007",
+        "YF-012",
+        "YF-020"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "09",
+      "rows": 10,
+      "patterns": [
+        {
+          "prefix": "FM-",
+          "digits": 3,
+          "rows": 7
+        },
+        {
+          "prefix": "FM-",
+          "digits": 1,
+          "rows": 3
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "FM-": 151
+      },
+      "examples": [
+        "FM-001",
+        "FM-002",
+        "FM-003",
+        "FM-004",
+        "FM-005"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "10",
+      "rows": 34,
+      "patterns": [
+        {
+          "prefix": "JT-",
+          "digits": 3,
+          "rows": 25
+        },
+        {
+          "prefix": "JT-",
+          "digits": 4,
+          "rows": 4
+        },
+        {
+          "prefix": "JT-",
+          "digits": 1,
+          "rows": 2
+        },
+        {
+          "prefix": "DQ-",
+          "digits": 3,
+          "rows": 1
+        },
+        {
+          "prefix": "JF-",
+          "digits": 3,
+          "rows": 1
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 3,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "DQ-": 182,
+        "JF-": 16,
+        "JT-": 4541,
+        "ZC-": 319
+      },
+      "examples": [
+        "DQ-182",
+        "JF-016",
+        "JT-0004",
+        "JT-0005",
+        "JT-002"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    },
+    {
+      "kind": "11",
+      "rows": 26,
+      "patterns": [
+        {
+          "prefix": "JD-",
+          "digits": 3,
+          "rows": 22
+        },
+        {
+          "prefix": "GD-",
+          "digits": 3,
+          "rows": 3
+        },
+        {
+          "prefix": "JD-",
+          "digits": 1,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "GD-": 594,
+        "JD-": 24
+      },
+      "examples": [
+        "GD-013",
+        "GD-036",
+        "GD-594",
+        "JD-001",
+        "JD-002"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    },
+    {
+      "kind": "12",
+      "rows": 20,
+      "patterns": [
+        {
+          "prefix": "BL-",
+          "digits": 3,
+          "rows": 15
+        },
+        {
+          "prefix": "BL-",
+          "digits": 1,
+          "rows": 5
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "BL-": 162
+      },
+      "examples": [
+        "BL-001",
+        "BL-004",
+        "BL-006",
+        "BL-009",
+        "BL-015"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "13",
+      "rows": 26,
+      "patterns": [
+        {
+          "prefix": "YL-",
+          "digits": 3,
+          "rows": 25
+        },
+        {
+          "prefix": "YL-",
+          "digits": 1,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "YL-": 81
+      },
+      "examples": [
+        "YL-001",
+        "YL-002",
+        "YL-003",
+        "YL-005",
+        "YL-007"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "14",
+      "rows": 10,
+      "patterns": [
+        {
+          "prefix": "HT-",
+          "digits": 3,
+          "rows": 10
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "HT-": 187
+      },
+      "examples": [
+        "HT-001",
+        "HT-005",
+        "HT-010",
+        "HT-054",
+        "HT-099"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "15",
+      "rows": 10,
+      "patterns": [
+        {
+          "prefix": "WX-",
+          "digits": 3,
+          "rows": 7
+        },
+        {
+          "prefix": "WX-",
+          "digits": 4,
+          "rows": 3
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "WX-": 51
+      },
+      "examples": [
+        "WX-0001",
+        "WX-0003",
+        "WX-0004",
+        "WX-004",
+        "WX-005"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "18",
+      "rows": 7,
+      "patterns": [
+        {
+          "prefix": "DX-",
+          "digits": 4,
+          "rows": 2
+        },
+        {
+          "prefix": "DX-",
+          "digits": 1,
+          "rows": 2
+        },
+        {
+          "prefix": "",
+          "digits": 3,
+          "rows": 1
+        },
+        {
+          "prefix": "DX-",
+          "digits": 3,
+          "rows": 1
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 3,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "": 7,
+        "DX-": 2,
+        "ZC-": 307
+      },
+      "examples": [
+        "007",
+        "DX-0001",
+        "DX-0002",
+        "DX-002",
+        "DX-1"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    },
+    {
+      "kind": "19",
+      "rows": 22,
+      "patterns": [
+        {
+          "prefix": "BZ-",
+          "digits": 3,
+          "rows": 19
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 4,
+          "rows": 2
+        },
+        {
+          "prefix": "ZC-",
+          "digits": 3,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "BZ-": 314,
+        "ZC-": 2098
+      },
+      "examples": [
+        "BZ-001",
+        "BZ-003",
+        "BZ-019",
+        "BZ-049",
+        "BZ-050"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    },
+    {
+      "kind": "20",
+      "rows": 1,
+      "patterns": [
+        {
+          "prefix": "MEI-",
+          "digits": 3,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "MEI-": 99
+      },
+      "examples": [
+        "MEI-099"
+      ],
+      "proposal": "建议初始化"
+    },
+    {
+      "kind": "21",
+      "rows": 6,
+      "patterns": [
+        {
+          "prefix": "PB-Z",
+          "digits": 3,
+          "rows": 5
+        },
+        {
+          "prefix": "PB-S",
+          "digits": 3,
+          "rows": 1
+        }
+      ],
+      "nulls": 0,
+      "empty_strings": 0,
+      "other_count": 0,
+      "other_examples": [],
+      "max_numeric_suffix_by_prefix": {
+        "PB-S": 1,
+        "PB-Z": 21
+      },
+      "examples": [
+        "PB-S001",
+        "PB-Z001",
+        "PB-Z002",
+        "PB-Z011",
+        "PB-Z012"
+      ],
+      "proposal": "多系列混存，不推断唯一默认前缀，保留录入"
+    }
+  ],
+  "other_profiles": [
+    {
+      "title": "工序",
+      "table": "dye.p_Process",
+      "field": "ProcessID",
+      "filters": {},
+      "profile": {
+        "rows": 18,
+        "patterns": [
+          {
+            "prefix": "GX",
+            "digits": 2,
+            "rows": 18
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "GX": 98
+        },
+        "examples": [
+          "GX00",
+          "GX01",
+          "GX03",
+          "GX04",
+          "GX05"
+        ]
+      }
+    },
+    {
+      "title": "备料步骤",
+      "table": "dye.Stuff_Step",
+      "field": "Code",
+      "filters": {},
+      "profile": {
+        "rows": 70,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 3,
+            "rows": 70
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 710
+        },
+        "examples": [
+          "101",
+          "102",
+          "103",
+          "104",
+          "105"
+        ]
+      }
+    },
+    {
+      "title": "生产机台",
+      "table": "dye.p_Machine",
+      "field": "MachineID",
+      "filters": {},
+      "profile": {
+        "rows": 120,
+        "patterns": [
+          {
+            "prefix": "J",
+            "digits": 2,
+            "rows": 34
+          },
+          {
+            "prefix": "3-A",
+            "digits": 2,
+            "rows": 17
+          },
+          {
+            "prefix": "H",
+            "digits": 2,
+            "rows": 13
+          },
+          {
+            "prefix": "4-B",
+            "digits": 2,
+            "rows": 10
+          },
+          {
+            "prefix": "G",
+            "digits": 2,
+            "rows": 9
+          },
+          {
+            "prefix": "F",
+            "digits": 2,
+            "rows": 7
+          },
+          {
+            "prefix": "C",
+            "digits": 2,
+            "rows": 4
+          },
+          {
+            "prefix": "D",
+            "digits": 2,
+            "rows": 4
+          },
+          {
+            "prefix": "E",
+            "digits": 2,
+            "rows": 4
+          },
+          {
+            "prefix": "4-C",
+            "digits": 2,
+            "rows": 3
+          },
+          {
+            "prefix": "A",
+            "digits": 2,
+            "rows": 2
+          },
+          {
+            "prefix": "B",
+            "digits": 2,
+            "rows": 2
+          },
+          {
+            "prefix": "3-B",
+            "digits": 2,
+            "rows": 1
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 10,
+        "other_examples": [
+          "4-C01上层",
+          "4-C01下层",
+          "4-C02上层",
+          "4-C02下层",
+          "4-C03上层"
+        ],
+        "max_numeric_suffix_by_prefix": {
+          "3-A": 17,
+          "3-B": 10,
+          "4-B": 10,
+          "4-C": 8,
+          "A": 2,
+          "B": 2,
+          "C": 4,
+          "D": 4,
+          "E": 4,
+          "F": 7,
+          "G": 9,
+          "H": 13,
+          "J": 34
+        },
+        "examples": [
+          "3-A01",
+          "3-A02",
+          "3-A03",
+          "3-A04",
+          "3-A05"
+        ]
+      }
+    },
+    {
+      "title": "机台编号",
+      "table": "dye.p_Machine",
+      "field": "MachineNo",
+      "filters": {},
+      "profile": {
+        "rows": 120,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 2,
+            "rows": 85
+          },
+          {
+            "prefix": "",
+            "digits": 1,
+            "rows": 35
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 75
+        },
+        "examples": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    },
+    {
+      "title": "色号档案",
+      "table": "dye.P_ColorNum",
+      "field": "ColorNo",
+      "filters": {},
+      "profile": {
+        "rows": 41706,
+        "patterns": [
+          {
+            "prefix": "",
+            "digits": 14,
+            "rows": 41659
+          },
+          {
+            "prefix": "DY240902002-",
+            "digits": 2,
+            "rows": 12
+          },
+          {
+            "prefix": "DY240903013-",
+            "digits": 2,
+            "rows": 4
+          },
+          {
+            "prefix": "DD240902001-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902002-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902003-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902005-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902006-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902007-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902008-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902009-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902010-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240902011-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903001-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903002-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903003-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903004-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903005-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903006-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903007-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240903008-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DD240904001-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903001-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903002-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903003-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903004-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903005-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903006-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903007-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903008-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903009-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903010-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903011-",
+            "digits": 2,
+            "rows": 1
+          },
+          {
+            "prefix": "DY240903015-",
+            "digits": 2,
+            "rows": 1
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "": 20240712002401,
+          "DD240902001-": 1,
+          "DD240902002-": 1,
+          "DD240902003-": 1,
+          "DD240902005-": 1,
+          "DD240902006-": 1,
+          "DD240902007-": 1,
+          "DD240902008-": 1,
+          "DD240902009-": 1,
+          "DD240902010-": 1,
+          "DD240902011-": 1,
+          "DD240903001-": 1,
+          "DD240903002-": 1,
+          "DD240903003-": 1,
+          "DD240903004-": 1,
+          "DD240903005-": 1,
+          "DD240903006-": 1,
+          "DD240903007-": 1,
+          "DD240903008-": 1,
+          "DD240904001-": 1,
+          "DY240902002-": 13,
+          "DY240903001-": 1,
+          "DY240903002-": 1,
+          "DY240903003-": 1,
+          "DY240903004-": 1,
+          "DY240903005-": 1,
+          "DY240903006-": 1,
+          "DY240903007-": 1,
+          "DY240903008-": 1,
+          "DY240903009-": 1,
+          "DY240903010-": 1,
+          "DY240903011-": 1,
+          "DY240903013-": 4,
+          "DY240903015-": 1
+        },
+        "examples": [
+          "20170611000101",
+          "20170619000101",
+          "20170627000201",
+          "20170627000501",
+          "20170627000801"
+        ]
+      }
+    },
+    {
+      "title": "区域库位",
+      "table": "dye.p_StorageUnitID",
+      "field": "Code",
+      "filters": {
+        "FieldType": "StorageArea"
+      },
+      "profile": {
+        "rows": 32,
+        "patterns": [
+          {
+            "prefix": "B",
+            "digits": 3,
+            "rows": 27
+          },
+          {
+            "prefix": "A",
+            "digits": 3,
+            "rows": 5
+          }
+        ],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {
+          "A": 5,
+          "B": 36
+        },
+        "examples": [
+          "A001",
+          "A002",
+          "A003",
+          "A004",
+          "A005"
+        ]
+      }
+    },
+    {
+      "title": "成品规格主键",
+      "table": "dye.p_Product",
+      "field": "ProdID",
+      "filters": {},
+      "profile": {
+        "rows": 0,
+        "patterns": [],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {},
+        "examples": []
+      }
+    },
+    {
+      "title": "成品规格业务码",
+      "table": "dye.p_Product",
+      "field": "ProdCode",
+      "filters": {},
+      "profile": {
+        "rows": 0,
+        "patterns": [],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {},
+        "examples": []
+      }
+    },
+    {
+      "title": "检验项目",
+      "table": "dye.p_TestItem",
+      "field": "ItemID",
+      "filters": {},
+      "profile": {
+        "rows": 0,
+        "patterns": [],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {},
+        "examples": []
+      }
+    },
+    {
+      "title": "染色程序",
+      "table": "dye.p_DyeProgram",
+      "field": "ProgramID",
+      "filters": {},
+      "profile": {
+        "rows": 0,
+        "patterns": [],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {},
+        "examples": []
+      }
+    },
+    {
+      "title": "公司抬头",
+      "table": "dye.s_CorpTitle",
+      "field": "Code",
+      "filters": {},
+      "profile": {
+        "rows": 0,
+        "patterns": [],
+        "nulls": 0,
+        "empty_strings": 0,
+        "other_count": 0,
+        "other_examples": [],
+        "max_numeric_suffix_by_prefix": {},
+        "examples": []
+      }
+    }
+  ],
+  "sheetno_config_counts": {
+    "DateCode": 207,
+    "FollowSeries": 3,
+    "AutoAdd_Time": 1,
+    "AutoAdd_Local": 2,
+    "SeriesAndRowNo": 1
+  },
+  "sheetno_entries": [
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "AddStuffWeight",
+      "title": "染料称料（加料）",
+      "kind": "DateCode",
+      "prefix": "9",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "AfterNormalStuffWeight",
+      "title": "染料称料(后处理)",
+      "kind": "DateCode",
+      "prefix": "9",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "DStuffWeight",
+      "title": "刷卡领料-领料人对应料单信息",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "NormalStuffWeight",
+      "title": "染料称料(正常)",
+      "kind": "DateCode",
+      "prefix": "9",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "NormalStuffWeight_Wash",
+      "title": "洗缸料单新增",
+      "kind": "DateCode",
+      "prefix": "9",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "ProcessStuffWeight",
+      "title": "染料称料（工序）",
+      "kind": "DateCode",
+      "prefix": "9",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "qry_QuoteRelaStuff",
+      "title": "报价单相关料单信息",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "ReworkStuffWeight",
+      "title": "染料称料（回修）",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "SelfStuffWeight",
+      "title": "染料称料（自行）",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "StuffWeight",
+      "title": "染料称料",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffWeight",
+      "entry": "WashProcessStuffWeight",
+      "title": "染料称料（洗水工序）",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "entry": "AMaterialPriceAdjust",
+      "title": "机物料调价主表",
+      "kind": "DateCode",
+      "prefix": "AM",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "entry": "SMaterialPriceAdjust",
+      "title": "染化料调价主表",
+      "kind": "DateCode",
+      "prefix": "SM",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeArrivalNotice",
+      "entry": "ArrivalNotice",
+      "title": "到货通知",
+      "kind": "DateCode",
+      "prefix": "W",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleDeptApply",
+      "entry": "ArticleDeptApply",
+      "title": "机物料部门采购",
+      "kind": "DateCode",
+      "prefix": "AD",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleIn",
+      "entry": "ArticleIn",
+      "title": "机物料入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleIn",
+      "entry": "FabricArticleIn",
+      "title": "本厂坯布、煤入库主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOut",
+      "entry": "ArticleOut",
+      "title": "机物料出库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOut",
+      "entry": "FabricArticleOut",
+      "title": "本厂坯布、煤出库主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutApply",
+      "entry": "ArticleOutApply",
+      "title": "机物料领用申请",
+      "kind": "DateCode",
+      "prefix": "AO",
+      "digits": null
+    },
+    {
+      "model": "erp_purchase.SourceDyePurApplyMain",
+      "entry": "ArticlePurApplyMain",
+      "title": "机物料采购申购主信息",
+      "kind": "DateCode",
+      "prefix": "SG",
+      "digits": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyePurApplyMain",
+      "entry": "PurApplyMain",
+      "title": "采购申购主信息",
+      "kind": "DateCode",
+      "prefix": "SG",
+      "digits": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyePurApplyMain",
+      "entry": "StuffPurApplyMain",
+      "title": "染化料采购申购主信息",
+      "kind": "DateCode",
+      "prefix": "SG",
+      "digits": 0
+    },
+    {
+      "model": "erp_purchase.SourceDyeArticlePurMain",
+      "entry": "ArticlePurMain",
+      "title": "机物料采购主表",
+      "kind": "DateCode",
+      "prefix": "AP",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStockAdjust",
+      "entry": "ArticleStockAdjust",
+      "title": "机物料调整",
+      "kind": "DateCode",
+      "prefix": "AC",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeBalancingConditions",
+      "entry": "BalancingConditions",
+      "title": "坯布平账条件",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeBaseCase",
+      "entry": "BaseCase",
+      "title": "基础方案",
+      "kind": "DateCode",
+      "prefix": "BC",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "BulkDyeRecipe",
+      "title": "染色配方主表(生产)",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "DyeRecipe",
+      "title": "染色配方主表",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "FinishDyeRecipe",
+      "title": "染色配方主表(后整理)",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "OtherDyeRecipe",
+      "title": "染色配方主表(其他)",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "PrepareDyeRecipe",
+      "title": "染色配方主表(前处理)",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "qry_QuoteRelaRecipe",
+      "title": "报价单相关配方信息",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "ReworkDyeRecipe",
+      "title": "染色配方主表(回修)",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "StandardDyeRecipe",
+      "title": "染色配方主表(标准)",
+      "kind": "FollowSeries",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "TrialDyeRecipe",
+      "title": "染色配方主表(试产)",
+      "kind": "FollowSeries",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "entry": "WashDyeRecipe",
+      "title": "染色配方主表(洗缸)",
+      "kind": "DateCode",
+      "prefix": "PF",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeTightTube",
+      "entry": "CancelTightTube",
+      "title": "取消紧筒排单",
+      "kind": "DateCode",
+      "prefix": "CT",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeTightTube",
+      "entry": "TightTubeBalance",
+      "title": "紧筒平账",
+      "kind": "DateCode",
+      "prefix": "TB",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeCarryMaterial",
+      "entry": "CarryMaterial",
+      "title": "提料单",
+      "kind": "DateCode",
+      "prefix": "CM",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeClothGetMoney",
+      "entry": "ClothGetMoney",
+      "title": "坯布收货",
+      "kind": "DateCode",
+      "prefix": "CM",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeCompensatemain",
+      "entry": "compensatemain",
+      "title": "疵布赔付主表",
+      "kind": "DateCode",
+      "prefix": "CPS",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeCookIn",
+      "entry": "CookIn",
+      "title": "厨房采购单入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeCusAddPrice",
+      "entry": "CusAddPrice",
+      "title": "客户加工单价",
+      "kind": "DateCode",
+      "prefix": "AP",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeCusBasicsPrice",
+      "entry": "CusBasicsPrice",
+      "title": "客户基础单价",
+      "kind": "DateCode",
+      "prefix": "CB",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "entry": "CusReturnSemiIn",
+      "title": "半成品入库（客退）",
+      "kind": "DateCode",
+      "prefix": "PS",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "entry": "GrayOutToSemiIn",
+      "title": "半成品入库（胚纱发外加工）",
+      "kind": "DateCode",
+      "prefix": "GS",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "entry": "MaterialSemiIn",
+      "title": "半成品入库（原料）",
+      "kind": "DateCode",
+      "prefix": "MS",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "entry": "PurSemiIn",
+      "title": "半成品入库（采购）",
+      "kind": "DateCode",
+      "prefix": "PS",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "entry": "SemiIn",
+      "title": "半成品入库",
+      "kind": "DateCode",
+      "prefix": "SI",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "entry": "SemiInBack",
+      "title": "半成品入库(车间退用)",
+      "kind": "DateCode",
+      "prefix": "SK",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiIn",
+      "entry": "TurnSemiIn",
+      "title": "半成品入库（转仓）",
+      "kind": "DateCode",
+      "prefix": "TS",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerNoLimit",
+      "entry": "CustomerNoLimit",
+      "title": "账期不申请额度",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerTS",
+      "entry": "CustomerTS",
+      "title": "客户投诉",
+      "kind": "DateCode",
+      "prefix": "CT",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveIn",
+      "entry": "DefectiveIn",
+      "title": "次品入库单",
+      "kind": "DateCode",
+      "prefix": "DI",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveOut",
+      "entry": "DefectiveOut",
+      "title": "次品出库单",
+      "kind": "DateCode",
+      "prefix": "DO",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "entry": "DPJobSheet",
+      "title": "刷卡系统工卡信息主表",
+      "kind": "DateCode",
+      "prefix": "CS",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "entry": "JobSheetColorNum",
+      "title": "工卡色号更改",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "entry": "JobSheetForDeal",
+      "title": "工序更改主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "entry": "JobSheetQuery",
+      "title": "工卡主表（查询）",
+      "kind": "DateCode",
+      "prefix": "CS",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "entry": "PrintJobSheet",
+      "title": "工卡主表（松筒）",
+      "kind": "DateCode",
+      "prefix": "S",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "entry": "SaleJobSheet",
+      "title": "工卡主表(销售工卡)",
+      "kind": "DateCode",
+      "prefix": "Z",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheet",
+      "entry": "TwiJobSheet",
+      "title": "工卡主表（加捻）",
+      "kind": "DateCode",
+      "prefix": "J",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "entry": "DPWDefect",
+      "title": "刷卡质量",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "entry": "WDefectJudgeBack",
+      "title": "客退评审",
+      "kind": "DateCode",
+      "prefix": "K",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "entry": "WDefectJudgeInterior",
+      "title": "内部评审",
+      "kind": "DateCode",
+      "prefix": "N",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "entry": "WDefectJudgeOther",
+      "title": "折让理赔评审",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "entry": "WDefectOther",
+      "title": "其他评审",
+      "kind": "DateCode",
+      "prefix": "Y",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "entry": "WDefectPayouts",
+      "title": "赔付评审",
+      "kind": "DateCode",
+      "prefix": "P",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeWDefect",
+      "entry": "WDefectRecord",
+      "title": "检验记录",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffOut",
+      "entry": "DStuffOut",
+      "title": "刷卡领料-待出库主信息",
+      "kind": "DateCode",
+      "prefix": "SO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffOut",
+      "entry": "SmallStuffOut",
+      "title": "染化料出库主表（小仓）",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffOut",
+      "entry": "StuffOut",
+      "title": "染化料出库主表",
+      "kind": "DateCode",
+      "prefix": "SO",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecord",
+      "entry": "DyeDipsRecord",
+      "title": "打样记录主信息",
+      "kind": "DateCode",
+      "prefix": "DR",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecord",
+      "entry": "DyeDipsRecordBulk",
+      "title": "生产打样记录主信息",
+      "kind": "DateCode",
+      "prefix": "DRB",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabMain",
+      "entry": "DyeLabMain",
+      "title": "打样任务单主信息",
+      "kind": "DateCode",
+      "prefix": "SY",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabMain",
+      "entry": "DyeLabMainBulk",
+      "title": "生产打样任务单主信息",
+      "kind": "DateCode",
+      "prefix": "DYB",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabMain",
+      "entry": "ShowDyeLabMain",
+      "title": "打样任务单主信息(弹窗)",
+      "kind": "DateCode",
+      "prefix": "DD",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeDyeProcessPrice",
+      "entry": "DyeProcessPrice",
+      "title": "染色刷卡单价",
+      "kind": "DateCode",
+      "prefix": "P",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeReprint",
+      "entry": "DyeReprint",
+      "title": "复版登记",
+      "kind": "DateCode",
+      "prefix": "F",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeEnableCard",
+      "entry": "EnableCard",
+      "title": "启用放卡",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeEnergyConsumption",
+      "entry": "EnergyConsumption",
+      "title": "能耗记录",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeEnergyRecords",
+      "entry": "EnergyRecords",
+      "title": "能耗记录录入",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeFeelOfferMain",
+      "entry": "FeelOfferMain",
+      "title": "手感报价",
+      "kind": "DateCode",
+      "prefix": "FO",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeQuote",
+      "entry": "FixedPrice",
+      "title": "确价新增",
+      "kind": "DateCode",
+      "prefix": "JF",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeGetClothNotice",
+      "entry": "GetClothNotice",
+      "title": "收坯通知单",
+      "kind": "DateCode",
+      "prefix": "GN",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "GrayAllotIn",
+      "title": "坯布调拨入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "GrayIn",
+      "title": "胚纱入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "GrayInEdit",
+      "title": "坯布入库人员修改",
+      "kind": "DateCode",
+      "prefix": "GI",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "GrayInWork",
+      "title": "胚纱入库主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "JiaNianGrayIn",
+      "title": "加捻胚纱入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "KeTuiGrayIn",
+      "title": "客退胚纱入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "PurGrayIn",
+      "title": "胚纱入库主表(采购)",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "SemiToGrayIn",
+      "title": "胚纱入库主表(转仓)",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayIn",
+      "entry": "TuiHuoGrayIn",
+      "title": "胚纱退货主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayAllotOut",
+      "title": "坯布调拨出库表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOut",
+      "title": "坯布出库表",
+      "kind": "DateCode",
+      "prefix": "GO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutEdit",
+      "title": "坯布出库人员修改",
+      "kind": "DateCode",
+      "prefix": "GO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutJob",
+      "title": "坯布出库表（刷卡出库）",
+      "kind": "DateCode",
+      "prefix": "GJ",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutSale",
+      "title": "坯布出库表(销售)",
+      "kind": "DateCode",
+      "prefix": "GS",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutShenHe",
+      "title": "坯布出库表",
+      "kind": "DateCode",
+      "prefix": "GO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutTurn",
+      "title": "坯布出库表(转仓)",
+      "kind": "DateCode",
+      "prefix": "GT",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutWork",
+      "title": "坯布出库表（发外加工）",
+      "kind": "DateCode",
+      "prefix": "GW",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "TSGrayOut",
+      "title": "泰森坯布出库表",
+      "kind": "DateCode",
+      "prefix": "GO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayBalance",
+      "entry": "GrayBalance",
+      "title": "坯布平帐主表",
+      "kind": "DateCode",
+      "prefix": "PBAL",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayMaterial",
+      "entry": "GrayMaterial",
+      "title": "紧筒排单",
+      "kind": "DateCode",
+      "prefix": "GM",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayPostionUp",
+      "entry": "GrayPostionUp",
+      "title": "胚纱仓位调整",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeGrayReturnApply",
+      "entry": "GrayReturnApply",
+      "title": "坯布退货申请单",
+      "kind": "DateCode",
+      "prefix": "GR",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAdjust",
+      "entry": "GrayStockAdjust",
+      "title": "坯布库存调整主表",
+      "kind": "DateCode",
+      "prefix": "GC",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAllot",
+      "entry": "GrayStockAllot",
+      "title": "坯布库存调拨表",
+      "kind": "DateCode",
+      "prefix": "GA",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockSpecUp",
+      "entry": "GrayStockSpecUp",
+      "title": "坯布库存规格调整",
+      "kind": "DateCode",
+      "prefix": "GS",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStorageAdjust",
+      "entry": "GrayStorageAdjust",
+      "title": "库位调整单",
+      "kind": "DateCode",
+      "prefix": "PA",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeGWName",
+      "entry": "GWNameZC",
+      "title": "缸位字母注册",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeHLeave",
+      "entry": "h_Leave",
+      "title": "员工请假表",
+      "kind": "AutoAdd_Time",
+      "prefix": "QJ",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeHPositionChange",
+      "entry": "h_PositionChange",
+      "title": "员工异动表",
+      "kind": "AutoAdd_Local",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeHRewardPunish",
+      "entry": "h_RewardPunish",
+      "title": "员工奖惩表",
+      "kind": "AutoAdd_Local",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeHSJobsheetNo",
+      "entry": "HS_JobsheetNo",
+      "title": "商业发票单价录入",
+      "kind": "FollowSeries",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeInspectionLog",
+      "entry": "InspectionLog",
+      "title": "巡检日志主表",
+      "kind": "DateCode",
+      "prefix": "IL",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJingShaRegister",
+      "entry": "JingShaRegister",
+      "title": "井纱信息登记",
+      "kind": "DateCode",
+      "prefix": "JS",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobInWareEdit",
+      "entry": "JobInWareEdit",
+      "title": "工卡进仓登记",
+      "kind": "DateCode",
+      "prefix": "JO",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobOutWareEdit",
+      "entry": "JobOutWareEdit",
+      "title": "工卡出仓登记",
+      "kind": "DateCode",
+      "prefix": "JI",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetNoRushOrder",
+      "entry": "JobSheetNoRushOrder",
+      "title": "急单信息",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeKindLimit",
+      "entry": "KindLimit",
+      "title": "级别额度表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeLimit",
+      "entry": "Limit",
+      "title": "欠款额度权限表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeLossBill",
+      "entry": "LossBill",
+      "title": "报损单",
+      "kind": "DateCode",
+      "prefix": "LB",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCarePlan",
+      "entry": "MachineCarePlan",
+      "title": "设备保养计划",
+      "kind": "DateCode",
+      "prefix": "MC",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCareRecords",
+      "entry": "MachineCareRecords",
+      "title": "设备保养记录",
+      "kind": "DateCode",
+      "prefix": "MCR",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCase",
+      "entry": "MachineCase",
+      "title": "机台方案",
+      "kind": "DateCode",
+      "prefix": "MC",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFault",
+      "entry": "MachineFault",
+      "title": "设备报修新增",
+      "kind": "DateCode",
+      "prefix": "MF",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFault",
+      "entry": "qry_MachineFaultToInspection",
+      "title": "维修记录查询",
+      "kind": "DateCode",
+      "prefix": "MF",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeNoLimit",
+      "entry": "NoLimit",
+      "title": "账期不申请额度",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMIn",
+      "entry": "ODMIn",
+      "title": "委外入库单",
+      "kind": "DateCode",
+      "prefix": "MI",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMOut",
+      "entry": "ODMOut",
+      "title": "委外出库单",
+      "kind": "DateCode",
+      "prefix": "DO",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderInfo",
+      "entry": "OrderInfo",
+      "title": "订单主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderMain",
+      "entry": "OrderMain",
+      "title": "订单主表",
+      "kind": "DateCode",
+      "prefix": "K#",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderMain",
+      "entry": "OrderMainChange",
+      "title": "订单主表(更改)",
+      "kind": "DateCode",
+      "prefix": "JF#",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderMain",
+      "entry": "OrderMainSup",
+      "title": "订单主表(补单)",
+      "kind": "DateCode",
+      "prefix": "JF#",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderMain",
+      "entry": "PrintOrderMain",
+      "title": "印花订单主表",
+      "kind": "DateCode",
+      "prefix": "PO",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderMain",
+      "entry": "qry_PrintOrder",
+      "title": "印花订单列表",
+      "kind": "DateCode",
+      "prefix": "PO",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderMain",
+      "entry": "qry_PrintOrderToPasteDosage",
+      "title": "印花订单转印花浆量",
+      "kind": "DateCode",
+      "prefix": "PO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOtherIn",
+      "entry": "OtherIn",
+      "title": "报销主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutPlan",
+      "entry": "OutPlan",
+      "title": "发货计划主表",
+      "kind": "DateCode",
+      "prefix": "OP",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeOutWorkApply",
+      "entry": "OutWorkApply",
+      "title": "发外加工申请单",
+      "kind": "DateCode",
+      "prefix": "OWA",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyePStuffWeight",
+      "entry": "PAddStuffWeight",
+      "title": "印花加料单主表",
+      "kind": "DateCode",
+      "prefix": "YHJL",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyePStuffWeight",
+      "entry": "PNormalStuffWeight",
+      "title": "印花领料单主表",
+      "kind": "DateCode",
+      "prefix": "YHLL",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyePStuffWeight",
+      "entry": "PSupplementStuffWeight",
+      "title": "印花补料单主表",
+      "kind": "DateCode",
+      "prefix": "YHBL",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyePlanMain",
+      "entry": "PlanMain",
+      "title": "计划主表",
+      "kind": "DateCode",
+      "prefix": "PL",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyePPasteDosage",
+      "entry": "PPasteDosage",
+      "title": "印花浆量核算主表",
+      "kind": "DateCode",
+      "prefix": "PP",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyePriceAdjust",
+      "entry": "PriceAdjust",
+      "title": "报价调价",
+      "kind": "DateCode",
+      "prefix": "PN",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparate",
+      "entry": "PrintColorSeparate",
+      "title": "印花分色主表",
+      "kind": "DateCode",
+      "prefix": "FS",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparate",
+      "entry": "qry_ColorSeparateToPrintingTest",
+      "title": "印花分色转配方主表",
+      "kind": "DateCode",
+      "prefix": "FS",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTest",
+      "entry": "PrintingTest",
+      "title": "印花配方主表",
+      "kind": "DateCode",
+      "prefix": "PT",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTest",
+      "entry": "PrintingTestList",
+      "title": "印花配方主表",
+      "kind": "DateCode",
+      "prefix": "PT",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeProcessCraft",
+      "entry": "ProcessCraft",
+      "title": "工序工艺",
+      "kind": "DateCode",
+      "prefix": "PP",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "entry": "ProdIn",
+      "title": "成品入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "entry": "ProdIn_ht",
+      "title": "成品回修退车间",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "entry": "ProdInEdit",
+      "title": "成品入库人员修改",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "entry": "ProdInWork",
+      "title": "成品入库主表(外发)",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "entry": "TwistingIn",
+      "title": "加捻成品入库主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdLoading",
+      "entry": "ProdLoadApprove",
+      "title": "成品装车单审核",
+      "kind": "DateCode",
+      "prefix": "PL",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdLoading",
+      "entry": "ProdLoading",
+      "title": "成品装车单",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOut",
+      "entry": "ProdOut",
+      "title": "成品出库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOut",
+      "entry": "ProdOutUpdate",
+      "title": "成品出库主表（订单调整）",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAdjust",
+      "entry": "ProdStockAdjust",
+      "title": "成品库存调整",
+      "kind": "DateCode",
+      "prefix": "AD",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAllot",
+      "entry": "ProdStockAllot",
+      "title": "成品调拨",
+      "kind": "DateCode",
+      "prefix": "PA",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockCheck",
+      "entry": "ProdStockCheck",
+      "title": "成品盘点表",
+      "kind": "DateCode",
+      "prefix": "PC",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStorageAdjust",
+      "entry": "ProdStorageAdjust",
+      "title": "库位调整单",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "entry": "ProdTest_AddColorProduct",
+      "title": "加色产量登记",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "entry": "ProdTest_All",
+      "title": "物理测试",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "entry": "ProdTest_ColorFastness",
+      "title": "色牢度检测",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "entry": "ProdTest_PH",
+      "title": "PH值检测",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "entry": "ProdTest_Shrinkage",
+      "title": "缩水检测",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "entry": "ProdTest_Strength",
+      "title": "强力检测",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "entry": "ProdTest_WaterQuality",
+      "title": "水质检测",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyePTSampleRegist",
+      "entry": "PTSampleRegist",
+      "title": "印花来样登记主表",
+      "kind": "DateCode",
+      "prefix": "LY",
+      "digits": null
+    },
+    {
+      "model": "erp_purchase.SourceDyePurMain",
+      "entry": "PurMain",
+      "title": "采购主表",
+      "kind": "DateCode",
+      "prefix": "H",
+      "digits": 0
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderDlvApply",
+      "entry": "qry_OrderDlvApplyDetail",
+      "title": "交期申请单",
+      "kind": "SeriesAndRowNo",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityAccident",
+      "entry": "QualityAccident",
+      "title": "质量事故单",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityDeduction",
+      "entry": "QualityDeduction",
+      "title": "质量扣罚单",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeFixedPrice",
+      "entry": "Quote",
+      "title": "报价新增",
+      "kind": "DateCode",
+      "prefix": "BJ",
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeQuoteItemPrice",
+      "entry": "QuoteItemPrice",
+      "title": "另收费项目",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeRequestLimit",
+      "entry": "RequestLimit",
+      "title": "欠款额度权限表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeSalaryChanges",
+      "entry": "SalaryChangesA",
+      "title": "工资(内部调整)主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeSalaryChanges",
+      "entry": "SalaryChangesB",
+      "title": "工资(车间调整)主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeSalaryChanges",
+      "entry": "SalaryChangesC",
+      "title": "工资(染色变更)主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeSalaryChanges",
+      "entry": "SalaryChangesD",
+      "title": "工资(补漏刷卡)主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeSalaryChanges",
+      "entry": "SalaryChangesE",
+      "title": "补工资主表",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleIn",
+      "entry": "SampleIn",
+      "title": "样品入库主表",
+      "kind": "DateCode",
+      "prefix": "SI",
+      "digits": null
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleOut",
+      "entry": "SampleOut",
+      "title": "样品出库主表",
+      "kind": "DateCode",
+      "prefix": "SO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOut",
+      "entry": "SemiOut",
+      "title": "半成品出库",
+      "kind": "DateCode",
+      "prefix": "SO",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOut",
+      "entry": "SemiOutJob",
+      "title": "半成品出库(刷卡出库)",
+      "kind": "DateCode",
+      "prefix": "SJ",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOut",
+      "entry": "SemiOutSale",
+      "title": "半成品出库(销售)",
+      "kind": "DateCode",
+      "prefix": "SS",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOut",
+      "entry": "SemiOutTurn",
+      "title": "半成品出库(转仓)",
+      "kind": "DateCode",
+      "prefix": "ST",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOut",
+      "entry": "SemiOutWork",
+      "title": "半成品出库(发外)",
+      "kind": "DateCode",
+      "prefix": "SW",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeSemiOutWorkApply",
+      "entry": "SemiOutWorkApply",
+      "title": "发外加工申请单(半成品)",
+      "kind": "DateCode",
+      "prefix": "SA",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiPostionUp",
+      "entry": "SemiPostionUp",
+      "title": "半成品仓位调整",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockAdjust",
+      "entry": "SemiStockAdjust",
+      "title": "半成品库存调整主表",
+      "kind": "DateCode",
+      "prefix": "SC",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockSpecUp",
+      "entry": "SemiStockSpecUp",
+      "title": "半成品库存规格调整",
+      "kind": "DateCode",
+      "prefix": "SU",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeShiftArrange",
+      "entry": "ShiftArrange",
+      "title": "排班记录主表",
+      "kind": "DateCode",
+      "prefix": "PB",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffIn",
+      "entry": "SmallStuffIn",
+      "title": "染化料入库主表（小仓）",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffIn",
+      "entry": "StuffIn",
+      "title": "染化料入库主表",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraft",
+      "entry": "StandCraft",
+      "title": "标准工艺主表",
+      "kind": "DateCode",
+      "prefix": "A",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeSterotypeTech",
+      "entry": "SterotypeTech",
+      "title": "定型工艺单",
+      "kind": "DateCode",
+      "prefix": "ST",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffAllot",
+      "entry": "StuffAllot",
+      "title": "染化料调拨主表",
+      "kind": "DateCode",
+      "prefix": "SA",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffDeptApply",
+      "entry": "StuffDeptApply",
+      "title": "染化料部门采购",
+      "kind": "DateCode",
+      "prefix": "SD",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeStuffOutApply",
+      "entry": "StuffOutApply",
+      "title": "染化料领用申请",
+      "kind": "DateCode",
+      "prefix": "SO",
+      "digits": null
+    },
+    {
+      "model": "erp_purchase.SourceDyeStuffPurMain",
+      "entry": "StuffPurMain",
+      "title": "染化料采购单主表",
+      "kind": "DateCode",
+      "prefix": "SP",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStockAdjust",
+      "entry": "StuffStockAdjust",
+      "title": "染化料库存调整主表",
+      "kind": "DateCode",
+      "prefix": "SC",
+      "digits": null
+    },
+    {
+      "model": "erp_base.SourceDyeSwipeEmpEdit",
+      "entry": "SwipeEmpEdit",
+      "title": "刷卡员工登记",
+      "kind": "DateCode",
+      "prefix": "SE",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSwipeLabelPrint",
+      "entry": "SwipeLabelPrint",
+      "title": "刷卡打印标签",
+      "kind": "DateCode",
+      "prefix": "SL",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeTightTubePlan",
+      "entry": "TightTubePlan",
+      "title": "紧筒排产单",
+      "kind": "DateCode",
+      "prefix": "LT",
+      "digits": null
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWareHouseProdCount",
+      "entry": "WareHouseProdCount",
+      "title": "仓库产量录入",
+      "kind": "DateCode",
+      "prefix": "",
+      "digits": null
+    },
+    {
+      "model": "erp_production.SourceDyeWashTheTankDye",
+      "entry": "WashTheTankDye",
+      "title": "洗缸料单染化料",
+      "kind": "DateCode",
+      "prefix": null,
+      "digits": null
+    },
+    {
+      "model": "erp_sales.SourceDyeZDAddPrice",
+      "entry": "ZDAddPrice",
+      "title": "织带加工单价",
+      "kind": "DateCode",
+      "prefix": "ZD",
+      "digits": null
+    }
+  ],
+  "business_samples": [
+    {
+      "table": "dye.OrderMain",
+      "samples": [
+        "K#240902002",
+        "K#240902003",
+        "K#240902004"
+      ],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    },
+    {
+      "table": "dye.PurMain",
+      "samples": [
+        "H240910001",
+        "H241004001",
+        "H241004002"
+      ],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    },
+    {
+      "table": "dye.JobSheet",
+      "samples": [
+        "240902F0201",
+        "240902H0101",
+        "240902F0202"
+      ],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    },
+    {
+      "table": "dye.ProdIn",
+      "samples": [
+        "240910001",
+        "240910002",
+        "240910003"
+      ],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    },
+    {
+      "table": "dye.ProdOut",
+      "samples": [
+        "240913001",
+        "240913002",
+        "240913003"
+      ],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    },
+    {
+      "table": "dye.DyeRecipe",
+      "samples": [
+        "201706110001",
+        "201706190001",
+        "201706270002"
+      ],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    },
+    {
+      "table": "dye.h_PositionChange",
+      "samples": [],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    },
+    {
+      "table": "dye.h_RewardPunish",
+      "samples": [],
+      "snapshot": "2026-10-14",
+      "file_present": true
+    }
+  ],
+  "code_changed": false,
+  "database_changed": false,
+  "xlsx_changed": false
+}

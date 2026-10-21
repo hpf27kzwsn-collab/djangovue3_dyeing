@@ -1,0 +1,70 @@
+{
+  "tests": [
+    {
+      "case": "父MaxValue 1→2；旧DefaultValue999999→1；另一重复步号行Price明确NULL；第三行未改",
+      "values": [
+        {
+          "label": "MaxValue",
+          "value": "2.00"
+        },
+        {
+          "label": "价格",
+          "value": ""
+        },
+        {
+          "label": "DefaultValue",
+          "value": "3.00"
+        },
+        {
+          "label": "价格",
+          "value": "6.00"
+        },
+        {
+          "label": "DefaultValue",
+          "value": "3.00"
+        },
+        {
+          "label": "价格",
+          "value": "2.00"
+        },
+        {
+          "label": "DefaultValue",
+          "value": "1.00"
+        }
+      ]
+    },
+    {
+      "case": "下次父MaxValue2→3；第三行明确Price=-7；此前NULL行恢复正常父联动",
+      "values": [
+        {
+          "label": "MaxValue",
+          "value": "3.00"
+        },
+        {
+          "label": "价格",
+          "value": "9.00"
+        },
+        {
+          "label": "DefaultValue",
+          "value": "3.00"
+        },
+        {
+          "label": "价格",
+          "value": "9.00"
+        },
+        {
+          "label": "DefaultValue",
+          "value": "3.00"
+        },
+        {
+          "label": "价格",
+          "value": "-7.00"
+        },
+        {
+          "label": "DefaultValue",
+          "value": "1.00"
+        }
+      ]
+    }
+  ]
+}

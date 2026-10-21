@@ -1,0 +1,1416 @@
+{
+  "verified_at": "2026-10-17T17:05:02.654531+08:00",
+  "scope": "既有明确转单的剩余6个业务分支及2种跨链逆向组合；不是所有原入口全部验收",
+  "transfer_branch_count": 6,
+  "cross_chain_mode_count": 2,
+  "browser_scenarios": [
+    {
+      "name": "配件部门申请→采购→撤回一行",
+      "result": "同一申请、同一明细号转入2行：-2×3=-6、5×4=20；只撤回负数行，另一行仍有效。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "name": "染化料部门申请→采购→撤回",
+      "result": "数量-3、单价2、金额-6；撤回后采购原行与申请来源都保留。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "name": "保养计划→配件领料→审核→重办→撤回→再审核",
+      "result": "2次转单，初次库存为-2和5；重新办理并撤回负数行后，再审核库存仅为5，2条原明细仍在。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "name": "报价→调价→重复转入→逐次撤回",
+      "result": "报价原行2条同明细号、同数值色号；2次调价均留档。撤回第二条恢复UI-AD1/12；再撤回第一条，AdjustPrice与关联号为NULL，原DateType/StartDate保持原删除行为。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "name": "报价→订单→整单撤回",
+      "result": "生成UI-ORDER和UI-OC；整单撤回后表头与子行都留档，报价来源未删除。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "name": "采购→成品入库→整单撤回",
+      "result": "显式重量口径-4、粒数2；当前入库库存退出，1条撤回前库存快照保留，采购和入库原行仍在。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "name": "撤销执行、原计划保留；原删除触发及独立进度维护",
+      "result": "11条执行原行、4条原库存流水；撤销后净库存为0，恢复后成品净量20、染化料出库-3。原行、负数和反记均保留，另一工卡同条码包装不受影响。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "name": "撤销执行及本次拆卡计划；仅原删除触发回写",
+      "result": "浏览器新拆卡26101701，计划-4/1；包装与入库2条执行来源、1条库存。联合撤销后新卡计划0/0、净库存0；撤回后计划-4/1、库存-4。原卡单位空，原计划20/2保持，不臆测换算。",
+      "development": "浏览器及结果核对通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "browser": {
+    "department_article": [
+      {
+        "id": 331,
+        "old_detail_no": "UI-APD",
+        "old_qty": "-2.00",
+        "old_price": "3.0000",
+        "old_amount": "-6.00",
+        "active": false
+      },
+      {
+        "id": 332,
+        "old_detail_no": "UI-APD",
+        "old_qty": "5.00",
+        "old_price": "4.0000",
+        "old_amount": "20.00",
+        "active": true
+      }
+    ],
+    "department_stuff": [
+      {
+        "id": 333,
+        "old_qty": "-3.00",
+        "old_amount": "-6.00",
+        "active": false
+      }
+    ],
+    "care_issue": [
+      {
+        "id": 285,
+        "old_detail_no": "UI-ISS-D1",
+        "old_out_qty": "-2.00",
+        "active": false
+      },
+      {
+        "id": 286,
+        "old_detail_no": "UI-ISS-D2",
+        "old_out_qty": "5.00",
+        "active": true
+      }
+    ],
+    "care_current_stock": [
+      {
+        "id": 367,
+        "old_out_qty": "5.00"
+      }
+    ],
+    "adjustment": [
+      {
+        "id": 130,
+        "old_detail_no": "UI-AD1",
+        "old_adjust_price": "12.0000",
+        "active": false
+      },
+      {
+        "id": 131,
+        "old_detail_no": "UI-AD2",
+        "old_adjust_price": "12.0000",
+        "active": false
+      }
+    ],
+    "quotes": [
+      {
+        "id": 348,
+        "old_price": "10.00",
+        "old_adjust_price": null,
+        "old_job_sheet_no": null,
+        "old_date_type": 1,
+        "old_start_date": "2026-01-01 16:00:00+00:00"
+      },
+      {
+        "id": 349,
+        "old_price": "20.00",
+        "old_adjust_price": null,
+        "old_job_sheet_no": null,
+        "old_date_type": 1,
+        "old_start_date": "2026-01-01 16:00:00+00:00"
+      }
+    ],
+    "order": [
+      {
+        "id": 420,
+        "old_sheet_no": "UI-ORDER",
+        "active": false
+      }
+    ],
+    "order_details": [
+      {
+        "id": 401,
+        "old_check_no": "UI-OC",
+        "active": false
+      }
+    ],
+    "purchase_receipt": [
+      {
+        "id": 829,
+        "old_sheet_no": "UI-PIN",
+        "old_weight_qty": "-4.00",
+        "old_length_qty": null,
+        "active": false
+      }
+    ],
+    "purchase_receipt_stock_before": [
+      {
+        "entity": "erp_warehouse.SourceDyeProdStockBook",
+        "source": {
+          "id": 1086,
+          "creator": 7272,
+          "remarks": "",
+          "modifier": 7272,
+          "old_spec": null,
+          "old_price": null,
+          "old_lot_no": null,
+          "source_row": null,
+          "approved_at": null,
+          "approved_by": null,
+          "dept_belong": 55,
+          "description": "",
+          "old_book_no": 3,
+          "old_fact_id": "UI-FAB",
+          "old_prod_id": "UI-P",
+          "old_remarks": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "old_check_no": null,
+          "old_color_id": null,
+          "old_in_money": null,
+          "old_in_rolls": "2.00",
+          "old_saler_id": null,
+          "old_sheet_no": "UI-PIN",
+          "source_batch": null,
+          "old_book_date": null,
+          "old_book_kind": 18,
+          "old_color_num": null,
+          "old_curr_date": null,
+          "old_detail_no": "UI-PIN",
+          "old_in_net_kg": null,
+          "old_out_money": null,
+          "old_out_rolls": "0.00",
+          "approval_stage": null,
+          "old_out_net_kg": null,
+          "old_stock_flag": null,
+          "create_datetime": "2026-10-17T08:51:04.246557+00:00",
+          "old_customer_id": "UI-C",
+          "old_in_gray_qty": null,
+          "update_datetime": "2026-10-17T08:51:04.246566+00:00",
+          "old_job_sheet_no": null,
+          "old_out_gray_qty": "0.00",
+          "old_sheet_series": "UI-PIN",
+          "old_business_kind": null,
+          "old_in_length_qty": null,
+          "old_in_weight_qty": "-4.00",
+          "old_ware_house_id": "UI-W",
+          "old_out_length_qty": "0.00",
+          "old_out_weight_qty": "0.00",
+          "old_saler_group_id": null,
+          "old_business_unit_id": null,
+          "old_storage_unit_ids": null
+        }
+      }
+    ],
+    "original_fixture_rows_preserved": true,
+    "fixtures": {
+      "Articleapply": {
+        "id": 31,
+        "entity": "erp_warehouse_sourcedyearticledeptapply",
+        "table": "ArticleDeptApply"
+      },
+      "Articleline": {
+        "id": 16,
+        "entity": "erp_warehouse_sourcedyearticledeptapplydetail",
+        "table": "ArticleDeptApplyDetail"
+      },
+      "Articlepurchase": {
+        "id": 29,
+        "entity": "erp_purchase_sourcedyearticlepurmain",
+        "table": "ArticlePurMain"
+      },
+      "Stuffapply": {
+        "id": 37,
+        "entity": "erp_production_sourcedyestuffdeptapply",
+        "table": "StuffDeptApply"
+      },
+      "Stuffline": {
+        "id": 23,
+        "entity": "erp_production_sourcedyestuffdeptapplydetail",
+        "table": "StuffDeptApplyDetail"
+      },
+      "Stuffpurchase": {
+        "id": 37,
+        "entity": "erp_purchase_sourcedyestuffpurmain",
+        "table": "StuffPurMain"
+      },
+      "care": {
+        "id": 48,
+        "entity": "erp_production_sourcedyemachinecareplandetail",
+        "table": "MachineCarePlanDetail"
+      },
+      "article": {
+        "id": 174,
+        "entity": "erp_base_sourcedyeparticle",
+        "table": "p_Article"
+      },
+      "issue": {
+        "id": 123,
+        "entity": "erp_warehouse_sourcedyearticleout",
+        "table": "ArticleOut"
+      },
+      "quote": {
+        "id": 251,
+        "entity": "erp_sales_sourcedyequote",
+        "table": "Quote"
+      },
+      "quoteline": {
+        "id": 348,
+        "entity": "erp_sales_sourcedyequotedetail",
+        "table": "QuoteDetail"
+      },
+      "quote_duplicate": {
+        "id": 349,
+        "entity": "erp_sales_sourcedyequotedetail",
+        "table": "QuoteDetail"
+      },
+      "adjust": {
+        "id": 112,
+        "entity": "erp_sales_sourcedyepriceadjust",
+        "table": "PriceAdjust"
+      },
+      "purchase": {
+        "id": 98,
+        "entity": "erp_purchase_sourcedyepurmain",
+        "table": "PurMain"
+      },
+      "purchaseline": {
+        "id": 330,
+        "entity": "erp_purchase_sourcedyepurdetail",
+        "table": "PurDetail"
+      },
+      "job": {
+        "id": 3183,
+        "entity": "erp_production_sourcedyejobsheet",
+        "table": "JobSheet"
+      },
+      "process": {
+        "id": 826,
+        "entity": "erp_production_sourcedyejobprocess",
+        "table": "JobProcess"
+      },
+      "work": {
+        "id": 832,
+        "entity": "erp_production_sourcedyewprocess",
+        "table": "WProcess"
+      },
+      "workstep": {
+        "id": 301,
+        "entity": "erp_production_sourcedyewprocessstep",
+        "table": "WProcessStep"
+      },
+      "weight": {
+        "id": 846,
+        "entity": "erp_production_sourcedyestuffweight",
+        "table": "StuffWeight"
+      },
+      "weightdetail": {
+        "id": 320,
+        "entity": "erp_production_sourcedyestuffweightdetail",
+        "table": "StuffWeightDetail"
+      },
+      "stuffout": {
+        "id": 241,
+        "entity": "erp_warehouse_sourcedyestuffout",
+        "table": "StuffOut"
+      },
+      "stuffbook": {
+        "id": 755,
+        "entity": "erp_warehouse_sourcedyestuffstockbook",
+        "table": "StuffStockBook"
+      },
+      "package": {
+        "id": 5943,
+        "entity": "erp_warehouse_sourcedyerecordyield",
+        "table": "RecordYield"
+      },
+      "otherpackage": {
+        "id": 5944,
+        "entity": "erp_warehouse_sourcedyerecordyield",
+        "table": "RecordYield"
+      },
+      "receipt": {
+        "id": 827,
+        "entity": "erp_warehouse_sourcedyeprodin",
+        "table": "ProdIn"
+      },
+      "dispatch": {
+        "id": 191,
+        "entity": "erp_warehouse_sourcedyeprodout",
+        "table": "ProdOut"
+      },
+      "dispatchdetail": {
+        "id": 412,
+        "entity": "erp_warehouse_sourcedyeprodoutdetail",
+        "table": "ProdOutDetail"
+      },
+      "return": {
+        "id": 828,
+        "entity": "erp_warehouse_sourcedyeprodin",
+        "table": "ProdIn"
+      },
+      "book0": {
+        "id": 1083,
+        "entity": "erp_warehouse_sourcedyeprodstockbook",
+        "table": "ProdStockBook"
+      },
+      "book1": {
+        "id": 1084,
+        "entity": "erp_warehouse_sourcedyeprodstockbook",
+        "table": "ProdStockBook"
+      },
+      "book2": {
+        "id": 1085,
+        "entity": "erp_warehouse_sourcedyeprodstockbook",
+        "table": "ProdStockBook"
+      },
+      "weightphase": {
+        "id": 199,
+        "entity": "erp_production_sourcedyestuffweightphase",
+        "table": "StuffWeightPhase"
+      }
+    },
+    "issue-approved": [
+      {
+        "id": 362,
+        "old_detail_no": "UI-ISS-D2",
+        "old_out_qty": "5.00"
+      },
+      {
+        "id": 361,
+        "old_detail_no": "UI-ISS-D1",
+        "old_out_qty": "-2.00"
+      }
+    ],
+    "issue-reapproved": [
+      {
+        "id": 367,
+        "old_detail_no": "UI-ISS-D2",
+        "old_out_qty": "5.00"
+      }
+    ],
+    "adjust-previous": [
+      {
+        "id": 349,
+        "old_adjust_price": "12.00",
+        "old_job_sheet_no": "UI-AD1"
+      },
+      {
+        "id": 348,
+        "old_adjust_price": "12.00",
+        "old_job_sheet_no": "UI-AD1"
+      }
+    ],
+    "product-before": [
+      {
+        "id": 1086,
+        "old_in_weight_qty": "-4.00",
+        "old_in_rolls": "2.00"
+      }
+    ],
+    "chain-cancelled": {
+      "state": "applied",
+      "sources": [
+        {
+          "fixture": "work",
+          "id": 832,
+          "table": "WProcess",
+          "active": false
+        },
+        {
+          "fixture": "workstep",
+          "id": 301,
+          "table": "WProcessStep",
+          "active": false
+        },
+        {
+          "fixture": "weight",
+          "id": 846,
+          "table": "StuffWeight",
+          "active": false
+        },
+        {
+          "fixture": "weightphase",
+          "id": 199,
+          "table": "StuffWeightPhase",
+          "active": false
+        },
+        {
+          "fixture": "weightdetail",
+          "id": 320,
+          "table": "StuffWeightDetail",
+          "active": false
+        },
+        {
+          "fixture": "stuffout",
+          "id": 241,
+          "table": "StuffOut",
+          "active": false
+        },
+        {
+          "fixture": "package",
+          "id": 5943,
+          "table": "RecordYield",
+          "active": false
+        },
+        {
+          "fixture": "receipt",
+          "id": 827,
+          "table": "ProdIn",
+          "active": false
+        },
+        {
+          "fixture": "dispatch",
+          "id": 191,
+          "table": "ProdOut",
+          "active": false
+        },
+        {
+          "fixture": "dispatchdetail",
+          "id": 412,
+          "table": "ProdOutDetail",
+          "active": false
+        },
+        {
+          "fixture": "return",
+          "id": 828,
+          "table": "ProdIn",
+          "active": false
+        }
+      ],
+      "stock": {
+        "ProdStockBook": {
+          "count": 6,
+          "quantity": "0.00"
+        },
+        "StuffStockBook": {
+          "count": 2,
+          "quantity": "0.000000"
+        }
+      },
+      "other_same_barcode_active": true,
+      "original_quantities_preserved": true,
+      "original_ledgers": [
+        {
+          "id": 755,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.657478+00:00",
+          "update_datetime": "2026-10-17T08:45:15.657485+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 901,
+          "old_book_date": null,
+          "old_acc_date": null,
+          "old_book_kind": null,
+          "old_supplier_id": null,
+          "old_ware_house_id": null,
+          "old_stuff_id": null,
+          "old_storage_unit_ids": null,
+          "old_sheet_no": null,
+          "old_detail_no": null,
+          "old_in_qty": null,
+          "old_out_qty": "-3.000000",
+          "old_price": null,
+          "old_remarks": null,
+          "old_dept_id": null,
+          "old_lot_no": null,
+          "old_sheet_series": "UI-SOUT",
+          "old_stock_flag": null,
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_curr_date": null,
+          "old_in_detail_no": null
+        },
+        {
+          "id": 1083,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.704884+00:00",
+          "update_datetime": "2026-10-17T08:45:15.704891+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 910,
+          "old_book_kind": null,
+          "old_book_date": null,
+          "old_business_unit_id": null,
+          "old_customer_id": null,
+          "old_fact_id": null,
+          "old_ware_house_id": null,
+          "old_storage_unit_ids": null,
+          "old_spec": null,
+          "old_lot_no": null,
+          "old_color_id": null,
+          "old_color_num": null,
+          "old_saler_group_id": null,
+          "old_check_no": null,
+          "old_sheet_no": null,
+          "old_detail_no": null,
+          "old_in_rolls": null,
+          "old_out_rolls": null,
+          "old_price": null,
+          "old_remarks": null,
+          "old_business_kind": null,
+          "old_prod_id": null,
+          "old_job_sheet_no": null,
+          "old_saler_id": null,
+          "old_in_length_qty": null,
+          "old_in_weight_qty": "20.00",
+          "old_in_gray_qty": null,
+          "old_out_length_qty": null,
+          "old_out_weight_qty": null,
+          "old_out_gray_qty": null,
+          "old_stock_flag": null,
+          "old_sheet_series": "UI-RCPT",
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_in_net_kg": null,
+          "old_out_net_kg": null,
+          "old_curr_date": null
+        },
+        {
+          "id": 1084,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.706545+00:00",
+          "update_datetime": "2026-10-17T08:45:15.706552+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 911,
+          "old_book_kind": null,
+          "old_book_date": null,
+          "old_business_unit_id": null,
+          "old_customer_id": null,
+          "old_fact_id": null,
+          "old_ware_house_id": null,
+          "old_storage_unit_ids": null,
+          "old_spec": null,
+          "old_lot_no": null,
+          "old_color_id": null,
+          "old_color_num": null,
+          "old_saler_group_id": null,
+          "old_check_no": null,
+          "old_sheet_no": null,
+          "old_detail_no": "UI-DD",
+          "old_in_rolls": null,
+          "old_out_rolls": null,
+          "old_price": null,
+          "old_remarks": null,
+          "old_business_kind": null,
+          "old_prod_id": null,
+          "old_job_sheet_no": null,
+          "old_saler_id": null,
+          "old_in_length_qty": null,
+          "old_in_weight_qty": "-20.00",
+          "old_in_gray_qty": null,
+          "old_out_length_qty": null,
+          "old_out_weight_qty": null,
+          "old_out_gray_qty": null,
+          "old_stock_flag": null,
+          "old_sheet_series": "UI-DSP",
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_in_net_kg": null,
+          "old_out_net_kg": null,
+          "old_curr_date": null
+        },
+        {
+          "id": 1085,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.707458+00:00",
+          "update_datetime": "2026-10-17T08:45:15.707465+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 912,
+          "old_book_kind": null,
+          "old_book_date": null,
+          "old_business_unit_id": null,
+          "old_customer_id": null,
+          "old_fact_id": null,
+          "old_ware_house_id": null,
+          "old_storage_unit_ids": null,
+          "old_spec": null,
+          "old_lot_no": null,
+          "old_color_id": null,
+          "old_color_num": null,
+          "old_saler_group_id": null,
+          "old_check_no": null,
+          "old_sheet_no": null,
+          "old_detail_no": null,
+          "old_in_rolls": null,
+          "old_out_rolls": null,
+          "old_price": null,
+          "old_remarks": null,
+          "old_business_kind": null,
+          "old_prod_id": null,
+          "old_job_sheet_no": null,
+          "old_saler_id": null,
+          "old_in_length_qty": null,
+          "old_in_weight_qty": "20.00",
+          "old_in_gray_qty": null,
+          "old_out_length_qty": null,
+          "old_out_weight_qty": null,
+          "old_out_gray_qty": null,
+          "old_stock_flag": null,
+          "old_sheet_series": "UI-RET",
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_in_net_kg": null,
+          "old_out_net_kg": null,
+          "old_curr_date": null
+        }
+      ]
+    },
+    "chain-restored": {
+      "state": "reversed",
+      "sources": [
+        {
+          "fixture": "work",
+          "id": 832,
+          "table": "WProcess",
+          "active": true
+        },
+        {
+          "fixture": "workstep",
+          "id": 301,
+          "table": "WProcessStep",
+          "active": true
+        },
+        {
+          "fixture": "weight",
+          "id": 846,
+          "table": "StuffWeight",
+          "active": true
+        },
+        {
+          "fixture": "weightphase",
+          "id": 199,
+          "table": "StuffWeightPhase",
+          "active": true
+        },
+        {
+          "fixture": "weightdetail",
+          "id": 320,
+          "table": "StuffWeightDetail",
+          "active": true
+        },
+        {
+          "fixture": "stuffout",
+          "id": 241,
+          "table": "StuffOut",
+          "active": true
+        },
+        {
+          "fixture": "package",
+          "id": 5943,
+          "table": "RecordYield",
+          "active": true
+        },
+        {
+          "fixture": "receipt",
+          "id": 827,
+          "table": "ProdIn",
+          "active": true
+        },
+        {
+          "fixture": "dispatch",
+          "id": 191,
+          "table": "ProdOut",
+          "active": true
+        },
+        {
+          "fixture": "dispatchdetail",
+          "id": 412,
+          "table": "ProdOutDetail",
+          "active": true
+        },
+        {
+          "fixture": "return",
+          "id": 828,
+          "table": "ProdIn",
+          "active": true
+        }
+      ],
+      "stock": {
+        "ProdStockBook": {
+          "count": 9,
+          "quantity": "20.00"
+        },
+        "StuffStockBook": {
+          "count": 3,
+          "quantity": "-3.000000"
+        }
+      },
+      "other_same_barcode_active": true,
+      "original_quantities_preserved": true,
+      "original_ledgers": [
+        {
+          "id": 755,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.657478+00:00",
+          "update_datetime": "2026-10-17T08:45:15.657485+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 901,
+          "old_book_date": null,
+          "old_acc_date": null,
+          "old_book_kind": null,
+          "old_supplier_id": null,
+          "old_ware_house_id": null,
+          "old_stuff_id": null,
+          "old_storage_unit_ids": null,
+          "old_sheet_no": null,
+          "old_detail_no": null,
+          "old_in_qty": null,
+          "old_out_qty": "-3.000000",
+          "old_price": null,
+          "old_remarks": null,
+          "old_dept_id": null,
+          "old_lot_no": null,
+          "old_sheet_series": "UI-SOUT",
+          "old_stock_flag": null,
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_curr_date": null,
+          "old_in_detail_no": null
+        },
+        {
+          "id": 1083,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.704884+00:00",
+          "update_datetime": "2026-10-17T08:45:15.704891+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 910,
+          "old_book_kind": null,
+          "old_book_date": null,
+          "old_business_unit_id": null,
+          "old_customer_id": null,
+          "old_fact_id": null,
+          "old_ware_house_id": null,
+          "old_storage_unit_ids": null,
+          "old_spec": null,
+          "old_lot_no": null,
+          "old_color_id": null,
+          "old_color_num": null,
+          "old_saler_group_id": null,
+          "old_check_no": null,
+          "old_sheet_no": null,
+          "old_detail_no": null,
+          "old_in_rolls": null,
+          "old_out_rolls": null,
+          "old_price": null,
+          "old_remarks": null,
+          "old_business_kind": null,
+          "old_prod_id": null,
+          "old_job_sheet_no": null,
+          "old_saler_id": null,
+          "old_in_length_qty": null,
+          "old_in_weight_qty": "20.00",
+          "old_in_gray_qty": null,
+          "old_out_length_qty": null,
+          "old_out_weight_qty": null,
+          "old_out_gray_qty": null,
+          "old_stock_flag": null,
+          "old_sheet_series": "UI-RCPT",
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_in_net_kg": null,
+          "old_out_net_kg": null,
+          "old_curr_date": null
+        },
+        {
+          "id": 1084,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.706545+00:00",
+          "update_datetime": "2026-10-17T08:45:15.706552+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 911,
+          "old_book_kind": null,
+          "old_book_date": null,
+          "old_business_unit_id": null,
+          "old_customer_id": null,
+          "old_fact_id": null,
+          "old_ware_house_id": null,
+          "old_storage_unit_ids": null,
+          "old_spec": null,
+          "old_lot_no": null,
+          "old_color_id": null,
+          "old_color_num": null,
+          "old_saler_group_id": null,
+          "old_check_no": null,
+          "old_sheet_no": null,
+          "old_detail_no": "UI-DD",
+          "old_in_rolls": null,
+          "old_out_rolls": null,
+          "old_price": null,
+          "old_remarks": null,
+          "old_business_kind": null,
+          "old_prod_id": null,
+          "old_job_sheet_no": null,
+          "old_saler_id": null,
+          "old_in_length_qty": null,
+          "old_in_weight_qty": "-20.00",
+          "old_in_gray_qty": null,
+          "old_out_length_qty": null,
+          "old_out_weight_qty": null,
+          "old_out_gray_qty": null,
+          "old_stock_flag": null,
+          "old_sheet_series": "UI-DSP",
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_in_net_kg": null,
+          "old_out_net_kg": null,
+          "old_curr_date": null
+        },
+        {
+          "id": 1085,
+          "description": "",
+          "creator": null,
+          "modifier": null,
+          "dept_belong": null,
+          "create_datetime": "2026-10-17T08:45:15.707458+00:00",
+          "update_datetime": "2026-10-17T08:45:15.707465+00:00",
+          "remarks": "",
+          "source_batch": null,
+          "source_row": null,
+          "approval_stage": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "approved_at": null,
+          "approved_by": null,
+          "old_book_no": 912,
+          "old_book_kind": null,
+          "old_book_date": null,
+          "old_business_unit_id": null,
+          "old_customer_id": null,
+          "old_fact_id": null,
+          "old_ware_house_id": null,
+          "old_storage_unit_ids": null,
+          "old_spec": null,
+          "old_lot_no": null,
+          "old_color_id": null,
+          "old_color_num": null,
+          "old_saler_group_id": null,
+          "old_check_no": null,
+          "old_sheet_no": null,
+          "old_detail_no": null,
+          "old_in_rolls": null,
+          "old_out_rolls": null,
+          "old_price": null,
+          "old_remarks": null,
+          "old_business_kind": null,
+          "old_prod_id": null,
+          "old_job_sheet_no": null,
+          "old_saler_id": null,
+          "old_in_length_qty": null,
+          "old_in_weight_qty": "20.00",
+          "old_in_gray_qty": null,
+          "old_out_length_qty": null,
+          "old_out_weight_qty": null,
+          "old_out_gray_qty": null,
+          "old_stock_flag": null,
+          "old_sheet_series": "UI-RET",
+          "old_in_money": null,
+          "old_out_money": null,
+          "old_in_net_kg": null,
+          "old_out_net_kg": null,
+          "old_curr_date": null
+        }
+      ]
+    },
+    "split-cancelled": {
+      "state": "applied",
+      "adoption_state": "reversed",
+      "source_plan": [
+        "20.00",
+        "2.00"
+      ],
+      "child_plan": [
+        "0.00",
+        "0.00"
+      ],
+      "active": [
+        false,
+        false
+      ],
+      "stock_count": 2,
+      "stock_quantity": "0.00"
+    },
+    "split-restored": {
+      "state": "reversed",
+      "adoption_state": null,
+      "source_plan": [
+        "20.00",
+        "2.00"
+      ],
+      "child_plan": [
+        "-4.00",
+        "1.00"
+      ],
+      "active": [
+        true,
+        true
+      ],
+      "stock_count": 3,
+      "stock_quantity": "-4.00"
+    },
+    "fixture_database": "erp_phase6_browser_20261017",
+    "historical_import_rows": 0
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "tests": {
+    "count": 316,
+    "seconds": 122.443,
+    "modules": 22,
+    "result": "passed",
+    "log": ".runtime-temp/phase6/cross-regression.log",
+    "sha256": "d9a249b1d098cf6d81686bea0127d6b0de4d06826803528ec41d13b4bb1c1580"
+  },
+  "frontend": "本轮未修改前端源码；使用既有构建通过浏览器调用新增动作参数。前轮构建结果不重复算成本轮构建。",
+  "paused_query_count": 35,
+  "paused_nonfinancial_queries": [
+    {
+      "entry": "DPWPProcess",
+      "category": "缺本地原对象",
+      "error": "'wpprocess'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorDetail",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorMain",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeStuffSum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySelect",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDate",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDateForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachine",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachineForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyPrice",
+      "category": "缺本地原对象",
+      "error": "'energyprice'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShift",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftTJ",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tfems.dbo.e_daytimeenergy",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTime",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTimeForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffcount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffGraycount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_AnnualEnergy",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisAnnualChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnAnnual",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnShift",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisShiftChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyHistoricalPrice",
+      "category": "原字段已不存在",
+      "error": "Unknown column: actfinishtime",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyOfOrders",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyTotal",
+      "category": "原字段已不存在",
+      "error": "Column 'inlengthqty' could not be resolved. Line: 1, Col: 76",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MachineEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "s_RptRemoteItem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：reportserver.dbo.catalog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "Stuff_Step_LX",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.progs",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "StuffWeighingSystem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"weighingsystem\".dbo.weighrecorddetails AS wrd",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "V_Machine_ProcessID",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "VW_ProcessID_PS",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwGrayAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'stockunit' could not be resolved. Line: 1, Col: 62",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'fabricid' could not be resolved. Line: 1, Col: 27",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "manual_parent_formulas": [
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "field": "Remarks",
+      "original": "Parent.[Remarks]",
+      "handling": "选定配方表头允许显式录入备注；不按重复工卡原码选任意父行。"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "GradeID",
+      "original": "IIF([avgdots]>parent.[CHECKDots],'B','A')",
+      "handling": "保留原GradeID默认配置和显式等级；未确认查询父行与avgdots口径前不自动覆盖等级。"
+    }
+  ],
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "whole_entry_development_completed": 0,
+  "original_print_complete": 0,
+  "original_print_proofs": 5,
+  "old_sql_this_run": "未连接旧SQL Server；本轮验证在独立合成测试库进行。",
+  "exception_ids": [
+    "E226"
+  ],
+  "screenshots": [
+    "docs/assets/phase6-cross-chain-cancelled-20261017.png"
+  ],
+  "files_sha256": {
+    "backend/plugins/erp_base/source_transfer_numbers.py": "ec1261bf6aaf3404e53f77f55593776b42722c826001ebbcdd8982fde14fcae2",
+    "backend/plugins/erp_base/source_phase6_transfers.py": "376c63893ce00b0ae20213942fb5eda2988f1f2fb8777cd4416ada7c8038fceb",
+    "backend/plugins/erp_base/source_phase6_forms.py": "db8797f342536dc4d4a720831c7c7e6f14e45011aacdf45e688886766c5aac51",
+    "backend/plugins/erp_base/source_api.py": "6c69c193f5a30f7d48bdef0afbefa45e0bfe250ad8dc108cb1f7941881729965",
+    "backend/plugins/erp_base/tests/test_source_phase6_transfer_numbers.py": "7fe4d9a0e645d72cd487f2d984d4de0c64a0673dd3350ad797ffab4900e9ba8d"
+  }
+}

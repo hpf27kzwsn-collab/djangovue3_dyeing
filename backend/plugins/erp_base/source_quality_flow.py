@@ -21,12 +21,16 @@ def change(query, values, actor):
     update_rows(query, values, actor, 'original_quality_flow', '按当前原对色、疵布及生产触发规则回写')
 
 
-def clear_staff(item):
+def clear_staff(item,actor=None,deleted=False):
+    from .source_master_data import retain
+    targets=matching(rows('ColorShiftEmp','erp_production'),WProcessNo=raw(item,'WProcessNo'))
+    if deleted:targets=matching(targets,ShiftID=raw(item,'ShiftID'),JobSheetNo=raw(item,'JobSheetNo'))
+    for member in targets.order_by('pk'):retain(member,actor,'ColoringCheck_Delete' if deleted else 'ColoringCheck_Insert原报工人员替换，原行留档')
     context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
     if context is not None:
-        rows('ColorShiftEmp', 'erp_production').filter(pk__in=context.effects.get('color_staff', [])).delete()
+        before=snapshot(context)
         context.effects['color_staff'] = []
-        context.save(update_fields=['effects'])
+        persist(context,actor);record(context,'color_staff_retained',before,actor,'原班组人员关联退出活动范围')
 
 
 def coloring(item, actor):
@@ -36,7 +40,7 @@ def coloring(item, actor):
         old_step_no__lte=raw(step, 'StepNo')).aggregate(value=Sum('old_default_value'))['value']
     change(matching(rows('ColoringCheck'), WProcessNo=raw(item, 'WProcessNo'), JobSheetNo=raw(item, 'JobSheetNo')),
            {'RealValue': total}, actor)
-    clear_staff(item)
+    clear_staff(item,actor)
     staff = rows('ColorShiftEmp', 'erp_production').model
     ids = []
     for member in matching(rows('PShiftEmp', 'erp_base'), ShiftID=raw(item, 'ShiftID')).order_by('pk'):
@@ -82,12 +86,12 @@ def saved(item, created, actor):
         item.refresh_from_db()
 
 
-def removing(item):
+def removing(item,actor=None):
     if item.SOURCE_TABLE == 'WDefect' and entry_for(item) in ['WDefectJudgeBack', 'WDefectJudgeInterior']:
         if matching(rows('JobSheet', 'erp_production'), LossStr=raw(item, 'SheetNo')).exists():
             raise ValidationError({'source': '原评审规则：已根据此评审单开回修卡，不能删除。'})
     if item.SOURCE_TABLE == 'ColoringCheck':
-        clear_staff(item)
+        clear_staff(item,actor,deleted=True)
 
 
 def removed(item, actor):

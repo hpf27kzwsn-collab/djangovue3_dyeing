@@ -1,0 +1,219 @@
+{
+  "scope": "独立浏览器验证库合成数据；只读核对",
+  "rollback_before_success": {
+    "customers_after_rejected_update": [
+      {
+        "id": 133,
+        "old_customer_id": "001801",
+        "old_short_name": "Excel重复客户甲",
+        "old_remarks": "",
+        "old_num": "K001801"
+      },
+      {
+        "id": 134,
+        "old_customer_id": "001801",
+        "old_short_name": "Excel重复客户乙",
+        "old_remarks": "#NULL",
+        "old_num": null
+      }
+    ],
+    "failed_create_persisted": false
+  },
+  "customers": [
+    {
+      "id": 133,
+      "old_customer_id": "001801",
+      "old_short_name": "",
+      "old_name_c": null,
+      "old_remarks": "#NULL",
+      "old_num": "K001801"
+    },
+    {
+      "id": 134,
+      "old_customer_id": "001801",
+      "old_short_name": "Excel重复客户乙",
+      "old_name_c": null,
+      "old_remarks": "#NULL",
+      "old_num": null
+    },
+    {
+      "id": 135,
+      "old_customer_id": "EX-S01",
+      "old_short_name": "Excel供应商",
+      "old_name_c": null,
+      "old_remarks": null,
+      "old_num": "EX-S01"
+    }
+  ],
+  "documents": [
+    {
+      "id": 7,
+      "series": "P26101801",
+      "number": "26101801",
+      "date": "2026-10-17 18:20:36.115758+00:00",
+      "entry": "CookIn"
+    },
+    {
+      "id": 8,
+      "series": "P26101802",
+      "number": "26101802",
+      "date": "2026-10-17 18:20:36.189776+00:00",
+      "entry": "CookIn"
+    },
+    {
+      "id": 9,
+      "series": "EXCEL-EVENT",
+      "number": "26101803",
+      "date": "2026-10-17 18:20:36.224305+00:00",
+      "entry": "CookIn"
+    }
+  ],
+  "materials": [
+    {
+      "id": 178,
+      "Price": "-7.000000",
+      "LastPrice": "-7.000000",
+      "event": {
+        "entry": "CookIn",
+        "source_entry_id": 9,
+        "source_sheet_series": "EXCEL-EVENT",
+        "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+        "candidates": [
+          {
+            "article_in_id": 155,
+            "detail_id": 234,
+            "TaxPrice": "2.000000"
+          },
+          {
+            "article_in_id": 155,
+            "detail_id": 235,
+            "TaxPrice": "-3.000000"
+          },
+          {
+            "article_in_id": 155,
+            "detail_id": 236,
+            "TaxPrice": "-7.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 234,
+            "TaxPrice": "2.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 235,
+            "TaxPrice": "-3.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 236,
+            "TaxPrice": "-7.000000"
+          }
+        ],
+        "chosen_detail_id": 236,
+        "updated_values": {
+          "LastPrice": "-7.000000",
+          "Price": "-7.000000"
+        }
+      }
+    },
+    {
+      "id": 179,
+      "Price": "-7.000000",
+      "LastPrice": "-7.000000",
+      "event": {
+        "entry": "CookIn",
+        "source_entry_id": 9,
+        "source_sheet_series": "EXCEL-EVENT",
+        "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+        "candidates": [
+          {
+            "article_in_id": 155,
+            "detail_id": 234,
+            "TaxPrice": "2.000000"
+          },
+          {
+            "article_in_id": 155,
+            "detail_id": 235,
+            "TaxPrice": "-3.000000"
+          },
+          {
+            "article_in_id": 155,
+            "detail_id": 236,
+            "TaxPrice": "-7.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 234,
+            "TaxPrice": "2.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 235,
+            "TaxPrice": "-3.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 236,
+            "TaxPrice": "-7.000000"
+          }
+        ],
+        "chosen_detail_id": 236,
+        "updated_values": {
+          "LastPrice": "-7.000000",
+          "Price": "-7.000000"
+        }
+      }
+    },
+    {
+      "id": 180,
+      "Price": "9.000000",
+      "LastPrice": "-7.000000",
+      "event": {
+        "entry": "CookIn",
+        "source_entry_id": 9,
+        "source_sheet_series": "EXCEL-EVENT",
+        "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+        "candidates": [
+          {
+            "article_in_id": 155,
+            "detail_id": 234,
+            "TaxPrice": "2.000000"
+          },
+          {
+            "article_in_id": 155,
+            "detail_id": 235,
+            "TaxPrice": "-3.000000"
+          },
+          {
+            "article_in_id": 155,
+            "detail_id": 236,
+            "TaxPrice": "-7.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 234,
+            "TaxPrice": "2.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 235,
+            "TaxPrice": "-3.000000"
+          },
+          {
+            "article_in_id": 154,
+            "detail_id": 236,
+            "TaxPrice": "-7.000000"
+          }
+        ],
+        "chosen_detail_id": 236,
+        "updated_values": {
+          "LastPrice": "-7.000000"
+        }
+      }
+    }
+  ],
+  "failed_create_persisted": false,
+  "synthetic_source_rows_added": 14,
+  "historical_rows_imported_this_run": 0
+}

@@ -9,12 +9,14 @@ def active(query):
         Q(effects__package_retained__active=True) | Q(effects__work_archived__active=True) |
         Q(effects__trial_retained__active=True) | Q(effects__shift_retained__active=True) |
         Q(effects__calendar_retained__active=True) | Q(effects__equipment_retained__active=True) |
-        Q(effects__foundation_retained__active=True), entity=query.model._meta.label).values('object_id')
+        Q(effects__foundation_retained__active=True) | Q(effects__transfer_retained__active=True), entity=query.model._meta.label).values('object_id')
     return query.exclude(pk__in=cancelled)
 
 
 def require_available(item):
     context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
+    if context is not None and context.effects.get('transfer_retained',{}).get('active'):
+        raise ValidationError({'source':'此转单已撤回并保留原行；需要重新办理时请从来源重新转单。'})
     if context is not None and context.effects.get('equipment_retained',{}).get('active'):
         raise ValidationError({'source':'本设备记录已替换或撤回留档，请先撤回对应设备办理。'})
     if context is not None and context.effects.get('calendar_retained',{}).get('active'):

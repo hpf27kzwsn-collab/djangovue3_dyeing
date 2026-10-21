@@ -22,21 +22,25 @@ class OriginalSampleFlowTests(TestCase):
     def write(self, name, **data):
         return services.write(self.model(name), data, actor=self.actor)
 
-    def test_lab_registration_maps_actual_fields_and_keeps_existing_master_identity(self):
+    def test_lab_registration_rebuilds_and_retains_existing_master_unchanged(self):
         master = self.model('PColorNum', 'erp_base').objects.create(old_sheet_series='LAB', old_color_no='C',
             old_color_num='A', old_color_num_no='OLDVERSION', source_batch=historical_batch())
         head = self.write('DyeLabMain', _entry='ShowDyeLabMain', old_sheet_series='LAB', old_customer_id='CUSTOMER', old_remarks='客户要求')
         color = self.write('DyeLabColor', source_parent_1=head, old_color_no='C', old_color_num='A',
                            old_color_markt='实际色标', old_color_mark='另一个值', old_remarks='颜色备注')
         master.refresh_from_db()
-        self.assertEqual(master.old_color_mark, '实际色标')
-        self.assertEqual(master.old_customer_id, 'CUSTOMER')
-        self.assertEqual(master.old_cus_remark, '客户要求')
-        self.assertEqual(master.old_remarks, '颜色备注')
+        from plugins.erp_base.source_execution_state import active
+        rebuilt = active(type(master).objects.all()).get()
+        self.assertEqual(rebuilt.old_color_mark, '实际色标')
+        self.assertEqual(rebuilt.old_customer_id, 'CUSTOMER')
+        self.assertEqual(rebuilt.old_cus_remark, '客户要求')
+        self.assertEqual(rebuilt.old_remarks, '颜色备注')
+        self.assertIsNone(master.old_remarks)
         self.assertEqual(master.old_color_num_no, 'OLDVERSION')
         self.assertEqual(master.source_batch_id, historical_batch().pk)
         services.write(type(color), {'old_remarks': '更改'}, color, self.actor)
-        self.assertEqual(self.model('PColorNum', 'erp_base').objects.count(), 1)
+        self.assertEqual(self.model('PColorNum', 'erp_base').objects.count(), 3)
+        self.assertEqual(active(type(master).objects.all()).get().old_remarks, '更改')
 
     def test_lab_new_colors_are_all_saved_and_latest_trial_values_are_adopted(self):
         self.model('DyeDipsRecord').objects.create(old_sheet_series='TRIAL', old_color_num='A',
@@ -44,8 +48,10 @@ class OriginalSampleFlowTests(TestCase):
         head = self.write('DyeLabMain', _entry='ShowDyeLabMain', old_sheet_series='LAB')
         for no in ['C1', 'C2']:
             self.write('DyeLabColor', source_parent_1=head, old_color_no=no, old_color_num='A')
-        masters = self.model('PColorNum', 'erp_base').objects.all()
-        self.assertEqual(masters.count(), 2)
+        from plugins.erp_base.source_execution_state import active
+        masters = active(self.model('PColorNum', 'erp_base').objects.all())
+        # 每个游标按ColorNo删除，却按ColorNum插入；两种ColorNo同色号得到3行。
+        self.assertEqual(masters.count(), 3)
         self.assertTrue(all(value.old_stuff_dosage == Decimal('0.2') for value in masters))
 
     def test_result_exact_point_two_boundary_and_older_versions_keep_original_rows(self):

@@ -1,0 +1,669 @@
+{
+  "verified_at": "2026-10-17T17:32:21.459244+08:00",
+  "scope": "14个原入口的24条本行公式保存联动及表单布局；不是14个完整入口全部复刻",
+  "audit_counts": {
+    "all_entries": 1682,
+    "nonfinancial_entries": 1574,
+    "finance_entries": 108,
+    "nonfinancial_bound_entries": 818,
+    "nonfinancial_formula_entries": 208,
+    "nonfinancial_formulas": 497,
+    "save_registry_formulas": 105,
+    "outside_save_registry_formulas": 392,
+    "new_local_formula_entries": 14,
+    "new_local_formulas": 24
+  },
+  "outside_registry_categories": {
+    "本行或SQL函数公式": 139,
+    "父子来源公式": 158,
+    "未绑定模型": 54,
+    "非物理目标": 41
+  },
+  "browser": {
+    "database": "erp_phase6_browser_20261017",
+    "data_kind": "synthetic",
+    "historical_import_rows": 0,
+    "entries_verified": 14,
+    "checks": [
+      {
+        "entry": "DyeLabColor",
+        "table": "DyeLabColor",
+        "id": 168,
+        "expected": {
+          "ColorNum": "N987Z",
+          "OriColorNo": "N987Z",
+          "Markt": "987",
+          "KHSHORPTSH": "N"
+        },
+        "actual": {
+          "ColorNum": "N987Z",
+          "OriColorNo": "N987Z",
+          "Markt": "987",
+          "KHSHORPTSH": "N"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "ShowDyeLabColor",
+        "table": "DyeLabColor",
+        "id": 169,
+        "expected": {
+          "ColorNum": "UI-MANUAL",
+          "OriColorNo": "UI-MANUAL",
+          "Markt": "123",
+          "KHSHORPTSH": "UI-COLOR"
+        },
+        "actual": {
+          "ColorNum": "UI-MANUAL",
+          "OriColorNo": "UI-MANUAL",
+          "Markt": "123",
+          "KHSHORPTSH": "UI-COLOR"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_ColorNum",
+        "table": "DyeLabColor",
+        "id": 170,
+        "expected": {
+          "RGB": -16776961
+        },
+        "actual": {
+          "RGB": -16776961
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_ColorNumSup",
+        "table": "DyeLabColor",
+        "id": 171,
+        "expected": {
+          "RGB": -1
+        },
+        "actual": {
+          "RGB": -1
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "OrderColor",
+        "table": "OrderColor",
+        "id": 402,
+        "expected": {
+          "GrayQty": "-7",
+          "OrderQty": "-7"
+        },
+        "actual": {
+          "GrayQty": "-7.00",
+          "OrderQty": "-7.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "OrderColorChange",
+        "table": "OrderColor",
+        "id": 403,
+        "expected": {
+          "GrayQty": "-7",
+          "OrderQty": "-7"
+        },
+        "actual": {
+          "GrayQty": "-7.00",
+          "OrderQty": "-7.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "OrderColorSup",
+        "table": "OrderColor",
+        "id": 404,
+        "expected": {
+          "GrayQty": "-7",
+          "OrderQty": "-7"
+        },
+        "actual": {
+          "GrayQty": "-7.00",
+          "OrderQty": "-7.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "PrintOrderColor",
+        "table": "OrderColor",
+        "id": 405,
+        "expected": {
+          "GrayQty": "-7",
+          "OrderQty": "-7"
+        },
+        "actual": {
+          "GrayQty": "-7.00",
+          "OrderQty": "-7.00"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "QuoteDetail",
+        "table": "FixedPriceDetail",
+        "id": 34,
+        "expected": {
+          "Price": "-2",
+          "ProcessPrice": "3",
+          "Pricesum": "1",
+          "ChengBen1": "-6",
+          "SumChengBen": "-2",
+          "IsConfirmed": 1
+        },
+        "actual": {
+          "Price": "-2.00",
+          "ProcessPrice": "3.00",
+          "Pricesum": "1.00",
+          "ChengBen1": "-6.00",
+          "SumChengBen": "-2.00",
+          "IsConfirmed": 1
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "Quote",
+        "table": "FixedPrice",
+        "id": 26,
+        "expected": {
+          "CustomerID": "UI-C2",
+          "CustomerCode": "UI-C2"
+        },
+        "actual": {
+          "CustomerID": "UI-C2",
+          "CustomerCode": "UI-C2"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "FixedPrice",
+        "table": "Quote",
+        "id": 252,
+        "expected": {
+          "CustomerID": "UI-C2",
+          "CustomerCode": "UI-C2"
+        },
+        "actual": {
+          "CustomerID": "UI-C2",
+          "CustomerCode": "UI-C2"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_Customer",
+        "table": "p_Customer",
+        "id": 122,
+        "expected": {
+          "CustomerID": "UI-CUST",
+          "Num": "KUI-CUST"
+        },
+        "actual": {
+          "CustomerID": "UI-CUST",
+          "Num": "KUI-CUST"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_Supplier",
+        "table": "p_Customer",
+        "id": 123,
+        "expected": {
+          "CustomerID": "UI-SUP",
+          "Num": "UI-SUP"
+        },
+        "actual": {
+          "CustomerID": "UI-SUP",
+          "Num": "UI-SUP"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_Stuff",
+        "table": "p_Stuff",
+        "id": 397,
+        "expected": {
+          "StuffID": "UI-ENTRY-A",
+          "StuffType": "B",
+          "RecipeUnit": 0,
+          "StockUnit": "K",
+          "WeightUnit": "K"
+        },
+        "actual": {
+          "StuffID": "UI-ENTRY-A",
+          "StuffType": "B",
+          "RecipeUnit": 0,
+          "StockUnit": "K",
+          "WeightUnit": "K"
+        },
+        "result": "passed"
+      },
+      {
+        "entry": "p_Stuff_before_fix",
+        "table": "p_Stuff",
+        "id": 396,
+        "expected": {
+          "StuffID": "UI-ENTRY-A",
+          "StuffType": "A",
+          "RecipeUnit": null,
+          "StockUnit": null,
+          "WeightUnit": null
+        },
+        "actual": {
+          "StuffID": "UI-ENTRY-A",
+          "StuffType": "A",
+          "RecipeUnit": null,
+          "StockUnit": null,
+          "WeightUnit": null
+        },
+        "result": "passed"
+      }
+    ],
+    "duplicate_stuff_rows": 2,
+    "creation": "p_Customer/p_Supplier/p_Stuff由浏览器新增；另11个入口为服务夹具准备、浏览器修改保存。数据库查询仅验证结果。"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "tests": {
+    "count": 323,
+    "seconds": 112.982,
+    "modules": 23,
+    "result": "passed",
+    "log": ".runtime-temp/phase6/entry-regression.log"
+  },
+  "frontend": {
+    "result": "typecheck_and_build_passed",
+    "log": ".runtime-temp/phase6/entry-frontend.log",
+    "browser_layout": {
+      "page": "erp_sales_sourcedyefixedpricedetail",
+      "record": "UI-QCOST",
+      "viewport": "1280x720",
+      "before": {
+        "form_width": 985.5416870117188,
+        "container_width": 888
+      },
+      "after": {
+        "form_width": 888,
+        "container_width": 888,
+        "price_input_right": 1033.3333740234375,
+        "container_right": 1076.3333435058594
+      },
+      "verification": "浏览器重载新构建，重开表单读取可见DOM边界并检查截图；原公式说明换行保留。"
+    }
+  },
+  "paused_query_count": 35,
+  "paused_nonfinancial_queries": [
+    {
+      "entry": "DPWPProcess",
+      "category": "缺本地原对象",
+      "error": "'wpprocess'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorDetail",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorMain",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeStuffSum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySelect",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDate",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDateForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachine",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachineForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyPrice",
+      "category": "缺本地原对象",
+      "error": "'energyprice'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShift",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftTJ",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tfems.dbo.e_daytimeenergy",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTime",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTimeForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffcount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffGraycount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_AnnualEnergy",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisAnnualChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnAnnual",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnShift",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisShiftChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyHistoricalPrice",
+      "category": "原字段已不存在",
+      "error": "Unknown column: actfinishtime",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyOfOrders",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyTotal",
+      "category": "原字段已不存在",
+      "error": "Column 'inlengthqty' could not be resolved. Line: 1, Col: 76",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MachineEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "s_RptRemoteItem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：reportserver.dbo.catalog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "Stuff_Step_LX",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.progs",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "StuffWeighingSystem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"weighingsystem\".dbo.weighrecorddetails AS wrd",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "V_Machine_ProcessID",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "VW_ProcessID_PS",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwGrayAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'stockunit' could not be resolved. Line: 1, Col: 62",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'fabricid' could not be resolved. Line: 1, Col: 27",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "manual_parent_formulas": [
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "field": "Remarks",
+      "original": "Parent.[Remarks]",
+      "handling": "选定配方表头允许显式录入备注；不按重复工卡原码选任意父行。"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "GradeID",
+      "original": "IIF([avgdots]>parent.[CHECKDots],'B','A')",
+      "handling": "保留原GradeID默认配置和显式等级；未确认查询父行与avgdots口径前不自动覆盖等级。"
+    }
+  ],
+  "new_missing_formula_input": {
+    "entry": "Quote",
+    "table": "FixedPrice",
+    "target": "IsConfirmed",
+    "missing": "Price",
+    "replacement": "手工录入原字段"
+  },
+  "whole_entry_development_completed": 0,
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "original_print_complete": 0,
+  "original_print_proofs": 5,
+  "old_sql_this_run": "未连接旧SQL Server；依据已提取原结构和配置，本轮数据全为独立测试库合成数据。",
+  "exception_ids": [
+    "E227",
+    "E228"
+  ],
+  "screenshots": [
+    "docs/assets/phase6-entry-values-20261017.png"
+  ],
+  "files_sha256": {
+    ".runtime-temp/phase6/entry-regression.log": "37da6f823693a24d53e7bb5304650697d4e9f53cacdedc72e1843da5d644e0fb",
+    ".runtime-temp/phase6/entry-frontend.log": "6afc797e4baf9db0b483bf8dafce32b487bd78014bd01f2bb62cee427e128e72",
+    "tools/legacy_models/audit_phase6_entry_formulas.py": "72671e4c069a805b1fa1117faf471f620d1d8af4461cb90cda25404be7b8fc04",
+    "web/src/responsive.css": "f7473f6672045f8da264997d21581a5413d9cdf0d673ecdbd6af47349e2071c2",
+    "backend/plugins/erp_base/source_phase6_local_values.py": "3885bf8fdbaf3921f7b0c239bc5d52d6108c71cdbc140a966bf2bf9956542d1b",
+    "backend/plugins/erp_base/source_phase6_auto_values.py": "a184157318ba909aaeac75a469e6a5f3c1ad6d457405ff71d641ef231fb0b293",
+    "backend/plugins/erp_base/source_services.py": "5e557c906c620c63e8b0e76ad5bf9299b6bfa9a4bd663e4582eb16beea037521",
+    "backend/plugins/erp_base/tests/test_source_phase6_local_values.py": "272d234ec51e7b2b9504659197fcc57e3b1c0330a709a41be85651a56283d3f0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "database": "erp_provenance_clean_20261016",
+  "migration": "erp_base.0030_sourcedyefmoneyindetail",
+  "result": "passed",
+  "original_fields": 20,
+  "original_key": [
+    "SheetSeries",
+    "DetailNo"
+  ],
+  "extra_legacy_id": false
+}

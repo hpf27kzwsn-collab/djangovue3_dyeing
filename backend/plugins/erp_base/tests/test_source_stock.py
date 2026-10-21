@@ -102,7 +102,8 @@ class OriginalStockPostingTests(TestCase):
             'old_detail_no': 'ALLOT-L1', 'old_stuff_id': 'S1', 'old_qty': 2, 'old_price': 3, 'old_amount': 6}, actor=self.actor)
         self.assertEqual(SourceDyeStuffStockBook.objects.count(), 2)
         material.refresh_from_db()
-        self.assertEqual(material.old_price, 3)
+        # 原StuffStockBook_INSERT在正价流水后仍重取13类采购价；无采购来源时明确写NULL。
+        self.assertIsNone(material.old_price)
         self.assertEqual(material.source_batch_id, historical_batch().pk)
         head = services.confirm(head, self.actor); head = services.approve(head, self.actor)
         incoming = apps.get_model('erp_warehouse.SourceDyeStuffIn').objects.get(old_sheet_series='SR00000001')

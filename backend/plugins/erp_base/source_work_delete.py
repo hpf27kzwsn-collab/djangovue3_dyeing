@@ -38,11 +38,11 @@ def status(item):
 def remove_children(query, actor, procedure):
     for child in query.order_by('pk'):
         child = locked(child)
-        # 原行留档；新增关联行按原过程删除，两者都记录实际命中对象。
+        # 全部命中行退出活动范围；历史及新录重复行均留档，避免删除后仍参与原统计。
         historical = is_historical(child)
         record(child, 'work_delete_keep_source' if historical else 'work_delete_child', snapshot(child), actor, procedure)
-        if not historical:
-            child.delete()
+        from .source_master_data import retain
+        retain(child,actor,procedure+'原关联行删除改为留档')
 
 
 def joined_names(work):

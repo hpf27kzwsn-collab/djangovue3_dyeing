@@ -4,7 +4,7 @@ from tempfile import TemporaryFile
 from types import SimpleNamespace
 from zipfile import BadZipFile
 
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, ValidationError as ModelValidationError
 from django.db import transaction
 from django.http import FileResponse, HttpResponse
 from django.utils import timezone
@@ -23,7 +23,7 @@ from drf_spectacular.utils import extend_schema, inline_serializer
 
 from core.api import success
 from core.permissions import ApiPermission, scoped_queryset
-from .excel_fields import UPDATE_KEY, SERIAL, columns_for, supports_import, encode, decode
+from .excel_fields import UPDATE_KEY, SERIAL, KEEP, NULL, EMPTY, columns_for, supports_import, encode, decode
 
 XLSX_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 FORMATS = {'text': '@', 'date': 'yyyy-mm-dd', 'datetime': 'yyyy-mm-dd hh:mm:ss', 'time': 'hh:mm:ss'}
@@ -32,7 +32,7 @@ GUIDES = {'text': '文本，编号保留前导零', 'number': '数值，0 有效
           'date': 'YYYY-MM-DD', 'datetime': 'YYYY-MM-DD HH:MM:SS', 'time': 'HH:MM:SS', 'json': 'JSON 文本'}
 
 
-def write_workbook(rows, columns, output, mode='export'):
+def write_workbook(rows, columns, output, mode='export', context=None):
     book = Workbook()
     sheet = book.active
     sheet.title = '数据'
@@ -41,15 +41,22 @@ def write_workbook(rows, columns, output, mode='export'):
     guide.append(['项目', '说明'])
     guide.append(['用途', {'export': '数据导出', 'create': '新增模板', 'update': '批量更新模板'}[mode]])
     guide.append(['时间', f'日期时间采用项目时区 {timezone.get_current_timezone_name()}'])
-    guide.append(['空白', '空单元格不提交；更新保持原值，0/False 是有效值'])
-    guide.append(['公式', '本系统不计算公式；请在 Excel/WPS 计算并保存后上传，未缓存公式读取为空值'])
+    guide.append(['空白/保留', '空单元格或 #KEEP 不提交；新增采用默认值，更新保持原值。0、False、负数和空格文本均为有效值。'])
+    guide.append(['明确清空', '#NULL 表示数据库NULL；#EMPTY 表示空字符串（多选字段表示清空选项）。字段不接受该值时报告错误，不转换为0。'])
+    guide.append(['标记原文', '原文本恰好为 #NULL、#EMPTY、#KEEP 或以 #TEXT: 开头时，在前面加 #TEXT:，例如 #TEXT:#NULL。'])
+    guide.append(['公式', '本系统不计算Excel公式；只读取Excel/WPS保存的计算结果，公式无缓存或结果错误时报告具体位置，不作为空值跳过。'])
+    guide.append(['数据行', '完全空白行仅计为空白；有序号的行明确参与导入。重复行逐行处理；任何一行失败则整批回滚。'])
+    if context:
+        config=book.create_sheet('导入设置');config.append(['设置项','值'])
+        for key,value in context.items():config.append([key,value])
+        guide.append(['默认业务入口', '数据行“业务入口”优先，其次“导入设置”的业务入口，最后使用导入窗口所选入口。更新已有单据保留原入口。'])
     if mode != 'export':
         guide.append(['文件', '表格不提交文件内容；更新保留已有附件，新增所需的必填文件须通过上传表单提交'])
     if mode == 'update':
         guide.append(['更新主键', '用于定位已有记录，不能删掉该列；不转为新增'])
     guide.append(['字段', '填写方式'])
     for column in columns:
-        guide.append([column['title'], ('新增必填；' if column['required'] else '') + GUIDES[column['kind']]])
+        guide.append([column['title'], ('新增必填；' if column['required'] else '') + GUIDES[column['kind']] + ('；'+column['guide'] if 'guide' in column else '')])
     guide.column_dimensions['A'].width = 24
     guide.column_dimensions['B'].width = 90
     sheet.append([SERIAL] + [column['title'] for column in columns])
@@ -83,7 +90,7 @@ def write_workbook(rows, columns, output, mode='export'):
                 guide.append([column['title']+' 示例', encode([option['value'] for option in column['options'][:2]], column)])
     count = 0
     for count, row in enumerate(rows, 1):
-        sheet.append([count] + [encode(row.get(column['key']), column) for column in columns])
+        sheet.append([count] + [encode(row.get(column['key']), column, for_import=mode!='export') for column in columns])
         for index, column in enumerate(columns, 2):
             cell = sheet.cell(count+1, index)
             if cell.value is not None:
@@ -103,10 +110,10 @@ def write_workbook(rows, columns, output, mode='export'):
     book.close()
 
 
-def excel_response(rows, columns, filename, mode='export'):
+def excel_response(rows, columns, filename, mode='export', context=None):
     output = TemporaryFile()
     try:
-        write_workbook(rows, columns, output, mode)
+        write_workbook(rows, columns, output, mode, context)
         output.seek(0)
         return FileResponse(output, as_attachment=True, filename=filename+'.xlsx', content_type=XLSX_TYPE)
     except Exception:
@@ -115,6 +122,18 @@ def excel_response(rows, columns, filename, mode='export'):
 
 
 class ExcelActions:
+    def excel_context(self, book=None):
+        return {}
+
+    def excel_prepare(self, data, instance, context):
+        return data
+
+    def excel_serializer(self,instance,data,mode,context):
+        return self.get_serializer(instance,data=data,partial=mode=='update')
+
+    def excel_finish(self,context,counts):
+        pass
+
     def excel_save(self, serializer, audit, mode):
         return serializer.save(**audit)
 
@@ -160,7 +179,7 @@ class ExcelActions:
     def import_template(self, request):
         if not supports_import(self.queryset.model):
             raise serializers.ValidationError('该模块只提供数据导出')
-        return excel_response([], self.excel_columns('create'), str(self.queryset.model._meta.verbose_name)+'新增模板', 'create')
+        return excel_response([], self.excel_columns('create'), str(self.queryset.model._meta.verbose_name)+'新增模板', 'create', self.excel_context())
 
     @action(methods=['get'], detail=False)
     def update_template(self, request):
@@ -169,7 +188,7 @@ class ExcelActions:
         queryset = self.filter_queryset(self.get_queryset()).filter(pk__in=self.excel_write_queryset().values('pk'))
         columns = self.excel_columns('update', queryset)
         return excel_response(self.excel_rows(queryset, columns, update=True), columns,
-                              str(self.queryset.model._meta.verbose_name)+'更新模板', 'update')
+                              str(self.queryset.model._meta.verbose_name)+'更新模板', 'update', self.excel_context())
 
     @extend_schema(request=inline_serializer(name='ExcelImportFile', fields={'file': serializers.FileField()}))
     @action(methods=['post'], detail=False, url_path='import')
@@ -181,21 +200,25 @@ class ExcelActions:
         if not upload.name.lower().endswith('.xlsx'):
             raise serializers.ValidationError('请上传 xlsx 文件')
         try:
-            book = load_workbook(upload, read_only=True, data_only=True)
+            book = load_workbook(upload, read_only=True, data_only=False)
+            upload.seek(0)
+            cached = load_workbook(upload, read_only=True, data_only=True)
         except (InvalidFileException, BadZipFile) as exc:
             raise serializers.ValidationError('文件不是有效的 xlsx 工作簿') from exc
         try:
             if '数据' not in book.sheetnames:
                 raise serializers.ValidationError('模板缺少“数据”工作表')
             sheet = book['数据']
-            rows = sheet.iter_rows(values_only=True)
-            headers = next(rows, ())
+            rows = sheet.iter_rows()
+            headers = tuple(cell.value for cell in next(rows, ()))
+            cached_rows=cached['数据'].iter_rows(min_row=2)
             if not any(header and header != SERIAL for header in headers):
                 raise serializers.ValidationError('模板缺少中文表头')
             mode = 'update' if UPDATE_KEY in headers else 'create'
             queryset = self.excel_write_queryset() if mode == 'update' else None
             if mode == 'create' and not ApiPermission().has_permission(self.excel_query_request('POST'), self):
                 raise PermissionDenied('无新增权限')
+            context=self.excel_context(book)
             columns = {column['title']: column for column in self.excel_columns(mode, queryset)}
             titles = [header for header in headers if header and header != SERIAL]
             if len(titles) != len(set(titles)):
@@ -204,42 +227,58 @@ class ExcelActions:
                 if title not in columns:
                     raise serializers.ValidationError({'sheet': '数据', 'row': 1, 'field': str(title), 'detail': '字段不在本模板可导入范围'})
             counts = {'created': 0, 'updated': 0, 'skipped': 0}
-            for number, cells in enumerate(rows, 2):
+            row_results=[]
+            for number, (cells,cached_cells) in enumerate(zip(rows,cached_rows), 2):
                 data, primary = {}, None
+                explicit_fields=set()
                 title = '更新主键' if mode == 'update' else '数据'
                 try:
-                    for title, value in zip(headers, cells):
-                        if title in [None, SERIAL] or value is None or value == '':
+                    if all(cell.value is None or cell.value=='' for cell in cells):
+                        counts['skipped']+=1
+                        row_results.append({'row':number,'status':'blank'})
+                        continue
+                    for title, cell, cached_cell in zip(headers, cells,cached_cells):
+                        value=cell.value
+                        if cell.data_type=='f':
+                            value=cached_cell.value
+                            if value is None:raise serializers.ValidationError('Excel公式没有已保存的计算结果，请计算并保存后再导入。')
+                        if cell.data_type=='e' or cached_cell.data_type=='e':raise serializers.ValidationError('Excel单元格结果为错误：'+str(value))
+                        if title in [None,''] and value not in [None,'']:raise serializers.ValidationError('有内容的列未填写表头：'+cell.column_letter)
+                        if title in [None, SERIAL] or value is None or value == '' or value == KEEP:
                             continue
                         column = columns[title]
                         if column['key'] == '__pk':
-                            primary = value
+                            primary = decode(value,column)
                         else:
                             data[column['key']] = decode(value, column)
-                    if not data:
-                        counts['skipped'] += 1
-                        continue
+                            if value in [NULL,EMPTY]:explicit_fields.add(column['key'])
                     instance = queryset.get(pk=primary) if mode == 'update' else None
-                    serializer = self.get_serializer(instance, data=data, partial=mode == 'update')
+                    data=self.excel_prepare(data,instance,context)
+                    serializer = self.excel_serializer(instance,data,mode,context)
+                    serializer.context['excel_explicit_fields']=explicit_fields
+                    serializer.context['excel_row']=number
                     serializer.is_valid(raise_exception=True)
                     audit = self.audit()
                     if mode == 'update':
                         audit.pop('creator', None)
                         audit.pop('dept_belong_id', None)
-                    self.excel_save(serializer, audit, mode)
+                    saved=self.excel_save(serializer, audit, mode)
                     counts['updated' if mode == 'update' else 'created'] += 1
-                except (KeyError, IndexError, ValueError, TypeError, csv.Error, ObjectDoesNotExist, serializers.ValidationError) as exc:
+                    row_results.append({'row':number,'status':'updated' if mode=='update' else 'created','id':saved.pk})
+                except (KeyError, IndexError, ValueError, TypeError, csv.Error, ObjectDoesNotExist, serializers.ValidationError,ModelValidationError) as exc:
                     if isinstance(exc, ObjectDoesNotExist):
                         title, detail = UPDATE_KEY, '记录不存在或不在修改范围'
-                    elif isinstance(exc, serializers.ValidationError):
-                        detail = exc.detail
-                        title = '、'.join(columns_key['title'] for columns_key in columns.values()
-                                         if isinstance(detail, dict) and columns_key['key'] in detail) or '数据'
+                    elif isinstance(exc, (serializers.ValidationError,ModelValidationError)):
+                        detail = exc.detail if isinstance(exc,serializers.ValidationError) else serializers.as_serializer_error(exc)
+                        if isinstance(detail,dict):
+                            title = '、'.join(c['title'] for c in columns.values() if c['key'] in detail) or '数据'
                     else:
                         detail = '选项或填写格式不正确：'+str(exc)
                     raise serializers.ValidationError({'sheet': '数据', 'row': number, 'field': title, 'detail': detail}) from exc
-            return success({'mode': mode, 'count': counts['created']+counts['updated'], **counts}, '导入成功')
+            self.excel_finish(context,counts)
+            return success({'mode': mode, 'count': counts['created']+counts['updated'], **counts,'rows':row_results}, '导入成功')
         finally:
+            cached.close()
             book.close()
 
     @action(methods=['post'], detail=False)

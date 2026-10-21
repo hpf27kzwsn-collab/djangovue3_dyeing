@@ -1,0 +1,74 @@
+{
+  "database": "erp_master_xlsx_verify_20261021",
+  "backend_port": 8002,
+  "frontend_port": 8081,
+  "formal_old_data_imported": 0,
+  "cases": [
+    {
+      "id": "B01",
+      "name": "编号管理总览",
+      "result": "29条建议规则展示，业务名称与客户/供应商编码分别标明",
+      "passed": true
+    },
+    {
+      "id": "B02",
+      "name": "模型—字段—范围联动",
+      "result": "销售订单→单据编号→订单/更改/补单/印花等入口分别可选",
+      "passed": true
+    },
+    {
+      "id": "B03",
+      "name": "新增规则与预览",
+      "result": "浏览器验证订单规则UI000，预览UI001，不占号；保存后可查询；无业务保存，验证后删除该临时规则",
+      "passed": true
+    },
+    {
+      "id": "B04",
+      "name": "配置保存及同步上限",
+      "result": "幅宽克重共用规则保存，流水同步成功",
+      "passed": true
+    },
+    {
+      "id": "B05",
+      "name": "自动编号新增",
+      "result": "独立库新增编号035的合成幅宽资料，编码框默认禁用",
+      "passed": true
+    },
+    {
+      "id": "B06",
+      "name": "手工编号新增",
+      "result": "开启手工录入，保存VWIDTH合成资料",
+      "passed": true
+    },
+    {
+      "id": "B07",
+      "name": "未引用资料改码",
+      "result": "临时允许改码后VWIDTH更改为VWIDTH2，稳定Django主键79不变",
+      "passed": true
+    },
+    {
+      "id": "B08",
+      "name": "禁止手工编号",
+      "result": "关闭手工录入后开关不显示、编码框禁用",
+      "passed": true
+    },
+    {
+      "id": "B09",
+      "name": "禁止改码",
+      "result": "编辑既有合成资料时编号禁用，并提示已有编号保持原值",
+      "passed": true
+    },
+    {
+      "id": "B10",
+      "name": "Excel禁止手工整批回滚",
+      "result": "同一文件首个有效行自动取号，后续手工VIMPORT在Excel第4行报错；整批未保存",
+      "passed": true
+    },
+    {
+      "id": "B11",
+      "name": "Excel成功及重复保留",
+      "result": "恢复允许手工后同文件新增3条，空白1行；两条VIMPORT均保存，返回119/120/121",
+      "passed": true
+    }
+  ]
+}

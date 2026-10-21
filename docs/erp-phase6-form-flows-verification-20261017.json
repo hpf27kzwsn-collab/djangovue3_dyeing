@@ -1,0 +1,1434 @@
+{
+  "verified_at": "2026-10-17T15:58:03.961662+08:00",
+  "development": "部分完成，按本轮增量分别验证",
+  "paused_nonfinancial_queries": [
+    {
+      "entry": "DPWPProcess",
+      "category": "缺本地原对象",
+      "error": "'wpprocess'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorDetail",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorMain",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeStuffSum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySelect",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDate",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDateForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachine",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachineForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyPrice",
+      "category": "缺本地原对象",
+      "error": "'energyprice'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShift",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftTJ",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tfems.dbo.e_daytimeenergy",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTime",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTimeForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffcount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffGraycount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_AnnualEnergy",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisAnnualChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnAnnual",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnShift",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisShiftChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyHistoricalPrice",
+      "category": "原字段已不存在",
+      "error": "Unknown column: actfinishtime",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyOfOrders",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyTotal",
+      "category": "原字段已不存在",
+      "error": "Column 'inlengthqty' could not be resolved. Line: 1, Col: 76",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MachineEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "s_RptRemoteItem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：reportserver.dbo.catalog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "Stuff_Step_LX",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.progs",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "StuffWeighingSystem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"weighingsystem\".dbo.weighrecorddetails AS wrd",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "V_Machine_ProcessID",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "VW_ProcessID_PS",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwGrayAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'stockunit' could not be resolved. Line: 1, Col: 62",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'fabricid' could not be resolved. Line: 1, Col: 27",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "paused_query_count": 35,
+  "new_write_bindings": [
+    {
+      "model": "erp_production.SourceDyeWProcess",
+      "entry": "NewFuBan",
+      "table": "WProcess",
+      "title": "复版出缸最新记录"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWeightTechInfo",
+      "entry": "AfterNormalStuffWeightTech",
+      "table": "WeightTechInfo",
+      "title": "工艺行机参数（后处理）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWeightTechInfo",
+      "entry": "NormalStuffWeightTech",
+      "table": "WeightTechInfo",
+      "title": "工艺行机参数"
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "entry": "AMaterialPriceAdjust",
+      "table": "MaterialPriceAdjust",
+      "title": "机物料调价主表"
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "entry": "SMaterialPriceAdjust",
+      "table": "MaterialPriceAdjust",
+      "title": "染化料调价主表"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleDeptApply",
+      "entry": "ArticleDeptApply",
+      "table": "ArticleDeptApply",
+      "title": "机物料部门采购"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleDeptApplyDetail",
+      "entry": "ArticleDeptApplyDetail",
+      "table": "ArticleDeptApplyDetail",
+      "title": "机物料部门采购明细"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutApply",
+      "entry": "ArticleOutApply",
+      "table": "ArticleOutApply",
+      "title": "机物料领用申请"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutApplyDetail",
+      "entry": "ArticleOutApplyDetail",
+      "table": "ArticleOutApplyDetail",
+      "title": "机物料领用申请新增"
+    },
+    {
+      "model": "erp_purchase.SourceDyePurDetail",
+      "entry": "PurDetailList",
+      "table": "PurDetail",
+      "title": "胚纱采购明细查询"
+    },
+    {
+      "model": "erp_base.SourceDyeBalancingConditions",
+      "entry": "BalancingConditions",
+      "table": "BalancingConditions",
+      "title": "坯布平账条件"
+    },
+    {
+      "model": "erp_base.SourceDyePGray",
+      "entry": "S_Change",
+      "table": "p_Gray",
+      "title": "本厂规格修改"
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerNoLimit",
+      "entry": "CustomerNoLimit",
+      "table": "CustomerNoLimit",
+      "title": "账期不申请额度"
+    },
+    {
+      "model": "erp_production.SourceDyeJobGrayRecord",
+      "entry": "DPJobGrayRecord",
+      "table": "JobGrayRecord",
+      "title": "刷卡码单明细"
+    },
+    {
+      "model": "erp_base.SourceDyeEnableCard",
+      "entry": "EnableCard",
+      "table": "EnableCard",
+      "title": "启用放卡"
+    },
+    {
+      "model": "erp_base.SourceDyeFixedCanDetail",
+      "entry": "FixedCanDetail",
+      "table": "FixedCanDetail",
+      "title": "克重报价"
+    },
+    {
+      "model": "erp_base.SourceDyeFixedCanRecord",
+      "entry": "FixedCanRecord",
+      "table": "FixedCanRecord",
+      "title": "克重报价"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayMaterialDetail",
+      "entry": "qry_Winding_ToCustomer",
+      "table": "GrayMaterialDetail",
+      "title": "络筒货期表"
+    },
+    {
+      "model": "erp_base.SourceDyeGWName",
+      "entry": "GWNameZC",
+      "table": "GWName",
+      "title": "缸位字母注册"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "entry": "SumWinding",
+      "table": "RecordYield",
+      "title": "络筒日产量汇总"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "entry": "SWindingBaling",
+      "table": "RecordYield",
+      "title": "络筒打包汇总"
+    },
+    {
+      "model": "erp_production.SourceDyeJobSheetReceive",
+      "entry": "JobSheetReceives_M",
+      "table": "JobSheetReceive",
+      "title": "染色机台产量主"
+    },
+    {
+      "model": "erp_base.SourceDyeKindLimit",
+      "entry": "KindLimit",
+      "table": "KindLimit",
+      "title": "级别额度表"
+    },
+    {
+      "model": "erp_base.SourceDyeLimit",
+      "entry": "Limit",
+      "table": "Limit",
+      "title": "欠款额度权限表"
+    },
+    {
+      "model": "erp_base.SourceDyeNoLimit",
+      "entry": "NoLimit",
+      "table": "NoLimit",
+      "title": "账期不申请额度"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderColor",
+      "entry": "qry_Order_ToCustomer",
+      "table": "OrderColor",
+      "title": "订单交货情况（查询）"
+    },
+    {
+      "model": "erp_base.SourceDyePArticleStorageUnitID",
+      "entry": "p_ArticleStorageUnitID",
+      "table": "p_ArticleStorageUnitID",
+      "title": "机物料货区"
+    },
+    {
+      "model": "erp_base.SourceDyeHuman",
+      "entry": "p_Human",
+      "table": "Human",
+      "title": "领用人资料"
+    },
+    {
+      "model": "erp_base.SourceDyePStuffStorageUnitID",
+      "entry": "p_StuffStorageUnitID",
+      "table": "p_StuffStorageUnitID",
+      "title": "染化料货区"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "entry": "TwistingIn",
+      "table": "ProdIn",
+      "title": "加捻成品入库主表"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInRecord",
+      "entry": "TwistingInRecord",
+      "table": "ProdInRecord",
+      "title": "加捻成品入库码单明细表"
+    },
+    {
+      "model": "erp_base.SourceDyeRequestLimit",
+      "entry": "RequestLimit",
+      "table": "RequestLimit",
+      "title": "欠款额度权限表"
+    },
+    {
+      "model": "erp_production.SourceDyeStuffDeptApply",
+      "entry": "StuffDeptApply",
+      "table": "StuffDeptApply",
+      "title": "染化料部门采购"
+    },
+    {
+      "model": "erp_production.SourceDyeStuffDeptApplyDetail",
+      "entry": "StuffDeptApplyDetail",
+      "table": "StuffDeptApplyDetail",
+      "title": "染化料部门采购明细"
+    },
+    {
+      "model": "erp_production.SourceDyeStuffOutApply",
+      "entry": "StuffOutApply",
+      "table": "StuffOutApply",
+      "title": "染化料领用申请"
+    },
+    {
+      "model": "erp_production.SourceDyeStuffOutApplyDetail",
+      "entry": "StuffOutApplyDetail",
+      "table": "StuffOutApplyDetail",
+      "title": "染化料领用申请新增"
+    },
+    {
+      "model": "erp_production.SourceDyeWashTheTankDye",
+      "entry": "WashTheTankDye",
+      "table": "WashTheTankDye",
+      "title": "洗缸料单染化料"
+    }
+  ],
+  "entry_models": 385,
+  "entry_bindings": 832,
+  "distinct_bound_entries": 811,
+  "runtime_counts": {
+    "identity_model_field_bindings": 118,
+    "copy_model_field_bindings": 227,
+    "unbound_identity_configurations": 9,
+    "unbound_copy_configurations": 12,
+    "editor_model_field_bindings": 2929,
+    "original_field_copy_rows": 40,
+    "lookup_definitions": 266,
+    "lookup_column_rows": 561,
+    "explicit_context_filters": 12,
+    "incomplete_context_filters": 4,
+    "reconstructed_context_filters": 9,
+    "reconstructed_filters_with_active_editors": 7,
+    "data_relation_rows": 0,
+    "table_relation_rows": 0,
+    "templates": 290,
+    "fixed_proof_templates": 5,
+    "complete_original_templates": 0,
+    "whole_entries_completed": 0,
+    "historical_import_rows_this_run": 0,
+    "whole_entry_historical_reconciled": 0,
+    "field_accepted": 0
+  },
+  "field_copy_status_counts": {
+    "独立财务转单暂缓": 20,
+    "原七列映射已接显式采购转单，旧按钮时机未证明": 7,
+    "原来源视图缺失，已接明确报价头/行替代映射": 10,
+    "原来源视图缺失，物料由明确参数选定或留NULL": 1,
+    "最新原表没有此目标字段": 2
+  },
+  "context_filters": [
+    {
+      "lookup": "A026",
+      "master": "JobSheetNo",
+      "target": "JobSheetNo",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "JobSheetNo"
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [
+        {
+          "entry": "SwipeEmpEditDetail",
+          "field": "CheckNo"
+        },
+        {
+          "entry": "TightTubePlanDetail",
+          "field": "CheckNo"
+        },
+        {
+          "entry": "TightTubePlanDetailList",
+          "field": "CheckNo"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "A031",
+      "master": "JobSheetNo",
+      "target": "JobSheetNo",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "JobSheetNo"
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [
+        {
+          "entry": "AddStuffWeight",
+          "field": "WProcessNo"
+        },
+        {
+          "entry": "QC_Record",
+          "field": "Q13"
+        },
+        {
+          "entry": "QFQC_Record",
+          "field": "Q13"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B005",
+      "master": "CustomerID",
+      "target": "Mnemonic",
+      "original": {
+        "MasterFilterField": "CustomerID",
+        "LookupFilterField": "Mnemonic"
+      },
+      "mapping_source": "original",
+      "active_editor_consumers": [
+        {
+          "entry": "ChengBen_Gray",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "ChengBen_Kind",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "DyeDipsRecordPhase",
+          "field": "ProgramID"
+        },
+        {
+          "entry": "DyeDipsRecordPhaseBulk",
+          "field": "ProgramID"
+        },
+        {
+          "entry": "dyePlan",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "DyeRecipePhase",
+          "field": "ProgramID"
+        },
+        {
+          "entry": "JobSheet",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "JobsheetBackQuery",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "JobSheetColorNum",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "JobSheetCombined",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "JobSheetForDeal",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "Jobsheetprogress",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "JobsheetprogressRS",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "JobSheetQuery",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "OrderColor",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "OrderColorChange",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "OrderColorSup",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "p_Gray",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "p_Product",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "PrintJobSheet",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "PrintOrderColor",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "qry_GrayToQuote",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "qry_JobToGrayIn",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "qry_OriJobSheet",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "qry_OriJobSheet",
+          "field": "ToProductionID"
+        },
+        {
+          "entry": "qry_OriPrintJobSheet",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "qry_OriPrintJobSheet",
+          "field": "ToProductionID"
+        },
+        {
+          "entry": "S_Change",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "SaleJobSheet",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "StandCraft",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "SterotypeTech",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "StuffWeightOldPhaseDetail",
+          "field": "ProgramID"
+        },
+        {
+          "entry": "TwiJobSheet",
+          "field": "ProductionID"
+        },
+        {
+          "entry": "vwOrderToPlan",
+          "field": "ProductionID"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B080",
+      "master": "StationID",
+      "target": "StationID",
+      "original": {
+        "MasterFilterField": "StationID",
+        "LookupFilterField": null
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [
+        {
+          "entry": "AddWProcessEdit",
+          "field": "MachineID"
+        },
+        {
+          "entry": "DStuffWeight",
+          "field": "MachineNo"
+        },
+        {
+          "entry": "EnergyMachine",
+          "field": "MachineID"
+        },
+        {
+          "entry": "h_Leave",
+          "field": "MachineID"
+        },
+        {
+          "entry": "InspectionLogDetail",
+          "field": "MachineID"
+        },
+        {
+          "entry": "MachineCarePlanDetail",
+          "field": "MachineID"
+        },
+        {
+          "entry": "MachineCareRecords",
+          "field": "MachineID"
+        },
+        {
+          "entry": "MachineCaseDetail",
+          "field": "MachineID"
+        },
+        {
+          "entry": "MachineFault",
+          "field": "MachineID"
+        },
+        {
+          "entry": "OrderProcessExtra",
+          "field": "MachineID"
+        },
+        {
+          "entry": "OrderProcessExtraChange",
+          "field": "MachineID"
+        },
+        {
+          "entry": "OrderProcessExtraSup",
+          "field": "MachineID"
+        },
+        {
+          "entry": "p_MachinePoint",
+          "field": "MachineID"
+        },
+        {
+          "entry": "p_MachineProcess",
+          "field": "MachineID"
+        },
+        {
+          "entry": "p_MeterMachine",
+          "field": "MachineID"
+        },
+        {
+          "entry": "PlanQrySet",
+          "field": "MachineID"
+        },
+        {
+          "entry": "PrintOrderProcessExtra",
+          "field": "MachineID"
+        },
+        {
+          "entry": "ProcessPlanSet",
+          "field": "MachineID"
+        },
+        {
+          "entry": "qry_MachineArticle",
+          "field": "MachineID"
+        },
+        {
+          "entry": "qry_MachineFaultToInspection",
+          "field": "MachineID"
+        },
+        {
+          "entry": "qry_QuoteRelaStuff",
+          "field": "MachineNo"
+        },
+        {
+          "entry": "qry_WorkQty",
+          "field": "MachineID"
+        },
+        {
+          "entry": "StuffOut",
+          "field": "MachineID"
+        },
+        {
+          "entry": "StuffOutAccount",
+          "field": "MachineID"
+        },
+        {
+          "entry": "StuffWeighingSystem",
+          "field": "MachineNo"
+        },
+        {
+          "entry": "StuffWeight",
+          "field": "MachineNo"
+        },
+        {
+          "entry": "SwipeLabelPrint",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefect",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefectJudge",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefectJudgeBack",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefectJudgeInterior",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefectJudgeOther",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefectOther",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefectPayouts",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WDefectRecord",
+          "field": "MachineID"
+        },
+        {
+          "entry": "WindingProductionJN",
+          "field": "MachineName"
+        },
+        {
+          "entry": "WindingProductionST",
+          "field": "MachineName"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B122",
+      "master": "DeptID",
+      "target": "DeptID",
+      "original": {
+        "MasterFilterField": "DeptID",
+        "LookupFilterField": "DeptID"
+      },
+      "mapping_source": "original",
+      "active_editor_consumers": [
+        {
+          "entry": "ColoringCheckQuery",
+          "field": "ShiftID"
+        },
+        {
+          "entry": "Qry_DPWorkQty_Query",
+          "field": "ShiftID"
+        },
+        {
+          "entry": "ShiftArrangeDetail",
+          "field": "ShiftID"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B128",
+      "master": "CustomerID",
+      "target": "CustomerID",
+      "original": {
+        "MasterFilterField": "CustomerID",
+        "LookupFilterField": null
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B133",
+      "master": "CustomerID",
+      "target": "CustomerID",
+      "original": {
+        "MasterFilterField": "CustomerID",
+        "LookupFilterField": ""
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [
+        {
+          "entry": "ProdLoadApprove",
+          "field": "DlvAddress"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B145",
+      "master": null,
+      "target": "SheetNo",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "SheetNo"
+      },
+      "mapping_source": "original",
+      "active_editor_consumers": [
+        {
+          "entry": "qry_OriPrintJobSheet",
+          "field": "ToLossStr"
+        }
+      ],
+      "state": "incomplete_configuration"
+    },
+    {
+      "lookup": "B146",
+      "master": null,
+      "target": "SheetNo",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "SheetNo"
+      },
+      "mapping_source": "original",
+      "active_editor_consumers": [
+        {
+          "entry": "JobSheet",
+          "field": "LossStr"
+        },
+        {
+          "entry": "JobSheetQuery",
+          "field": "LossStr"
+        },
+        {
+          "entry": "PrintJobSheet",
+          "field": "LossStr"
+        },
+        {
+          "entry": "SaleJobSheet",
+          "field": "LossStr"
+        },
+        {
+          "entry": "TwiJobSheet",
+          "field": "LossStr"
+        }
+      ],
+      "state": "incomplete_configuration"
+    },
+    {
+      "lookup": "B153",
+      "master": null,
+      "target": "StepIndex",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "StepIndex"
+      },
+      "mapping_source": "original",
+      "active_editor_consumers": [
+        {
+          "entry": "AddStuffWeightPhaseDetailPrint",
+          "field": "StepName"
+        },
+        {
+          "entry": "BulkDyeRecipePhaseDetail",
+          "field": "StepName"
+        },
+        {
+          "entry": "NormalStuffWeightPhaseDetailPrint",
+          "field": "StepName"
+        },
+        {
+          "entry": "ReworkStuffWeightPhaseDetail",
+          "field": "StepName"
+        },
+        {
+          "entry": "ReworkStuffWeightPhaseDetailPrint",
+          "field": "StepName"
+        },
+        {
+          "entry": "StuffWeightPhaseDetail_IsOut",
+          "field": "StepName"
+        }
+      ],
+      "state": "incomplete_configuration"
+    },
+    {
+      "lookup": "B167",
+      "master": "PrintCode",
+      "target": "PrintCode",
+      "original": {
+        "MasterFilterField": "PrintCode",
+        "LookupFilterField": "PrintCode"
+      },
+      "mapping_source": "original",
+      "active_editor_consumers": [
+        {
+          "entry": "MachineFaultSelect",
+          "field": "MachineClass"
+        },
+        {
+          "entry": "PPasteDosageDetail",
+          "field": "ColorPlateID"
+        },
+        {
+          "entry": "PrintJobSheet",
+          "field": "ColorPlateID"
+        },
+        {
+          "entry": "PrintOrderColor",
+          "field": "ColorPlateID"
+        },
+        {
+          "entry": "SaleJobSheet",
+          "field": "ColorPlateID"
+        },
+        {
+          "entry": "TwiJobSheet",
+          "field": "ColorPlateID"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B176",
+      "master": "CurveID",
+      "target": "CurveID",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "CurveID"
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [
+        {
+          "entry": "ColoringCheck",
+          "field": "DyeProcessID"
+        },
+        {
+          "entry": "ColoringCheckQuery",
+          "field": "DyeProcessID"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B186",
+      "master": "JobSheetNo",
+      "target": "JobSheetNo",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "JobSheetNo"
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [
+        {
+          "entry": "AfterNormalStuffWeight",
+          "field": "ProcessID"
+        },
+        {
+          "entry": "NormalStuffWeight",
+          "field": "ProcessID"
+        },
+        {
+          "entry": "ReworkStuffWeight",
+          "field": "ProcessID"
+        }
+      ],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B197",
+      "master": "MachineId",
+      "target": null,
+      "original": {
+        "MasterFilterField": "MachineId",
+        "LookupFilterField": null
+      },
+      "mapping_source": "original",
+      "active_editor_consumers": [
+        {
+          "entry": "ReworkStuffWeightPhaseDetail",
+          "field": "ProgramID"
+        }
+      ],
+      "state": "incomplete_configuration"
+    },
+    {
+      "lookup": "B210",
+      "master": "ProdID",
+      "target": "ProdID",
+      "original": {
+        "MasterFilterField": null,
+        "LookupFilterField": "ProdID"
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [],
+      "state": "explicit_equality"
+    },
+    {
+      "lookup": "B305",
+      "master": "CustomerID",
+      "target": "CustomerID",
+      "original": {
+        "MasterFilterField": "",
+        "LookupFilterField": "CustomerID"
+      },
+      "mapping_source": "explicit_reconstruction",
+      "active_editor_consumers": [
+        {
+          "entry": "SHOUPITONGZHIDAN",
+          "field": "DIZHI"
+        }
+      ],
+      "state": "explicit_equality"
+    }
+  ],
+  "unbound_identity_configurations": [
+    {
+      "entry": "DStuffWeight",
+      "field": "Creater",
+      "kind": "LoginPeople_EmpName",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "DStuffWeight",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "DyeLabColorColorNumNoPrice",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "qry_Employee",
+      "field": "Creater",
+      "kind": "LoginPeople_LoginName",
+      "original_table_name": null,
+      "update_sql": ""
+    },
+    {
+      "entry": "qry_Employee",
+      "field": "EmpID",
+      "kind": "LoginPeople_EmpPositionID",
+      "original_table_name": null,
+      "update_sql": ""
+    },
+    {
+      "entry": "qry_Employee",
+      "field": "Modifyer",
+      "kind": "LoginPeople_LoginName",
+      "original_table_name": null,
+      "update_sql": ""
+    },
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "qry_QuoteRelaStuff",
+      "field": "Creater",
+      "kind": "LoginPeople_EmpName",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "qry_QuoteRelaStuff",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null
+    }
+  ],
+  "unbound_copy_configurations": [
+    {
+      "entry": "GrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail"
+    },
+    {
+      "entry": "GrayInWorkDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail"
+    },
+    {
+      "entry": "JiaNianGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail"
+    },
+    {
+      "entry": "KeTuiGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail"
+    },
+    {
+      "entry": "QC_RecordYield",
+      "field": "AddQty",
+      "kind": "CopyPrevRow",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "qry_RecordYield",
+      "field": "AddQty",
+      "kind": "CopyPrevRow",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "qry_RecordYield",
+      "field": "Unit",
+      "kind": "CopyPrevRow",
+      "original_table_name": null,
+      "update_sql": null
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "SpecDefects",
+      "kind": "CopyPrevRow",
+      "original_table_name": "RecordYieldCheck",
+      "update_sql": "select * from RecordYieldCheck"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "Weight",
+      "kind": "CopyLastRow",
+      "original_table_name": "RecordYieldCheck",
+      "update_sql": "select * from RecordYieldCheck"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "Width",
+      "kind": "CopyLastRow",
+      "original_table_name": "RecordYieldCheck",
+      "update_sql": "select * from RecordYieldCheck"
+    },
+    {
+      "entry": "SemiToGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail"
+    },
+    {
+      "entry": "TuiHuoGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail"
+    }
+  ],
+  "new_reverse_types": [
+    "采购转到货明细",
+    "部门申请转采购明细（配件/染化料）",
+    "保养计划转配件领料",
+    "报价转调价",
+    "报价转订单整单",
+    "采购转成品入库整单"
+  ],
+  "remaining_reverse_types": [],
+  "reverse_scope": "source_phase6_transfers中的六种明确转单；不是全系统逆向清单",
+  "automatic_formula_entries": 49,
+  "automatic_formula_targets": 71,
+  "additional_header_aggregate": {
+    "entry": "TwistingIn",
+    "fields": [
+      "WeightQty",
+      "LengthQty",
+      "Rolls",
+      "NetKg"
+    ]
+  },
+  "tests": {
+    "count": 301,
+    "seconds": 111.221,
+    "modules": 20,
+    "result": "passed",
+    "log": ".runtime-temp/phase6/form-flows-regression.log",
+    "sha256": "9fd34dc2b5ccd3885832fb2fadde5212120f024258471a5f1b0f8f2ee6494016",
+    "scope": "第六阶段14个模块及库存、工卡、销售、入口公式、跨链逆向、基础6模块；不是全项目测试"
+  },
+  "frontend": {
+    "result": "typecheck_and_build_passed",
+    "log": ".runtime-temp/phase6/form-flows-frontend.log",
+    "warning": "既有大分包提示；未进行浏览器逐表单人工走查"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "historical_import_rows_this_run": 0,
+  "old_sql_this_run": "未连接；沿用前轮已核实的原字段及界面配置快照",
+  "whole_entry_development_completed": 0,
+  "whole_entry_historical_reconciled": 0,
+  "field_accepted": 0,
+  "evidence_semantics": "本轮补齐的功能点与必要测试完成，不代表37个完整入口、七模块整链或第六阶段全部完成。",
+  "files_sha256": {
+    "backend/plugins/erp_base/source_phase6_transfers.py": "01cad107ca147ffee2c73c2533c7c80bf28a32c6e89c916a58038b586e9105f2",
+    "backend/plugins/erp_base/source_phase6_editors.py": "ce175d703748ac2dd7d6752c9fd2f7b5643cf4598aefe0295aa73c984640b7f7",
+    "backend/plugins/erp_base/source_phase6_forms.py": "4856681184bb395a8bedfa00ad9d92c94834eda05f7db89b9f0bd9a4f4bb1c7a",
+    "backend/plugins/erp_base/source_phase6_auto_values.py": "7c509756e99f9cefdc54afc713c346ef19540fb96cc023547d68dfc3faa5d2a4",
+    "backend/plugins/erp_base/source_entry_rules.json": "32160e4b1b92258320e5c5941ce8f45fbdbba3ac434620d0a8c78622fb84161e",
+    "backend/plugins/erp_base/source_services.py": "1c44ec6d712ecbc746cc2ead2f1c09c97754551761196c2b3ade2cd93acf2732",
+    "backend/plugins/erp_base/source_execution_state.py": "b85678d06e69be4633715a6b174edae99c753007cc86bdb6c6243e229929dbd1",
+    "backend/plugins/erp_base/source_api.py": "af10cb4ec3ecf814be267cf7d1dfb019b06303a4929949ac6ddfebc2a2a8c74f",
+    "backend/plugins/erp_base/tests/test_source_phase6_form_flows.py": "9d5906301c3f9f1ecc0dd19a690fcc152b5d7d5cb099ec596805cf493dcbbfef",
+    "backend/plugins/erp_base/tests/test_source_phase6_editor_context.py": "fdf19416d296bb479215b86467f12decd9d5c50069b0b02718f52232f4d0dc64",
+    "tools/legacy_models/build_entry_rules.py": "d8dfa63db9c1bae08d4361f9026d7fce5fe04aeaec13a3ece74f40ce50c585d6",
+    "tools/legacy_models/audit_phase6_runtime.py": "417970ba0a1552583978f649bc5ab8b9e0b9fdacec13af324b8c7a8e8be76a28",
+    "web/src/components/ResourceTable.vue": "de57a3243f93960c108492db25cbbd7bfc377db862c6ef27190e39ea6ba2e776",
+    "web/src/plugins/erp/BusinessPane.vue": "9eab18b1efa45eab2818676c82ec6089e659d7608afca67fab379775a4393969"
+  }
+}

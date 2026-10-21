@@ -1,0 +1,141 @@
+{
+  "verified_at": "2026-10-18T01:08:51.901388+08:00",
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "fixed_ids_preserved": true,
+  "fixed_counts": {
+    "1": 116,
+    "2": 156,
+    "3": 95,
+    "4": 272,
+    "5": 290,
+    "6": 4
+  },
+  "paused_queries_unchanged": true,
+  "save_differences": [
+    "F004",
+    "F281",
+    "F273",
+    "F361",
+    "F362"
+  ],
+  "print_eligible": 25,
+  "nonfinance_print_differences": 133,
+  "tests": {
+    "regression": {
+      "count": 454,
+      "seconds": "189.609",
+      "log": ".runtime-temp/phase6/delivery-regression.log",
+      "sha256": "c68c8c2e5174f25cc0635e29fc528b4098b7f7298220a86436bf01ab26c31567"
+    },
+    "targeted": {
+      "count": 29,
+      "seconds": "42.752",
+      "log": ".runtime-temp/phase6/delivery-target-final.log",
+      "sha256": "74281b49f18441a3f5f23cec2386ea47fd2047f8de76040975559f22d1d7c90c"
+    },
+    "note": "454项相关回归通过；浏览器发现日期问题后修复，再通过29项针对性复验。29项包含在454项内，不相加。"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n",
+    "schema_basis": "当前Django模型；本轮没有重新提取旧SQL Server结构"
+  },
+  "browser_prints": [
+    {
+      "report": "H017",
+      "rows": 37,
+      "pages": 2,
+      "query_rows": 40,
+      "scope": "DELIVERY-S",
+      "html": "docs/assets/phase6-delivery-H017-20261018.html",
+      "sha256": "ceed474f39228c367cd552e769de0fd7db753e69d705948bb213d5cc1ec2b6e8"
+    },
+    {
+      "report": "H025",
+      "rows": 37,
+      "pages": 2,
+      "query_rows": 40,
+      "scope": "DELIVERY-S",
+      "html": "docs/assets/phase6-delivery-H025-20261018.html",
+      "sha256": "cca17b61f2e69a6c24cc9a24f5c2f1b259ed8610bac8b46a817cdb5b1b63493a"
+    },
+    {
+      "report": "H029",
+      "rows": 37,
+      "pages": 2,
+      "query_rows": 40,
+      "scope": "DELIVERY-S",
+      "html": "docs/assets/phase6-delivery-H029-20261018.html",
+      "sha256": "e0e7a257ef47176e94d71a5c9d9dbb3936e92ea51c724c355cdc6b830548736a"
+    },
+    {
+      "report": "H015",
+      "rows": 37,
+      "pages": 6,
+      "query_rows": 40,
+      "scope": "DELIVERY-S",
+      "html": "docs/assets/phase6-delivery-H015-20261018.html",
+      "sha256": "007a6860e26aab8fc75ef928c3d66f3d3b32f3dcda225f81b2b63090d2683186"
+    },
+    {
+      "report": "H018",
+      "rows": 37,
+      "pages": 2,
+      "query_rows": 40,
+      "scope": "DELIVERY-S",
+      "html": "docs/assets/phase6-delivery-H018-20261018.html",
+      "sha256": "8026f535d22ec0f3f1310759dc477c482957d09a564b81a4454c60d23d3b9e71"
+    }
+  ],
+  "browser_quality": {
+    "package_after_save": "\t\n1\n\t\n5949\n\t\nDELIVERY-GUID\n\t\nDELIVERY-QC\n\t\n\t\n\t\n\t\n\t\n10.00\n\t\n\t\n\t\n-2.00\n\t\n\t\n\t\n\t\n0\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n质量保存时机浏览器验证20261018\n\t\nDELIVERY-QC\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\nDELIVERY-QC\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n未填写\n\t\n\t\n\t\n\t\n草稿\n\t\n\t\n\t\n\t\n\t\n\t\n查看\n编辑\n删除\n按旧配置续行\n数据版打印\n明细与关联\n确认\n预览同卡同卷包装替换\n同卡同卷替换新增包装\n撤回本次包装替换\n撤回明确投坯采用\n采用本条包装生成实际入库\n明确采用原投坯细码\n查看本单接续办理事实\n按原公式计算\n旧入口公式试算与采用",
+    "job_fields": [
+      {
+        "label": "PDots",
+        "value": "0"
+      },
+      {
+        "label": "PlengthQyt",
+        "value": "-2"
+      },
+      {
+        "label": "Pkg",
+        "value": "10"
+      },
+      {
+        "label": "PRolls",
+        "value": "1"
+      }
+    ],
+    "method": "页面修改包装备注并保存，再打开关联工卡查看；合成验证数据"
+  },
+  "frontend": {
+    "typecheck": "通过",
+    "build": "通过",
+    "build_log_sha256": "8b5050a8614bb932a8c74d2d5017715cc70a5e540a3aa5a879071bec407e61c8"
+  },
+  "synthetic_browser_rows_added": 47,
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "code_sha256": {
+    "backend/plugins/erp_base/source_phase6_print_groups.py": "ea70c83166beaa6e5e1765f646e2bcddbca5ef8b543c83888074d22b6f0aaa81",
+    "backend/plugins/erp_base/source_phase6_rendering.py": "0b8d1ed893b04e7e64c20f0e1f31fb7f3462080a1bcf94dadcda78a3e76a8f52",
+    "backend/plugins/erp_base/source_phase6_print_sources.py": "c21ee58afc5f569095edb34355ecb555bbef83f7cfcb1d2d1ae3744f3b745301",
+    "backend/plugins/erp_base/source_phase6_entries.py": "de7da256e4ee674d48064c89bdb2d42c7f948c9f2f5062a0ea5fe80930f748b7",
+    "backend/plugins/erp_base/source_packaging_flow.py": "cdbacad5b54f24806e37ae2919a76ac4feb4eaf4fc3e6ff902115f73c2ebb3a6",
+    "backend/plugins/erp_base/source_services.py": "dadaae9d21f7e0bebfd4b890edce2ed177a3437ece9642ce0f26bec412a9d466",
+    "backend/plugins/erp_base/source_phase6_hook_manifest.json": "44c34bafe88c04a3f85d8c8243c9302641fe9fd3e0c6dad64d344f2aa9c64279",
+    "backend/plugins/erp_base/tests/test_source_phase6_delivery_print.py": "8d3783f4529c0385a5707113ded76860e107b95261536e7b6289532105e8360d",
+    "web/src/plugins/erp/OriginalEntryWorkbench.vue": "ef62ff541a3e832df31a8a94d080d2dfcf0962a2b4b3a46d4911aa8a078b289b"
+  },
+  "previous_evidence": "erp-phase6-parent-save-print-verification-20261017.json",
+  "screenshot": {
+    "file": "docs/assets/phase6-delivery-quality-20261018.png",
+    "sha256": "fdfb20024c6c850563f417f9f2a0ef365b4930eb0a510cca5b71b0852d475c4e"
+  },
+  "print_rule_source": "https://docs.devexpress.com/XtraReports/2587/feature-guide-to-devexpress-reports/introduction-to-banded-reports"
+}

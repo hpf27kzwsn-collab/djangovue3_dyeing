@@ -1,0 +1,514 @@
+{
+  "verified_at": "2026-10-17T21:40:34.024130+08:00",
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "fixed_counts": {
+    "1": 116,
+    "2": 156,
+    "3": 95,
+    "4": 272,
+    "5": 290,
+    "6": 4
+  },
+  "state_counts": {
+    "1": {
+      "原来源或表达式差异，保留明确录入": 5,
+      "保存计算已实现并通过类型向量验证": 111
+    },
+    "2": {
+      "保存计算已实现并通过类型向量验证": 123,
+      "沿用已有自动服务": 29,
+      "原来源或表达式差异，保留明确录入": 4
+    },
+    "3": {
+      "试算有明确来源差异": 7,
+      "试算执行器已承接，逐入口非空对照未完成": 78,
+      "财务赔款结算暂缓": 10
+    },
+    "4": {
+      "已接入动作条件，必要用例仍逐规则记录": 128,
+      "已定位service接线，待逐入口验证": 51,
+      "已接入保存或逆向副作用，待逐入口验收": 14,
+      "独立财务分支暂缓": 8,
+      "已定位既有服务及回归用例，仍有原行为差异需核对": 10,
+      "缺外部调用及回执": 3,
+      "缺本地原表定义": 2,
+      "独立财务转单暂缓": 20,
+      "原七列映射已接显式采购转单，旧按钮时机未证明": 7,
+      "原来源视图缺失，已接明确报价头/行替代映射": 10,
+      "原来源视图缺失，物料由明确参数选定或留NULL": 1,
+      "最新原表没有此目标字段": 2,
+      "explicit_equality": 14,
+      "incomplete_configuration": 2
+    },
+    "5": {
+      "缺原XML": 29,
+      "有原运行差异": 254,
+      "具备填数校样条件，非完整原版式验收": 7
+    },
+    "6": {
+      "扩大回归及最终针对性复验通过": 1,
+      "重点浏览器验证通过；全部绑定尚未逐项浏览器验收": 1,
+      "前端/模型/迁移及清单检查通过": 1,
+      "独立登记，未完成历史对账和现场验收": 1
+    }
+  },
+  "formula_registry_counts": {
+    "explicit_difference": 9,
+    "compiled_save_formula": 234,
+    "existing_auto_service": 29
+  },
+  "tests": {
+    "count": 394,
+    "seconds": 168.801,
+    "result": "passed",
+    "log": ".runtime-temp/phase6/six-groups-regression.log",
+    "sha256": "6b515f14512841f4a890d13184591b95a3e34c18ce28abc2b135380eaf1cc5c5",
+    "final_targeted": {
+      "count": 19,
+      "seconds": 4.427,
+      "log": ".runtime-temp/phase6/six-groups-targeted.log",
+      "sha256": "3727f3e3cdfdd441344ee7dcbc42dcee519c22b5e51a0063e9604370deaac66e"
+    },
+    "note": "最终针对性复验与扩大回归重叠，不相加；234公式各有非空/NULL类型向量，不等于234个入口浏览器验收。"
+  },
+  "browser_saved_records": [
+    {
+      "case": "NormalStuffWeightPhaseDetail",
+      "table": "StuffWeightDetail",
+      "id": 321,
+      "entity": "erp_production_sourcedyestuffweightdetail",
+      "fields": {
+        "Dosage": "6.000000",
+        "NeedQty": "2000.0000",
+        "RealQty": "-7.00",
+        "Money": "-8.00",
+        "NeedMoney": "-8.00",
+        "RealMoney": "-8.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "NormalStuffWeightPhaseDetail_phase",
+      "table": "StuffWeightPhase",
+      "id": 200,
+      "entity": "erp_production_sourcedyestuffweightphase",
+      "fields": {
+        "BathRatio": "9.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "ProcessStuffWeight",
+      "table": "StuffWeight",
+      "id": 848,
+      "entity": "erp_production_sourcedyestuffweight",
+      "fields": {
+        "ClothNetKg": "200.00",
+        "Rate": "40.00",
+        "Cost": "-28.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "ProcessStuffWeightPhaseDetail",
+      "table": "StuffWeightDetail",
+      "id": 322,
+      "entity": "erp_production_sourcedyestuffweightdetail",
+      "fields": {
+        "NeedQty": "0.2400",
+        "Money": "-48.00",
+        "RealQty": "-7.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "process_duplicate",
+      "table": "StuffWeightDetail",
+      "id": 323,
+      "entity": "erp_production_sourcedyestuffweightdetail",
+      "fields": {
+        "NeedQty": "0.2000",
+        "Money": "20.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "SelfStuffWeightPhaseDetail",
+      "table": "StuffWeightDetail",
+      "id": 324,
+      "entity": "erp_production_sourcedyestuffweightdetail",
+      "fields": {
+        "Money": "-24.00",
+        "RealMoney": "168.00",
+        "NeedQty": null,
+        "RealQty": "-7.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "CookInDetail",
+      "table": "CookInDetail",
+      "id": 34,
+      "entity": "erp_warehouse_sourcedyecookindetail",
+      "fields": {
+        "Price": "200.000000",
+        "TaxPrice": "226.000000",
+        "Total": "-452.00",
+        "Amount": -400.0,
+        "TaxMoney": "-52.00",
+        "InQty": "-2.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "OtherInDetail",
+      "table": "OtherInDetail",
+      "id": 1,
+      "entity": "erp_warehouse_sourcedyeotherindetail",
+      "fields": {
+        "Price": "-50.000000",
+        "TaxPrice": "-56.500000",
+        "Total": "113.00",
+        "Amount": 100.0,
+        "TaxMoney": "13.00",
+        "InQty": "-2.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "QC_Record",
+      "table": "RecordYield",
+      "id": 5946,
+      "entity": "erp_warehouse_sourcedyerecordyield",
+      "fields": {
+        "Kg": "20.00",
+        "NetKg": "7.0"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "QFQC_Record",
+      "table": "RecordYield",
+      "id": 5947,
+      "entity": "erp_warehouse_sourcedyerecordyield",
+      "fields": {
+        "Kg": "20.00",
+        "NetKg": "8.0"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "QueryRecord",
+      "table": "RecordYield",
+      "id": 5948,
+      "entity": "erp_warehouse_sourcedyerecordyield",
+      "fields": {
+        "Kg": "20.00",
+        "NetKg": "18.0"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "raw_phase",
+      "table": "PStuffWeightPhase",
+      "id": 1,
+      "entity": "erp_production_sourcedyepstuffweightphase",
+      "fields": {
+        "Qty": "-10.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "raw_line",
+      "table": "PStuffWeightDetail",
+      "id": 1,
+      "entity": "erp_production_sourcedyepstuffweightdetail",
+      "fields": {
+        "Rate": "4.00",
+        "Dosage": "-40.000000"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    },
+    {
+      "case": "defective",
+      "table": "DefectiveOutDetail",
+      "id": 17,
+      "entity": "erp_quality_sourcedyedefectiveoutdetail",
+      "fields": {
+        "Rolls": "4.00",
+        "WeightQty": "-10.00",
+        "ShiZhong": "-18.00",
+        "JingZhong": "-22.00"
+      },
+      "result": "passed",
+      "evidence": "页面修改保存后数据库独立读取核对；数据为本任务合成夹具"
+    }
+  ],
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "frontend": {
+    "result": "vue-tsc_and_build_passed",
+    "log": ".runtime-temp/phase6/six-groups-frontend.log",
+    "sha256": "28030733b1f9e92b9d584477dc52ad9de6423172ab10655675893e08c0803591"
+  },
+  "browser_query": {
+    "entry": "OrderColor",
+    "fixture": "SIXQ/UI-SIX-OC",
+    "source_duplicate_lines": 2,
+    "rolls": "6.00",
+    "weight": "-6.00",
+    "original_and_trial_columns": "均保留",
+    "whole_query_rows": 6
+  },
+  "browser_prints": [
+    {
+      "report": "R153",
+      "rows": 2,
+      "pages": 2,
+      "html": "docs/assets/phase6-six-groups-qr-20261017.html",
+      "svg_count": 2
+    },
+    {
+      "report": "R013",
+      "rows": 4,
+      "pages": 1,
+      "html": "docs/assets/phase6-six-groups-outbound-20261017.html",
+      "note": "含此前合成出仓行及本轮两条重复明细、一条退回"
+    }
+  ],
+  "browser_screenshot": "浏览器截图工具多次返回 Unable to capture screenshot；保留实际浏览器取得的校样HTML及页面数值，不用生成图片冒充截图。",
+  "paused_query_count": 35,
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成全量旧业务结果对账",
+  "field_acceptance": "未完成",
+  "files_sha256": {
+    "backend/plugins/erp_base/source_phase6_formula_runtime.py": "25a84e774ca61aeb1378cc300e0a81aa156d4fdf4f39d7792afe4df1216de6c7",
+    "backend/plugins/erp_base/source_phase6_formula_registry.json": "265572ad0832b2daa750287ac7f44d1fb2e0916b6432e7271bf41935ea47137a",
+    "backend/plugins/erp_base/source_phase6_formula_links.py": "e052c8df5272d54796076676302b055a6488f41c5eab7856ed5b73d7a34588bb",
+    "backend/plugins/erp_base/source_phase6_auto_values.py": "604b84e09c660415cfce0e85316ea78a2e45e46259be0194d841242f0fc14f48",
+    "backend/plugins/erp_base/source_services.py": "2a6adaac2c1291775aa84d22412262df5bb7d3d2a4ead471e3c30416985076a6",
+    "backend/plugins/erp_base/source_phase6_projection_formulas.py": "2af0d14704b4eb63d7f37d10f7f6d93a8af522d24d7449cf036b977abda7ef2f",
+    "backend/plugins/erp_base/source_phase6_projection_context.py": "676250544807e70db35af51f0b011235355edb1c6b759829b45f431f8587f9aa",
+    "backend/plugins/erp_base/source_phase6_api.py": "6ac444b8a83714bed5c00e1425d4d556c48bcb667a49448db02c4c3dc3813368",
+    "backend/plugins/erp_base/source_phase6_entries.py": "a813067eb862d046b554f940ac648c32dcc55311efa961f72af3d6ec798930fb",
+    "backend/plugins/erp_base/source_phase6_print_rules.py": "9fe969a647eef4cd5a70c314d65720c1c474a808533795c94a7cd887d8134582",
+    "backend/plugins/erp_base/source_phase6_rendering.py": "f9558926b216c2a891fd02884501ddfcf224f227f0a799a89f549b679d08bc6e",
+    "backend/plugins/erp_base/source_phase6_layouts.py": "8240edc3deb8bbb89b3c6c9c76ba743e8bb8acc95200ab13eadcb7b200302429",
+    "backend/plugins/erp_base/source_phase6_qr_print.py": "fa316bd2d1957e4851b7ec132b98294b3e7734e02cd431f8395999f51b398cdb",
+    "backend/plugins/erp_base/tests/test_source_phase6_six_groups.py": "23e27af5a529809a62269958938ad0e92013524914bb2b6f0108047c47b8a260",
+    "web/src/plugins/erp/OriginalEntryWorkbench.vue": "9fadf158be1fb3989bcf91fc1f2f62f862f901b2a4438bc373d4453335e64b4f",
+    "requirements.lock.txt": "ed33d558ae3d35c39a301a33ef65b3d17ebade6461f7b9af05e5dde9b6984513",
+    "backend/requirements.txt": "1c581e24f6a7c2ec79bbffdf4632d3ab41e21e2d9053756ad640ebf5b47db0fd"
+  },
+  "legacy_schema_basis": "沿用已保存结构快照核对；本轮未重新提取旧 SQL Server",
+  "browser_transfer": {
+    "before_reverse": {
+      "target_id": 832,
+      "original_rolls": "2.00",
+      "original_weight_qty": "-4.00",
+      "source_id": 334,
+      "source_unchanged": true,
+      "active": true,
+      "ledger_count": 1,
+      "retained": null
+    },
+    "after_reverse": {
+      "target_id": 832,
+      "original_rolls": "2.00",
+      "original_weight_qty": "-4.00",
+      "source_id": 334,
+      "source_unchanged": true,
+      "active": false,
+      "ledger_count": 0,
+      "retained": {
+        "at": "2026-10-17T21:36:33+08:00",
+        "active": true,
+        "before": {
+          "id": 832,
+          "creator": 7272,
+          "remarks": "六组验证：采购原数量不被空细码覆盖",
+          "modifier": 7272,
+          "old_area": null,
+          "old_loss": null,
+          "old_spec": null,
+          "old_price": null,
+          "old_rolls": "2.00",
+          "old_total": null,
+          "old_width": null,
+          "old_amount": null,
+          "old_jxtddh": null,
+          "old_keeper": null,
+          "old_lot_no": null,
+          "old_net_kg": null,
+          "old_weight": null,
+          "source_row": null,
+          "approved_at": null,
+          "approved_by": null,
+          "dept_belong": 55,
+          "description": "",
+          "old_color_e": null,
+          "old_creater": null,
+          "old_prod_id": "SIXP",
+          "old_remarks": "",
+          "old_step_no": null,
+          "old_vat_fee": null,
+          "confirmed_at": null,
+          "confirmed_by": null,
+          "old_approver": null,
+          "old_atte_fee": null,
+          "old_check_no": null,
+          "old_color_id": null,
+          "old_modifyer": null,
+          "old_phase_id": null,
+          "old_saler_id": null,
+          "old_sheet_no": "UI-SIX-PRODIN",
+          "source_batch": null,
+          "old_atte_memo": null,
+          "old_cargador1": null,
+          "old_cargador2": null,
+          "old_cargador3": null,
+          "old_cargador4": null,
+          "old_cargador5": null,
+          "old_color_num": null,
+          "old_fabric_id": null,
+          "old_real_loss": null,
+          "old_revisions": null,
+          "approval_stage": "draft",
+          "old_base_board": null,
+          "old_length_qty": null,
+          "old_sheet_date": null,
+          "old_sheet_kind": 18,
+          "old_stock_unit": 1,
+          "old_weight_qty": "-4.00",
+          "create_datetime": "2026-10-17T13:32:43.145482+00:00",
+          "old_contract_no": null,
+          "old_create_date": null,
+          "old_cust_job_no": null,
+          "old_customer_id": "SIXC",
+          "old_gary_weight": null,
+          "old_modify_date": null,
+          "old_packremarks": null,
+          "old_print_times": null,
+          "old_tube_weight": null,
+          "old_weight_unit": null,
+          "update_datetime": "2026-10-17T13:36:31.111466+00:00",
+          "old_approve_date": null,
+          "old_cust_self_no": null,
+          "old_job_sheet_no": null,
+          "old_plastic_bags": null,
+          "old_process_memo": null,
+          "old_right_status": null,
+          "old_sheet_series": "UI-SIX-PRODIN",
+          "old_sheet_status": null,
+          "old_warp_density": null,
+          "old_weft_density": null,
+          "old_adjusted_loss": null,
+          "old_business_kind": null,
+          "old_color_remarks": null,
+          "old_process_price": null,
+          "old_ware_house_id": "SIXW",
+          "old_width_kind_id": null,
+          "old_yarn_category": null,
+          "old_color_depth_id": null,
+          "old_cust_color_num": null,
+          "old_saler_group_id": null,
+          "old_ship_ment_type": null,
+          "old_is_input_record": null,
+          "old_storage_unit_id": null,
+          "old_business_unit_id": null,
+          "old_details_customer": null,
+          "old_prod_in_ori_sheet_no": null,
+          "old_prod_out_sheet_series": null,
+          "old_sum_assigned_length_qty": null
+        },
+        "reason": "六组浏览器联调：撤回采购转入库并保留原单",
+        "head_id": 832,
+        "operation": "reverse_head_transfer",
+        "head_entity": "erp_warehouse.SourceDyeProdIn",
+        "stock_before": [
+          {
+            "entity": "erp_warehouse.SourceDyeProdStockBook",
+            "source": {
+              "id": 1097,
+              "creator": 7272,
+              "remarks": "",
+              "modifier": 7272,
+              "old_spec": null,
+              "old_price": null,
+              "old_lot_no": null,
+              "source_row": null,
+              "approved_at": null,
+              "approved_by": null,
+              "dept_belong": 55,
+              "description": "",
+              "old_book_no": 13,
+              "old_fact_id": null,
+              "old_prod_id": "SIXP",
+              "old_remarks": null,
+              "confirmed_at": null,
+              "confirmed_by": null,
+              "old_check_no": null,
+              "old_color_id": null,
+              "old_in_money": null,
+              "old_in_rolls": "2.00",
+              "old_saler_id": null,
+              "old_sheet_no": "UI-SIX-PRODIN",
+              "source_batch": null,
+              "old_book_date": null,
+              "old_book_kind": 18,
+              "old_color_num": null,
+              "old_curr_date": null,
+              "old_detail_no": "UI-SIX-PRODIN",
+              "old_in_net_kg": null,
+              "old_out_money": null,
+              "old_out_rolls": "0.00",
+              "approval_stage": null,
+              "old_out_net_kg": null,
+              "old_stock_flag": null,
+              "create_datetime": "2026-10-17T13:36:31.156914+00:00",
+              "old_customer_id": "SIXC",
+              "old_in_gray_qty": null,
+              "update_datetime": "2026-10-17T13:36:31.156928+00:00",
+              "old_job_sheet_no": null,
+              "old_out_gray_qty": "0.00",
+              "old_sheet_series": "UI-SIX-PRODIN",
+              "old_business_kind": null,
+              "old_in_length_qty": null,
+              "old_in_weight_qty": "-4.00",
+              "old_ware_house_id": "SIXW",
+              "old_out_length_qty": "0.00",
+              "old_out_weight_qty": "0.00",
+              "old_saler_group_id": null,
+              "old_business_unit_id": null,
+              "old_storage_unit_ids": null
+            }
+          }
+        ]
+      }
+    }
+  }
+}

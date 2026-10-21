@@ -26,11 +26,11 @@ def update_rows(query, values, actor, action, reason):
             for key, value in changed.items():
                 setattr(item, key, value)
             persist(item, actor)
-            if item.SOURCE_TABLE=='QuoteDetail':
+            if item.SOURCE_TABLE in ['QuoteDetail','FixedPriceDetail']:
                 from .source_quote_rules import saved
                 saved(item,converted,False,actor)
             record(item, action, before, actor, reason)
-        elif item.SOURCE_TABLE=='QuoteDetail':
+        elif item.SOURCE_TABLE in ['QuoteDetail','FixedPriceDetail']:
             from .source_quote_rules import saved
             saved(item,converted,False,actor)
         from .source_master_data import saved as master_saved

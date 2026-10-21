@@ -167,11 +167,14 @@ class SourceFoundationViewSet(SourceRecordViewSet):
         value=data.validated_data['value'];query=report_query(request)
         try:
             begin,end=periods(value,query('SAccMonth','erp_base').order_by('pk'))
+            output_begin,output_end=periods(value,query('SAccMonth','erp_base').order_by('pk'),
+                data.validated_data['begin'],data.validated_data['end'])
             first=parameter_first_date(value,list(query('SSysParams','erp_base').order_by('pk')))
         except ValueError as error:
             raise ValidationError({'source_period':str(error)}) from error
         return report_result({'report':'原期间及历时','rows':[{'GetAccBeginDate':begin,'GetAccEndDate':end,
-            'ufn_GetAccFirstDate':first,'GetStrTimeFormat':remaining.elapsed(value)}]})
+            'ufn_GetAccFirstDate':first,'GetStrTimeFormat':remaining.elapsed(value),
+            'Sp_GetAccDate_BeginDate':output_begin,'Sp_GetAccDate_EndDate':output_end}]})
 
     @action(methods=['post'], detail=False)
     def original_function(self, request):
@@ -280,6 +283,8 @@ class FoundationReportInput(serializers.Serializer):
 
 class PeriodInput(serializers.Serializer):
     value=serializers.DateTimeField(allow_null=True)
+    begin=serializers.DateTimeField(allow_null=True,required=False,default=None)
+    end=serializers.DateTimeField(allow_null=True,required=False,default=None)
 
 
 class SourceModelInput(serializers.Serializer):

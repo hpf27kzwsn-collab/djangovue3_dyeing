@@ -1,0 +1,171 @@
+{
+  "verified_at": "2026-10-17T22:57:44.645112+08:00",
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "fixed_ids_preserved": true,
+  "fixed_counts": {
+    "1": 116,
+    "2": 156,
+    "3": 95,
+    "4": 272,
+    "5": 290,
+    "6": 4
+  },
+  "state_counts": {
+    "1": {
+      "人工原字段保存已验证；原占位/格式不执行为算式": 3,
+      "原来源或表达式差异，保留明确录入": 2,
+      "保存计算已实现并通过类型向量验证": 111
+    },
+    "2": {
+      "保存计算已实现并通过类型向量验证": 123,
+      "沿用已有自动服务": 29,
+      "原只读查询投影已验证；无原更新目标，不列为缺保存计算": 1,
+      "原来源或表达式差异，保留明确录入": 3
+    },
+    "3": {
+      "非空固定字段试算通过（合成测试库）": 84,
+      "财务赔款结算暂缓": 10,
+      "非空来源差异已逐行留存": 1
+    },
+    "4": {
+      "已接入动作条件，必要用例仍逐规则记录": 128,
+      "已定位service接线，待逐入口验证": 51,
+      "已接入保存或逆向副作用，待逐入口验收": 14,
+      "独立财务分支暂缓": 8,
+      "已定位既有服务及回归用例，仍有原行为差异需核对": 10,
+      "缺外部调用及回执": 3,
+      "缺本地原表定义": 2,
+      "独立财务转单暂缓": 20,
+      "原七列映射已接显式采购转单，旧按钮时机未证明": 7,
+      "原来源视图缺失，已接明确报价头/行替代映射": 10,
+      "原来源视图缺失，物料由明确参数选定或留NULL": 1,
+      "最新原表没有此目标字段": 2,
+      "explicit_equality": 14,
+      "incomplete_configuration": 2
+    },
+    "5": {
+      "缺原XML": 29,
+      "有原运行差异": 245,
+      "具备填数校样条件，非完整原版式验收": 16
+    },
+    "6": {
+      "413项相关回归通过，37项最终针对性复验通过（重叠）": 1,
+      "新增2组父子同次保存及3份非空原条码校样浏览器验证；此前35入口证据保留": 1,
+      "模型及迁移检查通过，无新增字段；前端本轮未改，沿用上轮构建验证": 1,
+      "全量历史数据对账未完成；现场验收未完成": 1
+    }
+  },
+  "formula_registry_counts": {
+    "explicit_manual_input": 3,
+    "explicit_difference": 5,
+    "compiled_save_formula": 234,
+    "existing_auto_service": 29,
+    "query_projection_only": 1
+  },
+  "tests": {
+    "regression": {
+      "count": 413,
+      "seconds": "157.698",
+      "log": ".runtime-temp/phase6/timing-regression.log",
+      "sha256": "8c57980449b8703aa94055738847bfb1ed4f912f2fdc4052ce3cb0cf54668044"
+    },
+    "targeted": {
+      "count": 37,
+      "seconds": "5.470",
+      "log": ".runtime-temp/phase6/timing-final.log",
+      "sha256": "ae9b3d5bcd34e9759d7f6d1c45c9bbbb0896de2e01d4b4679023862ef670a713"
+    },
+    "note": "37项包含在413项内，不相加"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n",
+    "schema_basis": "当前Django模型；本轮没有重新提取旧SQL Server结构"
+  },
+  "browser_save": {
+    "document": "TIME-SAVE",
+    "row": 852,
+    "tests": [
+      {
+        "action": "整单父Rate=9、子BathRatio=-3；保存后重新打开",
+        "values": [
+          {
+            "label": "Rate",
+            "value": "9.00"
+          },
+          {
+            "label": "浴比",
+            "value": "-3.00"
+          }
+        ]
+      },
+      {
+        "action": "整单父Rate=12、子BathRatio明确清空；保存后重新打开",
+        "values": [
+          {
+            "label": "Rate",
+            "value": "12.00"
+          },
+          {
+            "label": "浴比",
+            "value": ""
+          }
+        ]
+      }
+    ],
+    "scope": "合成浏览器验证库"
+  },
+  "browser_prints": [
+    {
+      "report": "H005",
+      "rows": 2,
+      "pages": 2,
+      "barcodes": 4,
+      "html": "docs/assets/phase6-timing-H005-20261017.html",
+      "sha256": "c3daed60502efed30b8d71a8941fbb2dd07561117bfd21ae2688c53d6cbc003c"
+    },
+    {
+      "report": "H006",
+      "rows": 2,
+      "pages": 2,
+      "barcodes": 4,
+      "html": "docs/assets/phase6-timing-H006-20261017.html",
+      "sha256": "346bf4be76ad018f01b5516ef5641fb0314d1651ad562e975b2c8623c1e53ad8"
+    },
+    {
+      "report": "R154",
+      "rows": 4,
+      "pages": 1,
+      "barcodes": 4,
+      "html": "docs/assets/phase6-timing-R154-20261017.html",
+      "sha256": "d135f36ed77ee8f7e14815e2bbbfe03424bdc863e1ee769bc2be847114ac22d2"
+    }
+  ],
+  "previous_evidence": "docs/erp-phase6-six-groups-continued-verification-20261017.json",
+  "paused_queries_unchanged": true,
+  "historical_import_rows_this_run": 0,
+  "synthetic_browser_rows_added": 8,
+  "development": "本次保存时机修正和Code128开发验证完成；第六阶段整体部分完成",
+  "historical_reconciliation": "未完成全量对账",
+  "field_acceptance": "未现场验收",
+  "screenshot": "接口仍无法截图；已保存实际浏览器校样HTML和重新打开后的表单值",
+  "code_sha256": {
+    "backend/plugins/erp_base/document_services.py": "99ba717b813440b5991d55d69d13906b08286bcb02388a40dc5c65aaba2847ef",
+    "backend/plugins/erp_base/source_services.py": "b7cd86c531fda581119084628c69bb359e318172f169d80fd5420af2c33e83e8",
+    "backend/plugins/erp_base/source_phase6_save_timing.py": "4ec0de845c2eb2608a0232e27236a6137e5624b1cde1422de6fbd962dc627e05",
+    "backend/plugins/erp_base/source_phase6_formula_runtime.py": "7b94ef7bd0a8b81fb0f6c617f6f7cf30d789ef824aea1cf8e44464f0dacb07a6",
+    "backend/plugins/erp_base/source_phase6_formula_registry.json": "88139b5a28b9af909a8b436e9e0a3ebf0acf56ad7678455755abcb5af17986e8",
+    "backend/plugins/erp_base/source_phase6_linear_print.py": "06d47a6c01f534cd326ee39579b160864d681c25f75e6a4c0c21262f7f4d951b",
+    "backend/plugins/erp_base/source_phase6_qr_print.py": "267f58747dc030f093663364baf7249dea464476828d0b6df1d36ac60c71429d",
+    "backend/plugins/erp_base/source_phase6_rendering.py": "e483919b3f06a123e4b6cf0705396115f3fd4f3fe149f572129961677a3988a1",
+    "backend/plugins/erp_base/source_phase6_print_sources.py": "e42a1aedf83c138ef5c1fd073160082979396aa43384766e1027afc0b1c899d9",
+    "backend/plugins/erp_base/tests/test_source_phase6_save_timing_print.py": "238645513e9211003be62b6dd439abe4219bccaffd3ea81b57bbe90c0e5227a9",
+    "backend/requirements.txt": "0730d5d676542d8bba33ebca7660ab888241abca444872df9126425b9c62a8d4",
+    "requirements.lock.txt": "31359df89702d8d0a880417f8146919356d7ece6e977a4974bfdd9c2379fbd85",
+    "tools/legacy_models/build_phase6_formula_registry.py": "3054b55db48aba43bc9a3f95642d010ee4437fe4650d474fd834f58b3a325a9b",
+    "tools/legacy_models/review_phase6_six_groups.py": "0aa6d68601b5abf5ef39739bd07544f3f97a9cacb4a063f32c17b2577f8f7527"
+  }
+}

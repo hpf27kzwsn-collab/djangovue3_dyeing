@@ -1,0 +1,81 @@
+{
+  "environments": [
+    "5440独立库 / 8002 / 8081",
+    "当前项目5439 / 8001 / 8080只读浏览器检查"
+  ],
+  "cases": [
+    {
+      "name": "非超级管理员只显示获授权的7个管理入口",
+      "passed": true
+    },
+    {
+      "name": "非超级管理员29条编号规则及编辑操作",
+      "passed": true
+    },
+    {
+      "name": "编号设置复用原表单及预览保存服务入口",
+      "passed": true
+    },
+    {
+      "name": "只读账号总览不显示未授权账号/系统设置入口",
+      "passed": true
+    },
+    {
+      "name": "只读账号可看29条规则但没有新增/设置/同步按钮",
+      "passed": true
+    },
+    {
+      "name": "业务账号只见业务模块，无系统菜单/管理设置",
+      "passed": true
+    },
+    {
+      "name": "业务幅宽资料入口仍有原记录及录入入口",
+      "passed": true
+    },
+    {
+      "name": "业务账号刷新直达/management返回401",
+      "passed": true
+    },
+    {
+      "name": "业务账号刷新直达/system/user返回401",
+      "passed": true
+    },
+    {
+      "name": "业务账号刷新直达/management/numbering返回401",
+      "passed": true
+    },
+    {
+      "name": "完整账号总览包含账号、编号、设置、记录、设备、运行及配置档案",
+      "passed": true
+    },
+    {
+      "name": "设备通讯端口打开原有字段配置页面",
+      "passed": true
+    },
+    {
+      "name": "当前项目8080系统管理总览部署可用，7业务模块仍可见",
+      "passed": true
+    },
+    {
+      "name": "当前项目权限配置抽屉正常打开并复用原菜单授权树",
+      "passed": true
+    },
+    {
+      "name": "54,510个按钮仅渲染50行，批量范围明确包含其他页",
+      "passed": true
+    },
+    {
+      "name": "20,131字段保留总数，按需切换后仅显示50行",
+      "passed": true
+    },
+    {
+      "name": "权限按菜单筛选仅显示账号的19个字段并重置分页",
+      "passed": true,
+      "note": "原树选择器未能更新筛选值，已改为带完整目录的可搜索选择器，复验19行通过"
+    }
+  ],
+  "passed": 17,
+  "failed": 0,
+  "formal_permissions_saved": false,
+  "formal_old_data_imported": 0
+}

@@ -93,7 +93,7 @@ def extend(table, options):
             dict(input_field('name','原查询','select',False),options=[{'value':name,'label':name} for name in reports]),
             input_field('value','名单或功能号（其余查询可空）'),input_field('employee','员工编码（导航查询使用）')]})
     if table in ['p_FieldValid','s_AccMonth']:
-        actions.append({'key':'original_period','title':'查询原业务期间及历时','detail':False,'inputs':[input_field('value','原时间','datetime')]})
+        actions.append({'key':'original_period','title':'查询原业务期间及历时','detail':False,'inputs':[input_field('value','原时间','datetime'),dict(input_field('begin','原过程传入的开始日期','datetime'),required=False),dict(input_field('end','原过程传入的结束日期','datetime'),required=False)]})
     if views[table]=='SourcePlatformFoundationViewSet':
         operations=['s_FuncUser_Add','s_FuncUser_UpdateSerialNum','GetPrintRight','sp_FuncStop','Sp_UpdateFuncNo','sp_UINav_To_Functions','sp_s_FieldRight','sp_FuncNoPrint']
         actions.append({'key':'original_config','title':'办理原导航及报表配置','detail':False,'inputs':[

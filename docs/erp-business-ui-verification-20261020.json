@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "scope": "业务导航、首页、管理入口与界面用语",
+  "navigation": {
+    "menu_records": 1152,
+    "unchanged_routes": 1152,
+    "business_pages": 757,
+    "management_pages": 266,
+    "removed_demo_entries": 2,
+    "missing_existing_pages": 0,
+    "roots": [
+      "基础信息",
+      "销售管理",
+      "采购管理",
+      "打样管理",
+      "生产管理",
+      "仓储管理",
+      "质量管理",
+      "业务查询",
+      "扫码识别与业务办理",
+      "操作记录"
+    ],
+    "remaining_technical_names": []
+  },
+  "frontend_build": "passed",
+  "browser_read_only_cases": [
+    "业务首页七模块与八个常用资料入口",
+    "管理设置账号权限、系统设置和运行维护；数据维护默认折叠",
+    "幅宽单位列表中文字段与导入入口；8条既有记录可读取"
+  ],
+  "database_business_writes": 0,
+  "formal_imports": 0,
+  "added_fields": 0,
+  "services": [
+    {
+      "service": "ERP前端",
+      "url": "http://127.0.0.1:8080/",
+      "status": 200,
+      "title_verified": true
+    },
+    {
+      "service": "ERP后端",
+      "url": "http://127.0.0.1:8001/api/config/",
+      "status": 200,
+      "title_verified": null
+    },
+    {
+      "service": "酒馆",
+      "url": "http://127.0.0.1:8000/",
+      "status": 200,
+      "title_verified": true
+    }
+  ],
+  "historical_reconciliation": "not_performed",
+  "onsite_acceptance": "not_performed",
+  "paused": [
+    "财务",
+    "打印",
+    "原35项查询"
+  ]
+}

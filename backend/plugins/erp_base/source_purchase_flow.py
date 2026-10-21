@@ -107,7 +107,8 @@ def receive_material(item, actor, entry, quantity, warehouse, supplier, sheet_ki
     values.update(source_parent_1=head,old_pur_detail_no=raw(item,'DetailNo'))
     values.update([store_value(line_model(),'Qty' if table=='StuffIn' else 'InQty',quantity)])
     values.update(field_values(line_model(**values)))
-    line=services.write(line_model,values,actor=actor,apply_effects=False)
+    # 此处创建本次新收货单的首条明细，不是旧界面对已有15类调拨单的修改。
+    line=services.write(line_model,values,actor=actor,apply_effects=False,check_entry_update=False)
     parent_tables={'PurApplyDetail':['PurApplyMain'],'PurDetail':['PurMain','ArticlePurMain','StuffPurMain'],
         'ArticlePurDetail':['ArticlePurMain'],'StuffPurDetail':['StuffPurMain']}
     heads=[head for parent in parent_tables[item.SOURCE_TABLE]

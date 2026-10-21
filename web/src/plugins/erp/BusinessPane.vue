@@ -2,21 +2,32 @@
 import {computed,ref,watch} from 'vue'
 import {compute} from '@fast-crud/fast-crud'
 import {ElMessage} from 'element-plus'
+import {useRoute} from 'vue-router'
+import {businessTitle,businessFieldTitle} from '../../erp-workspace'
 import {api} from '../../api'
 import {useAccount} from '../../store'
 import ResourceTable from '../../components/ResourceTable.vue'
 import FieldInput from '../../components/FieldInput.vue'
 import DocumentEditor from './DocumentEditor.vue'
 import ActionRows from './ActionRows.vue'
+import EditableActionRows from './EditableActionRows.vue'
 import ActionChanges from './ActionChanges.vue'
 import LossRows from './LossRows.vue'
 import ReworkSources from './ReworkSources.vue'
-const props=defineProps<{entity:string;context?:Record<string,any>;contextLabel?:string;contextState?:string;readonly?:boolean}>()
+import OriginalEntryWorkbench from './OriginalEntryWorkbench.vue'
+import OriginalDocumentPrint from './OriginalDocumentPrint.vue'
+const props=defineProps<{entity:string;context?:Record<string,any>;lookupContext?:Record<string,any>;contextLabel?:string;contextState?:string;readonly?:boolean;foundation?:any}>()
+const route=useRoute(),maintenance=computed(()=>route.query.workspace==='maintenance')
 const account=useAccount(),meta=ref<any>(),table=ref(),selected=ref<any>(),open=ref(false),activeTab=ref(''),editor=ref(false)
 const actionOpen=ref(false),currentAction=ref<any>(),actionRow=ref<any>(),actionData=ref<Record<string,any>>({}),actionForm=ref(),saving=ref(false)
 const actionResult=ref('')
 const reportOpen=ref(false),report=ref<any>()
-const reportTables=computed(()=>report.value?[{title:'办理或查询结果',rows:report.value.rows},{title:'补充明细（含原筛选未展示记录）',rows:report.value.supplemental_rows??[]},{title:'未归类来源',rows:report.value.unclassified_rows??[]},...(report.value.quantity_sources?[{title:'本次报告数量来源',rows:report.value.quantity_sources}]:[]),...(report.value.candidate_rows?[{title:'原多候选及本次采用',rows:report.value.candidate_rows}]:[]),...(report.value.summary?[{title:'原变量与循环依据',rows:[report.value.summary]}]:[]),...(report.value.seed_rows?[{title:'上一循环班组种子来源',rows:report.value.seed_rows}]:[]),...(report.value.generation?[{title:'本次自动生成日历',rows:report.value.generation.rows}]:[]),...(report.value.result_rows?[{title:'结果与参与来源明细',rows:report.value.result_rows}]:[])]:[])
+const entryWorkbench=ref(false),printOpen=ref(false),printRow=ref<any>()
+const childLookupContext=computed(()=>{
+  const rules=meta.value?.workflow?.entries?.find((e:any)=>e.value===selected.value?.entry_name)?.field_rules??{}
+  return {...props.lookupContext,...Object.fromEntries(Object.entries(rules).filter(([key])=>selected.value[key]!==undefined).map(([key,rule]:[string,any])=>[rule.old_name,selected.value[key]]))}
+})
+const reportTables=computed(()=>report.value?[{title:'办理或查询结果',rows:report.value.rows},{title:'补充明细（含原筛选未展示记录）',rows:report.value.supplemental_rows??[]},{title:'未归类来源',rows:report.value.unclassified_rows??[]},...(report.value.quantity_sources?[{title:'本次报告数量来源',rows:report.value.quantity_sources}]:[]),...(report.value.candidate_rows?[{title:'原多候选及本次采用',rows:report.value.candidate_rows}]:[]),...(report.value.summary?[{title:'原变量与循环依据',rows:[report.value.summary]}]:[]),...(report.value.seed_rows?[{title:'上一循环班组种子来源',rows:report.value.seed_rows}]:[]),...(report.value.generation?[{title:'本次自动生成日历',rows:report.value.generation.rows}]:[]),...(report.value.result_rows?[{title:'结果与参与来源明细',rows:report.value.result_rows}]:[]),...(report.value.result_sets??[])]:[])
 const columns=(rows:any[])=>Array.from(new Set(rows.flatMap(row=>Object.keys(row))))
 const reportLabels:Record<string,string>={DefectDept:'责任部门编码',DefectDeptName:'责任部门',ClassName:'班次',UnitName:'计量口径',OneGrade:'一级分类',TowGrade:'二级分类',ClassID:'班次编码',AClassIDNum:'本班产量次数',BClassIDNum:'责任数量',ClassIDMoeny:'质量奖份额',KFMoeny:'质量扣罚',Rate:'责任比例（%）',Moeny:'质量奖结果',N1:'旬内审比例（%）',N2:'月内审比例（%）',K1:'旬客退比例（%）',K2:'月客退比例（%）',unit:'库存单位编码',measure:'数量种类',dispatched:'实际发出',received:'实际回货',difference:'收发差额',confirmed_loss:'确认损耗',unexplained_difference:'未解释差额',dispatch_nulls:'发出空值条数',receipt_nulls:'回货空值条数',unresolved_unit_source:'未确定单位的原记录',direction:'收发方向',entity:'来源表',source:'原字段来源',detail_no:'原明细号',header_count:'匹配表头数',reason:'说明'}
 Object.assign(reportLabels,{FlowStatus:'维修流转状态',MFLevel:'原维修角色等级',isFixMan:'是否原维修工',isReportMan:'是否原报修人',CaseDetailNo:'原方案项目明细号',caseDetailNo:'原方案项目明细号',SerialNum:'项目序号原文',ProjectInfo:'项目内容',Value:'实际值',VALUE:'原待填结果值',DefaultValue:'原对照默认值',OriValue:'原带出值',Result:'原结果整数',IsInputText:'是否文本录入',IsUseMachineCase:'原已有项目标志',suffix:'原三位项目后缀',change_index:'变更原行序',HandlerIDs:'维修工原编码列表',Handlers:'维修工名称',Action:'原动作文字',ActionType:'流转记录类型',RecordDate:'记录时间',Operator:'操作员工',Score:'原评分或配件轮次',rounds:'配件轮次',notification_delivery:'原APP通知接入状态'})
@@ -41,7 +52,7 @@ const display=(value:any)=>value===null?'NULL':typeof value==='object'?JSON.stri
 Object.assign(reportLabels,{retained_count:'本次原单留档数',compensation_count:'新增反向库存流水数',table:'原表',effect:'本次处理',source_entity:'来源表',source_id:'来源记录ID',target_entity:'下游表',relation:'关联依据',WareHouseID:'仓库',LotNo:'批号',StorageUnitIDs:'库位',InQty:'原入库量',OutQty:'原出库量',InWeightQty:'原入库重量',OutWeightQty:'原出库重量',InRolls:'原入库粒数',OutRolls:'原出库粒数',InLengthQty:'原入库长度',OutLengthQty:'原出库长度',InMoney:'原入库金额',OutMoney:'原出库金额'})
 function showActionResult(result:{msg:string;data:any}){actionResult.value=result.msg==='success'?'':result.msg;ElMessage.success(actionResult.value||'操作成功');if(result.data?.report){report.value=result.data;reportOpen.value=true}}
 const workflow=computed(()=>meta.value?.workflow??{})
-const collectionActions=computed(()=>(workflow.value.actions??[]).filter((action:any)=>action.detail===false&&account.can(props.entity+':'+action.key+'-post')))
+const collectionActions=computed(()=>(workflow.value.actions??[]).filter((action:any)=>action.detail===false&&account.can(action.permission)))
 const tabs=computed(()=>(workflow.value.children??[]).filter((child:any)=>account.can(child.entity+':list')))
 const frozen=(row:any)=>props.readonly||workflow.value.readonly||Boolean(workflow.value.freeze_when?.some((key:string)=>row[key]))||Boolean(workflow.value.editable_states&&!workflow.value.editable_states.includes(row[workflow.value.state_field??'status']))
 function state(row:any){return workflow.value.state_from_parent?props.contextState:row[workflow.value.state_field??'status']}
@@ -52,19 +63,37 @@ async function submitAction(){
   saving.value=true
   try{const result=await api(`/api/system/${props.entity}/${currentAction.value.detail===false?'':actionRow.value.id+'/'}${currentAction.value.key}/`,{method:'POST',data:actionData.value});actionOpen.value=false;showActionResult(result);await table.value.refresh()}finally{saving.value=false}
 }
-function openAction(action:any,row?:any){currentAction.value=action;actionRow.value=row;actionData.value=Object.fromEntries(action.inputs.filter((f:any)=>f.source_field!==undefined||f.default!==undefined||f.kind==='multi'||f.kind==='datetime'&&f.default_now!==false).map((f:any)=>[f.key,f.source_field!==undefined?row[f.source_field]:f.default??(f.kind==='multi'?[]:new Date().toISOString())]));actionOpen.value=true}
+function businessNow(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).format(new Date())}
+function openAction(action:any,row?:any){currentAction.value=action;actionRow.value=row;actionData.value=Object.fromEntries(action.inputs.filter((f:any)=>f.source_field!==undefined||f.default!==undefined||f.kind==='multi'||f.kind==='datetime'&&f.default_now!==false).map((f:any)=>[f.key,f.source_field!==undefined?row[f.source_field]:f.default??(f.kind==='multi'?[]:businessNow())]));actionOpen.value=true}
 const actions=computed(()=>{
   const result:any[]=[]
+  if(maintenance.value&&!props.foundation&&workflow.value.source_model&&workflow.value.entries?.length&&account.superuser)result.push({key:'original_print',text:'数据版打印',permission:props.entity+':phase6_prepare_print-post',click:(row:any)=>{printRow.value=row;printOpen.value=true}})
   if(tabs.value.length)result.push({key:'children',text:'明细与关联',permission:props.entity+':detail',click:(row:any)=>{selected.value=row;activeTab.value=tabs.value[0].entity;open.value=true}})
   if((workflow.value.children??[]).some((child:any)=>child.atomic))result.push({key:'document',text:'整单编辑',permission:props.entity+':save-document-post',show:(row:any)=>!frozen(row),click:(row:any)=>{selected.value=row;editor.value=true}})
-  for(const action of (workflow.value.actions??[]).filter((action:any)=>action.detail!==false))result.push({key:action.key,text:action.title,permission:props.entity+':'+action.key+'-post',show:(row:any)=>action.states.includes(state(row))&&!(action.hide_when??[]).some((key:string)=>row[key])&&!(props.entity==='erp_sampling_sampleconfirmation'&&action.key==='send'&&row.sent_at!==null),click:async(row:any)=>{
+  for(const action of (workflow.value.actions??[]).filter((action:any)=>action.detail!==false&&(maintenance.value||action.title!=='旧入口公式试算与采用')))result.push({key:action.key,text:businessTitle(action.title),permission:action.permission,show:(row:any)=>!row.transfer_retained&&action.states.includes(state(row))&&!(action.hide_when??[]).some((key:string)=>row[key])&&!(props.entity==='erp_sampling_sampleconfirmation'&&action.key==='send'&&row.sent_at!==null),click:async(row:any)=>{
     if(action.inputs.length){openAction(action,row)}
     else{const result=await api(`/api/system/${props.entity}/${row.id}/${action.key}/`,{method:'POST',data:{}});showActionResult(result);await table.value.refresh()}
   }})
   return result
 })
-watch(()=>[props.entity,account.menus,account.buttons],async()=>{
+watch(()=>[props.entity,props.foundation,account.menus,account.buttons],async()=>{
   const data=(await api('/api/meta/'+props.entity+'/')).data
+  data.title=account.menus.find(menu=>menu.component_name===props.entity)?.name??businessTitle(data.title)
+  for(const field of data.fields)field.title=businessFieldTitle(field.title)
+  if(props.foundation){
+    const entry=props.foundation
+    data.title=account.menus.find(menu=>menu.component_name===entry.key)?.name??businessTitle(entry.title);data.foundation=entry
+    data.workflow={...data.workflow,readonly:data.workflow.readonly||Boolean(entry.readonly)}
+    if(entry.entry)data.workflow.entries=data.workflow.entries.filter((item:any)=>item.value===entry.entry)
+    if(entry.children)data.workflow.children=entry.children
+    if(entry.simple_master)data.workflow.actions=data.workflow.actions.filter((item:any)=>!['confirm','approve','reopen'].includes(item.key))
+    const entryFields=data.workflow.entries.find((item:any)=>item.value===entry.entry)?.field_rules??{}
+    for(const field of data.fields){
+      if(entryFields[field.key]?.title)field.title=businessFieldTitle(entryFields[field.key].title)
+      if(entry.field_titles?.[field.key])field.title=entry.field_titles[field.key]
+      if(field.key in entry.filters)field.form={...field.form,value:entry.filters[field.key],component:{name:'FieldInput',vModel:'modelValue',field:{...field},disabled:true}}
+    }
+  }
   for(const field of data.fields)if(props.context&&field.key in props.context)field.form={...field.form,component:{name:'FieldInput',vModel:'modelValue',field:{...field},disabled:true}}
   data.crud_options={...data.crud_options,rowHandle:{width:620,buttons:{edit:{show:compute(({row}:any)=>!frozen(row)&&!(props.entity==='erp_sampling_sampleconfirmation'&&row.sent_at!==null)&&account.can(props.entity+':patch'))},remove:{show:compute(({row}:any)=>!frozen(row)&&!workflow.value.delete_disabled&&account.can(props.entity+':delete'))},copy:{show:false}}}}
   meta.value=data
@@ -73,17 +102,20 @@ watch(()=>[props.entity,account.menus,account.buttons],async()=>{
 <template>
   <div class="business-pane"><el-alert v-if="contextLabel" :title="contextLabel" type="info" :closable="false"/>
     <el-alert v-if="actionResult" :title="actionResult" type="success" @close="actionResult=''"/>
-    <div v-if="collectionActions.length"><el-button v-for="action in collectionActions" :key="action.key" @click="openAction(action)">{{action.title}}</el-button></div>
+    <div v-if="maintenance&&!foundation&&workflow.source_model&&account.can(entity+':phase6_catalog-get')"><el-button @click="entryWorkbench=true">数据来源与字段配置</el-button></div>
+    <el-drawer v-model="entryWorkbench" title="旧业务入口" size="96vw" destroy-on-close><OriginalEntryWorkbench v-if="entryWorkbench" :entity="entity"/></el-drawer>
+    <el-dialog v-model="printOpen" title="单据数据版打印" width="800px" destroy-on-close><OriginalDocumentPrint v-if="printOpen" :entity="entity" :row="printRow" :entries="workflow.print_entries" @saved="table.refresh()"/></el-dialog>
+    <div v-if="maintenance&&!foundation&&collectionActions.length"><el-button v-for="action in collectionActions" :key="action.key" @click="openAction(action)">{{action.title}}</el-button></div>
     <el-alert v-if="readonly" title="本层资料已经冻结，业务进度通过对应操作维护。" type="info" :closable="false"/>
-    <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :disable-delete="workflow.delete_disabled" :row-actions="actions"/><el-skeleton v-else animated/>
+    <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :lookup-context="lookupContext" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :disable-delete="workflow.delete_disabled" :row-actions="actions"/><el-skeleton v-else animated/>
     <el-drawer v-model="open" :title="meta?.title+' · 明细与关联'" size="min(1400px, 97vw)" destroy-on-close>
       <el-tabs v-if="open" v-model="activeTab"><el-tab-pane v-for="child in tabs" :key="child.entity" :name="child.entity" :label="child.title">
-        <BusinessPane v-if="activeTab===child.entity" :key="child.entity+'-'+selected.id" :entity="child.entity" :context="{[child.key]:selected.id}" :context-state="state(selected)" :context-label="String(selected.number??selected.code??selected.name??selected.id)" :readonly="childReadonly(child)"/>
+        <BusinessPane v-if="activeTab===child.entity" :key="child.entity+'-'+selected.id" :entity="child.entity" :context="{[child.key]:selected.id,...(child.entry?{_entry:child.entry}:{})}" :lookup-context="childLookupContext" :foundation="foundation?{title:child.title,entry:child.entry,filters:{},field_titles:child.field_titles,simple_master:foundation.simple_master}:undefined" :context-state="state(selected)" :context-label="String(selected.number??selected.code??selected.name??selected.id)" :readonly="childReadonly(child)"/>
       </el-tab-pane></el-tabs>
     </el-drawer>
-    <el-drawer v-model="editor" :title="meta?.title+' · 整单编辑'" size="min(1500px, 98vw)" destroy-on-close><DocumentEditor v-if="editor" :meta="meta" :row="selected" @saved="editor=false;table.refresh()"/></el-drawer>
+    <el-drawer v-model="editor" :title="meta?.title+' · 整单编辑'" size="min(1500px, 98vw)" destroy-on-close><DocumentEditor v-if="editor" :meta="meta" :row="selected" :context="context" @saved="editor=false;table.refresh()"/></el-drawer>
     <el-dialog v-model="actionOpen" :title="currentAction?.title" width="min(900px,95vw)" destroy-on-close><el-form v-if="actionOpen" ref="actionForm" :model="actionData" label-width="150px">
-      <el-form-item v-for="field in currentAction.inputs" :key="field.key" :prop="field.key" :label="field.title" :rules="[{required:field.required,message:'请填写'+field.title}]"><ReworkSources v-if="field.kind==='rework_sources'" v-model="actionData[field.key]"/><LossRows v-else-if="field.kind==='losses'" v-model="actionData[field.key]"/><ActionRows v-else-if="field.kind==='rows'" v-model="actionData[field.key]" :field="field" :form="actionData" :row="actionRow"/><ActionChanges v-else-if="field.kind==='changes'" v-model="actionData[field.key]" :field="field"/><FieldInput v-else v-model="actionData[field.key]" :field="actionField(field)"/></el-form-item>
+      <el-form-item v-for="field in currentAction.inputs" :key="field.key" :prop="field.key" :label="field.title" :rules="[{required:field.required,message:'请填写'+field.title}]"><ReworkSources v-if="field.kind==='rework_sources'" v-model="actionData[field.key]"/><LossRows v-else-if="field.kind==='losses'" v-model="actionData[field.key]"/><EditableActionRows v-else-if="field.kind==='editable_rows'" v-model="actionData[field.key]" :field="field"/><ActionRows v-else-if="field.kind==='rows'" v-model="actionData[field.key]" :field="field" :form="actionData" :row="actionRow"/><ActionChanges v-else-if="field.kind==='changes'" v-model="actionData[field.key]" :field="field"/><FieldInput v-else v-model="actionData[field.key]" :field="actionField(field)"/></el-form-item>
     </el-form><template #footer><el-button @click="actionOpen=false">取消</el-button><el-button type="primary" :loading="saving" @click="submitAction">确认操作</el-button></template></el-dialog>
     <el-dialog v-model="reportOpen" :title="report?.report" width="96vw" destroy-on-close>
       <template v-if="reportOpen">

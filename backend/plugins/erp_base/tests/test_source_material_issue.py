@@ -22,9 +22,11 @@ class OriginalMaterialIssueTests(TestCase):
             {'source_parent_1': self.weight, 'old_phase_no': 1}, actor=self.actor)
         detail = apps.get_model('erp_production.SourceDyeStuffWeightDetail')
         self.measured = services.write(detail, {'source_parent_1': self.phase, 'old_stuff_no': 1,
-            'old_stuff_id': 'S1', 'old_need_qty': 1000, 'old_real_qty': 500, 'old_weight_unit': 'G'}, actor=self.actor)
+            'old_stuff_id': 'S1', 'old_need_qty': 1000, 'old_real_qty': 0, 'old_weight_unit': 'G'}, actor=self.actor)
         self.planned = services.write(detail, {'source_parent_1': self.phase, 'old_stuff_no': 2,
             'old_stuff_id': 'S2', 'old_need_qty': 2, 'old_real_qty': 0, 'old_weight_unit': 'K'}, actor=self.actor)
+        # 领料用例的已称量来源夹具；旧NormalStuffWeight页面称量后禁止编辑。
+        self.measured.old_real_qty=500;self.measured.save(update_fields=['old_real_qty'])
 
     def execute(self):
         return issue(self.weight, self.actor, timezone.now(), 'weighing_finished', '原称量完成记录 W-1')
@@ -59,7 +61,7 @@ class OriginalMaterialIssueTests(TestCase):
         self.assertTrue(type(self.measured).objects.filter(pk=self.measured.pk).exists())
 
     def test_negative_quantity_is_saved_and_explicitly_reported_as_not_auto_generated(self):
-        services.write(type(self.measured), {'old_real_qty': -500}, self.measured, self.actor)
+        self.measured.old_real_qty=-500;self.measured.save(update_fields=['old_real_qty'])
         self.execute()
         self.measured.refresh_from_db(); self.assertEqual(self.measured.old_real_qty, -500)
         context = SourceDocumentContext.objects.get(entity=self.weight._meta.label, object_id=self.weight.pk)

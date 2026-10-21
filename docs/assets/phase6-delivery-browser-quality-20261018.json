@@ -1,0 +1,22 @@
+{
+  "package_after_save": "\t\n1\n\t\n5949\n\t\nDELIVERY-GUID\n\t\nDELIVERY-QC\n\t\n\t\n\t\n\t\n\t\n10.00\n\t\n\t\n\t\n-2.00\n\t\n\t\n\t\n\t\n0\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n质量保存时机浏览器验证20261018\n\t\nDELIVERY-QC\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\nDELIVERY-QC\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n未填写\n\t\n\t\n\t\n\t\n草稿\n\t\n\t\n\t\n\t\n\t\n\t\n查看\n编辑\n删除\n按旧配置续行\n数据版打印\n明细与关联\n确认\n预览同卡同卷包装替换\n同卡同卷替换新增包装\n撤回本次包装替换\n撤回明确投坯采用\n采用本条包装生成实际入库\n明确采用原投坯细码\n查看本单接续办理事实\n按原公式计算\n旧入口公式试算与采用",
+  "job_fields": [
+    {
+      "label": "PDots",
+      "value": "0"
+    },
+    {
+      "label": "PlengthQyt",
+      "value": "-2"
+    },
+    {
+      "label": "Pkg",
+      "value": "10"
+    },
+    {
+      "label": "PRolls",
+      "value": "1"
+    }
+  ],
+  "method": "页面修改包装备注并保存，再打开关联工卡查看；合成验证数据"
+}

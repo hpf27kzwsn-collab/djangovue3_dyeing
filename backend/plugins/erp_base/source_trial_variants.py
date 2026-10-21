@@ -47,7 +47,7 @@ def preview(item,query=reader):
         'ProcessID':raw(item,'Value38'),'MachineID':raw(item,'Value39'),'PhaseID':raw(item,'Value40')}],
         'candidate_rows':candidates,'supplemental_rows':[{'entity':row._meta.label,'record_id':row.pk,'issue':'本次实际生成时替换留档'} for row in [*works,*children]],
         'notes':['七类试验入口沿用原默认字段，全部Value原结果保留。原不同物料禁止保存改为明确比较结果，异常试验可录入，见E81。',
-            '7类且Value40非空并有02工位班组才生成；旧游标反复覆盖改为明确最后ID候选，全部候选留档。']}
+            '7类且Value40非空并有02工位班组才生成；全部游标候选按来源ID顺序执行，中间被替换报工也留档。原无ORDER BY的游标顺序未能复原。']}
     return report,candidates,works,children
 
 
@@ -65,7 +65,7 @@ def apply(item,actor,at,reason,query=reader):
     item=scoped(item,query);previous=effect(item,'trial_work')
     if previous is not None and previous['state']=='applied':raise ValidationError({'source':'先撤回当前试验报工，再重新生成。'})
     report,candidates,works,children=preview(item,query)
-    states=[];created=[]
+    states=[];created=[];intermediate=[];iteration_rows=[]
     eligible=[row for row in candidates if row['eligible']]
     with capture() as changes:
         if eligible:
@@ -73,7 +73,14 @@ def apply(item,actor,at,reason,query=reader):
                 states.append({'source':origin(row),'previous':effect(row,'trial_retained')})
                 save_effect(row,'trial_retained',{'active':True,'trial_id':item.pk,'at':at},actor,reason)
             if works:trigger_removed(works[-1],actor,retain_children=True)
-            candidate=eligible[-1];source=reader('ProdTest','erp_quality').get(pk=candidate['trial_id'])
+        for candidate in eligible:
+            if iteration_rows:
+                for row in iteration_rows:
+                    save_effect(row,'trial_retained',{'active':True,'trial_id':item.pk,'at':at,
+                        'reason':'同一次原游标的下一候选替换'},actor,reason)
+                trigger_removed(iteration_rows[0],actor,retain_children=True)
+                intermediate.extend(created);created=[];iteration_rows=[]
+            source=reader('ProdTest','erp_quality').get(pk=candidate['trial_id'])
             process=raw(source,'Value38');special=key(process)=='GX41'
             number=identifier(at,'ProdTest.WProcess.');end=raw(source,'CreateDate')
             data={'WProcessNo':number,'JobSheetNo':raw(source,'JobSheetNo'),'OrderSheetNo':raw(source,'SheetSeries'),
@@ -84,17 +91,19 @@ def apply(item,actor,at,reason,query=reader):
                 model=reader(name,'erp_production').model
                 row=write(model,{model.SOURCE_FIELDS[name]:value for name,value in values.items()},actor=actor,apply_effects=False)
                 save_effect(row,'trial_origin',{'trial_id':item.pk,'source':origin(item),'at':at,'reason':reason},actor,reason)
-                created.append(origin(row));return row
+                created.append(origin(row));iteration_rows.append(row);return row
             work=create('WProcess',data)
             common={name:data[name] for name in ['WProcessNo','JobSheetNo','ProcessNo','ProcessID']}
             create('JobShiftEmp',{**common,'ShiftID':candidate['ShiftID'],'EmpID':data['EmpID'],'EffiRate':1})
             create('WProcessStep',{**common,'WPStepNo':identifier(at,'ProdTest.WProcessStep.'),'DyeProcessID':'加色' if special else '返加色',
                 'RealValue':1,'RecordID':data['EmpID'],'CurrTime':end,'ProgramID':'933' if special else '934'})
     # 新建对象不进入逐字段restore；原行留档事实由states恢复。
-    changes=[row for row in changes if row['entity']!='erp_base.SourceDocumentContext' and (row['entity'],row['id']) not in {(entry['entity'],entry['source']['id']) for entry in created}]
+    changes=[row for row in changes if row['entity']!='erp_base.SourceDocumentContext' and (row['entity'],row['id']) not in {(entry['entity'],entry['source']['id']) for entry in [*created,*intermediate]}]
     check_scope([apps.get_model(row['entity']).objects.get(pk=row['id']) for row in changes],query)
-    save_effect(item,'trial_work',{'state':'applied','at':at,'reason':reason,'report':report,'states':states,'created':created,'changes':changes},actor,reason)
-    return {**report,'result_rows':[{'entity':entry['entity'],'record_id':entry['source']['id']} for entry in created]}
+    save_effect(item,'trial_work',{'state':'applied','at':at,'reason':reason,'report':report,'states':states,
+        'created':created,'intermediate':intermediate,'changes':changes},actor,reason)
+    return {**report,'result_rows':[{'entity':entry['entity'],'record_id':entry['source']['id']} for entry in created],
+        'intermediate_rows':[{'entity':entry['entity'],'record_id':entry['source']['id']} for entry in intermediate]}
 
 
 @transaction.atomic

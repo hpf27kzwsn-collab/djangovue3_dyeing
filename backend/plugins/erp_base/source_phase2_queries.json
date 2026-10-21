@@ -1,0 +1,291 @@
+{
+  "DyeDipsRecordBulkCheckerID": {
+    "sql": "SELECT * FROM dye.DyeDipsRecordBulkCheckerID",
+    "kind": "view",
+    "title": "大样复核员统计"
+  },
+  "DyeDipsRecordCheckerID": {
+    "sql": "SELECT * FROM dye.DyeDipsRecordCheckerID",
+    "kind": "view",
+    "title": "打样复核员统计"
+  },
+  "Order_Jobsheet": {
+    "sql": "SELECT * FROM dye.Order_Jobsheet",
+    "kind": "view",
+    "title": "订单与工卡进度"
+  },
+  "Order_Jobsheet_Detail": {
+    "sql": "SELECT * FROM dye.Order_Jobsheet_Detail",
+    "kind": "view",
+    "title": "订单与工卡明细"
+  },
+  "View_zhenzhiRKchangzhi": {
+    "sql": "SELECT * FROM dye.View_zhenzhiRKchangzhi",
+    "kind": "view",
+    "title": "针织入库产值"
+  },
+  "View_zhenzhiSHchangzhi": {
+    "sql": "SELECT * FROM dye.View_zhenzhiSHchangzhi",
+    "kind": "view",
+    "title": "针织送货产值"
+  },
+  "vw_DyeDipsRecord_EmpID": {
+    "sql": "SELECT * FROM dye.vw_DyeDipsRecord_EmpID",
+    "kind": "view",
+    "title": "打样人员统计"
+  },
+  "vw_Newview": {
+    "sql": "SELECT * FROM dye.vw_Newview",
+    "kind": "view",
+    "title": "订单工卡合并查询"
+  },
+  "vw_OrderColor": {
+    "sql": "SELECT * FROM dye.vw_OrderColor",
+    "kind": "view",
+    "title": "订单颜色完整明细"
+  },
+  "vw_OrderQuery": {
+    "sql": "SELECT * FROM dye.vw_OrderQuery",
+    "kind": "view",
+    "title": "订单综合查询"
+  },
+  "vwCptLabRecipe": {
+    "sql": "SELECT * FROM dye.vwCptLabRecipe",
+    "kind": "view",
+    "title": "客样配方"
+  },
+  "vwCptLabRecipeDetail": {
+    "sql": "SELECT * FROM dye.vwCptLabRecipeDetail",
+    "kind": "view",
+    "title": "客样配方用料"
+  },
+  "vwDyeDipsRecord": {
+    "sql": "SELECT * FROM dye.vwDyeDipsRecord",
+    "kind": "view",
+    "title": "打样及报价记录"
+  },
+  "vwGrayOrderOccupy": {
+    "sql": "SELECT * FROM dye.vwGrayOrderOccupy",
+    "kind": "view",
+    "title": "坯料订单占用"
+  },
+  "vwNoOrderSettleData": {
+    "sql": "SELECT * FROM dye.vwNoOrderSettleData",
+    "kind": "view",
+    "title": "无订单结算业务来源"
+  },
+  "vwOrder": {
+    "sql": "SELECT * FROM dye.vwOrder",
+    "kind": "view",
+    "title": "订单原汇总"
+  },
+  "vwOrderGrayPreemption": {
+    "sql": "SELECT * FROM dye.vwOrderGrayPreemption",
+    "kind": "view",
+    "title": "订单坯料预占"
+  },
+  "vwOrderInfo": {
+    "sql": "SELECT * FROM dye.vwOrderInfo",
+    "kind": "view",
+    "title": "订单资料"
+  },
+  "vwOrderToJob": {
+    "sql": "SELECT * FROM dye.vwOrderToJob",
+    "kind": "view",
+    "title": "订单转工卡来源"
+  },
+  "vwOrderToPlan": {
+    "sql": "SELECT * FROM dye.vwOrderToPlan",
+    "kind": "view",
+    "title": "订单转计划来源"
+  },
+  "vwPreTransOrderColor": {
+    "sql": "SELECT * FROM dye.vwPreTransOrderColor",
+    "kind": "view",
+    "title": "待转订单颜色"
+  },
+  "vwPreTransOrderColor_New": {
+    "sql": "SELECT * FROM dye.vwPreTransOrderColor_New",
+    "kind": "view",
+    "title": "待转订单颜色（新版）"
+  },
+  "vwPreTransOrderColorByPlan": {
+    "sql": "SELECT * FROM dye.vwPreTransOrderColorByPlan",
+    "kind": "view",
+    "title": "按计划待转订单"
+  },
+  "vwPreTransOrderColorPrepare": {
+    "sql": "SELECT * FROM dye.vwPreTransOrderColorPrepare",
+    "kind": "view",
+    "title": "备料待转订单"
+  },
+  "vwPreTransOrderColorPrepareByPlan": {
+    "sql": "SELECT * FROM dye.vwPreTransOrderColorPrepareByPlan",
+    "kind": "view",
+    "title": "按计划备料待转订单"
+  },
+  "vwSampleInQuery": {
+    "sql": "SELECT * FROM dye.vwSampleInQuery",
+    "kind": "view",
+    "title": "样品入库明细"
+  },
+  "vwSampleOutQuery": {
+    "sql": "SELECT * FROM dye.vwSampleOutQuery",
+    "kind": "view",
+    "title": "样品出库明细"
+  },
+  "vwSampleStockBook": {
+    "sql": "SELECT * FROM dye.vwSampleStockBook",
+    "kind": "view",
+    "title": "样品库存流水"
+  },
+  "SP_APP_QueryOrderMain": {
+    "sql": "SELECT  ROW_NUMBER()OVER(ORDER BY a.SheetDate Desc ) AS rowIndex,\r\n\t\ta.SheetSeries,a.CustomerID,b.ShortName,a.SheetNo,a.DetailCustName,CustSelfNo,ContractNo,CONVERT(Varchar(19),a.SheetDate,21) SheetDate    FROM dye.OrderMain a   \r\n\t\tLEFT JOIN dye.p_Customer b ON b.CustomerID = a.CustomerID\r\n\t\twhere  1=1\r\n\t\tAND (@IsChecked1='N' or a.CustomerID=@CustomerID)\r\n\t\tand(@IsChecked1='N' or a.SheetSeries like '%'+ @SheetSeries +'%')\r\n\t\tand(@IsChecked2='N' Or a.SheetDate>=@StartDate) \r\n\t\tand(@IsChecked3='N' Or a.SheetDate<=@EndDate)\r\n\t\tand(@IsChecked4='N' Or ((@bIsAccept=1 AND ISNULL( a.RightStatus,0)=0)))",
+    "kind": "paged",
+    "title": "现场订单查询"
+  },
+  "Sp_AppOrderQuery": {
+    "sql": "SELECT\n\t\t\t\t ROW_NUMBER()OVER(ORDER BY a.SheetDate Desc) AS rowIndex,\n\t\t\t\t CONVERT(Varchar(19),a.SheetDate,21) AS SheetDate ,a.CustomerID,pc.ShortName As CustomerName,\n\t\t\t\t a.SheetNo,b.CheckNo,a.CustSelfNo,b.OrderQty,b.ProdID,gr.NameC AS ProdName,a.ContractNo,\n\t\t\t\t b.CustFabricName,b.ColorID,b.ColorNum,a.AssignUnit,Case When a.AssignUnit =1 Then 'Kg' End UnitName\n\t\t\t\t \n\t\t\t\tFROM dye.OrderMain a \n\t\t\t\tJOIN dye.OrderColor b ON a.SheetSeries = b.SheetSeries\n\t\t\t\tleft JOIN dye.p_Customer pc ON a.CustomerID=pc.CustomerID\n\t\t\t\tLeft Join dye.p_Gray Gr On b.ProdID=Gr.GrayID\n\t\t\t\tWHERE  1=1\n\t\t\t\tAnd a.SheetDate>=@dtStart And a.SheetDate <@dtEnd\n\t\t\t\tand  (ISNULL(@CustomerID,'')='' OR a.CustomerID = @CustomerID)\n\t\t\t\tand  (ISNULL(@ProdID,'')='' OR b.ProdID = @ProdID)\n\t\t\t\tand  (ISNULL(@SheetNo,'')='' OR a.SheetNo like '%'+ @SheetNo +'%' )",
+    "kind": "paged",
+    "title": "现场订单及数量汇总"
+  },
+  "Sp_AppQueryOrderInfo": {
+    "sql": "SELECT  ROW_NUMBER()OVER(ORDER BY a.SheetDate desc) AS rowIndex,\r\n\t     CONVERT(Varchar,a.SheetDate,20) SheetDate,a.SheetNo,\r\n\t\ta.CustomerID AS CustomerCode,Cu.ShortName,b.CustFabricName,Pt.FabricName,a.RightStatus,a.SheetSeries,a.ContractNo,a.CustSelfNo,a.CustomerID,CheckNo,b.ProdID,Gr.NameC As ProdName,\r\n\t\tb.ColorID,ColorNum,OrderRolls, OrderQty,AssignUnit,b.Spec,b.Width,b.Weight,CONVERT(Varchar,b.DlvDate,20) DlvDate,a.Creater,\r\n\t\tb.AddWeigth,b.TubeWeight,b.IsSupplement,\r\n\t\tCASE WHEN ISNULL(b.Price,0)>0 THEN '已确价'ELSE '无单价'END  IsPrice\r\n\t\t FROM dye.OrderMain a JOIN dye.OrderColor b ON a.SheetSeries = b.SheetSeries\r\n\t\tLeft Join (select CustomerID,ShortName from dye.v_Customer) Cu On a.CustomerID=Cu.CustomerID\r\n\t\tLeft Join (Select GrayID,NameC from dye.p_Gray)Gr on Gr.GrayID=b.ProdID \r\n\t\tleft Join (SELECT dye.fn_GetFeelCode(ProdID)AS FeelCode,ProdID,NameC AS FabricName FROM dye.p_Product)Pt On b.CustFabricName=Pt.ProdID\r\n\t\twhere(ISNULL(@startDate,'')='' Or a.SheetDate>=@StartDate) \r\n\t\tand (ISNULL(@endDate,'')=''Or a.SheetDate <= @EndDate) \r\n\t\tand (ISNULL(@conFilter,'')=''Or a.SheetNo like '%'+@conFilter+'%' \r\n\t\tOr Cu.ShortName Like '%'+@conFilter+'%' \r\n\t\tOr a.CustSelfNo Like '%'+@conFilter+'%'\r\n\t\tOR ColorNum like '%'+@conFilter+'%') \r\n\t    Order By a.SheetNo",
+    "kind": "paged",
+    "children": [
+      {
+        "title": "订单加工要求",
+        "scope": "page",
+        "key": "SheetSeries",
+        "field": "a.SheetSeries",
+        "sql": "SELECT a.SheetSeries,b.Name AS FieldTypeName,a.AtteValue,a.Description FROM dye.OrderAtte a LEFT JOIN dye.p_FieldValid b ON b.FieldType='AtteKind' AND b.Code=a.FieldType"
+      }
+    ],
+    "title": "现场订单与加工要求"
+  },
+  "Sp_AppQueryColorQuote": {
+    "sql": "Select \r\n\t\tRow_Number() Over(Order By a.SheetDate Desc)As RowIndex ,\r\n\t\ta.SheetSeries,a.SheetNo, \n\t\tCONVERT(varchar,SheetDate,20) AS SheetDate, \n\t\ta.CustomerID,cu.ShortName, \n\t\ta.Remarks, \n\t\ta.Creater, CONVERT(varchar,a.CreateDate,20) CreateDate \n\t\t,CASE WHEN a.RightStatus=10 THEN '已审核' ELSE '' END AS AuditStatus \n\t   \r\n\t  from dye.Quote a \r\n\t  left Join dye.v_Customer Cu ON a.CustomerID=Cu.CustomerID \r\n\t  Where 1=1 \r\n\t  AND a.SheetDate >=@dtStart AND a.SheetDate < @dtEnd\r\n\t  And  (ISNULL(@conFilter,'')='' Or ShortName Like '%'+@conFilter+'%' \r\n\t\t\tOr a.SheetNo Like '%'+@conFilter+'%'\r\n\t  OR EXISTS (SELECT b.ColorNum FROM dye.QuoteDetail b WHERE a.SheetSeries=b.SheetSeries AND ISNULL(ColorNum,'')+ISNULL(ColorID,'') Like '%'+@conFilter+'%')\r\n\t  )",
+    "kind": "paged",
+    "children": [
+      {
+        "title": "本页报价明细",
+        "scope": "page",
+        "key": "SheetSeries",
+        "field": "a.SheetSeries",
+        "sql": "SELECT a.SheetSeries,ISNULL(pt.NameC,a.ProdID) AS ProdName,ISNULL(a.ColorNum,'')+ISNULL(a.ColorID,'') AS ColorInfo,a.CusPrice,a.Price,a.ColorDepthID,cl.Name AS ColorDepthName FROM dye.QuoteDetail a LEFT JOIN dye.p_FieldValid cl ON cl.FieldType='ColorDepth' AND cl.Code=a.ColorDepthID LEFT JOIN dye.p_Product pt ON pt.ProdID=a.ProdID ORDER BY a.SheetSeries,ProdName,ColorInfo"
+      }
+    ],
+    "title": "色号报价及明细"
+  },
+  "Sp_APPCustQueryQuotePrice": {
+    "sql": "Select\n\tROW_NUMBER()OVER(ORDER BY b.DetailNo) AS rowIndex,\n\ta.SheetSeries,b.DetailNo,a.CustomerID,cu.ShortName AS CustomerName,b.FabricKind,FK.Name As FabricName ,b.ColorDepthID,CD.Name As ColorDepthName,\n\tb.CusPrice,b.Remarks,'' As AtteInfo\n\t\n\tfrom dye.FixedPrice a \n\tleft join dye.FixedPriceDetail  b On a.SheetSeries=b.SheetSeries\n\tLeft Join dye.p_Customer cu On a.CustomerID=cu.CustomerID\n\tLeft Join (Select Code,Name from dye.p_FieldValid  Where FieldType='FabricKind') FK On b.FabricKind=FK.Code\n\tLeft Join (Select Code,Name from dye.p_FieldValid  Where FieldType='ColorDepth') CD On b.ColorDepthID=CD.Code\n\tWhere a.CustomerID=@CustomerID\n\tAnd (ISNULL(@FabricKind,'')='' Or b.FabricKind Like '%'+@FabricKind+'%')\n\tAnd (ISNULL(@ColorDepthID,'')='' Or b.ColorDepthID Like '%'+@ColorDepthID+'%')",
+    "kind": "paged",
+    "children": [
+      {
+        "title": "全部匹配确价的加工要求",
+        "scope": "all",
+        "key": "DetailNo",
+        "field": "b.DetailNo",
+        "sql": "SELECT b.DetailNo,a.AtteValue,ISNULL(c.Price,0) AS Price FROM dye.FixedPriceAtte a LEFT JOIN dye.FixedPriceDetail b ON a.DetailNo=b.DetailNo LEFT JOIN dye.QuoteItemPrice c ON c.SheetSeries=b.SheetSeries AND a.AtteCode=c.Item WHERE c.Price>0"
+      },
+      {
+        "title": "全部匹配确价的收费项目",
+        "scope": "all",
+        "key": "SheetSeries",
+        "field": "a.SheetSeries",
+        "sql": "SELECT a.Item,ak.Name AS ItemName,ISNULL(a.Price,0) AS Price,a.Remarks FROM dye.QuoteItemPrice a LEFT JOIN dye.p_FieldValidSub ak ON ak.FieldType='AtteKind' AND ak.Code='00' AND a.Item=ak.SubCode"
+      },
+      {
+        "title": "全部匹配确价的缸量价",
+        "scope": "all",
+        "key": "SheetSeries",
+        "field": "a.SheetSeries",
+        "sql": "SELECT a.FabricKindID,fk.Name AS FabricName,ISNULL(a.Weight1,0) AS Weight1,ISNULL(a.Weight2,0) AS Weight2,ISNULL(a.Price,0) AS Price,a.Remarks FROM dye.FixedCanDetail a LEFT JOIN dye.p_FieldValid fk ON fk.FieldType='FabricKind' AND a.FabricKindID=fk.Code"
+      }
+    ],
+    "title": "客户报价及附加收费"
+  },
+  "SP_APP_UrgentOrderInfo": {
+    "sql": "SELECT *  FROM \r\n\t\t(SELECT  ROW_NUMBER()OVER(ORDER BY js.SheetDate desc) AS rowIndex,\r\n\t\t\tc.NameC AS CustomerName, \n\t\t\tjs.sheetNo AS JobSheetNo,  \n\t\t\tCASE \r\n\t\t\tWHEN EXISTS(SELECT 1 FROM dye.Prodin WHERE jobSheetNo=js.SheetNo AND SheetKind=11)\r\n\t\t\t\t\tAND NOT EXISTS(SELECT 1 FROM dye.Prodin WHERE jobSheetNo=js.SheetNo AND SheetKind=16)\r\n\t\t\t\t\tAND NOT EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo=js.SheetNo) THEN '成品入库' \r\n\t\t\tWHEN EXISTS(SELECT 1 FROM dye.Prodin WHERE jobSheetNo=js.SheetNo AND SheetKind=16)\r\n\t\t\t\t\tAND NOT EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo=js.SheetNo) \r\n\t\t\t\t\tTHEN '退车间回修'\r\n\t\t\tWHEN EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo=js.SheetNo) THEN \r\n\t\t\t\t\t(CASE WHEN (SELECT SUM(Rolls) FROM dye.ProdOutDetail \r\n\t\t\t\t\t\t\t\tWHERE JobSheetNo=js.SheetNo)>=js.SumAssignedRolls \r\n\t\t\t\t\t\t\tTHEN '已出货' \r\n\t\t\t\t\t\t\tELSE '已出'+CONVERT(varchar,(SELECT SUM(CONVERT(DECIMAL(5,1),Rolls)) FROM dye.ProdOutDetail \r\n\t\t\t\t\t\t\t\t\tWHERE JobSheetNo=js.SheetNo))+'匹,余'+\r\n\t\t\t\t\t\t\t\t\tCONVERT(varchar,js.SumAssignedRolls-(SELECT SUM(CONVERT(DECIMAL(5,1),Rolls)) FROM dye.ProdOutDetail \r\n\t\t\t\t\t\t\t\t\tWHERE JobSheetNo=js.SheetNo))+'匹' end )\r\n\t\t\tELSE ISNULL(d.Name,CurrProcessID) \r\n\t\t\tEND AS CurrStatus, \n\t\t\tjs.SheetDate, \n\t\t\tp.NameC AS ProdName, \n\t\t\tjs.ColorNum, \n\t\t\tjs.ColorID, \n\t\t\tjs.CustSelfNo, \n\t\t\tjs.CustColorNum, \n\t\t\tjs.SumAssignedRolls, \n\t\t\tjs.SumAssignedWeightQty, \n\t\t\tjs.SumAssignedLengthQty, \n\t\t\tjs.width, \n\t\t\tjs.[Weight], \n\t\t\tjs.Creater, \n\t\t\tCONVERT(varchar(5),GETDATE(),24) AS CreateHHmm  \n\t\tFROM (SELECT * FROM dye.JobSheet WHERE IsHurry=1) js\r\n\t\tLEFT JOIN dye.p_Customer c ON js.CustomerID = c.CustomerID\r\n\t\tLEFT JOIN dye.p_Gray p ON js.ProdID=p.GrayID\r\n\t\tLEFT JOIN dye.p_Process d ON d.ProcessID = js.CurrProcessID\r\n\t\tWHERE 1=1\r\n\t\tAND js.SheetDate >=@dtStart AND js.SheetDate < @dtEnd\r\n\t\t) PP\r\n\t\tWHERE (ISNULL(@conFilter,'')='' \r\n\t\tOR PP.JobSheetNo like '%'+@conFilter+'%'\r\n\t\tOR PP.CustSelfNo like '%'+@conFilter+'%'\r\n\t\tOR PP.CustomerName like '%'+@conFilter+'%'\r\n\t\tOR PP.ColorNum like '%'+@conFilter+'%'\r\n\t\tOR PP.ProdName like '%'+@conFilter+'%'\r\n\t\tOR PP.CurrStatus like '%'+@conFilter+'%' \r\n\t\t)\r\n\t\tORDER BY PP.SheetDate DESC",
+    "kind": "paged",
+    "title": "现场急单查询"
+  },
+  "sp_Order_ToCustomer": {
+    "kind": "query",
+    "sql": "SELECT (SELECT TOP 1 IIF(ISNULL(B.IsOK, '') = '' AND ISNULL(B.SheetSeries, '') <> '', '送版', IIF(ISNULL(B.IsOK, '') = 'OK', '批色OK', IIF(ISNULL(B.IsOK, '') = '不OK', '批色不OK', ''))) FROM dye.v_JobCombineOrder AS A LEFT JOIN dye.JobSheetReceive AS B ON A.JobSheetNo = B.JobSheetNo WHERE A.CheckNo = #t.CheckNo) AS QK, #t.SheetKind, #t.SheetSeries, #t.SheetNo, #t.CustomerID, #t.SheetDate, #t.CustSelfNo, #t.CheckNo, #t.ProdID, #t.CustFabricName, #t.ColorNum, #t.ColorID, #t.OrderQty, #t.Unit, #t.DetailCustName, #t.ContractNo, #t.ColorRemarks, #t.Remarks, #t.CustSelfNoDetail, #t.DlvDate, #t.CustColorNum, #t.TubeWeight, #t.Spec, #t.GWName, #t.DyeDate, #t.Postpone_Advance, #t.BatchColorCase, #t.Remarks01, #t.Remarks02, CONVERT(INTEGER, ROUND(#t.OrderQty / (SELECT TOP 1 MaxQty FROM dye.GWName AS C WHERE C.FabricKindID = B.FabricKindID AND C.GWName = #t.GWName AND C.MaxQty <> 0), 0)) AS GWNum, (SELECT SUM(E.SemiOrderWeightQty) FROM dye.Order_Jobsheet AS E WHERE E.CheckNo = #t.CheckNo) AS SumAssignedWeightQty, (SELECT SUM(D.NetKg) FROM dye.ProdOutDetail AS D WHERE D.CheckNo = #t.CheckNo) AS ProdOutQty, (SELECT TOP 1 ISNULL(E.CurrStatus, '') FROM dye.Order_Jobsheet AS E WHERE E.CheckNo = #t.CheckNo) AS CurrStatus FROM #t LEFT JOIN dye.p_Gray AS B ON #t.ProdID = B.GrayID ORDER BY SheetKind, CustSelfNo, CheckNo, SheetDate",
+    "temps": {
+      "t": "SELECT a.* FROM dye.vw_OrderQuery AS a WHERE a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate"
+    },
+    "title": "客户订单进度"
+  },
+  "sp_Order_ToCustomer_t": {
+    "kind": "query",
+    "sql": "SELECT t.*, m1.ReceSheetNo, m1.GrayOutRolls, m1.GrayOutWeightQty, m1.GrayOutLengthQty, m2.ProdInSheetDate1, m2.ProdInSheetDate2, m2.ProdInRolls, m2.ProdInGaryWeight, m2.ProdInWeightQty, m2.ProdInLengthQty, m3.ProdOutSheetDate1, m3.ProdOutSheetDate2, m3.ProdOutRolls, m3.ProdOutGrayQty, m3.ProdOutWeightQty, m3.ProdOutLengthQty, m5.RProdInSheetDate1, m5.RProdInSheetDate2, m5.ReturninRolls, m5.ReturninGrayQty, m5.ReturninWeightQty, m5.ReturninLengthQty, m4.RProdOutSheetDate1, m4.RProdOutSheetDate2, m4.ReturnOutRolls, m4.ReturnOutGrayQty, m4.ReturnOutWeightQty, m4.ReturnOutLengthQty, m2.ProdInRolls - m3.ProdOutRolls AS CurrRolls, m2.ProdInGaryWeight - m3.ProdOutGrayQty AS CurrGrayQty, m2.ProdInWeightQty - m3.ProdOutWeightQty AS CurrWeightQty, m2.ProdInLengthQty - m3.ProdOutLengthQty AS CurrLengthQty, CONVERT(VARCHAR, CONVERT(NUMERIC(18, 2), m3.ProdOutRolls * 100 * 1.0 / NULLIF(t.orderrolls, '0'))) + '%' AS 出货率, CONVERT(VARCHAR, CONVERT(NUMERIC(18, 2), m5.ReturninRolls * 100 * 1.0 / NULLIF(m3.ProdOutRolls, '0'))) + '%' AS 返修率, CONVERT(VARCHAR, CONVERT(NUMERIC(18, 2), m4.ReturnOutRolls * 100 * 1.0 / NULLIF(m5.ReturninRolls, '0'))) + '%' AS 返修出库率, CASE WHEN m3.ProdOutRolls = t.orderrolls AND ISNULL(m4.ReturnOutRolls, '0') = ISNULL(m5.ReturninRolls, '0') THEN '完成' ELSE '未完成' END AS 完成情况 FROM #t AS t LEFT JOIN (SELECT pb.OrderSheetNo AS OrderSheetNo, pb.CheckNo AS CheckNo, pb.ColorNum AS ColorNum, pb.CustomerID AS CustomerID, pb.ReceSheetNo AS ReceSheetNo, SUM(pb.Rolls) AS GrayOutRolls, SUM(LengthQty) AS GrayOutLengthQty, SUM(pb.WeightQty) AS GrayOutWeightQty FROM (SELECT j.OrderSheetNo AS OrderSheetNo, j.CheckNo AS CheckNo, j.ColorNum AS ColorNum, a.CustomerID AS CustomerID, j.SheetNo AS SheetNo, (SELECT STRING_AGG(REPLACE(REPLACE(REPLACE(ReceSheetNo, '&', '&amp;'), '<', '&lt;'), '>', '&gt;'), ',') FROM dye.GrayOutDetail LEFT JOIN dye.JobSheet AS js ON JobSheetNo = SheetNo LEFT JOIN dye.OrderColor AS oc ON oc.CheckNo = js.CheckNo WHERE js.CheckNo = j.CheckNo FOR XML path('')) AS ReceSheetNo, b.Rolls AS Rolls, b.LengthQty AS LengthQty, b.WeightQty AS WeightQty FROM dye.GrayOut AS a JOIN dye.GrayOutDetail AS b ON b.SheetSeries = a.SheetSeries JOIN dye.JobSheet AS j ON b.JobSheetNo = j.SheetNo WHERE a.SheetKind = 21) AS pb GROUP BY pb.CustomerID, pb.OrderSheetNo, pb.CheckNo, pb.ColorNum, pb.ReceSheetNo) AS m1 ON m1.OrderSheetNo = t.SheetNo AND m1.CustomerID = t.CustomerID AND m1.ColorNum = t.ColorNum AND m1.CheckNo = t.CheckNo LEFT JOIN (SELECT j.OrderSheetNo AS OrderSheetNo, j.CheckNo AS CheckNo, j.ColorNum AS ColorNum, a.CustomerID AS CustomerID, MIN(a.SheetDate) AS ProdInSheetDate1, MAX(a.SheetDate) AS ProdInSheetDate2, SUM(a.Rolls) AS ProdInRolls, SUM(a.GaryWeight) AS ProdInGaryWeight, SUM(a.WeightQty) AS ProdInWeightQty, SUM(a.LengthQty) AS ProdInLengthQty FROM dye.ProdIn AS a JOIN dye.JobSheet AS j ON j.SheetNo = a.JobSheetNo AND j.sheetno NOT LIKE '%R%' GROUP BY a.CustomerID, j.OrderSheetNo, j.CheckNo, j.ColorNum) AS m2 ON m2.OrderSheetNo = t.SheetNo AND m2.ColorNum = t.ColorNum AND m2.CustomerID = t.CustomerID AND m2.CheckNo = t.CheckNo LEFT JOIN (SELECT j.OrderSheetNo AS OrderSheetNo, j.CheckNo AS CheckNo, j.ColorNum AS ColorNum, a.CustomerID AS CustomerID, MIN(a.SheetDate) AS ProdOutSheetDate1, MAX(a.SheetDate) AS ProdOutSheetDate2, SUM(b.Rolls) AS ProdOutRolls, SUM(b.GrayQty) AS ProdOutGrayQty, SUM(b.WeightQty) AS ProdOutWeightQty, SUM(b.LengthQty) AS ProdOutLengthQty FROM dye.ProdOut AS a JOIN dye.ProdOutDetail AS b ON b.SheetSeries = a.SheetSeries JOIN dye.JobSheet AS j ON j.SheetNo = b.JobSheetNo AND j.sheetno NOT LIKE '%R%' GROUP BY a.CustomerID, j.OrderSheetNo, j.CheckNo, j.ColorNum) AS m3 ON m3.OrderSheetNo = t.SheetNo AND m3.ColorNum = t.ColorNum AND m3.CustomerID = t.CustomerID AND m3.CheckNo = t.CheckNo LEFT JOIN (SELECT j.OrderSheetNo AS OrderSheetNo, j.CheckNo AS CheckNo, j.ColorNum AS ColorNum, a.CustomerID AS CustomerID, MIN(a.SheetDate) AS RProdInSheetDate1, MAX(a.SheetDate) AS RProdInSheetDate2, SUM(a.Rolls) AS ReturninRolls, SUM(a.GaryWeight) AS ReturninGrayQty, SUM(a.WeightQty) AS ReturninWeightQty, SUM(a.LengthQty) AS ReturninLengthQty FROM dye.ProdIn AS a JOIN dye.JobSheet AS j ON j.SheetNo = a.JobSheetNo WHERE CHARINDEX('R', UPPER(j.SheetNo)) > 1 GROUP BY a.CustomerID, j.OrderSheetNo, j.CheckNo, j.ColorNum) AS m5 ON m5.OrderSheetNo = t.SheetNo AND m5.ColorNum = t.ColorNum AND m5.CustomerID = t.CustomerID AND m5.CheckNo = t.CheckNo LEFT JOIN (SELECT j.OrderSheetNo AS OrderSheetNo, j.CheckNo AS CheckNo, j.ColorNum AS ColorNum, a.CustomerID AS CustomerID, MIN(a.SheetDate) AS RProdOutSheetDate1, MAX(a.SheetDate) AS RProdOutSheetDate2, SUM(b.Rolls) AS ReturnOutRolls, SUM(b.GrayQty) AS ReturnOutGrayQty, SUM(b.WeightQty) AS ReturnOutWeightQty, SUM(b.LengthQty) AS ReturnOutLengthQty FROM dye.ProdOut AS a JOIN dye.ProdOutDetail AS b ON b.SheetSeries = a.SheetSeries JOIN dye.JobSheet AS j ON j.SheetNo = b.JobSheetNo WHERE CHARINDEX('R', UPPER(j.SheetNo)) > 1 GROUP BY a.CustomerID, j.OrderSheetNo, j.CheckNo, j.ColorNum) AS m4 ON m3.OrderSheetNo = t.SheetNo AND m4.ColorNum = t.ColorNum AND m4.CustomerID = t.CustomerID AND m4.CheckNo = t.CheckNo ORDER BY t.CustomerID, t.sheetdate, t.sheetno, t.checkno",
+    "temps": {
+      "t": "SELECT a.* FROM (SELECT B.SheetKind, B.SheetSeries, B.SheetNo, B.CustomerID, B.SheetDate, B.CustSelfNo, A.CheckNo, A.ProdID, A.CustFabricName, A.ColorNum, A.ColorID, A.OrderQty, A.Unit, A.DetailCustName, A.ContractNo, A.ColorRemarks, A.Remarks, A.CustSelfNoDetail, A.DlvDate, A.CustColorNum, A.TubeWeight /* 纸筒 */, A.Spec /* 捻度(H/S) */, A.GWName /* 缸位 */, A.DyeDate /* 染色期 */, A.Postpone_Advance /* 延期/提前 */, A.BatchColorCase /* 批色情况 */, A.Remarks01 /* 备注 */, A.Remarks02 /* 备注 */, a.RightStatus, a.SheetStatus, a.Approver, a.ApproveDate, a.Modifyer, a.ModifyDate, A.OrderRolls FROM dye.OrderMain AS B INNER JOIN dye.OrderColor AS A ON A.SheetSeries = B.SheetSeries LEFT OUTER JOIN dye.p_Gray AS c ON c.GrayID = b.ProdID /* WHERE (ISNULL(B.SheetStatus, 0) = 0) */) a WHERE a.SheetDate>=@StartDate AND a.SheetDate<@EndDate AND a.CustomerID NOT IN ('','')"
+    },
+    "title": "客户订单进度（匹数变体）"
+  },
+  "sp_Order_ToCustomer1": {
+    "kind": "query",
+    "sql": "SELECT #t11.QK AS QK, #t1.CompletionStatus, #t1.RepairStatus, #t1.TiLiaoStatus, #t.OrderQty - (SELECT SUM(D.NetKg) FROM dye.ProdOutDetail AS D WHERE D.CheckNo = #t.CheckNo) AS CHOrderQty, (SELECT SUM(cr.Qty) AS Qty FROM dye.CarryMaterialDetail AS cr LEFT JOIN dye.JobSheet AS js ON cr.JobSheetNo = js.SheetNo WHERE js.CheckNo = #t.CheckNo) - (SELECT SUM(ry.NetKg) FROM dye.RecordYield AS ry LEFT JOIN dye.JobSheet AS js ON js.CheckNo = ry.CheckNo AND js.SheetNo = ry.JobSheetNo WHERE ry.CheckNo = #t.CheckNo) AS CHNetKg, #t.SheetKind, #t.SheetSeries, #t.SheetNo, #t.CustomerID, #t.SheetDate, #t.CustSelfNo, #t.CheckNo, #t.ProdID, #t.CustFabricName, #t.ColorNum, #t.ColorID, #t.OrderQty, #t.Unit, #t.DetailCustName, #t.ContractNo, #t.ColorRemarks, #t.Remarks, #t.CustSelfNoDetail, #t.DlvDate, #t.CustColorNum, #t.TubeWeight, #t.Spec, #t.GWName, #t.DyeDate, #t.Postpone_Advance, #t.BatchColorCase, #t.Remarks01, #t.Remarks02, #t.RightStatus, #t.SheetStatus, #t.Approver, #t.ApproveDate, #t.Modifyer, #t.ModifyDate, CONVERT(INTEGER, ROUND(#t.OrderQty / (SELECT TOP 1 MaxQty FROM dye.GWName AS C WHERE C.FabricKindID = B.FabricKindID AND C.GWName = #t.GWName AND C.MaxQty <> 0), 0)) AS GWNum, (SELECT SUM(E.SemiOrderWeightQty) FROM dye.Order_Jobsheet AS E WHERE E.CheckNo = #t.CheckNo) AS SumAssignedWeightQty, (SELECT SUM(D.NetKg) FROM dye.ProdOutDetail AS D WHERE D.CheckNo = #t.CheckNo) AS ProdOutQty, (SELECT TOP 1 ISNULL(E.CurrStatus, '') FROM dye.Order_Jobsheet AS E WHERE E.CheckNo = #t.CheckNo) AS CurrStatus FROM #t LEFT JOIN dye.p_Gray AS B ON #t.ProdID = B.GrayID LEFT JOIN #t1 ON #t1.CheckNo = #t.CheckNo LEFT JOIN #t11 ON #t11.CheckNo = #t.CheckNo ORDER BY SheetKind, CustSelfNo, CheckNo, SheetDate",
+    "temps": {
+      "t": "SELECT a.* FROM dye.vw_OrderQuery AS a WHERE a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate",
+      "t1": "SELECT * FROM (SELECT TOP 100 PERCENT IIF(ISNULL(Remarks02, '') LIKE '%取消%', 'C', IIF(ISNULL(a.OrderQty, 0) - ISNULL(pd.WeightQty, 0) = a.OrderQty, 'A', IIF((ISNULL(a.OrderQty, 0) - ISNULL(pd.WeightQty, 0) < 0 OR ISNULL(a.RightStatus, 0) = 10), 'C', IIF(ISNULL(a.OrderQty, 0) - ISNULL(pd.WeightQty, 0) >= 0, 'B', 'A')))) AS CompletionStatus, IIF(LEN(js.SheetNo) > 11, 'E', 'D') AS RepairStatus, IIF(NOT jss.CheckNo IS NULL, 'G', 'F') AS TiLiaoStatus, ROW_NUMBER() OVER (PARTITION BY a.CheckNo ORDER BY js.SheetNo DESC) AS row, a.CheckNo AS CheckNo FROM dye.vw_OrderQuery AS a LEFT JOIN (SELECT CheckNo AS CheckNo, SUM(NetKg) AS WeightQty FROM dye.ProdOutDetail GROUP BY CheckNo) AS pd ON a.CheckNo = pd.CheckNo LEFT JOIN dye.JobSheet AS js ON js.CheckNo = a.CheckNo LEFT JOIN dye.vw_JobSheetCarry AS jss ON jss.CheckNo = a.CheckNo WHERE a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate ORDER BY js.SheetNo DESC) AS x WHERE x.row = 1",
+      "t11": "SELECT * FROM (SELECT ROW_NUMBER() OVER (PARTITION BY A.CheckNo ORDER BY ISNULL(B.SheetDate, CONVERT(DATETIME, '2024-03-01')) DESC) AS NUM, A.CheckNo AS CheckNo, ISNULL(B.SheetDate, CONVERT(DATETIME, '2024-03-01')) AS SheetDate, IIF(ISNULL(B.IsOK, '') = '' AND ISNULL(B.SheetSeries, '') <> '', '送版', IIF(ISNULL(B.IsOK, '') = 'OK', '批色OK', IIF(ISNULL(B.IsOK, '') = '不OK', '批色不OK', ''))) AS QK FROM dye.JobCombineOrder AS A LEFT JOIN dye.JobSheet AS C ON C.SheetSeries = A.SheetSeries LEFT JOIN dye.JobSheetReceive AS B ON C.SheetNo = B.JobSheetNo) AS D WHERE D.NUM = 1"
+    },
+    "title": "客户订单进度（变体一）"
+  },
+  "sp_Order_ToCustomer2": {
+    "kind": "query",
+    "sql": "SELECT #t11.QK, #t1.CompletionStatus, #t1.RepairStatus, #t1.TiLiaoStatus, #t.OrderQty - ISNULL(pd.SumOut, 0) AS CHOrderQty, ISNULL(cm.CarryQty, 0) - ISNULL(ry.RecordQty, 0) AS CHNetKg, #t.SheetKind, #t.SheetSeries, #t.SheetNo, #t.CustomerID, #t.SheetDate, #t.CustSelfNo, #t.CheckNo, #t.ProdID, #t.CustFabricName, #t.ColorNum, #t.ColorID, #t.OrderQty, #t.Unit, #t.DetailCustName, #t.ContractNo, #t.ColorRemarks, #t.Remarks, #t.CustSelfNoDetail, #t.DlvDate, #t.CustColorNum, #t.TubeWeight, #t.Spec, #t.GWName, #t.DyeDate, #t.Postpone_Advance, #t.BatchColorCase, #t.Remarks01, #t.Remarks02, #t.RightStatus, #t.SheetStatus, #t.Approver, #t.ApproveDate, #t.Modifyer, #t.ModifyDate, CONVERT(INTEGER, ROUND(#t.OrderQty / (SELECT TOP 1 MaxQty FROM dye.GWName AS C WHERE C.FabricKindID = B.FabricKindID AND C.GWName = #t.GWName AND C.MaxQty <> 0), 0)) AS GWNum, (SELECT SUM(E.SemiOrderWeightQty) FROM dye.Order_Jobsheet AS E WHERE E.CheckNo = #t.CheckNo) AS SumAssignedWeightQty, pd.SumOut AS ProdOutQty, (SELECT TOP 1 P.SheetDate FROM dye.ProdOutDetail AS D LEFT JOIN dye.ProdOut AS P ON P.SheetSeries = D.SheetSeries WHERE D.CheckNo = #t.CheckNo ORDER BY P.SheetDate DESC) AS ProdOutDate, (SELECT TOP 1 ISNULL(E.CurrStatus, '') FROM dye.Order_Jobsheet AS E WHERE E.CheckNo = #t.CheckNo) AS CurrStatus FROM #t LEFT JOIN dye.p_Gray AS B ON #t.ProdID = B.GrayID LEFT JOIN #t1 ON #t1.CheckNo = #t.CheckNo LEFT JOIN #t11 ON #t11.CheckNo = #t.CheckNo LEFT JOIN (SELECT CheckNo AS CheckNo, SUM(NetKg) AS SumOut FROM dye.ProdOutDetail GROUP BY CheckNo) AS pd ON #t.CheckNo = pd.CheckNo LEFT JOIN (SELECT js.CheckNo AS CheckNo, SUM(cr.Qty) AS CarryQty FROM dye.CarryMaterialDetail AS cr LEFT JOIN dye.JobSheet AS js ON cr.JobSheetNo = js.SheetNo GROUP BY js.CheckNo) AS cm ON cm.CheckNo = #t.CheckNo LEFT JOIN (SELECT ry.CheckNo AS CheckNo, SUM(ry.NetKg) AS RecordQty FROM dye.RecordYield AS ry GROUP BY ry.CheckNo) AS ry ON ry.CheckNo = #t.CheckNo ORDER BY SheetKind, CustSelfNo, CheckNo, SheetDate",
+    "temps": {
+      "t": "SELECT * FROM dye.vw_OrderQuery AS a WHERE a.SheetDate BETWEEN @StartDate AND @EndDate",
+      "t1": "SELECT * FROM (SELECT TOP 100 PERCENT CASE WHEN ISNULL(a.OrderQty, 0) - ISNULL(pd.WeightQty, 0) < 0 OR ISNULL(a.SheetStatus, 0) = 10 THEN 'C' WHEN ISNULL(a.Remarks02, '') LIKE '%取消%' THEN 'C' WHEN ISNULL(a.OrderQty, 0) - ISNULL(pd.WeightQty, 0) = a.OrderQty THEN 'A' WHEN ISNULL(a.OrderQty, 0) - ISNULL(pd.WeightQty, 0) >= 0 THEN 'B' ELSE 'A' END AS CompletionStatus, IIF(LEN(js.SheetNo) > 11, 'E', 'D') AS RepairStatus, IIF(NOT jss.CheckNo IS NULL, 'G', 'F') AS TiLiaoStatus, ROW_NUMBER() OVER (PARTITION BY a.CheckNo ORDER BY js.SheetNo DESC) AS rn, a.CheckNo AS CheckNo FROM #t AS a LEFT JOIN (SELECT CheckNo AS CheckNo, SUM(NetKg) AS WeightQty FROM dye.ProdOutDetail GROUP BY CheckNo) AS pd ON a.CheckNo = pd.CheckNo LEFT JOIN dye.JobSheet AS js ON js.CheckNo = a.CheckNo LEFT JOIN dye.vw_JobSheetCarry AS jss ON jss.CheckNo = a.CheckNo) AS x WHERE x.rn = 1",
+      "t11": "SELECT * FROM (SELECT ROW_NUMBER() OVER (PARTITION BY A.CheckNo ORDER BY ISNULL(B.SheetDate, '2024-03-01') DESC) AS rn, A.CheckNo AS CheckNo, ISNULL(B.SheetDate, CONVERT(DATETIME, '2024-03-01')) AS SheetDate, CASE WHEN ISNULL(B.IsOK, '') = '' AND ISNULL(B.SheetSeries, '') <> '' THEN '送版' WHEN B.IsOK = 'OK' THEN '批色OK' WHEN B.IsOK = '不OK' THEN '批色不OK' ELSE '' END AS QK FROM dye.JobCombineOrder AS A LEFT JOIN dye.JobSheet AS C ON C.SheetSeries = A.SheetSeries LEFT JOIN dye.JobSheetReceive AS B ON C.SheetNo = B.JobSheetNo) AS D WHERE D.rn = 1"
+    },
+    "title": "客户订单进度（变体二）"
+  },
+  "Sp_QueryNotEndOrder": {
+    "kind": "query",
+    "sql": "SELECT NEWID() AS ID, OrI.SheetDate, OrI.GWName, ISNULL(Nto.NotOutSumNum, 0) AS NotOutSumNum, ISNULL(Nto.BCNotOutNum, 0) AS BCNotOutNum, ISNULL(Nto.WCNotOutNum, 0) AS WCNotOutNum, ISNULL(Pro.AvgOut, 0) AS AvgOut, ISNULL(CAST(CONVERT(NUMERIC(10, 2), Nto.NotOutSumNum) / Pro.AvgOut AS NUMERIC(10, 1)), 0) AS ExpEndDay, ISNULL(OIn.BCOrderNum, 0) AS BCOrderNum, ISNULL(OIn.WCOrderNum, 0) AS WCOrderNum, ISNULL(OrS.OutCount, 0) AS OutCount FROM #OrderInfo AS OrI LEFT JOIN #NotOrderOut AS Nto ON Nto.SheetDate = OrI.SheetDate AND Nto.GWName = OrI.GWName LEFT JOIN #PrMonthOut AS Pro ON OrI.SheetDate = CONVERT(varchar(10),DATEADD(MONTH,1,CAST(Pro.SheetDate AS datetime)),120) AND OrI.GWName = Pro.GWName LEFT JOIN #InOrderNum AS OIn ON OIn.SheetDate = OrI.SheetDate AND OIn.GWName = OrI.GWName LEFT JOIN #ThisOrderOutSum AS OrS ON OrS.SheetDate = OrI.SheetDate AND OrS.GWName = OrI.GWName ORDER BY OrI.SheetDate",
+    "temps": {
+      "order": "SELECT b.GWName, a.SheetDate, a.SheetKind, b.CheckNo FROM dye.OrderMain AS a LEFT JOIN dye.OrderColor AS b ON a.SheetSeries = b.SheetSeries WHERE ISNULL(b.GWName, '') <> '' AND (a.SheetDate >= @PrStartDate AND a.SheetDate < @ThisEndDate)",
+      "notorderout": "SELECT SheetDate,GWName,ISNULL(MAX(CASE WHEN SheetKind=1 THEN Countval END),0)+ISNULL(MAX(CASE WHEN SheetKind=2 THEN Countval END),0) AS NotOutSumNum, ISNULL(MAX(CASE WHEN SheetKind=1 THEN Countval END),0) AS BCNotOutNum,ISNULL(MAX(CASE WHEN SheetKind=2 THEN Countval END),0) AS WCNotOutNum FROM (SELECT CONVERT(VARCHAR(10), b.SheetDate, 120) AS SheetDate, GWName AS GWName, b.SheetKind AS SheetKind, COUNT(*) AS Countval FROM dye.#Order AS b INNER JOIN dye.JobCombineOrder AS JO ON b.CheckNo = JO.CheckNo LEFT JOIN dye.JobSheet AS Js ON Js.SheetSeries = JO.SheetSeries WHERE (b.SheetDate >= @ThisStratDate AND b.SheetDate < @ThisEndDate) AND EXISTS(SELECT 1 FROM dye.ProdIn AS Pin LEFT JOIN dye.ProdInRecord AS Pr ON Pin.SheetSeries = Pr.SheetSeries WHERE NOT EXISTS(SELECT 1 FROM dye.ProdOutDetail AS PO WHERE PO.BarCode = Pr.BarCode) AND js.SheetNo = Pin.JobSheetNo) GROUP BY CONVERT(VARCHAR(10), b.SheetDate, 120), GWName, b.SheetKind) counts GROUP BY SheetDate,GWName ORDER BY SheetDate",
+      "prmonthout": "SELECT CONVERT(VARCHAR(10), b.SheetDate, 120) AS SheetDate, GWName, COUNT(*) AS Countval, CAST(CONVERT(NUMERIC(10, 2), COUNT(*)) / DAY(@PrStartDate) AS NUMERIC(10, 2)) AS AvgOut FROM dye.#Order AS b INNER JOIN dye.JobCombineOrder AS JO ON b.CheckNo = JO.CheckNo LEFT JOIN dye.JobSheet AS Js ON Js.SheetSeries = JO.SheetSeries WHERE (b.SheetDate >= @PrStartDate AND b.SheetDate < @PrEndDateTime) AND EXISTS(SELECT 1 FROM dye.ProdIn AS Pin LEFT JOIN dye.ProdInRecord AS Pr ON Pin.SheetSeries = Pr.SheetSeries WHERE EXISTS(SELECT 1 FROM dye.ProdOutDetail AS PO WHERE PO.BarCode = Pr.BarCode) AND js.SheetNo = Pin.JobSheetNo) GROUP BY CONVERT(VARCHAR(10), b.SheetDate, 120), GWName",
+      "inordernum": "SELECT SheetDate,GWName,ISNULL(MAX(CASE WHEN SheetKind=1 THEN Countval END),0) AS BCOrderNum,ISNULL(MAX(CASE WHEN SheetKind=2 THEN Countval END),0) AS WCOrderNum FROM (SELECT CONVERT(VARCHAR(10), SheetDate, 120) AS SheetDate, GWName AS GWName, SheetKind AS SheetKind, COUNT(*) AS Countval FROM dye.#Order WHERE (SheetDate >= @ThisStratDate AND SheetDate < @ThisEndDate) GROUP BY CONVERT(VARCHAR(10), SheetDate, 120), GWName, SheetKind) counts GROUP BY SheetDate,GWName ORDER BY SheetDate",
+      "thisorderoutsum": "SELECT CONVERT(VARCHAR(10), b.SheetDate, 120) AS SheetDate, GWName, COUNT(*) AS OutCount FROM dye.#Order AS b INNER JOIN dye.JobCombineOrder AS JO ON b.CheckNo = JO.CheckNo LEFT JOIN dye.JobSheet AS Js ON Js.SheetSeries = JO.SheetSeries WHERE (b.SheetDate >= @ThisStratDate AND b.SheetDate < @ThisEndDate) AND EXISTS(SELECT 1 FROM dye.ProdIn AS Pin LEFT JOIN dye.ProdInRecord AS Pr ON Pin.SheetSeries = Pr.SheetSeries WHERE EXISTS(SELECT 1 FROM dye.ProdOutDetail AS PO WHERE PO.BarCode = Pr.BarCode) AND js.SheetNo = Pin.JobSheetNo) GROUP BY CONVERT(VARCHAR(10), b.SheetDate, 120), GWName",
+      "orderinfo": "SELECT CONVERT(VARCHAR(10), SheetDate, 120) AS SheetDate, GWName FROM #Order WHERE (SheetDate >= @ThisStratDate AND SheetDate < @ThisEndDate) GROUP BY CONVERT(VARCHAR(10), SheetDate, 120), GWName"
+    },
+    "title": "未结订单与月度产量"
+  },
+  "sp_PrintOrderToPasteDosageDetail": {
+    "kind": "printing",
+    "title": "印花订单色版用浆"
+  },
+  "sp_GetPrintWeightByOrderNo": {
+    "kind": "printing",
+    "title": "印花订单称料"
+  },
+  "Sp_QueryDyeingOrder": {
+    "kind": "dyeing_daily",
+    "temps": {
+      "t1": "SELECT x.SheetDate, SUM(x.OrderQty) AS OrderQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, OrderQty AS OrderQty FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetKind = '1' AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t2": "SELECT x.SheetDate, SUM(x.OrderQty) AS OutOrderQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, OrderQty AS OrderQty FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetKind = '2' AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t3": "SELECT x.SheetDate, SUM(x.WeightQty) AS TwistingQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, b.WeightQty AS WeightQty FROM dye.GrayIn AS a INNER JOIN dye.GrayInDetail AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetKind = '10' AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t4": "SELECT x.SheetDate, SUM(x.WeightQty) AS BarrelQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, b.WeightQty AS WeightQty FROM dye.SemiIn AS a INNER JOIN dye.SemiInDetail AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetKind = '12' AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t5": "SELECT x.SheetDate, SUM(x.WeightQty) AS YarnWeightQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, a.WeightQty AS WeightQty FROM dye.JobSheetRegister AS a WHERE 1 = 1 AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t6": "SELECT x.SheetDate, SUM(x.WeightQty) AS RepairQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, a.WeightQty AS WeightQty FROM dye.JobSheetRegister AS a INNER JOIN (SELECT JobSheetNo AS JobSheetNo, Defects AS Defects, PiSheWenTi AS PiSheWenTi, STRING_AGG(QCCD, ';') AS RedoReasonID FROM dye.WDefect WHERE 1 = 1 AND Kind IN ('内部评审', '客退评审', 'J') GROUP BY Defects, PiSheWenTi, JobSheetNo) AS B ON B.JobSheetNo = a.JobSheetNo LEFT JOIN dye.JobSheet AS J ON J.SheetNo = a.JobSheetNo LEFT JOIN dye.p_Gray AS PG ON PG.GrayID = a.ProdID LEFT JOIN (SELECT KeyValue AS RSKind, DisplayValue AS KindName FROM dye.s_DBComboValue WHERE ComboID = 'Z017') AS DB ON DB.RSKind = PG.RSKind WHERE 1 = 1 AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t7": "SELECT x.SheetDate, SUM(x.NetKg) AS NetKg FROM (SELECT CONVERT(VARCHAR, a.PackTime, 23) AS SheetDate, a.NetKg AS NetKg FROM dye.RecordYield AS a LEFT JOIN dye.JobSheet AS J ON J.SheetNo = a.JobSheetNo WHERE 1 = 1 AND J.JobSheetType = '0' AND (a.PackTime >= @StartDate) AND (a.PackTime < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t8": "SELECT x.SheetDate, SUM(x.WeightQty) AS OrderWeightQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, b.NetKg AS WeightQty FROM dye.ProdOut AS a INNER JOIN dye.ProdOutDetail AS b ON b.SheetSeries = a.SheetSeries LEFT JOIN (SELECT a.SheetKind AS SheetKind, b.CheckNo AS CheckNo FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON b.SheetSeries = a.SheetSeries) AS c ON c.CheckNo = b.CheckNo WHERE c.SheetKind = '1' AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t9": "SELECT x.SheetDate, SUM(x.WeightQty) AS OutOrderWeightQty FROM (SELECT CONVERT(VARCHAR, a.SheetDate, 23) AS SheetDate, b.NetKg AS WeightQty FROM dye.ProdOut AS a INNER JOIN dye.ProdOutDetail AS b ON b.SheetSeries = a.SheetSeries LEFT JOIN (SELECT a.SheetKind AS SheetKind, b.CheckNo AS CheckNo FROM dye.OrderMain AS a INNER JOIN dye.OrderColor AS b ON b.SheetSeries = a.SheetSeries) AS c ON c.CheckNo = b.CheckNo WHERE c.SheetKind = '2' AND (a.SheetDate >= @StartDate) AND (a.SheetDate < @EndDate)) AS x GROUP BY x.SheetDate ORDER BY x.SheetDate",
+      "t10": "SELECT x.SheetDate, SUM(x.WeightQty) AS SchedulingQty FROM (SELECT CONVERT(VARCHAR, b.SheetDate, 23) AS SheetDate, ISNULL(A.Qty, 0) AS WeightQty FROM dye.GrayMaterialDetail AS A LEFT JOIN dye.GrayMaterial AS B ON B.SheetSeries = A.Sheetseries WHERE 1 = 1 AND (B.SheetDate >= @StartDate) AND (B.SheetDate <= @EndDate)) AS x GROUP BY x.SheetDate",
+      "t12": "SELECT x.SheetDate, SUM(NetKg) AS NetKg FROM (SELECT CONVERT(VARCHAR, b.SheetDate, 23) AS SheetDate, ISNULL(ry.NetKg, 0) AS NetKg FROM dye.GrayMaterialDetail AS A LEFT JOIN dye.GrayMaterial AS B ON B.SheetSeries = A.Sheetseries LEFT JOIN dye.RecordYield AS ry ON ry.JobSheetNo = A.JobSheetNo WHERE 1 = 1 AND (B.SheetDate >= @StartDate) AND (B.SheetDate <= @EndDate)) AS x GROUP BY x.SheetDate"
+    },
+    "title": "染色订单及产量日报"
+  },
+  "RKLimit": {
+    "kind": "sales_limit",
+    "title": "销售限制历史余额"
+  }
+}

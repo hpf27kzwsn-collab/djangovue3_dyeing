@@ -15,19 +15,22 @@ import MessageRecipients from './MessageRecipients.vue'
 import RoleUsers from './RoleUsers.vue'
 import {useMobile} from '../mobile'
 import {resourceQuery} from '../resource-query'
+import {businessFieldTitle} from '../erp-workspace'
 import {fileSize} from '../tag-color'
 import {componentNames} from '../page-catalog'
+import {numberingUpdated} from '../numbering'
 import {merge,isEqual} from 'lodash-es'
 const Resource=defineAsyncComponent(()=>import('../pages/Resource.vue'))
 const ChartPanel=defineAsyncComponent(()=>import('./ChartPanel.vue'))
 const DepartmentCharts=defineAsyncComponent(()=>import('./DepartmentCharts.vue'))
-const props=defineProps<{meta:any;context?:Record<string,any>;contextLabel?:string;chartDemo?:boolean;readonly?:boolean;disableDelete?:boolean;rowActions?:Array<{key:string;text:string;permission:string;show?:(row:any)=>boolean;click:(row:any)=>void}>}>(), account=useAccount()
+const props=defineProps<{meta:any;context?:Record<string,any>;lookupContext?:Record<string,any>;contextLabel?:string;chartDemo?:boolean;readonly?:boolean;disableDelete?:boolean;rowActions?:Array<{key:string;text:string;permission:string;show?:(row:any)=>boolean;click:(row:any)=>void}>}>(), account=useAccount()
 const route=useRoute(),router=useRouter()
 const ownPath=route.path,active=ref(true)
 onActivated(async()=>{active.value=true;if(!props.context&&isOwnRoute()&&JSON.stringify(context.value)!==JSON.stringify(route.query)){context.value={...route.query};await updateContext()}})
 onDeactivated(()=>active.value=false)
 const mobile=useMobile(),treeOpen=ref(false),includeChildren=ref(false),showDepartmentSummary=ref(true),departmentInfo=ref<any>()
 const entity=props.meta.entity, base=`/api/system/${entity}/`
+const numberingPolicies=ref(props.meta.numbering??[])
 const context=ref<Record<string,any>>({...props.context??route.query}),treeVersion=ref(0),workspaceRow=ref<any>(),workspaceTab=ref('main')
 const editable=!props.readonly&&!['operation_log','login_log','download_center','task_result'].includes(entity)
 const selection=ref<any[]>([]), role=ref<any>(), permissionOpen=ref(false), importOpen=ref(false)
@@ -40,6 +43,10 @@ const pageMenu=computed(()=>account.menus.find(menu=>menu.id===pageMenuId))
 const permissionPrefix=computed(()=>!props.context&&pageMenu.value?.component==='system/Resource'?pageMenu.value.component_name:entity)
 const can=(action:string)=>account.can(`${permissionPrefix.value}:${action}`)
 const isOwnRoute=()=>route.path===(pageMenu.value?.web_path||ownPath)
+function numberingPolicy(form:any,field:string){
+  const equal=(a:any,b:any)=>typeof a==='string'&&typeof b==='string'?a.trimEnd().toUpperCase()===b.trimEnd().toUpperCase():String(a)===String(b)
+  return numberingPolicies.value.find((rule:any)=>rule.field===field&&(!rule.entry||rule.entry===(form._entry??form.entry_name))&&Object.entries(rule.scope).every(([key,value])=>(Array.isArray(value)?value:[value]).some(v=>equal(form[key]??context.value[key],v))))
+}
 function payload(form:any,operation='is_create',original?:any) {
   const data:any={}
   for(const field of props.meta.fields) {
@@ -51,21 +58,37 @@ function payload(form:any,operation='is_create',original?:any) {
   if(operation==='is_create'&&form._entry){
     const entry=props.meta.workflow.entries.find((value:any)=>value.value===form._entry)
     data._entry=form._entry
+    if(form._entry_copy_from!=null)data._entry_copy_from=form._entry_copy_from
     if(form._use_entry_defaults!==false)for(const key of entry.generated_fields)if(data[key]===null||data[key]==='')delete data[key]
   }
+  // 从表头进入的明细，其关联原码由服务层按明确父记录赋值。
+  if(operation==='is_create')for(const field of props.meta.fields){
+    const rule=numberingPolicy(form,field.key)
+    if(rule?.auto_enabled&&(!rule.allow_manual_input||form['_numbering_manual_'+field.key]!==true)){
+      delete data[field.key]
+      if(field.key==='old_customer_id'&&form._entry==='p_Supplier')delete data.old_num
+    }
+  }
+  for(const binding of props.meta.workflow?.parent_bindings??[])if(context.value[binding.relation]!=null)
+    for(const field of binding.fields)delete data[field.field]
   if(Object.values(data).some(x=>x instanceof File)) {const upload=new FormData();for(const [key,value] of Object.entries(data)) if(value!==null) upload.append(key,value as any);return upload}
   return data
 }
 function createCrudOptions() {
+  const parentFields=Object.fromEntries((props.meta.workflow?.parent_bindings??[])
+    .filter((binding:any)=>context.value[binding.relation]!=null)
+    .flatMap((binding:any)=>binding.fields.map((field:any)=>[field.field,props.lookupContext?.[field.parent_original_field]])))
   const columns:any={_selected:{column:{type:'selection',width:48,reserveSelection:true},form:{show:false},search:{show:false}},_index:{title:'序号',column:{width:70,formatter:({index}:any)=>(crudBinding.value.pagination!.currentPage-1)*crudBinding.value.pagination!.pageSize+index+1},form:{show:false},search:{show:false}}}
   if(props.meta.workflow?.entries?.length){
     const entries=props.meta.workflow.entries
     columns._entry={title:'业务类型',type:'dict-select',dict:dict({data:entries,value:'value',label:'label'}),
-      column:{show:false},search:{show:false},form:{value:entries.length===1?entries[0].value:undefined},
+      column:{show:false},search:{show:false},form:{value:entries.some((e:any)=>e.value===context.value._entry)?context.value._entry:entries.length===1?entries[0].value:undefined},
       addForm:{show:true},editForm:{show:false},viewForm:{show:false}}
-    columns._use_entry_defaults={title:'使用自动编号和默认值',column:{show:false},search:{show:false},
+    columns._use_entry_defaults={title:'使用表单默认值',column:{show:false},search:{show:false},
       form:{value:true,component:{name:'el-switch',vModel:'modelValue'}},
       addForm:{show:compute(({form}:any)=>Boolean(form._entry))},editForm:{show:false},viewForm:{show:false}}
+    columns._use_entry_layout={title:'按表单规则编辑',column:{show:false},search:{show:false},form:{value:true,component:{name:'el-switch',vModel:'modelValue'}},addForm:{show:true},editForm:{show:true},viewForm:{show:false}}
+    columns._entry_copy_from={title:'续行来源记录',column:{show:false},search:{show:false},form:{show:false}}
   }
   for(const field of props.meta.fields) {
     const isOptions=['select','multi'].includes(field.kind)
@@ -80,6 +103,7 @@ function createCrudOptions() {
         rules:field.required?[{required:true,message:`请填写${field.title}`}]:[]},
       addForm:{show:!field.readonly && field.is_create},editForm:{show:!field.readonly && field.is_update && !(entity==='user' && field.key==='password')},viewForm:{show:field.is_query}
     }
+    if(field.key in parentFields)columns[field.key].form.value=parentFields[field.key]
     if(field.display_key)columns[field.key].column={...columns[field.key].column,component:undefined,formatter:({row}:any)=>row[field.display_key]}
     if(field.dictionary)columns[field.key].column.component={name:'DictionaryBadge',modelValue:compute(({row}:any)=>row[field.key]),options:field.options}
     if(entity==='dictionary'&&field.key==='color')columns[field.key].column.component={name:'ColoredTag',color:compute(({row}:any)=>row.color),label:compute(({row}:any)=>row.label)}
@@ -91,6 +115,35 @@ function createCrudOptions() {
     if(entity==='user'&&field.key==='avatar')columns[field.key].column.component={name:'el-avatar',src:compute(({row}:any)=>row.avatar)}
     if(field.column)merge(columns[field.key].column,field.column)
     if(field.form)merge(columns[field.key].form,field.form)
+    if(props.meta.workflow?.entries?.length){
+      const original=(form:any)=>props.meta.workflow.entries.find((e:any)=>e.value===(form._entry??form.entry_name))?.field_rules?.[field.key]
+      const inputField=columns[field.key].form.component.field
+      if(columns[field.key].form.component.name==='FieldInput')columns[field.key].form.component.field=compute(({form}:any)=>{
+        const rule=original(form),entry=form._entry??form.entry_name
+        const fieldRules=props.meta.workflow.entries.find((e:any)=>e.value===entry)?.field_rules??{}
+        const originalContext={...props.lookupContext,...Object.fromEntries(Object.entries(fieldRules).filter(([key])=>form[key]!==undefined).map(([key,r]:[string,any])=>[r.old_name,form[key]]))}
+        return {...inputField,...(rule&&['Lookup','Lookup_NoCheck','DBCombo','DBCombo_Edit'].includes(rule.editor_kind)&&rule.editor_id?{originalLookup:{entity,entry,field:rule.old_name,context:originalContext}}:{})}
+      })
+      if(columns[field.key].form.component.disabled===undefined)columns[field.key].form.component.disabled=compute(({form}:any)=>form._use_entry_layout!==false&&original(form)?.readonly===true)
+      columns[field.key].form.helper=compute(({form}:any)=>{const r=original(form);return r?[businessFieldTitle(r.title)!==field.title?businessFieldTitle(r.title):'',route.query.workspace==='maintenance'&&r.expression?'公式：'+r.expression:'',r.display_format?'格式：'+r.display_format:''].filter(Boolean).join('；'):''})
+    }
+    if(field.key in parentFields){columns[field.key].form.component.disabled=true;columns[field.key].form.helper='由当前单据自动填写';columns[field.key].form.rules=[]}
+    if(numberingPolicies.value.some((rule:any)=>rule.field===field.key)){
+      const manual='_numbering_manual_'+field.key,previousDisabled=columns[field.key].form.component.disabled
+      columns[manual]={title:'手工录入'+field.title,column:{show:false},search:{show:false},form:{value:false,component:{name:'el-switch',vModel:'modelValue'}},
+        addForm:{show:compute(({form}:any)=>{const rule=numberingPolicy(form,field.key);return !!rule?.auto_enabled&&rule.allow_manual_input})},editForm:{show:false},viewForm:{show:false}}
+      columns[field.key].form.component.disabled=compute(({form}:any)=>{
+        const rule=numberingPolicy(form,field.key),creating=form[props.meta.pk]==null
+        if(rule)return creating?rule.auto_enabled&&(!rule.allow_manual_input||form[manual]!==true):!rule.allow_code_change
+        return typeof previousDisabled==='boolean'?previousDisabled:false
+      })
+      columns[field.key].form.rules=compute(({form}:any)=>numberingPolicy(form,field.key)?.auto_enabled&&form[manual]!==true?[]:field.required?[{required:true,message:`请填写${field.title}`}]:[])
+      columns[field.key].form.helper=compute(({form}:any)=>{const rule=numberingPolicy(form,field.key);return rule?`${rule.name}：${form[props.meta.pk]!=null?'已有编号保持原值':rule.auto_enabled?'保存时自动生成 '+rule.pattern:'请手工填写编号'}；${rule.allow_code_change?'仅未引用记录允许更改':'保存后不允许更改'}`:''})
+    }
+    if(field.key==='old_num'&&entity==='erp_base_sourcedyepcustomer')columns[field.key].form.component.disabled=compute(({form}:any)=>{
+      const rule=numberingPolicy(form,'old_customer_id')
+      return form._entry==='p_Supplier'&&form[props.meta.pk]==null&&!!rule?.auto_enabled&&(!rule.allow_manual_input||form._numbering_manual_old_customer_id!==true)
+    })
     if(columns[field.key].search.show&&field.kind==='text'&&!field.source){columns[field.key].search.show=false;columns[field.key+'__icontains']={title:field.title,column:{show:false},form:{show:false},search:{show:true,component:{name:'FieldInput',vModel:'modelValue',field}}}}
     if(['dept','menu'].includes(entity)&&field.key==='sort')columns[field.key].form.value=undefined
     if(field.source){columns[field.key].column.sortable=false;columns[field.key].search.show=false}
@@ -117,6 +170,14 @@ function createCrudOptions() {
   columns.search={title:'关键词',type:'text',column:{show:false},form:{show:false},search:{show:true}}
   const buttons:any={view:{show:can('detail')},edit:{show:editable&&can('patch')},remove:{show:!props.readonly&&!['operation_log','login_log'].includes(entity)&&can('delete')}}
   buttons.copy={text:'复制',show:editable&&can('copy'),click:({row}:any)=>crudExpose.openCopy({row})}
+  if(props.meta.workflow?.entries?.some((entry:any)=>entry.copy_fields?.length))buttons.entryContinue={
+    text:'按旧配置续行',show:editable&&can('add'),click:({row}:any)=>{
+      const entry=props.meta.workflow.entries.find((e:any)=>e.value===(row.entry_name??context.value._entry))
+      if(!entry?.copy_fields?.length){ElMessage.info('请先选择有续行字段的业务类型');return}
+      const values:any={_entry:entry.value,_entry_copy_from:row[props.meta.pk]}
+      for(const key of entry.copy_fields)values[key]=row[key]
+      return crudExpose.openAdd({row:values})
+    }}
   if(entity==='role') buttons.permissions={text:'权限配置',show:can('permissions-get'),click:({row}:any)=>{role.value=row;permissionOpen.value=true}}
   if(entity==='role') buttons.users={text:'授权用户',show:can('users-get'),click:({row}:any)=>{grantRole.value=row;userGrantOpen.value=true}}
   if(entity==='dept') buttons.users={text:'部门用户',show:account.can('user:list'),click:({row}:any)=>{workspaceRow.value=row;workspaceTab.value='users'}}
@@ -140,20 +201,27 @@ function createCrudOptions() {
   if(entity==='file'){columns._preview={title:'预览',column:{width:100,component:{name:'FileThumbnail',file:compute(({row}:any)=>row),onPreview:(row:any)=>preview.value=row}},form:{show:false},search:{show:false}};columns.size.column.formatter=({value}:any)=>fileSize(value)}
   for(const action of props.rowActions??[])buttons[action.key]={text:action.text,show:compute(({row}:any)=>account.can(action.permission)&&(!action.show||action.show(row))),click:({row}:any)=>action.click(row)}
   return {crudOptions:merge({
-    request:{pageRequest:(query:any)=>api(base,{params:resourceQuery({...query,...context.value,...(entity==='user'?{include_children:includeChildren.value}:{})})}),addRequest:({form}:any)=>api(base,{method:'POST',data:payload(form)}),
-      editRequest:({form,row}:any)=>api(`${base}${row[props.meta.pk]}/`,{method:'PATCH',data:payload(form,'is_update',row)}),
-      delRequest:async({row}:any)=>{const result=await api(`${base}${row[props.meta.pk]}/`,{method:'DELETE'});deselect(row);await loadTree();return result}},
+    request:{pageRequest:(query:any)=>api(base,{params:resourceQuery({...query,...context.value,...(entity==='user'?{include_children:includeChildren.value}:{})})}),addRequest:({form}:any)=>api(base,{method:'POST',params:{_foundation:context.value._foundation},data:payload(form)}),
+      editRequest:({form,row}:any)=>api(`${base}${row[props.meta.pk]}/`,{method:'PATCH',params:{_foundation:context.value._foundation},data:payload(form,'is_update',row)}),
+      delRequest:async({row}:any)=>{const result=await api(`${base}${row[props.meta.pk]}/`,{method:'DELETE',params:{_foundation:context.value._foundation}});deselect(row);await loadTree();return result}},
     table:{rowKey:props.meta.pk,onSelectionChange:(rows:any[])=>selection.value=rows},toolbar:{buttons:{export:{show:false}}},
     actionbar:{buttons:{add:{show:editable&&can('add')}}},rowHandle:{width:entity==='role'||entity==='user'?340:240,buttons},
     form:{labelWidth:mobile.value?'auto':'140px',labelPosition:mobile.value?'top':'right',scrollToError:true,afterSubmit:async()=>{ElMessage.success('保存成功');await loadTree();if(entity==='menu')await account.load()}},columns
   },props.meta.crud_options)}
 }
 const {crudBinding,crudRef,crudExpose,appendCrudBinding,resetCrudOptions}=useFs({createCrudOptions})
+watch(numberingUpdated,async value=>{
+  if(value.entity!==entity)return
+  numberingPolicies.value=(await api('/api/meta/'+entity+'/')).data.numbering??[]
+  resetCrudOptions(createCrudOptions().crudOptions)
+  await updateContext()
+})
 watch(mobile,value=>{
   const form={labelWidth:value?'auto':'140px',labelPosition:value?'top':'right'}
   appendCrudBinding({form,addForm:form,editForm:form,viewForm:form})
 })
 watch(()=>props.meta,async()=>{
+  numberingPolicies.value=props.meta.numbering??[]
   const options=createCrudOptions().crudOptions,pagination={...crudBinding.value.pagination}
   const search=Object.fromEntries(Object.entries(crudExpose.getSearchFormData()).filter(([key])=>options.columns[key]&&options.columns[key].search?.show!==false))
   resetCrudOptions(options)
@@ -182,7 +250,7 @@ async function loadArea(node:any,resolve:any){const params=node.level===0?{}:{pc
 function exportFilters(){return resourceQuery({...crudExpose.getSearchFormData(),...context.value,...(entity==='user'?{include_children:includeChildren.value}:{})})}
 function clearSelected(){crudExpose.getBaseTableRef().clearSelection();selection.value=[]}
 function deselect(row:any){crudExpose.getBaseTableRef().toggleRowSelection(row,false)}
-async function removeSelected(){await api(base+'multiple_delete/',{method:'DELETE',data:{keys:selection.value.map(x=>x[props.meta.pk])}});clearSelected();await refreshTree()}
+async function removeSelected(){await api(base+'multiple_delete/',{method:'DELETE',params:{_foundation:context.value._foundation},data:{keys:selection.value.map(x=>x[props.meta.pk])}});clearSelected();await refreshTree()}
 async function asynchronous(){await api(base+'async_export/',{method:'POST',data:{},params:exportFilters()});ElMessage.success('导出任务已提交，可在下载中心查看')}
 async function filterTree(row:any){treeOpen.value=false;workspaceRow.value=row;contextTitle.value=row.name||row.title||row.label;if(entity==='dept'&&account.can('user:list'))workspaceTab.value='users';if(entity==='menu'&&account.can('menu_button:list'))workspaceTab.value='buttons';context.value={...context.value,parent_title:row.name||row.title||row.label,[entity==='area'?'pcode':'parent']:row[props.meta.pk]};crudExpose.setSearchFormData({form:{}});await updateContext()}
 async function allRows(){workspaceRow.value=undefined;workspaceTab.value='main';context.value={...context.value};delete context.value[entity==='area'?'pcode':'parent'];delete context.value.parent_title;crudExpose.setSearchFormData({form:{}});await updateContext()}
@@ -200,16 +268,16 @@ async function saveButtons(){await api(base+'batch_create/',{method:'POST',data:
   <el-button v-if="entity==='menu_button'&&context.menu&&can('batch-create-post')" @click="createButtons">批量生成按钮</el-button>
   <el-button v-if="can('export-get')" @click="download(base+'export/',meta.title+'导出.xlsx',exportFilters())">导出</el-button>
   <el-button v-if="can('async-export-post')" @click="asynchronous">异步导出</el-button>
-  <el-button v-if="meta.excel_import&&can('import-template-get')" @click="download(base+'import_template/',meta.title+'新增模板.xlsx')">新增模板</el-button>
+  <el-button v-if="meta.excel_import&&can('import-template-get')" @click="download(base+'import_template/',meta.title+'新增模板.xlsx',{_entry:context._entry,_foundation:context._foundation})">新增模板</el-button>
   <el-button v-if="meta.excel_import&&can('update-template-get')&&can('patch')" @click="download(base+'update_template/',meta.title+'更新模板.xlsx',exportFilters())">更新模板</el-button>
   <el-button v-if="editable&&meta.excel_import&&can('import-data-post')&&(can('add')||can('patch'))" @click="importOpen=true">xlsx 导入</el-button>
-  <el-button v-if="can('init-data-get')" @click="download(base+'init_data/',entity+'.json')">初始化数据</el-button>
+  <el-button v-if="route.query.workspace==='maintenance'&&can('init-data-get')" @click="download(base+'init_data/',entity+'.json',exportFilters())">初始化数据</el-button>
   <el-popover trigger="click" width="min(500px, calc(100vw - 24px))"><template #reference><el-button>已选 {{selection.length}} 项</el-button></template><el-button @click="clearSelected">清空选择</el-button><el-table :data="selection"><el-table-column :prop="meta.pk" label="主键"/><el-table-column label="名称"><template #default="{row}">{{row.name||row.title||row.label||row.field_name}}</template></el-table-column><el-table-column label="操作"><template #default="{row}"><el-button text @click="deselect(row)">移除</el-button></template></el-table-column></el-table></el-popover><el-button v-if="!props.readonly&&!props.disableDelete&&!['operation_log','login_log'].includes(entity)&&can('multiple-delete-delete')" :disabled="selection.length===0" @click="removeSelected">批量删除</el-button>
   <template v-if="entity==='periodic_task'"><el-button @click="router.push('/system/interval_schedule')">间隔规则</el-button><el-button @click="router.push('/system/crontab_schedule')">Crontab 规则</el-button><el-button @click="router.push('/system/clocked_schedule')">指定时间</el-button><el-button @click="router.push('/system/solar_schedule')">太阳事件</el-button></template>
 </div></div><el-alert v-if="context.parent||context.menu" :title="'当前父项：'+contextTitle" type="info" :closable="false"/><el-button v-if="entity==='user'&&context.dept" class="department-toggle" text @click="showDepartmentSummary=!showDepartmentSummary">{{showDepartmentSummary?'隐藏部门概况':'显示部门概况'}}</el-button><div v-if="entity==='user'&&context.dept&&showDepartmentSummary" class="department-summary"><el-switch v-model="includeChildren" active-text="含下级部门" @change="departmentSummary"/><el-button @click="departmentSummary">部门统计</el-button><span v-if="departmentInfo">{{departmentInfo.name}} · {{departmentInfo.count}} 人 · 负责人：{{departmentInfo.owner||'未设置'}} · 男 {{departmentInfo.gender[1]}} / 女 {{departmentInfo.gender[2]}} / 未知 {{departmentInfo.gender[0]}}</span><el-tag v-for="item in departmentInfo?.children" :key="item.id">{{item.name}}：{{item.count}} 人</el-tag><p v-if="departmentInfo?.description">{{departmentInfo.description}}</p><DepartmentCharts v-if="departmentInfo" :info="departmentInfo"/></div><div class="resource-body"><aside v-if="tree.length&&(!mobile||treeOpen)" class="tree-panel"><el-button text @click="allRows">全部</el-button><el-tree v-if="entity!=='area'" :data="tree" :props="{label:entity==='dictionary'?'label':entity==='system_config'?'title':'name'}" :node-key="meta.pk" :draggable="['dept','menu'].includes(entity) && can('batch-update-put')" @node-drop="sortTree" @node-click="filterTree"/><el-tree v-else :key="treeVersion" lazy :load="loadArea" node-key="code" :props="{label:'name',isLeaf:(data:any)=>!data.has_children}" @node-click="filterTree"/></aside><div class="resource-crud" :class="{'with-chart':chartDemo}"><el-tabs v-if="workspaceRow&&['dept','menu'].includes(entity)" v-model="workspaceTab"><el-tab-pane label="基础管理" name="main"/><el-tab-pane v-if="entity==='dept'&&account.can('user:list')" :label="workspaceRow.name+' · 部门用户'" name="users"/><el-tab-pane v-if="entity==='menu'&&account.can('menu_button:list')" label="权限按钮" name="buttons"/><el-tab-pane v-if="entity==='menu'&&account.can('column:list')" label="字段权限" name="fields"/></el-tabs><fs-crud v-show="workspaceTab==='main'" ref="crudRef" v-bind="crudBinding"><template v-if="chartDemo" #header-top><ChartPanel/></template></fs-crud><Resource v-if="workspaceRow&&workspaceTab==='users'" :key="'users-'+workspaceRow.id" entity="user" :context="{dept:workspaceRow.id}" :context-label="workspaceRow.name"/><Resource v-if="workspaceRow&&workspaceTab==='buttons'" :key="'buttons-'+workspaceRow.id" entity="menu_button" :context="{menu:workspaceRow.id}" :context-label="workspaceRow.name"/><Resource v-if="workspaceRow&&workspaceTab==='fields'" :key="'fields-'+workspaceRow.id" entity="column" :context="{menu:workspaceRow.id}" :context-label="workspaceRow.name"/></div></div>
 <MessageRecipients v-if="recipientsOpen" v-model="recipientsOpen" :message="recipientMessage"/><el-drawer :model-value="!!jsonDetail" title="JSON 明细" size="min(850px, 100vw)" @close="jsonDetail=undefined"><pre class="json-detail">{{JSON.stringify(jsonDetail,null,2)}}</pre></el-drawer>
 <RolePermissions v-if="permissionOpen" v-model="permissionOpen" :role="role" :editable="can('permissions-put')"/>
-<el-dialog v-model="buttonEditorOpen" title="生成资源权限按钮" width="min(550px, calc(100vw - 24px))"><el-select v-model="buttonEntity" filterable placeholder="选择实际接口资源"><el-option v-for="item in models" :key="item.entity" :value="item.entity" :label="item.title+' ('+item.entity+')'"/></el-select><template #footer><el-button @click="buttonEditorOpen=false">取消</el-button><el-button type="primary" @click="saveButtons">生成</el-button></template></el-dialog><ExcelImport v-if="importOpen" v-model="importOpen" :base="base" :title="meta.title" :filters="exportFilters()" :create-template="can('import-template-get')&&can('add')" :update-template="can('update-template-get')&&can('patch')" @imported="refresh"/>
+<el-dialog v-model="buttonEditorOpen" title="生成资源权限按钮" width="min(550px, calc(100vw - 24px))"><el-select v-model="buttonEntity" filterable placeholder="选择实际接口资源"><el-option v-for="item in models" :key="item.entity" :value="item.entity" :label="item.title+' ('+item.entity+')'"/></el-select><template #footer><el-button @click="buttonEditorOpen=false">取消</el-button><el-button type="primary" @click="saveButtons">生成</el-button></template></el-dialog><ExcelImport v-if="importOpen" v-model="importOpen" :base="base" :title="meta.title" :filters="exportFilters()" :entries="meta.workflow?.entries" :entry="context._entry" :create-template="can('import-template-get')&&can('add')" :update-template="can('update-template-get')&&can('patch')" @imported="refresh"/>
 <el-drawer v-model="settingsOpen" :title="settings?.title+' · 配置表单'" size="min(700px, 100vw)"><SettingsForm v-if="settingsOpen" :group="settings"/></el-drawer>
 <RoleUsers v-if="userGrantOpen" v-model="userGrantOpen" :role="grantRole" :editable="can('users-put')"/>
 <el-dialog v-model="passwordOpen" :title="'重置密码 · '+passwordUser?.username" width="min(450px, calc(100vw - 24px))"><el-form ref="passwordRef" :model="passwordForm" label-width="100px"><el-form-item label="新密码" prop="password" :rules="[{required:true,message:'请填写新密码'}]"><el-input v-model="passwordForm.password" type="password" show-password/></el-form-item><el-form-item label="确认密码" prop="password_confirm" :rules="[{required:true,message:'请确认新密码'},{validator:(_rule:any,value:string)=>value===passwordForm.password||new Error('两次密码不匹配')}]"><el-input v-model="passwordForm.password_confirm" type="password" show-password/></el-form-item></el-form><template #footer><el-button type="primary" @click="resetPassword">重置密码</el-button></template></el-dialog>

@@ -1,0 +1,636 @@
+{
+  "database": "erp_master_xlsx_verify_20261021",
+  "port": 5440,
+  "batch": "基础资料20261021-ada0cffb8536",
+  "rows": 109083,
+  "field_comparisons": 4919901,
+  "differences": 0,
+  "models": 156,
+  "tables": [
+    {
+      "model": "erp_base.SourceDboC",
+      "rows": 12
+    },
+    {
+      "model": "erp_base.SourceDboPS20221218",
+      "rows": 80
+    },
+    {
+      "model": "erp_base.SourceDboSHIFT",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDboSHLEIXING",
+      "rows": 20
+    },
+    {
+      "model": "erp_base.SourceDboItbak20221120",
+      "rows": 444
+    },
+    {
+      "model": "erp_base.SourceDboItbak20221121",
+      "rows": 444
+    },
+    {
+      "model": "erp_base.SourceDboShda",
+      "rows": 58930
+    },
+    {
+      "model": "erp_base.SourceDyeACGroup",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeACUnlockComb",
+      "rows": 10
+    },
+    {
+      "model": "erp_base.SourceDyeAUTHDEVICE",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeAttParam",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeBalancingConditions",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeBaseCase",
+      "rows": 1
+    },
+    {
+      "model": "erp_base.SourceDyeBiotemplate",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeClockShift",
+      "rows": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorCard",
+      "rows": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorCardDetail",
+      "rows": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorChangeRisk",
+      "rows": 4
+    },
+    {
+      "model": "erp_base.SourceDyeDEPARTMENTS",
+      "rows": 14
+    },
+    {
+      "model": "erp_base.SourceDyeDeptUsedSchs",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeDyeProcessPrice",
+      "rows": 0
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeProduceItem",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeEmpRoom",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeEnableCard",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeFaceTemp",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeGWName",
+      "rows": 45
+    },
+    {
+      "model": "erp_base.SourceDyeHOLIDAYS",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHuman",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeITMANAGE",
+      "rows": 452
+    },
+    {
+      "model": "erp_quality.SourceDyeInspectionProject",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeKindLimit",
+      "rows": 5
+    },
+    {
+      "model": "erp_base.SourceDyeLeaveClass",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeLeaveClass1",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCareProject",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCase",
+      "rows": 4
+    },
+    {
+      "model": "erp_production.SourceDyeMachineFaultFilter",
+      "rows": 6
+    },
+    {
+      "model": "erp_production.SourceDyeMachines",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeNUMRUN",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeNUMRUNDEIL",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePColorNum",
+      "rows": 41706
+    },
+    {
+      "model": "erp_production.SourceDyeProcessCraft",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeReportItem",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeRequestLimit",
+      "rows": 6
+    },
+    {
+      "model": "erp_base.SourceDyeSHIFT",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSchClass",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeStaffEstablishing",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraft",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraftBeforeDetail",
+      "rows": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStep",
+      "rows": 70
+    },
+    {
+      "model": "erp_base.SourceDyeTEMPLATE",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeUSERINFO",
+      "rows": 159
+    },
+    {
+      "model": "erp_base.SourceDyeUSEROFRUN",
+      "rows": 231
+    },
+    {
+      "model": "erp_base.SourceDyeUSERSPEDAY",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeUSERTEMPSCH",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeUserACMachines",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeUserACPrivilege",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeUserUsedSClasses",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeUsersMachines",
+      "rows": 0
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWeightTechInfo",
+      "rows": 6
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWidthGramWeight",
+      "rows": 18
+    },
+    {
+      "model": "erp_base.SourceDyeAcholiday",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHEmpDeptPerm",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeHEmpRole",
+      "rows": 53
+    },
+    {
+      "model": "erp_base.SourceDyeHEmployee",
+      "rows": 274
+    },
+    {
+      "model": "erp_base.SourceDyeHEmployee2",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePArticle",
+      "rows": 399
+    },
+    {
+      "model": "erp_base.SourceDyePArticleStorageUnitID",
+      "rows": 208
+    },
+    {
+      "model": "erp_base.SourceDyePAtteSub",
+      "rows": 102
+    },
+    {
+      "model": "erp_base.SourceDyePAtteType",
+      "rows": 5
+    },
+    {
+      "model": "erp_base.SourceDyePAuxRule",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePAuxRuleDetail",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePBalanceType",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCommMethod",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCommModule",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCommPort",
+      "rows": 11
+    },
+    {
+      "model": "erp_base.SourceDyePCommissionRatio",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCook",
+      "rows": 208
+    },
+    {
+      "model": "erp_base.SourceDyePCraftPParam",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCraftParam",
+      "rows": 34
+    },
+    {
+      "model": "erp_base.SourceDyePCustomer",
+      "rows": 182
+    },
+    {
+      "model": "erp_base.SourceDyePDept",
+      "rows": 11
+    },
+    {
+      "model": "erp_base.SourceDyePDyeCurve",
+      "rows": 21
+    },
+    {
+      "model": "erp_base.SourceDyePDyeProgram",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePDyeProgramDetail",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFabric",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFieldMemo",
+      "rows": 6
+    },
+    {
+      "model": "erp_base.SourceDyePFieldValid",
+      "rows": 760
+    },
+    {
+      "model": "erp_base.SourceDyePGray",
+      "rows": 648
+    },
+    {
+      "model": "erp_base.SourceDyePGrayBak",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePITOnRest",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePITWatch",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePLable",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachine",
+      "rows": 120
+    },
+    {
+      "model": "erp_base.SourceDyePMachineFaultClass",
+      "rows": 2
+    },
+    {
+      "model": "erp_base.SourceDyePMachineFaultStatus",
+      "rows": 6
+    },
+    {
+      "model": "erp_base.SourceDyePMachinePort",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachineShift",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMeter",
+      "rows": 8
+    },
+    {
+      "model": "erp_base.SourceDyePMeterAlarm",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPDesign",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPDesignDetail",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPDesignSet",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPriceList",
+      "rows": 6
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListAtte",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcess",
+      "rows": 18
+    },
+    {
+      "model": "erp_base.SourceDyePProcessCraft1",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProduct",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePShift",
+      "rows": 33
+    },
+    {
+      "model": "erp_base.SourceDyePShiftArrange",
+      "rows": 12
+    },
+    {
+      "model": "erp_base.SourceDyePShiftArrangeDetail",
+      "rows": 1460
+    },
+    {
+      "model": "erp_base.SourceDyePShiftMachine",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePStorageUnitID",
+      "rows": 833
+    },
+    {
+      "model": "erp_base.SourceDyePStuff",
+      "rows": 329
+    },
+    {
+      "model": "erp_base.SourceDyePStuffStorageUnitID",
+      "rows": 13
+    },
+    {
+      "model": "erp_quality.SourceDyePTestItem",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePVehicle",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePWareHouse",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSCorpTitle",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeSRoles",
+      "rows": 12
+    },
+    {
+      "model": "erp_sampling.SourceDyeYeDye",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyeYunfeibiaozhun",
+      "rows": 39
+    },
+    {
+      "model": "erp_quality.SourceDyeZhijianwenti",
+      "rows": 44
+    },
+    {
+      "model": "erp_base.SourceDyeBaseCaseDetail",
+      "rows": 2
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCaseDetail",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeMachineCaseProject",
+      "rows": 40
+    },
+    {
+      "model": "erp_production.SourceDyeProcessCraftJobNo",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeProcessCraftOrderNo",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraftDetail",
+      "rows": 0
+    },
+    {
+      "model": "erp_production.SourceDyeStandCraftJobNo",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustAddress",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustCategory",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustLinker",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePCustRelation",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePDyeCurveDetail",
+      "rows": 119
+    },
+    {
+      "model": "erp_base.SourceDyePFabricCust",
+      "rows": 50
+    },
+    {
+      "model": "erp_base.SourceDyePFabricFact",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFabricOther",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFeelCode",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePFieldValidSub",
+      "rows": 175
+    },
+    {
+      "model": "erp_base.SourceDyePMachineColor",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachinePart",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachinePoint",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachineProcess",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMachineProd",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePMeterMachine",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListColor",
+      "rows": 8
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListProcess",
+      "rows": 9
+    },
+    {
+      "model": "erp_base.SourceDyePPriceListVat",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessArea",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessChemical",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessCraft",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessDefect",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessPCraft",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePProcessPrice",
+      "rows": 0
+    },
+    {
+      "model": "erp_base.SourceDyePShiftEmp",
+      "rows": 156
+    },
+    {
+      "model": "erp_base.SourceDyePFieldValidSubCust",
+      "rows": 0
+    }
+  ],
+  "scope": "仅既有独立库资料批次与原资料包逐字段复核，未新增导入；不代表正式库历史对账或现场验收"
+}

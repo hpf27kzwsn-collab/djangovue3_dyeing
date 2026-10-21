@@ -1,0 +1,562 @@
+{
+  "models": 63,
+  "fields": 533,
+  "extra_legacy_id_fields": 0,
+  "tables": [
+    {
+      "model": "erp_base.SourceDyeAlarmLog",
+      "table": "AlarmLog",
+      "fields": 6,
+      "original_key": [
+        "ID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeEmOpLog",
+      "table": "EmOpLog",
+      "fields": 9,
+      "original_key": []
+    },
+    {
+      "model": "erp_base.SourceDyeRpPermission",
+      "table": "rp_Permission",
+      "fields": 5,
+      "original_key": [
+        "RpID",
+        "EmpID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAccessLog",
+      "table": "s_AccessLog",
+      "fields": 11,
+      "original_key": [
+        "AccessNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertEmp",
+      "table": "s_AlertEmp",
+      "fields": 9,
+      "original_key": [
+        "ItemID",
+        "EmpID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertFormat",
+      "table": "s_AlertFormat",
+      "fields": 6,
+      "original_key": [
+        "ItemID",
+        "FormatNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertItem",
+      "table": "s_AlertItem",
+      "fields": 33,
+      "original_key": [
+        "ItemID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertLog",
+      "table": "s_AlertLog",
+      "fields": 7,
+      "original_key": [
+        "ID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertParams",
+      "table": "s_AlertParams",
+      "fields": 6,
+      "original_key": [
+        "ItemID",
+        "ParamNo",
+        "ParamName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertSender",
+      "table": "s_AlertSender",
+      "fields": 12,
+      "original_key": [
+        "ItemID",
+        "ReceiverID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertUser",
+      "table": "s_AlertUser",
+      "fields": 13,
+      "original_key": [
+        "ItemID",
+        "UserID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSApp",
+      "table": "s_App",
+      "fields": 5,
+      "original_key": [
+        "ID",
+        "App"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAppApiLog",
+      "table": "s_App_ApiLog",
+      "fields": 8,
+      "original_key": [
+        "id"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAppFuncs",
+      "table": "s_AppFuncs",
+      "fields": 5,
+      "original_key": [
+        "ID",
+        "FuncNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAppQuerys",
+      "table": "s_AppQuerys",
+      "fields": 4,
+      "original_key": [
+        "ID",
+        "QueryName",
+        "QueryNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSAppTables",
+      "table": "s_AppTables",
+      "fields": 5,
+      "original_key": []
+    },
+    {
+      "model": "erp_base.SourceDyeSClientMacAddress",
+      "table": "s_ClientMacAddress",
+      "fields": 10,
+      "original_key": [
+        "ID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSDataRelation",
+      "table": "s_DataRelation",
+      "fields": 7,
+      "original_key": [
+        "DataTableName",
+        "FieldName",
+        "Direction",
+        "DestDataTableName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableCopy",
+      "table": "s_DataTableCopy",
+      "fields": 5,
+      "original_key": [
+        "DataTableName",
+        "FieldName",
+        "DestDataTableName",
+        "DestFieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableFieldRely",
+      "table": "s_DataTableFieldRely",
+      "fields": 13,
+      "original_key": [
+        "DataTableName",
+        "FieldName",
+        "TableRelation",
+        "RelyFieldName",
+        "GetValueWay",
+        "RelyFieldValue",
+        "PriorityID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableRelation",
+      "table": "s_DataTableRelation",
+      "fields": 6,
+      "original_key": [
+        "DataTableName",
+        "FieldName",
+        "DestDataTableName",
+        "LinkFieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSException",
+      "table": "s_Exception",
+      "fields": 6,
+      "original_key": []
+    },
+    {
+      "model": "erp_base.SourceDyeSFieldCopy",
+      "table": "s_FieldCopy",
+      "fields": 4,
+      "original_key": [
+        "DataTableName",
+        "FieldName",
+        "DestDataTableName",
+        "DestFieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSFormButton",
+      "table": "s_FormButton",
+      "fields": 5,
+      "original_key": [
+        "FormName",
+        "FuncNo",
+        "ButtonName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSFormFormat",
+      "table": "s_FormFormat",
+      "fields": 2,
+      "original_key": [
+        "FormName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSFunDesktop",
+      "table": "s_FunDesktop",
+      "fields": 8,
+      "original_key": [
+        "EmpID",
+        "FuncNo",
+        "FilePath"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSGridCondition",
+      "table": "s_GridCondition",
+      "fields": 8,
+      "original_key": [
+        "FuncNo",
+        "FormName",
+        "GridName",
+        "DataTableName",
+        "ColorCondition"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSGridParamChart",
+      "table": "s_GridParamChart",
+      "fields": 10,
+      "original_key": [
+        "FuncNo",
+        "FormName",
+        "GridName",
+        "ChartName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSGridUser",
+      "table": "s_GridUser",
+      "fields": 4,
+      "original_key": [
+        "FuncNo",
+        "GridName",
+        "EmpID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSLanguage",
+      "table": "s_Language",
+      "fields": 6,
+      "original_key": [
+        "LabelID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSLanguage1",
+      "table": "s_Language1",
+      "fields": 6,
+      "original_key": [
+        "LabelID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSLocalAdmins",
+      "table": "s_LocalAdmins",
+      "fields": 4,
+      "original_key": [
+        "EmpID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSLookupColumn",
+      "table": "s_LookupColumn",
+      "fields": 5,
+      "original_key": [
+        "LookUpID",
+        "FieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSManagerSetting",
+      "table": "s_ManagerSetting",
+      "fields": 8,
+      "original_key": [
+        "ID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSManagerSQL",
+      "table": "s_ManagerSQL",
+      "fields": 6,
+      "original_key": [
+        "FuncNo",
+        "FieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSManagerSQLDash",
+      "table": "s_ManagerSQL-",
+      "fields": 5,
+      "original_key": [
+        "FieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSMessage",
+      "table": "s_Message",
+      "fields": 17,
+      "original_key": [
+        "MessageID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSModuleDesktop",
+      "table": "s_ModuleDesktop",
+      "fields": 9,
+      "original_key": [
+        "ModuleNo",
+        "FuncNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSMonthEnd",
+      "table": "s_MonthEnd",
+      "fields": 4,
+      "original_key": []
+    },
+    {
+      "model": "erp_base.SourceDyeSNotice",
+      "table": "s_Notice",
+      "fields": 30,
+      "original_key": [
+        "NoticeNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSPanelFieldParam",
+      "table": "s_PanelFieldParam",
+      "fields": 14,
+      "original_key": [
+        "FuncNo",
+        "FormName",
+        "GridName",
+        "DataTableName",
+        "FieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSPersonalDataRight",
+      "table": "s_PersonalDataRight",
+      "fields": 8,
+      "original_key": [
+        "DataTableName",
+        "FieldName",
+        "EmpID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSQueryParam",
+      "table": "s_QueryParam",
+      "fields": 17,
+      "original_key": [
+        "QueryName",
+        "QueryNo",
+        "ParamNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSRecordRight",
+      "table": "s_RecordRight",
+      "fields": 15,
+      "original_key": [
+        "ID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSRptInfoDetail",
+      "table": "s_RptInfoDetail",
+      "fields": 5,
+      "original_key": [
+        "RptID",
+        "DataTableName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSRptInfoSub",
+      "table": "s_RptInfoSub",
+      "fields": 7,
+      "original_key": [
+        "RptID",
+        "SubRpID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSRptParam",
+      "table": "s_RptParam",
+      "fields": 16,
+      "original_key": [
+        "RptID",
+        "ParamNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSSecurityInfo",
+      "table": "s_SecurityInfo",
+      "fields": 2,
+      "original_key": [
+        "SNID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSSubscribePage",
+      "table": "s_SubscribePage",
+      "fields": 5,
+      "original_key": [
+        "EmpID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSSysAdmins",
+      "table": "s_SysAdmins",
+      "fields": 11,
+      "original_key": [
+        "ID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSTimerJobField",
+      "table": "s_TimerJobField",
+      "fields": 5,
+      "original_key": [
+        "ItemID",
+        "FieldName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSTimerJobParams",
+      "table": "s_TimerJobParams",
+      "fields": 8,
+      "original_key": [
+        "ItemID",
+        "ParamNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSTVScreenReport",
+      "table": "s_TVScreenReport",
+      "fields": 14,
+      "original_key": [
+        "SchemID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSTVScreenReportDetail",
+      "table": "s_TVScreenReportDetail",
+      "fields": 7,
+      "original_key": [
+        "SchemID",
+        "RowNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSUIModule",
+      "table": "s_UIModule",
+      "fields": 6,
+      "original_key": [
+        "ModuleNo"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSUpgradeFile",
+      "table": "s_UpgradeFile",
+      "fields": 10,
+      "original_key": [
+        "FileName"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSWeiXinAgent",
+      "table": "s_WeiXinAgent",
+      "fields": 9,
+      "original_key": [
+        "CorpId",
+        "AgentId"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSWeiXinMenu",
+      "table": "s_WeiXinMenu",
+      "fields": 8,
+      "original_key": [
+        "MenuId"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeSECURITYDETAILS",
+      "table": "SECURITYDETAILS",
+      "fields": 10,
+      "original_key": [
+        "SECURITYDETAILID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeServerLog",
+      "table": "ServerLog",
+      "fields": 8,
+      "original_key": []
+    },
+    {
+      "model": "erp_base.SourceDyeSystemLog",
+      "table": "SystemLog",
+      "fields": 6,
+      "original_key": [
+        "ID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeUserACPrivilege",
+      "table": "UserACPrivilege",
+      "fields": 8,
+      "original_key": [
+        "UserID",
+        "DeviceID"
+      ]
+    },
+    {
+      "model": "erp_base.SourceDyeUserUpdates",
+      "table": "UserUpdates",
+      "fields": 2,
+      "original_key": [
+        "UpdateId"
+      ]
+    }
+  ]
+}

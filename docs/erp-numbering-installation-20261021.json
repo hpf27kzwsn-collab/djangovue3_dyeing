@@ -1,0 +1,110 @@
+{
+  "database": "erp_full_trial_20261014",
+  "port": 5439,
+  "migrations": [
+    "erp_base.0035_numberingrule"
+  ],
+  "suggested_rules": 29,
+  "target_models_and_identity_counters_unchanged": true,
+  "formal_old_data_imported": 0,
+  "before": {
+    "erp_base.SourceDyeHEmployee": {
+      "rows": 274,
+      "sha256": "d5f89ebcf4360ca48f337c03e25a53420fb74407cb42aeb392b5e20679dc1d14"
+    },
+    "erp_base.SourceDyePArticle": {
+      "rows": 399,
+      "sha256": "28a6bd697ef5bc94989ac72ecd621deae440c514c9a94618f505ae2ace18ee1b"
+    },
+    "erp_base.SourceDyePCustomer": {
+      "rows": 182,
+      "sha256": "d56622915cfa306c15ba2928995cab3f9bc38ef12905a9df30d14ee0e81b1251"
+    },
+    "erp_base.SourceDyePDept": {
+      "rows": 11,
+      "sha256": "40a0abaa5177eedf2859964320489dedef1ca0d7299cb6b9f33d091c3ba4a6d7"
+    },
+    "erp_base.SourceDyePDyeCurve": {
+      "rows": 21,
+      "sha256": "a8743e91d7f676c17d41fea24c245fb2966baf62cf8b6da19a9cbf9611a6375c"
+    },
+    "erp_base.SourceDyePFieldValid": {
+      "rows": 827,
+      "sha256": "5e625eeba6bb0d99cb082b5c97310693c418a8c0c1a45d3efd3bac331312176b"
+    },
+    "erp_base.SourceDyePGray": {
+      "rows": 648,
+      "sha256": "f2e418813a2b1daf5c1482c855ea50897f814d745580015ad72ef29fadc45678"
+    },
+    "erp_base.SourceDyePShift": {
+      "rows": 33,
+      "sha256": "1ee3c51f28a342aab14c827f8be354435e2ce2ad9856a91c6da7ea1b1ebc445c"
+    },
+    "erp_base.SourceDyePStorageUnitID": {
+      "rows": 833,
+      "sha256": "0f42d3f8079257d04c549370a5dad2ba225f43432396ac9e848f7e7f8b9350cb"
+    },
+    "erp_base.SourceDyePStuff": {
+      "rows": 329,
+      "sha256": "95e8ef187cb63970af97bb934f2c1ab5981d3ab4386582b659df37e97cc32c3f"
+    },
+    "erp_base.SourceIdentitySequence": {
+      "rows": 17,
+      "sha256": "54bb9b95d9f27ee85f899bd6339e558013c4dc76cd14875ec75624ef082619cf"
+    },
+    "erp_warehouse.SourceDyeWidthGramWeight": {
+      "rows": 18,
+      "sha256": "febdafeb1913fc4b53d2da81d233f02458a514b1ec5d2a385d317a808d9d43f0"
+    }
+  },
+  "after": {
+    "erp_base.SourceDyeHEmployee": {
+      "rows": 274,
+      "sha256": "d5f89ebcf4360ca48f337c03e25a53420fb74407cb42aeb392b5e20679dc1d14"
+    },
+    "erp_base.SourceDyePArticle": {
+      "rows": 399,
+      "sha256": "28a6bd697ef5bc94989ac72ecd621deae440c514c9a94618f505ae2ace18ee1b"
+    },
+    "erp_base.SourceDyePCustomer": {
+      "rows": 182,
+      "sha256": "d56622915cfa306c15ba2928995cab3f9bc38ef12905a9df30d14ee0e81b1251"
+    },
+    "erp_base.SourceDyePDept": {
+      "rows": 11,
+      "sha256": "40a0abaa5177eedf2859964320489dedef1ca0d7299cb6b9f33d091c3ba4a6d7"
+    },
+    "erp_base.SourceDyePDyeCurve": {
+      "rows": 21,
+      "sha256": "a8743e91d7f676c17d41fea24c245fb2966baf62cf8b6da19a9cbf9611a6375c"
+    },
+    "erp_base.SourceDyePFieldValid": {
+      "rows": 827,
+      "sha256": "5e625eeba6bb0d99cb082b5c97310693c418a8c0c1a45d3efd3bac331312176b"
+    },
+    "erp_base.SourceDyePGray": {
+      "rows": 648,
+      "sha256": "f2e418813a2b1daf5c1482c855ea50897f814d745580015ad72ef29fadc45678"
+    },
+    "erp_base.SourceDyePShift": {
+      "rows": 33,
+      "sha256": "1ee3c51f28a342aab14c827f8be354435e2ce2ad9856a91c6da7ea1b1ebc445c"
+    },
+    "erp_base.SourceDyePStorageUnitID": {
+      "rows": 833,
+      "sha256": "0f42d3f8079257d04c549370a5dad2ba225f43432396ac9e848f7e7f8b9350cb"
+    },
+    "erp_base.SourceDyePStuff": {
+      "rows": 329,
+      "sha256": "95e8ef187cb63970af97bb934f2c1ab5981d3ab4386582b659df37e97cc32c3f"
+    },
+    "erp_base.SourceIdentitySequence": {
+      "rows": 17,
+      "sha256": "54bb9b95d9f27ee85f899bd6339e558013c4dc76cd14875ec75624ef082619cf"
+    },
+    "erp_warehouse.SourceDyeWidthGramWeight": {
+      "rows": 18,
+      "sha256": "febdafeb1913fc4b53d2da81d233f02458a514b1ec5d2a385d317a808d9d43f0"
+    }
+  }
+}

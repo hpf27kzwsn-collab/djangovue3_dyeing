@@ -1,0 +1,20 @@
+{
+  "entries": {
+    "DStuffWeight": {"table": "StuffWeight", "reason": "原展示SQL仅取StuffWeight；缺UpdateSQL，明确以该原表办理，原空表初始化条件不改。"},
+    "DyeLabColorColorNumNoPrice": {"table": "DyeDipsRecord", "reason": "原a.*来自DyeDipsRecord，DeptID属于该表；仅办理选定试样原行，不将色号连接倍增当成多条可写试样。"},
+    "qry_Employee": {"table": "h_Employee", "reason": "原单表员工查询；保留EmpID默认取登录员工PosID的原配置，允许显式填写，不擅自修正为登录员工编号。"},
+    "qry_QuoteRelaRecipe": {"table": "DyeRecipe", "reason": "原联查中的DeptID对应配方表头DyeRecipe；编辑选定表头原行，原染程和物料查询不合并、不回写。"},
+    "qry_QuoteRelaStuff": {"table": "StuffWeight", "reason": "原联查中的Creater/DeptID对应料单表头StuffWeight；编辑选定表头，原染程和物料查询不合并、不回写。"},
+    "QC_RecordYield": {"table": "RecordYield", "reason": "原查询从RecordYield连接JobSheet；AddQty对应选定包装原行，工卡重复连接仍在原查询保留。"},
+    "qry_RecordYield": {"table": "RecordYield", "reason": "原单表RecordYield查询；AddQty/Unit续行落在同一原表字段。"},
+    "QueryRecordCheck": {"table": "RecordYield", "reason": "原写入表RecordYieldCheck在最新旧结构中不存在；展示A.*来自RecordYield，SpecDefects/Weight/Width均实际存在。明确采用选定包装原行，不冒充找回旧写入表。"}
+  },
+  "field_aliases": {
+    "GrayInDetail": {"Code": "GrayID"},
+    "GrayInWorkDetail": {"Code": "GrayID"},
+    "JiaNianGrayInDetail": {"Code": "GrayID"},
+    "KeTuiGrayInDetail": {"Code": "GrayID"},
+    "SemiToGrayInDetail": {"Code": "GrayID"},
+    "TuiHuoGrayInDetail": {"Code": "GrayID"}
+  }
+}

@@ -12,7 +12,8 @@ from .source_business_updates import matching, update_rows
 
 
 def rows(table, module='erp_sales'):
-    return apps.get_model(module + '.SourceDye' + table).objects.all()
+    from .source_execution_state import active
+    return active(apps.get_model(module + '.SourceDye' + table).objects.all())
 
 
 def change(query, values, actor):
@@ -77,7 +78,7 @@ def adjustment_saved(item, actor):
 
 
 def saved(item, data, created, actor):
-    if item.SOURCE_TABLE=='QuoteDetail':
+    if item.SOURCE_TABLE in ['QuoteDetail','FixedPriceDetail']:
         from .source_quote_rules import saved as quote_saved
         quote_saved(item,data,created,actor)
     if is_historical(item):
@@ -100,7 +101,7 @@ def adjustment_audit(item, actor, approved):
 
 
 def removing(item):
-    if item.SOURCE_TABLE=='QuoteDetail':
+    if item.SOURCE_TABLE in ['QuoteDetail','FixedPriceDetail']:
         from .source_quote_rules import removing as quote_removing
         quote_removing(item)
     if item.SOURCE_TABLE == 'OrderMain':

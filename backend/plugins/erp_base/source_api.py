@@ -5,17 +5,22 @@ from rest_framework.exceptions import ValidationError
 from core.responses import success
 from . import source_services as services
 from .source_services import OWNED
-from .business_api import BusinessViewSet,BusinessSerializer
+from .business_api import BusinessViewSet,BusinessSerializer,parameters
 from .source_entry_registry import ENTRY_RULES, entry_options
 from .source_entry_services import entry_for
+from .source_transfer_numbers import parameters as transfer_number_parameters
+from .source_excel import SourceExcelActions
 
 
 class SourceRecordSerializer(BusinessSerializer):
     _entry = serializers.CharField(write_only=True, required=False)
+    _entry_copy_from = serializers.IntegerField(write_only=True, required=False)
     entry_name = serializers.ReadOnlyField()
 
     def get_fields(self):
         fields=super().get_fields()
+        if self.Meta.model.SOURCE_TABLE in ['ArrivalNoticeDetail','PurDetail','ArticleOutDetail','PriceAdjustDetail','OrderMain','OrderColor','ProdIn','ProdInRecord']:
+            fields['transfer_retained']=serializers.ReadOnlyField()
         for name in OWNED:fields[name].read_only=True
         for name in self.Meta.model.SOURCE_DEFAULTS:fields[name].required=False
         entries = ENTRY_RULES.get(self.Meta.model._meta.label, {})
@@ -24,6 +29,9 @@ class SourceRecordSerializer(BusinessSerializer):
             for old in [*entry['number_fields'], *entry['default_fields']]:
                 fields[self.Meta.model.SOURCE_FIELDS[old]].required = False
         if self.Meta.model.SOURCE_TABLE=='RecordYield':fields['old_guid'].required=False
+        from .numbering import rules
+        for key in rules(self.Meta.model).values_list('target_field', flat=True):
+            fields[key].required = False
         for field in fields.values():
             if isinstance(field,serializers.CharField):field.trim_whitespace=False
         return fields
@@ -31,10 +39,17 @@ class SourceRecordSerializer(BusinessSerializer):
     def to_internal_value(self,data):
         denied=OWNED.intersection(data)
         if denied:raise ValidationError({name:'由来源导入或明确办理动作维护。' for name in denied})
+        from .foundation_catalog import bind
+        data=bind(data,self.context.get('foundation_definition'),create=self.instance is None)
         return super().to_internal_value(data)
 
     def create(self,validated_data):
         actor=validated_data.pop('modifier',None)
+        if '_entry_copy_from' in validated_data:
+            from .reports import Reader
+            model = self.Meta.model
+            validated_data['_entry_copy_from'] = Reader(self.context['request']).source(
+                model, list(model.SOURCE_FIELDS.values())).get(pk=validated_data['_entry_copy_from'])
         return services.write(self.Meta.model,validated_data,actor=actor)
 
     def update(self,instance,validated_data):
@@ -42,7 +57,399 @@ class SourceRecordSerializer(BusinessSerializer):
         return services.write(self.Meta.model,validated_data,instance,actor=actor)
 
 
-class SourceRecordViewSet(BusinessViewSet):
+class SourceRecordViewSet(SourceExcelActions,BusinessViewSet):
+    def get_queryset(self):
+        from .foundation_catalog import request_definition,scope
+        queryset=super().get_queryset()
+        return scope(queryset,request_definition(self.request,queryset.model))
+
+    def get_serializer_context(self):
+        from .foundation_catalog import request_definition
+        return {**super().get_serializer_context(),
+                'foundation_definition':self.excel_foundation or request_definition(self.request,self.queryset.model)}
+
+    @action(methods=['get'],detail=False,url_name='foundation_entry')
+    def foundation_entry(self,request):
+        from .foundation_catalog import definition
+        from system.models import Menu
+        item=definition(request.query_params['key'],self.queryset.model)
+        raw=Menu.objects.get(component_name=item['entity'])
+        return success({**item,'raw_path':raw.web_path,'raw_key':item['entity'],
+                        'simple_master':'RightStatus' not in self.queryset.model.SOURCE_FIELDS})
+
+    @action(methods=['post'],detail=True,url_name='phase6_reverse_head_transfer')
+    def phase6_reverse_head_transfer(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from django.apps import apps
+        from .source_phase6_transfers import reverse_head_transfer
+        read=chain_query(request)
+        def writable_query(name,module):
+            m=apps.get_model(module+'.SourceDye'+name)
+            scope=SimpleNamespace(user=request.user,method='PATCH',path='/api/system/'+m._meta.label_lower.replace('.','_')+'/1/')
+            if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要整单及全部回写业务记录的修改权限。')
+            return read(name,module)
+        return self.performed(reverse_head_transfer,{**parameters(self,event_fields()),'query':writable_query})
+
+    @action(methods=['post'],detail=True,url_name='phase6_reverse_line_transfer')
+    def phase6_reverse_line_transfer(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .source_phase6_transfers import reverse_line_transfer
+        item=self.get_object()
+        for row in services.chain(item):
+            scope=SimpleNamespace(user=request.user,method='PATCH',path='/api/system/'+row._meta.label_lower.replace('.','_')+'/'+str(row.pk)+'/')
+            if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要转入明细及所属表头修改权限。')
+        return self.performed(reverse_line_transfer,{**parameters(self,event_fields()),'query':chain_query(request)})
+
+    @action(methods=['post'],detail=True,url_name='phase6_reverse_quote_adjustment')
+    def phase6_reverse_quote_adjustment(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .source_phase3_operations import model
+        from .source_phase6_transfers import reverse_quote_adjustment
+        for table in ['PriceAdjustDetail','PriceAdjust','QuoteDetail']:
+            m=model(table)
+            scope=SimpleNamespace(user=request.user,method='PATCH',path='/api/system/'+m._meta.label_lower.replace('.','_')+'/1/')
+            if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要调价明细、调价单及报价修改权限。')
+        return self.performed(reverse_quote_adjustment,{**parameters(self,event_fields()),'query':chain_query(request)})
+
+    @action(methods=['post'],detail=True,url_name='phase6_quote_to_price_adjustment')
+    def phase6_quote_to_price_adjustment(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .reports import Reader
+        from .source_phase3_operations import model
+        from .source_phase6_transfers import quote_to_price_adjustment
+        target=model('PriceAdjustDetail');head=model('PriceAdjust');quotes=model('QuoteDetail')
+        fields={name:serializers.PrimaryKeyRelatedField(queryset=Reader(request).source(m,list(m.SOURCE_FIELDS.values())))
+            for name,m in [('quote',model('Quote')),('head',head)]}
+        values=parameters(self,{**fields,**transfer_number_parameters('phase6_quote_to_price_adjustment')});line=self.get_object()
+        Reader(request).source(type(line),list(line.SOURCE_FIELDS.values())).get(pk=line.pk)
+        for m,method,suffix in [(target,'POST',''),(head,'PATCH',str(values['head'].pk)+'/'),(quotes,'PATCH',str(line.pk)+'/')]:
+            scope=SimpleNamespace(user=request.user,method=method,path='/api/system/'+m._meta.label_lower.replace('.','_')+'/'+suffix)
+            if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要调价明细新增、调价单及报价修改权限。')
+        from .source_sales_services import same_numeric_color,rows
+        from .source_stock_services import raw
+        for related in same_numeric_color(rows('QuoteDetail'),raw(line,'ColorNum')):
+            Reader(request).source(quotes,list(quotes.SOURCE_FIELDS.values())).get(pk=related.pk)
+        created=quote_to_price_adjustment(line,actor=request.user,**values)
+        return success({'model':created._meta.label_lower.replace('.','_'),'id':created.pk,
+            'detail_no':created.old_detail_no,'head_id':values['head'].pk},'已生成调价明细并执行原色号报价回写')
+
+    @action(methods=['post'],detail=True,url_name='phase6_department_apply_to_purchase')
+    def phase6_department_apply_to_purchase(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .reports import Reader
+        from .source_phase3_operations import model
+        from .source_phase6_transfers import DEPT_PURCHASE,department_apply_to_purchase
+        line=self.get_object();source,target_table,_,_,_=DEPT_PURCHASE[line.SOURCE_TABLE]
+        Reader(request).source(type(line),list(line.SOURCE_FIELDS.values())).get(pk=line.pk)
+        target=model('PurDetail');head=model(target_table)
+        fields={name:serializers.PrimaryKeyRelatedField(queryset=Reader(request).source(m,list(m.SOURCE_FIELDS.values())))
+            for name,m in [('application',model(source)),('head',head)]}
+        for name,old in [('quantity','Qty'),('price','Price')]:
+            field=target._meta.get_field(target.SOURCE_FIELDS[old])
+            fields[name]=serializers.DecimalField(max_digits=field.max_digits,decimal_places=field.decimal_places,allow_null=True)
+        values=parameters(self,{**fields,**transfer_number_parameters('phase6_department_apply_to_purchase')})
+        for m,method,suffix in [(target,'POST',''),(head,'PATCH',str(values['head'].pk)+'/')]:
+            scope=SimpleNamespace(user=request.user,method=method,path='/api/system/'+m._meta.label_lower.replace('.','_')+'/'+suffix)
+            if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要采购单修改及采购明细新增权限。')
+        created=department_apply_to_purchase(line,actor=request.user,**values)
+        return success({'model':created._meta.label_lower.replace('.','_'),'id':created.pk,
+            'detail_no':created.old_detail_no,'head_id':values['head'].pk},'已生成采购明细')
+
+    @action(methods=['post'],detail=True,url_name='phase6_care_plan_to_article_out')
+    def phase6_care_plan_to_article_out(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .reports import Reader
+        from .source_phase3_operations import model
+        from .source_phase6_transfers import care_plan_to_article_out
+        target=model('ArticleOutDetail');head=model('ArticleOut');article=model('p_Article')
+        fields={name:serializers.PrimaryKeyRelatedField(queryset=Reader(request).source(m,list(m.SOURCE_FIELDS.values())))
+                for name,m in [('head',head),('article',article)]}
+        for name,old in [('quantity','OutQty'),('price','Price')]:
+            field=target._meta.get_field(target.SOURCE_FIELDS[old])
+            fields[name]=serializers.DecimalField(max_digits=field.max_digits,decimal_places=field.decimal_places,allow_null=True)
+        for name,old in [('in_detail_no','InDetailNo'),('storage_unit_ids','StorageUnitIDs')]:
+            fields[name]=serializers.CharField(max_length=target._meta.get_field(target.SOURCE_FIELDS[old]).max_length,
+                allow_null=True,allow_blank=True,trim_whitespace=False,required=False,default=None)
+        values=parameters(self,{**fields,**transfer_number_parameters('phase6_care_plan_to_article_out')})
+        for m,method,suffix in [(target,'POST',''),(head,'PATCH',str(values['head'].pk)+'/')]:
+            scope=SimpleNamespace(user=request.user,method=method,path='/api/system/'+m._meta.label_lower.replace('.','_')+'/'+suffix)
+            if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要配件出库单修改和明细新增权限。')
+        line=self.get_object()
+        Reader(request).source(type(line),list(line.SOURCE_FIELDS.values())).get(pk=line.pk)
+        created=care_plan_to_article_out(line,actor=request.user,**values)
+        return success({'model':created._meta.label_lower.replace('.','_'),'id':created.pk,
+            'detail_no':created.old_detail_no,'head_id':values['head'].pk},'已生成配件出库明细')
+
+    @action(methods=['post'],detail=True,url_name='phase6_purchase_to_product')
+    def phase6_purchase_to_product(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .reports import Reader
+        from .source_phase3_operations import model
+        from .source_phase6_transfers import purchase_to_product
+        target=model('ProdIn')
+        scope=SimpleNamespace(user=request.user,method='POST',path='/api/system/'+target._meta.label_lower.replace('.','_')+'/')
+        if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要成品入库新增权限。')
+        purchase=model('PurMain')
+        fields={'purchase':serializers.PrimaryKeyRelatedField(queryset=Reader(request).source(purchase,list(purchase.SOURCE_FIELDS.values()))),
+            'quantity_basis':serializers.ChoiceField(choices=['weight','length']),
+            'sheet_kind':serializers.IntegerField(),'stock_unit':serializers.IntegerField()}
+        for key,old in [('warehouse_id','WareHouseID'),('customer_id','CustomerID'),('prod_id','ProdID')]:
+            fields[key]=serializers.CharField(max_length=target._meta.get_field(target.SOURCE_FIELDS[old]).max_length,
+                allow_null=True,allow_blank=True,trim_whitespace=False)
+        values=parameters(self,{**fields,**transfer_number_parameters('phase6_purchase_to_product')});line=self.get_object()
+        Reader(request).source(type(line),list(line.SOURCE_FIELDS.values())).get(pk=line.pk)
+        return created_document(purchase_to_product(line,actor=request.user,**values))
+
+    @action(methods=['post'],detail=True,url_name='phase6_quote_to_order')
+    def phase6_quote_to_order(self,request,pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .reports import Reader
+        from .source_phase3_operations import model
+        from .source_phase6_transfers import quote_to_order
+        for table in ['OrderMain','OrderColor']:
+            target=model(table)
+            scope=SimpleNamespace(user=request.user,method='POST',path='/api/system/'+target._meta.label_lower.replace('.','_')+'/')
+            if not ApiPermission().has_permission(scope,None):raise PermissionDenied('需要订单表头及明细的新增权限。')
+        original=model('Quote')
+        p=parameters(self,{**transfer_number_parameters('phase6_quote_to_order'),'quote':serializers.PrimaryKeyRelatedField(queryset=Reader(request).source(original,list(original.SOURCE_FIELDS.values()))),
+            'fabric_id':serializers.CharField(max_length=model('OrderColor')._meta.get_field('old_fabric_id').max_length,
+                allow_blank=True,allow_null=True,required=False,default=None,trim_whitespace=False)})
+        line=self.get_object()
+        Reader(request).source(type(line),list(line.SOURCE_FIELDS.values())).get(pk=line.pk)
+        return created_document(quote_to_order(line,actor=request.user,**p))
+
+    @action(methods=['post'], detail=True, url_name='phase6_purchase_to_arrival')
+    def phase6_purchase_to_arrival(self, request, pk=None):
+        from types import SimpleNamespace
+        from core.permissions import ApiPermission
+        from rest_framework.exceptions import PermissionDenied
+        from .source_phase3_operations import model
+        from .reports import Reader
+        from .source_phase6_transfers import purchase_to_arrival
+        target = model('ArrivalNoticeDetail')
+        scope = SimpleNamespace(user=request.user, method='POST',
+            path='/api/system/'+target._meta.label_lower.replace('.', '_')+'/')
+        if not ApiPermission().has_permission(scope, None):
+            raise PermissionDenied('需要到货通知明细的新增权限。')
+        original = model('PurDetail')
+        selected = Reader(request).source(original, list(original.SOURCE_FIELDS.values()))
+        p = parameters(self, {'selected': serializers.PrimaryKeyRelatedField(
+            queryset=selected, many=True, allow_empty=False)})
+        return report_result(purchase_to_arrival(self.get_object(), actor=request.user, **p))
+
+    @action(methods=['get'],detail=True,url_name='phase6_print_history')
+    def phase6_print_history(self,request,pk=None):
+        from .source_context import SourceDocumentContext
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        item=self.get_object()
+        context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
+        return success(context.effects.get('entry_print_jobs',[]) if context else [])
+
+    @action(methods=['post'],detail=True,url_name='phase6_formula')
+    def phase6_formula(self,request,pk=None):
+        from .source_phase6_expressions import calculate
+        from .source_phase6_entries import reader
+        p=parameters(self,{'entry':serializers.CharField(),'apply':serializers.BooleanField(default=False)})
+        return report_result(calculate(self.get_object(),reader=reader(request),actor=request.user,**p))
+
+    @action(methods=['post'],detail=True,url_name='phase6_prepare_print')
+    def phase6_prepare_print(self,request,pk=None):
+        from .source_phase6_printing import prepare_print
+        from .source_phase6_entries import reader
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        p=parameters(self,{'entry':serializers.CharField()})
+        return success(prepare_print(self.get_object(),p['entry'],request.user,reader(request)))
+
+    @action(methods=['post'],detail=True,url_name='phase6_finish_print')
+    def phase6_finish_print(self,request,pk=None):
+        from .source_phase6_printing import finish_print
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        p=parameters(self,{'job_id':serializers.CharField(),'state':serializers.ChoiceField(choices=['cancelled','failed','operator_confirmed']),
+            'reason':serializers.CharField(trim_whitespace=False)})
+        return success(finish_print(self.get_object(),actor=request.user,**p))
+
+    @action(methods=['get'],detail=False,url_name='phase6_catalog')
+    def phase6_catalog(self,request):
+        from .source_phase6_api import catalog_view
+        return catalog_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase6_query')
+    def phase6_query(self,request):
+        from .source_phase6_api import query_view
+        return query_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase6_export')
+    def phase6_export(self,request):
+        from .source_phase6_api import query_view
+        return query_view(self,True)
+
+    @action(methods=['post'],detail=False,url_name='phase6_template')
+    def phase6_template(self,request):
+        from .source_phase6_api import template_view
+        return template_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase5_report')
+    def phase5_report(self,request):
+        from .source_phase5_api import report_view
+        return report_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase5_function')
+    def phase5_function(self,request):
+        from .source_phase5_api import function_view
+        return function_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase5_operation')
+    def phase5_operation(self,request):
+        from .source_phase5_api import operation_view
+        return operation_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase4_attendance')
+    def phase4_attendance(self,request):
+        from .source_phase4_api import attendance_view
+        return attendance_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase4_equipment')
+    def phase4_equipment(self,request):
+        from .source_phase4_api import equipment_view
+        return equipment_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase4_report')
+    def phase4_report(self,request):
+        from .source_phase4_api import report_view
+        return report_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase4_function')
+    def phase4_function(self,request):
+        from .source_phase4_api import function_view
+        return function_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase4_operation')
+    def phase4_operation(self,request):
+        from .source_phase4_api import operation_view
+        return operation_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase3_report')
+    def phase3_report(self,request):
+        from .source_phase3_api import report_view
+        return report_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase3_carry')
+    def phase3_carry(self,request):
+        from .source_phase3_api import carry_view
+        return carry_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase3_operation')
+    def phase3_operation(self,request):
+        from .source_phase3_api import operation_view
+        return operation_view(self)
+
+    @action(methods=['post'],detail=False,url_name='refresh_recipe_costs')
+    def refresh_recipe_costs(self,request):
+        from .source_phase2_operations import recipe_costs
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return report_result(recipe_costs(request.user))
+
+    @action(methods=['post'],detail=True,url_name='original_quote_adjustment')
+    def original_quote_adjustment(self,request,pk=None):
+        from .source_phase2_operations import quote_adjustment
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return self.performed(quote_adjustment,parameters(self,{'audited':serializers.BooleanField()}))
+
+    @action(methods=['post'],detail=True,url_name='refresh_sample_book')
+    def refresh_sample_book(self,request,pk=None):
+        from .source_phase2_operations import sample_book
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return self.performed(sample_book,parameters(self,{'sheet_no':serializers.CharField(allow_blank=True,trim_whitespace=False),
+            'detail_no':serializers.CharField(allow_blank=True,trim_whitespace=False),'kind':serializers.ChoiceField(choices=[1,2])}))
+
+    @action(methods=['post'],detail=False,url_name='phase2_report')
+    def phase2_report(self,request):
+        from .source_phase2_api import report_view
+        return report_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase2_price')
+    def phase2_price(self,request):
+        from .source_phase2_api import scalar_view
+        return scalar_view(self)
+
+    @action(methods=['post'],detail=False,url_name='app_order_save')
+    def app_order_save(self,request):
+        from .source_phase2_api import app_order
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return app_order(self)
+
+    @action(methods=['post'],detail=True,url_name='app_order_modify')
+    def app_order_modify(self,request,pk=None):
+        from .source_phase2_api import app_order
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return app_order(self,True)
+
+    @action(methods=['post'],detail=True,url_name='app_order_check')
+    def app_order_check(self,request,pk=None):
+        from .source_phase2_orders import check_modify
+        from .source_stock_services import raw
+        return report_result({'report':'订单修改检查','rows':[check_modify(raw(self.get_object(),'SheetSeries'))]})
+
+    @action(methods=['post'],detail=False,url_name='app_order_check_save')
+    def app_order_check_save(self,request):
+        from .source_phase2_orders import check_save
+        return report_result({'report':'订单新增检查','rows':[check_save()]})
+
+    @action(methods=['post'],detail=True,url_name='reprint_allocation')
+    def reprint_allocation(self,request,pk=None):
+        from .source_phase2_operations import reprint
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return self.performed(reprint,{})
+
+    @action(methods=['post'],detail=True,url_name='material_price_adjustment')
+    def material_price_adjustment(self,request,pk=None):
+        from .source_phase2_operations import material_adjustment
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return self.performed(material_adjustment,{})
+
+    @action(methods=['post'],detail=True,url_name='refresh_order_prices')
+    def refresh_order_prices(self,request,pk=None):
+        from .source_phase2_operations import order_prices
+        from .source_foundation_api import require_original_admin
+        from .business_api import parameters
+        require_original_admin(request)
+        values=parameters(self,{'feel_only':serializers.BooleanField(default=False),'all_orders':serializers.BooleanField(default=False)})
+        if values['all_orders']:values['feel_only']=True
+        return self.performed(order_prices,values)
+
+    @action(methods=['post'],detail=False,url_name='complete_sample_phases')
+    def complete_sample_phases(self,request):
+        from .source_phase2_operations import auto_phase
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        return report_result(auto_phase(request.user))
+
     def performed(self,service,values):
         item=service(self.get_object(),self.request.user,**values)
         return success(self.get_serializer(item).data)
@@ -1331,3 +1738,8 @@ class SourceMachineFaultViewSet(SourceEquipmentViewSet):
         item=self.get_object()
         return report_result(fault_check({'fault':item.old_fault_remarks,'machine':item.old_machine_id,'machine_name':item.old_machine_name,
             'fault_class':item.old_fault_class,'group':item.old_emp_group}))
+
+
+class SourceSalesLimitReadOnlyViewSet(SourceRecordViewSet):
+    """销售限制所需共享来源，仅提供查询。"""
+    http_method_names=["get","head","options"]

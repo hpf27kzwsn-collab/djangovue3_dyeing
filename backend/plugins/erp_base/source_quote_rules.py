@@ -7,20 +7,25 @@ from .source_business_updates import matching
 from .source_package_operations import reader,check_scope
 from .source_package_labels import varchar
 from .source_continuation import save_effect
+from .source_execution_state import active
 
 
 def inspect(item,operation,right_status_in_statement=False,query=reader):
-    heads=list(matching(reader('Quote','erp_sales'),SheetSeries=raw(item,'SheetSeries')).order_by('pk'))
+    def source(name,module):
+        return active(reader(name,module))
+    header='FixedPrice' if item.SOURCE_TABLE=='FixedPriceDetail' else 'Quote'
+    detail=header+'Detail'
+    heads=list(matching(source(header,'erp_sales'),SheetSeries=raw(item,'SheetSeries')).order_by('pk'))
     customer=varchar(raw(heads[-1],'CustomerID'),50) if heads else ''
     color=varchar(raw(item,'ColorNum'),20) if heads or operation=='delete' else ''
     product=varchar(raw(item,'ProdID'),20) if heads else ''
     status=raw(item,'RightStatus') if heads or operation=='delete' else None
     pairs=[];sources=[item,*heads]
     if key(customer or '')!='' and key(color or '')!='' and operation!='delete':
-        for head in matching(reader('Quote','erp_sales'),CustomerID=customer).order_by('pk'):
-            for line in matching(reader('QuoteDetail','erp_sales'),SheetSeries=raw(head,'SheetSeries'),ColorNum=color,ProdID=product).order_by('pk'):
+        for head in matching(source(header,'erp_sales'),CustomerID=customer).order_by('pk'):
+            for line in matching(source(detail,'erp_sales'),SheetSeries=raw(head,'SheetSeries'),ColorNum=color,ProdID=product).order_by('pk'):
                 pairs.append((head,line));sources.extend([head,line])
-    customers=list(matching(reader('PCustomer','erp_base'),CustomerID=customer).order_by('pk')) if customer else []
+    customers=list(matching(source('PCustomer','erp_base'),CustomerID=customer).order_by('pk')) if customer else []
     sources.extend(customers);check_scope(sources,query)
     threshold=1 if operation=='insert' else 2
     duplicate=operation!='delete' and len(pairs)>threshold

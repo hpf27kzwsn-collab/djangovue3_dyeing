@@ -36,7 +36,7 @@ def origin(item):
 def view_effects(item):
     context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
     return {} if context is None else {key: value for key, value in context.effects.items()
-        if key in ['factory_quality', 'delivery_confirmation', 'card_adoption', 'material_return_origin',
+        if key in ['quote_adjustment_origin','quote_transfer_origin','purchase_product_origin','field_copy_origin','department_purchase_origin','care_plan_article_origin','transfer_retained','factory_quality', 'delivery_confirmation', 'card_adoption', 'material_return_origin',
                    'product_dispatch_origin', 'package_receipt_origin', 'order_transfer_origin', 'combined_process_sync', 'package_gray_origin', 'combine_link_origin',
                    'automatic_combine','gray_consumed','gray_operation','gray_lineage','combine_link_reversal',
                    'quality_rebuild','quality_rebuild_origin','quality_replaced','history_gray_recovery','history_gray_origin','progress_maintenance',

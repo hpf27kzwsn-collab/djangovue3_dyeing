@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-21",
+  "kind": "document coverage and evidence validation; not application tests or business acceptance",
+  "coverage": {
+    "functions": {
+      "source": 1395,
+      "documented": 1395,
+      "missing": 0,
+      "duplicates": 0
+    },
+    "entries": {
+      "source": 1682,
+      "documented": 1682,
+      "missing": 0,
+      "duplicates": 0
+    },
+    "menus": {
+      "source": 1152,
+      "documented": 1152,
+      "missing": 0,
+      "duplicates": 0
+    },
+    "navigation": {
+      "source": 687,
+      "documented": 687,
+      "missing": 0,
+      "duplicates": 0
+    }
+  },
+  "module_function_total": 1395,
+  "adjustment_groups": 55,
+  "paused_query_identities": 35,
+  "stopped_functions_preserved": 684,
+  "undeclared_module_functions_preserved": 35,
+  "local_links_valid": true,
+  "print_prefix_false_classification_checks": "passed",
+  "numeric_form_param_false_match_checks": "passed",
+  "source_evidence_hashes_valid": true,
+  "application_code_changes": false,
+  "database_mutations": false,
+  "historical_reconciliation_performed": false,
+  "onsite_acceptance_performed": false,
+  "documents": [
+    {
+      "path": "2026-10-21全模块前端业务入口核查与调整方案.md",
+      "bytes": 70742,
+      "sha256": "27fce81a9bff509601bdda3d13868b37582060cae7ee6808035bf06ca590d714"
+    },
+    {
+      "path": "2026-10-21全模块旧功能与导航逐项对照.md",
+      "bytes": 724081,
+      "sha256": "acc88800c418a67ab07a0a8f750d7e518f4ad12a5924f85a46b19e69f0f71e4a"
+    },
+    {
+      "path": "2026-10-21全模块旧表单逐项对照.md",
+      "bytes": 455888,
+      "sha256": "615ae5290bf3a6e6d68f4180da5aa97a33a580274aef86178bed5c7835189946"
+    },
+    {
+      "path": "2026-10-21全模块当前菜单逐项对照.md",
+      "bytes": 403638,
+      "sha256": "7437989b70517bd7c32383f77a80225157a454bfec2afaaed24132aa1b1bbdf6"
+    }
+  ]
+}

@@ -125,9 +125,12 @@ class PurchaseQualityChainTests(TestCase):
         self.assertEqual(target.old_real_value,1)
         services.write(type(target),{'old_dye_process_id':'MISSING'},target,self.actor)
         target.refresh_from_db();self.assertIsNone(target.old_real_value)
-        self.assertEqual(self.model('ColorShiftEmp','erp_production').objects.count(),2)
+        self.assertEqual(self.model('ColorShiftEmp','erp_production').objects.count(),3)
+        from plugins.erp_base.source_phase3_operations import source
+        self.assertEqual(source('ColorShiftEmp').count(),1)
         services.delete(type(target).objects.filter(pk=target.pk),self.actor)
-        self.assertEqual(self.model('ColorShiftEmp','erp_production').objects.count(),1)
+        self.assertEqual(self.model('ColorShiftEmp','erp_production').objects.count(),3)
+        self.assertEqual(source('ColorShiftEmp').count(),0)
         self.assertTrue(type(old).objects.filter(pk=old.pk,source_batch=historical_batch()).exists())
 
     def test_defective_insert_only_positive_rolls_and_delete_restores_process(self):

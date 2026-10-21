@@ -1,0 +1,795 @@
+Browser tab: 1, Title: "ERP 管理平台", URL: "http://127.0.0.1:8126/system/erp_warehouse_sourcedyeprodin".
+1 AXWebArea ERP 管理平台, URL: 127.0.0.1:8126/system/erp_warehouse_sourcedyeprodin
+	2 container app
+		3 container
+			4 text D ERP 管理平台
+			5 menu bar
+				6 首页
+					7 text 首页
+				28 (collapsed) 染色ERP, Secondary Actions: Expand
+					29 container
+						30 image
+						31 text 染色ERP
+						32 image
+				33 (collapsed) 系统管理, Secondary Actions: Expand
+					34 container
+						35 text 系统管理
+						36 image
+				37 (collapsed) 任务管理, Secondary Actions: Expand
+					38 container
+						39 text 任务管理
+						40 image
+				41 组件示例
+					42 text 组件示例
+				43 图表 CRUD 示例
+					44 text 图表 CRUD 示例
+		8 container
+			9 container
+				10 button 折叠菜单
+				11 container 面包屑
+					12 link 首页
+						13 text 首页
+					14 text /
+					15 link 页面
+						16 text 页面
+				17 container
+					18 combo box (collapsed, settable) ID: el-id-6427-16, Secondary Actions: Expand
+					19 text 搜索菜单
+				20 button 全屏
+				21 button 我的消息
+				22 pop up button (collapsed) 简, ID: el-id-6427-2, Secondary Actions: Expand
+				23 button 主题设置
+				24 pop up button (collapsed) Description: 个人中心, ID: el-id-6427-7, Secondary Actions: Expand
+			45 container
+				46 button 首页
+					47 text 首页
+				48 button 页面 ×
+					49 text 页面
+					50 text ×
+				51 button 页面 ×
+					52 text 页面
+					53 text ×
+				54 button 页面 ×
+					55 text 页面
+					56 text ×
+				57 button 页面 ↻ ×
+					58 text 页面
+					59 text ↻
+					60 text ×
+				61 button 页面 ×
+					62 text 页面
+					63 text ×
+				64 button 页面 ×
+					65 text 页面
+					66 text ×
+				67 button 页面 ×
+					68 text 页面
+					69 text ×
+				70 button 页面 ×
+					71 text 页面
+					72 text ×
+				73 button 页面 ×
+					74 text 页面
+					75 text ×
+				76 button 页面 ×
+					77 text 页面
+					78 text ×
+				79 button 页面 ×
+					80 text 页面
+					81 text ×
+				82 button 页面 ×
+					83 text 页面
+					84 text ×
+				85 button 页面 ×
+					86 text 页面
+					87 text ×
+				88 button 页面 ×
+					89 text 页面
+					90 text ×
+				91 button 页面 ×
+					92 text 页面
+					93 text ×
+				94 button 页面 ×
+					95 text 页面
+					96 text ×
+				97 button 页面 ×
+					98 text 页面
+					99 text ×
+				100 button 页面 ×
+					101 text 页面
+					102 text ×
+				103 button 页面 ×
+					104 text 页面
+					105 text ×
+				106 button 页面 ×
+					107 text 页面
+					108 text ×
+				109 button 页面 ×
+					110 text 页面
+					111 text ×
+				112 button 页面 ×
+					113 text 页面
+					114 text ×
+				115 button 页面 ×
+					116 text 页面
+					117 text ×
+				118 button 页面 ×
+					119 text 页面
+					120 text ×
+				121 button 页面 ×
+					122 text 页面
+					123 text ×
+				124 button 页面 ×
+					125 text 页面
+					126 text ×
+				127 button 页面 ×
+					128 text 页面
+					129 text ×
+				130 button 页面 ×
+					131 text 页面
+					132 text ×
+				133 button 页面 ×
+					134 text 页面
+					135 text ×
+				136 button 页面 ×
+					137 text 页面
+					138 text ×
+				139 button 页面 ×
+					140 text 页面
+					141 text ×
+				142 button 页面 ×
+					143 text 页面
+					144 text ×
+				145 button 页面 ×
+					146 text 页面
+					147 text ×
+				148 button 页面 ×
+					149 text 页面
+					150 text ×
+			151 container
+				152 button 旧业务入口、字段与打印配置
+				153 button 原收发、转仓及库存办理
+				154 heading 成品入库单, Value: 2
+					155 text 成品入库单
+				156 button 导出
+				157 button 异步导出
+				158 button 新增模板
+				159 button 更新模板
+				160 button xlsx 导入
+				161 button 初始化数据
+				162 button 已选 0 项
+				163 button (disabled) 批量删除
+				164 container
+					165 container
+						166 container 录入码单明细否
+							167 text 录入码单明细否
+							168 container
+								169 combo box (collapsed, settable) 录入码单明细否, ID: el-id-6427-805, Secondary Actions: Expand
+								170 text 未填写
+								171 image
+						172 container
+							173 text 关键词
+							174 text field (settable) 关键词, ID: el-id-6427-806
+						175 container
+							176 button 查询
+								177 text 查询
+							178 button 重置
+								179 text 重置
+					180 button 添加
+					181 button 刷新
+					182 button 查询显示
+					183 button 紧凑模式
+					184 button 列设置
+					185 container
+						186 table
+							187 row
+								188 cell
+									189 container 选择所有行
+										190 checkbox (settable, integer) Description: 选择所有行, Value: 0, ID: el-id-6427-809
+								191 cell
+									192 text 序号
+								193 cell
+									194 container
+										195 text ID
+										196 button 按 ID 排序
+								197 cell
+									198 text 转单状态
+								199 cell
+									200 container
+										201 text 表单流水号
+										202 button 按 表单流水号 排序
+								203 cell
+									204 container
+										205 text 表单编号
+										206 button 按 表单编号 排序
+								207 cell
+									208 container
+										209 text 缸号
+										210 button 按 缸号 排序
+								211 cell
+									212 container
+										213 text 单据日期
+										214 button 按 单据日期 排序
+								215 cell
+									216 container
+										217 text 录入码单明细否
+										218 button 按 录入码单明细否 排序
+								219 cell
+									220 container
+										221 text 单据类别
+										222 button 按 单据类别 排序
+								223 cell
+									224 container
+										225 text 客户代码
+										226 button 按 客户代码 排序
+								227 cell
+									228 container
+										229 text 经营单位代码
+										230 button 按 经营单位代码 排序
+								231 cell
+									232 container
+										233 text 单位
+										234 button 按 单位 排序
+								235 cell
+									236 container
+										237 text 单据状态
+										238 button 按 单据状态 排序
+								239 cell
+									240 container
+										241 text 审核状态
+										242 button 按 审核状态 排序
+								243 cell
+									244 container
+										245 text 打印次数
+										246 button 按 打印次数 排序
+								247 cell
+									248 container
+										249 text 修改次数
+										250 button 按 修改次数 排序
+								251 cell
+									252 container
+										253 text 备注
+										254 button 按 备注 排序
+								255 cell
+									256 container
+										257 text 创建人
+										258 button 按 创建人 排序
+								259 cell
+									260 container
+										261 text 创建时间
+										262 button 按 创建时间 排序
+								263 cell
+									264 container
+										265 text 修改人
+										266 button 按 修改人 排序
+								267 cell
+									268 container
+										269 text 修改日期
+										270 button 按 修改日期 排序
+								271 cell
+									272 container
+										273 text 业务组别
+										274 button 按 业务组别 排序
+								275 cell
+									276 container
+										277 text 业务员代码
+										278 button 按 业务员代码 排序
+								279 cell
+									280 container
+										281 text 工作流节点号
+										282 button 按 工作流节点号 排序
+								283 cell
+									284 container
+										285 text 业务类别
+										286 button 按 业务类别 排序
+								287 cell
+									288 container
+										289 text 本厂规格
+										290 button 按 本厂规格 排序
+								291 cell
+									292 container
+										293 text 批号
+										294 button 按 批号 排序
+								295 cell
+									296 container
+										297 text 捻度(H/S)
+										298 button 按 捻度(H/S) 排序
+								299 cell
+									300 container
+										301 text 颜色编码
+										302 button 按 颜色编码 排序
+								303 cell
+									304 container
+										305 text 色号
+										306 button 按 色号 排序
+								307 cell
+									308 container
+										309 text 仓位代码
+										310 button 按 仓位代码 排序
+								311 cell
+									312 container
+										313 text 仓库代码
+										314 button 按 仓库代码 排序
+								315 cell
+									316 container
+										317 text 粒数
+										318 button 按 粒数 排序
+								319 cell
+									320 container
+										321 text 毛重
+										322 button 按 毛重 排序
+								323 cell
+									324 container
+										325 text 长度数量
+										326 button 按 长度数量 排序
+								327 cell
+									328 container
+										329 text 价格
+										330 button 按 价格 排序
+								331 cell
+									332 container
+										333 text 金额
+										334 button 按 金额 排序
+								335 cell
+									336 container
+										337 text 合计
+										338 button 按 合计 排序
+								339 cell
+									340 container
+										341 text 筒管重
+										342 button 按 筒管重 排序
+								343 cell
+									344 container
+										345 text 特殊工艺价格
+										346 button 按 特殊工艺价格 排序
+								347 cell
+									348 container
+										349 text 另收费项目
+										350 button 按 另收费项目 排序
+								351 cell
+									352 container
+										353 text AtteMemo
+										354 button 按 AtteMemo 排序
+								355 cell
+									356 container
+										357 text 特殊要求价格
+										358 button 按 特殊要求价格 排序
+								359 cell
+									360 container
+										361 text VatFee
+										362 button 按 VatFee 排序
+								363 cell
+									364 container
+										365 text 损耗
+										366 button 按 损耗 排序
+								367 cell
+									368 container
+										369 text 损耗
+										370 button 按 损耗 排序
+								371 cell
+									372 container
+										373 text AdjustedLoss
+										374 button 按 AdjustedLoss 排序
+								375 cell
+									376 container
+										377 text 克重
+										378 button 按 克重 排序
+								379 cell
+									380 container
+										381 text 幅宽
+										382 button 按 幅宽 排序
+								383 cell
+									384 container
+										385 text WidthKindID
+										386 button 按 WidthKindID 排序
+								387 cell
+									388 container
+										389 text WeightUnit
+										390 button 按 WeightUnit 排序
+								391 cell
+									392 container
+										393 text ApproveDate
+										394 button 按 ApproveDate 排序
+								395 cell
+									396 container
+										397 text Approver
+										398 button 按 Approver 排序
+								399 cell
+									400 container
+										401 text DetailsCustomer
+										402 button 按 DetailsCustomer 排序
+								403 cell
+									404 container
+										405 text 底板号
+										406 button 按 底板号 排序
+								407 cell
+									408 container
+										409 text 客户缸号
+										410 button 按 客户缸号 排序
+								411 cell
+									412 container
+										413 text 投胚米数
+										414 button 按 投胚米数 排序
+								415 cell
+									416 container
+										417 text 颜色深浅
+										418 button 按 颜色深浅 排序
+								419 cell
+									420 container
+										421 text 仓管员
+										422 button 按 仓管员 排序
+								423 cell
+									424 container
+										425 text 经密
+										426 button 按 经密 排序
+								427 cell
+									428 container
+										429 text 纬密
+										430 button 按 纬密 排序
+								431 cell
+									432 container
+										433 text 客户规格
+										434 button 按 客户规格 排序
+								435 cell
+									436 container
+										437 text 装/配工
+										438 button 按 装/配工 排序
+								439 cell
+									440 container
+										441 text 装/配工
+										442 button 按 装/配工 排序
+								443 cell
+									444 container
+										445 text 装/配工
+										446 button 按 装/配工 排序
+								447 cell
+									448 container
+										449 text 装/配工
+										450 button 按 装/配工 排序
+								451 cell
+									452 container
+										453 text 装/配工
+										454 button 按 装/配工 排序
+								455 cell
+									456 container
+										457 text PhaseID
+										458 button 按 PhaseID 排序
+								459 cell
+									460 container
+										461 text 胚重
+										462 button 按 胚重 排序
+								463 cell
+									464 container
+										465 text 客户色号
+										466 button 按 客户色号 排序
+								467 cell
+									468 container
+										469 text 订单明细号
+										470 button 按 订单明细号 排序
+								471 cell
+									472 container
+										473 text 制单号
+										474 button 按 制单号 排序
+								475 cell
+									476 container
+										477 text 区域
+										478 button 按 区域 排序
+								479 cell
+									480 container
+										481 text 出货方式
+										482 button 按 出货方式 排序
+								483 cell
+									484 container
+										485 text 胶袋
+										486 button 按 胶袋 排序
+								487 cell
+									488 container
+										489 text ColorE
+										490 button 按 ColorE 排序
+								491 cell
+									492 container
+										493 text 用途
+										494 button 按 用途 排序
+								495 cell
+									496 container
+										497 text packremarks
+										498 button 按 packremarks 排序
+								499 cell
+									500 container
+										501 text JXTDDH
+										502 button 按 JXTDDH 排序
+								503 cell
+									504 container
+										505 text ProdInOriSheetNo
+										506 button 按 ProdInOriSheetNo 排序
+								507 cell
+									508 container
+										509 text 纱类别
+										510 button 按 纱类别 排序
+								511 cell
+									512 container
+										513 text 净重
+										514 button 按 净重 排序
+								515 cell
+									516 container
+										517 text 客户单号
+										518 button 按 客户单号 排序
+								519 cell
+									520 container
+										521 text ProdOutSheetSeries
+										522 button 按 ProdOutSheetSeries 排序
+								523 cell
+									524 container
+										525 text 办理阶段
+										526 button 按 办理阶段 排序
+								527 cell
+									528 container
+										529 text 确认时间
+										530 button 按 确认时间 排序
+								531 cell
+									532 container
+										533 text 确认人
+										534 button 按 确认人 排序
+								535 cell
+									536 container
+										537 text 审核时间
+										538 button 按 审核时间 排序
+								539 cell
+									540 container
+										541 text 审核人
+										542 button 按 审核人 排序
+								543 cell
+									544 container
+										545 text 业务备注
+										546 button 按 业务备注 排序
+								547 cell
+									548 text 操作
+						549 table
+							550 container
+								551 row
+									552 cell
+										553 container 选择当前行
+											554 checkbox (settable, integer) Description: 选择当前行, Value: 0, ID: el-id-6427-810
+									555 cell
+										556 text 1
+									557 cell
+										558 text 832
+									803 cell
+										804 text 已撤回留档
+									559 cell
+										560 text UI-SIX-PRODIN
+									561 cell
+										562 text UI-SIX-PRODIN
+									563 cell
+										564 text 未填写
+									565 cell
+										566 text 18
+									567 cell
+										568 text SIXC
+									569 cell
+										570 text 1
+									571 cell
+										572 text SIXP
+									573 cell
+										574 text SIXW
+									575 cell
+										576 text 2.00
+									577 cell
+										578 text -4.00
+									579 cell
+										580 text 草稿
+									801 cell
+										802 text 六组验证：采购原数量不被空细码覆盖
+									581 cell
+										582 container 操作
+											583 button 查看
+											805 button 数据版打印
+											806 button 明细与关联
+								596 row
+									597 cell
+										598 container 选择当前行
+											599 checkbox (settable, integer) Description: 选择当前行, Value: 0, ID: el-id-6427-811
+									600 cell
+										601 text 2
+									602 cell
+										603 text 831
+									604 cell
+										605 text SIXRETURN
+									606 cell
+										607 text SIXRETURN
+									608 cell
+										609 text 2026-10-17 21:25:56
+									610 cell
+										611 text 未填写
+									612 cell
+										613 text 16
+									614 cell
+										615 text SIXC
+									616 cell
+										617 text 1.00
+									618 cell
+										619 text 2.00
+									620 cell
+										621 container 操作
+											622 button 查看
+											623 button 数据版打印
+											624 button 明细与关联
+											625 button 登记加工厂质量处置
+											626 button 实际交付或退厂出库
+											627 button 查看本单接续办理事实
+											628 button 按原公式计算
+											629 button 撤回转入整单（原单留档）
+											630 button 旧入口公式试算与采用
+								631 row
+									632 cell
+										633 container 选择当前行
+											634 checkbox (settable, integer) Description: 选择当前行, Value: 0, ID: el-id-6427-812
+									635 cell
+										636 text 3
+									637 cell
+										638 text 830
+									639 cell
+										640 text UI-SPLIT-IN
+									641 cell
+										642 text UI-SPLIT-IN
+									643 cell
+										644 text 26101701
+									645 cell
+										646 text 未填写
+									647 cell
+										648 text 1.00
+									649 cell
+										650 text -4.00
+									651 cell
+										652 container 操作
+											653 button 查看
+											654 button 数据版打印
+											655 button 明细与关联
+											656 button 登记加工厂质量处置
+											657 button 实际交付或退厂出库
+											658 button 查看本单接续办理事实
+											659 button 按原公式计算
+											660 button 撤回转入整单（原单留档）
+											661 button 旧入口公式试算与采用
+								662 row
+									663 cell
+										664 container 选择当前行
+											665 checkbox (settable, integer) Description: 选择当前行, Value: 0, ID: el-id-6427-813
+									666 cell
+										667 text 4
+									668 cell
+										669 text 829
+									670 cell
+										671 text 已撤回留档
+									672 cell
+										673 text UI-PIN
+									674 cell
+										675 text UI-PIN
+									676 cell
+										677 text 未填写
+									678 cell
+										679 text 18
+									680 cell
+										681 text UI-C
+									682 cell
+										683 text 1
+									684 cell
+										685 text UI-P
+									686 cell
+										687 text UI-W
+									688 cell
+										689 text 2.00
+									690 cell
+										691 text -4.00
+									692 cell
+										693 text UI-FAB
+									694 cell
+										695 text 草稿
+									696 cell
+										697 container 操作
+											698 button 查看
+											699 button 数据版打印
+											700 button 明细与关联
+								701 row
+									702 cell
+										703 container 选择当前行
+											704 checkbox (settable, integer) Description: 选择当前行, Value: 0, ID: el-id-6427-814
+									705 cell
+										706 text 5
+									707 cell
+										708 text 828
+									709 cell
+										710 text UI-RET
+									711 cell
+										712 text UI-RET
+									713 cell
+										714 text 未填写
+									715 cell
+										716 container 操作
+											717 button 查看
+											718 button 数据版打印
+											719 button 明细与关联
+											720 button 登记加工厂质量处置
+											721 button 实际交付或退厂出库
+											722 button 查看本单接续办理事实
+											723 button 按原公式计算
+											724 button 撤回转入整单（原单留档）
+											725 button 旧入口公式试算与采用
+								726 row
+									727 cell
+										728 container 选择当前行
+											729 checkbox (settable, integer) Description: 选择当前行, Value: 0, ID: el-id-6427-815
+									730 cell
+										731 text 6
+									732 cell
+										733 text 827
+									734 cell
+										735 text UI-RCPT
+									736 cell
+										737 text UI-RCPT
+									738 cell
+										739 text 未填写
+									740 cell
+										741 container 操作
+											742 button 查看
+											743 button 数据版打印
+											744 button 明细与关联
+											745 button 登记加工厂质量处置
+											746 button 实际交付或退厂出库
+											747 button 查看本单接续办理事实
+											748 button 按原公式计算
+											749 button 撤回转入整单（原单留档）
+											750 button 旧入口公式试算与采用
+								751 row
+									752 cell
+										753 container 选择当前行
+											754 checkbox (settable, integer) Description: 选择当前行, Value: 0, ID: el-id-6427-816
+									755 cell
+										756 text 7
+									757 cell
+										758 text 826
+									759 cell
+										760 text UI-TWIST
+									761 cell
+										762 text UI-TWIST
+									763 cell
+										764 text 未填写
+									765 cell
+										766 text 3.00
+									767 cell
+										768 text -5.00
+									769 cell
+										770 text -4.00
+									771 cell
+										772 text 草稿
+									773 cell
+										774 container 操作
+											775 button 查看
+											776 button 编辑
+											777 button 删除
+											778 button 数据版打印
+											779 button 明细与关联
+											780 button 整单编辑
+											781 button 确认
+											782 button 登记加工厂质量处置
+											783 button 实际交付或退厂出库
+											784 button 查看本单接续办理事实
+											785 button 按原公式计算
+											786 button 撤回转入整单（原单留档）
+											787 button 旧入口公式试算与采用
+					788 text 共 7 条
+					789 container
+						790 combo box (collapsed, settable) ID: el-id-6427-807, Secondary Actions: Expand
+						791 text 20条/页
+						792 image
+					793 button (disabled) 上一页
+					794 content list
+						795 container 第 1 页
+							796 text 1
+					797 button (disabled) 下一页
+					798 text 前往
+					799 stepper (settable, integer) Description: 页, Value: 1, ID: el-id-6427-808
+					800 text 页
+			27 text ERP 管理平台 · 1.0.0
+
+The focused UI element is 1 AXWebArea ERP 管理平台, URL: 127.0.0.1:8126/system/erp_warehouse_sourcedyeprodin

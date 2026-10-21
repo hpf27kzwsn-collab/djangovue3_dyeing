@@ -58,10 +58,11 @@ ENTRY_METHODS = {
         'SaleJobSheet': '销售工卡计划汇总', 'TwiJobSheet': '加捻工卡计划汇总',
     },
     'ProdIn': {
+        'TwistingIn': '加捻入库细码汇总',
         'ProdIn': '成品入库汇总', 'ProdInWork': '车间成品入库汇总',
         'ProdIn_ht': '合同成品入库汇总及损耗', 'ProdInEdit': '成品入库修改汇总及损耗',
     },
-    'ProdInRecord': {'ProdInRecord': '成品实际量', 'ProdInRecordWork': '车间成品实际量'},
+    'ProdInRecord': {'ProdInRecord': '成品实际量', 'ProdInRecordWork': '车间成品实际量','TwistingInRecord':'加捻实际量'},
     'GrayInDetail': {'GrayAllotInDetail': '调拨坯料明细汇总'},
     'GrayOutDetail': {'TSGrayOutDetail': '坯料出库匹配汇总'},
     'SemiOutDetail': {

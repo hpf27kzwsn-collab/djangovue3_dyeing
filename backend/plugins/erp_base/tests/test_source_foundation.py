@@ -41,6 +41,9 @@ class OriginalUnitTests(SimpleTestCase):
         self.assertEqual(len(service.get_days(date(2000, 1, 1), date(2026, 1, 1))), 2048)
         self.assertEqual(service.get_days(date(2026, 1, 1), date(2025, 1, 1)), [])
         self.assertEqual(service.get_days(None, date(2026, 1, 1)), [])
+        self.assertEqual(service.get_days(date.max,date.max),[{'days':date.max}])
+        self.assertEqual(service.get_days(date(9999,12,30),date.max),
+                         [{'days':date(9999,12,30)},{'days':date.max}])
 
 
 class FoundationSourceTests(TestCase):

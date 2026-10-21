@@ -19,6 +19,15 @@ def change(item,values,effects,actor,reason):
 def restore(effects,actor,reason):
     for effect in reversed(effects):
         item=locked(apps.get_model(effect['entity']).objects.get(pk=effect['id']))
+        if 'effect_changes' in effect:
+            before=snapshot(item)
+            for key,values in effect['effect_changes'].items():
+                if (key in item.effects)!=values['after_exists'] or item.effects.get(key)!=values['after']:
+                    raise ValidationError({'source':'对应拆合办理事实已有后续变化，请先撤回后续操作。'})
+                if values['before_exists']:item.effects[key]=values['before']
+                else:item.effects.pop(key,None)
+            persist(item,actor);record(item,'split_merge_restore',before,actor,reason)
+            continue
         for key,value in effect['after'].items():
             expected=item._meta.get_field(key).to_python(value)
             if getattr(item,key)!=expected:

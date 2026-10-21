@@ -97,12 +97,13 @@ def packaging_values(item, method):
 
 
 def aggregate_values(item):
+    from .source_execution_state import active
     values = {}
     with localcontext() as context:
         context.prec = 80
         for target, label, old, coalesce in AGGREGATES.get(item.SOURCE_TABLE, []):
             child = apps.get_model(label)
-            value = child.objects.filter(source_parent_1=item).aggregate(value=models.Sum(child.SOURCE_FIELDS[old]))['value']
+            value = active(child.objects.filter(source_parent_1=item)).aggregate(value=models.Sum(child.SOURCE_FIELDS[old]))['value']
             values[target] = zero(value) if coalesce else value
         return dict(store_value(item, old, value) for old, value in values.items())
 

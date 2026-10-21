@@ -11,3 +11,6 @@ from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
 RESOURCE_OPTIONS.update(SOURCE_RESOURCES)
 from .quantity_resources import RESOURCE_OPTIONS as QUANTITY_RESOURCES
 RESOURCE_OPTIONS.update(QUANTITY_RESOURCES)
+
+from plugins.erp_base.foundation_catalog import configure_resources
+configure_resources(RESOURCE_OPTIONS, 'erp_quality')

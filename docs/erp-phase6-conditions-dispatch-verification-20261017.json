@@ -1,0 +1,361 @@
+{
+  "verified_at": "2026-10-17T15:12:37.750355+08:00",
+  "development": "部分完成",
+  "query_status_counts": {
+    "executed_empty_fixture": 1519,
+    "finance": 108,
+    "unresolved": 36,
+    "reconstructed_missing_projection": 19
+  },
+  "original_query_differences": 55,
+  "explicit_query_reconstructions": [
+    "GrayCurrentStockQuery",
+    "GrayInRecord_Test",
+    "MachineCarePlanArticle",
+    "ProdStockToOutPlanList",
+    "ProdStockToProdOut",
+    "PurToProdIn",
+    "qry_CraftPreCheckJobSheet",
+    "qry_MachineArticle",
+    "qry_OrderDlvApply",
+    "vw_DyeMachine",
+    "vwGrayInAndOutDetailQuery",
+    "vwGrayOutQueryBySaleBack",
+    "vwGrayStockByCheck",
+    "vwProdCurrentStockQuery",
+    "vwProdInAndOutDetailQuery",
+    "vwProdOutDataByCheckNo",
+    "vwProdStock",
+    "vwProdStockByCheck",
+    "vwProdStockTotal"
+  ],
+  "new_query_reconstructions": [],
+  "unresolved_queries": [
+    {
+      "entry": "DPWPProcess",
+      "category": "缺本地原对象",
+      "error": "'wpprocess'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "DyeMonitorDetail",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "DyeMonitorMain",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "DyeStuffSum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "e_DayTimeEnergySelect",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "e_DayTimeEnergySum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyDate",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyDateForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyMachine",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyMachineForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyPrice",
+      "category": "缺本地原对象",
+      "error": "'energyprice'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyShift",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyShiftForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyShiftTJ",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tfems.dbo.e_daytimeenergy",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyTime",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "EnergyTimeForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "FARSumMainMoney",
+      "category": "原字段已不存在",
+      "error": "Column 'premeter' could not be resolved. Line: 1, Col: 817",
+      "scope": "财务暂缓"
+    },
+    {
+      "entry": "JobsheetNOdyestuffcount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "JobsheetNOdyestuffGraycount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_AnnualEnergy",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_EnergyAnalysisAnnualChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnAnnual",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnShift",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_EnergyAnalysisShiftChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_EnergyHistoricalPrice",
+      "category": "原字段已不存在",
+      "error": "Unknown column: actfinishtime",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_MacEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_MacEnergyOfOrders",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_MacEnergyTotal",
+      "category": "原字段已不存在",
+      "error": "Column 'inlengthqty' could not be resolved. Line: 1, Col: 76",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "qry_MachineEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "s_RptRemoteItem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：reportserver.dbo.catalog",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "Stuff_Step_LX",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.progs",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "StuffWeighingSystem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"weighingsystem\".dbo.weighrecorddetails AS wrd",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "V_Machine_ProcessID",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "VW_ProcessID_PS",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "vwGrayAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'stockunit' could not be resolved. Line: 1, Col: 62",
+      "scope": "本期保留"
+    },
+    {
+      "entry": "vwProdAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'fabricid' could not be resolved. Line: 1, Col: 27",
+      "scope": "本期保留"
+    }
+  ],
+  "unresolved_nonfinancial": 35,
+  "unresolved_nonfinancial_categories": {
+    "缺本地原对象": 2,
+    "缺外部库或链接": 22,
+    "原字段已不存在": 11
+  },
+  "automatic_formula_entries": 43,
+  "automatic_formula_targets": 59,
+  "new_formula_entries": [
+    "ProdOutDetail",
+    "ProdOutDetailUpdate",
+    "ProdInRecord",
+    "ProdInRecordWork"
+  ],
+  "new_formula_targets": 6,
+  "new_transfer_variants": [
+    "QuoteDetail -> PriceAdjustDetail"
+  ],
+  "runtime_counts": {
+    "identity_model_field_bindings": 116,
+    "copy_model_field_bindings": 223,
+    "unbound_identity_configurations": 11,
+    "unbound_copy_configurations": 16,
+    "editor_model_field_bindings": 2860,
+    "original_field_copy_rows": 40,
+    "lookup_definitions": 266,
+    "lookup_column_rows": 561,
+    "explicit_context_filters": 3,
+    "incomplete_context_filters": 13,
+    "data_relation_rows": 0,
+    "table_relation_rows": 0,
+    "templates": 290,
+    "fixed_proof_templates": 5,
+    "complete_original_templates": 0,
+    "whole_entries_completed": 0,
+    "historical_import_rows_this_run": 0,
+    "whole_entry_historical_reconciled": 0,
+    "field_accepted": 0
+  },
+  "field_copy_status_counts": {
+    "原目标表或字段不完整": 3,
+    "独立财务转单暂缓": 17,
+    "原七列映射已接显式采购转单，旧按钮时机未证明": 7,
+    "原来源视图缺失，已接明确报价头/行替代映射": 10,
+    "原来源视图缺失，物料由明确参数选定或留NULL": 1,
+    "最新原表没有此目标字段": 2
+  },
+  "new_proof_templates": [
+    {
+      "index": 152,
+      "report_id": "R013",
+      "validation": "API查询取数和校样测试；重复出仓关联、退车间原行保留"
+    }
+  ],
+  "tests": {
+    "count": 310,
+    "seconds": 142.037,
+    "result": "passed",
+    "log": ".runtime-temp/phase6/conditions-dispatch-regression.log",
+    "sha256": "06da180ed7a6ac478711a495e36a495dea532e1ac7485c40618791e2519d3996",
+    "scope": "19个模块扩大回归，含本轮11项；不是全项目测试或历史数据对账"
+  },
+  "frontend": {
+    "result": "typecheck_and_build_passed",
+    "log": ".runtime-temp/phase6/conditions-dispatch-frontend.log",
+    "sha256": "608fc5118b3cf548c2b55e223bf12c0ecac3704ddef445e7004d759002a54527",
+    "note": "既有大分包提示保留"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n",
+    "snapshot_comparison_note": "结构相等使用本日缓存快照；本轮只检查到MSSQLSERVER为Stopped，未取得新的旧库查询或数据核验。Django检查和迁移检查为本轮实际运行。"
+  },
+  "old_sql_this_run": {
+    "status": "not_queried_service_stopped",
+    "service": "MSSQLSERVER",
+    "service_status": "Stopped",
+    "note": "本轮检查服务状态；没有新的旧库连接或查询结果，不将前轮连接失败冒充本轮尝试。",
+    "last_success_evidence": "erp-phase6-references-pages-verification-20261017.json",
+    "last_success_at": "2026-10-17T12:26:27.3278306+08:00"
+  },
+  "cached_structure_source": {
+    "path": ".runtime-temp/phase6-live-20261017-current/structure-and-logic.json",
+    "sha256": "5b2176ad6dab8bdf98f77878105a3b7864649b0ea3d3c156bce4aae0e2667250"
+  },
+  "print_validation": "Iif、比较、布尔、IsNull、字符串、Round和日期的明确实现已验证；K010原公式与R013取数校样通过；R010仍缺KKind/grayQty。未做原客户端像素、纸张或设备验收。",
+  "whole_entry_development_completed": 0,
+  "whole_entry_historical_reconciled": 0,
+  "field_accepted": 0,
+  "historical_import_rows_this_run": 0,
+  "files_sha256": {
+    "backend/plugins/erp_base/source_phase6_auto_values.py": "f1399be825428e9666568b99799433adaeac3c894e1b11afa2bb0940c7ff3c12",
+    "backend/plugins/erp_base/source_phase6_transfers.py": "123e8cb9264d26fdd4b5870e0ee81013438badf032a2c9a3dbd509ccd90b71c5",
+    "backend/plugins/erp_base/source_phase6_forms.py": "c8f374b1541768fdad4da448ae3e22067d9e18defbf2560b42e252d0d6fe4926",
+    "backend/plugins/erp_base/source_api.py": "c040e366ddc304388bf2f65a0a9fd85dacdddefacbc9e6ff99363038a3463a0e",
+    "backend/plugins/erp_base/source_phase6_calculated_print.py": "9967ab8ffcbe34d360d33892a325636ebc21745cb19c88883367f932517507a3",
+    "backend/plugins/erp_base/source_phase6_print_rules.py": "27d20c59ba9d4b392e42d64ef1cde173ab6c951ded0805ffef30c0a4470b014f",
+    "backend/plugins/erp_base/source_phase6_rendering.py": "54de7d9b390bee01c490d8b83e5eabf0ecb12b2188cd1a3358b84802129be22f",
+    "backend/plugins/erp_base/tests/test_source_phase6_conditions_dispatch.py": "44db7a88cbae14755b287d1c6c0b74ed58d5e3861ba137a5a3ccec61574c2435",
+    "backend/plugins/erp_base/tests/test_source_phase6_machine_calculations.py": "1856210113bbe8b36fe3d352dc3101b56ab7498b73927f08d2d0cec9ce37e35a"
+  }
+}

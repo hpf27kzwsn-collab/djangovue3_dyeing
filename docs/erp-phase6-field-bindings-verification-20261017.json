@@ -1,0 +1,1410 @@
+{
+  "verified_at": "2026-10-17T16:39:20.781007+08:00",
+  "closed_configurations": [
+    {
+      "entry": "DStuffWeight",
+      "field": "Creater",
+      "kind": "LoginPeople_EmpName",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_production.SourceDyeStuffWeight",
+          "table": "StuffWeight",
+          "field": "Creater",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "StuffWeight",
+            "original_table": null,
+            "reason": "原展示SQL仅取StuffWeight；缺UpdateSQL，明确以该原表办理，原空表初始化条件不改。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DStuffWeight",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_production.SourceDyeStuffWeight",
+          "table": "StuffWeight",
+          "field": "DeptID",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "StuffWeight",
+            "original_table": null,
+            "reason": "原展示SQL仅取StuffWeight；缺UpdateSQL，明确以该原表办理，原空表初始化条件不改。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeLabColorColorNumNoPrice",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_sampling.SourceDyeDyeDipsRecord",
+          "table": "DyeDipsRecord",
+          "field": "DeptID",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "DyeDipsRecord",
+            "original_table": null,
+            "reason": "原a.*来自DyeDipsRecord，DeptID属于该表；仅办理选定试样原行，不将色号连接倍增当成多条可写试样。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_Employee",
+      "field": "Creater",
+      "kind": "LoginPeople_LoginName",
+      "original_table_name": null,
+      "update_sql": "",
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_base.SourceDyeHEmployee",
+          "table": "h_Employee",
+          "field": "Creater",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "h_Employee",
+            "original_table": null,
+            "reason": "原单表员工查询；保留EmpID默认取登录员工PosID的原配置，允许显式填写，不擅自修正为登录员工编号。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_Employee",
+      "field": "EmpID",
+      "kind": "LoginPeople_EmpPositionID",
+      "original_table_name": null,
+      "update_sql": "",
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_base.SourceDyeHEmployee",
+          "table": "h_Employee",
+          "field": "EmpID",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "h_Employee",
+            "original_table": null,
+            "reason": "原单表员工查询；保留EmpID默认取登录员工PosID的原配置，允许显式填写，不擅自修正为登录员工编号。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_Employee",
+      "field": "Modifyer",
+      "kind": "LoginPeople_LoginName",
+      "original_table_name": null,
+      "update_sql": "",
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_base.SourceDyeHEmployee",
+          "table": "h_Employee",
+          "field": "Modifyer",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "h_Employee",
+            "original_table": null,
+            "reason": "原单表员工查询；保留EmpID默认取登录员工PosID的原配置，允许显式填写，不擅自修正为登录员工编号。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_sampling.SourceDyeDyeRecipe",
+          "table": "DyeRecipe",
+          "field": "DeptID",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "DyeRecipe",
+            "original_table": null,
+            "reason": "原联查中的DeptID对应配方表头DyeRecipe；编辑选定表头原行，原染程和物料查询不合并、不回写。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_QuoteRelaStuff",
+      "field": "Creater",
+      "kind": "LoginPeople_EmpName",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_production.SourceDyeStuffWeight",
+          "table": "StuffWeight",
+          "field": "Creater",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "StuffWeight",
+            "original_table": null,
+            "reason": "原联查中的Creater/DeptID对应料单表头StuffWeight；编辑选定表头，原染程和物料查询不合并、不回写。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_QuoteRelaStuff",
+      "field": "DeptID",
+      "kind": "LoginPeople_EmpDeptID",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "identity",
+      "targets": [
+        {
+          "model": "erp_production.SourceDyeStuffWeight",
+          "table": "StuffWeight",
+          "field": "DeptID",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "StuffWeight",
+            "original_table": null,
+            "reason": "原联查中的Creater/DeptID对应料单表头StuffWeight；编辑选定表头，原染程和物料查询不合并、不回写。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "GrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeGrayInDetail",
+          "table": "GrayInDetail",
+          "field": "GrayID",
+          "binding": {
+            "source": "TableName",
+            "table": "GrayInDetail",
+            "original_table": "GrayInDetail"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "GrayInWorkDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeGrayInDetail",
+          "table": "GrayInDetail",
+          "field": "GrayID",
+          "binding": {
+            "source": "TableName",
+            "table": "GrayInDetail",
+            "original_table": "GrayInDetail"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JiaNianGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeGrayInDetail",
+          "table": "GrayInDetail",
+          "field": "GrayID",
+          "binding": {
+            "source": "TableName",
+            "table": "GrayInDetail",
+            "original_table": "GrayInDetail"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "KeTuiGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeGrayInDetail",
+          "table": "GrayInDetail",
+          "field": "GrayID",
+          "binding": {
+            "source": "TableName",
+            "table": "GrayInDetail",
+            "original_table": "GrayInDetail"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "QC_RecordYield",
+      "field": "AddQty",
+      "kind": "CopyPrevRow",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeRecordYield",
+          "table": "RecordYield",
+          "field": "AddQty",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "RecordYield",
+            "original_table": null,
+            "reason": "原查询从RecordYield连接JobSheet；AddQty对应选定包装原行，工卡重复连接仍在原查询保留。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_RecordYield",
+      "field": "AddQty",
+      "kind": "CopyPrevRow",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeRecordYield",
+          "table": "RecordYield",
+          "field": "AddQty",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "RecordYield",
+            "original_table": null,
+            "reason": "原单表RecordYield查询；AddQty/Unit续行落在同一原表字段。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_RecordYield",
+      "field": "Unit",
+      "kind": "CopyPrevRow",
+      "original_table_name": null,
+      "update_sql": null,
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeRecordYield",
+          "table": "RecordYield",
+          "field": "Unit",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "RecordYield",
+            "original_table": null,
+            "reason": "原单表RecordYield查询；AddQty/Unit续行落在同一原表字段。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "SpecDefects",
+      "kind": "CopyPrevRow",
+      "original_table_name": "RecordYieldCheck",
+      "update_sql": "select * from RecordYieldCheck",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeRecordYield",
+          "table": "RecordYield",
+          "field": "SpecDefects",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "RecordYield",
+            "original_table": "RecordYieldCheck",
+            "reason": "原写入表RecordYieldCheck在最新旧结构中不存在；展示A.*来自RecordYield，SpecDefects/Weight/Width均实际存在。明确采用选定包装原行，不冒充找回旧写入表。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "Weight",
+      "kind": "CopyLastRow",
+      "original_table_name": "RecordYieldCheck",
+      "update_sql": "select * from RecordYieldCheck",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeRecordYield",
+          "table": "RecordYield",
+          "field": "Weight",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "RecordYield",
+            "original_table": "RecordYieldCheck",
+            "reason": "原写入表RecordYieldCheck在最新旧结构中不存在；展示A.*来自RecordYield，SpecDefects/Weight/Width均实际存在。明确采用选定包装原行，不冒充找回旧写入表。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "Width",
+      "kind": "CopyLastRow",
+      "original_table_name": "RecordYieldCheck",
+      "update_sql": "select * from RecordYieldCheck",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeRecordYield",
+          "table": "RecordYield",
+          "field": "Width",
+          "binding": {
+            "source": "explicit_projection_target",
+            "table": "RecordYield",
+            "original_table": "RecordYieldCheck",
+            "reason": "原写入表RecordYieldCheck在最新旧结构中不存在；展示A.*来自RecordYield，SpecDefects/Weight/Width均实际存在。明确采用选定包装原行，不冒充找回旧写入表。"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "SemiToGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeGrayInDetail",
+          "table": "GrayInDetail",
+          "field": "GrayID",
+          "binding": {
+            "source": "TableName",
+            "table": "GrayInDetail",
+            "original_table": "GrayInDetail"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "TuiHuoGrayInDetail",
+      "field": "Code",
+      "kind": "CopyPrevRow",
+      "original_table_name": "GrayInDetail",
+      "update_sql": "select * from GrayInDetail",
+      "kind_group": "copy",
+      "targets": [
+        {
+          "model": "erp_warehouse.SourceDyeGrayInDetail",
+          "table": "GrayInDetail",
+          "field": "GrayID",
+          "binding": {
+            "source": "TableName",
+            "table": "GrayInDetail",
+            "original_table": "GrayInDetail"
+          }
+        }
+      ],
+      "development": "实现及保存测试通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "closed_configuration_count": 21,
+  "remaining_unbound_identity_and_copy": 0,
+  "entry_models": 385,
+  "entry_bindings": 840,
+  "distinct_bound_entries": 819,
+  "runtime_counts": {
+    "identity_model_field_bindings": 127,
+    "copy_model_field_bindings": 233,
+    "unbound_identity_configurations": 0,
+    "unbound_copy_configurations": 0,
+    "copy_alias_configurations": 6,
+    "editor_model_field_bindings": 2989,
+    "original_field_copy_rows": 40,
+    "lookup_definitions": 266,
+    "lookup_column_rows": 561,
+    "explicit_context_filters": 14,
+    "incomplete_context_filters": 2,
+    "reconstructed_context_filters": 11,
+    "reconstructed_filters_with_active_editors": 9,
+    "data_relation_rows": 0,
+    "table_relation_rows": 0,
+    "templates": 290,
+    "fixed_proof_templates": 5,
+    "complete_original_templates": 0,
+    "whole_entries_completed": 0,
+    "historical_import_rows_this_run": 0,
+    "whole_entry_historical_reconciled": 0,
+    "field_accepted": 0
+  },
+  "original_automatic_inventory": [
+    {
+      "entry": "DStuffWeight",
+      "model": "erp_production.SourceDyeStuffWeight",
+      "formula_fields": {
+        "ClothNetKg": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "[ClothQtyKg]-[ClothQtyKg]*[SubRate]"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "qry_QuoteRelaStuff",
+      "model": "erp_production.SourceDyeStuffWeight",
+      "formula_fields": {
+        "ClothNetKg": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "[ClothQtyKg]-[ClothQtyKg]*[SubRate]"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "NewFuBan",
+      "model": "erp_production.SourceDyeWProcess",
+      "formula_fields": {},
+      "events": [
+        "BeforeDeleteSQL",
+        "BeforeApproveSQL"
+      ],
+      "event_sha256": {
+        "BeforeDeleteSQL": "b9357664bb35d84c6a2cb69d33ca8760b7e6bf5cc5c03707781a997e5c3c23ae",
+        "BeforeApproveSQL": "3be109330b662e7cbcc75e20b748853c4f504b16f44eeb92a8892c94771ba96d"
+      }
+    },
+    {
+      "entry": "AfterNormalStuffWeightTech",
+      "model": "erp_warehouse.SourceDyeWeightTechInfo",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "NormalStuffWeightTech",
+      "model": "erp_warehouse.SourceDyeWeightTechInfo",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "AMaterialPriceAdjust",
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "SMaterialPriceAdjust",
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "ArticleDeptApply",
+      "model": "erp_warehouse.SourceDyeArticleDeptApply",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "ArticleDeptApplyDetail",
+      "model": "erp_warehouse.SourceDyeArticleDeptApplyDetail",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "ArticleOutApply",
+      "model": "erp_warehouse.SourceDyeArticleOutApply",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "ArticleOutApplyDetail",
+      "model": "erp_warehouse.SourceDyeArticleOutApplyDetail",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "PurDetailList",
+      "model": "erp_purchase.SourceDyePurDetail",
+      "formula_fields": {
+        "Amount": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "ISNULL([Price],0)*ISNULL([Qty],0)"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "BalancingConditions",
+      "model": "erp_base.SourceDyeBalancingConditions",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "model": "erp_sampling.SourceDyeDyeRecipe",
+      "formula_fields": {
+        "Remarks": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "Parent.[Remarks]"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "S_Change",
+      "model": "erp_base.SourceDyePGray",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "CustomerNoLimit",
+      "model": "erp_sales.SourceDyeCustomerNoLimit",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "DPJobGrayRecord",
+      "model": "erp_production.SourceDyeJobGrayRecord",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "DyeLabColorColorNumNoPrice",
+      "model": "erp_sampling.SourceDyeDyeDipsRecord",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "EnableCard",
+      "model": "erp_base.SourceDyeEnableCard",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "FixedCanDetail",
+      "model": "erp_base.SourceDyeFixedCanDetail",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "FixedCanRecord",
+      "model": "erp_base.SourceDyeFixedCanRecord",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "qry_Winding_ToCustomer",
+      "model": "erp_warehouse.SourceDyeGrayMaterialDetail",
+      "formula_fields": {},
+      "events": [
+        "BeforeDeleteSQL"
+      ],
+      "event_sha256": {
+        "BeforeDeleteSQL": "c0b9fbe0ef47fae6c2ad86e801093b6679fe56baabd8e615cd1dd4f93e84095e"
+      }
+    },
+    {
+      "entry": "GWNameZC",
+      "model": "erp_base.SourceDyeGWName",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "qry_Employee",
+      "model": "erp_base.SourceDyeHEmployee",
+      "formula_fields": {
+        "LoginName": {
+          "generate_time": 2,
+          "enforce": null,
+          "expression": "[EmpID]"
+        },
+        "Password": {
+          "generate_time": 1,
+          "enforce": null,
+          "expression": "[EmpID]"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "QC_RecordYield",
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "qry_RecordYield",
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "formula_fields": {
+        "CustQty": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "IsNull([Kg],0)+IsNull([Addkg],0)"
+        },
+        "Dots": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "Sum(Child(QueryRecordCheck_QueryRecordDefect2).[SumDots])"
+        },
+        "GradeID": {
+          "generate_time": 1,
+          "enforce": null,
+          "expression": "IIF([avgdots]>parent.[CHECKDots],'B','A')"
+        },
+        "NetKg": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "[Kg]-ISNULL([TubeWeight],0)"
+        },
+        "Pound": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "[Kg]*2.2046"
+        },
+        "RealQty": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "[Meter]-ISNULL([addQty],0)-ISNULL([CutQty],0)-ISNULL([Qty],0)"
+        },
+        "Tubes": {
+          "generate_time": 2,
+          "enforce": null,
+          "expression": "IIF(Isnull([Status],1)=1,(IIF(ISNULL([GradeID],'A')>'C',0,1)),0)"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "SumWinding",
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "SWindingBaling",
+      "model": "erp_warehouse.SourceDyeRecordYield",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "JobSheetReceives_M",
+      "model": "erp_production.SourceDyeJobSheetReceive",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "KindLimit",
+      "model": "erp_base.SourceDyeKindLimit",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "Limit",
+      "model": "erp_base.SourceDyeLimit",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "NoLimit",
+      "model": "erp_base.SourceDyeNoLimit",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "qry_Order_ToCustomer",
+      "model": "erp_sales.SourceDyeOrderColor",
+      "formula_fields": {},
+      "events": [
+        "BeforeDeleteSQL"
+      ],
+      "event_sha256": {
+        "BeforeDeleteSQL": "e71c41f23a4d2c4634b5f2ae6c041a2486749bb051d5b7b85f817f2110cd31e6"
+      }
+    },
+    {
+      "entry": "p_ArticleStorageUnitID",
+      "model": "erp_base.SourceDyePArticleStorageUnitID",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "p_Human",
+      "model": "erp_base.SourceDyeHuman",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "p_StuffStorageUnitID",
+      "model": "erp_base.SourceDyePStuffStorageUnitID",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "TwistingIn",
+      "model": "erp_warehouse.SourceDyeProdIn",
+      "formula_fields": {
+        "LengthQty": {
+          "generate_time": 2,
+          "enforce": null,
+          "expression": "IIF([SheetKind]=16,Sum(Child(ProdIn_ProdInRecord).[Meter]),Sum(Child(ProdIn_ProdInRecord).[Meter]))"
+        },
+        "NetKg": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "Sum(Child(ProdIn_ProdInRecord).[NetKg])"
+        },
+        "Rolls": {
+          "generate_time": 2,
+          "enforce": null,
+          "expression": "IIF([SheetKind] = 16,Sum(Child(ProdIn_ProdInRecord).[InRolls]),Sum(Child(ProdIn_ProdInRecord).[InRolls]))"
+        },
+        "WeightQty": {
+          "generate_time": 2,
+          "enforce": null,
+          "expression": "Sum(Child(ProdIn_ProdInRecord).[WeightQty])"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "TwistingInRecord",
+      "model": "erp_warehouse.SourceDyeProdInRecord",
+      "formula_fields": {
+        "RealQty": {
+          "generate_time": null,
+          "enforce": null,
+          "expression": "ISNULL([WeightQty],0)"
+        }
+      },
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "RequestLimit",
+      "model": "erp_base.SourceDyeRequestLimit",
+      "formula_fields": {},
+      "events": [
+        "BeforeApproveSQL",
+        "BeforeUnApproveSQL"
+      ],
+      "event_sha256": {
+        "BeforeApproveSQL": "e1c870f8f328ace20cc68a69fa5b17b7f25c020d0279af3176bb80439ff4d856",
+        "BeforeUnApproveSQL": "edc4af3a54f2a8ee4dabbeaabcb176e2eff742797d8afd495d1b62133a1c81c4"
+      }
+    },
+    {
+      "entry": "StuffDeptApply",
+      "model": "erp_production.SourceDyeStuffDeptApply",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "StuffDeptApplyDetail",
+      "model": "erp_production.SourceDyeStuffDeptApplyDetail",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "StuffOutApply",
+      "model": "erp_production.SourceDyeStuffOutApply",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "StuffOutApplyDetail",
+      "model": "erp_production.SourceDyeStuffOutApplyDetail",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    },
+    {
+      "entry": "WashTheTankDye",
+      "model": "erp_production.SourceDyeWashTheTankDye",
+      "formula_fields": {},
+      "events": [],
+      "event_sha256": {}
+    }
+  ],
+  "automatic_inventory_counts": {
+    "entries": 45,
+    "formula_entries": 8,
+    "formula_fields": 18,
+    "event_entries": 4,
+    "event_bindings": 6,
+    "no_formula_or_event": 33
+  },
+  "manual_parent_formulas": [
+    {
+      "entry": "qry_QuoteRelaRecipe",
+      "field": "Remarks",
+      "original": "Parent.[Remarks]",
+      "handling": "选定配方表头允许显式录入备注；不按重复工卡原码选任意父行。"
+    },
+    {
+      "entry": "QueryRecordCheck",
+      "field": "GradeID",
+      "original": "IIF([avgdots]>parent.[CHECKDots],'B','A')",
+      "handling": "保留原GradeID默认配置和显式等级；未确认查询父行与avgdots口径前不自动覆盖等级。"
+    }
+  ],
+  "paused_nonfinancial_queries": [
+    {
+      "entry": "DPWPProcess",
+      "category": "缺本地原对象",
+      "error": "'wpprocess'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorDetail",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeMonitorMain",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"link_pclbase\".\"pclbase\".\"dbo\".\"文件管理表\"",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "DyeStuffSum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySelect",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "e_DayTimeEnergySum",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDate",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyDateForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachine",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyMachineForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyPrice",
+      "category": "缺本地原对象",
+      "error": "'energyprice'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShift",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_shiftenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyShiftTJ",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tfems.dbo.e_daytimeenergy",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTime",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "EnergyTimeForChart",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_daytimeenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffcount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "JobsheetNOdyestuffGraycount",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：tf_meter.dbo.dbflloutput AS a",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_AnnualEnergy",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"tfems\".dbo.e_dayenergy AS go",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisAnnualChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnAnnual",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisOnShift",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyAnalysisShiftChart",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_EnergyHistoricalPrice",
+      "category": "原字段已不存在",
+      "error": "Unknown column: actfinishtime",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyOfOrders",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MacEnergyTotal",
+      "category": "原字段已不存在",
+      "error": "Column 'inlengthqty' could not be resolved. Line: 1, Col: 76",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "qry_MachineEnergyDetails",
+      "category": "原字段已不存在",
+      "error": "'p_processenergycolor'",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "s_RptRemoteItem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：reportserver.dbo.catalog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "Stuff_Step_LX",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.progs",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "StuffWeighingSystem",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"weighingsystem\".dbo.weighrecorddetails AS wrd",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "V_Machine_ProcessID",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "VW_ProcessID_PS",
+      "category": "缺外部库或链接",
+      "error": "原资料包含外部数据库来源：\"192.168.23.254\".ccs_erp.dbo.mcprog",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwGrayAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'stockunit' could not be resolved. Line: 1, Col: 62",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "entry": "vwProdAccount",
+      "category": "原字段已不存在",
+      "error": "Column 'fabricid' could not be resolved. Line: 1, Col: 27",
+      "scope": "用户明确暂缓",
+      "development": "原差异未解决",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "paused_query_count": 35,
+  "tests": {
+    "count": 313,
+    "seconds": 111.572,
+    "modules": 21,
+    "result": "passed",
+    "log": ".runtime-temp/phase6/bindings-regression.log",
+    "sha256": "d946a2d9659f073bbf779b515b65e6717ba0db4757ddf2f168b17ea93e632f2e"
+  },
+  "frontend": {
+    "result": "typecheck_and_build_passed",
+    "log": ".runtime-temp/phase6/bindings-frontend.log",
+    "warning": "既有大分包提示"
+  },
+  "browser": {
+    "verified_at": "2026-10-17T16:32:36.467295+08:00",
+    "database": "erp_phase6_browser_20261017",
+    "seeded": [
+      "测试登录员工2条同码",
+      "采购来源328及到货表头70",
+      "加捻表头826"
+    ],
+    "browser_actions": [
+      "登录本机隔离测试账号",
+      "采购11字符客户规格转到货10字符字段时报错，来源保留",
+      "编辑采购来源客户规格为FAB-UI",
+      "PurDetailList新增UI-CALC，数量-3单价2金额-6",
+      "采购原行328转入到货通知70生成明细105",
+      "撤回到货明细105，原行留档",
+      "留档行显示已撤回留档，编辑删除办理按钮退出",
+      "加捻表头826新增细码193，父码UI-TWIST自动显示且不可编辑",
+      "加捻毛重-5、粒数3、净重-4，保存后实际量-5",
+      "刷新加捻表头，页面显示粒数3、毛重-5、净重-4",
+      "操作表单时间显示2026-10-17 16:33:01，与Asia/Shanghai本地时区一致；关闭表单未执行整单撤回"
+    ],
+    "backend_readback": {
+      "purchase": {
+        "id": 329,
+        "quantity": "-3.00",
+        "price": "2.0000",
+        "amount": "-6.00"
+      },
+      "arrival": {
+        "id": 105,
+        "quantity": "-3.00",
+        "retained": "已撤回留档",
+        "active": false
+      },
+      "twisting": {
+        "head": 826,
+        "line": 193,
+        "weight": "-5.00",
+        "rolls": "3.00",
+        "net_kg": "-4.00",
+        "actual": "-5.00",
+        "stock_row": 1082,
+        "stock_weight": "-5.00",
+        "stock_rolls": "3.00"
+      }
+    },
+    "screenshots": [
+      "docs/assets/phase6-transfer-retained-20261017.png"
+    ],
+    "scope": "浏览器开发联调，库存通过同一测试库只读复核；非历史对账、非现场验收",
+    "historical_import_rows": 0
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "development": "21条字段配置、本地联动及已列自动事件完成必要验证；2条查询父行公式采用显式录入，整入口未全部完成",
+  "whole_entry_development_completed": 0,
+  "old_sql_this_run": "沿用2026-10-17已核对快照；本轮未连接旧SQL，未导入历史数据",
+  "files_sha256": {
+    "backend/plugins/erp_base/source_entry_copy.py": "58c5c29c5b2d03a6b950691d18e82b3db28a09df84c416b08590339d2da653f3",
+    "backend/plugins/erp_base/source_entry_rules.json": "47fbbf7d6cfa87847d411e272306571c3ee851f2b28736cea4f7f78718a7a750",
+    "backend/plugins/erp_base/source_phase6_binding_values.py": "2ae302ed871383fa6b386f989fce486552e9c50c9ddb61210de83848cfe9ffcb",
+    "backend/plugins/erp_base/source_phase6_auto_values.py": "fb59f4e6d86e8366f902b6a55abc55e41ef1a0c21e6b176d028205e656ee2c08",
+    "backend/plugins/erp_base/source_phase6_editors.py": "33550c2bacad115758aeb3fb525a991009f114600d8151801a1fc7fc283ab3b0",
+    "backend/plugins/erp_base/source_phase6_entries.py": "a3e7a1a0f0292e7204d731bcf58a8ad25897acbbdc588ab6a8f7f45fcd4a34fb",
+    "backend/plugins/erp_base/source_phase6_forms.py": "ccc4c95791ce1330630abd40cb1bd5da6b85765c1739a42278bcb80c0d1993c2",
+    "backend/plugins/erp_base/source_services.py": "7fb5be3efe9d0fda2f0ced2504e415bab91ea2d7f6b38562f49c93cbc30ad694",
+    "backend/plugins/erp_base/source_documents.py": "46ba21a79fb24219a7d616dbb02c4b2f532b32aba1ba9ecc4ea7093e07653bda",
+    "backend/plugins/erp_base/source_api.py": "19abcc5af7acef5de994bcc6859583a6bfddbac63ca69eebfa85934152af9428",
+    "backend/plugins/erp_base/tests/test_source_phase6_field_bindings.py": "c5b2a9bc7da45f3e303359dfaa04e7404fceacf199ff04a9de248698128326b4",
+    "tools/legacy_models/build_entry_rules.py": "e305b6887b666a7de7d989f04482499bc7e7923839a2e20f6c6d0a6a94d8deed",
+    "tools/legacy_models/entry_binding_overrides.json": "03ba98c8ba6487d530f2f83353162823bbfef8561bbe7eae70f996fc015493ea",
+    "tools/legacy_models/audit_phase6_runtime.py": "989aac79467e49f71f70107e0b57cb3e2b0ef02e7e6fcca7c4c39b4696a7a1ee",
+    "web/src/components/ResourceTable.vue": "58ea25c9340c50023cb753e298b0f6ca07fe01ea4b59cbb2a6f9154fa76c10fb",
+    "web/src/plugins/erp/BusinessPane.vue": "cafac47044199ed213a569db5ab22952047aa4e02db6a9d4c8038a627556080c",
+    "web/src/plugins/erp/OriginalEntryWorkbench.vue": "f262e722a9b2e2d33e5d95062003520ce4ee9a30af657f2270049cb9de046915"
+  }
+}

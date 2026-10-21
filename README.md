@@ -28,7 +28,7 @@ Set-Location H:\Project_python\django-vue3-admin\djangovue3_dyeing
 .\scripts\start.ps1
 ```
 
-访问 **http://127.0.0.1:8000**。新数据库初始账户为 `superadmin / admin123456`；已有数据库继续使用现有密码及改密状态。
+访问 **http://127.0.0.1:8001**。后端默认使用8001，避开酒馆的8000端口；前端开发代理同步指向8001。新数据库初始账户为 `superadmin / admin123456`；已有数据库继续使用现有密码及改密状态。
 
 异步导出、实时消息及定时任务分别在其他终端启动：
 
@@ -40,7 +40,7 @@ Set-Location H:\Project_python\django-vue3-admin\djangovue3_dyeing
 
 Redis 默认 127.0.0.1:6389，Celery 使用第 3 个逻辑库。业务数据、任务配置和任务结果保存在所选数据库。停止源码服务可在对应终端按 Ctrl+C。本次已在后台恢复这四个服务，日志位于 backend/logs；再次启动前先停止已有同端口服务。
 
-前端开发运行 `scripts/dev.ps1`，访问 http://127.0.0.1:8080。API 文档位于 http://127.0.0.1:8000/api/docs/。
+前端开发运行 `scripts/dev.ps1`，访问 http://127.0.0.1:8080。API 文档位于 http://127.0.0.1:8001/api/docs/。
 
 ## 初始化和前端构建
 

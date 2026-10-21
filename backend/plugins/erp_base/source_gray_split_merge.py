@@ -109,13 +109,16 @@ def operation_log(items,kind,job,actor,at,reason):
     return write(model,values,actor=actor,apply_effects=False)
 
 
-def add_copy(item,values,actor):
+def add_copy(item,values,actor,effects):
     from .source_services import write
     data=copy_new(item,type(item));data.update(values)
     # 出库后的原表没有GraySpec/Num列；仅按最新字段复制。
     if item.SOURCE_TABLE=='JobGrayRecord':data['old_sheet_series']=raw(item,'SheetSeries')
     data['source_parent_1']=item.source_parent_1
-    result=write(type(item),data,actor=actor,apply_effects=False)
+    from .source_chain_reverse import capture
+    with capture() as linked_changes:
+        result=write(type(item),data,actor=actor,apply_effects=False)
+    effects.extend(change for change in linked_changes if (change['entity'],change['id'])!=(result._meta.label,result.pk))
     result.refresh_from_db()
     return result
 
@@ -148,7 +151,7 @@ def split_record(item,actor,weight,length,rolls,job,at,reason):
     data={**quantities,'old_roll_no':new_roll,'old_bar_code':new_code}
     if after:data.update(old_gray_bar_code=new_code,old_gunit=1,**dict([store_value(item,'Kg',quantities['old_weight_qty'])]))
     else:data.update(old_roll_no2=new_roll,old_cbz='剪')
-    new=add_copy(item,data,actor);created.append(origin(new))
+    new=add_copy(item,data,actor,changes);created.append(origin(new))
     moved={key:raw(new,key) for key in MEASURES}
     remaining={key:None if raw(item,key) is None or moved[key] is None else raw(item,key)-moved[key] for key in MEASURES}
     if not after:remaining['CBz']='余'
@@ -159,7 +162,7 @@ def split_record(item,actor,weight,length,rolls,job,at,reason):
         for assigned in selected.order_by('pk'):
             values=dict(store_value(assigned,key,moved[key]) for key in MEASURES)
             values.update(old_roll_no=new_roll,old_bar_code=new_code,old_gray_bar_code=new_code)
-            child=add_copy(assigned,values,actor);created.append(origin(child))
+            child=add_copy(assigned,values,actor,changes);created.append(origin(child))
             change(assigned,{key:None if raw(assigned,key) is None or raw(child,key) is None else raw(assigned,key)-raw(child,key) for key in MEASURES},changes,actor,reason)
             job_pairs.append((raw(assigned,'SheetSeries'),raw(assigned,'ReceSheetNo')))
     if not after:refresh_receipts([raw(item,'ReceSheetNo')],True,changes,actor,reason)

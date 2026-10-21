@@ -11,7 +11,7 @@ def entry_for(item):
     if is_historical(item):
         return None
     name = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).values_list('entry_name', flat=True).first()
-    return None if name in ['explicit_outwork_closure', 'explicit_business_continuation', 'foundation_trigger'] else name
+    return None if name in ['explicit_outwork_closure', 'explicit_business_continuation', 'foundation_trigger','print_snapshot'] else name
 
 
 def resolve_entry(item, selected, owners):
@@ -44,10 +44,9 @@ def apply_new_rules(item, data, actor, entry):
             value = at
         elif kind == 'DefaultValue':
             value = definition['DefaultValue']
-        elif kind == 'LoginPeople_LoginName':
-            value = actor.username
         else:
-            value = actor.name
+            from .source_entry_identity import login_value
+            value = login_value(kind, actor)
         if value is not None:
             setattr(item, key, item._meta.get_field(key).to_python(value))
     for old, definition in rule['number_fields'].items():
@@ -59,7 +58,7 @@ def apply_new_rules(item, data, actor, entry):
 def save_context(item, actor, entry):
     context, created = SourceDocumentContext.objects.get_or_create(entity=item._meta.label, object_id=item.pk,
         defaults={'entry_name': entry, 'creator': actor, 'modifier': actor, 'dept_belong_id': item.dept_belong_id})
-    if context.entry_name in ['explicit_outwork_closure', 'explicit_business_continuation', 'foundation_trigger']:
+    if context.entry_name in ['explicit_outwork_closure', 'explicit_business_continuation', 'foundation_trigger','print_snapshot']:
         context.entry_name = entry
         persist(context, actor)
     return context

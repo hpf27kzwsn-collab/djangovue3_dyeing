@@ -1,0 +1,173 @@
+{
+  "Sp_UpdateArticleStock": {
+    "id": "SQL399",
+    "table": "ArticleStock",
+    "source": "SELECT CAST(WareHouseID AS VARCHAR(100)) AS warehouseid, CAST(ArticleID AS VARCHAR(100)) AS articleid, CAST(ArticleKindID AS VARCHAR(100)) AS articlekindid, CAST(PaperMoney AS NUMERIC(12, 4)) AS papermoney, CAST(Price AS NUMERIC(16, 6)) AS price, CAST(PaperQty AS NUMERIC(10, 2)) AS qty, CAST(InDetailNo AS VARCHAR(20)) AS indetailno FROM (SELECT * FROM (SELECT ISNULL(alis.WareHouseID, '') AS WareHouseID, ISNULL(alis.ArticleID, '') AS ArticleID, ISNULL(d.ArticleKindID, '') AS ArticleKindID, alis.PaperMoney AS PaperMoney, f.Price AS Price, alis.Qty AS PaperQty, alis.InDetailNo AS InDetailNo FROM (SELECT WareHouseID AS WareHouseID, ArticleID AS ArticleID, InDetailNo AS InDetailNo, SUM(PaperMoney) AS PaperMoney, SUM(Qty) AS Qty FROM (SELECT ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(ArticleID, '') AS ArticleID, ISNULL(ISNULL(OriDetailNo, InDetailNo), DetailNo) AS InDetailNo, (ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0)) AS Qty, (ISNULL(c.InMoney, 0) - ISNULL(c.OutMoney, 0)) AS PaperMoney, c.Price FROM dye.ArticleStockBook AS c WHERE 1 = 1 AND c.BookDate > @MaxStockDate AND c.BookDate <= @EndDate UNION ALL SELECT ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(a.ArticleID, '') AS ArticleID, a.InDetailNo, a.PreMonthQty AS Qty, a.PreMonthMoney AS PaperMoney, a.Price FROM dye.ArticleStock AS a WHERE 1 = 1 AND a.StockDate = @MaxStockDate) AS alisTotal GROUP BY WareHouseID, ArticleID, alisTotal.InDetailNo) AS alis LEFT JOIN dye.p_Article AS d ON d.ArticleID = alis.ArticleID LEFT JOIN (SELECT AI.DetailNo AS DetailNo, AI.Price AS Price FROM dye.ArticleInDetail AS AI LEFT JOIN dye.ArticleIn AS A ON A.SheetSeries = AI.SheetSeries WHERE A.SheetKind <> 16) AS f ON f.DetailNo = alis.InDetailNo) AS A WHERE 1 = 1 AND NOT EXISTS(SELECT 1 FROM dye.ArticleStock AS B WHERE A.InDetailNo = B.InDetailNo AND A.PaperQty = 0) ORDER BY A.ArticleID) AS original_cursor",
+    "values": {
+      "StockDate": "@EndDate",
+      "WareHouseID": "@WareHouseID",
+      "ArticleID": "@ArticleID",
+      "ArticleKindID": "@ArticleKindID",
+      "Price": "@Price",
+      "PreMonthQty": "@Qty",
+      "PreMonthMoney": "ISNULL(@PaperMoney,0)",
+      "CarryDate": "@EndDate",
+      "Remarks": "''",
+      "InDetailNo": "@InDetailNo"
+    }
+  },
+  "Sp_UpdateBigStuffStock": {
+    "id": "SQL401",
+    "table": "StuffStock",
+    "source": "SELECT CAST(WareHouseID AS VARCHAR(100)) AS warehouseid, CAST(StuffID AS VARCHAR(100)) AS stuffid, CAST(LotNo AS VARCHAR(100)) AS lotno, CAST(InDetailNo AS VARCHAR(50)) AS indetailno, CAST(Total AS NUMERIC(14, 2)) AS total, CAST(Price AS NUMERIC(8, 2)) AS price, CAST(Qty AS NUMERIC(14, 6)) AS qty, CAST(InQty AS NUMERIC(14, 6)) AS inqty, CAST(OutQty AS NUMERIC(14, 6)) AS outqty, CAST(InMoney AS NUMERIC(14, 2)) AS inmoney, CAST(OutMoney AS NUMERIC(14, 2)) AS outmoney, CAST(LastStockQty AS NUMERIC(14, 2)) AS laststockqty, CAST(LastStockMoney AS NUMERIC(14, 6)) AS laststockmoney FROM (SELECT * FROM (SELECT alisTotal.WareHouseID AS WareHouseID, alisTotal.StuffID AS StuffID, alisTotal.LotNo AS LotNo, alisTotal.InDetailNo AS InDetailNo, CONVERT(NUMERIC(10, 2), (CASE WHEN SUM(alisTotal.Qty) = 0 THEN 0 ELSE ROUND(SUM(alisTotal.Total), 2) END)) AS Total, CONVERT(NUMERIC(10, 2), (CASE WHEN SUM(alisTotal.Qty) = 0 THEN 0 ELSE SUM(alisTotal.Total) / SUM(alisTotal.Qty) END)) AS Price, SUM(Qty) AS Qty, SUM(InQty) AS InQty, SUM(OutQty) AS OutQty, SUM(alisTotal.InMoney) AS InMoney, SUM(alisTotal.OutMoney) AS OutMoney, SUM(LastStockQty) AS LastStockQty, SUM(LastStockMoney) AS LastStockMoney FROM (SELECT ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(StuffID, '') AS StuffID, ISNULL(LotNo, '') AS LotNo, ISNULL(InDetailNo, c.DetailNo) AS InDetailNo, (ISNULL(c.InMoney, 0) - ISNULL(c.OutMoney, 0)) AS Total, (ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0)) AS Qty, ISNULL(c.InQty, 0) AS InQty, ISNULL(c.OutQty, 0) AS OutQty, ISNULL(c.InMoney, 0) AS InMoney, ISNULL(c.OutMoney, 0) AS OutMoney, 0 AS LastStockQty, 0 AS LastStockMoney FROM dye.StuffStockBook AS c WHERE c.BookDate > @MaxStockDate AND c.BookDate <= @EndDate AND WareHouseID = '12' UNION ALL SELECT ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(a.StuffID, '') AS StuffID, ISNULL(a.LotNo, '') AS LotNo, ISNULL(a.InDetailNo, '') AS InDetailNo, a.PreMonthMoney AS Total, a.PreMonthQty AS Qty, 0 AS InQty, 0 AS OutQty, 0 AS InMoney, 0 AS OutMoney, a.PreMonthQty AS LastStockQty, a.PreMonthMoney AS LastStockMoney FROM dye.StuffStock AS a WHERE a.StockDate = @MaxStockDate AND WareHouseID = '12') AS alisTotal WHERE alisTotal.WareHouseID = '12' /* ---染料大仓结账 */ GROUP BY alisTotal.WareHouseID, alisTotal.StuffID, alisTotal.LotNo, alisTotal.InDetailNo) AS A WHERE 1 = 1 AND NOT EXISTS(SELECT 1 FROM dye.StuffStock AS B WHERE B.InDetailNo = A.InDetailNo AND B.WareHouseID = '12' AND B.PreMonthQty = 0 AND B.LastStockQty = 0 AND B.InQty = 0 AND B.OutQty = 0)) AS original_cursor",
+    "values": {
+      "StockDate": "@EndDate",
+      "WareHouseID": "@WareHouseID",
+      "StuffID": "@StuffID",
+      "LotNo": "@LotNo",
+      "InDetailNo": "@InDetailNo",
+      "Price": "@Price",
+      "PreMonthQty": "@Qty",
+      "PreMonthMoney": "@Total",
+      "CarryDate": "@EndDate",
+      "Remarks": "''",
+      "LastStockQty": "@LastStockQty",
+      "LastStockMoney": "@LastStockMoney",
+      "InQty": "@InQty",
+      "OutQty": "@OutQty",
+      "InMoney": "@InMoney",
+      "OutMoney": "@OutMoney"
+    }
+  },
+  "Sp_UpdateGrayStock": {
+    "id": "SQL403",
+    "table": "GrayStock",
+    "source": "SELECT CAST(SupplierID AS VARCHAR(10)) AS supplierid, CAST(CustomerID AS VARCHAR(10)) AS customerid, CAST(WareHouseID AS VARCHAR(10)) AS warehouseid, CAST(SalerID AS VARCHAR(10)) AS salerid, CAST(GrayID AS VARCHAR(128)) AS grayid, CAST(Spec AS VARCHAR(128)) AS spec, CAST(LotNo AS VARCHAR(50)) AS lotno, CAST(ReceSheetNo AS VARCHAR(20)) AS recesheetno, CAST((SUM(Rolls) + SUM(LastStockRolls)) AS NUMERIC(10, 2)) AS rolls, CAST((SUM(LengthQty) + SUM(LastStockLengthQty)) AS NUMERIC(10, 2)) AS lengthqty, CAST((SUM(WeightQty) + SUM(LastStockWeightQty)) AS NUMERIC(10, 2)) AS weightqty, CAST(PreField1 AS VARCHAR(50)) AS prefield1, CAST(PurchaseOrders AS VARCHAR(20)) AS purchaseorders, CAST(A_A AS VARCHAR(50)) AS a_a, CAST(A_B AS VARCHAR(100)) AS a_b, CAST(FixedQty AS NUMERIC(5, 1)) AS fixedqty, CAST(ColorID AS VARCHAR(20)) AS colorid FROM (SELECT ISNULL(SupplierID, '') AS SupplierID, ISNULL(CustomerID, '') AS CustomerID, ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(SalerID, '') AS SalerID, ISNULL(GrayID, '') AS GrayID, ISNULL(Spec, '') AS Spec, ISNULL(LotNo, '') AS LotNo, ISNULL(ReceSheetNo, '') AS ReceSheetNo, (ISNULL(c.InRolls, 0) - ISNULL(c.OutRolls, 0)) AS Rolls, (ISNULL(c.InLengthQty, 0) - ISNULL(c.OutLengthQty, 0)) AS LengthQty, (ISNULL(c.InWeightQty, 0) - ISNULL(c.OutWeightQty, 0)) AS WeightQty, 0 AS LastStockRolls, 0 AS LastStockLengthQty, 0 AS LastStockWeightQty, ISNULL(c.PreField1, '') AS PreField1, ISNULL(c.PurchaseOrders, '') AS PurchaseOrders, ISNULL(c.A_A, '') AS A_A, ISNULL(c.A_B, '') AS A_B, ISNULL(c.FixedQty, 0) AS FixedQty, ISNULL(c.ColorID, '') AS ColorID FROM GrayStockBook AS c WHERE c.BookDate > @MaxStockDate AND c.BookDate <= @EndDate UNION ALL SELECT ISNULL(SupplierID, '') AS SupplierID, ISNULL(a.CustomerID, '') AS CustomerID, ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(SalerID, '') AS SalerID, ISNULL(a.GrayID, '') AS GrayID, ISNULL(a.Spec, '') AS Spec, ISNULL(a.LotNo, '') AS LotNo, ISNULL(ReceSheetNo, '') AS ReceSheetNo, 0 AS Rolls, 0 AS LengthQty, 0 AS WeightQty, a.PreMonthRolls AS LastStockRolls, a.PreMonthLengthQty AS LastStockLengthQty, a.PreMonthWeightQty AS LastStockWeightQty, ISNULL(a.PreField1, '') AS PreField1, ISNULL(a.PurchaseOrders, '') AS PurchaseOrders, ISNULL(a.A_A, '') AS A_A, ISNULL(a.A_B, '') AS A_B, ISNULL(a.FixedQty, 0) AS FixedQty, ISNULL(a.ColorID, '') AS ColorID FROM GrayStock AS a WHERE a.StockDate = @MaxStockDate) AS alisTotal GROUP BY SupplierID, CustomerID, WareHouseID, SalerID, GrayID, Spec, LotNo, ReceSheetNo, PreField1, PurchaseOrders, A_A, A_B, FixedQty, ColorID",
+    "values": {
+      "StockDate": "@EndDate",
+      "SupplierID": "@SupplierID",
+      "CustomerID": "@CustomerID",
+      "WareHouseID": "@WareHouseID",
+      "SalerID": "@SalerID",
+      "GrayID": "@GrayID",
+      "Spec": "@Spec",
+      "LotNo": "@LotNo",
+      "ReceSheetNo": "@ReceSheetNo",
+      "PreMonthRolls": "@Rolls",
+      "PreMonthLengthQty": "@LengthQty",
+      "PreMonthWeightQty": "@WeightQty",
+      "CarryDate": "@EndDate",
+      "Remarks": "''",
+      "PreField1": "@PreField1",
+      "PurchaseOrders": "@PurchaseOrders",
+      "A_A": "@A_A",
+      "A_B": "@A_B",
+      "FixedQty": "@FixedQty",
+      "ColorID": "@ColorID"
+    }
+  },
+  "Sp_UpdateProdStock": {
+    "id": "SQL411",
+    "table": "ProdStock",
+    "source": "SELECT CAST(CustomerID AS VARCHAR(20)) AS customerid, CAST(WareHouseID AS VARCHAR(10)) AS warehouseid, CAST(ProdID AS VARCHAR(128)) AS prodid, CAST(JobSheetNo AS VARCHAR(30)) AS jobsheetno, CAST(SUM(Rolls) AS NUMERIC(10, 2)) AS rolls, CAST(SUM(LengthQty) AS NUMERIC(10, 2)) AS lengthqty, CAST(SUM(WeightQty) AS NUMERIC(10, 2)) AS weightqty, CAST(SUM(LastStockRolls) AS NUMERIC(10, 2)) AS laststockrolls, CAST(SUM(LastStockLengthQty) AS NUMERIC(10, 2)) AS laststocklengthqty, CAST(SUM(LastStockWeightQty) AS NUMERIC(10, 2)) AS laststockweightqty FROM (SELECT ISNULL(c.CustomerID, '') AS CustomerID, ISNULL(c.WareHouseID, '') AS WareHouseID, '' AS ProdID, '' AS JobSheetNo, (ISNULL(c.InRolls, 0) - ISNULL(c.OutRolls, 0)) AS Rolls, (ISNULL(c.InLengthQty, 0) - ISNULL(c.OutLengthQty, 0)) AS LengthQty, (ISNULL(c.InWeightQty, 0) - ISNULL(c.OutWeightQty, 0)) AS WeightQty, 0 AS LastStockRolls, 0 AS LastStockLengthQty, 0 AS LastStockWeightQty FROM dye.ProdStockBook AS c WHERE c.BookDate > @MaxStockDate AND c.BookDate <= @EndDate UNION ALL SELECT ISNULL(a.CustomerID, '') AS CustomerID, ISNULL(a.WareHouseID, '') AS WareHouseID, '' AS ProdID, '' AS JobSheetNo, a.PreMonthRolls AS Rolls, a.PreMonthLengthQty AS LengthQty, a.PreMonthWeightQty AS WeightQty, a.PreMonthRolls AS LastStockRolls, a.PreMonthLengthQty AS LastStockLengthQty, a.PreMonthWeightQty AS LastStockWeightQty FROM dye.ProdStock AS a WHERE a.StockDate = @MaxStockDate) AS alisTotal GROUP BY CustomerID, WareHouseID, ProdID, JobSheetNo",
+    "values": {
+      "StockDate": "@EndDate",
+      "BusinessUnitID": "NULL",
+      "FactID": "NULL",
+      "CustomerID": "@CustomerID",
+      "WareHouseID": "@WareHouseID",
+      "SalerGroupID": "NULL",
+      "ProdID": "@ProdID",
+      "Spec": "NULL",
+      "LotNo": "NULL",
+      "PreMonthRolls": "@Rolls",
+      "PreMonthLengthQty": "@LengthQty",
+      "PreMonthWeightQty": "@WeightQty",
+      "Price": "NULL",
+      "CarryDate": "@EndDate",
+      "Remarks": "NULL"
+    }
+  },
+  "Sp_UpdateSemiStock": {
+    "id": "SQL415",
+    "table": "SemiStock",
+    "source": "SELECT CAST(SupplierID AS VARCHAR(10)) AS supplierid, CAST(CustomerID AS VARCHAR(10)) AS customerid, CAST(WareHouseID AS VARCHAR(10)) AS warehouseid, CAST(SalerID AS VARCHAR(10)) AS salerid, CAST(ProdID AS VARCHAR(128)) AS prodid, CAST(Spec AS VARCHAR(128)) AS spec, CAST(LotNo AS VARCHAR(50)) AS lotno, CAST(ReceSheetNo AS VARCHAR(20)) AS recesheetno, CAST((SUM(Rolls) + SUM(LastStockRolls)) AS NUMERIC(10, 2)) AS rolls, CAST((SUM(LengthQty) + SUM(LastStockLengthQty)) AS NUMERIC(10, 2)) AS lengthqty, CAST((SUM(WeightQty) + SUM(LastStockWeightQty)) AS NUMERIC(10, 2)) AS weightqty, CAST(PreField1 AS VARCHAR(50)) AS prefield1, CAST(PurchaseOrders AS VARCHAR(20)) AS purchaseorders, CAST(A_A AS VARCHAR(50)) AS a_a, CAST(A_B AS VARCHAR(100)) AS a_b, CAST(FixedQty AS NUMERIC(5, 1)) AS fixedqty, CAST(ColorID AS VARCHAR(20)) AS colorid FROM (SELECT ISNULL(SupplierID, '') AS SupplierID, ISNULL(CustomerID, '') AS CustomerID, ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(SalerID, '') AS SalerID, ISNULL(ProdID, '') AS ProdID, ISNULL(Spec, '') AS Spec, ISNULL(LotNo, '') AS LotNo, ISNULL(ReceSheetNo, '') AS ReceSheetNo, (ISNULL(c.InRolls, 0) - ISNULL(c.OutRolls, 0)) AS Rolls, (ISNULL(c.InLengthQty, 0) - ISNULL(c.OutLengthQty, 0)) AS LengthQty, (ISNULL(c.InWeightQty, 0) - ISNULL(c.OutWeightQty, 0)) AS WeightQty, 0 AS LastStockRolls, 0 AS LastStockLengthQty, 0 AS LastStockWeightQty, ISNULL(c.PreField1, '') AS PreField1, ISNULL(c.PurchaseOrders, '') AS PurchaseOrders, ISNULL(c.A_A, '') AS A_A, ISNULL(c.A_B, '') AS A_B, ISNULL(c.FixedQty, 0) AS FixedQty, ISNULL(c.ColorID, '') AS ColorID FROM SemiStockBook AS c WHERE c.BookDate > @MaxStockDate AND c.BookDate <= @EndDate UNION ALL SELECT ISNULL(SupplierID, '') AS SupplierID, ISNULL(a.CustomerID, '') AS CustomerID, ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(SalerID, '') AS SalerID, ISNULL(a.ProdID, '') AS ProdID, ISNULL(a.Spec, '') AS Spec, ISNULL(a.LotNo, '') AS LotNo, ISNULL(ReceSheetNo, '') AS ReceSheetNo, 0 AS Rolls, 0 AS LengthQty, 0 AS WeightQty, a.PreMonthRolls AS LastStockRolls, a.PreMonthLengthQty AS LastStockLengthQty, a.PreMonthWeightQty AS LastStockWeightQty, ISNULL(a.PreField1, '') AS PreField1, ISNULL(a.PurchaseOrders, '') AS PurchaseOrders, ISNULL(a.A_A, '') AS A_A, ISNULL(a.A_B, '') AS A_B, ISNULL(a.FixedQty, 0) AS FixedQty, ISNULL(a.ColorID, '') AS ColorID FROM SemiStock AS a WHERE a.StockDate = @MaxStockDate) AS alisTotal GROUP BY SupplierID, CustomerID, WareHouseID, SalerID, ProdID, Spec, LotNo, ReceSheetNo, PreField1, PurchaseOrders, A_A, A_B, FixedQty, ColorID",
+    "values": {
+      "StockDate": "@EndDate",
+      "SupplierID": "@SupplierID",
+      "CustomerID": "@CustomerID",
+      "WareHouseID": "@WareHouseID",
+      "SalerID": "@SalerID",
+      "ProdID": "@ProdID",
+      "Spec": "@Spec",
+      "LotNo": "@LotNo",
+      "ReceSheetNo": "@ReceSheetNo",
+      "PreMonthRolls": "@Rolls",
+      "PreMonthLengthQty": "@LengthQty",
+      "PreMonthWeightQty": "@WeightQty",
+      "CarryDate": "@EndDate",
+      "Remarks": "''",
+      "PreField1": "@PreField1",
+      "PurchaseOrders": "@PurchaseOrders",
+      "A_A": "@A_A",
+      "A_B": "@A_B",
+      "FixedQty": "@FixedQty",
+      "ColorID": "@ColorID"
+    }
+  },
+  "Sp_UpdateStuffStock": {
+    "id": "SQL417",
+    "table": "StuffStock",
+    "source": "SELECT CAST(alisTotal.WareHouseID AS VARCHAR(100)) AS warehouseid, CAST(alisTotal.StuffID AS VARCHAR(100)) AS stuffid, CAST(alisTotal.LotNo AS VARCHAR(100)) AS lotno, CAST(SUM(alisTotal.Total) AS NUMERIC(14, 2)) AS total, CAST(CONVERT(NUMERIC(10, 2), CASE WHEN SUM(alisTotal.Qty) = 0 THEN 0 ELSE SUM(alisTotal.Total) / SUM(alisTotal.Qty) END) AS NUMERIC(8, 2)) AS price, CAST(SUM(alisTotal.Qty) AS NUMERIC(14, 6)) AS qty, CAST(SUM(alisTotal.InQty) AS NUMERIC(14, 6)) AS inqty, CAST(SUM(alisTotal.OutQty) AS NUMERIC(14, 6)) AS outqty, CAST(SUM(alisTotal.InMoney) AS NUMERIC(14, 2)) AS inmoney, CAST(SUM(alisTotal.OutMoney) AS NUMERIC(14, 2)) AS outmoney, CAST(SUM(alisTotal.LastStockQty) AS NUMERIC(14, 2)) AS laststockqty, CAST(SUM(alisTotal.LastStockMoney) AS NUMERIC(14, 6)) AS laststockmoney FROM (SELECT ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(StuffID, '') AS StuffID, ISNULL(LotNo, '') AS LotNo, (ISNULL(c.InMoney, 0) - ISNULL(c.OutMoney, 0)) AS Total, (ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0)) AS Qty, ISNULL(c.InQty, 0) AS InQty, ISNULL(c.OutQty, 0) AS OutQty, ISNULL(c.InMoney, 0) AS InMoney, ISNULL(c.OutMoney, 0) AS OutMoney, 0 AS LastStockQty, 0 AS LastStockMoney FROM dye.StuffStockBook AS c WHERE c.BookDate > @MaxStockDate AND c.BookDate <= @EndDate AND WareHouseID IN ('13', '14') UNION ALL SELECT ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(a.StuffID, '') AS StuffID, ISNULL(a.LotNo, '') AS LotNo, a.PreMonthMoney AS Total, a.PreMonthQty AS Qty, 0 AS InQty, 0 AS OutQty, 0 AS InMoney, 0 AS OutMoney, a.PreMonthQty AS LastStockQty, a.PreMonthMoney AS LastStockMoney FROM dye.StuffStock AS a WHERE a.StockDate = @MaxStockDate AND WareHouseID IN ('13', '14')) AS alisTotal LEFT JOIN dye.p_Stuff AS d ON alisTotal.StuffID = d.StuffID WHERE alisTotal.WareHouseID IN ('13', '14') GROUP BY alisTotal.WareHouseID, alisTotal.StuffID, alisTotal.LotNo, d.Price",
+    "values": {
+      "StockDate": "@EndDate",
+      "WareHouseID": "@WareHouseID",
+      "StuffID": "@StuffID",
+      "LotNo": "@LotNo",
+      "InDetailNo": "''",
+      "Price": "@Price",
+      "PreMonthQty": "@Qty",
+      "PreMonthMoney": "@Total",
+      "CarryDate": "@EndDate",
+      "Remarks": "''",
+      "LastStockQty": "@LastStockQty",
+      "LastStockMoney": "@LastStockMoney",
+      "InQty": "@InQty",
+      "OutQty": "@OutQty",
+      "InMoney": "@InMoney",
+      "OutMoney": "@OutMoney"
+    }
+  },
+  "Sp_UpdateStuffStock_2208": {
+    "id": "SQL418",
+    "table": "StuffStock",
+    "source": "SELECT CAST(WareHouseID AS VARCHAR(100)) AS warehouseid, CAST(StuffID AS VARCHAR(100)) AS stuffid, CAST(LotNo AS VARCHAR(100)) AS lotno, CAST((CASE WHEN SUM(Qty) = 0 THEN 0 ELSE ROUND(SUM(Total), 2) END) AS NUMERIC(22, 2)) AS total, CAST((CASE WHEN SUM(Qty) = 0 THEN 0 ELSE SUM(Total) / SUM(Qty) END) AS NUMERIC(18, 2)) AS price, CAST(SUM(Qty) AS NUMERIC(24, 6)) AS qty FROM (SELECT ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(StuffID, '') AS StuffID, ISNULL(LotNo, '') AS LotNo, (ISNULL(c.InMoney, 0) - ISNULL(c.OutMoney, 0)) AS Total, (ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0)) AS Qty, 0 AS LastStockQty FROM StuffStockBook AS c WHERE c.BookDate > (SELECT MAX(CarryDate) AS CarryDate FROM (SELECT CAST('1900-01-01' AS DATETIME) AS CarryDate UNION SELECT MAX(ISNULL(CarryDate, CAST('1900-01-01' AS DATETIME))) AS CarryDate FROM dye.StuffStock WHERE WareHouseID = c.WareHouseID AND StuffID = c.StuffID AND ISNULL(LotNo, '') = ISNULL(c.LotNo, '') GROUP BY WareHouseID, StuffID, LotNo) AS alisMaxCarryDate) UNION ALL SELECT ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(a.StuffID, '') AS StuffID, ISNULL(a.LotNo, '') AS LotNo, a.PreMonthMoney AS Total, a.PreMonthQty AS Qty, a.PreMonthQty AS LastStockQty FROM dye.StuffStock AS a INNER JOIN (SELECT MAX(CarryDate) AS CarryDate, ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(StuffID, '') AS StuffID, ISNULL(LotNo, '') AS LotNo FROM dye.StuffStock GROUP BY WareHouseID, StuffID, LotNo) AS b ON a.WareHouseID = b.WareHouseID AND a.StuffID = b.StuffID AND ISNULL(a.LotNo, '') = ISNULL(b.LotNo, '') AND a.CarryDate = b.CarryDate) AS alisTotal GROUP BY WareHouseID, StuffID, LotNo",
+    "values": {
+      "StockDate": "@EndDate",
+      "WareHouseID": "@WareHouseID",
+      "StuffID": "@StuffID",
+      "LotNo": "@LotNo",
+      "Price": "@fNewPrice",
+      "PreMonthQty": "@Qty",
+      "PreMonthMoney": "@Qty*@fNewPrice",
+      "CarryDate": "@EndDate",
+      "Remarks": "''"
+    }
+  },
+  "Sp_UpdateStuffStock_Old": {
+    "id": "SQL419",
+    "table": "StuffStock",
+    "source": "SELECT CAST(WareHouseID AS VARCHAR(100)) AS warehouseid, CAST(StuffID AS VARCHAR(100)) AS stuffid, CAST(LotNo AS VARCHAR(100)) AS lotno, CAST((CASE WHEN SUM(Qty) = 0 THEN 0 ELSE ROUND(SUM(Total), 2) END) AS NUMERIC(22, 2)) AS total, CAST((CASE WHEN SUM(Qty) = 0 THEN 0 ELSE SUM(Total) / SUM(Qty) END) AS NUMERIC(18, 2)) AS price, CAST(SUM(Qty) AS NUMERIC(24, 6)) AS qty FROM (SELECT ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(StuffID, '') AS StuffID, ISNULL(LotNo, '') AS LotNo, (ISNULL(c.InMoney, 0) - ISNULL(c.OutMoney, 0)) AS Total, (ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0)) AS Qty, 0 AS LastStockQty FROM StuffStockBook AS c WHERE c.BookDate > @MaxStockDate AND c.BookDate <= @EndDate UNION ALL SELECT ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(a.StuffID, '') AS StuffID, ISNULL(a.LotNo, '') AS LotNo, a.PreMonthMoney AS Total, a.PreMonthQty AS Qty, a.PreMonthQty AS LastStockQty FROM StuffStock AS a WHERE a.StockDate = @MaxStockDate) AS alisTotal GROUP BY WareHouseID, StuffID, LotNo",
+    "values": {
+      "StockDate": "@EndDate",
+      "WareHouseID": "@WareHouseID",
+      "StuffID": "@StuffID",
+      "LotNo": "@LotNo",
+      "Price": "@fNewPrice",
+      "PreMonthQty": "@Qty",
+      "PreMonthMoney": "@Qty*@fNewPrice",
+      "CarryDate": "@EndDate",
+      "Remarks": "''"
+    }
+  }
+}

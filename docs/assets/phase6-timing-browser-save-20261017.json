@@ -1,0 +1,33 @@
+{
+  "document": "TIME-SAVE",
+  "row": 852,
+  "tests": [
+    {
+      "action": "整单父Rate=9、子BathRatio=-3；保存后重新打开",
+      "values": [
+        {
+          "label": "Rate",
+          "value": "9.00"
+        },
+        {
+          "label": "浴比",
+          "value": "-3.00"
+        }
+      ]
+    },
+    {
+      "action": "整单父Rate=12、子BathRatio明确清空；保存后重新打开",
+      "values": [
+        {
+          "label": "Rate",
+          "value": "12.00"
+        },
+        {
+          "label": "浴比",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "scope": "合成浏览器验证库"
+}

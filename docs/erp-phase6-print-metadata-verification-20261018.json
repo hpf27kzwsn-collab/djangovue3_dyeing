@@ -1,0 +1,135 @@
+{
+  "verified_at": "2026-10-18T01:40:20.829847+08:00",
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "fixed_ids_preserved": true,
+  "fixed_counts": {
+    "1": 116,
+    "2": 156,
+    "3": 95,
+    "4": 272,
+    "5": 290,
+    "6": 4
+  },
+  "paused_queries_unchanged": true,
+  "save_differences": [
+    "F004",
+    "F281",
+    "F273",
+    "F361",
+    "F362"
+  ],
+  "save_sources_live": "erp-phase6-remaining-save-live-20261018.json",
+  "save_sources_unchanged_since_20261017": true,
+  "print_eligible": 28,
+  "nonfinance_print_differences": 130,
+  "source_audit": "erp-phase6-print-source-audit-20261018.json",
+  "tests": {
+    "regression": {
+      "count": 464,
+      "seconds": "200.747",
+      "log": ".runtime-temp/phase6/metadata-regression.log",
+      "sha256": "4d834e49151ec72d3209d8594e0fddd33e041f0f1d9b4d568bbe06fb467cb1b4"
+    },
+    "final_targeted": {
+      "count": 18,
+      "seconds": "16.018",
+      "log": ".runtime-temp/phase6/metadata-target-final.log",
+      "sha256": "e257bf6837175923fe6e1c0df6ce6ae0c8f2c96de8b2b12e6b2b996e0f5ba1e5"
+    },
+    "note": "464项相关回归通过；最终18项复验包含新增1项范围测试，其余17项与464项重叠，不能相加。"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n",
+    "schema_basis": "当前Django模型；本轮没有重新提取旧SQL Server结构"
+  },
+  "browser_prints": [
+    {
+      "report": "H008",
+      "rows": 17,
+      "pages": 3,
+      "html": "docs/assets/phase6-metadata-H008-20261018.html",
+      "sha256": "3237d6db4b047cf5d91bdec07d919434fdb39a5f83605194fca27e895dfc3237",
+      "scope": "META-OUT",
+      "query_rows": 57,
+      "development": "应用发起校样及独立HTML页面验证通过；内嵌纸张显示未通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "report": "H024",
+      "rows": 17,
+      "pages": 3,
+      "html": "docs/assets/phase6-metadata-H024-20261018.html",
+      "sha256": "87f9f2365ba15ddaa04dd762b994a1f19f580a67ef91d5ea551bc87a455af358",
+      "scope": "META-OUT",
+      "query_rows": 57,
+      "development": "应用发起校样及独立HTML页面验证通过；内嵌纸张显示未通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    },
+    {
+      "report": "R121",
+      "rows": 8,
+      "pages": 1,
+      "html": "docs/assets/phase6-metadata-R121-20261018.html",
+      "sha256": "cc7e37a40ec2548e2fbd689c7a41899852d5042ee8f548df45442355309db905",
+      "scope": "META-IN",
+      "query_rows": 11,
+      "development": "应用发起校样及独立HTML页面验证通过；内嵌纸张显示未通过",
+      "historical_reconciliation": "未完成",
+      "field_acceptance": "未完成"
+    }
+  ],
+  "browser_save": {
+    "saved_cook": "\t\n1\n\t\n6\n\t\nMETA-COOK\n\t\nMETA-COOK\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n采购保存来源与时机浏览器验证20261018\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n草稿\n\t\n\t\n\t\n\t\n\t\n\t\n查看\n编辑\n删除\n数据版打印\n明细与关联\n整单编辑\n确认",
+    "material_rows": [
+      "1177META-M9.000000未填写-7.000000查看编辑删除数据版打印核对原资料对应",
+      "2176META-M-7.000000未填写-7.000000查看编辑删除数据版打印核对原资料对应",
+      "3175META-M-7.000000未填写-7.000000查看编辑删除数据版打印核对原资料对应"
+    ]
+  },
+  "browser_save_database_result": "assets/phase6-metadata-cook-result-20261018.json",
+  "browser_visual": {
+    "reports": [
+      "H008",
+      "H024",
+      "R121"
+    ],
+    "independent_html_verified": true,
+    "bookmark_navigation": [
+      "H008#original-bookmark-3",
+      "H024#original-bookmark-3"
+    ],
+    "render_notes": "应用内iframe已返回正确行数/页数/srcdoc，但本次IAB截图中纸张空白；使用同一HTML在本机独立页面验证布局和书签。内嵌显示未判定通过，未修改sandbox权限。",
+    "historical_reconciliation": "未完成",
+    "field_acceptance": "未完成"
+  },
+  "frontend": {
+    "typecheck": "通过",
+    "build": "通过",
+    "build_log_sha256": "b1f4ba2eb6cf6d8da91a61855b373bb9abff44922ddd8b665afa16d5d445473e"
+  },
+  "synthetic_browser_rows_added": 36,
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成",
+  "field_acceptance": "未完成",
+  "previous_evidence": "erp-phase6-delivery-quality-verification-20261018.json",
+  "code_sha256": {
+    "backend/plugins/erp_base/source_phase6_rendering.py": "58261a590c56e02edd3a193627f2f6f28fcb58e3e80ae718f9975df6f787febe",
+    "backend/plugins/erp_base/source_phase6_print_sources.py": "2a38e169c8c521beb56d3cb30660735fd8472d20728bd246ca6c48720f2e76a0",
+    "backend/plugins/erp_base/source_phase6_text_scripts.py": "ec47e562f309e11b4aeb2d84b7e937c91453d04112b682d592f11cf2d6a31a9d",
+    "backend/plugins/erp_base/source_phase6_hooks.py": "2249f67ce25997889611f80911c9e58ead689903739ef9f24072645fb8877551",
+    "backend/plugins/erp_base/tests/test_source_phase6_bookmark_events.py": "0d5d72040229187acda3dd855571580811c5516046a3556540b0bac80614bf6d",
+    "web/src/plugins/erp/OriginalEntryWorkbench.vue": "e475f91bb854b2d32ba17ade1fd903f00a58fee26874e83ab1b33d6b6645db19",
+    "tools/legacy_models/audit_phase6_print_sources.py": "05930e71958ea0a3dc0d6ec9d7437b0b71319517530bfc44356c39da64160569"
+  },
+  "screenshots": {
+    "docs/assets/phase6-metadata-H008-20261018.png": "2e89230e4707460af69e85ce5b39d3934bcd381e9618993a58d9547e6a23e069",
+    "docs/assets/phase6-metadata-H024-20261018.png": "78c8d596bb10d279f274e217d5b103eb7f221875598a94d249fba3f8164d4d17",
+    "docs/assets/phase6-metadata-R121-20261018.png": "8c09803f619b5f584949bc84331dc3036a30b2c369602582a01bf5222d9f3a4d"
+  }
+}

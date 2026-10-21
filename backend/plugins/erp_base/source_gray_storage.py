@@ -49,7 +49,7 @@ def undo(context, actor):
     context.effects = {**context.effects, 'gray_storage_changes': []}
 
 
-def derive(item, context, actor):
+def derive(item, context, actor, details=None):
     from .source_gray_split_merge import active
     incoming = model('GrayInDetail')
     records = model('GrayInRecord')
@@ -57,13 +57,16 @@ def derive(item, context, actor):
     changes = []
     derived = {}
     stock_rows = []
-    for line in detail_rows(item, 'GrayStorageAdjustDetail'):
+    for line in detail_rows(item, 'GrayStorageAdjustDetail') if details is None else details:
         receipt = raw(line, 'ReceSheetNo')
-        sources = matching(incoming.objects.select_for_update(), 'old_rece_sheet_no', receipt)
+        sources = matching(active(incoming.objects.select_for_update()), 'old_rece_sheet_no', receipt)
         # 当前明细LotNo保存原入库单的SheetSeries，旧过程也以此定位库存和撤销来源。
         sources = matching(sources, 'old_sheet_series', raw(line, 'LotNo')).order_by('pk')
         source_list = list(sources)
         if not source_list:
+            if details is not None:
+                record(line,'gray_storage_missing_source',snapshot(line),actor,'原表键没有匹配收料；本行完整保留，未生成虚构收料')
+                continue
             raise ValidationError({'source': '库位调整明细必须对应实际收料单号及收料批次；原明细可保存，办理时请补明实际来源。'})
         for source in source_list:
             prefix = receipt[:6].replace('Z', '') if receipt.startswith('Z') else 'Z' + receipt[:6]
@@ -90,9 +93,12 @@ def derive(item, context, actor):
                 quantities[source.SOURCE_FIELDS[old]] = 0 if result is None and old != 'Rolls' else result
             change(source, quantities, changes, actor)
             barcode_rows = model('GrayStorageAdjustRecord').objects.filter(source_parent_1=line)
+            if details is not None:
+                barcode_rows=matching(matching(active(model('GrayStorageAdjustRecord').objects.all()),'old_sheet_series',raw(item,'SheetSeries')),'old_from_rece_sheet_no',receipt)
             codes = list(barcode_rows.values_list('old_rece_sheet_no', flat=True))
             for code in codes:
                 selected = matching(active(records.objects.select_for_update().filter(source_parent_1=source)), 'old_bar_code', code)
+                if details is not None:selected=matching(matching(active(records.objects.select_for_update()),'old_rece_sheet_no',receipt),'old_bar_code',code)
                 for tag in selected:
                     change(tag, {'old_rece_sheet_no': number, 'source_parent_1': split}, changes, actor)
             source_books = matching(books.objects.select_for_update(), 'old_sheet_series', raw(source, 'SheetSeries'))
@@ -103,10 +109,11 @@ def derive(item, context, actor):
                     actual, moved = raw(book, old), raw(line, quantity)
                     values[book.SOURCE_FIELDS[old]] = None if actual is None or moved is None else decimal(actual) - decimal(moved)
                 change(book, values, changes, actor)
-            parent = source.source_parent_1
-            if parent is None:
+            parents=[source.source_parent_1] if details is None else list(matching(active(model('GrayIn').objects.all()),'old_sheet_series',raw(source,'SheetSeries')).order_by('pk'))
+            if details is None and parents[0] is None:
                 raise ValidationError({'source': '所选收料明细的实际收料表头关系尚未明确，请补齐后办理。'})
-            stock_rows.append(('GrayStockBook', {**copy_fields(parent, ['SheetDate', 'SheetKind', 'BusinessUnitID', 'CustomerID', 'FactID', 'WareHouseID', 'SalerGroupID', 'SheetNo', 'SheetSeries']),
+            for parent in parents:
+              stock_rows.append(('GrayStockBook', {**copy_fields(parent, ['SheetDate', 'SheetKind', 'BusinessUnitID', 'CustomerID', 'FactID', 'WareHouseID', 'SalerGroupID', 'SheetNo', 'SheetSeries']),
                 'BookDate': raw(parent, 'SheetDate'), 'BookKind': raw(parent, 'SheetKind'), 'CurrDate': timezone.now(),
                 **copy_fields(source, ['GrayID', 'Spec', 'LotNo']), 'StorageUnitIDs': raw(line, 'ToStorageUnitIDs'),
                 'ReceSheetNo': number, 'DetailNo': number, 'JobSheetNo': None,

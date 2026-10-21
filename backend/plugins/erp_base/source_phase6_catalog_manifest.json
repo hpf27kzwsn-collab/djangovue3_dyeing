@@ -1,0 +1,48 @@
+{
+  "entries": 1682,
+  "fields": 48962,
+  "finance": 108,
+  "reports": 290,
+  "report_menus": 148,
+  "functions": 1395,
+  "xml_templates": 261,
+  "xml_errors": [
+    {
+      "index": 12,
+      "RptID": "H009",
+      "error": "reference to invalid character number: line 2, column 2398"
+    },
+    {
+      "index": 13,
+      "RptID": "H010",
+      "error": "reference to invalid character number: line 2, column 2449"
+    },
+    {
+      "index": 15,
+      "RptID": "H012",
+      "error": "reference to invalid character number: line 2, column 2390"
+    },
+    {
+      "index": 28,
+      "RptID": "H026",
+      "error": "reference to invalid character number: line 2, column 2407"
+    },
+    {
+      "index": 31,
+      "RptID": "H120",
+      "error": "reference to invalid character number: line 2, column 2390"
+    },
+    {
+      "index": 32,
+      "RptID": "H121",
+      "error": "reference to invalid character number: line 2, column 2401"
+    },
+    {
+      "index": 33,
+      "RptID": "H122",
+      "error": "reference to invalid character number: line 2, column 2452"
+    }
+  ],
+  "script_templates": 149,
+  "snapshot_sha256": "ee59090215b14ce27a56e7ad3cb7727a7b0153b36319c20e9f6871d510a3c981"
+}

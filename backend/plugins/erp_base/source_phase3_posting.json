@@ -1,0 +1,240 @@
+{
+  "GrayBalance": [
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, '' AS GrayKindID, b.BusinessUnitID AS BusinessUnitID, '' AS SupplierID, CustomerID AS CustomerID, a.WareHouseID AS WareHouseID, a.StorageUnitIDs AS StorageUnitIDs, a.GrayID AS GrayID, LotNo AS LotNo, b.SheetNo AS SheetNo, a.ReceSheetNo /* 针对销售退回的库存流水表里的ReceSheetNo要写原收坯明细编号(OriReceSheetNo) */ AS ReceSheetNo, a.[DetailNo] AS DetailNo, a.Piece AS OutRolls, a.Piece AS OutPacks, a.GrainQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Amount AS InMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.SheetKind AS SheetKind FROM dye.GrayBalanceDetail AS a WITH (NOLOCK) LEFT JOIN dye.GrayBalance AS b WITH (NOLOCK) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if @PhysicalTableName='GrayBalance'"
+    }
+  ],
+  "GrayIn": [
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, b.GrayKindID AS GrayKindID, b.BusinessUnitID AS BusinessUnitID, b.SupplierID AS SupplierID, b.CustomerID AS CustomerID, b.FactID AS FactID, b.WareHouseID AS WareHouseID, a.StorageUnitIDs AS StorageUnitIDs, a.GrayID AS GrayID, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, b.SheetNo AS SheetNo, (CASE ISNULL(b.SheetKind, '') WHEN '16' THEN a.OriReceSheetNo ELSE a.ReceSheetNo END) AS ReceSheetNo, a.ReceSheetNo AS DetailNo, a.Rolls AS InRolls, a.Packs AS InPacks, a.LengthQty AS InLengthQty, a.WeightQty AS InWeightQty, a.Price AS Price, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, a.InSheetKind AS InSheetKind, a.PreField1 AS PreField1, a.ColorID AS ColorID, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B FROM dye.GrayInDetail AS a WITH (nolock) LEFT JOIN dye.GrayIn AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if @PhysicalTableName In ('GrayIn','GrayInWork','SemiToGrayIn')"
+    }
+  ],
+  "GrayOut": [
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetNo AS SheetNo, a.AssignedNo AS DetailNo, a.ReceSheetNo AS ReceSheetNo, CASE WHEN b.SheetKind = 21 THEN a.JobSheetNo ELSE a.JobSheetSeries END AS JobSheetNo, b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, b.CustomerID AS CustomerID, b.FactID AS FactID, b.GrayKindID AS GrayKindID, b.BusinessUnitID AS BusinessUnitID, b.WareHouseID AS WareHouseID, a.StorageUnitIDs AS StorageUnitIDs, a.GrayID AS GrayID, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, a.Rolls AS OutRolls, a.Packs AS OutPacks, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Remarks AS Remarks, b.SheetSeries AS SheetSeries, a.SupplierID AS SupplierID, a.InSheetKind AS InSheetKind, a.PreField1 AS PreField1, a.ColorID AS ColorID, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B FROM dye.GrayOutDetail AS a WITH (nolock) LEFT JOIN dye.GrayOut AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if @PhysicalTableName In ('GrayOut','GrayOutSale','GrayOutWork','GrayOutTurn','GrayOutJob')"
+    }
+  ],
+  "DiscardGrayOut": [
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetNo AS SheetNo, a.AssignedNo AS DetailNo, a.ReceSheetNo AS ReceSheetNo, a.JobSheetNo AS JobSheetNo, b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, b.CustomerID AS CustomerID, b.FactID AS FactID, b.GrayKindID AS GrayKindID, b.BusinessUnitID AS BusinessUnitID, b.WareHouseID AS WareHouseID, a.StorageUnitIDs AS StorageUnitIDs, a.GrayID AS GrayID, a.Spec AS Spec, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, a.Rolls AS OutRolls, a.Packs AS OutPacks, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Remarks AS Remarks, b.SheetSeries AS SheetSeries FROM GrayOutDetail AS a WITH (nolock) LEFT JOIN GrayOut AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if @PhysicalTableName='DiscardGrayOut'"
+    }
+  ],
+  "GrayStockAdjust": [
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, b.GrayKindID AS GrayKindID, BusinessUnitID AS BusinessUnitID, '' AS SupplierID, a.CustomerID AS CustomerID, '' AS FactID, b.WareHouseID AS WareHouseID, ISNULL(a.StorageUnitIDs, '') AS StorageUnitIDs, a.GrayID AS GrayID, a.Spec AS Spec, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, b.SheetNo AS SheetNo, a.ReceSheetNo AS ReceSheetNo, a.DetailNo AS DetailNo, a.AdjustRolls AS InRolls, a.AdjustPacks AS InPacks, a.AdjustLengthQty AS InLengthQty, a.AdjustWeightQty AS InWeightQty, a.Price AS Price, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, a.InSheetKind AS InSheetKind, a.PreField1 AS PreField1, a.ColorID AS ColorID, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B FROM dye.GrayStockAdjustDetail AS a WITH (nolock) LEFT JOIN dye.GrayStockAdjust AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries AND (a.AdjustRolls <> 0 OR a.AdjustPacks <> 0 OR a.AdjustLengthQty <> 0 OR a.AdjustWeightQty <> 0)",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName ='GrayStockAdjust'"
+    }
+  ],
+  "GrayStockSpecUp": [
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, b.GrayKindID AS GrayKindID, BusinessUnitID AS BusinessUnitID, '' AS SupplierID, '' AS FactID, ISNULL(a.StorageUnitIDs, '') AS StorageUnitIDs, b.SalerGroupID AS SalerGroupID, b.SheetNo AS SheetNo, a.ReceSheetNo AS ReceSheetNo, a.AssignedNo AS DetailNo, a.Rolls AS OutRolls, a.Packs AS OutPacks, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, a.WareHouseID AS WareHouseID, a.CustomerID AS CustomerID, a.GrayID AS GrayID, a.LotNo AS LotNo, a.InSheetKind AS InSheetKind, a.PreField1 AS PreField1, a.ColorID AS ColorID, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B FROM dye.GrayStockSpecUpDetail AS a WITH (nolock) LEFT JOIN dye.GrayStockSpecUp AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName ='GrayStockSpecUp'"
+    },
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, b.GrayKindID AS GrayKindID, BusinessUnitID AS BusinessUnitID, '' AS SupplierID, '' AS FactID, ISNULL(a.StorageUnitIDs, '') AS StorageUnitIDs, b.SalerGroupID AS SalerGroupID, b.SheetNo AS SheetNo, a.ReceSheetNo AS ReceSheetNo, a.AssignedNo AS DetailNo, a.Rolls AS InRolls, a.Packs AS InPacks, a.LengthQty AS InLengthQty, a.WeightQty AS InWeightQty, a.Price AS Price, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, a.WareHouseID AS WareHouseID, a.UPCustomerID AS CustomerID, a.UPGrayID AS GrayID, a.UPLotNo AS LotNo, a.UPInSheetKind AS InSheetKind, a.UPPreField1 AS PreField1, a.UPColorID AS ColorID, a.UPPurchaseOrders AS PurchaseOrders, a.UPFixedQty AS FixedQty, a.UPA_A AS A_A, a.UPA_B AS A_B FROM dye.GrayStockSpecUpDetail AS a WITH (nolock) LEFT JOIN dye.GrayStockSpecUp AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName ='GrayStockSpecUp'"
+    }
+  ],
+  "GrayStockAllot": [
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, 41 AS BookKind, b.FromBusinessUnitID AS BusinessUnitID, b.FromCustomerID AS CustomerID, NULL AS FactID, b.FromWareHouseID AS WareHouseID, a.FromStorageUnitIDs AS StorageUnitIDs, a.FromGrayID AS GrayID, a.FromSpec AS Spec, a.FromLotNo AS LotNo, '' AS SalerGroupID, a.FromReceSheetNo AS ReceSheetNo, a.FromReceSheetNo AS JobSheetNo, b.SheetNo AS SheetNo, a.ReceSheetNo AS DetailNo, 0 AS InRolls, 0 AS InLengthQty, 0 AS InWeightQty, a.Rolls AS OutRolls, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, 0 AS Price, b.SheetSeries AS SheetSeries FROM GrayStockAllotDetail AS a WITH (NOLOCK) LEFT JOIN GrayStockAllot AS b WITH (NOLOCK) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "IF (@PhysicalTableName='GrayStockAllot'"
+    },
+    {
+      "table": "GrayStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS Currdate, 42 AS BookKind, b.FromBusinessUnitID AS BusinessUnitID, b.ToCustomerID AS CustomerID, NULL AS FactID, b.ToWareHouseID AS WareHouseID, a.ToStorageUnitIDs AS StorageUnitIDs, a.ToGrayID AS GrayID, a.ToSpec AS Spec, a.ToLotNo AS LotNo, '' AS SalerGroupID, a.ReceSheetNo AS ReceSheetNo, a.FromReceSheetNo AS JobSheetNo, b.SheetNo AS SheetNo, a.ReceSheetNo AS DetailNo, a.Rolls AS InRolls, a.LengthQty AS InLengthQty, a.WeightQty AS InWeightQty, 0 AS OutRolls, 0 AS OutLengthQty, 0 AS OutWeightQty, 0 AS Price, b.SheetSeries AS SheetSeries FROM GrayStockAllotDetail AS a WITH (NOLOCK) LEFT JOIN GrayStockAllot AS b WITH (NOLOCK) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "IF (@PhysicalTableName='GrayStockAllot'"
+    }
+  ],
+  "SemiIn": [
+    {
+      "table": "SemiStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, 0 AS BookKind, b.SemiKindID AS SemiKindID, b.BusinessUnitID AS BusinessUnitID, b.CustomerID AS CustomerID, b.WareHouseID AS WareHouseID, a.StorageUnitID AS StorageUnitIDs, a.ProdID AS ProdID, a.LotNo AS LotNo, b.SheetNo AS SheetNo, (CASE WHEN ISNULL(b.SheetKind, 0) IN (16) THEN a.OriReceSheetNo ELSE a.ReceSheetNo END) AS ReceSheetNo, a.ReceSheetNo AS DetailNo, a.Rolls AS InRolls, CONVERT(NUMERIC(7, 2), a.Packs) AS InPacks, a.LengthQty AS InLengthQty, a.WeightQty AS InWeightQty, a.Price AS Price, Amount AS InMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.SheetKind AS SheetKind, b.SupplierID AS SupplierID, a.ColorID AS ColorID, a.InSheetKind AS InSheetKind, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B, a.PreField1 AS PreField1 FROM dye.SemiInDetail AS a WITH (NOLOCK) LEFT JOIN dye.SemiIn AS b WITH (NOLOCK) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "IF  @PhysicalTableName IN ('SemiIn','MaterialSemiIn','PurSemiIn','SemiInBack','SemiInWork','TurnSemiIn','GrayOutToSemiIn','CusReturnSemiIn')"
+    }
+  ],
+  "SemiOut": [
+    {
+      "table": "SemiStockBook",
+      "sql": "SELECT b.SheetNo AS SheetNo, a.DetailNo AS DetailNo, a.ReceSheetNo AS ReceSheetNo, a.JobSheetNo AS JobSheetNo, b.SheetDate AS BookDate, @CurrDate AS CurrDate, 1 AS BookKind, b.CustomerID AS CustomerID, b.SemiKindID AS SemiKindID, b.BusinessUnitID AS BusinessUnitID, b.WareHouseID AS WareHouseID, a.StorageUnitID AS StorageUnitIDs, a.ProdID AS ProdID, a.LotNo AS LotNo, a.Rolls AS OutRolls, (SELECT SUM(c.Packs) FROM dye.SemiOutRecord AS c WHERE c.AssignedNo = a.AssignedNo) AS OutPacks, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Amount AS OutMoney, a.Remarks AS Remarks, b.SheetSeries AS SheetSeries, b.SheetKind AS SheetKind, a.SupplierID AS SupplierID, a.ColorID AS ColorID, a.InSheetKind AS InSheetKind, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B, a.PreField1 AS PreField1 FROM dye.SemiOutDetail AS a WITH (NOLOCK) LEFT JOIN dye.SemiOut AS b WITH (NOLOCK) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if @PhysicalTableName In ('SemiOut','SemiOutSale','SemiOutWork','SemiOutTurn','SemiOutJob')"
+    }
+  ],
+  "SemiStockAdjust": [
+    {
+      "table": "SemiStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, BusinessUnitID AS BusinessUnitID, '' AS SupplierID, a.CustomerID AS CustomerID, b.WareHouseID AS WareHouseID, ISNULL(a.StorageUnitIDs, '') AS StorageUnitIDs, a.ProdID AS ProdID, a.Spec AS Spec, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, b.SheetNo AS SheetNo, a.ReceSheetNo AS ReceSheetNo, a.DetailNo AS DetailNo, a.AdjustRolls AS InRolls, 0 AS InPacks, a.AdjustLengthQty AS InLengthQty, a.AdjustWeightQty AS InWeightQty, a.Price AS Price, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, a.ColorID AS ColorID, a.InSheetKind AS InSheetKind, a.PurchaseOrders AS PurchaseOrders, FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B, a.PreField1 AS PreField1 FROM SemiStockAdjustDetail AS a WITH (nolock) LEFT JOIN SemiStockAdjust AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries AND (a.AdjustRolls <> 0 OR a.AdjustWeightQty <> 0)",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName ='SemiStockAdjust'"
+    }
+  ],
+  "SemiStockSpecUp": [
+    {
+      "table": "SemiStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, BusinessUnitID AS BusinessUnitID, '' AS SupplierID, ISNULL(a.StorageUnitIDs, '') AS StorageUnitIDs, b.SalerGroupID AS SalerGroupID, b.SheetNo AS SheetNo, a.ReceSheetNo AS ReceSheetNo, a.AssignedNo AS DetailNo, a.Rolls AS OutRolls, a.Packs AS OutPacks, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.Price AS Price, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, a.WareHouseID AS WareHouseID, a.CustomerID AS CustomerID, a.ProdID AS ProdID, a.LotNo AS LotNo, a.InSheetKind AS InSheetKind, a.PreField1 AS PreField1, a.ColorID AS ColorID, a.PurchaseOrders AS PurchaseOrders, a.FixedQty AS FixedQty, a.A_A AS A_A, a.A_B AS A_B FROM SemiStockSpecUpDetail AS a WITH (nolock) LEFT JOIN SemiStockSpecUp AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName ='SemiStockSpecUp'"
+    },
+    {
+      "table": "SemiStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, @CurrDate AS CurrDate, b.SheetKind AS BookKind, BusinessUnitID AS BusinessUnitID, '' AS SupplierID, ISNULL(a.StorageUnitIDs, '') AS StorageUnitIDs, b.SalerGroupID AS SalerGroupID, b.SheetNo AS SheetNo, a.ReceSheetNo AS ReceSheetNo, a.AssignedNo AS DetailNo, a.Rolls AS InRolls, a.Packs AS InPacks, a.LengthQty AS InLengthQty, a.WeightQty AS InWeightQty, a.Price AS Price, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, a.WareHouseID AS WareHouseID, a.UPCustomerID AS CustomerID, a.UPProdID AS ProdID, a.UPLotNo AS LotNo, a.UPInSheetKind AS InSheetKind, a.UPPreField1 AS PreField1, a.UPColorID AS ColorID, a.UPPurchaseOrders AS PurchaseOrders, a.UPFixedQty AS FixedQty, a.UPA_A AS A_A, a.UPA_B AS A_B FROM SemiStockSpecUpDetail AS a WITH (nolock) LEFT JOIN SemiStockSpecUp AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName ='SemiStockSpecUp'"
+    }
+  ],
+  "ProdIn": [
+    {
+      "table": "ProdStockBook",
+      "sql": "SELECT SheetKind AS BookKind, SheetDate AS BookDate, BusinessUnitID AS BusinessUnitID, CustomerID AS CustomerID, SalerID AS SalerID, FabricID AS FactID, WareHouseID AS WareHouseID, StorageUnitID AS StorageUnitIDs, ProdID AS ProdID, Spec AS Spec, LotNo AS LotNo, ColorID AS ColorID, ColorNum AS ColorNum, SalerGroupID AS SalerGroupID, JobSheetNo AS JobSheetNo, SheetNo AS SheetNo, SheetSeries AS DetailNo, CheckNo AS CheckNo, Rolls AS InRolls, LengthQty AS InLengthQty, WeightQty AS InWeightQty, GaryWeight AS InGrayQty, 0 AS OutRolls, 0 AS OutLengthQty, 0 AS OutWeightQty, 0 AS OutGrayQty, Price AS Price, SheetSeries AS SheetSeries, NetKg AS InNetKg FROM dye.ProdIn WITH (nolock) WHERE SheetSeries = @SheetSeries",
+      "parameters": [
+        "sheetseries"
+      ],
+      "branch": "IF(@PhysicalTableName In('ProdIn','ProdInWork')"
+    }
+  ],
+  "ProdOut": [
+    {
+      "table": "ProdStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, 22 AS BookKind, BusinessUnitID AS BusinessUnitID, b.CustomerID AS CustomerID, b.SalerID AS SalerID, a.FabricID AS FactID, b.WareHouseID AS WareHouseID, '' AS StorageUnitIDs, a.ColorNum AS ColorNum, a.ProdID AS ProdID, a.Spec AS Spec, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, a.CheckNo AS CheckNo, a.JobSheetNo AS JobSheetNo, b.SheetNo AS SheetNo, a.DetailNo AS DetailNo, 0 AS InRolls, 0 AS InLengthQty, 0 AS InWeightQty, 0 AS InGrayQty, a.Rolls AS OutRolls, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.GrayQty AS OutGrayQty, a.Price AS Price, a.SheetSeries AS SheetSeries, b.Remarks AS Remarks, a.ColorID AS ColorID, a.NetKg AS OutNetKg FROM dye.ProdOutDetail AS a WITH (nolock) LEFT JOIN dye.ProdOut AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName='ProdOut'"
+    }
+  ],
+  "ProdOutUpdate": [
+    {
+      "table": "ProdStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, 30 AS BookKind, BusinessUnitID AS BusinessUnitID, b.CustomerID AS CustomerID, b.SalerID AS SalerID, a.FabricID AS FactID, b.WareHouseID AS WareHouseID, '' AS StorageUnitIDs, a.ColorNum AS ColorNum, a.ProdID AS ProdID, a.Spec AS Spec, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, a.CheckNo AS CheckNo, a.JobSheetNo AS JobSheetNo, b.SheetNo AS SheetNo, a.DetailNo AS DetailNo, 0 AS InRolls, 0 AS InLengthQty, 0 AS InWeightQty, 0 AS InGrayQty, a.Rolls AS OutRolls, a.LengthQty AS OutLengthQty, a.WeightQty AS OutWeightQty, a.GrayQty AS OutGrayQty, a.Price AS Price, a.SheetSeries AS SheetSeries, b.Remarks AS Remarks, a.ColorID AS ColorID, a.NetKg AS OutNetKg FROM dye.ProdOutDetail AS a WITH (nolock) LEFT JOIN dye.ProdOut AS b WITH (nolock) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries",
+      "parameters": [
+        "sheetseries"
+      ],
+      "branch": "if (@PhysicalTableName='ProdOutUpdate'"
+    }
+  ],
+  "ArticleStockAdjust": [
+    {
+      "table": "ArticleStockBook",
+      "sql": "SELECT a.SheetDate AS BookDate, a.SheetDate AS AccDate, a.SheetKind AS BookKind, e.SupplierID AS SupplierID, a.WareHouseID AS WareHouseID, '' AS DeptID, b.ArticleID AS ArticleID, b.ArticleKindID AS ArticleKindID, '' AS StorageUnitIDs, a.SheetNo AS SheetNo, b.DetailNo AS DetailNo, b.AdjustQty AS InQty, NULL AS OutQty, b.Price AS Price, b.AdjustMoney AS InMoney, NULL AS OutMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.InDetailNo AS InDetailNo FROM dye.ArticleStockAdjust AS a WITH (NOLOCK) INNER JOIN dye.ArticleStockAdjustDetail AS b WITH (NOLOCK) ON a.SheetSeries = b.SheetSeries LEFT JOIN (SELECT d.SupplierID AS SupplierID, c.DetailNo AS InDetailNo FROM dye.ArticleInDetail AS c LEFT JOIN dye.ArticleIn AS d ON d.SheetSeries = c.SheetSeries) AS e ON e.InDetailNo = b.InDetailNo WHERE a.SheetSeries = @SheetSeries",
+      "parameters": [
+        "sheetseries"
+      ],
+      "branch": "IF @PhysicalTableName = 'ArticleStockAdjust'"
+    }
+  ],
+  "ArticleOut": [
+    {
+      "table": "ArticleStockBook",
+      "sql": "SELECT a.SheetDate AS BookDate, a.SheetDate AS AccDate, a.SheetKind AS BookKind, b.SupplierID AS SupplierID, a.WareHouseID AS WareHouseID, a.DeptID AS DeptID, b.ArticleID AS ArticleID, b.ArticleKindID AS ArticleKindID, b.StorageUnitIDs AS StorageUnitIDs, a.SheetNo AS SheetNo, b.DetailNo AS DetailNo, 0 AS InQty, b.OutQty AS OutQty, b.Price AS Price, 0 AS InMoney, b.Total AS OutMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.InDetailNo AS InDetailNo FROM ArticleOut AS a WITH (NOLOCK) INNER JOIN ArticleOutDetail AS b WITH (NOLOCK) ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries",
+      "parameters": [
+        "sheetseries"
+      ],
+      "branch": "IF @PhysicalTableName = 'ArticleOut'"
+    }
+  ],
+  "StuffStockAdjust": [
+    {
+      "table": "StuffStockBook",
+      "sql": "SELECT a.SheetDate AS BookDate, @CurrDate AS CurrDate, a.SheetDate AS AccDate, a.SheetKind AS BookKind, '' AS SupplierID, a.WareHouseID AS WareHouseID, '' AS DeptID, b.StuffID AS StuffID, b.LotNo AS LotNo, '' AS StorageUnitIDs, a.SheetNo AS SheetNo, b.DetailNo AS DetailNo, b.AdjustQty AS InQty, 0 AS OutQty, b.Price AS Price, b.AdjustMoney AS InMoney, 0 AS OutMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.IndetailNo AS IndetailNo FROM StuffStockAdjust AS a WITH (NOLOCK) INNER JOIN dye.StuffStockAdjustDetail AS b WITH (NOLOCK) ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "IF @PhysicalTableName = 'StuffStockAdjust'"
+    }
+  ],
+  "StuffOut": [
+    {
+      "table": "StuffStockBook",
+      "sql": "SELECT a.SheetDate AS BookDate, @CurrDate AS CurrDate, a.SheetDate AS AccDate, a.SheetKind AS BookKind, '' AS SupplierID, a.WareHouseID AS WareHouseID, a.DeptID AS DeptID, b.StuffID AS StuffID, b.LotNo AS LotNo, '' AS StorageUnitIDs, a.SheetNo AS SheetNo, b.DetailNo AS DetailNo, 0 AS InQty, b.Qty AS OutQty, b.Price AS Price, 0 AS InMoney, Amount AS OutMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.InDetailNo AS InDetailNo FROM dye.StuffOut AS a WITH (NOLOCK) INNER JOIN dye.StuffOutDetail AS b WITH (NOLOCK) ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries",
+      "parameters": [
+        "currdate",
+        "sheetseries"
+      ],
+      "branch": "IF @PhysicalTableName = 'StuffOut'"
+    }
+  ],
+  "ArticleIn": [
+    {
+      "table": "ArticleStockBook",
+      "sql": "SELECT a.SheetDate AS BookDate, a.SheetDate AS AccDate, a.SheetKind AS BookKind, a.SupplierID AS SupplierID, a.WareHouseID AS WareHouseID, '' AS DeptID, b.ArticleID AS ArticleID, b.ArticleKindID AS ArticleKindID, b.StorageUnitIDs AS StorageUnitIDs, a.SheetNo AS SheetNo, b.DetailNo AS DetailNo, CASE WHEN a.SheetKind = 16 THEN -b.InQty ELSE b.InQty END AS InQty, 0 AS OutQty, b.Price AS Price, CASE WHEN a.SheetKind = 16 THEN -b.Total ELSE b.Total END AS InMoney, 0 AS OutMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.OriDetailNo AS OriDetailNo FROM ArticleIn AS a WITH (NOLOCK) INNER JOIN ArticleInDetail AS b WITH (NOLOCK) ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries"
+    }
+  ],
+  "StuffIn": [
+    {
+      "table": "StuffStockBook",
+      "sql": "SELECT a.SheetDate AS BookDate, @CurrDate AS CurrDate, a.SheetDate AS AccDate, a.SheetKind AS BookKind, a.SupplierID AS SupplierID, a.WareHouseID AS WareHouseID, '' AS DeptID, b.StuffID AS StuffID, b.LotNo AS LotNo, '' AS StorageUnitIDs, a.SheetNo AS SheetNo, b.DetailNo AS DetailNo, CASE WHEN a.SheetKind = 16 THEN -ABS(b.Qty) ELSE b.Qty END AS InQty, 0 AS OutQty, b.Price AS Price, CASE WHEN a.SheetKind = 16 THEN -ABS(b.Amount) ELSE b.Amount END AS InMoney, 0 AS OutMoney, a.Remarks AS Remarks, a.SheetSeries AS SheetSeries, b.OriInDetailNo AS InDetailNo FROM StuffIn AS a WITH (NOLOCK) INNER JOIN dye.StuffInDetail AS b WITH (NOLOCK) ON a.SheetSeries = b.SheetSeries WHERE a.SheetSeries = @SheetSeries"
+    }
+  ],
+  "ProdStockAdjust": [
+    {
+      "table": "ProdStockBook",
+      "sql": "SELECT b.SheetDate AS BookDate, b.SheetKind AS BookKind, BusinessUnitID AS BusinessUnitID, a.CustomerID AS CustomerID, NULL AS FactID, b.WareHouseID AS WareHouseID, NULL AS StorageUnitIDs, a.ProdID AS ProdID, a.Spec AS Spec, a.LotNo AS LotNo, b.SalerGroupID AS SalerGroupID, a.CheckNo AS CheckNo, a.JobSheetNo AS JobSheetNo, b.SheetNo AS SheetNo, a.DetailNo AS DetailNo, a.AdjustRolls AS InRolls, a.AdjustLengthQty AS InLengthQty, a.AdjustWeightQty AS InWeightQty, 0 AS OutRolls, 0 AS OutLengthQty, 0 AS OutWeightQty, a.Price AS Price, b.SheetSeries AS SheetSeries, ColorID AS ColorID, a.ColorNum AS ColorNum FROM dye.ProdStockAdjustDetail AS a WITH (NOLOCK) LEFT JOIN dye.ProdStockAdjust AS b WITH (NOLOCK) ON a.Sheetseries = b.SheetSeries WHERE a.Sheetseries = @SheetSeries AND (a.AdjustRolls <> 0 OR a.AdjustLengthQty <> 0 OR a.AdjustWeightQty <> 0)"
+    }
+  ]
+}

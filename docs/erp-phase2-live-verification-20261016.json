@@ -1,0 +1,453 @@
+{
+  "old_captured_at": "2026-10-16T12:33:18.7137000+08:00",
+  "new_database": "erp_full_trial_20261014",
+  "scope": "只读实际样例；不代表全历史一致",
+  "groups": 36,
+  "matched": 36,
+  "results": [
+    {
+      "probe": "dosage",
+      "input": "HC30003A#",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "E64369#ZR",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "E64370#ZR",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "E64371#ZR",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "E64372#ZR",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "PEF21468#TM",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "PEF21467#TM",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "PEF21466#TM",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "PEF20072#TM",
+      "expected": {
+        "cost": 0.0,
+        "dosage": 4.0
+      },
+      "actual": {
+        "cost": 0.0,
+        "dosage": 4.0
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "NEF600957#",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "NEF600956#",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "dosage",
+      "input": "NEF72246#",
+      "expected": {
+        "cost": null,
+        "dosage": null
+      },
+      "actual": {
+        "cost": null,
+        "dosage": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815009",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815008",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815007",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815006",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815005",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815004",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815002",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815001",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260815003",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260814031",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260814030",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "flow",
+      "input": "K260814029",
+      "expected": {
+        "value": null
+      },
+      "actual": {
+        "value": null
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815009-01",
+      "expected": {
+        "warehouse": "东莞",
+        "remarks": "经纱"
+      },
+      "actual": {
+        "warehouse": "东莞",
+        "remarks": "经纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815009-02",
+      "expected": {
+        "warehouse": "东莞",
+        "remarks": "经纱"
+      },
+      "actual": {
+        "warehouse": "东莞",
+        "remarks": "经纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-01",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-02",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-03",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-04",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "纬纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-05",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-06",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-07",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815008-08",
+      "expected": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "actual": {
+        "warehouse": "二号仓",
+        "remarks": "经纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815006-01",
+      "expected": {
+        "warehouse": "东莞",
+        "remarks": "纬纱"
+      },
+      "actual": {
+        "warehouse": "东莞",
+        "remarks": "纬纱"
+      },
+      "matched": true
+    },
+    {
+      "probe": "remarks",
+      "input": "K260815006-02",
+      "expected": {
+        "warehouse": "东莞",
+        "remarks": "纬纱"
+      },
+      "actual": {
+        "warehouse": "东莞",
+        "remarks": "纬纱"
+      },
+      "matched": true
+    }
+  ]
+}

@@ -1,0 +1,2993 @@
+{
+  "AddStuffWeight": [
+    {
+      "entry": "AddStuffWeight",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 0,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "AddStuffWeight",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 1,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "AddStuffWeight",
+      "event": "BeforePrintSQL",
+      "definition_index": 2,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "AfterNormalStuffWeight": [
+    {
+      "entry": "AfterNormalStuffWeight",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 0,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "AfterNormalStuffWeight",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 3,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "AfterNormalStuffWeight",
+      "event": "AfterSaveSQL",
+      "definition_index": 4,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "NormalStuffWeight": [
+    {
+      "entry": "NormalStuffWeight",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 0,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "NormalStuffWeight",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 3,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "NormalStuffWeight",
+      "event": "AfterSaveSQL",
+      "definition_index": 4,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "NormalStuffWeight_Wash": [
+    {
+      "entry": "NormalStuffWeight_Wash",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 1,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "NormalStuffWeight_Wash",
+      "event": "BeforePrintSQL",
+      "definition_index": 2,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ArticleIn": [
+    {
+      "entry": "ArticleIn",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 5,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ArticleIn",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 6,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ArticleIn",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 7,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "FabricArticleIn": [
+    {
+      "entry": "FabricArticleIn",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 5,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "FabricArticleIn",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 5,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "FabricArticleIn",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 7,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "FabricArticleIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 19,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ArticlePurApplyMain": [
+    {
+      "entry": "ArticlePurApplyMain",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 8,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ArticlePurApplyMain",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 8,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ArticlePurApplyMain",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 9,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "CarryMaterial": [
+    {
+      "entry": "CarryMaterial",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 10,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ChengBen_Gray": [
+    {
+      "entry": "ChengBen_Gray",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 11,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ChengBen_Kind": [
+    {
+      "entry": "ChengBen_Kind",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 11,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "CookIn": [
+    {
+      "entry": "CookIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 12,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "CusAddPrice": [
+    {
+      "entry": "CusAddPrice",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 13,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "CusAddPrice",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 14,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "CusAddPrice",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 15,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "CusReturnSemiIn": [
+    {
+      "entry": "CusReturnSemiIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 16,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayOutToSemiIn": [
+    {
+      "entry": "GrayOutToSemiIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 16,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "MaterialSemiIn": [
+    {
+      "entry": "MaterialSemiIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 16,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "PurSemiIn": [
+    {
+      "entry": "PurSemiIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 16,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiIn": [
+    {
+      "entry": "SemiIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 16,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiInBack": [
+    {
+      "entry": "SemiInBack",
+      "event": "AfterSaveSQL",
+      "definition_index": 16,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "DyeDipsRecordStuffDosage": [
+    {
+      "entry": "DyeDipsRecordStuffDosage",
+      "event": "BeforePrintSQL",
+      "definition_index": 17,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "DyeReprint": [
+    {
+      "entry": "DyeReprint",
+      "event": "AfterSaveSQL",
+      "definition_index": 18,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "FeelOfferMain": [
+    {
+      "entry": "FeelOfferMain",
+      "event": "AfterSaveSQL",
+      "definition_index": 20,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "FixedPrice": [
+    {
+      "entry": "FixedPrice",
+      "event": "AfterSaveSQL",
+      "definition_index": 21,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayIn": [
+    {
+      "entry": "GrayIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 22,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayInWork": [
+    {
+      "entry": "GrayInWork",
+      "event": "AfterSaveSQL",
+      "definition_index": 22,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "JiaNianGrayIn": [
+    {
+      "entry": "JiaNianGrayIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 22,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "KeTuiGrayIn": [
+    {
+      "entry": "KeTuiGrayIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 22,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "PurGrayIn": [
+    {
+      "entry": "PurGrayIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 22,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "PurGrayIn",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 93,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayInDetailUpdate": [
+    {
+      "entry": "GrayInDetailUpdate",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 23,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayOut": [
+    {
+      "entry": "GrayOut",
+      "event": "AfterApproveSQL",
+      "definition_index": 24,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOut",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 25,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOut",
+      "event": "AfterSaveSQL",
+      "definition_index": 26,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayOutJob": [
+    {
+      "entry": "GrayOutJob",
+      "event": "AfterApproveSQL",
+      "definition_index": 24,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOutJob",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 25,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOutJob",
+      "event": "AfterSaveSQL",
+      "definition_index": 26,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayOutSale": [
+    {
+      "entry": "GrayOutSale",
+      "event": "AfterApproveSQL",
+      "definition_index": 24,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOutSale",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 25,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOutSale",
+      "event": "AfterSaveSQL",
+      "definition_index": 26,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayOutWork": [
+    {
+      "entry": "GrayOutWork",
+      "event": "AfterApproveSQL",
+      "definition_index": 24,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOutWork",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 25,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOutWork",
+      "event": "AfterSaveSQL",
+      "definition_index": 26,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayOutTurn": [
+    {
+      "entry": "GrayOutTurn",
+      "event": "AfterSaveSQL",
+      "definition_index": 26,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayOutTurn",
+      "event": "AfterApproveSQL",
+      "definition_index": 29,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "implementation": "source_phase6_hooks.approved/transfer"
+    },
+    {
+      "entry": "GrayOutTurn",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 30,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "implementation": "source_phase6_hooks.undo_stock_transfer"
+    }
+  ],
+  "TSGrayOut": [
+    {
+      "entry": "TSGrayOut",
+      "event": "AfterSaveSQL",
+      "definition_index": 26,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "TSGrayOut",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 136,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayOutShenHe": [
+    {
+      "entry": "GrayOutShenHe",
+      "event": "AfterApproveSQL",
+      "definition_index": 27,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "implementation": "source_phase6_hooks.approved/post"
+    },
+    {
+      "entry": "GrayOutShenHe",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 28,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "implementation": "source_phase6_hooks.approved/post"
+    }
+  ],
+  "GrayReturnApply": [
+    {
+      "entry": "GrayReturnApply",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 31,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "GrayStockAdjust": [
+    {
+      "entry": "GrayStockAdjust",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 32,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayStockAdjust",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 33,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayStockAdjust",
+      "event": "BeforeApproveSQL",
+      "definition_index": 34,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "GrayStockAdjust",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 35,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ImpairmentPayouts": [
+    {
+      "entry": "ImpairmentPayouts",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 36,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ImpairmentPayouts",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 37,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ImpairmentPayouts",
+      "event": "BeforeApproveSQL",
+      "definition_index": 38,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ImpairmentPayouts",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 39,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ImpairmentPayoutsTJ": [
+    {
+      "entry": "ImpairmentPayoutsTJ",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 36,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ImpairmentPayoutsTJ",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 37,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ImpairmentPayoutsTJ",
+      "event": "BeforeApproveSQL",
+      "definition_index": 38,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ImpairmentPayoutsTJ",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 39,
+      "connection": "独立财务分支暂缓",
+      "full_behavior_verified": false,
+      "reason": "减值核销、账期及财务审核，原正文保留",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "JobInWareEdit": [
+    {
+      "entry": "JobInWareEdit",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 40,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "JobInWareEdit",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 41,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "JobSheet": [
+    {
+      "entry": "JobSheet",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 42,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "JobSheet",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 43,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "JobSheet",
+      "event": "BeforeUnAbortSQL",
+      "definition_index": 44,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "JobSheet",
+      "event": "AfterSaveSQL",
+      "definition_index": 45,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_workflow_services.refresh_job",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "Jobsheetprogress": [
+    {
+      "entry": "Jobsheetprogress",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 46,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "JobsheetprogressRS": [
+    {
+      "entry": "JobsheetprogressRS",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 46,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "JobSheetQuery": [
+    {
+      "entry": "JobSheetQuery",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 47,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "JobSheetQuery",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 48,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "JobSheetQuery",
+      "event": "BeforeUnAbortSQL",
+      "definition_index": 49,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "JobSheetQuery",
+      "event": "AfterSaveSQL",
+      "definition_index": 50,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "PrintJobSheet": [
+    {
+      "entry": "PrintJobSheet",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 48,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "PrintJobSheet",
+      "event": "BeforeUnAbortSQL",
+      "definition_index": 49,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "PrintJobSheet",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 73,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "PrintJobSheet",
+      "event": "AfterSaveSQL",
+      "definition_index": 74,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_workflow_services.refresh_job",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SaleJobSheet": [
+    {
+      "entry": "SaleJobSheet",
+      "event": "BeforeUnAbortSQL",
+      "definition_index": 49,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SaleJobSheet",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 73,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SaleJobSheet",
+      "event": "AfterSaveSQL",
+      "definition_index": 74,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_workflow_services.refresh_job",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SaleJobSheet",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 115,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "TwiJobSheet": [
+    {
+      "entry": "TwiJobSheet",
+      "event": "BeforeUnAbortSQL",
+      "definition_index": 49,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "TwiJobSheet",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 73,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "TwiJobSheet",
+      "event": "AfterSaveSQL",
+      "definition_index": 74,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_workflow_services.refresh_job",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "TwiJobSheet",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 115,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "JobSheetReceiveUpdate": [
+    {
+      "entry": "JobSheetReceiveUpdate",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 51,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "NewFuBan": [
+    {
+      "entry": "NewFuBan",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 52,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "NewFuBan",
+      "event": "BeforeApproveSQL",
+      "definition_index": 53,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "qry_NewFuBan": [
+    {
+      "entry": "qry_NewFuBan",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 52,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "qry_NewFuBan",
+      "event": "BeforeApproveSQL",
+      "definition_index": 53,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ODMIn": [
+    {
+      "entry": "ODMIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 54,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ODMOut": [
+    {
+      "entry": "ODMOut",
+      "event": "AfterSaveSQL",
+      "definition_index": 55,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "OrderMain": [
+    {
+      "entry": "OrderMain",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 56,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "OrderMainChange": [
+    {
+      "entry": "OrderMainChange",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 57,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "OrderMainChange",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 58,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "OrderMainChange",
+      "event": "AfterSaveSQL",
+      "definition_index": 59,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "OrderMainSup": [
+    {
+      "entry": "OrderMainSup",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 57,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "OrderMainSup",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 58,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "OrderMainSup",
+      "event": "AfterSaveSQL",
+      "definition_index": 59,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "OutPlan": [
+    {
+      "entry": "OutPlan",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 60,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "OutPlanDetail": [
+    {
+      "entry": "OutPlanDetail",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 61,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "OutWorkApply": [
+    {
+      "entry": "OutWorkApply",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 62,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_Article": [
+    {
+      "entry": "p_Article",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 63,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "p_Article",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 64,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_Cook": [
+    {
+      "entry": "p_Cook",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 65,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_Customer": [
+    {
+      "entry": "p_Customer",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 66,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "p_Customer",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 67,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_Gray": [
+    {
+      "entry": "p_Gray",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 68,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_Production": [
+    {
+      "entry": "p_Production",
+      "event": "AfterSaveSQL",
+      "definition_index": 69,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_ShiftHZ": [
+    {
+      "entry": "p_ShiftHZ",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 70,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_ShiftRB": [
+    {
+      "entry": "p_ShiftRB",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 70,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_ShiftZJ": [
+    {
+      "entry": "p_ShiftZJ",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 70,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_ShiftKF": [
+    {
+      "entry": "p_ShiftKF",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 71,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": "原正文只有dechare；按同表其余三个班组入口的明确员工引用规则实现，不能认作原文等价",
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "p_ShiftPB": [
+    {
+      "entry": "p_ShiftPB",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 71,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": "原正文只有dechare；按同表其余三个班组入口的明确员工引用规则实现，不能认作原文等价",
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "PrintingTestList": [
+    {
+      "entry": "PrintingTestList",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 72,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.before_delete",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "PrintOrderMain": [
+    {
+      "entry": "PrintOrderMain",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 75,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "qry_PrintOrder": [
+    {
+      "entry": "qry_PrintOrder",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 75,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProcessScheduleRS": [
+    {
+      "entry": "ProcessScheduleRS",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 76,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProcessStuffWeight": [
+    {
+      "entry": "ProcessStuffWeight",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 77,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProcessStuffWeight",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 78,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProcessStuffWeight",
+      "event": "AfterApproveSQL",
+      "definition_index": 79,
+      "connection": "缺外部调用及回执",
+      "full_behavior_verified": false,
+      "reason": "旧动作依赖真实KPS/立信调用；服务明确返回未接入，事务不提交成功审核",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProcessStuffWeight",
+      "event": "BeforePrintSQL",
+      "definition_index": 80,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ReworkStuffWeight": [
+    {
+      "entry": "ReworkStuffWeight",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 77,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ReworkStuffWeight",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 78,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ReworkStuffWeight",
+      "event": "BeforeApproveSQL",
+      "definition_index": 107,
+      "connection": "缺外部调用及回执",
+      "full_behavior_verified": false,
+      "reason": "旧动作依赖真实KPS/立信调用；服务明确返回未接入，事务不提交成功审核",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ReworkStuffWeight",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 108,
+      "connection": "缺外部调用及回执",
+      "full_behavior_verified": false,
+      "reason": "旧动作依赖真实KPS/立信调用；服务明确返回未接入，事务不提交成功审核",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ReworkStuffWeight",
+      "event": "AfterAbortSQL",
+      "definition_index": 109,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.aborted",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ReworkStuffWeight",
+      "event": "AfterSaveSQL",
+      "definition_index": 110,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.rebuild_sensitive_dye",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ReworkStuffWeight",
+      "event": "BeforePrintSQL",
+      "definition_index": 111,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "WashProcessStuffWeight": [
+    {
+      "entry": "WashProcessStuffWeight",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 78,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "WashProcessStuffWeight",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 138,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdIn": [
+    {
+      "entry": "ProdIn",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 81,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProdIn",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 82,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdIn_ht": [
+    {
+      "entry": "ProdIn_ht",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 83,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProdIn_ht",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 84,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdInWork": [
+    {
+      "entry": "ProdInWork",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 85,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProdInWork",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 86,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdLoading": [
+    {
+      "entry": "ProdLoading",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 87,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "original",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProdLoading",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 88,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "original",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdOut": [
+    {
+      "entry": "ProdOut",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 89,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProdOut",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 90,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdOutUpdate": [
+    {
+      "entry": "ProdOutUpdate",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 89,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ProdOutUpdate",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 90,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdOutEdit": [
+    {
+      "entry": "ProdOutEdit",
+      "event": "AfterSaveSQL",
+      "definition_index": 91,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ProdTest_AddColorProduct": [
+    {
+      "entry": "ProdTest_AddColorProduct",
+      "event": "AfterSaveSQL",
+      "definition_index": 92,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_trial_variants.saved",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "PurMain": [
+    {
+      "entry": "PurMain",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 94,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "PurMain",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 95,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "any",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "QC_Record": [
+    {
+      "entry": "QC_Record",
+      "event": "AfterSaveSQL",
+      "definition_index": 96,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_packaging_flow.after_saved",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "timing_verification": "2026-10-18：在保存来源与明细汇总完成后回写工卡；重复条码跨卡、负数、NULL及子行修改/删除已有回归。旧dots→PDots仍为明确对应差异，非完整原行为验收。"
+    }
+  ],
+  "QFQC_Record": [
+    {
+      "entry": "QFQC_Record",
+      "event": "AfterSaveSQL",
+      "definition_index": 96,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_packaging_flow.after_saved",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "timing_verification": "2026-10-18：在保存来源与明细汇总完成后回写工卡；重复条码跨卡、负数、NULL及子行修改/删除已有回归。旧dots→PDots仍为明确对应差异，非完整原行为验收。"
+    }
+  ],
+  "QCJobList": [
+    {
+      "entry": "QCJobList",
+      "event": "AfterApproveSQL",
+      "definition_index": 97,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.approved",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "QCJobList",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 98,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.approved",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "qry_Order_ToCustomer": [
+    {
+      "entry": "qry_Order_ToCustomer",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 99,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "qry_Winding_ToCustomer": [
+    {
+      "entry": "qry_Winding_ToCustomer",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 100,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "qry_WorkQty": [
+    {
+      "entry": "qry_WorkQty",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 101,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.before_delete",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "qry_WorkQtyAll": [
+    {
+      "entry": "qry_WorkQtyAll",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 101,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.before_delete",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "QueryWorkList2": [
+    {
+      "entry": "QueryWorkList2",
+      "event": "AfterApproveSQL",
+      "definition_index": 102,
+      "connection": "缺本地原表定义",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "reason": "最新旧库没有RecordYieldCheck；不能替换成RecordYield。明确报告未复刻并回滚审核/反审核。"
+    },
+    {
+      "entry": "QueryWorkList2",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 103,
+      "connection": "缺本地原表定义",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "reason": "最新旧库没有RecordYieldCheck；不能替换成RecordYield。明确报告未复刻并回滚审核/反审核。"
+    }
+  ],
+  "RequestLimit": [
+    {
+      "entry": "RequestLimit",
+      "event": "BeforeApproveSQL",
+      "definition_index": 104,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "RequestLimit",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 105,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "RequireClass": [
+    {
+      "entry": "RequireClass",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 106,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": true,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SelfStuffWeight": [
+    {
+      "entry": "SelfStuffWeight",
+      "event": "BeforePrintSQL",
+      "definition_index": 111,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "s_Roles": [
+    {
+      "entry": "s_Roles",
+      "event": "AfterSaveSQL",
+      "definition_index": 112,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SalaryChangesA": [
+    {
+      "entry": "SalaryChangesA",
+      "event": "BeforeApproveSQL",
+      "definition_index": 113,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SalaryChangesB": [
+    {
+      "entry": "SalaryChangesB",
+      "event": "BeforeApproveSQL",
+      "definition_index": 113,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SalaryChangesC": [
+    {
+      "entry": "SalaryChangesC",
+      "event": "BeforeApproveSQL",
+      "definition_index": 113,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SalaryChangesD": [
+    {
+      "entry": "SalaryChangesD",
+      "event": "BeforeApproveSQL",
+      "definition_index": 113,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SalaryChangesD",
+      "event": "AfterSaveSQL",
+      "definition_index": 114,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_hooks.salary_team_detail",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SalaryChangesE": [
+    {
+      "entry": "SalaryChangesE",
+      "event": "BeforeApproveSQL",
+      "definition_index": 113,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiOut": [
+    {
+      "entry": "SemiOut",
+      "event": "AfterSaveSQL",
+      "definition_index": 116,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiOutJob": [
+    {
+      "entry": "SemiOutJob",
+      "event": "AfterSaveSQL",
+      "definition_index": 116,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiOutSale": [
+    {
+      "entry": "SemiOutSale",
+      "event": "AfterSaveSQL",
+      "definition_index": 116,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiOutTurn": [
+    {
+      "entry": "SemiOutTurn",
+      "event": "AfterSaveSQL",
+      "definition_index": 116,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SemiOutTurn",
+      "event": "AfterApproveSQL",
+      "definition_index": 117,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "implementation": "source_phase6_hooks.approved/transfer"
+    },
+    {
+      "entry": "SemiOutTurn",
+      "event": "AfterUnApproveSQL",
+      "definition_index": 118,
+      "connection": "已接入保存或逆向副作用，待逐入口验收",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收",
+      "implementation": "source_phase6_hooks.undo_stock_transfer"
+    }
+  ],
+  "SemiOutWork": [
+    {
+      "entry": "SemiOutWork",
+      "event": "AfterSaveSQL",
+      "definition_index": 116,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiStockAdjust": [
+    {
+      "entry": "SemiStockAdjust",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 119,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SemiStockAdjust",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 120,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SemiStockAdjust",
+      "event": "BeforeApproveSQL",
+      "definition_index": 121,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "SemiStockAdjust",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 122,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SemiToGrayIn": [
+    {
+      "entry": "SemiToGrayIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 123,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ShiftArrange": [
+    {
+      "entry": "ShiftArrange",
+      "event": "AfterApproveSQL",
+      "definition_index": 124,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_services.advance/shift_work.apply",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ShowDyeLabMain": [
+    {
+      "entry": "ShowDyeLabMain",
+      "event": "AfterSaveSQL",
+      "definition_index": 125,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_sample_flow.sync_lab",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "SmallStuffIn": [
+    {
+      "entry": "SmallStuffIn",
+      "event": "AfterSaveSQL",
+      "definition_index": 126,
+      "connection": "已定位service接线，待逐入口验证",
+      "full_behavior_verified": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "StuffIn": [
+    {
+      "entry": "StuffIn",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 127,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "StuffIn",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 128,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "StuffIn",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 129,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": "原FAPMain/FAPDetail转应付判断属本期暂缓财务分支；非财务收发引用仍执行",
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "StuffOut": [
+    {
+      "entry": "StuffOut",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 130,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "StuffOut",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 131,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "StuffOut",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 132,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "StuffPurApplyMain": [
+    {
+      "entry": "StuffPurApplyMain",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 133,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "StuffPurApplyMain",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 133,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "StuffPurApplyMain",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 134,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "TrialDyeRecipe": [
+    {
+      "entry": "TrialDyeRecipe",
+      "event": "AfterSaveSQL",
+      "definition_index": 135,
+      "connection": "已定位既有服务及回归用例，仍有原行为差异需核对",
+      "full_behavior_verified": false,
+      "implementation": "source_sampling_services.saved",
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "v_Customer": [
+    {
+      "entry": "v_Customer",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 137,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "WDefectJudgeBack": [
+    {
+      "entry": "WDefectJudgeBack",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 139,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "WDefectJudgeInterior": [
+    {
+      "entry": "WDefectJudgeInterior",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 139,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "WeighRecordYield": [
+    {
+      "entry": "WeighRecordYield",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 140,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ],
+  "ZDAddPrice": [
+    {
+      "entry": "ZDAddPrice",
+      "event": "BeforeUpdateSQL",
+      "definition_index": 141,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ZDAddPrice",
+      "event": "BeforeDeleteSQL",
+      "definition_index": 142,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    },
+    {
+      "entry": "ZDAddPrice",
+      "event": "BeforeUnApproveSQL",
+      "definition_index": 143,
+      "connection": "已接入动作条件，必要用例仍逐规则记录",
+      "full_behavior_verified": false,
+      "implementation": "source_phase6_guards.before",
+      "mode": "last",
+      "cursor_order": "all_projected_columns_ascending",
+      "deferred_finance": null,
+      "reconstruction": null,
+      "advisory": false,
+      "historical_reconciliation": "未完成原业务结果全量对账",
+      "field_acceptance": "未现场验收"
+    }
+  ]
+}

@@ -22,7 +22,8 @@ class OriginalJobWorkflowTests(TestCase):
             'old_process_id': 'GX01', 'old_status': '0'}, actor=self.actor)
         self.job.refresh_from_db()
         self.assertEqual(self.job.old_job_kind_id, '01')
-        self.assertEqual(self.job.old_next_process_id, 'GX01')
+        # 原无完成工序分支TOP 1没有ORDER BY；项目明确按原行承接顺序采用。
+        self.assertEqual(self.job.old_next_process_id, 'GX02')
         services.write(process, {'old_status': '1'}, first, self.actor)
         self.job.refresh_from_db()
         self.assertEqual(self.job.old_curr_process_id, 'GX01')

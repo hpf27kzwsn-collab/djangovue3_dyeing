@@ -1,0 +1,501 @@
+{
+  "registry_models": 112,
+  "registry_fields": 112,
+  "registry_scopes": 220,
+  "business_document_models": 96,
+  "business_document_scopes": 186,
+  "seeded_rule_count": 29,
+  "seeded_source_models": 11,
+  "seeded_rules": [
+    {
+      "name": "部门",
+      "target_model": "erp_base.SourceDyePDept",
+      "target_field": "old_dept_id",
+      "scope_key": "all",
+      "scope_filters": {},
+      "entry_name": "",
+      "prefix": "",
+      "digits": 2,
+      "start_number": 1,
+      "last_number": 10,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "员工",
+      "target_model": "erp_base.SourceDyeHEmployee",
+      "target_field": "old_emp_id",
+      "scope_key": "all",
+      "scope_filters": {},
+      "entry_name": "",
+      "prefix": "HF",
+      "digits": 4,
+      "start_number": 1,
+      "last_number": 1686,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "坯纱规格",
+      "target_model": "erp_base.SourceDyePGray",
+      "target_field": "old_gray_id",
+      "scope_key": "all",
+      "scope_filters": {},
+      "entry_name": "",
+      "prefix": "",
+      "digits": 5,
+      "start_number": 1,
+      "last_number": 714,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "生产班组",
+      "target_model": "erp_base.SourceDyePShift",
+      "target_field": "old_shift_id",
+      "scope_key": "all",
+      "scope_filters": {},
+      "entry_name": "",
+      "prefix": "A",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 197,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "染色曲线",
+      "target_model": "erp_base.SourceDyePDyeCurve",
+      "target_field": "old_curve_id",
+      "scope_key": "all",
+      "scope_filters": {},
+      "entry_name": "",
+      "prefix": "",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 23,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "幅宽克重单位共用号码池",
+      "target_model": "erp_warehouse.SourceDyeWidthGramWeight",
+      "target_field": "old_code",
+      "scope_key": "all",
+      "scope_filters": {},
+      "entry_name": "",
+      "prefix": "",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 18,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "客户",
+      "target_model": "erp_base.SourceDyePCustomer",
+      "target_field": "old_customer_id",
+      "scope_key": "suggested_7",
+      "scope_filters": {
+        "old_cust_kind_id": "0"
+      },
+      "entry_name": "",
+      "prefix": "",
+      "digits": 3,
+      "start_number": 0,
+      "last_number": 106,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "供应商",
+      "target_model": "erp_base.SourceDyePCustomer",
+      "target_field": "old_customer_id",
+      "scope_key": "suggested_8",
+      "scope_filters": {
+        "old_cust_kind_id": "1"
+      },
+      "entry_name": "",
+      "prefix": "G",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 93,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "仓库注册",
+      "target_model": "erp_base.SourceDyePFieldValid",
+      "target_field": "old_code",
+      "scope_key": "suggested_9",
+      "scope_filters": {
+        "old_field_type": "WareHouseID"
+      },
+      "entry_name": "",
+      "prefix": "",
+      "digits": 4,
+      "start_number": 1,
+      "last_number": 803,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "后纺包装",
+      "target_model": "erp_base.SourceDyePFieldValid",
+      "target_field": "old_code",
+      "scope_key": "suggested_10",
+      "scope_filters": {
+        "old_field_type": "PackBag"
+      },
+      "entry_name": "",
+      "prefix": "A",
+      "digits": 2,
+      "start_number": 1,
+      "last_number": 13,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "前纺包装",
+      "target_model": "erp_base.SourceDyePFieldValid",
+      "target_field": "old_code",
+      "scope_key": "suggested_11",
+      "scope_filters": {
+        "old_field_type": "PackBag_QF"
+      },
+      "entry_name": "",
+      "prefix": "D",
+      "digits": 2,
+      "start_number": 1,
+      "last_number": 6,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "后纺纸筒",
+      "target_model": "erp_base.SourceDyePFieldValid",
+      "target_field": "old_code",
+      "scope_key": "suggested_12",
+      "scope_filters": {
+        "old_field_type": "TubeWeight"
+      },
+      "entry_name": "",
+      "prefix": "B",
+      "digits": 2,
+      "start_number": 1,
+      "last_number": 7,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "前纺纸筒",
+      "target_model": "erp_base.SourceDyePFieldValid",
+      "target_field": "old_code",
+      "scope_key": "suggested_13",
+      "scope_filters": {
+        "old_field_type": "TubeWeight_QF"
+      },
+      "entry_name": "",
+      "prefix": "C",
+      "digits": 2,
+      "start_number": 1,
+      "last_number": 8,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "销售区域",
+      "target_model": "erp_base.SourceDyePFieldValid",
+      "target_field": "old_code",
+      "scope_key": "suggested_14",
+      "scope_filters": {
+        "old_field_type": "Area"
+      },
+      "entry_name": "",
+      "prefix": "A",
+      "digits": 2,
+      "start_number": 1,
+      "last_number": 5,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "白坯库位",
+      "target_model": "erp_base.SourceDyePStorageUnitID",
+      "target_field": "old_code",
+      "scope_key": "suggested_15",
+      "scope_filters": {
+        "old_field_type": "GrayStorage"
+      },
+      "entry_name": "",
+      "prefix": "",
+      "digits": 4,
+      "start_number": 1,
+      "last_number": 800,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "A系列染化料",
+      "target_model": "erp_base.SourceDyePStuff",
+      "target_field": "old_stuff_id",
+      "scope_key": "suggested_16",
+      "scope_filters": {
+        "old_stuff_kind_id": [
+          "FS",
+          "HX",
+          "SX"
+        ]
+      },
+      "entry_name": "",
+      "prefix": "A",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 230,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "W系列染化料",
+      "target_model": "erp_base.SourceDyePStuff",
+      "target_field": "old_stuff_id",
+      "scope_key": "suggested_17",
+      "scope_filters": {
+        "old_stuff_kind_id": [
+          "ZJ"
+        ]
+      },
+      "entry_name": "",
+      "prefix": "W",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 106,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "Z系列染化料",
+      "target_model": "erp_base.SourceDyePStuff",
+      "target_field": "old_stuff_id",
+      "scope_key": "suggested_18",
+      "scope_filters": {
+        "old_stuff_kind_id": [
+          "GY"
+        ]
+      },
+      "entry_name": "",
+      "prefix": "Z",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 3,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别03",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_19",
+      "scope_filters": {
+        "old_article_kind_id": "03"
+      },
+      "entry_name": "",
+      "prefix": "PD-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 226,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别04",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_20",
+      "scope_filters": {
+        "old_article_kind_id": "04"
+      },
+      "entry_name": "",
+      "prefix": "ZC-",
+      "digits": 4,
+      "start_number": 1,
+      "last_number": 2119,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别05",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_21",
+      "scope_filters": {
+        "old_article_kind_id": "05"
+      },
+      "entry_name": "",
+      "prefix": "DJ-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 82,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别07",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_22",
+      "scope_filters": {
+        "old_article_kind_id": "07"
+      },
+      "entry_name": "",
+      "prefix": "JX-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 64,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别08",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_23",
+      "scope_filters": {
+        "old_article_kind_id": "08"
+      },
+      "entry_name": "",
+      "prefix": "YF-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 97,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别09",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_24",
+      "scope_filters": {
+        "old_article_kind_id": "09"
+      },
+      "entry_name": "",
+      "prefix": "FM-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 151,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别12",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_25",
+      "scope_filters": {
+        "old_article_kind_id": "12"
+      },
+      "entry_name": "",
+      "prefix": "BL-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 162,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别13",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_26",
+      "scope_filters": {
+        "old_article_kind_id": "13"
+      },
+      "entry_name": "",
+      "prefix": "YL-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 81,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别14",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_27",
+      "scope_filters": {
+        "old_article_kind_id": "14"
+      },
+      "entry_name": "",
+      "prefix": "HT-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 187,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别15",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_28",
+      "scope_filters": {
+        "old_article_kind_id": "15"
+      },
+      "entry_name": "",
+      "prefix": "WX-",
+      "digits": 4,
+      "start_number": 1,
+      "last_number": 51,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    },
+    {
+      "name": "机物料类别20",
+      "target_model": "erp_base.SourceDyePArticle",
+      "target_field": "old_article_id",
+      "scope_key": "suggested_29",
+      "scope_filters": {
+        "old_article_kind_id": "20"
+      },
+      "entry_name": "",
+      "prefix": "MEI-",
+      "digits": 3,
+      "start_number": 1,
+      "last_number": 99,
+      "auto_enabled": true,
+      "allow_manual_input": true,
+      "allow_code_change": false
+    }
+  ],
+  "original_sequence_rows": 17
+}

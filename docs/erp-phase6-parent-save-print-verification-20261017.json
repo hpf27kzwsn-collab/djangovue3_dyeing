@@ -1,0 +1,281 @@
+{
+  "verified_at": "2026-10-18T00:03:27.461250+08:00",
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "fixed_ids_preserved": true,
+  "fixed_counts": {
+    "1": 116,
+    "2": 156,
+    "3": 95,
+    "4": 272,
+    "5": 290,
+    "6": 4
+  },
+  "state_counts": {
+    "1": {
+      "人工原字段保存已验证；原占位/格式不执行为算式": 3,
+      "原来源或表达式差异，保留明确录入": 2,
+      "保存计算已实现并通过类型向量验证": 111
+    },
+    "2": {
+      "保存计算已实现并通过类型向量验证": 123,
+      "沿用已有自动服务": 29,
+      "原只读查询投影已验证；无原更新目标，不列为缺保存计算": 1,
+      "原来源或表达式差异，保留明确录入": 3
+    },
+    "3": {
+      "非空固定字段试算通过（合成测试库）": 84,
+      "财务赔款结算暂缓": 10,
+      "非空来源差异已逐行留存": 1
+    },
+    "4": {
+      "已接入动作条件，必要用例仍逐规则记录": 128,
+      "已定位service接线，待逐入口验证": 51,
+      "已接入保存或逆向副作用，待逐入口验收": 14,
+      "独立财务分支暂缓": 8,
+      "已定位既有服务及回归用例，仍有原行为差异需核对": 10,
+      "缺外部调用及回执": 3,
+      "缺本地原表定义": 2,
+      "独立财务转单暂缓": 20,
+      "原七列映射已接显式采购转单，旧按钮时机未证明": 7,
+      "原来源视图缺失，已接明确报价头/行替代映射": 10,
+      "原来源视图缺失，物料由明确参数选定或留NULL": 1,
+      "最新原表没有此目标字段": 2,
+      "explicit_equality": 14,
+      "incomplete_configuration": 2
+    },
+    "5": {
+      "缺原XML": 29,
+      "有原运行差异": 241,
+      "具备填数校样条件，非完整原版式验收": 20
+    },
+    "6": {
+      "425项相关回归通过，44项针对性复验通过（重叠）": 1,
+      "新增2组染程整单保存及4份非空浏览器校样；此前逐入口证据保留": 1,
+      "766模型/655原表/12606原字段检查通过；额外旧erpID为0；前端类型检查及构建通过": 1,
+      "全量历史对账未完成，现场验收未完成；本轮没有历史导入": 1
+    }
+  },
+  "paused_queries_unchanged": true,
+  "save_source_differences": [
+    {
+      "id": "F004",
+      "entry": "AddStuffWeight",
+      "field": "Moisture1",
+      "results": [
+        {
+          "model": "erp_production.SourceDyeStuffWeight",
+          "state": "explicit_difference",
+          "reason": "The number of provided arguments (4) is greater than the maximum number of supported arguments (3). Line 1, Col: 136.\n  ]=3,[PreMeter],IIF([PhaseID]='RC07',80,[Qty]),IIF([PriceUnit]=3,[SumAssignedLengthQty],[GaryWeight])\u001b[4m)\u001b[0m"
+        }
+      ]
+    },
+    {
+      "id": "F281",
+      "entry": "Quote",
+      "field": "IsConfirmed",
+      "results": [
+        {
+          "model": "erp_sales.SourceDyeFixedPrice",
+          "state": "explicit_difference",
+          "reason": "缺物理来源：Price"
+        }
+      ]
+    },
+    {
+      "id": "F273",
+      "entry": "QueryRecordCheck",
+      "field": "GradeID",
+      "results": [
+        {
+          "model": "erp_warehouse.SourceDyeRecordYield",
+          "state": "explicit_difference",
+          "reason": "缺物理来源：avgdots"
+        }
+      ]
+    },
+    {
+      "id": "F361",
+      "entry": "WareHouseProdCount",
+      "field": "Rolls",
+      "results": [
+        {
+          "model": "erp_warehouse.SourceDyeWareHouseProdCount",
+          "state": "explicit_difference",
+          "reason": "子来源无法唯一对应：ProdIn_ProdInRecord.RollNo，路径数0"
+        }
+      ]
+    },
+    {
+      "id": "F362",
+      "entry": "WareHouseProdCount",
+      "field": "WeightQty",
+      "results": [
+        {
+          "model": "erp_warehouse.SourceDyeWareHouseProdCount",
+          "state": "explicit_difference",
+          "reason": "子来源无法唯一对应：ProdIn_ProdInRecord.WeightQty，路径数0"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "regression": {
+      "count": 425,
+      "seconds": "134.862",
+      "log": ".runtime-temp/phase6/parent-regression-complete.log",
+      "sha256": "52615079fce747dbcd8ffdef500e03e43f32e995860f9ab6603a7ca49c9640d9"
+    },
+    "targeted": {
+      "count": 44,
+      "seconds": "14.966",
+      "log": ".runtime-temp/phase6/parent-final.log",
+      "sha256": "f6fadd7b9af8a2ba20d6ce649b197bde8e64a6283e41bf974282b32f74a13936"
+    },
+    "note": "44项针对性用例包含在425项相关回归内，不相加"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n",
+    "schema_basis": "当前Django模型；本轮没有重新提取旧SQL Server结构"
+  },
+  "frontend": {
+    "typecheck": "通过",
+    "build": "通过",
+    "build_log_sha256": "37194979f0a477faf915fff255da44fca8d87d7f16c991c71bf9e40228160ee6"
+  },
+  "browser_save": {
+    "tests": [
+      {
+        "case": "父MaxValue 1→2；旧DefaultValue999999→1；另一重复步号行Price明确NULL；第三行未改",
+        "values": [
+          {
+            "label": "MaxValue",
+            "value": "2.00"
+          },
+          {
+            "label": "价格",
+            "value": ""
+          },
+          {
+            "label": "DefaultValue",
+            "value": "3.00"
+          },
+          {
+            "label": "价格",
+            "value": "6.00"
+          },
+          {
+            "label": "DefaultValue",
+            "value": "3.00"
+          },
+          {
+            "label": "价格",
+            "value": "2.00"
+          },
+          {
+            "label": "DefaultValue",
+            "value": "1.00"
+          }
+        ]
+      },
+      {
+        "case": "下次父MaxValue2→3；第三行明确Price=-7；此前NULL行恢复正常父联动",
+        "values": [
+          {
+            "label": "MaxValue",
+            "value": "3.00"
+          },
+          {
+            "label": "价格",
+            "value": "9.00"
+          },
+          {
+            "label": "DefaultValue",
+            "value": "3.00"
+          },
+          {
+            "label": "价格",
+            "value": "9.00"
+          },
+          {
+            "label": "DefaultValue",
+            "value": "3.00"
+          },
+          {
+            "label": "价格",
+            "value": "-7.00"
+          },
+          {
+            "label": "DefaultValue",
+            "value": "1.00"
+          }
+        ]
+      }
+    ]
+  },
+  "browser_prints": [
+    {
+      "report": "H004",
+      "rows": 3,
+      "query_rows_before_print_selection": 6,
+      "scope": "父单P-S",
+      "pages": 1,
+      "html": "docs/assets/phase6-parent-H004-20261017.html",
+      "sha256": "9b1af04b65f445b3d8e16948e17b9bbfa96eaf6e4fe18faab553ebab82b13fd0"
+    },
+    {
+      "report": "K008",
+      "rows": 3,
+      "query_rows_before_print_selection": 3,
+      "scope": "父单P-L",
+      "pages": 1,
+      "html": "docs/assets/phase6-parent-K008-20261017.html",
+      "sha256": "a56f641eacec05cd93989aa1f5882267d355207ed1a129bcf24dc749047f0d23"
+    },
+    {
+      "report": "R66-2",
+      "rows": 3,
+      "query_rows_before_print_selection": 3,
+      "scope": "SheetSeries参数P-L",
+      "pages": 1,
+      "html": "docs/assets/phase6-parent-R66-2-20261017.html",
+      "sha256": "1271bbd0d23a4535850d88ab9cd2e4b2b4f7ace28d182a8e2c0580feb4b53bad"
+    },
+    {
+      "report": "R015",
+      "rows": 6,
+      "query_rows_before_print_selection": 9,
+      "scope": "客户P-C",
+      "pages": 1,
+      "html": "docs/assets/phase6-parent-R015-20261017.html",
+      "sha256": "be2709f5b546c5acb5a5bb41e771e287c22c0ca3e908667732cbad0bf5bda694"
+    }
+  ],
+  "screenshot": {
+    "file": "docs/assets/phase6-parent-H004-20261017.png",
+    "sha256": "73b56706d92f4b06faefcd57ee5ace6a886f9ed5eafbc219701e580b80ffeb97"
+  },
+  "live_source_evidence": "docs/erp-phase6-remaining-save-live-20261017.json",
+  "previous_evidence": "docs/erp-phase6-save-timing-print-verification-20261017.json",
+  "synthetic_browser_rows_added": 22,
+  "historical_import_rows_this_run": 0,
+  "development": "增量代码及所列验证完成；第六阶段整体部分完成",
+  "historical_reconciliation": "未完成全量历史对账",
+  "field_acceptance": "未现场验收",
+  "code_sha256": {
+    "backend/plugins/erp_base/source_phase6_save_timing.py": "7762a4ab304fdd4f095e56aef9a09f20b7c9826a3d27a85b9543cb4b0da27c98",
+    "backend/plugins/erp_base/source_phase6_service_values.py": "b24d6e316c072ca4796137c9df6e96fe66c82cf0b0e8e16da26187c420dda3d4",
+    "backend/plugins/erp_base/source_phase6_formula_runtime.py": "1eac0999ac3e9d3eb9cc29a8a0b7cb9f622e0115b14e41519842160e9aeef105",
+    "backend/plugins/erp_base/source_phase6_rendering.py": "24faba90745491e54e48a5cdf8a57e1187cdc3032d8f75f60213b58e1d123a14",
+    "backend/plugins/erp_base/source_phase6_print_sources.py": "1056d2e2e1ba83c24585fe81afbe3a3f43138c21ff525cf1a5036d89ac30811a",
+    "backend/plugins/erp_base/source_phase6_entries.py": "0e9445141e795bd32f1ca829668d208ef07c5ce65cde388bb0f130f0b3ff8dbb",
+    "backend/plugins/erp_base/source_phase6_query_support.json": "67fba65d54dbb0feb1fb44587645813294e836a5c523a53b0e52d8cbf514c5ca",
+    "backend/plugins/erp_base/source_phase6_api.py": "a4350589d874b2ddb019420fbfec94a85ec226b35e42649be6bcc37a36c5bf88",
+    "backend/plugins/erp_base/tests/test_source_phase6_parent_save_print.py": "b09bfab2c7008a18c0c83c9c6f8e1aae0c329d581d9b65c5f7328be9169484cc",
+    "web/src/plugins/erp/OriginalEntryWorkbench.vue": "58b1dd6c6404c7ded05159780ea74e1bdcc8d11d17ce175e14efe7cddab80ce3",
+    "tools/legacy_snapshot/read_phase6_remaining_save_sources.ps1": "4fd49cb695c49d8dfc0a60b6776654822c0da7b90205220013db51b3bea68bdd"
+  }
+}

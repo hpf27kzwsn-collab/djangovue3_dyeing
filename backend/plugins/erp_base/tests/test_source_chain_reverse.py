@@ -42,6 +42,20 @@ class ExecutionChainTests(TestCase):
             old_process_no=1,old_status='1',old_station_id='06',old_class_id='03',old_end_time=self.at,old_curr_kg=-2,source_batch=historical_batch())
         return process,work
 
+    def test_phase5_receipt_and_weight_links_cancel_and_restore_without_deleting(self):
+        receipt=self.old('GetJobSheetReceive','erp_base',old_sheet_series='R',old_job_sheet_no='JOB')
+        weight=self.old('StuffWeight','erp_production',old_sheet_series='S',old_sheet_no='W',old_job_sheet_no='JOB')
+        link=self.old('StuffWeightJobSheetNo','erp_production',old_auto_id=1,old_sheet_series='S',old_job_sheet_no='JOB')
+        combine=self.old('StuffCombineSheets','erp_production',old_stuff_sheet_no='W',old_job_sheet_no='OTHER')
+        nodes=discover(self.job)['nodes']
+        for row in [receipt,weight,link,combine]:self.assertIn((row._meta.label,row.pk),nodes)
+        self.execute()
+        for row in [receipt,weight,link,combine]:
+            self.assertTrue(type(row).objects.filter(pk=row.pk).exists())
+            self.assertFalse(active(type(row).objects.all()).filter(pk=row.pk).exists())
+        undo(self.job,self.actor,**self.event)
+        for row in [receipt,weight,link,combine]:self.assertTrue(active(type(row).objects.all()).filter(pk=row.pk).exists())
+
     def test_preview_readonly_and_complete_old_ids(self):
         inbound=self.inbound();book=self.book(old_in_weight_qty=-2,old_out_weight_qty=None)
         before=SourceDocumentContext.objects.count();data=preview(self.job)

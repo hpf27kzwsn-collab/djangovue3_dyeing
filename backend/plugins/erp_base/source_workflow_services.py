@@ -8,7 +8,7 @@ from .source_entry_services import entry_for
 from .source_stock_services import raw
 
 
-JOB_KIND_ENTRIES = {'JobSheet', 'JobSheetQuery', 'PrintJobSheet', 'SaleJobSheet', 'TwiJobSheet'}
+JOB_KIND_ENTRIES = {'JobSheet', 'PrintJobSheet', 'SaleJobSheet', 'TwiJobSheet'}
 
 
 def process_status(line):
@@ -32,23 +32,16 @@ def refresh_job(job, actor):
     job = locked(job)
     entry = entry_for(job)
     if entry in JOB_KIND_ENTRIES:
-        if raw(job, 'SheetKind') == 40:
-            apply_changes(job, {'JobKindID': '03'}, actor, 'job_kind')
-        elif raw(job, 'JobKindID') is None:
-            apply_changes(job, {'JobKindID': '01'}, actor, 'job_kind')
-    if entry != 'JobSheet' or raw(job, 'SheetStatus') not in [None, 0]:
-        return job
-    process = apps.get_model('erp_production.SourceDyeJobProcess')
-    lines = list(process.objects.filter(source_parent_1=job).order_by('old_process_no', 'pk'))
-    done = [line for line in lines if process_status(line) == 1]
-    if not done:
-        pending = [line for line in lines if process_status(line) != 1]
-        values = {'NextProcessID': raw(pending[0], 'ProcessID') if pending else None}
-    else:
-        pending = [line for line in lines if process_status(line) == 0]
-        values = {'NextProcessID': raw(pending[0], 'ProcessID') if pending else None,
-                  'CurrProcessID': raw(done[-1], 'ProcessID')}
-    apply_changes(job, values, actor, 'job_process_progress')
+        from .source_phase3_operations import source,change
+        from .source_business_updates import matching
+        targets=matching(source('JobSheet'),SheetSeries=raw(job,'SheetSeries'))
+        change(targets.filter(old_sheet_kind=40),{'JobKindID':'03'},actor)
+        change(targets.filter(old_job_kind_id__isnull=True),{'JobKindID':'01'},actor)
+    if entry == 'JobSheet':
+        # 原保存动作明确调用此过程，不能另用父ID及工序号排序缩小其原LIKE范围。
+        from .source_phase4_operations import progress
+        progress('Sp_JobProcessUpdate',raw(job,'SheetSeries'),actor)
+    job.refresh_from_db()
     return job
 
 

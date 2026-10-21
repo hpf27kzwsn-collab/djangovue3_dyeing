@@ -21,7 +21,20 @@ def snapshot(item):
     return json.loads(json.dumps({f.name: f.value_from_object(item) for f in item._meta.fields}, cls=FactsEncoder))
 
 
+@transaction.atomic
 def persist(item, actor=None):
+    from . import numbering
+    from .numbering_registry import registry
+    numbered = any(label == item._meta.label for label, field in registry())
+    if numbered and not hasattr(item, '_numbering_protected'):
+        from .source_entry_services import entry_for
+        entry = None if item.pk is None else entry_for(item)
+        previous = None if item.pk is None else type(item).objects.get(pk=item.pk)
+        data = {field: getattr(item, field) for label, field in registry()
+                if label == item._meta.label and getattr(item, field) not in [None, '']}
+        numbering.prepare(item, data, entry, item._state.adding, previous)
+    if numbered:
+        numbering.restore(item)
     if actor is not None:
         if item.pk is None:
             item.creator = actor
@@ -29,6 +42,8 @@ def persist(item, actor=None):
         item.modifier = actor
     item.full_clean()
     item.save()
+    if numbered:
+        numbering.sync_model(type(item))
     return item
 
 

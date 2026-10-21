@@ -90,11 +90,11 @@ class FullSourceModelTests(TestCase):
         self.assertEqual(bytes(item.old_photo),b'\x00\xff\x80A')
         self.assertEqual(response.data['data']['old_photo'],'AP+AQQ==')
 
-    def test_every_business_model_has_legacy_identity_and_static_fields(self):
+    def test_every_business_model_keeps_original_fields_without_extra_legacy_id(self):
         models=[model for model in apps.get_models() if model._meta.app_label.startswith('erp_')]
         originals=[model for model in models if issubclass(model,SourceRecord)]
-        self.assertEqual(len(models),700);self.assertEqual(len(originals),589)
-        self.assertEqual(sum(len(model.SOURCE_FIELDS) for model in originals),12016)
+        self.assertEqual(len(models),766);self.assertEqual(len(originals),655)
+        self.assertEqual(sum(len(model.SOURCE_FIELDS) for model in originals),12606)
         for model in models:self.assertNotIn('legacy_id', {f.name for f in model._meta.fields})
         self.assertEqual(QualityInspection._meta.app_label,'erp_quality')
         self.assertEqual(QualityInspection._meta.db_table,'erp_production_qualityinspection')

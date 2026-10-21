@@ -7,6 +7,7 @@ from django.test import TestCase
 from django.utils import timezone
 from system.models import Users
 from plugins.erp_base import source_services as services
+from plugins.erp_base.models import BusinessAction
 
 
 class OriginalSamplingLinksTests(TestCase):
@@ -50,15 +51,17 @@ class OriginalSamplingLinksTests(TestCase):
         services.delete(type(negative).objects.filter(pk=negative.pk), self.actor)
         recipe.refresh_from_db(); self.assertEqual(recipe.old_cost, Decimal('10.12'))
 
-    def test_phase_duplicates_follow_old_rule_and_null_phase_ids_are_not_equal(self):
+    def test_phase_duplicates_are_retained_and_null_phase_ids_are_not_equal(self):
         recipe = self.write('DyeRecipe', old_sheet_series='R1')
         first = self.write('DyeRecipePhase', source_parent_1=recipe, old_phase_no='01', old_phase_id='P1', old_remarks="剂'量'")
         self.assertEqual(first.old_remarks, '剂’量’')
-        with self.assertRaisesMessage(ValidationError, '染程不能重复'):
-            self.write('DyeRecipePhase', source_parent_1=recipe, old_phase_no='02', old_phase_id='p1 ')
+        duplicate=self.write('DyeRecipePhase', source_parent_1=recipe, old_phase_no='02', old_phase_id='p1 ')
+        self.assertTrue(BusinessAction.objects.filter(entity=duplicate._meta.label,object_id=duplicate.pk,
+            action='original_recipe_phase_duplicate').exists())
         for number in ['03', '04']:
             self.write('DyeRecipePhase', source_parent_1=recipe, old_phase_no=number, old_phase_id=None)
-        self.assertEqual(self.model('DyeRecipePhase').objects.count(), 3)
+        self.assertEqual(self.model('DyeRecipePhase').objects.count(), 4)
+        self.assertEqual(BusinessAction.objects.filter(action='original_recipe_phase_duplicate').count(),1)
 
     def test_disabled_material_rule_does_not_reject_or_rewrite_imported_recipe(self):
         self.model('PStuff', 'erp_base').objects.create(old_stuff_id='STOP', old_status=1)
@@ -92,8 +95,9 @@ class OriginalSamplingLinksTests(TestCase):
     def test_dips_phase_and_material_rules_and_historical_duplicate_preservation(self):
         head = self.write('DyeDipsRecord', old_sheet_series='D1')
         self.write('DyeDipsRecordPhase', source_parent_1=head, old_phase_no=1, old_phase_id='P1')
-        with self.assertRaisesMessage(ValidationError, '染程不能重复'):
-            self.write('DyeDipsRecordPhase', source_parent_1=head, old_phase_no=2, old_phase_id='p1 ')
+        duplicate=self.write('DyeDipsRecordPhase', source_parent_1=head, old_phase_no=2, old_phase_id='p1 ')
+        self.assertTrue(BusinessAction.objects.filter(entity=duplicate._meta.label,object_id=duplicate.pk,
+            action='original_recipe_phase_duplicate').exists())
         old = self.model('DyeDipsRecordPhase').objects.create(old_sheet_series='D1', old_phase_no=2,
             old_phase_id='P1', source_batch=historical_batch())
         self.assertTrue(type(old).objects.filter(pk=old.pk).exists())

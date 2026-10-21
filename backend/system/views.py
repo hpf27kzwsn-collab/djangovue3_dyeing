@@ -12,7 +12,7 @@ from core.permissions import field_access, scoped_queryset, ApiPermission
 from .catalog import ENTITIES
 from .models import *
 from .serializers import UserSerializer, FileSerializer, DeptSerializer, AreaSerializer, MenuSerializer, RoleSerializer, MenuFieldSerializer, ConfigSerializer, DictionarySerializer
-from .actions import resource_actions
+from .actions import resource_actions, workflow_actions
 from .dictionaries import dictionary_value, dictionary_key, dictionary_options
 from core.resources import resource_options
 from .model_catalog import permission_models
@@ -639,14 +639,18 @@ class Metadata(APIView):
                 'column':{'show':model == OperationLog and permissions.get('creator',{'is_query':True})['is_query']}})
         from .excel_fields import supports_import
         options = resource_options(model)
+        numbering = {}
+        if hasattr(model, 'SOURCE_FIELDS'):
+            from plugins.erp_base.numbering import policies
+            numbering = {'numbering': policies(model)}
         excluded = options.get('exclude_fields', [])
         fields = [field for field in fields if field['key'] not in excluded]
         if 'crud_fields' in options:
             by_key = {field['key']:field for field in fields}
             fields = [by_key[key] for key in options['crud_fields'] if key in by_key]
-        return success({'entity': entity, 'title': str(model._meta.verbose_name), 'pk': model._meta.pk.name,
-                        'fields': fields, 'crud_options':options.get('crud_options',{}), 'excel_import': supports_import(model),
-                        **({'workflow': options['workflow']} if 'workflow' in options else {}),
+        return success({'entity': entity, 'title': options.get('title', str(model._meta.verbose_name)), 'pk': model._meta.pk.name,
+                        'fields': fields, 'crud_options':options.get('crud_options',{}), 'excel_import': supports_import(model), **numbering,
+                        **({'workflow': workflow_actions(entity, view_for(entity, model), options['workflow'])} if 'workflow' in options else {}),
                         **({'resources':[{'entity':name,'title':str(value._meta.verbose_name)} for name,value in ENTITIES.items()]} if model == MenuButton else {})})
 
 

@@ -1,0 +1,717 @@
+{
+  "A_GrayInModify": {
+    "id": "SQL557",
+    "kind": "view",
+    "title": "A_GrayInModify"
+  },
+  "A_GrayInModify_SELECT": {
+    "id": "SQL558",
+    "kind": "view",
+    "title": "A_GrayInModify_SELECT"
+  },
+  "A_ProdInModify": {
+    "id": "SQL562",
+    "kind": "view",
+    "title": "A_ProdInModify"
+  },
+  "A_ProdInModify_SELECT": {
+    "id": "SQL563",
+    "kind": "view",
+    "title": "A_ProdInModify_SELECT"
+  },
+  "A_PurDetailNo": {
+    "id": "SQL567",
+    "kind": "view",
+    "title": "A_PurDetailNo"
+  },
+  "v_App_ArticleOut": {
+    "id": "SQL586",
+    "kind": "view",
+    "title": "v_App_ArticleOut"
+  },
+  "v_App_ArticleOutDetail": {
+    "id": "SQL587",
+    "kind": "view",
+    "title": "v_App_ArticleOutDetail"
+  },
+  "v_App_ArticleStockBook": {
+    "id": "SQL588",
+    "kind": "view",
+    "title": "v_App_ArticleStockBook"
+  },
+  "v_App_MachineArticleStockBook": {
+    "id": "SQL592",
+    "kind": "view",
+    "title": "v_App_MachineArticleStockBook"
+  },
+  "v_CookQuery": {
+    "id": "SQL595",
+    "kind": "view",
+    "title": "v_CookQuery"
+  },
+  "V_Driver": {
+    "id": "SQL602",
+    "kind": "view",
+    "title": "V_Driver"
+  },
+  "v_PackWorkQty_Day": {
+    "id": "SQL623",
+    "kind": "view",
+    "title": "v_PackWorkQty_Day"
+  },
+  "v_PackWorkQty1_Day": {
+    "id": "SQL625",
+    "kind": "view",
+    "title": "v_PackWorkQty1_Day"
+  },
+  "v_StuffAvPrice": {
+    "id": "SQL635",
+    "kind": "view",
+    "title": "v_StuffAvPrice"
+  },
+  "v_StuffLatestPrice": {
+    "id": "SQL636",
+    "kind": "view",
+    "title": "v_StuffLatestPrice"
+  },
+  "v_StuffOut_Query": {
+    "id": "SQL637",
+    "kind": "view",
+    "title": "v_StuffOut_Query"
+  },
+  "v_StuffWeight_To_StuffOut": {
+    "id": "SQL639",
+    "kind": "view",
+    "title": "v_StuffWeight_To_StuffOut"
+  },
+  "View_ProductionCostA": {
+    "id": "SQL650",
+    "kind": "view",
+    "title": "View_ProductionCostA"
+  },
+  "view_xgf": {
+    "id": "SQL654",
+    "kind": "view",
+    "title": "view_xgf"
+  },
+  "View_zhenzhichangliang": {
+    "id": "SQL655",
+    "kind": "view",
+    "title": "View_zhenzhichangliang"
+  },
+  "vw_GrayCurrStockBook": {
+    "id": "SQL664",
+    "kind": "view",
+    "title": "vw_GrayCurrStockBook"
+  },
+  "vw_GrayoutQuery": {
+    "id": "SQL665",
+    "kind": "view",
+    "title": "vw_GrayoutQuery"
+  },
+  "vw_ProdIn_Query": {
+    "id": "SQL681",
+    "kind": "view",
+    "title": "vw_ProdIn_Query"
+  },
+  "vw_SemiOutWorkApply": {
+    "id": "SQL683",
+    "kind": "view",
+    "title": "vw_SemiOutWorkApply"
+  },
+  "vw_ZHENZHIYUNFEITJ": {
+    "id": "SQL685",
+    "kind": "view",
+    "title": "vw_ZHENZHIYUNFEITJ"
+  },
+  "vwArticleStockBook": {
+    "id": "SQL687",
+    "kind": "view",
+    "title": "vwArticleStockBook"
+  },
+  "vwArticleStockBookForDiscard": {
+    "id": "SQL688",
+    "kind": "view",
+    "title": "vwArticleStockBookForDiscard"
+  },
+  "vwArticleStockBookNew": {
+    "id": "SQL689",
+    "kind": "view",
+    "title": "vwArticleStockBookNew"
+  },
+  "VWGrayPostionUp": {
+    "id": "SQL696",
+    "kind": "view",
+    "title": "VWGrayPostionUp"
+  },
+  "vwGrayStockBook": {
+    "id": "SQL697",
+    "kind": "view",
+    "title": "vwGrayStockBook"
+  },
+  "vwGrayStockBook_New": {
+    "id": "SQL698",
+    "kind": "view",
+    "title": "vwGrayStockBook_New"
+  },
+  "vwGrayStockBook_ReceSheetNo": {
+    "id": "SQL699",
+    "kind": "view",
+    "title": "vwGrayStockBook_ReceSheetNo"
+  },
+  "vwInDetailNoStuffStockBook": {
+    "id": "SQL700",
+    "kind": "view",
+    "title": "vwInDetailNoStuffStockBook"
+  },
+  "vwODMStockBook": {
+    "id": "SQL708",
+    "kind": "view",
+    "title": "vwODMStockBook"
+  },
+  "vwQueryPurTOGrayIn": {
+    "id": "SQL721",
+    "kind": "view",
+    "title": "vwQueryPurTOGrayIn"
+  },
+  "VWSemiPostionUp": {
+    "id": "SQL726",
+    "kind": "view",
+    "title": "VWSemiPostionUp"
+  },
+  "vwSemiStockBook": {
+    "id": "SQL727",
+    "kind": "view",
+    "title": "vwSemiStockBook"
+  },
+  "vwSemiStockBook_New": {
+    "id": "SQL728",
+    "kind": "view",
+    "title": "vwSemiStockBook_New"
+  },
+  "vwStuffStockBook": {
+    "id": "SQL729",
+    "kind": "view",
+    "title": "vwStuffStockBook"
+  },
+  "vwStuffStockBookForDiscard": {
+    "id": "SQL730",
+    "kind": "view",
+    "title": "vwStuffStockBookForDiscard"
+  },
+  "vwStuffStockBookNew": {
+    "id": "SQL731",
+    "kind": "view",
+    "title": "vwStuffStockBookNew"
+  },
+  "sp_App_GetArticleInfoByPage": {
+    "id": "SQL144",
+    "kind": "paged",
+    "title": "sp_App_GetArticleInfoByPage",
+    "sql": "SELECT ROW_NUMBER()OVER(ORDER BY ArticleID DESC) rowindex,* FROM (SELECT a.ArticleID,ISNULL(a.Name,'') AS ArticleName, ISNULL(a.Spec,'') AS Spec, CONVERT(DECIMAL(10,1) ,1) AS Qty,CONVERT(INT,1) AS Kind\n\nFROM dye.p_Article a\nWHERE 1=1\nAND (@hasFilter=0 OR a.ArticleID like '%'+@conFilter+'%'\nor a.Name like '%'+@conFilter+'%'\n)) data"
+  },
+  "Sp_AppQueryGrayIn": {
+    "id": "SQL222",
+    "kind": "paged",
+    "title": "Sp_AppQueryGrayIn",
+    "sql": "Select\nROW_NUMBER()OVER(ORDER BY gi.SheetDate Desc) AS rowIndex,\ngi.SheetNo,\ngid.ReceSheetNo,\nCONVERT(Varchar(19),gi.SheetDate,21) AS SheetDate ,\nSheetKind,\nCase When\ngi.SheetKind =11 Then '外厂入库'\nWhen gi.SheetKind =10 Then '加捻入库'\nWhen gi.SheetKind =15 Then '退回入库'\nWhen gi.SheetKind =16 Then '退货出库'\nWhen gi.SheetKind =18 Then '采购入库'\nWhen gi.SheetKind =19 Then '其他入库'\nEnd SheetKindName,\ngi.CustomerID,\npc.ShortName AS customerName,\ngid.GrayID,\nGr.NameC As GrayName,\nRolls,WeightQty,\ngid.LotNo,gid.ColorID,ColorNum,YarnCategory,PreField1,OriJobsheetNo,gi.Creater,CONVERT(Varchar(19),gi.CreateDate,21)CreateDate\n\nFROM dye.GrayIn gi\nINNER JOIN dye.GrayInDetail gid ON gi.SheetSeries = gid.SheetSeries\nleft JOIN dye.p_Customer pc ON gi.CustomerID=pc.CustomerID\nLeft Join dye.p_Gray Gr On gid.GrayID=Gr.GrayID\nWHERE  1=1\nAnd gi.SheetKind<>16\nAnd gi.SheetDate>=@dtStart And gi.SheetDate <@dtEnd\nand  (ISNULL(@CustomerID,'')='' OR gi.CustomerID = @CustomerID)\nand  (ISNULL(@GrayID,'')='' OR gid.GrayID = @GrayID)\nand  (ISNULL(@LotNo,'')='' OR gid.LotNo like '%'+ @LotNo +'%' )"
+  },
+  "Sp_AppQueryGrayStock": {
+    "id": "SQL223",
+    "kind": "paged",
+    "title": "Sp_AppQueryGrayStock",
+    "sql": "Select\nROW_NUMBER()OVER(ORDER BY alis.ReceSheetNo Desc) AS rowIndex,\nalis.InSheetKind,\ngi.SheetNo,\nCONVERT(Varchar(19),gi.SheetDate,21) SheetDate,\nalis.ReceSheetNo,gi.SheetKind,\nalis.CustomerID,pc.ShortName As CustomerName,\ngid.LotNo,alis.GrayID,Gr.NameC As GrayName,alis.Rolls,alis.LengthQty,alis.WeightQty,alis.PreField1,(SELECT STRING_AGG(d.Area,';') FROM dye.GrayStockBook b JOIN dye.GrayInDetail d ON b.ReceSheetNo=d.ReceSheetNo AND b.GrayID=d.GrayID WHERE ISNULL(b.WareHouseID,'')=alis.WareHouseID AND ISNULL(b.CustomerID,'')=alis.CustomerID AND ISNULL(b.InSheetKind,'')=alis.InSheetKind AND ISNULL(b.GrayID,'')=alis.GrayID AND ISNULL(b.LotNo,'')=alis.LotNo AND ISNULL(b.PreField1,'')=alis.PreField1 AND ISNULL(b.ColorID,'')=alis.ColorID AND ISNULL(b.FixedQty,0)=alis.FixedQty AND ISNULL(b.PurchaseOrders,'')=alis.PurchaseOrders AND ISNULL(b.A_A,'')=alis.A_A AND ISNULL(b.A_B,'')=alis.A_B) AS Area\n\nFROM\ndye.vwGrayStockBook_New alis\nLEFT JOIN dye.GrayInDetail gid ON alis.GrayID = gid.GrayID AND alis.ReceSheetNo = gid.ReceSheetNo\nLEFT JOIN dye.GrayIn gi ON gid.SheetSeries=gi.SheetSeries\nLEFT JOIN dye.p_Customer pc ON pc.CustomerID = gi.CustomerID\nLeft Join dye.p_Gray Gr On alis.GrayID=Gr.GrayID\nwhere 1=1\nand  (ISNULL(@CustomerID,'')='' OR gi.CustomerID = @CustomerID)\nand  (ISNULL(@GrayID,'')='' OR alis.GrayID = @GrayID)\nand  (ISNULL(@LotNo,'')='' OR gid.LotNo like '%'+ @LotNo +'%' )\nand  (ISNULL(@ReceSheetNo,'')='' OR alis.ReceSheetNo like '%'+ @ReceSheetNo +'%')"
+  },
+  "Sp_AppQueryProdStock": {
+    "id": "SQL227",
+    "kind": "paged",
+    "title": "Sp_AppQueryProdStock",
+    "sql": "Select\nROW_NUMBER()OVER(ORDER BY JobSheetNo Desc) AS rowIndex,\n(SELECT CONVERT(Varchar(19),MAX(SheetDate),21) FROM dye.ProdIn WHERE JobSheetNo=alis.JobSheetNo) AS SheetDate,\nalis.CustomerID,Cu.ShortName As CustomerName,JobSheetNo,ProdID,Gr.NameC As ProdName,ColorNum,alis.ColorID,\nRolls,LengthQty,GrayQty,WeightQty\n\nFrom(\nselect CustomerID,\nJobSheetNo,ProdID,ColorNum,ColorID,SUM(Rolls) Rolls,SUM(LengthQty) as LengthQty,sum(GrayQty)as GrayQty,SUM(WeightQty)as WeightQty from(\nselect CustomerID,\nJobSheetNo,ProdID,ColorNum,ColorID,(ISNULL(c.InRolls,0)-ISNULL(c.OutRolls,0)) as Rolls,\n(ISNULL(c.InLengthQty,0)-ISNULL(c.OutLengthQty,0)) as LengthQty ,(ISNULL(c.InWeightQty,0)-ISNULL(c.OutWeightQty,0)) as WeightQty,\n(ISNULL(c.InGrayQty,0)-ISNULL(c.OutGrayQty,0)) as GrayQty,\nc.Price from dye.ProdStockBook  c\n) alisTotal\ngroup by CustomerID,JobSheetNo,ProdID,ColorNum,ColorID\n) alis\nleft join dye.p_Customer  Cu On alis.CustomerID=Cu.CustomerID\nleft Join dye.p_Gray Gr on Gr.GrayID=alis.ProdID\nWhere 1=1\nand  (ISNULL(@CustomerID,'')='' OR alis.CustomerID = @CustomerID)\nand  (ISNULL(@ProdID,'')='' OR ProdID = @ProdID)\nand  (ISNULL(@ColorNum,'')='' OR ColorNum = @ColorNum)\nand  (ISNULL(@JobSheetNo,'')='' OR alis.JobSheetNo like '%'+ @JobSheetNo +'%')"
+  },
+  "Sp_AppQuerySemiOut": {
+    "id": "SQL228",
+    "kind": "paged",
+    "title": "Sp_AppQuerySemiOut",
+    "sql": "SELECT\nROW_NUMBER()OVER(ORDER BY B.SheetDate Desc ) AS rowIndex,\nA.SheetSeries,B.SheetNo,CONVERT(Varchar(19),B.SheetDate,21)As SheetDate,\nA.AssignedNo,A.ReceSheetNo,A.ProdID,Gr.NameC AS ProdName,A.LotNo,A.JobSheetNo,A.FixedQty,\nA.Rolls,A.WeightQty,A.Packs,b.CustomerID,cu.ShortName AS CustomerName,CONVERT(Varchar(19),B.CreateDate,21) AS CreateDate,b.Creater\n\nFROM dye.SemiOutDetail A\nLEFT JOIN dye.SemiOut  B ON B.SheetSeries = A.SheetSeries\nleft Join  dye.p_Customer  Cu On B.CustomerID=Cu.CustomerID\nLeft Join dye.p_Gray Gr On A.ProdID=Gr.GrayID\nWHERE 1=1\nAnd B.SheetDate>=@dtStart And B.SheetDate <@dtEnd\nand  (ISNULL(@CustomerID,'')='' OR B.CustomerID = @CustomerID)\nand  (ISNULL(@ProdID,'')='' OR A.ProdID = @ProdID)\nand  (ISNULL(@LotNo,'')='' OR A.LotNo Like '%'+@LotNo+'%')\nand  (ISNULL(@SheetNo,'')='' OR B.SheetNo Like '%'+@SheetNo+'%')"
+  },
+  "Sp_AppQuerySemiStock": {
+    "id": "SQL229",
+    "kind": "paged",
+    "title": "Sp_AppQuerySemiStock",
+    "sql": "SELECT\nROW_NUMBER()OVER(ORDER BY NewID()) AS rowIndex,\nalis.CustomerID,cu.ShortName AS CustomerName,alis.ProdID,Gr.NameC AS ProdName,\nalis.SupplierID,Su.ShortName As SupplierName,LotNo,FixedQty,\nRolls,WeightQty,alis.ColorID,A_A,PurchaseOrders,Packs\n\nFROM dye.vwSemiStockBook_New alis\nleft Join  dye.p_Customer  Cu On alis.CustomerID=Cu.CustomerID\nLeft Join dye.p_Gray Gr On alis.ProdID=Gr.GrayID\nLeft Join dye.p_Customer Su On alis.SupplierID=Su.CustomerID And Su.CustKindID='1' AND IsNUll(Su.IsStop,0)=0\nWHERE  1=1\nand  (ISNULL(@CustomerID,'')='' OR alis.CustomerID = @CustomerID)\nand  (ISNULL(@SupplierID,'')='' OR alis.SupplierID = @SupplierID)\nand  (ISNULL(@ProdID,'')='' OR alis.ProdID = @ProdID)\nand  (ISNULL(@LotNo,'')='' OR alis.LotNo Like '%'+@LotNo+'%')"
+  },
+  "Sp_AppQueryStuffOutAccount": {
+    "id": "SQL230",
+    "kind": "paged",
+    "title": "Sp_AppQueryStuffOutAccount",
+    "sql": "Select\nROW_NUMBER()OVER(ORDER BY NEWID()) AS rowIndex,\nStuffInfo.*\n,WD.Name As  WareHouseName,\nCase When  StuffType='S'Then '染料' End StuffTypeName,\nSK.Name AS StuffKindName,\nCase When  StockUnit='K'Then '千克' End UnitName\n\nfrom\n(\nSELECT\nc.StuffType,\nc.StuffKindID,\nISNULL(WareHouseID,'') AS WareHouseID,\nISNULL(b.StuffID,'') AS StuffID,\nc.Name As StuffName,\nc.StockUnit,\nCast(SUM(Qty) AS decimal(10,2))AS OutQty\nFROM dye.StuffOut a\nINNER JOIN dye.StuffOutDetail b ON a.SheetSeries = b.SheetSeries\nLEFT JOIN dye.p_Stuff c ON b.StuffID=c.StuffID\nWhere 1=1\nand (ISNULL(@StuffID,'')=''Or b.StuffID=@StuffID)\nand  a.outdate>=@dtStart And a.outdate < @dtEnd\nGROUP BY a.WareHouseID,ISNULL(b.StuffID,''),c.Name,StockUnit,c.StuffType,c.StuffKindID\n) StuffInfo\nleft Join dye.p_FieldValid SK  On Sk.Code =StuffInfo.StuffKindID And  SK.FieldType='StuffKind'\nleft Join dye.p_FieldValid WD  On WD.Code = StuffInfo.WareHouseID And WD.FieldType='WareHouseID'"
+  },
+  "Sp_AppQuerySupplierOriPrice": {
+    "id": "SQL231",
+    "kind": "paged",
+    "title": "Sp_AppQuerySupplierOriPrice",
+    "sql": "SELECT\nROW_NUMBER()OVER(ORDER BY alis.TypeName,alis.SupplierID,alis.SheetDate DESC) AS rowIndex,\nalis.*\n from\n(\nSelect\nROW_NUMBER()OVER(PARTITION BY a.SupplierID,b.ArticleID ORDER BY a.SheetDate Desc) AS Num,\nb.DetailNo,\n'2-机物料' TypeName,\nCONVERT(Varchar(19),a.SheetDate,21)AS SheetDate,\na.SupplierID,\ncu.ShortName As SupplierName,\nb.ArticleID As ProdID,\nar.Name As ProdName,\nb.Price\nFROM dye.ArticleIn a\nleft Join dye.ArticleInDetail b On a.SheetSeries=b.SheetSeries\nLeft Join dye.p_Customer cu On a.SupplierID=cu.CustomerID\nLeft JOin dye.p_Article ar On b.ArticleID=ar.ArticleID\nWhere a.SheetKind=13\nAnd (ISNULL(@SupplierID,'')='' OR a.SupplierID=@SupplierID)\nAnd (ISNULL(@ProdName,'')='' OR ar.Name Like '%'+@ProdName+'%')\nunion All\nSelect\nROW_NUMBER()OVER(PARTITION BY a.SupplierID,b.StuffID ORDER BY a.SheetDate Desc) AS Num,\nb.DetailNo,\n'1-染化料' TypeName,\nCONVERT(Varchar(19),a.SheetDate,21)AS SheetDate,\na.SupplierID,\ncu.ShortName As SupplierName,\nb.StuffID As ProdID,\nst.Name As ProdName,\nb.Price\nFROM dye.StuffIn a\nleft join dye.StuffInDetail b on a.SheetSeries=b.SheetSeries\nLeft Join dye.p_Customer cu On a.SupplierID=cu.CustomerID\nLeft Join dye.p_Stuff St On b.StuffID = St.StuffID\nWhere a.SheetKind=13\nAnd (ISNULL(@SupplierID,'')='' OR a.SupplierID=@SupplierID)\nAnd (ISNULL(@ProdName,'')='' OR St.Name Like '%'+@ProdName+'%')\n)alis\nWHERE 1=1 AND alis.Num<>1"
+  },
+  "Sp_AppQuerySupplierPrice": {
+    "id": "SQL232",
+    "kind": "paged",
+    "title": "Sp_AppQuerySupplierPrice",
+    "sql": "SELECT\nROW_NUMBER()OVER(ORDER BY alis.TypeName,alis.SupplierID,alis.SheetDate DESC) AS rowIndex,\nalis.*\n from\n(\nSelect\nROW_NUMBER()OVER(PARTITION BY a.SupplierID,b.ArticleID ORDER BY a.SheetDate Desc) AS Num,\nb.DetailNo,\n'2-机物料' TypeName,\nCONVERT(Varchar(19),a.SheetDate,21)AS SheetDate,\na.SupplierID,\ncu.ShortName As SupplierName,\nb.ArticleID As ProdID,\nar.Name As ProdName,\nb.Price\nFROM dye.ArticleIn a\nleft Join dye.ArticleInDetail b On a.SheetSeries=b.SheetSeries\nLeft Join dye.p_Customer cu On a.SupplierID=cu.CustomerID\nLeft JOin dye.p_Article ar On b.ArticleID=ar.ArticleID\nWhere a.SheetKind=13\nAnd (ISNULL(@SupplierID,'')='' OR a.SupplierID=@SupplierID)\nAnd (ISNULL(@ProdName,'')='' OR ar.Name Like '%'+@ProdName+'%')\nunion All\nSelect\nROW_NUMBER()OVER(PARTITION BY a.SupplierID,b.StuffID ORDER BY a.SheetDate Desc) AS Num,\nb.DetailNo,\n'1-染化料' TypeName,\nCONVERT(Varchar(19),a.SheetDate,21)AS SheetDate,\na.SupplierID,\ncu.ShortName As SupplierName,\nb.StuffID As ProdID,\nst.Name As ProdName,\nb.Price\nFROM dye.StuffIn a\nleft join dye.StuffInDetail b on a.SheetSeries=b.SheetSeries\nLeft Join dye.p_Customer cu On a.SupplierID=cu.CustomerID\nLeft Join dye.p_Stuff St On b.StuffID = St.StuffID\nWhere a.SheetKind=13\nAnd (ISNULL(@SupplierID,'')='' OR a.SupplierID=@SupplierID)\nAnd (ISNULL(@ProdName,'')='' OR St.Name Like '%'+@ProdName+'%')\n)alis\nWHERE 1=1 AND alis.Num=1"
+  },
+  "GetGrayStockQtyTable": {
+    "id": "SQL082",
+    "kind": "query",
+    "title": "原库存期间表（原日期参数未参与筛选）",
+    "sql": "SELECT * FROM dye.s_accmonth"
+  },
+  "Sp_ProdIn_Query": {
+    "id": "SQL333",
+    "title": "Sp_ProdIn_Query",
+    "kind": "query",
+    "sql": "SELECT Days,SUM(WeightQty)WeightQty\nFROM dye.vw_ProdIn_Query WHERE Days>=@dsDate AND Days<= @dtDate GROUP BY Days"
+  },
+  "Sp_ProdInOut_Query": {
+    "id": "SQL334",
+    "title": "Sp_ProdInOut_Query",
+    "kind": "query",
+    "sql": "SELECT SUBSTRING(m.Days,6,10)Days,SUM(m.InWeightQty)InWeightQty,SUM(m.OutWeightQty)OutWeightQty FROM (\nSELECT Days,CAST(SUM(WeightQty)/1000 AS DECIMAL(16,2))InWeightQty,0.00 AS OutWeightQty\nFROM dye.vw_ProdIn_Query WHERE Days>=@dsDate AND Days<= @dtDate GROUP BY Days\nUNION ALL\nSELECT Days,0.00 AS InWeightQty,CAST(SUM(WeightQty)/1000 AS DECIMAL(16,2)) OutWeightQty\nFROM dye.vw_ProdOut_Query WHERE Days>=@dsDate AND Days<= @dtDate GROUP BY Days\n)m GROUP BY m.Days"
+  },
+  "Sp_GrayInOut_Query": {
+    "id": "SQL297",
+    "title": "Sp_GrayInOut_Query",
+    "kind": "query",
+    "sql": "SELECT SUBSTRING(Days,6,10)Days,CAST(SUM(InWeightQty)/1000 AS DECIMAL(16,2)) AS InWeightQty,CAST(SUM(OutWeightQty)/1000 AS DECIMAL(16,2))OutWeightQty FROM #t WHERE 1=1 GROUP BY Days",
+    "temps": {
+      "t": "SELECT *\n\nFROM (\nSELECT CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)Days,a.SheetDate,b.Rolls AS InRolls,b.WeightQty AS InWeightQty,0.00 AS OutRolls,0.00 AS OutWeightQty   FROM dye.GrayIn a JOIN dye.GrayInDetail b ON b.SheetSeries = a.SheetSeries WHERE a.SheetKind IN (11,15)\nAND CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)>=@dsDate AND CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)<=@dtDate\nUNION ALL  --坯布退货\nSELECT CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)Days,a.SheetDate,0.00 AS InRolls,0.00 AS InWeightQty,ABS(b.Rolls) AS OutRolls,ABS(b.WeightQty) AS OutWeightQty   FROM dye.GrayIn a JOIN dye.GrayInDetail b ON b.SheetSeries = a.SheetSeries WHERE a.SheetKind =16\nAND CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)>=@dsDate AND CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)<=@dtDate\nUNION ALL  --坯布出库\nSELECT CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)Days,a.SheetDate,0.00 AS InRolls,0.00 AS InWeightQty,ABS(b.Rolls) AS OutRolls,ABS(b.WeightQty) AS OutWeightQty FROM dye.GrayOut a JOIN dye.GrayOutDetail b ON b.SheetSeries = a.SheetSeries AND a.SheetKind=21\nAND CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)>=@dsDate AND CONVERT(VARCHAR(10),DATEADD(MINUTE, -470, a.SheetDate), 120)<=@dtDate\n)m"
+    }
+  },
+  "SP_StuffOut_Query": {
+    "id": "SQL381",
+    "title": "SP_StuffOut_Query",
+    "kind": "query",
+    "sql": "SELECT NEWID()ID,Days,CustomerID,JobKind,SUM(SOutQty)SOutQty,\nCASE WHEN SUM(SAmount)>0 THEN CAST((SUM(SAmount)/SUM(SOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS SPrice,\nSUM(SAmount)SAmount,\nSUM(AOutQty)AOutQty,\nCASE WHEN SUM(AAmount)>0 THEN CAST((SUM(AAmount)/SUM(AOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS APrice,\nSUM(AAmount)AAmount,SUM(AAmount)+SUM(SAmount) AS SumAmount  FROM #t  GROUP BY Days,CustomerID,JobKind\nORDER BY CustomerID",
+    "temps": {
+      "t": "SELECT CustomerID,@days AS days,\n(CASE WHEN JobKindID='01' THEN '正常流程卡'\nWHEN JobKindID='02' THEN '客退回修卡'\nwhen JobKindID is null then '系统导入'\nELSE '本厂回修卡' END) AS JobKind,\nCASE WHEN StuffType='S' THEN OutQty ELSE 0 END SOutQty,   --染料出库数量\nCASE WHEN StuffType='S' THEN Amount ELSE 0 END AS SAmount,--染料出库金额\nCASE WHEN StuffType='S' THEN 0 ELSE OutQty END AOutQty,   --助剂出库数量\nCASE WHEN StuffType='S' THEN 0 ELSE Amount END AS AAmount --助剂出库金额\nFROM dye.v_StuffOut_Query WHERE outdate>=@StartDate AND outdate<=@EndDate"
+    }
+  },
+  "SP_StuffOut_Query_Day": {
+    "id": "SQL382",
+    "title": "SP_StuffOut_Query_Day",
+    "kind": "query",
+    "sql": "SELECT NEWID()ID,Days,CustomerID,jobkind,SUM(SOutQty)SOutQty,\nCASE WHEN SUM(SAmount)>0 THEN CAST((SUM(SAmount)/SUM(SOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS SPrice,\nSUM(SAmount)SAmount,\nSUM(AOutQty)AOutQty,\nCASE WHEN SUM(AAmount)>0 THEN CAST((SUM(AAmount)/SUM(AOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS APrice,\nSUM(AAmount)AAmount,SUM(AAmount)+SUM(SAmount) AS SumAmount  FROM #t  GROUP BY Days,CustomerID,jobkind\nORDER BY Days,CustomerID",
+    "temps": {
+      "t": "SELECT Days,CustomerID,\n(CASE WHEN JobKindID='01' THEN '正常流程卡'\nWHEN JobKindID='02' THEN '客退回修卡'\nwhen JobKindID is null then '系统导入'\nELSE '本厂回修卡' END) AS JobKind,\nCASE WHEN StuffType='S' THEN OutQty ELSE 0 END SOutQty,   --染料出库数量\nCASE WHEN StuffType='S' THEN Amount ELSE 0 END AS SAmount,--染料出库金额\nCASE WHEN StuffType='S' THEN 0 ELSE OutQty END AOutQty,   --助剂出库数量\nCASE WHEN StuffType='S' THEN 0 ELSE Amount END AS AAmount --助剂出库金额\nFROM dye.v_StuffOut_Query WHERE outdate>=@StartDate AND outdate<=@EndDate"
+    }
+  },
+  "SP_StuffOut_Query_KETUI": {
+    "id": "SQL383",
+    "title": "SP_StuffOut_Query_KETUI",
+    "kind": "query",
+    "sql": "SELECT NEWID()ID,Days,CustomerID,JobKind,SUM(SOutQty)SOutQty,\nCASE WHEN SUM(SAmount)>0 THEN CAST((SUM(SAmount)/SUM(SOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS SPrice,\nSUM(SAmount)SAmount,\nSUM(AOutQty)AOutQty,\nCASE WHEN SUM(AAmount)>0 THEN CAST((SUM(AAmount)/SUM(AOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS APrice,\nSUM(AAmount)AAmount,SUM(AAmount)+SUM(SAmount) AS SumAmount  FROM #t  GROUP BY Days,CustomerID,JobKind\nORDER BY CustomerID",
+    "temps": {
+      "t": "SELECT CustomerID,@days AS days,\n'客退回修' AS JobKind,\nCASE WHEN StuffType='S' THEN OutQty ELSE 0 END SOutQty,   --染料出库数量\nCASE WHEN StuffType='S' THEN Amount ELSE 0 END AS SAmount,--染料出库金额\nCASE WHEN StuffType='S' THEN 0 ELSE OutQty END AOutQty,   --助剂出库数量\nCASE WHEN StuffType='S' THEN 0 ELSE Amount END AS AAmount --助剂出库金额\nFROM dye.v_StuffOut_Query WHERE outdate>=@StartDate AND outdate<=@EndDate and jobkindid ='02'"
+    }
+  },
+  "SP_StuffOut_Query_ZCBCHX": {
+    "id": "SQL384",
+    "title": "SP_StuffOut_Query_ZCBCHX",
+    "kind": "query",
+    "sql": "SELECT NEWID()ID,Days,CustomerID,JobKind,SUM(SOutQty)SOutQty,\nCASE WHEN SUM(SAmount)>0 THEN CAST((SUM(SAmount)/SUM(SOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS SPrice,\nSUM(SAmount)SAmount,\nSUM(AOutQty)AOutQty,\nCASE WHEN SUM(AAmount)>0 THEN CAST((SUM(AAmount)/SUM(AOutQty)) AS DECIMAL(10,2)) ELSE 0 END AS APrice,\nSUM(AAmount)AAmount,SUM(AAmount)+SUM(SAmount) AS SumAmount  FROM #t  GROUP BY Days,CustomerID,JobKind\nORDER BY CustomerID",
+    "temps": {
+      "t": "SELECT CustomerID,@days AS days,\n'正常&本厂回修' AS JobKind,\nCASE WHEN StuffType='S' THEN OutQty ELSE 0 END SOutQty,   --染料出库数量\nCASE WHEN StuffType='S' THEN Amount ELSE 0 END AS SAmount,--染料出库金额\nCASE WHEN StuffType='S' THEN 0 ELSE OutQty END AOutQty,   --助剂出库数量\nCASE WHEN StuffType='S' THEN 0 ELSE Amount END AS AAmount --助剂出库金额\nFROM dye.v_StuffOut_Query WHERE outdate>=@StartDate AND outdate<=@EndDate and jobkindid in('01','03')"
+    }
+  },
+  "fn_ArticlePrice": {
+    "id": "SQL012",
+    "title": "fn_ArticlePrice",
+    "kind": "price",
+    "sql": "SELECT\n SUM(ISNULL(TotalMoney, 0)) AS money ,\n SUM(ISNULL(TotalQty, 0)) AS qty\nFROM      (\nSELECT    ISNULL(WareHouseID, '') AS WareHouseID ,\nISNULL(ArticleID, '') AS ArticleID ,\nISNULL(ArticleKindID, '') AS ArticleKindID ,\n(ISNULL(c.InQty, 0) ) AS TotalQty ,\nISNULL(c.Price,0)*ISNULL(c.InQty, 0) AS TotalMoney\nFROM      ArticleStockBook c\nWHERE     c.BookKind IN ( 11, 13, 14, 16, 19 )\nAND c.BookDate > (\nSELECT\nMAX(CarryDate) AS CarryDate\nFROM\n(\nSELECT\nCAST('1900-01-01' AS DATETIME) AS CarryDate\nUNION\nSELECT\nMAX(ISNULL(CarryDate,CAST('1900-01-01' AS DATETIME))) AS CarryDate\nFROM\nArticleStock\nWHERE\nWareHouseID = c.WareHouseID\nAND ArticleID = c.ArticleID\nAND ArticleKindID = c.ArticleKindID\nGROUP BY WareHouseID ,\nArticleID ,\nArticleKindID\n) alisMaxCarryDate\n)\nUNION ALL\nSELECT    ISNULL(a.WareHouseID, '') AS WareHouseID ,\nISNULL(a.ArticleID, '') AS ArticleID ,\nISNULL(a.ArticleKindID, '') AS ArticleKindID ,\na.PreMonthQty AS TotalQty ,\na.PreMonthMoney AS TotalMoney\nFROM      ArticleStock a\nINNER JOIN ( SELECT\nMAX(CarryDate) AS CarryDate ,\nWareHouseID ,\nArticleID ,\nArticleKindID\nFROM  ArticleStock\nGROUP BY WareHouseID ,\nArticleID ,\nArticleKindID\n) b ON a.WareHouseID = b.WareHouseID\nAND a.ArticleID = b.ArticleID\nAND a.ArticleKindID = b.ArticleKindID\nAND a.CarryDate = b.CarryDate\n) alisTotal\nWHERE   ArticleID = @ArticleID\nAND ArticleKindID = @ArticleKindID\nAND WareHouseID = @WareHouseID",
+    "money_scale": 6,
+    "qty_scale": 4,
+    "result_scale": 6
+  },
+  "fn_ArticlePriceMovingAverage": {
+    "id": "SQL013",
+    "title": "fn_ArticlePriceMovingAverage",
+    "kind": "price",
+    "sql": "SELECT   SUM(ISNULL(TotalMoney, 0)) AS money,\n SUM(ISNULL(TotalQty, 0)) AS qty\nFROM    (\nSELECT    ISNULL(a.WareHouseID, '') AS WareHouseID ,\nISNULL(a.ArticleID, '') AS ArticleID ,\na.PreMonthQty AS TotalQty ,\na.PreMonthMoney AS TotalMoney\nFROM      ArticleStock a\nINNER JOIN ( SELECT MAX(CarryDate) AS CarryDate ,\nWareHouseID ,\nArticleID\nFROM   ArticleStock\nGROUP BY WareHouseID ,\nArticleID\n) b ON a.WareHouseID = b.WareHouseID\nAND a.ArticleID = b.ArticleID\nAND a.CarryDate = b.CarryDate\nWHERE     a.WareHouseID = @WareHouseID\nAND a.ArticleID = @ArticleCode\nUNION ALL\nSELECT    ISNULL(WareHouseID, '') AS WareHouseID ,\nISNULL(ArticleID, '') AS ArticleID ,\n( ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0) ) AS TotalQty ,\n( ISNULL(c.InMoney, 0)- ISNULL(c.OutMoney, 0) ) AS TotalMoney\nFROM      ArticleStockBook c\nWHERE     c.WareHouseID = @WareHouseID\nAND c.BookKind NOT IN (18,22,14)\nAND c.ArticleID = @ArticleCode\nAND c.BookDate < @dtInputDate\nAND c.BookDate > (SELECT MAX(CarryDate) FROM (SELECT CAST('1900-01-01' AS DATETIME) CarryDate UNION ALL SELECT ISNULL(CarryDate,CAST('1900-01-01' AS DATETIME)) FROM dye.ArticleStock WHERE WareHouseID=@WareHouseID AND ArticleID=@ArticleCode) dates)\nUNION ALL\nSELECT    ISNULL(WareHouseID, '') AS WareHouseID ,\nISNULL(ArticleID, '') AS ArticleID ,\nISNULL(c.InQty, 0) AS TotalQty ,\nISNULL(c.InMoney, 0) AS TotalMoney\nFROM      ArticleStockBook c\nWHERE     c.BookKind IN ( 11, 13,16,19 )---14与16采购退货与14与18退用入库是写负入库，所以减退的没有分开处理\nAND c.BookDate = @dtInputDate\nAND c.WareHouseID = @WareHouseID\nAND c.ArticleID = @ArticleCode\n) alisTotal\nWHERE   ArticleID = @ArticleCode\nAND WareHouseID = @WareHouseID",
+    "money_scale": 6,
+    "qty_scale": 6,
+    "result_scale": 6
+  },
+  "fn_StuffPrice": {
+    "id": "SQL061",
+    "title": "fn_StuffPrice",
+    "kind": "price",
+    "sql": "SELECT   SUM(ISNULL(TotalMoney, 0)) AS money,\n SUM(ISNULL(TotalQty, 0)) AS qty\nFROM    (\nSELECT    ISNULL(WareHouseID, '') AS WareHouseID ,\nISNULL(StuffID, '') AS StuffID ,\n( ISNULL(c.InQty, 0) ) AS TotalQty ,\nISNULL(c.Price, 0) * ISNULL(c.InQty, 0) AS TotalMoney\nFROM      StuffStockBook c\nWHERE     c.WareHouseID = @WareHouseID\nAND c.StuffID = @StuffCode\nAND c.BookKind IN ( 11, 13, 14, 16, 19 )\nAND c.BookDate > (SELECT MAX(CarryDate) FROM (SELECT CAST('1900-01-01' AS DATETIME) CarryDate UNION ALL SELECT ISNULL(CarryDate,CAST('1900-01-01' AS DATETIME)) FROM dye.StuffStock WHERE WareHouseID=@WareHouseID AND StuffID=@StuffCode) dates)\nUNION ALL\nSELECT    ISNULL(a.WareHouseID, '') AS WareHouseID ,\nISNULL(a.StuffID, '') AS StuffID ,\na.PreMonthQty AS TotalQty ,\na.PreMonthMoney AS TotalMoney\nFROM      StuffStock a\nLEFT JOIN ( SELECT  MAX(CarryDate) AS CarryDate ,\nWareHouseID ,\nStuffID\nFROM    StuffStock\nGROUP BY WareHouseID ,\nStuffID\n) b ON a.WareHouseID = b.WareHouseID\nAND a.StuffID = b.StuffID\nAND a.CarryDate = b.CarryDate\nLEFT JOIN StuffStockBook c ON a.WareHouseID = c.WareHouseID\nAND c.StuffID = b.StuffID\nWHERE     a.WareHouseID = @WareHouseID\nAND a.StuffID = @StuffCode\n) alisTotal\nWHERE   StuffID = @StuffCode\nAND WareHouseID = @WareHouseID",
+    "money_scale": 6,
+    "qty_scale": 6,
+    "result_scale": 0
+  },
+  "fn_StuffPriceMovingAverage": {
+    "id": "SQL062",
+    "title": "fn_StuffPriceMovingAverage",
+    "kind": "price",
+    "sql": "SELECT   SUM(ISNULL(TotalMoney, 0)) AS money,\n SUM(ISNULL(TotalQty, 0)) AS qty\nFROM    (\nSELECT    ISNULL(a.WareHouseID, '') AS WareHouseID ,\nISNULL(a.StuffID, '') AS StuffID ,\na.PreMonthQty AS TotalQty ,\na.PreMonthMoney AS TotalMoney\nFROM      StuffStock a\nINNER JOIN ( SELECT MAX(CarryDate) AS CarryDate ,\nWareHouseID ,\nStuffID\nFROM   StuffStock\nGROUP BY WareHouseID ,\nStuffID\n) b ON a.WareHouseID = b.WareHouseID\nAND a.StuffID = b.StuffID\nAND a.CarryDate = b.CarryDate\nWHERE     a.WareHouseID = @WareHouseID\nAND a.StuffID = @StuffCode\nUNION ALL\nSELECT    ISNULL(WareHouseID, '') AS WareHouseID ,\nISNULL(StuffID, '') AS StuffID ,\n( ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0) ) AS TotalQty ,\n( ISNULL(c.InMoney, 0) - ISNULL(c.OutMoney, 0) ) AS TotalMoney\nFROM      StuffStockBook c\nWHERE     c.WareHouseID = @WareHouseID\nAND c.BookKind NOT IN (18,22,14)\nAND c.StuffID = @StuffCode\nAND c.BookDate < @dtInputDate\nAND c.BookDate > (SELECT MAX(CarryDate) FROM (SELECT CAST('1900-01-01' AS DATETIME) CarryDate UNION ALL SELECT ISNULL(CarryDate,CAST('1900-01-01' AS DATETIME)) FROM dye.StuffStock WHERE WareHouseID=@WareHouseID AND StuffID=@StuffCode) dates)\nUNION ALL\nSELECT    ISNULL(WareHouseID, '') AS WareHouseID ,\nISNULL(StuffID, '') AS StuffID ,\nISNULL(c.InQty, 0) AS TotalQty ,\nISNULL(c.InMoney, 0) AS TotalMoney\nFROM      StuffStockBook c\nWHERE     c.BookKind IN ( 11, 13, 16, 19, 15 )---14与16采购退货与退用入库是写负入库，所以减退的没有分开处理\nAND c.BookDate = @dtInputDate\nAND c.WareHouseID = @WareHouseID\nAND c.StuffID = @StuffCode\n) alisTotal\nWHERE   StuffID = @StuffCode\nAND WareHouseID = @WareHouseID",
+    "money_scale": 4,
+    "qty_scale": 6,
+    "result_scale": 4
+  },
+  "fn_ArticlePriceMovingAverage1": {
+    "id": "SQL014",
+    "title": "fn_ArticlePriceMovingAverage1",
+    "kind": "price",
+    "sql": "SELECT SUM(ISNULL(Total,0)) AS money,SUM(ISNULL(InQty,0)) AS qty FROM dye.ArticleIn INNER JOIN dye.ArticleInDetail ON dye.ArticleIn.SheetSeries = dye.ArticleInDetail.SheetSeries\nWHERE (SheetDate>=@dtInputEndDate and SheetDate<@dtInputDate ) AND ArticleID=@ArticleCode AND SheetKind IN ('11','13','19')",
+    "money_scale": 6,
+    "qty_scale": 6,
+    "result_scale": 6
+  },
+  "GetArticleBySheetSeries": {
+    "id": "SQL068",
+    "title": "GetArticleBySheetSeries",
+    "kind": "article_text",
+    "sql": "SELECT c.Name +'：   '+CONVERT(varchar(100),CONVERT(DECIMAL(7,2),b.OutQty))+u.NAME +' ， 共'+CONVERT(varchar(100),CONVERT(DECIMAL(10,2),b.Total))+'元' AS value FROM    dye.ArticleOut a\nleft join dye.ArticleOutDetail b   on a.SheetSeries=b.SheetSeries\nleft join dye.p_Article c on b.ArticleID=c.Articleid\nleft join (SELECT code,name FROM dye.p_FieldValid WHERE FieldType='ArticleUnit') u   on u.code = c.Unit\nWHERE a.SheetSeries=@SheetSeries"
+  },
+  "GetArticleTotalMoneyBySheetSeries": {
+    "id": "SQL069",
+    "title": "GetArticleTotalMoneyBySheetSeries",
+    "kind": "article_total",
+    "sql": "select CAST(sum(b.Total) AS DECIMAL(12,2)) AS value\nfrom dye.ArticleOut a\nleft join dye.ArticleOutDetail b   on a.SheetSeries=b.SheetSeries\nwhere a.SheetSeries=@SheetSeries\ngroup by  a.SheetSeries"
+  },
+  "qry_PrintGrayStockBook": {
+    "id": "SQL106",
+    "kind": "steps",
+    "title": "qry_PrintGrayStockBook",
+    "temps": {},
+    "steps": [],
+    "outputs": [
+      "SELECT CAST(0 AS BIT) AS bIsselect, vgs.*, (vgs.Rolls - ISNULL(jj.JRolls, 0)) AS LastRolls, (vgs.LengthQty - ISNULL(jj.JLengthQty, 0)) AS LastLengthQty, (vgs.WeightQty - ISNULL(jj.JWeightQty, 0)) AS LastWeightQty, vgs.LengthQty AS PreMeter, pg.NameC AS CustSelfProduct FROM (SELECT v.*, (SELECT MAX(b.BookDate) FROM dye.SemiStockBook b WHERE ISNULL(b.WareHouseID,'')=v.WareHouseID AND ISNULL(b.CustomerID,'')=v.CustomerID AND ISNULL(b.InSheetKind,'')=v.InSheetKind AND ISNULL(b.ProdID,'')=v.ProdID AND ISNULL(b.LotNo,'')=v.LotNo AND ISNULL(b.PreField1,'')=v.PreField1 AND ISNULL(b.ColorID,'')=v.ColorID AND ISNULL(b.FixedQty,0)=v.FixedQty AND ISNULL(b.PurchaseOrders,'')=v.PurchaseOrders AND ISNULL(b.A_A,'')=v.A_A AND ISNULL(b.A_B,'')=v.A_B) AS SheetDate FROM dye.vwSemiStockBook_New v) AS vgs LEFT JOIN (SELECT ISNULL(ja.Semi_Owner, '') AS CustomerID, ISNULL(ja.SupplierID, '') AS SupplierID, ISNULL(ja.GrayID, '') AS GrayID, ISNULL(ja.LotNo, '') AS LotNo, SUM(ISNULL(ja.Rolls, 0)) AS JRolls, SUM(ISNULL(ja.LengthQty, 0)) AS JLengthQty, SUM(ISNULL(ja.WeightQty, 0)) AS JWeightQty FROM dye.JobAssign AS ja JOIN dye.JobSheet AS j ON j.SheetSeries = ja.SheetSeries AND ISNULL(j.SumAssignedWeightQty, 0) = 0 GROUP BY ja.Semi_Owner, ja.SupplierID, ja.GrayID, ja.LotNo) AS jj ON 1 = 1 AND jj.CustomerID = vgs.CustomerID AND jj.SupplierID = vgs.SupplierID AND jj.GrayID = vgs.GrayID AND jj.LotNo = vgs.LotNo LEFT JOIN dye.p_Gray AS pg ON vgs.GrayID = pg.GrayID WHERE 1 = 1 AND (ISNULL(vgs.WeightQty, 0) - ISNULL(jj.JWeightQty, 0) > 0 OR vgs.LengthQty - ISNULL(jj.JLengthQty, 0) > 0) AND (@IsChecked1 = 'N' OR vgs.LotNo = @NLotNo) AND (@IsChecked2 = 'N' OR vgs.CustomerID = @CustomerID) AND (@IsChecked3 = 'N' OR vgs.GrayID = @ProdID) AND (@IsChecked4 = 'N' OR vgs.SheetDate >= @StartDate) AND (@IsChecked5 = 'N' OR vgs.SheetDate <= @EndDate) AND (@IsChecked6 = 'N' OR vgs.WareHouseID = @WareHouseID) ORDER BY vgs.SheetNo, vgs.GrayID"
+    ],
+    "variables": {
+      "nlotno": null,
+      "customerid": null,
+      "prodid": null,
+      "jobsheetno": null,
+      "warehouseid": null,
+      "ischecked1": null,
+      "ischecked2": null,
+      "ischecked3": null,
+      "ischecked4": null,
+      "ischecked5": null,
+      "ischecked6": null
+    }
+  },
+  "sp_Cus_GrayStock_Query": {
+    "id": "SQL254",
+    "kind": "steps",
+    "title": "sp_Cus_GrayStock_Query",
+    "temps": {
+      "t": "SELECT a.SheetKind, a.SheetDate, a.CustomerID, a.CustomerCode, b.LotNo, b.ReceSheetNo, b.Rolls, b.WeightQty, b.LengthQty, PreField5 FROM dye.GrayIn AS a JOIN dye.GrayInDetail AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetKind IN (11, 15) AND a.SheetDate >= @StartDate AND a.SheetDate < @EndDate AND (ISNULL(@CustomerID, '') = '' OR a.CustomerID = @CustomerID) AND (ISNULL(@LotNo, '') = '' OR b.LotNo = @LotNo)",
+      "graystock": "SELECT m.ReceSheetNo, SUM(m.InRolls) AS InRolls, SUM(m.InWeightQty) AS InWeightQty, SUM(m.TCInRolls) AS TCInRolls, SUM(m.TCInWeightQty) AS TCInWeightQty, SUM(m.TOutRolls) AS TOutRolls, SUM(m.TOutWeightQty) AS TOutWeightQty, SUM(m.OutRolls) AS OutRolls, SUM(m.OutWeightQty) AS OutWeightQty, SUM(m.PZOutRolls) AS PZOutRolls, SUM(m.PZOutWeightQty) AS PZOutWeightQty, SUM(m.InRolls) + SUM(m.TCInRolls) - SUM(m.TOutRolls) - SUM(m.OutRolls) - SUM(m.PZOutRolls) AS CurrRolls, SUM(m.InWeightQty) + SUM(m.TCInWeightQty) - SUM(m.TOutWeightQty) - SUM(m.OutWeightQty) - SUM(m.PZOutWeightQty) AS CurrWeightQty FROM (SELECT a.ReceSheetNo, a.Rolls AS InRolls, a.WeightQty AS InWeightQty, 0.00 AS TCInRolls, 0.00 AS TCInWeightQty, 0.00 AS TOutRolls, 0.00 AS TOutWeightQty, 0.00 AS OutRolls, 0.00 AS OutWeightQty, 0.00 AS PZOutRolls, 0.00 AS PZOutWeightQty FROM #t AS a UNION ALL SELECT a.ReceSheetNo, 0.00 AS InRolls, 0.00 AS InWeightQty, c.InRolls AS TCInRolls, c.InWeightQty AS TCInWeightQty, 0.00 AS TOutRolls, 0.00 AS TOutWeightQty, 0.00 AS OutRolls, 0.00 AS OutWeightQty, 0.00 AS PZOutRolls, 0.00 AS PZOutWeightQty FROM #t AS a JOIN dye.GrayInDetail AS b ON a.ReceSheetNo = b.ReceSheetNo JOIN dye.GrayStockBook AS c ON b.ReceSheetNo = c.ReceSheetNo WHERE c.BookKind = 14 UNION ALL SELECT a.ReceSheetNo, 0.00 AS InRolls, 0.00 AS InWeightQty, 0.00 AS TCInRolls, 0.00 AS TCInWeightQty, ABS(b.InRolls) AS TOutRolls, ABS(b.InWeightQty) AS TOutWeightQty, 0.00 AS OutRolls, 0.00 AS OutWeightQty, 0.00 AS PZOutRolls, 0.00 AS PZOutWeightQty FROM #t AS a JOIN dye.GrayStockBook AS b ON b.ReceSheetNo = a.ReceSheetNo WHERE b.BookKind = 16 UNION ALL SELECT a.ReceSheetNo, 0.00 AS InRolls, 0.00 AS InWeightQty, 0.00 AS TCInRolls, 0.00 AS TCInWeightQty, 0.00 AS TOutRolls, 0.00 AS TOutWeightQty, b.OutRolls, b.OutWeightQty, 0.00 AS PZOutRolls, 0.00 AS PZOutWeightQty FROM #t AS a JOIN dye.GrayStockBook AS b ON b.ReceSheetNo = a.ReceSheetNo WHERE b.BookKind = 21 UNION ALL SELECT a.ReceSheetNo, 0.00 AS InRolls, 0.00 AS InWeightQty, 0.00 AS TCInRolls, 0.00 AS TCInWeightQty, 0.00 AS TOutRolls, 0.00 AS TOutWeightQty, 0.00 AS OutRolls, 0.00 AS OutWeightQty, b.OutRolls AS PZOutRolls, b.OutWeightQty AS PZOutWeightQty FROM #t AS a JOIN dye.GrayStockBook AS b ON b.ReceSheetNo = a.ReceSheetNo WHERE b.BookKind = 55) AS m GROUP BY m.ReceSheetNo",
+      "job": "SELECT A.SheetSeries, A.JobSheetNo, A.CustomerID, A.ColorNum, A.ColorID, A.ProdID, A.CustSelfProduct, A.ReceSheetNo, A.PRolls /* 预配明细匹数 */, A.PWeightQty /* 预配明细重量 */, A.ZRolls /* 预配总匹数 */, A.ZWeightQty /* 预配总重量 */, A.SRolls /* 实配匹数 */, A.SWeightQty /* 实配重量 */, A.CRolls /* 半成品总匹数 */, A.CWeightQty /* 半成品总匹数 */, A.PiRolls /* 成品入库总匹数 */, A.PiWeightQty /* 成品入库总重量 */, CONVERT(NUMERIC(10, 2), IIF(ISNULL(A.ZRolls, 0) = 0, 1, A.PRolls / A.ZRolls) * A.CRolls) AS RRolls, CONVERT(NUMERIC(10, 2), IIF(ISNULL(A.ZWeightQty, 0) = 0, 1, A.PWeightQty / A.ZWeightQty) * A.CWeightQty) AS RWeightQty, CONVERT(NUMERIC(10, 2), IIF(ISNULL(A.ZRolls, 0) = 0, 1, A.PRolls / A.ZRolls) * A.PiRolls) AS RPiRolls, CONVERT(NUMERIC(10, 2), IIF(ISNULL(A.ZWeightQty, 0) = 0, 1, A.PWeightQty / A.ZWeightQty) * A.PiWeightQty) AS RPiWeightQty, CONVERT(NUMERIC(10, 2), IIF(ISNULL(A.ZRolls, 0) = 0, 1, A.PRolls / A.ZRolls) * A.PodRolls) AS RPodRolls, CONVERT(NUMERIC(10, 2), IIF(ISNULL(A.ZWeightQty, 0) = 0, 1, A.PWeightQty / A.ZWeightQty) * A.PodWeightQty) AS RPodWeightQty FROM (SELECT ja.SheetSeries AS SheetSeries, js.SheetNo AS JobSheetNo, js.CustomerID AS CustomerID, js.ColorNum AS ColorNum, js.ColorID AS ColorID, js.ProdID AS ProdID, js.CustSelfProduct AS CustSelfProduct, ja.ReceSheetNo AS ReceSheetNo, ja.Rolls AS PRolls, ja.WeightQty AS PWeightQty, SUM(ja.Rolls) OVER (PARTITION BY ja.SheetSeries ORDER BY ja.SheetSeries) AS ZRolls, SUM(ja.WeightQty) OVER (PARTITION BY ja.SheetSeries ORDER BY ja.SheetSeries) AS ZWeightQty, ISNULL(js.SumAssignedRolls, 0) AS SRolls, ISNULL(js.SumAssignedWeightQty, 0) AS SWeightQty, ISNULL(p.Rolls, 0) AS PiRolls, ISNULL(p.WeightQty, 0) AS PiWeightQty, ISNULL(pod.Rolls, 0) AS PodRolls, ISNULL(pod.WeightQty, 0) AS PodWeightQty, CONVERT(NUMERIC(10, 2), IIF(0.85 * SumAssignedRolls < p.Rolls, 0, SumAssignedRolls - ISNULL(p.Rolls, 0))) AS CRolls, CONVERT(NUMERIC(10, 2), IIF(0.85 * js.SumAssignedWeightQty < p.WeightQty, 0, SumAssignedWeightQty - ISNULL(p.WeightQty, 0))) AS CWeightQty FROM dye.JobAssign AS ja JOIN dye.JobSheet AS js ON js.SheetSeries = ja.SheetSeries LEFT JOIN dye.ProdIn AS p ON p.JobSheetNo = js.SheetNo AND p.RightStatus = 10 LEFT JOIN dye.ProdOutDetail AS pod ON pod.JobSheetNo = js.SheetNo LEFT JOIN (SELECT gi.*, gid.ReceSheetNo AS ReceSheetNo FROM dye.GrayInDetail AS gid LEFT JOIN dye.GrayIn AS gi ON gi.SheetSeries = gid.SheetSeries) AS g ON g.ReceSheetNo = ja.ReceSheetNo WHERE 1 = 1 AND g.SheetDate >= @StartDate AND g.SheetDate < @EndDate) AS A",
+      "job1": "SELECT j.ReceSheetNo, SUM(j.RRolls) AS CurrJobRolls, SUM(j.RWeightQty) AS CurrJobGrayQty FROM #Job AS j GROUP BY ReceSheetNo",
+      "pordstock": "SELECT JobSheetNo, ReceSheetNo, RPiRolls AS ProdInRolls, RPiWeightQty AS ProdInGrayQty /* 成品入库坯重 */, RPiWeightQty AS ProdInWeightQty /* 成品入库重 */, RPodRolls AS ProdOutRolls, RPodWeightQty AS ProdOutGrayQty, RPodWeightQty AS ProdOutWeightQty, RPiRolls - RPodRolls AS ProdCurrRolls, RPiWeightQty - RPodWeightQty AS ProdCurrGrayQty, RPiWeightQty - RPodWeightQty AS ProdCurrWeightQty FROM #Job",
+      "pdstock": "SELECT p.ReceSheetNo, SUM(ProdInRolls) AS ProdInRolls, SUM(ProdInGrayQty) AS ProdInGrayQty, SUM(ProdInWeightQty) AS ProdInWeightQty, SUM(ProdOutRolls) AS ProdOutRolls, SUM(ProdOutGrayQty) AS ProdOutGrayQty, SUM(ProdOutWeightQty) AS ProdOutWeightQty, SUM(ProdCurrRolls) AS ProdCurrRolls, SUM(ProdCurrGrayQty) AS ProdCurrGrayQty, SUM(ProdCurrWeightQty) AS ProdCurrWeightQty FROM #PordStock AS p GROUP BY ReceSheetNo",
+      "defectstock": "SELECT m.ReceSheetNo, SUM(m.DefectInRolls) AS DefectInRolls, SUM(m.DefectInGrayQty) AS DefectInGrayQty, SUM(m.DefectInWeightQty) AS DefectInWeightQty, SUM(m.DefectOutRolls) AS DefectOutRolls, SUM(m.DefectOutGrayQty) AS DefectOutGrayQty, SUM(m.DefectOutWeightQty) AS DefectOutWeightQty, SUM(m.DefectInRolls) - SUM(m.DefectOutRolls) AS DefectCurrRolls, SUM(m.DefectInGrayQty) - SUM(m.DefectOutGrayQty) AS DefectCurrGrayQty, SUM(m.DefectInWeightQty) - SUM(m.DefectOutWeightQty) AS DefectCurrWeightQty FROM (SELECT jg.ReceSheetNo, COUNT(*) AS DefectInRolls, SUM(a.WeightQty) AS DefectInWeightQty, SUM(a.GrayQty) AS DefectInGrayQty, 0.00 AS DefectOutRolls, 0.00 AS DefectOutWeightQty, 0.00 AS DefectOutGrayQty FROM dye.DefectiveInRecord AS a JOIN dye.JobGrayRecord AS jg ON jg.GrayBarCode = a.GrayBarCode WHERE EXISTS(SELECT * FROM #t AS a WHERE jg.ReceSheetNo = a.ReceSheetNo) GROUP BY jg.ReceSheetNo UNION ALL SELECT jg.ReceSheetNo, 0.00 AS DefectInRolls, 0.00 AS DefectInWeightQty, 0.00 AS DefectInGrayQty, COUNT(*) AS DefectOutRolls, SUM(a.WeightQty) AS DefectOutWeightQty, SUM(a.GrayQty) AS DefectOutGrayQty FROM dye.DefectiveOutRecord AS a JOIN dye.JobGrayRecord AS jg ON jg.GrayBarCode = a.GrayBarCode WHERE EXISTS(SELECT * FROM #t AS a WHERE jg.ReceSheetNo = a.ReceSheetNo) GROUP BY jg.ReceSheetNo) AS m GROUP BY m.ReceSheetNo"
+    },
+    "steps": [],
+    "outputs": [
+      "SELECT NEWID() AS ID, g.LotNo, g.SheetNo, g.GrayID, g.CustomerID, m1.*, m2.ProdInRolls, m2.ProdInGrayQty, m2.ProdInWeightQty, m2.ProdOutRolls, m2.ProdOutGrayQty, m2.ProdOutWeightQty, m2.ProdCurrRolls, m2.ProdCurrGrayQty, m2.ProdCurrWeightQty, m3.CurrJobRolls, m3.CurrJobGrayQty, m4.DefectCurrRolls, m4.DefectCurrGrayQty, m4.DefectCurrWeightQty, ISNULL(m1.CurrRolls, 0) + ISNULL(m2.ProdCurrRolls, 0) + ISNULL(m3.CurrJobRolls, 0) AS RemainRolls, ISNULL(m1.CurrWeightQty, 0) + ISNULL(m2.ProdCurrGrayQty, 0) + ISNULL(m3.CurrJobGrayQty, 0) AS RemainGrayQty FROM #GrayStock AS m1 LEFT JOIN #PdStock AS m2 ON m2.ReceSheetNo = m1.ReceSheetNo LEFT JOIN #Job1 AS m3 ON m3.ReceSheetNo = m1.ReceSheetNo LEFT JOIN #DefectStock AS m4 ON m4.ReceSheetNo = m1.ReceSheetNo LEFT JOIN (SELECT a.SheetNo AS SheetNo, b.ReceSheetNo AS ReceSheetNo, b.LotNo AS LotNo, b.GrayID AS GrayID, a.CustomerID AS CustomerID FROM dye.GrayIn AS a JOIN dye.GrayInDetail AS b ON b.SheetSeries = a.SheetSeries) AS g ON g.ReceSheetNo = m1.ReceSheetNo ORDER BY CustomerID, g.LotNo"
+    ],
+    "variables": {
+      "customerid": null,
+      "lotno": null
+    }
+  },
+  "Sp_PDGroup": {
+    "id": "SQL331",
+    "kind": "steps",
+    "title": "Sp_PDGroup",
+    "temps": {},
+    "steps": [
+      {
+        "sql": "SELECT SUM(SumAssignedWeightQty) AS v0, SUM(SumAssignedRolls) AS v1, COUNT(*) AS v2 FROM dye.v_PDGroup WHERE (EndTime >= @dsDate) AND (EndTime < @dtDate) AND ProcessName = '染色' GROUP BY ProcessName",
+        "variables": [
+          "dyeweightqty",
+          "dyerolls",
+          "dyerate"
+        ]
+      },
+      {
+        "sql": "SELECT SUM(PreRolls) AS v0, SUM(PreVatQty) AS v1, COUNT(*) AS v2 FROM dye.v_FPDGroup WHERE SheetDate >= @dsDate AND SheetDate < @dtDate AND Kind = '染色' GROUP BY Kind",
+        "variables": [
+          "fdyerolls",
+          "fdyeweightqty",
+          "fdyerate"
+        ]
+      },
+      {
+        "sql": "SELECT SUM(SumAssignedWeightQty) AS v0, SUM(SumAssignedRolls) AS v1, COUNT(*) AS v2 FROM dye.v_PDGroup WHERE (EndTime >= @dsDate) AND (EndTime < @dtDate) AND ProcessName = '成品定型' GROUP BY ProcessName",
+        "variables": [
+          "dxweightqty",
+          "dxrolls",
+          "dxrate"
+        ]
+      },
+      {
+        "sql": "SELECT SUM(PreRolls) AS v0, SUM(PreVatQty) AS v1, COUNT(*) AS v2 FROM dye.v_FPDGroup WHERE (SheetDate >= @dsDate) AND (SheetDate < @dtDate) AND Kind = '成品定型' GROUP BY Kind",
+        "variables": [
+          "fdxrolls",
+          "fdxweightqty",
+          "fdxrate"
+        ]
+      },
+      {
+        "sql": "SELECT SUM(b.Rolls) AS v0, SUM(b.WeightQty) AS v1, COUNT(*) AS v2 FROM dye.ProdOut AS a JOIN dye.ProdOutDetail AS b ON b.SheetSeries = a.SheetSeries JOIN dye.JobSheet AS j ON b.JobSheetNo = j.SheetNo WHERE j.SheetKind <> 10 AND (a.SheetDate >= @dsDate) AND (a.SheetDate < @dtDate)",
+        "variables": [
+          "outrolls",
+          "outweightqty",
+          "outrate"
+        ]
+      },
+      {
+        "sql": "SELECT SUM(b.Rolls) AS v0, SUM(b.WeightQty) AS v1, COUNT(*) AS v2 FROM dye.GrayIn AS a JOIN dye.GrayInDetail AS b ON b.SheetSeries = a.SheetSeries WHERE SheetKind = 15 AND (a.SheetDate >= @dsDate) AND (a.SheetDate < @dtDate)",
+        "variables": [
+          "foutrolls",
+          "foutweightqty",
+          "foutrate"
+        ]
+      }
+    ],
+    "outputs": [
+      "SELECT NEWID() AS ID, @DyeRate AS DyeRate, @DyeRolls AS DyeRolls, @DyeWeightQty AS DyeWeightQty, @FDyeRate AS FDyeRate, @FDyeRolls AS FDyeRolls, @FDyeWeightQty AS FDyeWeightQty, CAST(ISNULL(@FDyeRate, 0) / NULLIF(ISNULL(@DyeRate, 1), 0) * 100 AS NUMERIC(10, 2)) AS DyeRRate, @DXRate AS DXRate, @DXRolls AS DXRolls, @DXWeightQty AS DXWeightQty, @FDXRate AS FDXRate, @FDXRolls AS FDXRolls, @FDXWeightQty AS FDXWeightQty, CAST(ISNULL(@FDXRate, 0) / NULLIF(ISNULL(@DXRate, 1), 0) * 100 AS NUMERIC(10, 2)) AS DXRRate, @OutRate AS OutRate, @OutRolls AS OutRolls, @OutWeightQty AS OutWeightQty, @FOutRate AS FOutRate, @FOutRolls AS FOutRolls, @FOutWeightQty AS FOutWeightQty, CAST(ISNULL(@FOutRate, 0) / NULLIF(ISNULL(@OutRate, 1), 0) * 100 AS NUMERIC(10, 2)) AS PRRate"
+    ],
+    "variables": {
+      "dtdate": null,
+      "dsdate": null,
+      "dyerolls": null,
+      "dyeweightqty": null,
+      "dyerate": null,
+      "fdyerolls": null,
+      "fdyeweightqty": null,
+      "fdyerate": null,
+      "dxrolls": null,
+      "dxweightqty": null,
+      "dxrate": null,
+      "fdxrolls": null,
+      "fdxweightqty": null,
+      "fdxrate": null,
+      "outrolls": null,
+      "outweightqty": null,
+      "outrate": null,
+      "foutrolls": null,
+      "foutweightqty": null,
+      "foutrate": null
+    }
+  },
+  "Sp_ProductionReports1": {
+    "id": "SQL341",
+    "kind": "steps",
+    "title": "Sp_ProductionReports1",
+    "temps": {
+      "aa1": "SELECT j.SheetSeries, j.SheetNo, j.CustomerID, ISNULL(pc.CreditGrade, '02') AS CreditGrade, ja.ReceSheetNo, ja.WeightQty, j.CreateDate FROM dye.JobAssign AS ja LEFT JOIN dye.JobSheet AS j ON j.SheetSeries = ja.SheetSeries LEFT JOIN dye.p_Customer AS pc ON pc.CustomerID = j.CustomerID WHERE 1 = 1 AND LEN(j.SheetNo) = 9 AND j.CreateDate >= @LastMonthStartDate AND j.CreateDate <= @MonthEndDate",
+      "aa2": "SELECT 'A' AS XU, A.XMName, A.CreditGrade, '吨' AS UnitName, SUM(A.DayWeightQty) AS DayWeightQty, SUM(A.MonthWeightQty) AS MonthWeightQty, SUM(A.LastMonthWeightQty) AS LastMonthWeightQty FROM (SELECT '客户下单情况' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #AA1 WHERE 1 = 1 AND CreateDate >= @DayStartDate AND CreateDate <= @DayEndDate GROUP BY CreditGrade UNION ALL SELECT '客户下单情况' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #AA1 WHERE 1 = 1 AND CreateDate >= @MonthStartDate AND CreateDate <= @MonthEndDate GROUP BY CreditGrade UNION ALL SELECT '客户下单情况' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS LastMonthWeightQty FROM #AA1 WHERE 1 = 1 AND CreateDate >= @LastMonthStartDate AND CreateDate <= @LastMonthEndDate GROUP BY CreditGrade) AS A GROUP BY A.XMName, A.CreditGrade",
+      "bb1": "SELECT pl.SheetSeries, pl.SheetNo, pld.CustomerIDName, ISNULL(pc.CreditGrade, '02') AS CreditGrade, pld.WeightQty, pl.SheetDate FROM dye.ProdLoadingDetail AS pld LEFT JOIN dye.ProdLoading AS pl ON pl.SheetSeries = pld.SheetSeries LEFT JOIN dye.p_Customer AS pc ON pc.CustomerID = pld.CustomerIDName WHERE 1 = 1 AND pld.JobSheetNo NOT LIKE '%T%' AND pl.SheetDate >= DATEADD(N, (4 * 60), @LastMonthStartDate) AND pl.SheetDate <= DATEADD(N, (4 * 60), @MonthEndDate)",
+      "bb2": "SELECT 'B' AS XU, A.XMName, A.CreditGrade, '吨' AS UnitName, SUM(A.DayWeightQty) AS DayWeightQty, SUM(A.MonthWeightQty) AS MonthWeightQty, SUM(A.LastMonthWeightQty) AS LastMonthWeightQty FROM (SELECT '客户出货' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #BB1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (0 * 60), @DayStartDate) AND SheetDate <= DATEADD(N, (0 * 60), @DayEndDate) GROUP BY CreditGrade UNION ALL SELECT '客户出货' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #BB1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (0 * 60), @MonthStartDate) AND SheetDate <= DATEADD(N, (0 * 60), @MonthEndDate) GROUP BY CreditGrade UNION ALL SELECT '客户出货' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS LastMonthWeightQty FROM #BB1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (0 * 60), @LastMonthStartDate) AND SheetDate <= DATEADD(N, (0 * 60), @LastMonthEndDate) GROUP BY CreditGrade) AS A GROUP BY A.XMName, A.CreditGrade",
+      "cc1": "SELECT pl.SheetSeries, pl.SheetNo, pl.CustomerID, ISNULL(pc.CreditGrade, '02') AS CreditGrade, pld.WeightQty, pl.SheetDate FROM dye.GrayInDetail AS pld LEFT JOIN dye.GrayIn AS pl ON pl.SheetSeries = pld.SheetSeries LEFT JOIN dye.p_Customer AS pc ON pc.CustomerID = pl.CustomerID WHERE 1 = 1 AND pl.SheetKind = 11 AND pl.SheetDate >= DATEADD(N, (12 * 60), @LastMonthStartDate) AND pl.SheetDate <= DATEADD(N, (12 * 60), @MonthEndDate)",
+      "cc2": "SELECT 'C' AS XU, A.XMName, A.CreditGrade, '吨' AS UnitName, SUM(A.DayWeightQty) AS DayWeightQty, SUM(A.MonthWeightQty) AS MonthWeightQty, SUM(A.LastMonthWeightQty) AS LastMonthWeightQty FROM (SELECT '客户来胚' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #CC1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (12 * 60), @DayStartDate) AND SheetDate <= DATEADD(N, (12 * 60), @DayEndDate) GROUP BY CreditGrade UNION ALL SELECT '客户来胚' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #CC1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (12 * 60), @MonthStartDate) AND SheetDate <= DATEADD(N, (12 * 60), @MonthEndDate) GROUP BY CreditGrade UNION ALL SELECT '客户来胚' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS LastMonthWeightQty FROM #CC1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (12 * 60), @LastMonthStartDate) AND SheetDate <= DATEADD(N, (12 * 60), @LastMonthEndDate) GROUP BY CreditGrade) AS A GROUP BY A.XMName, A.CreditGrade",
+      "dd1": "SELECT * FROM (SELECT pl.SheetSeries, pl.SheetNo, '0-入库' AS CreditGrade, pld.WeightQty, pl.SheetDate FROM dye.GrayInDetail AS pld LEFT JOIN dye.GrayIn AS pl ON pl.SheetSeries = pld.SheetSeries WHERE 1 = 1 AND pl.SheetKind IN ('15') AND pl.SheetDate >= DATEADD(N, (12 * 60), @LastMonthStartDate) AND pl.SheetDate <= DATEADD(N, (12 * 60), @MonthEndDate) UNION ALL SELECT pl.SheetSeries, pl.SheetNo, '1-出库' AS CreditGrade, pld.WeightQty, pl.SheetDate FROM dye.ProdLoadingDetail AS pld LEFT JOIN dye.ProdLoading AS pl ON pl.SheetSeries = pld.SheetSeries WHERE 1 = 1 AND pld.JobSheetNo LIKE '%T%' AND pl.SheetDate >= DATEADD(N, (0 * 60), @LastMonthStartDate) AND pl.SheetDate <= DATEADD(N, (0 * 60), @MonthEndDate)) AS A",
+      "dd2": "SELECT 'D' AS XU, A.XMName, A.CreditGrade, '吨' AS UnitName, SUM(A.DayWeightQty) AS DayWeightQty, SUM(A.MonthWeightQty) AS MonthWeightQty, SUM(A.LastMonthWeightQty) AS LastMonthWeightQty FROM (SELECT '退货' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #DD1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (IIF(CreditGrade = '0-入库', 12, 0) * 60), @DayStartDate) AND SheetDate <= DATEADD(N, (IIF(CreditGrade = '0-入库', 12, 0) * 60), @DayEndDate) GROUP BY CreditGrade UNION ALL SELECT '退货' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #DD1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (IIF(CreditGrade = '0-入库', 12, 0) * 60), @MonthStartDate) AND SheetDate <= DATEADD(N, (IIF(CreditGrade = '0-入库', 12, 0) * 60), @MonthEndDate) GROUP BY CreditGrade UNION ALL SELECT '退货' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 1000) AS LastMonthWeightQty FROM #DD1 WHERE 1 = 1 AND SheetDate >= DATEADD(N, (IIF(CreditGrade = '0-入库', 12, 0) * 60), @LastMonthStartDate) AND SheetDate <= DATEADD(N, (IIF(CreditGrade = '0-入库', 12, 0) * 60), @LastMonthEndDate) GROUP BY CreditGrade) AS A GROUP BY A.XMName, A.CreditGrade",
+      "ee1": "SELECT s.DetailNo, '金额' AS CreditGrade, s.OutMoney - s.InMoney AS WeightQty, s.BookDate AS CreateDate FROM dye.StuffStockBook AS s WHERE 1 = 1 AND s.WareHouseID IN ('13', '14') AND s.BookKind IN (21, 33) AND s.BookDate >= DATEADD(N, (7.5 * 60), @LastMonthStartDate) AND s.BookDate <= DATEADD(N, (7.5 * 60), @MonthEndDate)",
+      "ee2": "SELECT 'E' AS XU, A.XMName, A.CreditGrade, '万元' AS UnitName, SUM(A.DayWeightQty) AS DayWeightQty, SUM(A.MonthWeightQty) AS MonthWeightQty, SUM(A.LastMonthWeightQty) AS LastMonthWeightQty FROM (SELECT '化工染料' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 10000) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #EE1 WHERE 1 = 1 AND CreateDate >= DATEADD(N, (7.5 * 60), @DayStartDate) AND CreateDate <= DATEADD(N, (7.5 * 60), @DayEndDate) GROUP BY CreditGrade UNION ALL SELECT '化工染料' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 10000) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #EE1 WHERE 1 = 1 AND CreateDate >= DATEADD(N, (7.5 * 60), @MonthStartDate) AND CreateDate <= DATEADD(N, (7.5 * 60), @MonthEndDate) GROUP BY CreditGrade UNION ALL SELECT '化工染料' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 10000) AS LastMonthWeightQty FROM #EE1 WHERE 1 = 1 AND CreateDate >= DATEADD(N, (7.5 * 60), @LastMonthStartDate) AND CreateDate <= DATEADD(N, (7.5 * 60), @LastMonthEndDate) GROUP BY CreditGrade) AS A GROUP BY A.XMName, A.CreditGrade",
+      "gg1": "SELECT 'G' AS XU, CONVERT(VARCHAR(30), '蒸汽') AS XMName, CONVERT(VARCHAR(30), '数量') AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty",
+      "hh1": "SELECT 'H' AS XU, CONVERT(VARCHAR(30), '导热油') AS XMName, CONVERT(VARCHAR(30), '数量') AS CreditGrade, '吉焦' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty",
+      "ii1": "SELECT s.DetailNo, IIF(ArticleKindID = '19', '包装材料', '机物料') AS CreditGrade, s.OutMoney - s.InMoney AS WeightQty, s.BookDate AS CreateDate FROM dye.ArticleStockBook AS s WHERE 1 = 1 AND NOT s.ArticleKindID IN ('20', '21') AND s.BookKind IN (21, 33) AND s.BookDate >= DATEADD(N, (7.5 * 60), @LastMonthStartDate) AND s.BookDate <= DATEADD(N, (7.5 * 60), @MonthEndDate)",
+      "ii2": "SELECT 'E' AS XU, A.XMName, A.CreditGrade, '万元' AS UnitName, SUM(A.DayWeightQty) AS DayWeightQty, SUM(A.MonthWeightQty) AS MonthWeightQty, SUM(A.LastMonthWeightQty) AS LastMonthWeightQty FROM (SELECT '机物料' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 10000) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #II1 WHERE 1 = 1 AND CreateDate >= DATEADD(N, (7.5 * 60), @DayStartDate) AND CreateDate <= DATEADD(N, (7.5 * 60), @DayEndDate) GROUP BY CreditGrade UNION ALL SELECT '机物料' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 10000) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS LastMonthWeightQty FROM #II1 WHERE 1 = 1 AND CreateDate >= DATEADD(N, (7.5 * 60), @MonthStartDate) AND CreateDate <= DATEADD(N, (7.5 * 60), @MonthEndDate) GROUP BY CreditGrade UNION ALL SELECT '机物料' AS XMName, CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), NULL) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), SUM(WeightQty) / 10000) AS LastMonthWeightQty FROM #II1 WHERE 1 = 1 AND CreateDate >= DATEADD(N, (7.5 * 60), @LastMonthStartDate) AND CreateDate <= DATEADD(N, (7.5 * 60), @LastMonthEndDate) GROUP BY CreditGrade) AS A GROUP BY A.XMName, A.CreditGrade"
+    },
+    "steps": [
+      {
+        "sql": "SELECT CONVERT(NUMERIC(12, 2), SUM(pld.WeightQty) / 1000) AS v0 FROM dye.ProdLoadingDetail AS pld LEFT JOIN dye.ProdLoading AS pl ON pl.SheetSeries = pld.SheetSeries WHERE 1 = 1 AND pl.SheetDate >= @MonthStartDate AND pl.SheetDate <= @MonthEndDate",
+        "variables": [
+          "monthoutkg"
+        ]
+      },
+      {
+        "sql": "SELECT CONVERT(NUMERIC(12, 2), SUM(pld.WeightQty) / 1000) AS v0 FROM dye.ProdLoadingDetail AS pld LEFT JOIN dye.ProdLoading AS pl ON pl.SheetSeries = pld.SheetSeries WHERE 1 = 1 AND pl.SheetDate >= @LastMonthStartDate AND pl.SheetDate <= @LastMonthEndDate",
+        "variables": [
+          "lastmonthoutkg"
+        ]
+      }
+    ],
+    "outputs": [
+      "SELECT * FROM #AA2 UNION ALL SELECT XU, XMName, '小计' AS CreditGrade, UnitName, SUM(DayWeightQty) AS DayWeightQty, SUM(MonthWeightQty) AS MonthWeightQty, SUM(LastMonthWeightQty) AS LastMonthWeightQty FROM #AA2 GROUP BY XU, XMName, UnitName UNION ALL SELECT * FROM #BB2 UNION ALL SELECT XU, XMName, '小计' AS CreditGrade, UnitName, SUM(DayWeightQty) AS DayWeightQty, SUM(MonthWeightQty) AS MonthWeightQty, SUM(LastMonthWeightQty) AS LastMonthWeightQty FROM #BB2 GROUP BY XU, XMName, UnitName UNION ALL SELECT * FROM #CC2 UNION ALL SELECT XU, XMName, '小计' AS CreditGrade, UnitName, SUM(DayWeightQty) AS DayWeightQty, SUM(MonthWeightQty) AS MonthWeightQty, SUM(LastMonthWeightQty) AS LastMonthWeightQty FROM #CC2 GROUP BY XU, XMName, UnitName UNION ALL SELECT * FROM #DD2 UNION ALL SELECT * FROM #EE2 UNION ALL SELECT XU, XMName, '吨布消耗' AS CreditGrade, '万元/吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@MonthOutKg, 0) = 0, NULL, MonthWeightQty / @MonthOutKg)) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@LastMonthOutKg, 0) = 0, NULL, LastMonthWeightQty / @LastMonthOutKg)) AS LastMonthWeightQty FROM #EE2 UNION ALL SELECT * FROM #II2 UNION ALL SELECT * FROM #GG1 UNION ALL SELECT XU, XMName, '吨布消耗' AS CreditGrade, '吨/吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@MonthOutKg, 0) = 0, NULL, MonthWeightQty / @MonthOutKg)) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@LastMonthOutKg, 0) = 0, NULL, LastMonthWeightQty / @LastMonthOutKg)) AS LastMonthWeightQty FROM #GG1 UNION ALL SELECT * FROM #HH1 UNION ALL SELECT XU, XMName, '吨布消耗' AS CreditGrade, '吉焦/吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS DayWeightQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@MonthOutKg, 0) = 0, NULL, MonthWeightQty / @MonthOutKg)) AS MonthWeightQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@LastMonthOutKg, 0) = 0, NULL, LastMonthWeightQty / @LastMonthOutKg)) AS LastMonthWeightQty FROM #HH1"
+    ],
+    "variables": {
+      "monthoutkg": null,
+      "lastmonthoutkg": null
+    }
+  },
+  "Sp_ProductionReports2": {
+    "id": "SQL342",
+    "kind": "steps",
+    "title": "Sp_ProductionReports2",
+    "temps": {
+      "aa1": "SELECT '产量' AS XMName, '' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(A.JDayQty) / 1000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(A.YDayQty) / 1000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(A.JMonthQty) / 1000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(A.YMonthQty) / 1000) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JDayQty, 0)) + SUM(ISNULL(A.YDayQty, 0))) / 1000) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JMonthQty, 0)) + SUM(ISNULL(A.YMonthQty, 0))) / 1000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', CurrKg, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', CurrKg, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess WHERE 1 = 1 AND StationID = '02' AND CreateDate >= @DayStartDate AND CreateDate <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', CurrKg, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', CurrKg, NULL)) AS YMonthQty FROM dye.WProcess WHERE 1 = 1 AND StationID = '02' AND CreateDate >= @MonthStartDate AND CreateDate <= @MonthEndDate) AS A",
+      "bb1": "SELECT '助剂' AS XMName, '耗用' AS CreditGrade, '万元' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(B.JDayQty) / 10000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(B.YDayQty) / 10000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(B.JMonthQty) / 10000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(B.YMonthQty) / 10000) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(B.AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(B.ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), sad.Amount) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty FROM dye.StuffAllotDetail AS sad LEFT JOIN dye.StuffAllot AS sa ON sa.SheetSeries = sad.SheetSeries WHERE 1 = 1 AND sa.ToWareHouseID = '13' AND sa.Remarks = '水洗' AND sa.SheetDate >= @DayStartDate AND sa.SheetDate <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), sad.Amount) AS ALLMonthQty FROM dye.StuffAllotDetail AS sad LEFT JOIN dye.StuffAllot AS sa ON sa.SheetSeries = sad.SheetSeries WHERE 1 = 1 AND sa.ToWareHouseID = '13' AND sa.Remarks = '水洗' AND sa.SheetDate >= @MonthStartDate AND sa.SheetDate <= @MonthEndDate) AS B",
+      "cc1": "SELECT '水' AS XMName, '用量' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(C.JDayQty) / 10000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(C.YDayQty) / 10000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(C.JMonthQty) / 10000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.YMonthQty) / 10000) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(C.ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @DayStartDate AND NULL <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @MonthStartDate AND NULL <= @MonthEndDate) AS C",
+      "dd1": "SELECT '蒸汽' AS XMName, '用量' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(D.JDayQty) / 10000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(D.YDayQty) / 10000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(D.JMonthQty) / 10000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(D.YMonthQty) / 10000) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(D.AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(D.ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @DayStartDate AND NULL <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @MonthStartDate AND NULL <= @MonthEndDate) AS D"
+    },
+    "steps": [
+      {
+        "sql": "SELECT TOP 1 AllDayQty AS v0, ALLMonthQty AS v1 FROM #AA1",
+        "variables": [
+          "allmonthkg",
+          "allmonthkg"
+        ]
+      }
+    ],
+    "outputs": [
+      "SELECT * FROM #AA1 UNION ALL SELECT * FROM #BB1 UNION ALL SELECT '助剂' AS XMName, '吨布耗用' AS CreditGrade, '元/吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@AllDayKg = 0, NULL, AllDayQty / @AllDayKg * 10000)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@ALLMonthKg = 0, NULL, ALLMonthQty / @ALLMonthKg * 10000)) AS ALLMonthQty FROM #BB1 UNION ALL SELECT * FROM #CC1 UNION ALL SELECT '水' AS XMName, '吨布耗用' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@AllDayKg = 0, NULL, AllDayQty / @AllDayKg)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@ALLMonthKg = 0, NULL, ALLMonthQty / @ALLMonthKg)) AS ALLMonthQty FROM #CC1 UNION ALL SELECT * FROM #DD1 UNION ALL SELECT '蒸汽' AS XMName, '吨布耗用' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@AllDayKg = 0, NULL, AllDayQty / @AllDayKg)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@ALLMonthKg = 0, NULL, ALLMonthQty / @ALLMonthKg)) AS ALLMonthQty FROM #DD1"
+    ],
+    "variables": {
+      "alldaykg": null,
+      "allmonthkg": null
+    }
+  },
+  "Sp_ProductionReports5": {
+    "id": "SQL345",
+    "kind": "steps",
+    "title": "Sp_ProductionReports5",
+    "temps": {
+      "aa1": "SELECT '产量' AS XMName, A.CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(A.JDayQty) / 1000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(A.YDayQty) / 1000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(A.JMonthQty) / 1000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(A.YMonthQty) / 1000) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JDayQty, 0)) + SUM(ISNULL(A.YDayQty, 0))) / 1000) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JMonthQty, 0)) + SUM(ISNULL(A.YMonthQty, 0))) / 1000) AS ALLMonthQty FROM (SELECT '下机产量' AS CreditGrade, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '03', R.Kg, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '04', R.Kg, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID WHERE 1 = 1 AND R.PackTime >= @DayStartDate AND R.PackTime <= @DayEndDate UNION ALL SELECT '下机产量' AS CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '03', R.Kg, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '04', R.Kg, NULL)) AS YMonthQty FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID WHERE 1 = 1 AND R.PackTime >= @MonthStartDate AND R.PackTime <= @MonthEndDate) AS A GROUP BY A.CreditGrade",
+      "bb1": "SELECT '产量' AS XMName, B.CreditGrade, '条' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(B.JDayQty)) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(B.YDayQty)) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(B.JMonthQty)) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(B.YMonthQty)) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(ISNULL(B.JDayQty, 0)) + SUM(ISNULL(B.YDayQty, 0))) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(ISNULL(B.JMonthQty, 0)) + SUM(ISNULL(B.YMonthQty, 0))) AS ALLMonthQty FROM (SELECT '下机条数' AS CreditGrade, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID WHERE 1 = 1 AND R.PackTime >= @DayStartDate AND R.PackTime <= @DayEndDate UNION ALL SELECT '下机条数' AS CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(P.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID WHERE 1 = 1 AND R.PackTime >= @MonthStartDate AND R.PackTime <= @MonthEndDate) AS B GROUP BY B.CreditGrade",
+      "cc1": "SELECT '入库' AS XMName, C.CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(C.JDayQty) / 1000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(C.YDayQty) / 1000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(C.JMonthQty) / 1000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.YMonthQty) / 1000) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(C.JDayQty, 0)) + SUM(ISNULL(C.YDayQty, 0))) / 1000) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(C.JMonthQty, 0)) + SUM(ISNULL(C.YMonthQty, 0))) / 1000) AS ALLMonthQty FROM (SELECT '本月入库产量' AS CreditGrade, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '03', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.WeightQty, NULL), NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '04', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.WeightQty, NULL), NULL)) AS YDayQty, CONVERT(NUMERIC(12, 6), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 6), NULL) AS YMonthQty FROM dye.ProdIn AS P LEFT JOIN (SELECT B.JobSheetNo AS JobSheetNo, B.ClassID AS ClassID, B.Kg AS Kg, SUM(B.Kg) OVER (PARTITION BY B.JobSheetNo ORDER BY B.JobSheetNo) AS AllKg FROM (SELECT R.JobSheetNo AS JobSheetNo, P.ClassID AS ClassID, SUM(R.Kg) AS Kg FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID GROUP BY R.JobSheetNo, P.ClassID) AS B) AS A ON A.JobSheetNo = P.JobSheetNo WHERE P.RightStatus = 10 AND P.SheetDate >= @DayStartDate AND P.SheetDate <= @DayEndDate UNION ALL SELECT '本月入库产量' AS CreditGrade, CONVERT(NUMERIC(12, 6), NULL) AS JDayQty, CONVERT(NUMERIC(12, 6), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '03', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.WeightQty, NULL), NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '04', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.WeightQty, NULL), NULL)) AS YMonthQty FROM dye.ProdIn AS P LEFT JOIN (SELECT B.JobSheetNo AS JobSheetNo, B.ClassID AS ClassID, B.Kg AS Kg, SUM(B.Kg) OVER (PARTITION BY B.JobSheetNo ORDER BY B.JobSheetNo) AS AllKg FROM (SELECT R.JobSheetNo AS JobSheetNo, P.ClassID AS ClassID, SUM(R.Kg) AS Kg FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID GROUP BY R.JobSheetNo, P.ClassID) AS B) AS A ON A.JobSheetNo = P.JobSheetNo WHERE P.RightStatus = 10 AND P.SheetDate >= @MonthStartDate AND P.SheetDate <= @MonthEndDate) AS C GROUP BY C.CreditGrade",
+      "dd1": "SELECT '入库' AS XMName, D.CreditGrade, '条' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(D.JDayQty)) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(D.YDayQty)) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(D.JMonthQty)) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(D.YMonthQty)) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(D.JDayQty, 0)) + SUM(ISNULL(D.YDayQty, 0)))) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(D.JMonthQty, 0)) + SUM(ISNULL(D.YMonthQty, 0)))) AS ALLMonthQty FROM (SELECT '本月入库条数' AS CreditGrade, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '03', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.Rolls, NULL), NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '04', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.Rolls, NULL), NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.ProdIn AS P LEFT JOIN (SELECT B.JobSheetNo AS JobSheetNo, B.ClassID AS ClassID, B.Kg AS Kg, SUM(B.Kg) OVER (PARTITION BY B.JobSheetNo ORDER BY B.JobSheetNo) AS AllKg FROM (SELECT R.JobSheetNo AS JobSheetNo, P.ClassID AS ClassID, SUM(R.Kg) AS Kg FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID GROUP BY R.JobSheetNo, P.ClassID) AS B) AS A ON A.JobSheetNo = P.JobSheetNo WHERE P.RightStatus = 10 AND P.SheetDate >= @DayStartDate AND P.SheetDate <= @DayEndDate UNION ALL SELECT '本月入库条数' AS CreditGrade, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '03', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.Rolls, NULL), NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(A.ClassID = '04', IIF(A.AllKg <> 0, A.Kg / A.AllKg * P.Rolls, NULL), NULL)) AS YMonthQty FROM dye.ProdIn AS P LEFT JOIN (SELECT B.JobSheetNo AS JobSheetNo, B.ClassID AS ClassID, B.Kg AS Kg, SUM(B.Kg) OVER (PARTITION BY B.JobSheetNo ORDER BY B.JobSheetNo) AS AllKg FROM (SELECT R.JobSheetNo AS JobSheetNo, P.ClassID AS ClassID, SUM(R.Kg) AS Kg FROM dye.RecordYield AS R LEFT JOIN dye.p_Shift AS P ON P.ShiftID = R.ShiftID GROUP BY R.JobSheetNo, P.ClassID) AS B) AS A ON A.JobSheetNo = P.JobSheetNo WHERE P.RightStatus = 10 AND P.SheetDate >= @MonthStartDate AND P.SheetDate <= @MonthEndDate) AS D GROUP BY D.CreditGrade"
+    },
+    "steps": [
+      {
+        "sql": "SELECT TOP 1 AllDayQty AS v0, ALLMonthQty AS v1 FROM #AA1",
+        "variables": [
+          "allmonthkg",
+          "allmonthkg"
+        ]
+      }
+    ],
+    "outputs": [
+      "SELECT * FROM #AA1 UNION ALL SELECT * FROM #BB1 UNION ALL SELECT * FROM #CC1 UNION ALL SELECT * FROM #DD1 UNION ALL SELECT '包装材料' AS XMName, '纸管' AS CreditGrade, '条' AS UnitName, JDayQty, YDayQty, JMonthQty, YMonthQty, AllDayQty, ALLMonthQty FROM #BB1 UNION ALL SELECT '包装材料' AS XMName, '薄膜' AS CreditGrade, '公斤' AS UnitName, CONVERT(NUMERIC(12, 2), JDayQty * @Membrane) AS JDayQty, CONVERT(NUMERIC(12, 2), YDayQty * @Membrane) AS YDayQty, CONVERT(NUMERIC(12, 2), JMonthQty * @Membrane) AS JMonthQty, CONVERT(NUMERIC(12, 2), YMonthQty * @Membrane) AS YMonthQty, CONVERT(NUMERIC(12, 2), AllDayQty * @Membrane) AS AllDayQty, CONVERT(NUMERIC(12, 2), ALLMonthQty * @Membrane) AS ALLMonthQty FROM #BB1"
+    ],
+    "variables": {
+      "membrane": null,
+      "alldaykg": null,
+      "allmonthkg": null
+    }
+  },
+  "SP_QueryStuffCurrentStock": {
+    "id": "SQL361",
+    "kind": "paged",
+    "title": "SP_QueryStuffCurrentStock",
+    "sql": "SELECT ROW_NUMBER() OVER (ORDER BY NEWID()) AS rowIndex, d.Name AS StuffName, d.StockUnit, d.StuffKindID, d.StuffType, ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(alis.StuffID, '') AS StuffID, ISNULL(alis.StuffID, '') AS StuffNewID, ISNULL(LotNo, '') AS LotNo, CONVERT(NUMERIC(10, 2), Qty) AS Qty, CONVERT(NUMERIC(10, 2), SafeQty) AS SafeQty, alis.Total, WD.Name AS WareHouseName, CASE WHEN StuffType = 'S' THEN '染料' END AS StuffTypeName, SK.Name AS StuffKindName, CASE WHEN StockUnit = 'K' THEN '千克' END AS UnitName FROM (SELECT WareHouseID AS WareHouseID, StuffID AS StuffID, LotNo AS LotNo, SUM(Qty) AS Qty, SUM(Total) AS Total FROM (SELECT ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(StuffID, '') AS StuffID, ISNULL(LotNo, '') AS LotNo, (ISNULL(c.InQty, 0) - ISNULL(c.OutQty, 0)) AS Qty, (ISNULL(c.InMoney, 0) - ISNULL(c.OutMoney, 0)) AS Total FROM dye.StuffStockBook AS c WHERE c.BookKind IN (11, 13, 14, 15, 16, 19, 33, 21, 22, 23, 24, 25, 29) AND c.BookDate > (SELECT MAX(CarryDate) AS CarryDate FROM (SELECT CAST('1900-01-01' AS DATETIME) AS CarryDate UNION SELECT MAX(ISNULL(CarryDate, CAST('1900-01-01' AS DATETIME))) AS CarryDate FROM dye.StuffStock WHERE WareHouseID = c.WareHouseID AND StuffID = c.StuffID AND ISNULL(LotNo, '') = ISNULL(c.LotNo, '') GROUP BY WareHouseID, StuffID, LotNo) AS alisMaxCarryDate) UNION ALL SELECT ISNULL(a.WareHouseID, '') AS WareHouseID, ISNULL(a.StuffID, '') AS StuffID, ISNULL(a.LotNo, '') AS LotNo, a.PreMonthQty AS Qty, a.Price * a.PreMonthQty AS Total FROM dye.StuffStock AS a INNER JOIN (SELECT MAX(CarryDate) AS CarryDate, WareHouseID AS WareHouseID, StuffID AS StuffID, LotNo AS LotNo FROM dye.StuffStock GROUP BY WareHouseID, StuffID, LotNo) AS b ON a.WareHouseID = b.WareHouseID AND a.StuffID = b.StuffID AND ISNULL(a.LotNo, '') = ISNULL(b.LotNo, '') AND a.CarryDate = b.CarryDate) AS alisTotal GROUP BY WareHouseID, StuffID, LotNo) AS alis LEFT JOIN dye.p_Stuff AS d ON alis.StuffID = d.StuffID LEFT JOIN dye.p_FieldValid AS SK ON Sk.Code = d.StuffKindID AND SK.FieldType = 'StuffKind' LEFT JOIN dye.p_FieldValid AS WD ON WD.Code = alis.WareHouseID AND WD.FieldType = 'WareHouseID' WHERE (ISNULL(@StuffID, '') = '' OR alis.StuffID = @StuffID) AND (ISNULL(@WareHouseID, '') = '' OR WareHouseID = @WareHouseID) ORDER BY StockUnit, alis.StuffID"
+  },
+  "Sp_WLXHHZDetail": {
+    "id": "SQL423",
+    "kind": "steps",
+    "title": "Sp_WLXHHZDetail",
+    "temps": {
+      "t_dx1": "SELECT 'A' AS XU, '定型用料(万元)' AS Kind, CONVERT(NUMERIC(12, 2), (SUM(A.OutMoney) - SUM(A.InMoney)) / 10000) AS AllMoney, CONVERT(NUMERIC(12, 2), (SUM(A.LastOutMoney) - SUM(A.LastInMoney)) / 10000) AS LastMoney FROM (SELECT CONVERT(VARCHAR(7), ssb.BookDate, 120) AS RQ, ssb.InMoney, ssb.OutMoney, CONVERT(NUMERIC(12, 2), NULL) AS LastInMoney, CONVERT(NUMERIC(12, 2), NULL) AS LastOutMoney FROM dye.StuffStockBook AS ssb WHERE 1 = 1 AND ssb.WareHouseID = '14' AND ssb.BookKind IN (21, 33) AND ssb.BookDate >= @MonthStartDate AND ssb.BookDate <= @MonthEndDate UNION ALL SELECT CONVERT(VARCHAR(7), ssb.BookDate, 120) AS RQ, CONVERT(NUMERIC(12, 2), NULL) AS InMoney, CONVERT(NUMERIC(12, 2), NULL) AS OutMoney, ssb.InMoney AS LastInMoney, ssb.OutMoney AS LastOutMoney FROM dye.StuffStockBook AS ssb WHERE 1 = 1 AND ssb.WareHouseID = '14' AND ssb.BookKind IN (21, 33) AND ssb.BookDate >= @LastMonthStartDate AND ssb.BookDate <= @LastMonthEndDate) AS A",
+      "t_sx1": "SELECT 'D' AS XU, Kind, CONVERT(NUMERIC(12, 2), SUM(A.AllMoney) / 10000) AS AllMoney, CONVERT(NUMERIC(12, 2), SUM(A.LastMoney) / 10000) AS LastMoney FROM (SELECT p.StuffKindID AS Kind, -sad.Amount AS AllMoney, CONVERT(NUMERIC(12, 2), NULL) AS LastMoney FROM dye.StuffAllotDetail AS sad LEFT JOIN dye.StuffAllot AS sa ON sa.SheetSeries = sad.SheetSeries LEFT JOIN dye.p_Stuff AS p ON p.StuffID = sad.StuffID WHERE 1 = 1 AND sa.SheetDate >= @MonthStartDate AND sa.SheetDate <= @MonthEndDate AND sa.Remarks = '水洗' UNION ALL SELECT p.StuffKindID AS Kind, CONVERT(NUMERIC(12, 2), NULL) AS AllMoney, -sad.Amount AS LastMoney FROM dye.StuffAllotDetail AS sad LEFT JOIN dye.StuffAllot AS sa ON sa.SheetSeries = sad.SheetSeries LEFT JOIN dye.p_Stuff AS p ON p.StuffID = sad.StuffID WHERE 1 = 1 AND sa.SheetDate >= @LastMonthStartDate AND sa.SheetDate <= @LastMonthEndDate AND sa.Remarks = '水洗') AS A GROUP BY A.Kind",
+      "t_sx2": "SELECT 'F' AS XU, '水洗用料(万元)' AS Kind, SUM(ABS(AllMoney)) AS AllMoney, SUM(ABS(LastMoney)) AS LastMoney FROM #T_SX1",
+      "t_rs1": "SELECT * FROM (SELECT 'D' AS XU, A.StuffKindID AS Kind, CONVERT(NUMERIC(12, 2), (SUM(A.OutMoney) - SUM(A.InMoney)) / 10000) AS AllMoney, CONVERT(NUMERIC(12, 2), (SUM(A.LastOutMoney) - SUM(A.LastInMoney)) / 10000) AS LastMoney FROM (SELECT p.StuffKindID, CONVERT(VARCHAR(7), ssb.BookDate, 120) AS RQ, ssb.InMoney, ssb.OutMoney, CONVERT(NUMERIC(12, 2), NULL) AS LastInMoney, CONVERT(NUMERIC(12, 2), NULL) AS LastOutMoney FROM dye.StuffStockBook AS ssb LEFT JOIN dye.p_Stuff AS p ON p.StuffID = ssb.StuffID WHERE 1 = 1 AND ssb.WareHouseID = '13' AND ssb.BookKind IN (21, 33) AND ssb.BookDate >= @MonthStartDate AND ssb.BookDate <= @MonthEndDate UNION ALL SELECT p.StuffKindID, CONVERT(VARCHAR(7), ssb.BookDate, 120) AS RQ, CONVERT(NUMERIC(12, 2), NULL) AS InMoney, CONVERT(NUMERIC(12, 2), NULL) AS OutMoney, ssb.InMoney AS LastInMoney, ssb.OutMoney AS LastOutMoney FROM dye.StuffStockBook AS ssb LEFT JOIN dye.p_Stuff AS p ON p.StuffID = ssb.StuffID WHERE 1 = 1 AND ssb.WareHouseID = '13' AND ssb.BookKind IN (21, 33) AND ssb.BookDate >= @LastMonthStartDate AND ssb.BookDate <= @LastMonthEndDate) AS A GROUP BY A.StuffKindID) AS B WHERE 1 = 1 AND (ISNULL(B.AllMoney, 0) <> 0 OR ISNULL(B.LastMoney, 0) <> 0)",
+      "t_rs2": "SELECT 'C' AS XU, '染色用料(万元)' AS Kind, SUM(A.AllMoney) AS AllMoney, SUM(A.LastMoney) AS LastMoney FROM (SELECT * FROM #T_RS1 UNION ALL SELECT * FROM #T_SX1) AS A"
+    },
+    "steps": [
+      {
+        "sql": "SELECT SUM(A.DXQty) AS v0, SUM(A.RSQty) AS v1 FROM (SELECT A.Qty AS DXQty, A.Qty AS RSQty FROM dye.FARDetail AS A LEFT JOIN dye.FARMain AS B ON B.SheetSeries = A.SheetSeries WHERE 1 = 1 AND A.ARMoney > 0 AND B.SheetKind IN (30, 40) AND B.SheetDate >= @MonthStartDate AND B.SheetDate <= @MonthEndDate) AS A",
+        "variables": [
+          "alldxqty",
+          "allrsqty"
+        ]
+      },
+      {
+        "sql": "SELECT SUM(A.DXQty) AS v0, SUM(A.RSQty) AS v1 FROM (SELECT A.Qty AS DXQty, A.Qty AS RSQty FROM dye.FARDetail AS A LEFT JOIN dye.FARMain AS B ON B.SheetSeries = A.SheetSeries WHERE 1 = 1 AND A.ARMoney > 0 AND B.SheetKind IN (30, 40) AND B.SheetDate >= @LastMonthStartDate AND B.SheetDate <= @LastMonthEndDate) AS A",
+        "variables": [
+          "lastdxqty",
+          "lastrsqty"
+        ]
+      }
+    ],
+    "outputs": [
+      "SELECT C.XU, C.Kind, C.AllMoney, C.LastMoney, C.AllMoney - C.LastMoney AS ContrastMoney FROM (SELECT * FROM #T_DX1 UNION ALL SELECT 'B' AS XU, '定型吨布用料(元/吨)' AS Kind, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@AllDXQty, 0) = 0, NULL, AllMoney * 10000 / @AllDXQty * 1000)) AS AllMoney, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@LastDXQty, 0) = 0, NULL, LastMoney * 10000 / @LastDXQty * 1000)) AS LastMoney FROM #T_DX1 UNION ALL SELECT * FROM #T_RS2 UNION ALL SELECT A.XU, A.Kind, SUM(A.AllMoney) AS AllMoney, SUM(A.LastMoney) AS LastMoney FROM (SELECT * FROM #T_RS1 UNION ALL SELECT * FROM #T_SX1) AS A GROUP BY A.XU, A.Kind UNION ALL SELECT 'E' AS XU, '染色吨布用料(元/吨)' AS Kind, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@AllRSQty, 0) = 0, NULL, AllMoney * 10000 / @AllRSQty * 1000)) AS AllMoney, CONVERT(NUMERIC(12, 2), IIF(ISNULL(@LastRSQty, 0) = 0, NULL, LastMoney * 10000 / @LastRSQty * 1000)) AS LastMoney FROM #T_RS2 UNION ALL SELECT * FROM #T_SX2 UNION ALL SELECT 'G' AS XU, '合计' AS Kind, SUM(B.AllMoney) AS AllMoney, SUM(LastMoney) AS LastMoney FROM (SELECT * FROM #T_DX1 UNION ALL SELECT * FROM #T_RS2 UNION ALL SELECT * FROM #T_SX2) AS B) AS C"
+    ],
+    "variables": {
+      "alldxqty": null,
+      "lastdxqty": null,
+      "allrsqty": null,
+      "lastrsqty": null
+    }
+  },
+  "SP_GrayStcokTree": {
+    "id": "SQL300",
+    "kind": "steps",
+    "title": "SP_GrayStcokTree",
+    "temps": {
+      "s": "SELECT stc.Stock, stc.LotNo, stc.WareHouseID, stc.CustomerID, stc.GrayID, stc.InSheetKind, stc.PurchaseOrders, stc.FatherGrayID, stc.A_A, stc.A_B, stc.FixedQty, stc.Rolls, stc.WeightQty FROM (SELECT '坯纱库存' AS Stock, ISNULL(god.LotNo, '') AS LotNo, ISNULL(god.WareHouseID, '') AS WareHouseID, ISNULL(god.CustomerID, '') AS CustomerID, ISNULL(god.GrayID, '') AS GrayID, ISNULL(god.InSheetKind, '') AS InSheetKind, ISNULL(god.PurchaseOrders, '') AS PurchaseOrders, ISNULL(pg.FatherGrayID, '  ') AS FatherGrayID, ISNULL(god.A_A, '') AS A_A, ISNULL(god.A_B, '') AS A_B, ISNULL(god.FixedQty, 0) AS FixedQty, ISNULL(SUM(InRolls), 0) - ISNULL(SUM(OutRolls), 0) AS Rolls, ISNULL(SUM(InWeightQty), 0) - ISNULL(SUM(OutWeightQty), 0) AS WeightQty FROM dye.GrayStockBook AS god LEFT JOIN dye.p_Gray AS pg ON pg.GrayID = god.GrayID GROUP BY ISNULL(god.LotNo, ''), ISNULL(god.WareHouseID, ''), ISNULL(god.CustomerID, ''), ISNULL(god.GrayID, ''), ISNULL(god.InSheetKind, ''), ISNULL(god.PurchaseOrders, ''), ISNULL(pg.FatherGrayID, '  '), ISNULL(god.A_A, ''), ISNULL(god.A_B, ''), ISNULL(god.FixedQty, 0) UNION ALL SELECT '加捻在制品' AS Stock, ISNULL(god.LotNo, '') AS LotNo, ISNULL(god.WareHouseID, '') AS WareHouseID, ISNULL(god.CustomerID, '') AS CustomerID, ISNULL(god.GrayID, '') AS GrayID, ISNULL(god.InSheetKind, '') AS InSheetKind, ISNULL(god.PurchaseOrders, '') AS PurchaseOrders, ISNULL(pg.FatherGrayID, '  ') AS FatherGrayID, ISNULL(god.A_A, '') AS A_A, ISNULL(god.A_B, '') AS A_B, ISNULL(god.FixedQty, 0) AS FixedQty, ISNULL(SUM(god.OutRolls), 0) - ISNULL(SUM(jn.InRolls), 0) AS Rolls, ISNULL(SUM(god.OutWeightQty), 0) - ISNULL(SUM(jn.InWeightQty), 0) AS WeightQty FROM dye.GrayStockBook AS god LEFT JOIN dye.JobSheet AS js ON js.SheetNo = god.JobSheetNo LEFT JOIN (SELECT ISNULL(gid.LotNo, '') AS LotNo, ISNULL(gi.WareHouseID, '') AS WareHouseID, ISNULL(gi.CustomerID, '') AS CustomerID, ISNULL(gid.GrayID, '') AS GrayID, ISNULL(gid.InSheetKind, '') AS InSheetKind, ISNULL(gid.PurchaseOrders, '') AS PurchaseOrders, ISNULL(gid.A_A, '') AS A_A, ISNULL(gid.A_B, '') AS A_B, ISNULL(gid.FixedQty, 0) AS FixedQty, ISNULL(InputCode, '') AS InputCode, ISNULL(Rolls, 0) AS InRolls, ISNULL(WeightQty, 0) AS InWeightQty FROM dye.GrayInDetail AS gid INNER JOIN dye.GrayIn AS gi ON gi.SheetSeries = gid.SheetSeries WHERE SheetKind = 10) AS jn ON js.SheetNo = jn.InputCode LEFT JOIN dye.p_Gray AS pg ON pg.GrayID = god.GrayID WHERE god.BookDate >= DATEADD(MONTH, DATEDIFF(MONTH, CAST('1900-01-01' AS DATETIME2), CAST(GETDATE() AS DATETIME2)), 0) AND js.JobSheetType = 2 GROUP BY ISNULL(god.LotNo, ''), ISNULL(god.WareHouseID, ''), ISNULL(god.CustomerID, ''), ISNULL(god.GrayID, ''), ISNULL(god.InSheetKind, ''), ISNULL(god.PurchaseOrders, ''), ISNULL(pg.FatherGrayID, '  '), ISNULL(god.A_A, ''), ISNULL(god.A_B, ''), ISNULL(god.FixedQty, 0) UNION ALL SELECT '松筒在制品' AS Stock, ISNULL(god.LotNo, '') AS LotNo, ISNULL(god.WareHouseID, '') AS WareHouseID, ISNULL(god.CustomerID, '') AS CustomerID, ISNULL(god.GrayID, '') AS GrayID, ISNULL(god.InSheetKind, '') AS InSheetKind, ISNULL(god.PurchaseOrders, '') AS PurchaseOrders, ISNULL(pg.FatherGrayID, '  ') AS FatherGrayID, ISNULL(god.A_A, '') AS A_A, ISNULL(god.A_B, '') AS A_B, ISNULL(god.FixedQty, 0) AS FixedQty, ISNULL(SUM(god.OutRolls), 0) - ISNULL(SUM(si.InRolls), 0) AS Rolls, ISNULL(SUM(god.OutWeightQty), 0) - ISNULL(SUM(si.InWeightQty), 0) AS WeightQty FROM dye.GrayStockBook AS god LEFT JOIN dye.JobSheet AS js ON js.SheetNo = god.JobSheetNo LEFT JOIN (SELECT ISNULL(LotNo, '') AS LotNo, ISNULL(WareHouseID, '') AS WareHouseID, ISNULL(CustomerID, '') AS CustomerID, ISNULL(sid.ProdID, '') AS GrayID, ISNULL(InSheetKind, '') AS InSheetKind, ISNULL(PurchaseOrders, '') AS PurchaseOrders, ISNULL(JobSheetNo, '') AS JobSheetNo, ISNULL(sid.Rolls, 0) AS InRolls, ISNULL(sid.WeightQty, 0) AS InWeightQty, ISNULL(sid.A_A, '') AS A_A, ISNULL(sid.A_B, '') AS A_B, ISNULL(sid.FixedQty, 0) AS FixedQty FROM dye.SemiInDetail AS sid INNER JOIN dye.SemiIn AS si ON si.SheetSeries = sid.SheetSeries WHERE si.SheetKind = 12) AS si ON si.JobSheetNo = js.SheetNo LEFT JOIN dye.p_Gray AS pg ON pg.GrayID = god.GrayID WHERE god.BookDate >= DATEADD(MONTH, DATEDIFF(MONTH, CAST('1900-01-01' AS DATETIME2), CAST(GETDATE() AS DATETIME2)), 0) AND js.JobSheetType = 1 GROUP BY ISNULL(god.LotNo, ''), ISNULL(god.WareHouseID, ''), ISNULL(god.CustomerID, ''), ISNULL(god.GrayID, ''), ISNULL(god.InSheetKind, ''), ISNULL(god.PurchaseOrders, ''), ISNULL(pg.FatherGrayID, '  '), ISNULL(god.A_A, ''), ISNULL(god.A_B, ''), ISNULL(god.FixedQty, 0) UNION ALL SELECT '半成品库存' AS Stock, ISNULL(god.LotNo, '') AS LotNo, ISNULL(god.WareHouseID, '') AS WareHouseID, ISNULL(god.CustomerID, '') AS CustomerID, ISNULL(god.ProdID, '') AS GrayID, ISNULL(god.InSheetKind, '') AS InSheetKind, ISNULL(god.PurchaseOrders, '') AS PurchaseOrders, ISNULL(pg.FatherGrayID, '  ') AS FatherGrayID, ISNULL(god.A_A, '') AS A_A, ISNULL(god.A_B, '') AS A_B, ISNULL(god.FixedQty, 0) AS FixedQty, ISNULL(SUM(InRolls), 0) - ISNULL(SUM(OutRolls), 0) AS Rolls, ISNULL(SUM(InWeightQty), 0) - ISNULL(SUM(OutWeightQty), 0) AS WeightQty FROM dye.SemiStockBook AS god LEFT JOIN dye.p_Gray AS pg ON pg.GrayID = god.ProdID GROUP BY ISNULL(god.LotNo, ''), ISNULL(god.WareHouseID, ''), ISNULL(god.CustomerID, ''), ISNULL(god.ProdID, ''), ISNULL(god.InSheetKind, ''), ISNULL(god.PurchaseOrders, ''), ISNULL(pg.FatherGrayID, '  '), ISNULL(god.A_A, ''), ISNULL(god.A_B, ''), ISNULL(god.FixedQty, 0)) AS stc WHERE 1 = 1 AND stc.WeightQty > 0 AND (ISNULL(@FatherGrayID, '') = '' OR FatherGrayID LIKE '%' + @FatherGrayID + '%')"
+    },
+    "steps": [],
+    "outputs": [
+      "SELECT ISNULL(A.FatherGrayID, '') AS ParentCode, CONVERT(VARCHAR(100), NEWID()) AS ID, A.Stock, ISNULL(A.LotNo, '') AS LotNo, ISNULL(A.WareHouseID, '') AS WareHouseID, ISNULL(C.NameC, '') AS CustomerID, ISNULL(B.NameC, '') AS GrayID, ISNULL(A.InSheetKind, '') AS InSheetKind, ISNULL(A.PurchaseOrders, '') AS PurchaseOrders, ISNULL(A.FatherGrayID, '') AS FatherGrayID, ISNULL(A.A_A, '') AS A_A, ISNULL(A.A_B, '') AS A_B, CONVERT(VARCHAR(10), FORMAT(A.FixedQty, '0.###')) AS FixedQty, A.Rolls, A.WeightQty, -16777216 AS FontColor FROM #s AS A LEFT JOIN dye.p_Gray AS B ON B.GrayID = A.GrayID LEFT JOIN dye.p_Gray AS C ON C.GrayID = A.CustomerID"
+    ],
+    "variables": {
+      "fathergrayid": null
+    }
+  },
+  "SP_StuffOut_Query2": {
+    "id": "SQL385",
+    "title": "SP_StuffOut_Query2",
+    "kind": "query",
+    "sql": "SELECT NEWID() AS ID, Days, #t.CustomerID, #t.JobKind, #tb.ZJG, #tb.realgrayQty, SUM(SOutQty) AS SOutQty, #tb.ZJG / NULLIF(#tb.realgrayQty, '0') AS PJJ, CASE WHEN SUM(SAmount) > 0 THEN CAST((SUM(SAmount) / NULLIF(SUM(SOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS SPrice, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, CASE WHEN SUM(AAmount) > 0 THEN CAST((SUM(AAmount) / NULLIF(SUM(AOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS APrice, SUM(AAmount) AS AAmount, SUM(AAmount) + SUM(SAmount) AS SumAmount, ISNULL(FORMAT(SUM(SAmount) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS rlb, ISNULL(FORMAT(SUM(AAmount) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS zjb, ISNULL(FORMAT((SUM(ISNULL(AAmount, '0')) + SUM(ISNULL(SAmount, '0'))) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS zbl FROM #t JOIN #tb ON #tb.CustomerID = #t.CustomerID AND #t.JobKind = #tb.JobKind GROUP BY Days, #t.CustomerID, #t.JobKind, #tb.ZJG, #tb.realgrayQty UNION ALL SELECT NEWID() AS ID, Days, CustomerID, '小计', SUM(ZJG) AS zjg, SUM(realgrayQty) AS realgrayQty, SUM(SOutQty), SUM(ZJG) / NULLIF(SUM(realgrayQty), '0') AS PJJ, SUM(SAmount) / NULLIF(SUM(SOutQty), '0') AS SPrice, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, SUM(AAmount) / NULLIF(SUM(AOutQty), '0') AS APrice, SUM(AAmount) AS AAmount, SUM(SumAmount) AS SumAmount, MAX(rlb) AS rlb, MAX(zjb) AS zjb, MAX(zbl) AS zbl FROM (SELECT NEWID() AS ID, Days AS Days, #t.CustomerID AS CustomerID, '小计' AS JobKind, #tb.ZJG AS zjg, #tb.realgrayQty AS realgrayQty, SUM(SOutQty) AS SOutQty, CASE WHEN SUM(SAmount) > 0 THEN CAST((SUM(SAmount) / NULLIF(SUM(SOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS SPrice, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, CASE WHEN SUM(AAmount) > 0 THEN CAST((SUM(AAmount) / NULLIF(SUM(AOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS APrice, SUM(AAmount) AS AAmount, SUM(AAmount) + SUM(SAmount) AS SumAmount, ISNULL(FORMAT(SUM(SAmount) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS rlb, ISNULL(FORMAT(SUM(AAmount) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS zjb, ISNULL(FORMAT((SUM(ISNULL(AAmount, '0')) + SUM(ISNULL(SAmount, '0'))) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS zbl FROM #t JOIN #tb ON #tb.CustomerID = #t.CustomerID AND #t.JobKind = #tb.JobKind GROUP BY Days, #t.CustomerID, #tb.ZJG, #tb.realgrayQty) AS a GROUP BY Days, CustomerID UNION ALL SELECT NEWID() AS ID, Days, '合计' AS CustomerID, '' AS JobKind, SUM(ZJG) AS zjg, SUM(realgrayQty) AS realgrayQty, SUM(SOutQty), SUM(ZJG) / NULLIF(SUM(realgrayQty), '0') AS PJJ, SUM(SAmount) / NULLIF(SUM(SOutQty), '0') AS SPrice, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, SUM(AAmount) / NULLIF(SUM(AOutQty), '0') AS APrice, SUM(AAmount) AS AAmount, SUM(SumAmount) AS SumAmount, ISNULL(FORMAT(SUM(SAmount) / NULLIF(SUM(ZJG), '0'), 'p'), '0') AS rlb, ISNULL(FORMAT(SUM(AAmount) / NULLIF(SUM(ZJG), '0'), 'p'), '0') AS zjb, ISNULL(FORMAT((SUM(ISNULL(AAmount, '0')) + SUM(ISNULL(SAmount, '0'))) / NULLIF(SUM(ZJG), '0'), 'p'), '0') AS zbl FROM (SELECT NEWID() AS ID, Days AS Days, #t.CustomerID AS CustomerID, #t.JobKind AS JobKind, #tb.ZJG AS ZJG, #tb.realgrayQty AS realgrayQty, SUM(SOutQty) AS SOutQty, CASE WHEN SUM(SAmount) > 0 THEN CAST((SUM(SAmount) / NULLIF(SUM(SOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS SPrice, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, CASE WHEN SUM(AAmount) > 0 THEN CAST((SUM(AAmount) / NULLIF(SUM(AOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS APrice, SUM(AAmount) AS AAmount, SUM(AAmount) + SUM(SAmount) AS SumAmount, ISNULL(FORMAT(SUM(SAmount) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS rlb, ISNULL(FORMAT(SUM(AAmount) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS zjb, ISNULL(FORMAT((SUM(ISNULL(AAmount, '0')) + SUM(ISNULL(SAmount, '0'))) / NULLIF(#tb.ZJG, '0'), 'p'), '0') AS zbl FROM #t JOIN #tb ON #tb.CustomerID = #t.CustomerID AND #t.JobKind = #tb.JobKind GROUP BY Days, #t.CustomerID, #t.JobKind, #tb.ZJG, #tb.realgrayQty) AS b GROUP BY Days ORDER BY CustomerID, JobKind",
+    "temps": {
+      "t": "SELECT CustomerID AS [CustomerID], @days AS [days], (CASE WHEN JobKindID IN ('01', '03') THEN '1正常流程卡/本厂回修卡' WHEN JobKindID = '02' THEN '2客退回修卡' ELSE '3系统导入' END) AS [JobKind], CASE WHEN StuffType = 'S' THEN OutQty ELSE 0 END AS [SOutQty], CASE WHEN StuffType = 'S' THEN Amount ELSE 0 END AS [SAmount], CASE WHEN StuffType = 'S' THEN 0 ELSE OutQty END AS [AOutQty], CASE WHEN StuffType = 'S' THEN 0 ELSE Amount END AS [AAmount] FROM dye.v_StuffOut_Query WHERE outdate >= @StartDate AND outdate <= @EndDate",
+      "tb": "SELECT CustomerID AS [CustomerID], jobkind AS [JobKind], SUM(ZJG) AS [ZJG], SUM(realgrayQty) AS [realgrayQty] FROM (SELECT aa.CustomerID AS CustomerID, (CASE WHEN aa.JobKindID IN ('01', '03') THEN '1正常流程卡/本厂回修卡' WHEN aa.JobKindID = '02' THEN '2客退回修卡' ELSE '系统导入' END) AS Jobkind, SUM(realgrayQty) AS realgrayQty, SUM(CASE WHEN aa.JobSheetNo LIKE '%R%' THEN 0 ELSE ISNULL((ISNULL(aa.RSDJ, '0') + ISNULL(aa.QTDJ, '0') / 1000 + ISNULL(aa.SGDJ, '0')) * aa.realgrayQty + (ISNULL(aa.ZGJDDJ, '0') * aa.realrolls), '0') END) AS ZJG FROM (SELECT CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.rolls ELSE pn.Rolls END AS realrolls, CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.WeightQty ELSE pn.WeightQty END AS realWeightQty, CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.grayQty ELSE pn.GaryWeight END AS realgrayQty, CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.LengthQty ELSE pn.LengthQty END AS realLengthQty, a.JobSheetNo AS JobSheetNo, j.JobKindID AS JobKindID, pn.customerid AS customerid, oc.Price AS RSDJ, ISNULL(oc.ProcessPrice, '0') - ISNULL(lsf.qtdj, '0') AS QTDJ, oae.price AS ZGJDDJ, fod.Price AS SGDJ FROM (SELECT a.JobSheetNo AS JobSheetNo, SUM(a.InRolls) AS rolls, SUM(InWeightQty) AS WeightQty, SUM(InGrayQty) AS grayQty, SUM(a.InLengthQty) AS LengthQty FROM dye.ProdStockBook AS a LEFT JOIN dye.jobsheet AS j ON a.JobSheetNo = j.SheetNo LEFT JOIN dye.OrderColor AS oc ON oc.checkno = j.checkno LEFT JOIN dye.FeelOfferDetail AS fod ON fod.FeelCode = oc.Edge AND fod.ProdID = oc.CustFabricName LEFT JOIN dye.ordermain AS om ON om.SheetSeries = oc.SheetSeries LEFT JOIN dye.p_Product AS p ON p.ProdID = j.CustSelfProduct LEFT JOIN dye.ProdIn AS pn ON pn.JobSheetNo = j.SheetNo AND pn.SheetNo = a.SheetNo WHERE NOT a.customerid IN ('040', '039', '043', '041', '050', '051', '055', '058') AND a.BookDate >= @StartDate AND a.BookDate <= @EndDate AND a.BookKind = '11' GROUP BY a.JobSheetNo) AS a LEFT JOIN dye.prodin AS pn ON pn.JobSheetNo = a.JobSheetNo AND pn.sheetkind IN ('10', '11', '16') LEFT JOIN dye.jobsheet AS j ON a.JobSheetNo = j.SheetNo LEFT JOIN dye.OrderColor AS oc ON oc.checkno = j.checkno LEFT JOIN (SELECT SheetSeries AS SheetSeries, SUM(Price) AS price FROM dye.OrderAtte WHERE (AtteValue LIKE '%胶袋%' OR AtteValue LIKE '%纸管%') AND NULLIF(Price, '0') <> '0' GROUP BY SheetSeries) AS oae ON oae.SheetSeries = oc.SheetSeries LEFT JOIN dye.FeelOfferDetail AS fod ON fod.FeelCode = oc.Edge AND fod.ProdID = oc.CustFabricName LEFT JOIN dye.ordermain AS om ON om.SheetSeries = oc.SheetSeries LEFT JOIN (SELECT sheetseries AS sheetseries, SUM(Price) AS qtdj FROM dye.orderatte WHERE FieldType = '05' AND NULLIF(price, '0') <> '0' AND (AtteValue LIKE '%抓毛%' OR AtteValue LIKE '刷毛' OR AtteValue LIKE '%剪毛%') GROUP BY sheetseries) AS lsf ON lsf.SheetSeries = om.SheetSeries) AS aa GROUP BY aa.CustomerID, aa.Jobkindid) AS kk GROUP BY kk.CustomerID, kk.Jobkind"
+    }
+  },
+  "SP_StuffOut_QueryXSCBZBB": {
+    "id": "SQL386",
+    "title": "SP_StuffOut_QueryXSCBZBB",
+    "kind": "query",
+    "sql": "SELECT NEWID() AS ID, Days, CustomerID, JobKind, SUM(zjg) AS ZJG, SUM(realgrayQty) AS realgrayQty, SUM(zjg) / NULLIF(SUM(realgrayQty), '0') AS pjj, SUM(SOutQty) AS SOutQty, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, SUM(AAmount) AS AAmount, CASE WHEN SUM(SAmount) > 0 THEN CAST((SUM(SAmount) / NULLIF(SUM(SOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS SPrice, CASE WHEN SUM(AAmount) > 0 THEN CAST((SUM(AAmount) / NULLIF(SUM(AOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS APrice, SUM(AAmount) + SUM(SAmount) AS SumAmount, ISNULL(FORMAT(SUM(SAmount) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS rlb, ISNULL(FORMAT(SUM(AAmount) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS zjb, ISNULL(FORMAT((SUM(ISNULL(AAmount, '0')) + SUM(ISNULL(SAmount, '0'))) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS zbl FROM (SELECT Days, #t.CustomerID, #t.JobKind, '0' AS ZJG, '0' AS realgrayQty, SOutQty, '0' AS PJJ, SAmount, AOutQty, AAmount FROM #t UNION ALL SELECT Days, #tb.CustomerID, #tb.JobKind, #tb.ZJG, #tb.realgrayQty, '0' AS SOutQty, #tb.ZJG / NULLIF(#tb.realgrayQty, '0') AS PJJ, '0' AS SAmount, '0' AS AOutQty, '0' AS AAmount FROM #tb) AS #tc GROUP BY Days, CustomerID, JobKind UNION ALL SELECT NEWID() AS ID, Days, CustomerID, '小计' AS JobKind, SUM(zjg) AS ZJG, SUM(realgrayQty) AS realgrayQty, SUM(zjg) / NULLIF(SUM(realgrayQty), '0') AS pjj, SUM(SOutQty) AS SOutQty, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, SUM(AAmount) AS AAmount, CASE WHEN SUM(SAmount) > 0 THEN CAST((SUM(SAmount) / NULLIF(SUM(SOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS SPrice, CASE WHEN SUM(AAmount) > 0 THEN CAST((SUM(AAmount) / NULLIF(SUM(AOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS APrice, SUM(AAmount) + SUM(SAmount) AS SumAmount, ISNULL(FORMAT(SUM(SAmount) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS rlb, ISNULL(FORMAT(SUM(AAmount) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS zjb, ISNULL(FORMAT((SUM(ISNULL(AAmount, '0')) + SUM(ISNULL(SAmount, '0'))) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS zbl FROM (SELECT Days, #t.CustomerID, #t.JobKind, '0' AS ZJG, '0' AS realgrayQty, SOutQty, '0' AS PJJ, SAmount, AOutQty, AAmount FROM #t UNION ALL SELECT Days, #tb.CustomerID, #tb.JobKind, #tb.ZJG, #tb.realgrayQty, '0' AS SOutQty, #tb.ZJG / NULLIF(#tb.realgrayQty, '0') AS PJJ, '0' AS SAmount, '0' AS AOutQty, '0' AS AAmount FROM #tb) AS #tc GROUP BY Days, CustomerID UNION ALL SELECT NEWID() AS ID, Days, '合计' AS CustomerID, '' AS JobKind, SUM(zjg) AS ZJG, SUM(realgrayQty) AS realgrayQty, SUM(zjg) / NULLIF(SUM(realgrayQty), '0') AS pjj, SUM(SOutQty) AS SOutQty, SUM(SAmount) AS SAmount, SUM(AOutQty) AS AOutQty, SUM(AAmount) AS AAmount, CASE WHEN SUM(SAmount) > 0 THEN CAST((SUM(SAmount) / NULLIF(SUM(SOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS SPrice, CASE WHEN SUM(AAmount) > 0 THEN CAST((SUM(AAmount) / NULLIF(SUM(AOutQty), '0')) AS NUMERIC(10, 2)) ELSE 0 END AS APrice, SUM(AAmount) + SUM(SAmount) AS SumAmount, ISNULL(FORMAT(SUM(SAmount) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS rlb, ISNULL(FORMAT(SUM(AAmount) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS zjb, ISNULL(FORMAT((SUM(ISNULL(AAmount, '0')) + SUM(ISNULL(SAmount, '0'))) / NULLIF(SUM(zjg), '0'), 'p'), '0') AS zbl FROM (SELECT Days, #t.CustomerID, #t.JobKind, '0' AS ZJG, '0' AS realgrayQty, SOutQty, '0' AS PJJ, SAmount, AOutQty, AAmount FROM #t UNION ALL SELECT Days, #tb.CustomerID, #tb.JobKind, #tb.ZJG, #tb.realgrayQty, '0' AS SOutQty, #tb.ZJG / NULLIF(#tb.realgrayQty, '0') AS PJJ, '0' AS SAmount, '0' AS AOutQty, '0' AS AAmount FROM #tb) AS #tc GROUP BY Days ORDER BY CustomerID, JobKind",
+    "temps": {
+      "t": "SELECT CustomerID AS [CustomerID], @days AS [days], (CASE WHEN JobKindID IN ('01', '03') THEN '1正常流程卡/本厂回修卡' WHEN JobKindID = '02' THEN '2客退回修卡' ELSE '3系统导入' END) AS [JobKind], CASE WHEN StuffType = 'S' THEN OutQty ELSE 0 END AS [SOutQty], CASE WHEN StuffType = 'S' THEN Amount ELSE 0 END AS [SAmount], CASE WHEN StuffType = 'S' THEN 0 ELSE OutQty END AS [AOutQty], CASE WHEN StuffType = 'S' THEN 0 ELSE Amount END AS [AAmount] FROM dye.v_StuffOut_Query WHERE outdate >= @StartDate AND outdate <= @EndDate",
+      "tb": "SELECT CustomerID AS [CustomerID], @days AS [days], jobkind AS [JobKind], SUM(ZJG) AS [ZJG], SUM(realgrayQty) AS [realgrayQty] FROM (SELECT aa.CustomerID AS CustomerID, (CASE WHEN aa.JobKindID IN ('01', '03') THEN '1正常流程卡/本厂回修卡' WHEN aa.JobKindID = '02' THEN '2客退回修卡' ELSE '系统导入' END) AS Jobkind, SUM(realgrayQty) AS realgrayQty, SUM(CASE WHEN aa.JobSheetNo LIKE '%R%' THEN 0 ELSE ISNULL((ISNULL(aa.RSDJ, '0') + ISNULL(aa.QTDJ, '0') / 1000 + ISNULL(aa.SGDJ, '0')) * aa.realgrayQty + (ISNULL(aa.ZGJDDJ, '0') * aa.realrolls), '0') END) AS ZJG FROM (SELECT CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.rolls ELSE pn.Rolls END AS realrolls, CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.WeightQty ELSE pn.WeightQty END AS realWeightQty, CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.grayQty ELSE pn.GaryWeight END AS realgrayQty, CASE WHEN a.rolls < '0' AND a.rolls < pn.Rolls THEN a.LengthQty ELSE pn.LengthQty END AS realLengthQty, a.JobSheetNo AS JobSheetNo, j.JobKindID AS JobKindID, pn.customerid AS customerid, oc.Price AS RSDJ, ISNULL(oc.ProcessPrice, '0') - ISNULL(lsf.qtdj, '0') AS QTDJ, oae.price AS ZGJDDJ, fod.Price AS SGDJ FROM (SELECT a.JobSheetNo AS JobSheetNo, SUM(a.InRolls) AS rolls, SUM(InWeightQty) AS WeightQty, SUM(InGrayQty) AS grayQty, SUM(a.InLengthQty) AS LengthQty FROM dye.ProdStockBook AS a LEFT JOIN dye.jobsheet AS j ON a.JobSheetNo = j.SheetNo LEFT JOIN dye.OrderColor AS oc ON oc.checkno = j.checkno LEFT JOIN dye.FeelOfferDetail AS fod ON fod.FeelCode = oc.Edge AND fod.ProdID = oc.CustFabricName LEFT JOIN dye.ordermain AS om ON om.SheetSeries = oc.SheetSeries LEFT JOIN dye.p_Product AS p ON p.ProdID = j.CustSelfProduct LEFT JOIN dye.ProdIn AS pn ON pn.JobSheetNo = j.SheetNo AND pn.SheetNo = a.SheetNo WHERE NOT a.customerid IN ('040', '039', '043', '041', '050', '051', '055', '058') AND a.BookDate >= @StartDate AND a.BookDate <= @EndDate AND a.BookKind = '11' GROUP BY a.JobSheetNo) AS a LEFT JOIN dye.prodin AS pn ON pn.JobSheetNo = a.JobSheetNo AND pn.sheetkind IN ('10', '11', '16') AND pn.sheetdate >= @StartDate AND pn.sheetdate <= @EndDate LEFT JOIN dye.jobsheet AS j ON a.JobSheetNo = j.SheetNo LEFT JOIN dye.OrderColor AS oc ON oc.checkno = j.checkno LEFT JOIN (SELECT SheetSeries AS SheetSeries, SUM(Price) AS price FROM dye.OrderAtte WHERE (AtteValue LIKE '%胶袋%' OR AtteValue LIKE '%纸管%') AND NULLIF(Price, '0') <> '0' GROUP BY SheetSeries) AS oae ON oae.SheetSeries = oc.SheetSeries LEFT JOIN dye.FeelOfferDetail AS fod ON fod.FeelCode = oc.Edge AND fod.ProdID = oc.CustFabricName LEFT JOIN dye.ordermain AS om ON om.SheetSeries = oc.SheetSeries LEFT JOIN (SELECT sheetseries AS sheetseries, SUM(Price) AS qtdj FROM dye.orderatte WHERE FieldType = '05' AND NULLIF(price, '0') <> '0' AND (AtteValue LIKE '%抓毛%' OR AtteValue LIKE '刷毛' OR AtteValue LIKE '%剪毛%') GROUP BY sheetseries) AS lsf ON lsf.SheetSeries = om.SheetSeries) AS aa GROUP BY aa.CustomerID, aa.Jobkindid) AS kk GROUP BY kk.CustomerID, kk.Jobkind"
+    }
+  },
+  "SP_YUNFEITONGJI": {
+    "id": "SQL427",
+    "title": "SP_YUNFEITONGJI",
+    "kind": "query",
+    "sql": "SELECT NEWID() AS ID, days AS 日期, 物流类型, 车牌号, 收发, 收发地点, 客户, 车型, 匹数, 重量, [元/车], 送货运费, 收坯运费, 装卸费, 中转费, 费用合计, 备注, 收发类型 FROM #tb UNION ALL SELECT NEWID() AS ID, days AS 日期, 物流类型, 车牌号 + '小计', '', '', '', '', SUM(匹数), SUM(重量), MAX([元/车]), SUM(送货运费) AS 送货运费, SUM(收坯运费) AS 收坯运费, SUM(装卸费) AS 装卸费, CONVERT(NUMERIC(16, 2), 0) AS 中转费, SUM(费用合计) AS 费用合计, '', 收发类型 FROM #tb GROUP BY days, 物流类型, 车牌号, 收发类型 UNION ALL SELECT NEWID() AS ID, days AS 日期, '', '总计', '', '', '', '', SUM(匹数), SUM(重量), NULLIF(CONVERT(NUMERIC(16, 2), 0), 0), SUM(送货运费) AS 送货运费, SUM(收坯运费) AS 收坯运费, SUM(装卸费) AS 装卸费, CONVERT(NUMERIC(16, 2), 0) AS 中转费, SUM(费用合计) AS 费用合计, '', '3' FROM #tb GROUP BY days ORDER BY 收发类型, 车牌号, 收发",
+    "temps": {
+      "t": "SELECT 日期 AS [日期], @days AS [days], 物流类型 AS [物流类型], 车牌号 AS [车牌号], 收发 AS [收发], 收发地点 AS [收发地点], 客户 AS [客户], 车型 AS [车型], SUM(匹数) AS [匹数], SUM(重量) AS [重量], 送货运费 AS [送货运费], 收坯运费 AS [收坯运费] FROM (SELECT CAST(a.SheetDate AS DATE) AS 日期, c.DisplayValue AS 物流类型, f.Name AS 车牌号, CASE WHEN a.SheetKind = '11' THEN '收坯' WHEN a.SheetKind = '15' THEN '客退入库' ELSE '退坯' END AS 收发, e.NameC AS 客户, ISNULL(d.匹数, '0') AS 匹数, ISNULL(d.重量, '0') AS 重量, b.DisplayValue AS 收发地点, f.Reserved3 AS 车型, '0' AS 送货运费, CASE WHEN g.leixing <> '9' THEN ISNULL(g.inprice, '0') ELSE ISNULL(g.inprice, '0') * ISNULL(d.重量, '0') END AS 收坯运费 FROM dye.GrayIn AS a LEFT JOIN dye.s_DBComboValue AS b ON b.KeyValue = a.combo1 AND b.ComboID = 'B042' LEFT JOIN dye.s_DBComboValue AS c ON c.KeyValue = a.WLLX AND c.ComboID = 'C041' LEFT JOIN (SELECT SheetSeries AS SheetSeries, SUM(ISNULL(Rolls, '0')) AS 匹数, SUM(ISNULL(WeightQty, '0')) AS 重量, SUM(ISNULL(LengthQty, '0')) AS 长度 FROM dye.GrayInDetail GROUP BY SheetSeries) AS d ON d.SheetSeries = a.SheetSeries LEFT JOIN dye.p_Customer AS e ON e.CustomerID = a.CustomerID LEFT JOIN dye.p_FieldValid AS f ON f.Code = a.CarNo AND f.FieldType = 'CVehicle' LEFT JOIN dye.yunfeibiaozhun AS g ON g.Address = b.DisplayValue AND g.LeiXing = f.Reserved5 WHERE (a.SheetKind <> '14' AND a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate) UNION ALL SELECT CAST(a.SheetDate AS DATE) AS 日期, c.DisplayValue AS 物流类型, f.Name AS 车牌号, '成品送货' AS 收发, e.NameC AS 客户, ISNULL(d.匹数, '0') AS 匹数, ISNULL(d.重量, '0') AS 重量, b.DisplayValue AS 收发地点, f.Reserved3 AS 车型, ISNULL(g.outPrice, '0') AS 送货运费, '0' AS 收坯运费 FROM dye.ProdOut AS a LEFT JOIN dye.s_DBComboValue AS b ON b.KeyValue = a.combo1 AND b.ComboID = 'B042' LEFT JOIN dye.s_DBComboValue AS c ON c.KeyValue = a.WLLX AND c.ComboID = 'C041' LEFT JOIN (SELECT SheetSeries AS SheetSeries, SUM(ISNULL(Rolls, '0')) AS 匹数, SUM(ISNULL(WeightQty, '0')) AS 重量, SUM(ISNULL(LengthQty, '0')) AS 长度 FROM dye.ProdOutDetail GROUP BY SheetSeries) AS d ON d.SheetSeries = a.SheetSeries LEFT JOIN dye.p_Customer AS e ON e.CustomerID = a.CustomerID LEFT JOIN dye.p_FieldValid AS f ON f.Code = a.CarNo AND f.FieldType = 'CVehicle' LEFT JOIN dye.yunfeibiaozhun AS g ON g.Address = b.DisplayValue AND g.LeiXing = f.Reserved5 WHERE a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate) AS aa GROUP BY 日期, 物流类型, 车牌号, 收发, 收发地点, 客户, 车型, 收坯运费, 送货运费",
+      "tb": "SELECT CAST(a.日期 AS DATE) AS [日期], @days AS [days], a.物流类型 AS [物流类型], a.车牌号 AS [车牌号], a.收发 AS [收发], a.收发地点 AS [收发地点], a.客户 AS [客户], a.车型 AS [车型], ABS(a.匹数) AS [匹数], ABS(a.重量) AS [重量], b.送货运费 + b.收坯运费 AS [元/车], a.重量 / NULLIF(b.重量, '0') * b.送货运费 AS [送货运费], a.重量 / NULLIF(b.重量, '0') * b.收坯运费 AS [收坯运费], ABS(a.重量) / 1000 * 15 AS [装卸费], CONVERT(NUMERIC(16, 2), 0) AS [中转费], a.重量 / NULLIF(b.重量, '0') * (b.收坯运费 + b.送货运费) + ABS(a.重量) / 1000 * 15 AS [费用合计], '' AS [备注], CASE WHEN a.收发 IN ('收坯', '客退入库') THEN 2 ELSE 1 END AS [收发类型] FROM #t AS a LEFT JOIN (SELECT CAST(日期 AS DATE) AS 日期, 物流类型 AS 物流类型, 车牌号 AS 车牌号, MAX(收坯运费) AS 收坯运费, MAX(送货运费) AS 送货运费, SUM(匹数) AS 匹数, SUM(重量) AS 重量, CASE WHEN 收发 IN ('收坯', '客退入库') THEN 2 ELSE 1 END AS 收发类型 FROM #t GROUP BY CAST(日期 AS DATE), 物流类型, 车牌号, CASE WHEN 收发 IN ('收坯', '客退入库') THEN 2 ELSE 1 END) AS b ON b.日期 = a.日期 AND b.物流类型 = a.物流类型 AND b.车牌号 = a.车牌号 AND b.收发类型 = CASE WHEN a.收发 IN ('收坯', '客退入库') THEN 2 ELSE 1 END WHERE a.日期 >= @StartDate AND a.日期 <= @EndDate"
+    }
+  },
+  "JF_sparDayReportTest": {
+    "id": "SQL100",
+    "title": "纱线生产日汇总（7:50班界）",
+    "kind": "day_totals",
+    "aggregates": [
+      "SELECT SUM(OrderRolls) OrderRolls,\nSUM(OrderQty) OrderQty\nFROM dye.OrderMain a\nJOIN dye.OrderColor b\nON a.SheetSeries = b.SheetSeries\nWHERE a.SheetDate >= @DT0\nAND a.SheetDate < @DT1\nAND a.CustomerID <> '039'\n",
+      "SELECT SUM(gi.DlvRolls) DlvRolls,\nSUM(gi.DlvWeightQty) DlvWeightQty\nFROM dye.GrayIn gi\nINNER JOIN dye.p_Customer pc\nON gi.CustomerID = pc.CustomerID\nWHERE gi.SheetDate >= @DT0\nAND gi.SheetDate < @DT1\nAND gi.SheetKind = 11\n",
+      "SELECT SUM(GaryWeight) AS GaryWeight,\nSUM(Rolls) AS GaryRolls\nFROM dye.ProdIn a\nWHERE a.SheetDate >= @DT0\nAND a.SheetDate < @DT1\nAND a.CustomerID <> '039'\n",
+      "SELECT SUM(Rolls) PBRolls,\nSUM(WeightQty) PBWeightQty\nFROM\n(\nSELECT BusinessUnitID,\nCustomerID,\nWareHouseID,\nSalerGroupID,\nGrayID,\nReceSheetNo,\nSUM(Rolls) Rolls,\nSUM(WeightQty) AS WeightQty\nFROM\n(\nSELECT ISNULL(BusinessUnitID, '') AS BusinessUnitID,\nCustomerID,\nWareHouseID,\nISNULL(StorageUnitIDs, '') AS StorageUnitIDs,\nISNULL(SalerGroupID, '') AS SalerGroupID,\nGrayID,\nLotNo,\nReceSheetNo,\n(ISNULL(InRolls, 0) - ISNULL(OutRolls, 0)) AS Rolls,\n(ISNULL(InLengthQty, 0) - ISNULL(OutLengthQty, 0)) AS LengthQty,\n(ISNULL(InWeightQty, 0) - ISNULL(OutWeightQty, 0)) AS WeightQty,\nPrice\nFROM dye.GrayStockBook\n) c\nGROUP BY BusinessUnitID,\nCustomerID,\nWareHouseID,\nSalerGroupID,\nGrayID,\nReceSheetNo\n) alis\nWHERE (alis.Rolls > 0)\nAND alis.CustomerID NOT IN\n(\nSELECT CustomerID\nFROM dye.p_Customer\nWHERE ShortName IN ( '1666', '1999', '345346', '2888', '2666', '9008' )\n)\n",
+      "select SUM(Rolls) CPRolls,SUM(WeightQty) CPWeightQty\nFROM (\nselect BusinessUnitID,CustomerID,WareHouseID,SalerGroupID,GrayID,\nReceSheetNo,SUM(Rolls) Rolls,SUM(WeightQty)as WeightQty from(\nselect ISNULL(BusinessUnitID,'') AS BusinessUnitID,CustomerID,WareHouseID,ISNULL(StorageUnitIDs,'') AS StorageUnitIDs,ISNULL(SalerGroupID,'') AS SalerGroupID,GrayID,\nLotNo,ReceSheetNo,(ISNULL(InRolls,0)-ISNULL(OutRolls,0)) as Rolls,\n(ISNULL(InLengthQty,0)-ISNULL(OutLengthQty,0)) as LengthQty ,(ISNULL(InWeightQty,0)-ISNULL(OutWeightQty,0)) as WeightQty,\nPrice from dye.GrayStockBook\n)c\ngroup by BusinessUnitID,CustomerID,WareHouseID,SalerGroupID,GrayID,ReceSheetNo\n) alis WHERE (alis. Rolls>0)\nAND alis.CustomerID NOT IN (SELECT CustomerID FROM dye.p_Customer WHERE ShortName IN ('1666','1999','345346','2888','2666','9008'))"
+    ]
+  },
+  "sp_App_QueryMachineMainArticleInfo": {
+    "id": "SQL188",
+    "title": "机台配件库存与近三个月领用",
+    "kind": "machine_parts",
+    "parts": "SELECT a.ArticleID, c.Name AS ArticleName, ISNULL(b.Spec, '') AS Spec, ISNULL(b.UnitName, '') AS UnitName, ISNULL(b.Qty, 0) AS Qty, ISNULL(b.Total, 0) AS Total FROM dye.p_MachinePart AS a LEFT JOIN [dye].[v_App_MachineArticleStockBook] AS b ON b.ArticleID = a.ArticleID LEFT JOIN dye.p_Article AS c ON c.ArticleID = a.ArticleID WHERE a.MachineID = @MachineID",
+    "details": "SELECT SheetDate, ye.Name, a.SheetSeries, a.SheetNo, CONVERT(NUMERIC(10, 2), b.Total) AS Total, c.Name + '：   ' + CONVERT(VARCHAR(100), CONVERT(NUMERIC(7, 2), b.OutQty)) + u.NAME + ' ， 共' + CONVERT(VARCHAR(100), CONVERT(NUMERIC(10, 2), b.Total)) + '元' AS DetailInfo FROM dye.v_App_ArticleOut AS a LEFT JOIN dye.v_App_ArticleOutDetail AS b ON a.SheetSeries = b.SheetSeries LEFT JOIN dye.p_Article AS c ON b.ArticleID = c.Articleid LEFT JOIN (SELECT code AS code, name AS name FROM dye.p_FieldValid WHERE FieldType = 'ArticleUnit') AS u ON u.code = c.Unit LEFT JOIN dye.h_Employee AS ye ON b.EmpID = ye.EmpID WHERE SheetDate >= @StartDate AND SheetDate <= @EndDate AND b.MachineID = @MachineID AND b.ArticleID IN (SELECT DISTINCT ArticleID FROM dye.p_MachinePart WHERE MachineID = @MachineID)"
+  },
+  "sp_zhenzhiribaobiao": {
+    "id": "SQL428",
+    "title": "针织日报原汇总",
+    "kind": "query",
+    "sql": "SELECT a.日期 AS [日期], a.下单 AS [下单], a.下单匹数 AS [下单匹数], a.下单数量 AS [下单数量], b.正常开卡 AS [正常开卡], b.预配匹数 AS [预配匹数], b.预配数量 AS [预配数量], ISNULL(j.回修开卡, 0) AS [列7], ISNULL(j.回修预配匹数, 0) AS [列8], ISNULL(j.回修预配数量, 0) AS [列9], c.在制品缸数 AS [在制品缸数], c.在制品匹数 AS [在制品匹数], c.在制品数量 AS [在制品数量], d.出缸数 AS [出缸数], d.出缸匹数 AS [出缸匹数], d.出缸数量 AS [出缸数量], e.成定缸数 AS [成定缸数], e.成定匹数 AS [成定匹数], e.成定数量 AS [成定数量], f.打卷缸数 AS [打卷缸数], f.打卷坯重 AS [打卷坯重], f.打卷成品重 AS [打卷成品重], g.入库单数 AS [入库单数], g.入库匹数 AS [入库匹数], g.入库坯重 AS [入库坯重], g.入库成品重 AS [入库成品重], h.库存成品匹数 AS [库存成品匹数], h.库存成品坯重 AS [库存成品坯重], h.库存成品重量 AS [库存成品重量], i.库存坯布匹数 AS [库存坯布匹数], i.库存坯重 AS [库存坯重] FROM (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, SUM(b.下单数) AS 下单, SUM(b.下单匹数) AS 下单匹数, SUM(b.下单数量) AS 下单数量 FROM dye.ordermain AS a LEFT JOIN (SELECT SheetSeries AS SheetSeries, COUNT(SheetSeries) AS 下单数, SUM(OrderRolls) AS 下单匹数, ISNULL(SUM(OrderQty), 0) AS 下单数量 FROM dye.OrderColor GROUP BY SheetSeries) AS b ON b.SheetSeries = a.SheetSeries WHERE a.SheetDate >= DATEADD(day,-1,GETDATE()) AND a.SheetDate <= GETDATE()) AS a LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, COUNT(SheetSeries) AS 正常开卡, SUM(PreRolls) AS 预配匹数, SUM(PreVatQty) AS 预配数量 FROM dye.JobSheet WHERE sheetno NOT LIKE '%A%' AND sheetno NOT LIKE '%R%' AND SheetDate >= DATEADD(day,-1,GETDATE()) AND SheetDate <= GETDATE()) AS b ON b.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, COUNT(SheetSeries) AS 回修开卡, SUM(PreRolls) AS 回修预配匹数, SUM(PreVatQty) AS 回修预配数量 FROM dye.JobSheet WHERE (sheetno LIKE '%A%' OR sheetno LIKE '%R%') AND SheetDate >= DATEADD(day,-1,GETDATE()) AND SheetDate <= GETDATE()) AS j ON j.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, COUNT(*) AS 在制品缸数, SUM(PreRolls) AS 在制品匹数, SUM(PreVatQty) AS 在制品数量 FROM dye.vw_JobSheetCurr WHERE sheetdate <= GETDATE()) AS c ON c.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, COUNT(*) AS 出缸数, SUM(Rolls) AS 出缸匹数, SUM(WeightQty) AS 出缸数量 FROM dye.JobSheetReceive WHERE CreateDate >= DATEADD(day,-1,GETDATE()) AND CreateDate <= GETDATE()) AS d ON d.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, COUNT(*) AS 成定缸数, SUM(CurrRolls) AS 成定匹数, SUM(CurrKg) AS 成定数量 FROM dye.WProcess WHERE processid = 'GX31' AND EndTime >= DATEADD(day,-1,GETDATE()) AND EndTime <= GETDATE()) AS e ON e.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, COUNT(*) AS 打卷缸数, SUM(GrayWeight) AS 打卷坯重, SUM(RealQty) AS 打卷成品重 FROM dye.RecordYield WHERE PackTime >= DATEADD(day,-1,GETDATE()) AND PackTime <= GETDATE()) AS f ON f.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, COUNT(*) AS 入库单数, SUM(Rolls) AS 入库匹数, SUM(GaryWeight) AS 入库坯重, SUM(WeightQty) AS 入库成品重 FROM dye.ProdIn WHERE SheetDate >= DATEADD(day,-1,GETDATE()) AND SheetDate <= GETDATE()) AS g ON g.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, SUM(InRolls) - SUM(OutRolls) AS 库存成品匹数, SUM(InGrayQty) - SUM(OutGrayQty) AS 库存成品坯重, SUM(InWeightQty) - SUM(OutWeightQty) AS 库存成品重量 FROM dye.ProdStockBook WHERE NOT CustomerID IN ('040', '039', '043', '041', '050', '051', '055', '058', '059') AND BookDate <= GETDATE()) AS h ON h.日期 = a.日期 LEFT JOIN (SELECT CAST(DATEADD(day,-1,GETDATE()) AS DATE) AS 日期, SUM(InRolls) - SUM(OutRolls) AS 库存坯布匹数, SUM(InWeightQty) - SUM(OutWeightQty) AS 库存坯重 FROM dye.GrayStockBook WHERE NOT CustomerID IN ('040', '039', '043', '041', '050', '051', '055', '058', '059') AND BookDate <= GETDATE()) AS i ON i.日期 = a.日期"
+  }
+}

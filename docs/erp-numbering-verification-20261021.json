@@ -1,0 +1,362 @@
+{
+  "database": "erp_master_xlsx_verify_20261021",
+  "port": "5440",
+  "cases": 45,
+  "passed": 45,
+  "all_business_cases_rolled_back": true,
+  "business_counts_unchanged": {
+    "erp_base.SourceDyePDept": 11,
+    "erp_base.SourceDyeHEmployee": 274,
+    "erp_base.SourceDyePGray": 648,
+    "erp_base.SourceDyePShift": 33,
+    "erp_base.SourceDyePDyeCurve": 21,
+    "erp_warehouse.SourceDyeWidthGramWeight": 23,
+    "erp_base.SourceDyePCustomer": 182,
+    "erp_base.SourceDyePFieldValid": 760,
+    "erp_base.SourceDyePStorageUnitID": 833,
+    "erp_base.SourceDyePStuff": 329,
+    "erp_base.SourceDyePArticle": 399
+  },
+  "results": [
+    {
+      "name": "部门 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "11",
+        "entry": "p_Dept"
+      }
+    },
+    {
+      "name": "员工 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "HF1687",
+        "entry": "h_Employee"
+      }
+    },
+    {
+      "name": "坯纱规格 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "00715",
+        "entry": "ChengBen_Gray"
+      }
+    },
+    {
+      "name": "生产班组 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "A198",
+        "entry": "p_Shift"
+      }
+    },
+    {
+      "name": "染色曲线 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "024",
+        "entry": "p_DyeCurve"
+      }
+    },
+    {
+      "name": "幅宽克重单位共用号码池 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "053",
+        "entry": "WidthGramWeight"
+      }
+    },
+    {
+      "name": "客户 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "107",
+        "entry": "p_Customer"
+      }
+    },
+    {
+      "name": "供应商 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "G094",
+        "entry": "p_Supplier"
+      }
+    },
+    {
+      "name": "仓库注册 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "0804",
+        "entry": "p_FieldValid"
+      }
+    },
+    {
+      "name": "后纺包装 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "A14",
+        "entry": "PackBag"
+      }
+    },
+    {
+      "name": "前纺包装 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "D07",
+        "entry": "PackBag_QF"
+      }
+    },
+    {
+      "name": "后纺纸筒 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "B08",
+        "entry": "TubeWeight"
+      }
+    },
+    {
+      "name": "前纺纸筒 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "C09",
+        "entry": "TubeWeight_QF"
+      }
+    },
+    {
+      "name": "销售区域 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "A06",
+        "entry": "p_FieldValid"
+      }
+    },
+    {
+      "name": "白坯库位 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "0801",
+        "entry": "p_StorageUnitID"
+      }
+    },
+    {
+      "name": "A系列染化料 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "A231",
+        "entry": "p_Stuff"
+      }
+    },
+    {
+      "name": "W系列染化料 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "W107",
+        "entry": "p_Stuff"
+      }
+    },
+    {
+      "name": "Z系列染化料 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "Z004",
+        "entry": "p_Stuff"
+      }
+    },
+    {
+      "name": "机物料类别03 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "PD-227",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别04 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "ZC-2120",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别05 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "DJ-083",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别07 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "JX-065",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别08 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "YF-098",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别09 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "FM-152",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别12 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "BL-163",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别13 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "YL-082",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别14 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "HT-188",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别15 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "WX-0052",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "机物料类别20 自动保存",
+      "passed": true,
+      "detail": {
+        "code": "MEI-100",
+        "entry": "p_Article"
+      }
+    },
+    {
+      "name": "手工别名及上限",
+      "passed": true,
+      "detail": "供应商别名不绕过禁止手工输入，自动号仅消耗一次"
+    },
+    {
+      "name": "修改编号",
+      "passed": true,
+      "detail": "相同值可提交；禁止更改生效；未引用编号可明确更改"
+    },
+    {
+      "name": "幅宽克重共用流水",
+      "passed": true,
+      "detail": [
+        "053",
+        "054"
+      ]
+    },
+    {
+      "name": "预览、失败与溢出",
+      "passed": true,
+      "detail": "预览不占号；失败保存回滚；溢出不截断"
+    },
+    {
+      "name": "手工专用规则",
+      "passed": true,
+      "detail": "关闭自动编号后不调用旧DateCode规则"
+    },
+    {
+      "name": "编号配置API",
+      "passed": true,
+      "detail": "配置预览、只读上限、规则互斥、共池格式冲突检查通过"
+    },
+    {
+      "name": "真实Excel新增与历史承接",
+      "passed": true,
+      "detail": "普通Excel自动号/重复手填，禁止手工整批回滚，历史重复/NULL/空串保留并同步上限"
+    },
+    {
+      "name": "未对应FK的原码引用",
+      "passed": true,
+      "detail": "原关联码存在、尚未建立FK时仍识别引用，不批量改写旧码"
+    },
+    {
+      "name": "既有计数器高水位",
+      "passed": true,
+      "detail": "可明确对应的旧计数器高水位被继承，不回退取已删除旧号"
+    },
+    {
+      "name": "分类切换不能绕过改码策略",
+      "passed": true,
+      "detail": "更换为未配置类别不能绕过原类别禁止改码"
+    },
+    {
+      "name": "取号后真实事务回滚",
+      "passed": true,
+      "detail": "已取号后业务校验失败，规则行与单据一并回滚"
+    },
+    {
+      "name": "原单号及自动建单服务接入",
+      "passed": true,
+      "detail": {
+        "legacy": {
+          "SheetNo": {
+            "mode": "DateCode",
+            "value": "K#261021001"
+          },
+          "SheetSeries": {
+            "mode": "DateCode",
+            "value": "K261021001"
+          }
+        },
+        "explicit_override": "NV00001"
+      }
+    },
+    {
+      "name": "物料全表号码池与原排序规则",
+      "passed": true,
+      "detail": "其他类别的同前缀原码也计入全表号码池，按原不区分大小写与尾空格比较"
+    },
+    {
+      "name": "历史记录编号编辑边界",
+      "passed": true,
+      "detail": "历史新增不发号；历史行编辑受更改权限控制，相同值不视为改号"
+    },
+    {
+      "name": "空表候选模型接入",
+      "passed": true,
+      "detail": "无旧数据的登记资料可自行配规则，不伪装为29条有证据的预置规则"
+    },
+    {
+      "name": "8连接并发保存及删除不回收",
+      "passed": true,
+      "detail": {
+        "workers": 8,
+        "codes": [
+          "053",
+          "054",
+          "055",
+          "056",
+          "057",
+          "058",
+          "059",
+          "060"
+        ],
+        "deleted_code_not_reused": true
+      }
+    }
+  ]
+}

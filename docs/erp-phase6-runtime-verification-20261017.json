@@ -1,0 +1,157 @@
+{
+  "verified_at": "2026-10-17T10:08:56.741478+08:00",
+  "phase": "P6",
+  "development": "部分完成",
+  "tests": {
+    "runs": [
+      {
+        "log": ".runtime-temp/phase6/current-all-tests.log",
+        "tests": 1028,
+        "seconds": 1607.693,
+        "error_records": 11,
+        "failed_cases": [
+          "plugins.erp_base.tests.test_legacy_import.LegacyImportTests.test_composite_old_id_decimal_null_and_trailing_spaces_compare",
+          "plugins.erp_base.tests.test_legacy_import.LegacyImportTests.test_duplicate_original_keys_are_stored_as_separate_source_rows",
+          "plugins.erp_base.tests.test_legacy_import.LegacyImportTests.test_master_import_counts_separate_original_rows_from_adopted_masters",
+          "plugins.erp_base.tests.test_legacy_import.LegacyImportTests.test_new_batch_uses_existing_map_and_keeps_changed_original_value",
+          "plugins.erp_base.tests.test_legacy_import.LegacyImportTests.test_no_primary_key_stays_archive_and_does_not_fabricate_old_id",
+          "plugins.erp_base.tests.test_source_compare.FullOriginalComparisonTests.test_full_comparison_preserves_null_negative_identity_and_reports_changed_field",
+          "plugins.erp_base.tests.test_source_provenance.OriginalProvenanceTests.test_composite_key_duplicates_and_same_keys_in_another_batch_are_not_merged",
+          "plugins.erp_base.tests.test_source_provenance.OriginalProvenanceTests.test_keyless_exact_duplicates_negative_null_and_empty_survive_copy_and_comparison",
+          "plugins.erp_base.tests.test_source_provenance.OriginalProvenanceTests.test_original_columns_and_current_api_models_have_no_extra_identifier"
+        ],
+        "sha256": "7838bef7560b4be61a272458782afa774c708bad09fb027de0cb6920d56136ac"
+      },
+      {
+        "log": ".runtime-temp/phase6/current-runtime-final-tests.log",
+        "tests": 956,
+        "seconds": 578.955,
+        "error_records": 2,
+        "failed_cases": [
+          "plugins.erp_base.tests.test_source_phase6_editor_context.EditorContextTests.test_incomplete_machine_filter_is_reported_without_guessing_target",
+          "plugins.erp_base.tests.test_source_phase6_hook_bindings.HookBindingTests.test_trial_save_uses_all_series_sources_and_second_color_join_overrides_first"
+        ],
+        "sha256": "2e16928d06849b73c0ebfda622d0822febcff7fec21138d73cb763376eb0d739"
+      },
+      {
+        "log": ".runtime-temp/phase6/current-runtime-corrections-tests.log",
+        "tests": 131,
+        "seconds": 29.532,
+        "error_records": 0,
+        "failed_cases": [],
+        "sha256": "a19cc52855de04e514d3cb3f5822e4575c7f9b749596f187f9cdd1c1e6879253"
+      }
+    ],
+    "latest_result_by_unique_case": 1042,
+    "unresolved_failed_cases": [],
+    "notes": [
+      "完整七模块1028项首轮中9个用例出现11条临时目录权限错误，包含2条清理错误。",
+      "第二轮重跑原业务模块，排除首轮已通过且未改动的主数据API及模型初始化测试；新增用例中两处错误经修正后专项再验证。",
+      "不同轮次用例有重叠，总数表示各用例最新结果均通过，不是宣称单次全量零错误。"
+    ]
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "live_snapshot_equal_previous": {
+      "fields": true,
+      "modules": true,
+      "ui_tables": true,
+      "ui_fields": true
+    },
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n"
+  },
+  "frontend": {
+    "command": "npm --prefix web run build",
+    "typecheck": "passed",
+    "build": "passed",
+    "log": ".runtime-temp/phase6/current-frontend-final.log",
+    "sha256": "eb1e474688ba9a790b545b0ba290c82803c45253365a9b046dc7432e8f52effc"
+  },
+  "browser_proof": {
+    "template": "H003 / index 4",
+    "synthetic_rows": 3,
+    "checked": [
+      "中文",
+      "日期",
+      "表格",
+      "固定高度分页"
+    ],
+    "physical_printer_acceptance": false
+  },
+  "configuration": {
+    "sha256": "5804a3c6b93f3f58f38ef7994c9e7375af8e193b008c46fb2b0b6d1f28a6bdfd",
+    "counts": {
+      "identity_model_field_bindings": 116,
+      "copy_model_field_bindings": 223,
+      "unbound_identity_configurations": 11,
+      "unbound_copy_configurations": 16,
+      "editor_model_field_bindings": 2860,
+      "original_field_copy_rows": 40,
+      "lookup_definitions": 266,
+      "lookup_column_rows": 561,
+      "explicit_context_filters": 3,
+      "incomplete_context_filters": 13,
+      "data_relation_rows": 0,
+      "table_relation_rows": 0,
+      "templates": 290,
+      "fixed_proof_templates": 1,
+      "complete_original_templates": 0,
+      "whole_entries_completed": 0,
+      "historical_import_rows_this_run": 0,
+      "whole_entry_historical_reconciled": 0,
+      "field_accepted": 0
+    }
+  },
+  "historical_data": {
+    "new_import_rows": 0,
+    "whole_entry_reconciled": 0,
+    "note": "未新增历史承接；不覆盖此前历史承接事实。"
+  },
+  "field_acceptance": {
+    "completed": 0
+  },
+  "remaining": {
+    "query_differences": 55,
+    "complete_original_print_templates": 0,
+    "fixed_height_proof_templates": 1,
+    "notes": [
+      "字段办理时机、编辑目标、跨字段/跨单回填、逐事件非空验证仍有开发任务。",
+      "复杂打印脚本、分组/汇总、条码、子报表与外部来源分别保留，不能全部归为只等现场。"
+    ]
+  },
+  "file_sha256": {
+    "backend/plugins/erp_base/source_api.py": "7e62c1213b458a3b6cbb281ca003f7361b675e60852beb5acc06db70a363e808",
+    "backend/plugins/erp_base/source_entry_rules.json": "58aa2ed08eff32dc5918f054c954ca67688c12eaf844ed34dea404cf6f016c75",
+    "backend/plugins/erp_base/source_entry_services.py": "df877adbcb9bd28267954236df9e43b7d88b4d3d5ee01935c620a10d8b246fb0",
+    "backend/plugins/erp_base/source_entry_identity.py": "7958e8e02573b7404713140e3c5fa46ec9ae3ddb3098b1479707b61ed2eb5cd3",
+    "backend/plugins/erp_base/source_entry_copy.py": "e8abf20b401130b4b5de30f41352a58c021049bad8ff861c27a9667ca62749d2",
+    "backend/plugins/erp_base/source_services.py": "05fd6b0b2317636e93f265b7d0f228eee933594b31112775198be6ba63b9ec25",
+    "backend/plugins/erp_base/source_phase6_forms.py": "371cf5af6a56d6d84b59d84f0819ddaed894d23ca10356f531cb869a3976f9f1",
+    "backend/plugins/erp_base/source_phase6_editors.py": "896299e3ad28d44d736e13aef27127bccfb45d7ce9ab769440b250042bde67fe",
+    "backend/plugins/erp_base/source_phase6_field_links.json": "5804a3c6b93f3f58f38ef7994c9e7375af8e193b008c46fb2b0b6d1f28a6bdfd",
+    "backend/plugins/erp_base/source_phase6_api.py": "23db89257d3dc7564c09759185aecff88b485c5e90a74e392673a37ed6087e09",
+    "backend/plugins/erp_base/source_phase6_expressions.py": "cfb995ff775031629e74d1c7dcdeaabe7df05d6dd4c16bdc1dd180c810c384f1",
+    "backend/plugins/erp_base/source_phase6_printing.py": "feee3426876c100bc68e767b6531c7ae87a68d1fc00ef6adb4008084dcff2899",
+    "backend/plugins/erp_base/source_phase6_rendering.py": "8bbb2c93c296a47557666570c2a14bb9aca2930c4ce290f247c28772e4151c67",
+    "backend/plugins/erp_base/source_sample_flow.py": "dd755acb39f2ec0b26534704bb169eda04570470123c5b5a2e9a3c3b6230c1d0",
+    "backend/plugins/erp_base/source_workflow_services.py": "dca45792b4520c2ecadece50b882ed45192b58970a50782c977dedb435e92f6a",
+    "backend/plugins/erp_base/source_sampling_services.py": "a9cd661413c51179c7165d8fe98d90bdc1f41dda99a082cc2e02ffa11ec0bc58",
+    "backend/plugins/erp_base/tests/test_source_phase6_finalization.py": "10abb47a19a7c3ef41bce5954150d10d3ae0401b82f0b4ac9c82a6fa9bd657e6",
+    "backend/plugins/erp_base/tests/test_source_phase6_editor_context.py": "9a3d55f128006262c0faf32cecbbc9209c11ae9b527c9215551295a69aaf07c2",
+    "backend/plugins/erp_base/tests/test_source_phase6_hook_bindings.py": "d42e4111ba12869066835ed25d37b09fdabadb20306003099e9546bb3375f5a2",
+    "backend/plugins/erp_base/tests/test_source_sample_flow.py": "47b6935d1d39994bacf6f95aa21b5ee168ac9466da8def980377639c55f50f13",
+    "backend/plugins/erp_base/tests/test_source_workflow.py": "d938769f2f5d3e36df9b8a37264a25ea118e29e67cfbf927e3d0755ecf339f22",
+    "backend/plugins/erp_base/tests/test_source_phase6.py": "41dcadd02235a2b84f2781dec82709ddd7c57dec67f317445a018a09c59e6377",
+    "web/src/components/FieldInput.vue": "f29959e7b76c6d92289af4f694ec6964f39b5d3d31a8cd819d208cb35fa0f3e6",
+    "web/src/components/ResourceTable.vue": "698ccdbfcb8fe34f302d37c17549781dbbd2faf1c1089dc0b07bb0cc251ec236",
+    "web/src/plugins/erp/OriginalEntryWorkbench.vue": "84760f7a18bc12df9b6aa2aff6cb714920d3c8828dd42b24a2ef3fab2f8ca7b3",
+    "web/src/plugins/erp/OriginalLookupField.vue": "746764dd190fc1f3fc875a21bc993d0607211fd231fecb9ad81aacf38d8715da",
+    "tools/legacy_models/build_entry_rules.py": "17db90ff32019538e0d257389e4fb0018c8d359a3cffa22fe42112386109e988",
+    "tools/legacy_models/audit_phase6_runtime.py": "26f6169db9aea1940acbc0cd3bf50fa93f3d500c136a2d458ed1b0e9da6f6b52",
+    "tools/legacy_models/sync_phase6_runtime_review.py": "f34659b27d909a7201cbb350e8d06105d8e93bcfe5d322190ed22e006ef1164f",
+    "tools/legacy_snapshot/read_phase6_field_links.ps1": "01697309b2d371c59c57e8f1249a97e95848d193d20cc02e62f16c5e17afba0a"
+  }
+}

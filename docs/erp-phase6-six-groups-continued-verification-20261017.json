@@ -1,0 +1,157 @@
+{
+  "verified_at": "2026-10-17T22:29:48.917005+08:00",
+  "baseline_sha256": "a6ca285cc8fcb4627ea0521be220d08a726aac0ab382fb246074dd46334aa7e5",
+  "fixed_ids_preserved": true,
+  "fixed_counts": {
+    "1": 116,
+    "2": 156,
+    "3": 95,
+    "4": 272,
+    "5": 290,
+    "6": 4
+  },
+  "state_counts": {
+    "1": {
+      "原来源或表达式差异，保留明确录入": 5,
+      "保存计算已实现并通过类型向量验证": 111
+    },
+    "2": {
+      "保存计算已实现并通过类型向量验证": 123,
+      "沿用已有自动服务": 29,
+      "原来源或表达式差异，保留明确录入": 4
+    },
+    "3": {
+      "非空固定字段试算通过（合成测试库）": 84,
+      "财务赔款结算暂缓": 10,
+      "非空来源差异已逐行留存": 1
+    },
+    "4": {
+      "已接入动作条件，必要用例仍逐规则记录": 128,
+      "已定位service接线，待逐入口验证": 51,
+      "已接入保存或逆向副作用，待逐入口验收": 14,
+      "独立财务分支暂缓": 8,
+      "已定位既有服务及回归用例，仍有原行为差异需核对": 10,
+      "缺外部调用及回执": 3,
+      "缺本地原表定义": 2,
+      "独立财务转单暂缓": 20,
+      "原七列映射已接显式采购转单，旧按钮时机未证明": 7,
+      "原来源视图缺失，已接明确报价头/行替代映射": 10,
+      "原来源视图缺失，物料由明确参数选定或留NULL": 1,
+      "最新原表没有此目标字段": 2,
+      "explicit_equality": 14,
+      "incomplete_configuration": 2
+    },
+    "5": {
+      "缺原XML": 29,
+      "有原运行差异": 248,
+      "具备填数校样条件，非完整原版式验收": 13
+    },
+    "6": {
+      "相关回归和最终针对性验证通过": 1,
+      "固定第三组35个非财务入口已逐一浏览器查询；5份新增原打印非空校样通过": 1,
+      "前端、模型及迁移检查通过；固定编号未变": 1,
+      "历史结果全量对账和现场验收独立保留，未完成": 1
+    }
+  },
+  "print_scopes": {
+    "缺XML，未据此排除业务": 29,
+    "非财务入口": 158,
+    "缺明确入口定义，原配置保留": 68,
+    "财务打印暂缓": 35
+  },
+  "tests": {
+    "regression": {
+      "count": 404,
+      "seconds": "158.343",
+      "log": ".runtime-temp/phase6/continued-regression.log",
+      "sha256": "a9a88f31671d2a1fb5d698ed4c1a1d2845c973dbe0e2ca116b3e25b6479549a0"
+    },
+    "final_targeted": {
+      "count": 30,
+      "seconds": "4.238",
+      "log": ".runtime-temp/phase6/continued-targeted.log",
+      "sha256": "4e74d937bc3732e34d060ab21ac019957a263d5db997540dad33708fc0010ab7"
+    },
+    "note": "两套用例重叠，不能相加为独立用例数"
+  },
+  "schema": {
+    "erp_models": 766,
+    "source_models": 655,
+    "original_fields": 12606,
+    "extra_legacy_id_fields": [],
+    "checks": "System check identified no issues (0 silenced).\nNo changes detected\n",
+    "schema_basis": "当前Django模型；本轮没有重新提取旧SQL Server结构"
+  },
+  "query_entry_states": {
+    "非空固定公式运行通过": 34,
+    "财务暂缓": 4,
+    "非空有逐行差异": 1
+  },
+  "expected_value_checks": 29,
+  "expected_value_checks_passed": 29,
+  "browser_entry_count": 35,
+  "browser_entry_evidence": "docs/assets/phase6-continued-browser-entries-20261017.json",
+  "browser_prints": [
+    {
+      "report": "H007",
+      "rows": 2,
+      "pages": 1,
+      "html": "docs/assets/phase6-continued-H007-20261017.html",
+      "sha256": "ff62c6cd4b51644581ac81863162ae5e21b76054575bc78c2a023b481d5912d7"
+    },
+    {
+      "report": "H019",
+      "rows": 2,
+      "pages": 1,
+      "html": "docs/assets/phase6-continued-H019-20261017.html",
+      "sha256": "093b889209e466594d2a8922f0693f17ddbab57641015fba2ec44c83c52a1ed0"
+    },
+    {
+      "report": "R014",
+      "rows": 3,
+      "pages": 1,
+      "html": "docs/assets/phase6-continued-R014-20261017.html",
+      "sha256": "752509252ef7794aa68ac0a1ffcb9f9ff4a131fb6fea64b4c7f40b4c96a46258"
+    },
+    {
+      "report": "R040",
+      "rows": 3,
+      "pages": 1,
+      "html": "docs/assets/phase6-continued-R040-20261017.html",
+      "sha256": "7387d02e4f79151aa1b0a5bee4c424e99b22a74a5910fca9935b0840edf1265f"
+    },
+    {
+      "report": "R036",
+      "rows": 3,
+      "pages": 1,
+      "html": "docs/assets/phase6-continued-R036-20261017.html",
+      "sha256": "87818aa6865ae36ce279018e1a99114219cc3d127cb445d08a098f34a52c7692"
+    }
+  ],
+  "frontend": {
+    "result": "类型检查与构建通过",
+    "log": ".runtime-temp/phase6/continued-frontend.log",
+    "sha256": "5cf1d03fc49d43625317960b8174f5472345cebe4294925dc1a738a440fce02f"
+  },
+  "paused_query_count": 35,
+  "paused_queries_changed": false,
+  "historical_import_rows_this_run": 0,
+  "historical_reconciliation": "未完成全量旧业务结果对账",
+  "field_acceptance": "未现场验收",
+  "browser_screenshot": "本轮截图接口仍返回 Unable to capture screenshot；保存实际浏览器校样HTML和页面文本，不以生成图片冒充截图。",
+  "code_sha256": {
+    "backend/plugins/erp_base/source_phase6_formula_runtime.py": "18ca80d9a4af84a7ad0620e89dd9e0d807062a84118f04ece3bd60ac592b598b",
+    "backend/plugins/erp_base/source_phase6_projection_context.py": "3f883c8b26c35ffb1dc93252cf01aecde5ac7af8863cf0b9e674e2ed27cb6af8",
+    "backend/plugins/erp_base/source_phase6_projection_formulas.py": "33634513bc5cdfe62c15e746134429f7c6ec5d24e8b09c467db551403882bd69",
+    "backend/plugins/erp_base/source_phase6_projection_overrides.py": "8f91e2767eea5d50588e1a1092f0b516ff7253bec89330a746c1ebc16c28ff4e",
+    "backend/plugins/erp_base/source_phase6_print_sources.py": "e28b147e0ba72eb9ed07e9837198658b8f559af3f2db33633a5713261e3883ab",
+    "backend/plugins/erp_base/source_phase6_print_groups.py": "fe2282a86ad12e34f016e2704b2543e005668a8e94f6411840a6ec451e76340f",
+    "backend/plugins/erp_base/source_phase6_rendering.py": "7cd20b93199e8f0eb914d09c912c7bd3017b5e757f3454c561b6de79a4dab717",
+    "backend/plugins/erp_base/source_phase6_entries.py": "f2ae42db12b439067a8f15ec805645a3c07561274fc911b1f3491296f66877d5",
+    "backend/plugins/erp_base/source_phase6_api.py": "390f2cb48e4a2624692ab61b9bbe6af59614c21c234b1d32a6e5cc4c5829496f",
+    "backend/plugins/erp_base/tests/test_source_phase6_six_groups_continued.py": "e797a178fe99f4ed2d679beeaebce68fabb804038389a5d73ea375cde0b91287",
+    "web/src/plugins/erp/OriginalEntryWorkbench.vue": "71b38b409960e1a7957bd90a5c621ac618be85514149aa07d72ebda277d169f5",
+    "tools/legacy_models/verify_phase6_projection_entries.py": "a23d0bc275d496654f30ebb48893809e074abb57f30d38ff3f0fbd4c9e2888b8",
+    "tools/legacy_models/review_phase6_six_groups.py": "67d6240ed10a31224aab91028483a8b90d556f9f534cfc687ed6894fbe8f3932"
+  }
+}

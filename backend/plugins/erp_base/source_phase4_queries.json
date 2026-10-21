@@ -1,0 +1,1110 @@
+{
+  "A_JobModify": {
+    "id": "SQL559",
+    "kind": "view",
+    "title": "A_JobModify"
+  },
+  "A_JobModify_SELECT": {
+    "id": "SQL560",
+    "kind": "view",
+    "title": "A_JobModify_SELECT"
+  },
+  "A_Overprinting": {
+    "id": "SQL561",
+    "kind": "view",
+    "title": "A_Overprinting"
+  },
+  "A_PTGX": {
+    "id": "SQL566",
+    "kind": "view",
+    "title": "A_PTGX"
+  },
+  "A_RSGX": {
+    "id": "SQL568",
+    "kind": "view",
+    "title": "A_RSGX"
+  },
+  "A_TOPWProcessNo": {
+    "id": "SQL569",
+    "kind": "view",
+    "title": "A_TOPWProcessNo"
+  },
+  "T_PSD": {
+    "id": "SQL585",
+    "kind": "view",
+    "title": "T_PSD"
+  },
+  "v_APP_Machine": {
+    "id": "SQL591",
+    "kind": "view",
+    "title": "v_APP_Machine"
+  },
+  "v_APP_MachineFault": {
+    "id": "SQL593",
+    "kind": "view",
+    "title": "v_APP_MachineFault"
+  },
+  "v_ColorMatching_DyeAdd": {
+    "id": "SQL594",
+    "kind": "view",
+    "title": "v_ColorMatching_DyeAdd"
+  },
+  "v_DPWorkQty": {
+    "id": "SQL598",
+    "kind": "view",
+    "title": "v_DPWorkQty"
+  },
+  "v_DPWorkQty_Day": {
+    "id": "SQL599",
+    "kind": "view",
+    "title": "v_DPWorkQty_Day"
+  },
+  "v_DPWorkQtyALL": {
+    "id": "SQL600",
+    "kind": "view",
+    "title": "v_DPWorkQtyALL"
+  },
+  "v_DPWorkQtyCount": {
+    "id": "SQL601",
+    "kind": "view",
+    "title": "v_DPWorkQtyCount"
+  },
+  "v_DyePatQuery": {
+    "id": "SQL603",
+    "kind": "view",
+    "title": "v_DyePatQuery"
+  },
+  "v_DyeQuery": {
+    "id": "SQL605",
+    "kind": "view",
+    "title": "v_DyeQuery"
+  },
+  "v_DyeUse_FB": {
+    "id": "SQL606",
+    "kind": "view",
+    "title": "v_DyeUse_FB"
+  },
+  "v_DyeUse_JL": {
+    "id": "SQL607",
+    "kind": "view",
+    "title": "v_DyeUse_JL"
+  },
+  "v_DyeWorkQty": {
+    "id": "SQL608",
+    "kind": "view",
+    "title": "v_DyeWorkQty"
+  },
+  "v_FPDGroup": {
+    "id": "SQL610",
+    "kind": "view",
+    "title": "v_FPDGroup"
+  },
+  "v_JobProcesOuttime": {
+    "id": "SQL613",
+    "kind": "view",
+    "title": "v_JobProcesOuttime"
+  },
+  "v_JobProcesOuttime1": {
+    "id": "SQL614",
+    "kind": "view",
+    "title": "v_JobProcesOuttime1"
+  },
+  "v_KQ_EmpShiftClock": {
+    "id": "SQL617",
+    "kind": "view",
+    "title": "v_KQ_EmpShiftClock"
+  },
+  "v_PackWorkQty": {
+    "id": "SQL622",
+    "kind": "view",
+    "title": "v_PackWorkQty"
+  },
+  "v_PackWorkQty1": {
+    "id": "SQL624",
+    "kind": "view",
+    "title": "v_PackWorkQty1"
+  },
+  "v_PDGroup": {
+    "id": "SQL627",
+    "kind": "view",
+    "title": "v_PDGroup"
+  },
+  "v_ProcessPatQuery": {
+    "id": "SQL628",
+    "kind": "view",
+    "title": "v_ProcessPatQuery"
+  },
+  "v_ShiftClock": {
+    "id": "SQL633",
+    "kind": "view",
+    "title": "v_ShiftClock"
+  },
+  "v_StuffWeight_DX_Query": {
+    "id": "SQL638",
+    "kind": "view",
+    "title": "v_StuffWeight_DX_Query"
+  },
+  "v_StuffWeightDetail": {
+    "id": "SQL640",
+    "kind": "view",
+    "title": "v_StuffWeightDetail"
+  },
+  "v_StuffWeightDetailQuery": {
+    "id": "SQL641",
+    "kind": "view",
+    "title": "v_StuffWeightDetailQuery"
+  },
+  "v_StuffWeightQuery_To_LX": {
+    "id": "SQL642",
+    "kind": "view",
+    "title": "v_StuffWeightQuery_To_LX"
+  },
+  "v_StuffWeightStep": {
+    "id": "SQL643",
+    "kind": "view",
+    "title": "v_StuffWeightStep"
+  },
+  "v_StuffWeightStep_LX": {
+    "id": "SQL644",
+    "kind": "view",
+    "title": "v_StuffWeightStep_LX"
+  },
+  "v_StuffWeightStep_TO_LX": {
+    "id": "SQL645",
+    "kind": "view",
+    "title": "v_StuffWeightStep_TO_LX"
+  },
+  "v_WProcess_WorkQty": {
+    "id": "SQL649",
+    "kind": "view",
+    "title": "v_WProcess_WorkQty"
+  },
+  "View_StereotypesNamePlan": {
+    "id": "SQL653",
+    "kind": "view",
+    "title": "View_StereotypesNamePlan"
+  },
+  "VW_DyeJobsheet": {
+    "id": "SQL659",
+    "kind": "view",
+    "title": "VW_DyeJobsheet"
+  },
+  "vw_DyeWorkQty": {
+    "id": "SQL662",
+    "kind": "view",
+    "title": "vw_DyeWorkQty"
+  },
+  "VW_JobProcess_Dye": {
+    "id": "SQL666",
+    "kind": "view",
+    "title": "VW_JobProcess_Dye"
+  },
+  "vw_jobsheet": {
+    "id": "SQL667",
+    "kind": "view",
+    "title": "vw_jobsheet"
+  },
+  "vw_JobSheet_CurrProcessID": {
+    "id": "SQL668",
+    "kind": "view",
+    "title": "vw_JobSheet_CurrProcessID"
+  },
+  "vw_jobsheet_QC": {
+    "id": "SQL669",
+    "kind": "view",
+    "title": "vw_jobsheet_QC"
+  },
+  "vw_JobSheetCarry": {
+    "id": "SQL670",
+    "kind": "view",
+    "title": "vw_JobSheetCarry"
+  },
+  "vw_JobSheetCurr": {
+    "id": "SQL671",
+    "kind": "view",
+    "title": "vw_JobSheetCurr"
+  },
+  "vw_Machine": {
+    "id": "SQL672",
+    "kind": "view",
+    "title": "vw_Machine"
+  },
+  "vw_PackQty": {
+    "id": "SQL676",
+    "kind": "view",
+    "title": "vw_PackQty"
+  },
+  "vw_ProcessDyMachine": {
+    "id": "SQL677",
+    "kind": "view",
+    "title": "vw_ProcessDyMachine"
+  },
+  "vw_ProcessDyMachine_FB": {
+    "id": "SQL678",
+    "kind": "view",
+    "title": "vw_ProcessDyMachine_FB"
+  },
+  "vw_ProcessScheduleQuery": {
+    "id": "SQL680",
+    "kind": "view",
+    "title": "vw_ProcessScheduleQuery"
+  },
+  "VW_StuffWeight_Qty": {
+    "id": "SQL684",
+    "kind": "view",
+    "title": "VW_StuffWeight_Qty"
+  },
+  "vwDyeWorkQty": {
+    "id": "SQL694",
+    "kind": "view",
+    "title": "vwDyeWorkQty"
+  },
+  "vwJobNoSettleData": {
+    "id": "SQL701",
+    "kind": "view",
+    "title": "vwJobNoSettleData"
+  },
+  "vwJobToPlan": {
+    "id": "SQL702",
+    "kind": "view",
+    "title": "vwJobToPlan"
+  },
+  "vwJobToSchedule": {
+    "id": "SQL703",
+    "kind": "view",
+    "title": "vwJobToSchedule"
+  },
+  "vwJobToScheduleDX": {
+    "id": "SQL704",
+    "kind": "view",
+    "title": "vwJobToScheduleDX"
+  },
+  "vwJobToScheduleFB": {
+    "id": "SQL705",
+    "kind": "view",
+    "title": "vwJobToScheduleFB"
+  },
+  "vwJobToScheduleNT": {
+    "id": "SQL706",
+    "kind": "view",
+    "title": "vwJobToScheduleNT"
+  },
+  "vwPreTransPrepareToJob": {
+    "id": "SQL719",
+    "kind": "view",
+    "title": "vwPreTransPrepareToJob"
+  },
+  "vwProcessScheduleDone": {
+    "id": "SQL720",
+    "kind": "view",
+    "title": "vwProcessScheduleDone"
+  },
+  "Winding_Jobsheet_Detail": {
+    "id": "SQL732",
+    "kind": "view",
+    "title": "Winding_Jobsheet_Detail"
+  },
+  "sp_App_CheckInspectionLog": {
+    "id": "SQL126",
+    "title": "sp_App_CheckInspectionLog",
+    "kind": "query",
+    "sql": [
+      "SELECT 0 AS Code, '' AS Msg"
+    ]
+  },
+  "sp_App_CheckMachineCareRecords": {
+    "id": "SQL127",
+    "title": "sp_App_CheckMachineCareRecords",
+    "kind": "query",
+    "sql": [
+      "SELECT 0 AS Code, '' AS Msg"
+    ]
+  },
+  "sp_App_MachineCareRecords": {
+    "id": "SQL162",
+    "title": "sp_App_MachineCareRecords",
+    "kind": "query",
+    "sql": [
+      "SELECT 0 AS Code, '' AS Msg"
+    ]
+  },
+  "sp_App_QueryDyeMachinePlanByPage": {
+    "id": "SQL170",
+    "title": "sp_App_QueryDyeMachinePlanByPage",
+    "kind": "query",
+    "sql": [
+      "SELECT pm.Model, pm.MachineID, pm.NAME AS MachineName, pm.MachineNo, js.CustomerID, pc.ShortName AS CustomerName, ISNULL(js.DetailCustName, '') AS DetailCustName, ps.JobSheetNo, p.NameC AS ProdID, js.ColorNum, ISNULL(js.CustColorNum, '') + ISNULL(js.ColorID, '') AS ColorID, js.SumAssignedRolls, js.SumAssignedWeightQty, js.SumAssignedLengthQty, ps.CombineSheetNos, ISNULL(pm.MachineNo, '') AS SequenceNo, ISNULL(ps.SequenceNo, '') AS PXH, js.DlvDate, js.Remarks AS JSRemarks, DATEDIFF(DAY, CAST(GETDATE() AS DATETIME2), CAST(ISNULL(js.DlvDate, GETDATE()) AS DATETIME2)) AS OverdueDays, mk.DisplayValue AS MachineKind FROM dye.p_Machine AS pm LEFT JOIN dye.ProcessSchedule AS ps ON pm.MachineID = ps.MachineID LEFT JOIN dye.JobSheet AS js ON js.SheetSeries = ps.JobSheetSeries LEFT JOIN dye.p_Customer AS pc ON js.CustomerID = pc.CustomerID LEFT JOIN dye.StuffWeight AS sw ON sw.JobSheetNo = ps.JobSheetNo AND sw.ProcessID = ps.ProcessID AND sw.SheetKind = 2 AND sw.RecipeType IN (0, 2) LEFT JOIN dye.JobProcess AS jp ON jp.SheetSeries = ps.JobSheetSeries AND ps.ProcessNo - 1 = jp.ProcessNo LEFT JOIN dye.p_Process AS pp ON js.CurrProcessID = pp.ProcessID LEFT JOIN dye.p_Product AS p ON js.CustSelfProduct = p.ProdID AND js.CustomerID = p.CustomerID LEFT JOIN (SELECT KeyValue AS KeyValue, DisplayValue AS DisplayValue FROM dye.s_DBComboValue WHERE ComboID = 'B010') AS mk ON mk.KeyValue = pm.MachineKindID WHERE ISNULL(pm.Model, '') <> '' AND pm.StationID = '02' AND (@conFilter = '' OR pm.MachineID LIKE '%' + @conFilter + '%' OR pm.NAME LIKE '%' + @conFilter + '%')"
+    ]
+  },
+  "sp_App_QueryMachineFaultBySheetSereis": {
+    "id": "SQL184",
+    "title": "sp_App_QueryMachineFaultBySheetSereis",
+    "kind": "query",
+    "sql": [
+      "SELECT ISNULL(pf.Name, a.FaultID) AS FaultName, ISNULL(ps.Name, '') AS SeverityName, pr.Name AS ResultName, dye.ChangeIDListToEmpName(a.HandlerIDs, ';') AS HandlerNames, a.SheetSeries, a.SheetNo, a.SheetDate, a.SheetKind, a.MachineID, a.EmpID, ISNULL(CONVERT(VARCHAR(100), a.HappenTime, 23), '') AS HappenTime, a.ApplyTime, a.DeptID, a.ShiftID, a.FaultID, a.SeverityID, a.HandlerIDs, a.Handlers, a.StartTime, ISNULL(CONVERT(VARCHAR(100), a.EndTime, 23), '') AS EndTime, a.ResultID, a.ApproveDate, a.Approver, a.SheetStatus, a.StepNo, a.PrintTimes, a.Revisions, a.Remarks, a.Creater, a.CreateDate, a.Modifyer, a.ModifyDate, a.HandleIdea, a.RightStatus, a.PhotoAddress, a.ApproveIdea, a.PatrolDetailNo, a.SheetType, a.StationID, a.BusinessUnitID FROM dye.MachineFault AS a LEFT JOIN dye.p_FieldValid AS pf ON pf.FieldType = 'Fault' AND pf.Code = a.FaultID LEFT JOIN dye.p_FieldValid AS ps ON ps.FieldType = 'Severity' AND ps.Code = a.SeverityID LEFT JOIN dye.p_FieldValid AS pr ON pr.FieldType = 'Result' AND pr.Code = a.ResultID WHERE a.SheetSeries = @SheetSeries"
+    ]
+  },
+  "sp_App_QueryMachineFaultList": {
+    "id": "SQL185",
+    "title": "sp_App_QueryMachineFaultList",
+    "kind": "query",
+    "sql": [
+      "SELECT ISNULL(FaultRemarks, '') AS FaultName, ISNULL(ps.Name, '') AS SeverityName, FlowStatus AS ResultName, dye.ChangeIDListToEmpName(a.HandlerIDs, ';') AS HandlerNames, a.SheetSeries, a.SheetNo, a.SheetDate, a.SheetKind, a.MachineID, a.EmpID, ISNULL(CONVERT(VARCHAR(16), a.HappenTime, 120), '') AS HappenTime, a.ApplyTime, a.DeptID, a.ShiftID, a.FaultID, a.SeverityID, a.HandlerIDs, a.Handlers, a.StartTime, ISNULL(CONVERT(VARCHAR(16), a.EndTime, 120), '') AS EndTime, a.ResultID, a.ApproveDate, a.Approver, a.SheetStatus, a.StepNo, a.PrintTimes, a.Revisions, a.Remarks, a.Creater, a.CreateDate, a.Modifyer, a.ModifyDate, a.HandleIdea, a.RightStatus, a.PhotoAddress, a.ApproveIdea, a.PatrolDetailNo, a.SheetType, a.StationID, a.BusinessUnitID, a1.Name AS reqRepair, a1.Name + '  ' + CONVERT(VARCHAR(16), a.SheetDate, 120) AS nameAndreqDate, ISNULL(a.StartTime, a.EndTime) AS repairTime, dye.ChangeIDListToEmpName(a.HandlerIDs, ';') + '  ' + ISNULL(CONVERT(VARCHAR(16), ISNULL(a.StartTime, a.EndTime), 120), '') AS repairAndrepairTime, a.FlowStatus, ISNULL(ms.BackColor, '#000000') AS BackColor, ISNULL(ms.FontColor, '#ffffff') AS FontColor FROM dye.MachineFault AS a LEFT JOIN dye.h_Employee AS a1 ON a.EmpID = a1.EmpID LEFT JOIN dye.p_FieldValid AS pf ON pf.FieldType = 'Fault' AND pf.Code = a.FaultID LEFT JOIN dye.p_FieldValid AS ps ON ps.FieldType = 'Severity' AND ps.Code = a.SeverityID LEFT JOIN dye.p_FieldValid AS pr ON pr.FieldType = 'Result' AND pr.Code = a.ResultID LEFT JOIN dye.p_MachineFaultStatus AS ms ON ms.StatusName = a.FlowStatus WHERE 1 = 1 AND a.MachineID LIKE '%' + @MachineID + '%' AND (ISNULL(@StartDate, '1900-01-01') < '1911-11-11' OR a.SheetDate >= @StartDate) AND (ISNULL(@EndDate, '1900-01-01') < '1911-11-11' OR a.SheetDate <= @EndDate) ORDER BY sheetDate DESC"
+    ]
+  },
+  "sp_App_QueryMachineInspectionLogs": {
+    "id": "SQL186",
+    "title": "sp_App_QueryMachineInspectionLogs",
+    "kind": "query",
+    "sql": [
+      "SELECT DISTINCT a.SheetSeries, a.SheetNo, CONVERT(VARCHAR(100), a.SheetDate, 23) AS SheetDate, h.Name AS EmpName, a.InspectionSurvey FROM dye.InspectionLogDetail AS b LEFT JOIN dye.InspectionLog AS a ON b.SheetSeries = a.SheetSeries LEFT JOIN dye.h_Employee AS h ON a.Inspector = h.EmpID WHERE b.MachineID = @MachineID ORDER BY SheetDate DESC"
+    ]
+  },
+  "SP_APP_SheetNoQueryGetClothNotice": {
+    "id": "SQL208",
+    "title": "SP_APP_SheetNoQueryGetClothNotice",
+    "kind": "query",
+    "sql": [
+      "SELECT SheetSeries, Driver, Dr.Name AS DriverName, LicensePlate, Remarks FROM dye.GetClothNotice AS a LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'Driver') AS Dr ON a.Driver = Dr.Code WHERE SheetSeries = @SheetSeries",
+      "SELECT SheetSeries, DetailNo, ProdID, Fk.Name AS ProdName, a.CustomerID, cu.ShortName AS CustomerName, a.AddrDlv, ClothGetDetailNo, a.Rolls, (a.Rolls - ISNULL(a.ReceivingRolls, 0)) AS ResidueRolls FROM dye.GetClothNoticeDetail AS a LEFT JOIN dye.p_Customer AS cu ON a.CustomerID = cu.CustomerID LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'FabricKind') AS FK ON a.ProdID = FK.Code WHERE SheetSeries = @SheetSeries AND ISNULL(Rolls, 0) > ISNULL(ReceivingRolls, 0) AND DetailNo = @DetailNo"
+    ]
+  },
+  "sp_App_sysGetFaultClassList": {
+    "id": "SQL209",
+    "title": "sp_App_sysGetFaultClassList",
+    "kind": "query",
+    "sql": [
+      "SELECT DISTINCT 'null' AS parent, Class1 AS value, Class1 AS [text], CONVERT(NVARCHAR(20), '') AS empGroup FROM dye.p_MachineFaultClass WHERE (@machineClass = '' OR Class1 = @machineClass)",
+      "SELECT DISTINCT Class1 AS parent, Class1 + '/' + Class2 AS value, Class2 AS [text], CONVERT(NVARCHAR(20), '') AS empGroup FROM dye.p_MachineFaultClass WHERE ISNULL(Class2, '') <> '' AND (@machineClass = '' OR Class1 = @machineClass)",
+      "SELECT DISTINCT Class1 + '/' + Class2 AS parent, Class1 + '/' + Class2 + '/' + Class3 AS value, Class3 AS [text], ISNULL(EmpGroup, '') AS empGroup FROM dye.p_MachineFaultClass WHERE ISNULL(Class3, '') <> '' AND (@machineClass = '' OR Class1 = @machineClass)"
+    ]
+  },
+  "SP_APP_TotalFixTimeByMachine": {
+    "id": "SQL214",
+    "title": "SP_APP_TotalFixTimeByMachine",
+    "kind": "query",
+    "sql": [
+      "SELECT m.MachineID AS Title1, CONVERT(NVARCHAR(50), COUNT(0)) + '单/平均' + CONVERT(NVARCHAR(50), CONVERT(NUMERIC(5, 1), AVG(CONVERT(NUMERIC(20, 1), DATEDIFF(MINUTE, CAST(m.ApplyTime AS DATETIME2), CAST(m.EndTime AS DATETIME2)) / 60.0)))) + 'h' AS Title2, SUM(CONVERT(NUMERIC(20, 1), DATEDIFF(MINUTE, CAST(m.ApplyTime AS DATETIME2), CAST(m.EndTime AS DATETIME2)) / 60.0)) AS UseTime FROM dye.MachineFault AS m WHERE m.EndTime > m.ApplyTime AND m.SheetDate >= @StartDate AND m.SheetDate <= @EndDate GROUP BY m.MachineID ORDER BY UseTime DESC"
+    ]
+  },
+  "Sp_Jobsheet_ProcessQuery": {
+    "id": "SQL314",
+    "title": "Sp_Jobsheet_ProcessQuery",
+    "kind": "query",
+    "sql": [
+      "SELECT j.ProcessName, COUNT(*) AS PreVote, ISNULL(CAST(SUM(PreVatQty) / 1000 AS NUMERIC(16, 2)), 0) AS PreVatQty FROM dye.vw_JobSheet_CurrProcessID AS j WHERE 1 = 1 AND ISNULL(j.ProcessID, '') <> '' GROUP BY j.ProcessName, j.Num ORDER BY j.Num"
+    ]
+  },
+  "SP_SheetNoQueryGetClothNotice": {
+    "id": "SQL374",
+    "title": "SP_SheetNoQueryGetClothNotice",
+    "kind": "query",
+    "sql": [
+      "SELECT SheetSeries, Driver, Dr.Name AS DriverName, LicensePlate, Remarks FROM dye.GetClothNotice AS a LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'Driver') AS Dr ON a.Driver = Dr.Code WHERE SheetSeries = @SheetSeries",
+      "SELECT SheetSeries, DetailNo, ProdID, Fk.Name AS ProdName, a.CustomerID, cu.ShortName AS CustomerName, a.AddrDlv, ClothGetDetailNo, a.Rolls, (a.Rolls - ISNULL(a.ReceivingRolls, 0)) AS ResidueRolls FROM dye.GetClothNoticeDetail AS a LEFT JOIN dye.p_Customer AS cu ON a.CustomerID = cu.CustomerID LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'FabricKind') AS FK ON a.ProdID = FK.Code WHERE SheetSeries = @SheetSeries"
+    ]
+  },
+  "sp_App_GetFaultArticleListBySheetSeries": {
+    "id": "SQL149",
+    "title": "sp_App_GetFaultArticleListBySheetSeries",
+    "kind": "query",
+    "sql": [
+      "SELECT SerialNum, ArticleID, ArticleName, Spec, CONVERT(NUMERIC(10, 1), Qty) AS Qty, Kind, CASE WHEN ISNULL(ArticleName, '') = '' THEN ISNULL(ArticleID, '') ELSE ArticleName END AS ShowName FROM dye.MachineFaultArticleInfo WHERE SheetSeries = @SheetSeries AND Rounds = @Rounds"
+    ]
+  },
+  "sp_App_GetFilesInfoBySheetSeries": {
+    "id": "SQL150",
+    "title": "sp_App_GetFilesInfoBySheetSeries",
+    "kind": "query",
+    "sql": [
+      "SELECT SheetSeries, Kind, uiIndex, [Guid], OriFileName, SaveFileName, FileNameUrl, fileType, CONVERT(VARCHAR(100), SaveDate, 23) AS SaveDate FROM dye.APPUploadFilesInfo WHERE ISNULL(SheetSeries, '') = @SheetSeries AND (ISNULL(@fileType, '') = '' OR @fileType = fileType) ORDER BY uiIndex ASC"
+    ]
+  },
+  "sp_APP_GetMachineFaultComment": {
+    "id": "SQL156",
+    "title": "sp_APP_GetMachineFaultComment",
+    "kind": "query",
+    "sql": [
+      "SELECT m.*, CONVERT(VARCHAR(16), SheetDate, 21) AS ShowRecordDate, h.Name AS CreateMan FROM dye.MachineFaultComment AS m LEFT JOIN dye.h_Employee AS h ON h.EmpID = m.Creater WHERE SheetSeries = @SheetSeries ORDER BY SheetDate DESC"
+    ]
+  },
+  "sp_App_sysGetMachineFaultTab": {
+    "id": "SQL210",
+    "title": "sp_App_sysGetMachineFaultTab",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM [dye].[MachineFaultFilter] WHERE FlowType = @FlowType ORDER BY SortNo ASC"
+    ]
+  },
+  "Sp_CusAddPriceInfo": {
+    "id": "SQL255",
+    "title": "Sp_CusAddPriceInfo",
+    "kind": "paged",
+    "sql": [
+      "SELECT ROW_NUMBER() OVER(ORDER BY b.SheetDate DESC) AS rowIndex, CONVERT(VARCHAR(19),b.SheetDate,21) AS SheetDate,b.CustomerID,cu.ShortName AS CustomerName,a.ProdID,g.NameC AS ProdName,a.ColorDepthID,a.MinTwist,a.MaxTwist,a.Price,a.PriceUnit,a.Remarks1,a.Remarks2,CAST(NULL AS FLOAT) AS ColorLevel1,CAST(NULL AS FLOAT) AS ColorLevel2,CAST(NULL AS FLOAT) AS ColorLevel3,CAST(NULL AS FLOAT) AS ColorLevel4,CAST(NULL AS FLOAT) AS ColorLevel5,CAST(NULL AS FLOAT) AS ColorLevel6,CAST(NULL AS FLOAT) AS ColorLevel7,CAST(NULL AS FLOAT) AS ColorLevel8 FROM dye.CusAddPriceDetail a LEFT JOIN dye.CusAddPrice b ON a.SheetSeries=b.SheetSeries LEFT JOIN dye.p_Customer cu ON cu.CustomerID=b.CustomerID LEFT JOIN dye.p_Gray g ON g.GrayID=a.ProdID WHERE b.CustomerID=@customerid"
+    ],
+    "difference": "原ProdName及ColorLevel1～8已不在最新表；增加当前ProdID/色级/捻度区间/Price/PriceUnit，旧八级列明确NULL。"
+  },
+  "sp_MachinePlan_Dye": {
+    "id": "SQL321",
+    "title": "sp_MachinePlan_Dye",
+    "kind": "query",
+    "sql": [
+      "SELECT m.MachineID AS ShowMachineID, m.Name AS ShowMachineName, m.Model, ps.sequenceNo AS PXH, ps.* FROM dye.p_Machine AS m LEFT JOIN [dye].[vw_ProcessScheduleQuery] AS ps ON m.machineID = ps.MachineID WHERE m.stationID = '02' AND m.Model = @Model AND ISNULL(ps.sequenceNo, 0) < 5 ORDER BY m.machineNo, ps.SequenceNo"
+    ]
+  },
+  "sp_App_GetMachineFault": {
+    "id": "SQL155",
+    "title": "sp_App_GetMachineFault",
+    "kind": "paged",
+    "sql": [
+      "SELECT ROW_NUMBER() OVER(ORDER BY MachineID,SheetDate DESC) AS rowindex,* FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT * FROM dye.MachineFault AS mf WHERE 1 = 1 AND (@ContMachine = 0 OR CHARINDEX(';' + mf.MachineID + ';', ';' + @MachineID + ';') > 0) AND (@ContStatus = 0 OR EXISTS(SELECT * FROM dye.v_App_ResultStatus AS r WHERE mf.ResultID = r.Code AND CHARINDEX(';' + r.FaultStatus + ';', ';' + @Status + ';') > 0)) AND mf.SheetDate >= @StartTime AND mf.SheetDate <= @EndTime"
+    }
+  },
+  "sp_APP_GetSingleMachineFaultInfo": {
+    "id": "SQL159",
+    "title": "sp_APP_GetSingleMachineFaultInfo",
+    "kind": "query",
+    "sql": [
+      "SELECT #t.*, #t.FlowStatus AS ShowStatus, ISNULL(p.FontColor, '#000000') AS FontColor, ISNULL(p.BackColor, '#FFFFFF') AS BackColor FROM #t LEFT JOIN dye.p_MachineFaultStatus AS p ON p.StatusName = #t.FlowStatus",
+      "SELECT SerialNum, ArticleID, ArticleName, Spec, CONVERT(NUMERIC(10, 1), Qty) AS Qty, Kind, CASE WHEN ISNULL(ArticleName, '') = '' THEN ISNULL(ArticleID, '') ELSE ArticleName END AS ShowName FROM dye.MachineFaultArticleInfo WHERE SheetSeries = @SheetSeries AND Rounds = @Rounds"
+    ],
+    "temps": {
+      "t": "SELECT SheetSeries, SheetNo, SheetDate, SheetKind, MachineID, mf.EmpID, HappenTime, ApplyTime, mf.DeptID, mf.ShiftID, FaultID, SeverityID, HandlerIDs, Handlers, CONVERT(VARCHAR(16), StartTime, 21) AS StartTime, EndTime, ResultID, ApproveDate, Approver, SheetStatus, StepNo, PrintTimes, Revisions, mf.Remarks, mf.Creater, mf.CreateDate, mf.Modifyer, mf.ModifyDate, HandleIdea, RightStatus, PhotoAddress, ApproveIdea, PatrolDetailNo, SheetType, StationID, mf.BusinessUnitID, FaultRemarks, MachineName, MachineLocation, Urgent, FlowStatus, ApplyMan, ApplyIdea, ISNULL(mf.EmpGroup, '') AS EmpGroup, ISNULL(FaultClass, '') AS FaultClass, ISNULL(MachineClass, '') AS MachineClass, h.Name AS Reporter, CONVERT(VARCHAR(16), SheetDate, 21) AS ShowSheetDate, CONVERT(VARCHAR(16), HappenTime, 21) AS ShowHappenTime, ISNULL(CONVERT(VARCHAR(16), ApplyTime, 21), '') AS ShowApplyTime, ISNULL(CONVERT(VARCHAR(16), EndTime, 21), '') AS ShowEndTime, CASE WHEN (ISNULL(HandlerIDs, '') <> '' AND ISNULL(ApplyMan, '') <> '') OR (ISNULL(@FixRemarks, '') <> '') THEN 1 ELSE 0 END AS IsShowRepairInfo, CASE WHEN ISNULL(@FeedBackMan, '') <> '' THEN 1 ELSE 0 END AS IsShowFeedBackInfo, ISNULL(@Grade, '') AS Grade, ISNULL(@FeedBackMan, '') AS FeedBackMan, ISNULL(@FeedBackRemarks, '') AS FeedBackRemarks, ISNULL(@FeedBackTime, '') AS FeedBackTime, ISNULL(@EvaluateInfo, '') AS EvaluateInfo, @Score AS Score, ISNULL(@ScoreName, '') AS ScoreName, ISNULL(@EvaluateTime, '') AS EvaluateTime, ISNULL(@EvaluateMan, '') AS EvaluateMan, CASE WHEN ISNULL(@EvaluateTime, '') <> '' THEN 1 ELSE 0 END AS IsShowEvaluateInfo FROM dye.MachineFault AS mf LEFT JOIN dye.h_Employee AS h ON h.EmpID = mf.EmpID WHERE SheetSeries = @SheetSeries"
+    }
+  },
+  "sp_App_QueryInspectionLogByPage": {
+    "id": "SQL178",
+    "title": "sp_App_QueryInspectionLogByPage",
+    "kind": "paged",
+    "sql": [
+      "SELECT ROW_NUMBER() OVER(ORDER BY SortDate DESC) AS rowindex,* FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT a.*, dye.ChangeIDListToEmpName(a.InspectorList, ';') AS InspectorListNames, a.SheetDate AS SortDate, h.NAME AS InspectorName, CONVERT(VARCHAR(16), SheetDate, 21) AS ShowSheetDate, CONVERT(VARCHAR(16), a.CreateDate, 21) AS ShowCreateDate, CONVERT(VARCHAR(16), a.ModifyDate, 21) AS ShowModifyDate FROM dye.InspectionLog AS a LEFT JOIN dye.h_Employee AS h ON h.EmpID = a.Inspector WHERE 1 = 1 AND a.SheetDate >= @StartDate AND a.SheetDate < @EndDate AND (@aboutMe = 0 OR a.Inspector = @empID OR ';' + a.InspectorList + ';' LIKE '%;' + @empID + ';%')"
+    }
+  },
+  "sp_App_QueryMachineCareRecordList": {
+    "id": "SQL182",
+    "title": "sp_App_QueryMachineCareRecordList",
+    "kind": "paged",
+    "sql": [
+      "SELECT ROW_NUMBER() OVER(ORDER BY SortDate DESC) AS rowindex,* FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT b.*, dye.ChangeIDListToEmpName(b.HandlerIDs, ';') AS handlerNames, b.CareDate AS SortDate, CONVERT(VARCHAR(10), CareDate, 21) AS ShowCareDate, CONVERT(VARCHAR(16), SheetDate, 21) AS ShowSheetDate, CONVERT(VARCHAR(16), b.CreateDate, 21) AS ShowCreateDate, CONVERT(VARCHAR(16), b.ModifyDate, 21) AS ShowModifyDate FROM dye.MachineCareRecords AS b LEFT JOIN dye.p_Machine AS p ON p.MachineID = b.MachineID LEFT JOIN dye.p_FieldValid AS a2 ON p.businessUnitId = a2.Code AND a2.FieldType = 'BusinessUnit' LEFT JOIN dye.p_Dept AS a3 ON p.DeptID = a3.DeptID WHERE 1 = 1 AND b.SheetDate >= @StartDate AND b.SheetDate < @EndDate AND (@conFilter = '' OR b.machineID LIKE '%' + @conFilter + '%' OR p.Name LIKE '%' + @conFilter + '%' OR b.MachineName LIKE '%' + @conFilter + '%' OR b.CarePlanDetailNo LIKE '%' + @conFilter + '%') AND (@aboutMe = 0 OR b.EmpID = @empID OR ';' + b.HandlerIDs + ';' LIKE '%;' + @empID + ';%') AND (@businessID = '' OR p.BusinessUnitID = @businessID OR a2.Name = @businessID) AND (@deptID = '' OR p.DeptID = @deptID OR a3.Name = @deptID) ORDER BY SortDate DESC"
+    }
+  },
+  "sp_App_QueryMachineFaultByPage": {
+    "id": "SQL183",
+    "title": "sp_App_QueryMachineFaultByPage",
+    "kind": "paged",
+    "sql": [
+      "SELECT ROW_NUMBER() OVER(ORDER BY MachineID DESC) AS rowindex,* FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT SheetSeries, SheetNo, SheetKind, CONVERT(VARCHAR(16), SheetDate, 120) AS SheetDate, ISNULL(mf.MachineID, '') AS MachineID, ISNULL(MachineName, '') AS MachineName, ISNULL(MachineLocation, '') AS MachineLocation, ISNULL(h.Name, '') AS Reporter, dye.ChangeIDListToEmpName(HandlerIDs, ';') AS HandlerMan, ISNULL(FaultID, '') AS FaultID, ISNULL(Urgent, 0) AS Urgent, FlowStatus, CONVERT(VARCHAR(100), HappenTime, 23) AS HappenTime, ISNULL(FaultRemarks, '') AS FaultRemarks, CASE WHEN FlowStatus IN ('待维修') THEN '已指派:' + ISNULL(Handlers, '') ELSE FlowStatus END AS ShowStatus, ms.FontColor, ms.BackColor, SheetDate AS sortDate FROM [dye].MachineFault AS mf LEFT JOIN dye.h_Employee AS h ON mf.EmpID = h.EmpID LEFT JOIN dye.p_MachineFaultStatus AS ms ON ms.StatusName = mf.FlowStatus LEFT JOIN dye.p_Machine AS m ON m.MachineID = mf.MachineID LEFT JOIN dye.p_FieldValid AS a2 ON m.businessUnitId = a2.Code AND FieldType = 'BusinessUnit' LEFT JOIN dye.p_Dept AS a3 ON m.DeptID = a3.DeptID WHERE 1 = 1 AND (@sheetKind = '' OR @sheetKind = SheetKind) AND (@hasFilter = 0 OR mf.MachineID LIKE '%' + @conFilter + '%' OR mf.MachineName LIKE '%' + @conFilter + '%' OR mf.MachineLocation LIKE '%' + @conFilter + '%' OR mf.FaultID LIKE '%' + @conFilter + '%' OR mf.SheetNo LIKE '%' + @conFilter + '%') AND (@searchMode = 0 OR CHARINDEX(ms.StatusType, @flowTypeFiller) > 0) AND (@deptID = '' OR a3.name = @deptID OR m.DeptID = @deptID) AND (@businessID = '' OR a2.name = @businessID OR m.BusinessUnitID = @businessID) AND (@aboutMe = 0 OR mf.EmpID = @empID OR ';' + mf.HandlerIDs + ';' LIKE '%;' + @empID + ';%' OR EXISTS(SELECT 1 FROM dye.MachineFaultRecord AS mfd WHERE mfd.SheetSeries = mf.SheetSeries AND mfd.Operator = @empID)) AND (@empGroup = '' OR @empGroup = '全部' OR mf.empGroup = @empGroup)"
+    }
+  },
+  "SP_APP_TotalArticleMoneyByMachine": {
+    "id": "SQL213",
+    "title": "SP_APP_TotalArticleMoneyByMachine",
+    "kind": "query",
+    "sql": [
+      "SELECT t.PName, t.title1, t.title2, t.GroupIndex, ISNULL(s.TotalCount, 0) AS TotalCount FROM #title AS t LEFT JOIN #s AS s ON t.pName = s.PName AND t.title1 = s.Title1",
+      "SELECT DISTINCT pName, ChartColor FROM #s GROUP BY pName, ChartColor HAVING MIN(TotalCount) > 0"
+    ],
+    "temps": {
+      "t": "SELECT ISNULL(d.MachineID, '') AS MachineID, d.ProjectNo, CONVERT(INTEGER, SUM(d.Total)) AS Total FROM dye.v_App_ArticleOutDetail AS d INNER JOIN dye.v_App_ArticleOut AS m ON m.SheetSeries = d.SheetSeries WHERE m.SheetDate >= @StartDate AND m.SheetDate <= @EndDate GROUP BY ISNULL(d.MachineID, ''), d.ProjectNo",
+      "s": "SELECT ISNULL(p.Name, TSum.MachineID) AS Title1, TSum.TotalSum AS Title2, TSum.GroupIndex, pj.PName, TDetail.TotalCount, TDetail.DetailIndex, pj.ChartColor FROM (SELECT s.MachineID AS MachineID, CONVERT(INTEGER, SUM(Total)) AS TotalSum, ROW_NUMBER() OVER (ORDER BY SUM(s.Total) DESC) AS GroupIndex FROM #t AS s GROUP BY s.MachineID) AS TSum LEFT OUTER JOIN (SELECT s.MachineID AS MachineID, ISNULL(ProjectNo, '') AS ProjectNo, CONVERT(INTEGER, SUM(Total)) AS TotalCount, ROW_NUMBER() OVER (PARTITION BY s.MachineID ORDER BY SUM(s.Total) DESC) AS DetailIndex FROM #t AS s GROUP BY s.MachineID, ISNULL(ProjectNo, '')) AS TDetail ON TDetail.MachineID = TSum.MachineID LEFT OUTER JOIN dye.p_Machine AS p ON TSum.MachineID = p.MachineID LEFT OUTER JOIN (SELECT Code AS PCode, Name AS PName, ISNULL(Reserved1, '#ffffff') AS ChartColor FROM dye.p_FieldValid WHERE FieldType LIKE '%project%') AS pj ON TDetail.ProjectNo = pj.PCode ORDER BY TSum.GroupIndex, TDetail.DetailIndex",
+      "title": "SELECT PName, title1, title2, GroupIndex, PName + title1 AS commix FROM (SELECT Code AS PCode, Name AS PName FROM dye.p_FieldValid WHERE FieldType LIKE '%project%') AS pj, (SELECT DISTINCT title1 AS title1, title2 AS title2, GroupIndex AS GroupIndex FROM #s) AS s"
+    }
+  },
+  "Sp_WorkQty_AvueDate_Query": {
+    "id": "SQL424",
+    "title": "Sp_WorkQty_AvueDate_Query",
+    "kind": "query",
+    "sql": [
+      "SELECT t.Days, p.Code, t.ProcessName, CONVERT(NUMERIC(10, 1), t.CurrRolls) AS CurrRolls, CONVERT(NUMERIC(16, 2), t.CurrKg) AS CurrKg FROM #t AS t JOIN (SELECT Code AS Code, Name AS ProcessName FROM dye.p_FieldValid WHERE FieldType = 'Station') AS p ON p.Code = t.StationID ORDER BY t.Days, p.Code"
+    ],
+    "temps": {
+      "t": "SELECT DG.Days, StationID, DG.ProcessName, DG.Num, SUM(CurrRolls) AS CurrRolls, SUM(CurrKg) AS CurrKg FROM (SELECT CONVERT(VARCHAR(10), DATEADD(MINUTE, -470, a.EndTime), 120) AS Days, a.StationID, CASE WHEN a.StationID = '03' AND a.ProcessID IN ('GX31', 'GX54') THEN '成品定型' WHEN a.StationID = '03' AND a.ProcessID IN ('GX22', 'GX35', 'GX58') THEN '干布' WHEN a.StationID = '03' AND a.ProcessID IN ('GX60', 'GX100') THEN '缩胚' WHEN a.StationID = '03' THEN p.Name WHEN a.StationID = '08' THEN f.StationName WHEN a.StationID = '01' THEN f.StationName WHEN a.StationID = '15' THEN f.StationName WHEN a.StationID = '14' THEN '平幅水洗' ELSE f.StationName END AS ProcessName, CASE WHEN a.StationID = '12' THEN 1 WHEN a.StationID = '14' THEN 2 WHEN a.StationID = '01' THEN 3 WHEN a.StationID = '02' THEN 4 WHEN a.StationID = '08' THEN 7 WHEN a.StationID = '03' THEN 8 WHEN a.StationID = '04' THEN 9 WHEN a.StationID = '15' THEN 5 WHEN a.StationID = '10' THEN 10 ELSE 11 END AS Num, CurrRolls, CAST(CurrKg / 1000 AS NUMERIC(16, 2)) AS CurrKg FROM dye.WProcess AS a JOIN dye.p_Process AS p ON p.ProcessID = a.ProcessID LEFT JOIN (SELECT Code AS Code, Name AS StationName FROM dye.p_FieldValid WHERE FieldType = 'Station') AS f ON f.Code = p.StationID WHERE a.StationID <> '02' AND CONVERT(VARCHAR(10), DATEADD(MINUTE, -470, a.EndTime), 120) >= @dsDate AND CONVERT(VARCHAR(10), DATEADD(MINUTE, -470, a.EndTime), 120) <= @dtDate UNION ALL SELECT CONVERT(VARCHAR(10), DATEADD(MINUTE, -470, CreateDate), 120) AS Days, '02' AS StationID, '染色' AS ProcessName, 4 AS Num, Rolls AS CurrRolls, CAST(WeightQty / 1000 AS NUMERIC(16, 2)) AS CurrKg FROM dye.JobSheetReceive WHERE ISNULL(JobSheetNo, '') <> '' AND CONVERT(VARCHAR(10), DATEADD(MINUTE, -470, CreateDate), 120) >= @dsDate AND CONVERT(VARCHAR(10), DATEADD(MINUTE, -470, CreateDate), 120) <= @dtDate) AS DG GROUP BY DG.Days, StationID, DG.ProcessName, DG.Num"
+    }
+  },
+  "TightTubeBalanceDetail": {
+    "id": "SQL432",
+    "title": "TightTubeBalanceDetail",
+    "kind": "query",
+    "sql": [
+      "SELECT @SheetSeries AS SheetSeries, @SheetSeries + '-' + CONVERT(VARCHAR(10), ROW_NUMBER() OVER (ORDER BY js.CheckNo ASC)) AS DetailNo, js.SheetNo AS JobSheetNo, js.CheckNo, js.CustomerID, js.ProdID, js.ColorID, js.ColorNum, js.LotNo, oc.CustFabricName, oc.DyeDate, (SELECT vo.SheetDate FROM dye.vwOrderInfo AS vo WHERE vo.CheckNo = js.CheckNo) AS OrderSheetDate, (SELECT STRING_AGG(jo.ContractNo, ';') FROM dye.JobCombineOrder AS jo WHERE JO.SheetSeries = js.SheetSeries) AS ContractNo, (SELECT STRING_AGG(jo.CustSelfNo, ';') FROM dye.JobCombineOrder AS jo WHERE JO.SheetSeries = js.SheetSeries) AS CustSelfNo, (SELECT STRING_AGG(jo.DetailCustName, ';') FROM dye.JobCombineOrder AS jo WHERE jo.SheetSeries = js.SheetSeries) AS DetailCustName, (SELECT STRING_AGG(jo.ColorRemarks, ';') FROM dye.JobCombineOrder AS jo WHERE JO.SheetSeries = js.SheetSeries) AS ColorRemarks, nn.CheckNo, nn.Rolls AS SumAssignedRolls, nn.Kg AS SumAssignedWeightQty FROM #NN AS nn LEFT JOIN dye.JobSheet AS js ON js.SheetNo = nn.JobSheetNo AND js.CheckNo = nn.CheckNo LEFT JOIN dye.OrderColor AS oc ON oc.CheckNo = js.CheckNo WHERE ISNULL(js.CheckNo, '') <> '' AND js.JobSheetType = 0"
+    ],
+    "temps": {
+      "mm": "SELECT a.CheckNo, a.JobSheetNo, a.SumAssignedRolls AS PRolls, a.SumAssignedWeightQty AS PKg, b.Rolls AS YRolls, b.Kg AS YKg, c.SumAssignedRolls AS CRolls, c.SumAssignedWeightQty AS CKg FROM dye.TightTubePlanDetail AS a LEFT JOIN dye.RecordYield AS b ON a.CheckNo = b.CheckNo AND a.JobSheetNo = b.JobSheetNo LEFT JOIN dye.TightTubeDetail AS c ON c.JobSheetNo = b.JobSheetNo LEFT JOIN dye.TightTube AS d ON c.SheetSeries = d.SheetSeries AND d.SheetKind = 11 WHERE ISNULL(a.CheckNo, '') <> '' AND NOT EXISTS(SELECT 1 FROM dye.TightTubeDetail AS td LEFT JOIN dye.TightTube AS tt ON tt.SheetSeries = td.SheetSeries WHERE tt.SheetKind = 13 AND td.JObSheetNo = a.JobSheetNo)",
+      "nn": "SELECT CheckNo, JobSheetNo, (SUM(ISNULL(PRolls, 0)) - SUM(ISNULL(YRolls, 0)) - SUM(ISNULL(CRolls, 0))) AS Rolls, (SUM(ISNULL(PKg, 0)) - SUM(ISNULL(YKg, 0)) - SUM(ISNULL(CKg, 0))) AS Kg FROM #MM GROUP BY CheckNo, JobSheetNo"
+    }
+  },
+  "sp_App_GetCareMachineList": {
+    "id": "SQL145",
+    "title": "sp_App_GetCareMachineList",
+    "kind": "machine_choices",
+    "sql": [
+      "SELECT MachineID, Name AS MachineName, Place, (SELECT TOP 1 md.SheetSeries FROM dye.MachineCaseDetail AS md LEFT JOIN dye.MachineCase AS mc ON mc.SheetSeries = md.SheetSeries WHERE mc.SheetKind = 1 AND md.MachineID = mf.MachineID ORDER BY mc.SheetDate DESC) AS SheetSeries, CONVERT(NVARCHAR(100), '') AS MachineCaseInfo, 0 AS IsUseMachineCase FROM [dye].[vw_Machine] AS mf WHERE 1 = 1 AND (@ContMachine = 0 OR CHARINDEX(';' + mf.MachineID + ';', ';' + @conFilter + ';') > 0 OR mf.MachineID LIKE '%' + @conFilter + '%' OR mf.Name LIKE '%' + @conFilter + '%' OR mf.place LIKE '%' + @conFilter + '%')",
+      "SELECT MachineID, Name AS MachineName, Place, MachineID AS SheetSeries, CONVERT(NVARCHAR(100), '') AS MachineCaseInfo, 0 AS IsUseMachineCase FROM [dye].[vw_Machine] AS mf WHERE 1 = 1 AND (@ContMachine = 0 OR CHARINDEX(';' + mf.MachineID + ';', ';' + @conFilter + ';') > 0 OR mf.MachineID LIKE '%' + @conFilter + '%' OR mf.Name LIKE '%' + @conFilter + '%' OR mf.place LIKE '%' + @conFilter + '%')"
+    ],
+    "temps": {}
+  },
+  "sp_App_GetInspectionMachineList": {
+    "id": "SQL152",
+    "title": "sp_App_GetInspectionMachineList",
+    "kind": "machine_choices",
+    "sql": [
+      "SELECT MachineID, Name AS MachineName, Place, (SELECT TOP 1 md.SheetSeries FROM dye.MachineCaseDetail AS md LEFT JOIN dye.MachineCase AS mc ON mc.SheetSeries = md.SheetSeries WHERE mc.SheetKind = 1 AND md.MachineID = mf.MachineID ORDER BY mc.SheetDate DESC) AS SheetSeries, CONVERT(NVARCHAR(100), '') AS MachineCaseInfo, 0 AS IsUseMachineCase FROM [dye].[vw_Machine] AS mf WHERE 1 = 1 AND (@ContMachine = 0 OR CHARINDEX(';' + mf.MachineID + ';', ';' + @conFilter + ';') > 0 OR mf.MachineID LIKE '%' + @conFilter + '%' OR mf.Name LIKE '%' + @conFilter + '%' OR mf.place LIKE '%' + @conFilter + '%')",
+      "SELECT MachineID, Name AS MachineName, Place, MachineID AS SheetSeries, CONVERT(NVARCHAR(100), '') AS MachineCaseInfo, 0 AS IsUseMachineCase FROM [dye].[vw_Machine] AS mf WHERE 1 = 1 AND (@ContMachine = 0 OR CHARINDEX(';' + mf.MachineID + ';', ';' + @conFilter + ';') > 0 OR mf.MachineID LIKE '%' + @conFilter + '%' OR mf.Name LIKE '%' + @conFilter + '%' OR mf.place LIKE '%' + @conFilter + '%')"
+    ],
+    "temps": {}
+  },
+  "SP_APP_QueryFaultMonthByEmp": {
+    "id": "SQL175",
+    "title": "SP_APP_QueryFaultMonthByEmp",
+    "kind": "query",
+    "sql": [
+      "SELECT StatusType, CONVERT(VARCHAR(20), COUNT(0)) AS BillCount FROM #t AS m GROUP BY StatusType UNION ALL SELECT '总报修' AS StatusType, CONVERT(VARCHAR(20), COUNT(0)) AS BillCount FROM #t AS m UNION ALL SELECT '平均响应时间', CONVERT(VARCHAR(20), CONVERT(NUMERIC(10, 1), AVG(m.ApplyTotal))) FROM #t AS m UNION ALL SELECT '平均解决时间', ISNULL(CONVERT(VARCHAR(20), CONVERT(NUMERIC(10, 1), AVG(DATEDIFF(MINUTE, CAST(m.ApplyTime AS DATETIME2), CAST(ISNULL(m.EndTime, GETDATE()) AS DATETIME2)) / 60.0))), '') FROM #t AS m WHERE NOT m.ApplyTime IS NULL",
+      "SELECT h.EmpID, h.Name, COUNT(0) AS BillCount FROM #t AS m LEFT OUTER JOIN dye.h_Employee AS h ON CHARINDEX(';' + h.EmpID + ';', ';' + m.HandlerIDs + ';') > 0 WHERE LEN(m.HandlerIDs) > 0 GROUP BY h.EmpID, h.Name ORDER BY BillCount DESC"
+    ],
+    "temps": {
+      "t": "SELECT m.SheetSeries, m.SheetDate, m.HandlerIDs, m.ApplyTime, m.EndTime, s.StatusType, CONVERT(NUMERIC(10, 1), DATEDIFF(MINUTE, CAST(m.SheetDate AS DATETIME2), CAST(ISNULL(m.ApplyTime, GETDATE()) AS DATETIME2)) / 60.0) AS ApplyTotal FROM dye.MachineFault AS m INNER JOIN (SELECT * FROM dye.p_MachineFaultStatus WHERE CompleteStatus <> '已关闭') AS s ON m.FlowStatus = s.StatusName WHERE m.SheetDate >= @dtStart AND m.SheetDate <= @dtEnd"
+    }
+  },
+  "SP_APP_QueryFaultAVGTime": {
+    "id": "SQL173",
+    "title": "SP_APP_QueryFaultAVGTime",
+    "kind": "query",
+    "sql": [
+      "SELECT d.dtName AS Title1, ISNULL(a.BillCount, 0) AS BillCount, ISNULL(a.AVGApply, 0) AS AVGApply FROM @dtList AS d LEFT JOIN #respond AS a ON a.Title1 = d.dtName ORDER BY d.dtName ASC",
+      "SELECT d.dtName AS Title1, ISNULL(a.BillCount, 0) AS BillCount, ISNULL(a.AVGEnd, 0) AS AVGEnd FROM @dtList AS d LEFT JOIN #solve AS a ON a.Title1 = d.dtName ORDER BY d.dtName ASC"
+    ],
+    "temps": {
+      "t": "SELECT *, CONVERT(NUMERIC(10, 1), DATEDIFF(MINUTE, CAST(m.SheetDate AS DATETIME2), CAST(ISNULL(m.ApplyTime, GETDATE()) AS DATETIME2)) / 60.0) AS ApplyTotal FROM dye.MachineFault AS m INNER JOIN (SELECT * FROM dye.p_MachineFaultStatus WHERE CompleteStatus <> '已关闭') AS s ON m.FlowStatus = s.StatusName WHERE DATEDIFF(MONTH, CAST(m.SheetDate AS DATETIME2), CAST(@dtDate AS DATETIME2)) <= 6 AND DATEDIFF(MONTH, CAST(m.SheetDate AS DATETIME2), CAST(@dtDate AS DATETIME2)) >= 0",
+      "respond": "SELECT CONVERT(VARCHAR(7), m.SheetDate, 120) AS Title1, COUNT(0) AS BillCount, CONVERT(NUMERIC(10, 1), AVG(m.ApplyTotal)) AS AVGApply FROM #t AS m GROUP BY CONVERT(VARCHAR(7), m.SheetDate, 120) ORDER BY CONVERT(VARCHAR(7), m.SheetDate, 120) DESC",
+      "solve": "SELECT CONVERT(VARCHAR(7), m.SheetDate, 120) AS Title1, COUNT(0) AS BillCount, CONVERT(NUMERIC(10, 1), AVG(DATEDIFF(MINUTE, CAST(m.ApplyTime AS DATETIME2), CAST(ISNULL(m.EndTime, GETDATE()) AS DATETIME2)) / 60.0)) AS AVGEnd FROM #t AS m WHERE NOT m.ApplyTime IS NULL GROUP BY CONVERT(VARCHAR(7), m.SheetDate, 120) ORDER BY CONVERT(VARCHAR(7), m.SheetDate, 120) DESC"
+    }
+  },
+  "sp_App_QueryMachineList": {
+    "id": "SQL187",
+    "title": "sp_App_QueryMachineList",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM #t1 WHERE (@returnMaxCount <= 0 OR #t1.rowindex <= @returnMaxCount)"
+    ],
+    "temps": {
+      "t1": "SELECT ROW_NUMBER() OVER (ORDER BY MachineID) AS rowindex, MachineID, Name, place FROM [dye].[vw_Machine] AS mf WHERE 1 = 1 AND (@ContMachine = 0 OR CHARINDEX(';' + mf.MachineID + ';', ';' + @conFilter + ';') > 0 OR mf.MachineID LIKE '%' + @conFilter + '%' OR mf.Name LIKE '%' + @conFilter + '%' OR mf.place LIKE '%' + @conFilter + '%')"
+    }
+  },
+  "qry_ProcessScheduleRS": {
+    "id": "SQL108",
+    "title": "染色排程",
+    "kind": "query",
+    "sql": [
+      "WITH\nDyeStateCTE AS (\nSELECT\nJobSheetNo,\nMAX(DyeState) AS DyeState\nFROM dye.vw_ProcessDyMachine_FB\nWHERE JobSheetNo IS NOT NULL\nGROUP BY JobSheetNo\n),\nCombineCTE AS (\nSELECT\nSheetSeries,\nSTRING_AGG(CustSelfNo, ';') AS Str_CustSelfNo\nFROM dye.JobCombineOrder\nGROUP BY SheetSeries\n)\nSELECT\npd.NUM,\npd.StereotypesName,\nISNULL(CASE\nWHEN ISNULL(js.CurrProcessID,'') = '已发纱出库' AND ISNULL(ds.DyeState,'') = ''\nTHEN '已' +js.CurrProcessID\nELSE '已' +ds.DyeState\nEND, '') AS DyeState,\nco.Str_CustSelfNo,\nps.*,\njs.BarCode,\njs.CustomerID,\njs.ProdID,\njs.ColorNum,\nISNULL(js.SumProcessRolls, js.PreRolls) AS SumProcessRolls,\nISNULL(js.SumProcessLengthQty, 0) AS SumProcessLengthQty,\nISNULL(js.SumProcessWeightQty, js.PreVatQty) AS SumProcessWeightQty,\njs.Width,\njs.Weight,\nOC.DlvDate,\nOC.DyeDate\nFROM dye.T_PSD pd\nLEFT JOIN dye.ProcessSchedule ps\nON ps.JobSheetNo = pd.JobSheetNo AND ps.SheetKind = 1\nLEFT JOIN dye.JobSheet js\nON js.SheetNo = ps.JobSheetNo\nLEFT JOIN dye.OrderColor OC\nON js.CheckNo = OC.CheckNo\nLEFT JOIN DyeStateCTE ds\nON ds.JobSheetNo = ps.JobSheetNo\nLEFT JOIN CombineCTE co\nON co.SheetSeries = js.SheetSeries\nWHERE NOT EXISTS (\nSELECT 1 FROM dye.WProcess W\nWHERE W.ProcessID = 'GX03' AND W.JobSheetNo = pd.JobSheetNo\n)\nAND (@StereotypesName1 = '' OR ps.StereotypesName = @StereotypesName1)\nORDER BY ps.StereotypesName, pd.NUM\n"
+    ]
+  },
+  "qry_WorkQty9": {
+    "id": "SQL110",
+    "title": "qry_WorkQty9",
+    "kind": "query",
+    "sql": [
+      "SELECT A.*, J.SumAssignedWeightQty, J.ProdID, ISNULL(J.Weight, '') + ISNULL(J.WeightKindID, '') AS WeightSpec, P.FabricKindID FROM (SELECT CONVERT(VARCHAR(50), JobSheetNo + ProcessID + ShiftID) AS WProcessNo, *, (SELECT TOP 1 CreateDate FROM #T_Pack WHERE #T_Pack.JobSheetNo = #T_PackNew.JobSheetNo AND #T_Pack.ShiftID = #T_PackNew.ShiftID) AS CreateDate, Qty AS CurrQty FROM #T_PackNew UNION ALL SELECT *, CONVERT(NUMERIC(10, 2), Qty * CurrDosage / 100) AS CurrQty FROM #T_WP9) AS A LEFT JOIN dye.JobSheet AS J ON J.SheetNo = A.JobSheetNo LEFT JOIN dye.p_Gray AS P ON J.ProdID = P.GrayID ORDER BY A.CreateDate"
+    ],
+    "temps": {
+      "t_pack": "SELECT A.* FROM (SELECT RY.Guid AS Guid, RY.JobSheetNo AS JobSheetNo, 99 AS ProcessNo, 'GX98' AS ProcessID, '07' AS StationID, RY.ShiftID AS ShiftID, '' AS EmpID, RY.Kg AS CurrKg, RY.Meter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN RY.Kg ELSE RY.Meter END AS Qty, 100 AS CurrDosage, RY.PackTime AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.RecordYield AS RY LEFT JOIN dye.JobSheet AS J ON RY.JobSheetNo = J.SheetNo WHERE 1 = 1 AND (@IsChecked1 = 'N' OR RY.EmpID = @EmpID) AND (@IsChecked2 = 'N' OR RY.ShiftID = @ShiftID) AND (@IsChecked3 = 'N' OR '07' = @StationID) AND (@IsChecked4 = 'N' OR RY.JobSheetNo LIKE '%' + @JobSheetNo + '%') AND (@IsChecked5 = 'N' OR RY.PackTime >= @StartDate) AND (@IsChecked6 = 'N' OR RY.PackTime < @EndDate)) AS A",
+      "t_wp9": "SELECT * FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessNo AS ProcessNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg ELSE WP.CurrMeter END AS Qty, CASE WHEN ProcessID IN ('GX00', 'GX01') THEN 100 ELSE WP.CurrDosage END AS CurrDosage, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID, WP.CreateDate AS CreateDate FROM dye.WProcess AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo WHERE 1 = 1 AND (@IsChecked1 = 'N' OR WP.EmpID = @EmpID) AND (@IsChecked2 = 'N' OR WP.ShiftID = @ShiftID) AND (@IsChecked3 = 'N' OR WP.StationID = @StationID) AND (@IsChecked4 = 'N' OR WP.JobSheetNo LIKE '%' + @JobSheetNo + '%') AND (@IsChecked5 = 'N' OR WP.CreateDate >= @StartDate) AND (@IsChecked6 = 'N' OR WP.CreateDate < @EndDate)) AS D",
+      "t_packnew": "SELECT B.* FROM (SELECT JobSheetNo AS JobSheetNo, ProcessNo AS ProcessNo, ProcessID AS ProcessID, StationID AS StationID, ShiftID AS ShiftID, EmpID AS EmpID, SUM(CurrKg) AS CurrKg, SUM(CurrMeter) AS CurrMeter, SUM(Qty) AS Qty, CurrDosage AS CurrDosage, ColorID AS ColorID, ColorNum AS ColorNum, CustomerID AS CustomerID FROM #T_Pack GROUP BY JobSheetNo, ProcessNo, ProcessID, StationID, ShiftID, EmpID, CurrDosage, ColorID, ColorNum, CustomerID) AS B"
+    },
+    "assignments": []
+  },
+  "Sp_APP_QueryGetClothNotice": {
+    "id": "SQL177",
+    "title": "Sp_APP_QueryGetClothNotice",
+    "kind": "paged",
+    "sql": [
+      "SELECT * FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT ROW_NUMBER() OVER (ORDER BY b.SheetDate DESC) AS rowIndex, a.SheetSeries, a.DetailNo, CONVERT(VARCHAR(19), b.SheetDate, 21) AS SheetDate, b.Driver, Dr.Name AS DriverName, a.AddrDlv, a.CustomerID, cu.ShortName AS CustomerName, a.ProdID, FK.Name AS ProdName, ISNULL(Rolls, 0) AS Rolls, ISNULL(ReceivingType, 0) AS ReceivingType, CASE WHEN ISNULL(ReceivingType, 0) = 0 THEN '未收货' WHEN ISNULL(ReceivingType, 0) = 1 THEN '已收货' WHEN ISNULL(ReceivingType, 0) = 2 THEN '部分收获' WHEN ISNULL(ReceivingType, 0) = 3 THEN '暂时不收货' END AS ReceivingTypeName, ISNULL(ReceivingRolls, 0) AS ReceivingRolls, (Rolls - ISNULL(ReceivingRolls, 0)) AS ResidueRolls FROM dye.GetClothNoticeDetail AS a LEFT JOIN dye.GetClothNotice AS b ON a.SheetSeries = b.SheetSeries LEFT JOIN dye.p_Customer AS cu ON a.CustomerID = cu.CustomerID LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'FabricKind') AS FK ON a.ProdID = FK.Code LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'Driver') AS Dr ON b.Driver = Dr.Code WHERE 1 = 1 AND (ISNULL(@CustomerID, '') = '' OR a.CustomerID = @CustomerID) AND (ISNULL(@Driver, '') = '' OR b.Driver = @Driver) AND (ReceivingType = 0 OR ReceivingType = 3)"
+    },
+    "assignments": []
+  },
+  "Sp_APP_QueryJobSheetState": {
+    "id": "SQL179",
+    "title": "Sp_APP_QueryJobSheetState",
+    "kind": "query",
+    "sql": [
+      "SELECT @current AS [current], CEILING(CONVERT(NUMERIC(18, 2), COUNT(0)) / @size) AS pages, @size AS [size], COUNT(0) AS [total] FROM #t",
+      "SELECT * FROM #t",
+      "SELECT c.MachineID, c.Factory, c.TubesNumber, c.MinVatQty, IIF(c.Num > 0, 0, DATEDIFF(HH, CAST(c.EndTime AS DATETIME2), CAST(GETDATE() AS DATETIME2))) AS EmptyTime, IIF(c.Num = 0 AND c.EndTime < @DayStartDate, 0, IIF(c.StartTime > @DayStartDate, DATEDIFF(HH, CAST(c.StartTime AS DATETIME2), CAST(IIF(c.Num = 0, c.EndTime, GETDATE()) AS DATETIME2)), DATEDIFF(HH, CAST(@DayStartDate AS DATETIME2), CAST(IIF(c.Num = 0, c.EndTime, GETDATE()) AS DATETIME2)))) AS TodayTime, c.ThisMonthTime FROM (SELECT a.MachineID AS MachineID, a.Manufacturer AS Factory, b.TubesNumber AS TubesNumber, a.MinVatQty AS MinVatQty, '' AS EmptyTime, '' AS TodayTime, (SELECT CONVERT(NUMERIC(12, 0), ISNULL(SUM(RSNum), 0)) FROM #RS WHERE #RS.MachineID = a.MachineID) AS ThisMonthTime, (SELECT COUNT(*) FROM #t WHERE #t.MachineID = a.MachineID) AS Num, (SELECT MIN(A.StartTime) FROM (SELECT jp.* FROM dye.JobProcess AS jp LEFT JOIN dye.JobSheet AS j ON j.SheetSeries = jp.SheetSeries WHERE 1 = 1 AND jp.StationID = '06' AND ISNULL(jp.MachineID, '') <> '' AND ISNULL(jp.EndTime, '') = '' AND jp.MachineID = a.MachineID AND NOT EXISTS(SELECT 1 FROM dye.ProdIn AS pin WHERE pin.JobSheetNo = j.SheetNo)) AS A) AS StartTime, (SELECT MAX(A.EndTime) FROM (SELECT jp.* FROM dye.JobProcess AS jp LEFT JOIN dye.JobSheet AS j ON j.SheetSeries = jp.SheetSeries WHERE 1 = 1 AND jp.StationID = '06' AND ISNULL(jp.MachineID, '') <> '' AND ISNULL(jp.EndTime, '') <> '' AND jp.MachineID = a.MachineID) AS A) AS EndTime FROM dye.p_Machine AS a LEFT JOIN (SELECT KeyValue AS MachineKindID, DisplayValue AS TubesNumber FROM dye.s_DBComboValue WHERE ComboID = 'B010') AS b ON b.MachineKindID = a.MachineKindID WHERE 1 = 1 AND a.MachineType = 50 AND (ISNULL(@MachineID, '') = '' OR a.MachineID = @MachineID)) AS c ORDER BY c.MachineID"
+    ],
+    "temps": {
+      "t": "SELECT ROW_NUMBER() OVER (ORDER BY B.StartTime DESC) AS rowIndex, A.MachineID, B.ProcessID, C.Name, B.StartTime, B.EndTime, D.SheetNo, D.LotNo, D.CustomerID, cu.ShortName AS CustomerName, D.ColorID, D.ColorNum, D.SumAssignedRolls, D.SumAssignedWeightQty, DATEDIFF(HH, CAST(B.StartTime AS DATETIME2), CAST(GETDATE() AS DATETIME2)) AS DyeTime, (SELECT COUNT(DISTINCT E.SheetNo) FROM dye.StuffWeight AS E LEFT JOIN dye.StuffWeightDetail AS F ON F.SheetSeries = E.SheetSeries LEFT JOIN dye.p_Stuff AS G ON G.StuffID = F.StuffID WHERE 1 = 1 AND E.SheetKind = 2 AND E.RecipeType = 1 AND F.StuffType = 'S' AND E.JobSheetNo = D.SheetNo) AS AddNumberN, '' AS RotateSpeed, '' AS Pressure, '' AS TibWheelSpeed FROM dye.p_Machine AS A LEFT JOIN dye.JobProcess AS B ON B.MachineID = A.MachineID LEFT JOIN dye.JobSheet AS D ON D.SheetSeries = B.SheetSeries LEFT JOIN dye.p_Process AS C ON B.ProcessID = C.ProcessID LEFT JOIN dye.p_Customer AS cu ON D.CustomerID = cu.CustomerID WHERE 1 = 1 AND A.MachineType = 50 AND B.StationID = '06' AND NOT EXISTS(SELECT 1 FROM dye.ProdIn AS pin WHERE pin.JobSheetNo = D.SheetNo) AND ISNULL(B.StartTime, '') <> '' AND ISNULL(B.EndTime, '') = '' AND (ISNULL(@JobSheetNo, '') = '' OR D.SheetNo LIKE '%' + @JobSheetNo + '%') AND (ISNULL(@MachineID, '') = '' OR A.MachineID = @MachineID) ORDER BY A.MachineID",
+      "rs": "SELECT Z.*, CONVERT(NUMERIC(12, 1), CONVERT(NUMERIC(12, 2), DATEDIFF(MINUTE, CAST(Z.NewStartTime AS DATETIME2), CAST(ISNULL(Z.NewEndTime, GETDATE()) AS DATETIME2))) / 60) AS RSNum FROM (SELECT X.XU AS XU, X.MachineID AS MachineID, X.SheetSeries AS SheetSeries, X.SheetNo AS SheetNo, X.StartTime AS StartTime, X.EndTime AS EndTime, IIF(X.StartTime < @MonthStartDate AND X.EndTime > @MonthStartDate, @MonthStartDate, X.StartTime) AS NewStartTime, IIF(X.XU <> 1 AND ISNULL(X.EndTime, '') = '', LAG(X.StartTime) OVER (PARTITION BY X.MachineID ORDER BY X.StartTime DESC), X.EndTime) AS NewEndTime FROM (SELECT ROW_NUMBER() OVER (PARTITION BY jp.MachineID ORDER BY jp.StartTime DESC) AS XU, jp.MachineID AS MachineID, j.SheetSeries AS SheetSeries, j.SheetNo AS SheetNo, jp.StartTime AS StartTime, jp.EndTime AS EndTime FROM dye.JobProcess AS jp LEFT JOIN dye.JobSheet AS j ON j.SheetSeries = jp.SheetSeries WHERE 1 = 1 AND jp.StationID = '06' AND ISNULL(jp.MachineID, '') <> '' AND ISNULL(jp.StartTime, '') <> '' AND EXISTS(SELECT 1 FROM dye.StuffWeight AS s WHERE s.SheetKind = 2 AND s.RecipeType = 0 AND s.JobSheetNo = j.SheetNo)) AS X) AS Z WHERE 1 = 1 AND Z.StartTime >= @MonthStartDate"
+    },
+    "assignments": []
+  },
+  "Sp_AppQueryJobSheetProgress": {
+    "id": "SQL224",
+    "title": "Sp_AppQueryJobSheetProgress",
+    "kind": "paged",
+    "sql": [
+      "SELECT * FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT ROW_NUMBER() OVER (ORDER BY a.CreateDate DESC) AS rowIndex, a.SheetSeries, a.SheetNo, CONVERT(VARCHAR(19), a.CreateDate, 21) AS CreateDate, a.JobKindID, Kind.DisplayValue AS JobKindName, a.StereotypesName, a.ProdID, Gr.NameC AS ProdName, a.ColorNum, a.ColorID, a.CurrProcessID AS CurrStatus, a.SumAssignedRolls, a.SumAssignedWeightQty, a.SumAssignedLengthQty, a.Remarks, ISNULL(DATEDIFF(DAY, CAST(a.PlanDate AS DATETIME2), CAST(GETDATE() AS DATETIME2)), '0') AS StopTime, ISNULL(a.Width, '') + ISNULL(a.WidthKindID, '') AS WidthSpec, ISNULL(a.Weight, '') + ISNULL(a.WeightKindID, '') AS WeightSpec, a.CustomerID, cu.ShortName AS CustomerName, ISNULL(a.LotNo, '') AS LotNo, CASE WHEN EXISTS(SELECT 1 FROM dye.ProdIn WHERE jobSheetNo = a.SheetNo AND SheetKind = 11) AND NOT EXISTS(SELECT 1 FROM dye.ProdIn WHERE jobSheetNo = a.SheetNo AND SheetKind = 16) AND NOT EXISTS(SELECT 1 FROM dye.ProdLoadingDetail AS pld LEFT JOIN dye.ProdLoading AS pl ON pl.SheetSeries = pld.SheetSeries WHERE pld.JobSheetNo = a.SheetNo AND pl.RightStatus = 10) THEN '成品入库' WHEN EXISTS(SELECT 1 FROM dye.ProdIn WHERE jobSheetNo = a.SheetNo AND SheetKind = 16) AND NOT EXISTS(SELECT 1 FROM dye.ProdLoadingDetail AS pld LEFT JOIN dye.ProdLoading AS pl ON pl.SheetSeries = pld.SheetSeries WHERE pld.JobSheetNo = a.SheetNo AND pl.RightStatus = 10) THEN '退车间回修' WHEN EXISTS(SELECT 1 FROM dye.ProdLoadingDetail AS pld LEFT JOIN dye.ProdLoading AS pl ON pl.SheetSeries = pld.SheetSeries WHERE pld.JobSheetNo = a.SheetNo AND pl.RightStatus = 10) THEN '已出货' ELSE P.Name END AS CurrProcessID, cu.SalerID, Sa.Name AS SalerName, CONVERT(VARCHAR(19), (SELECT TOP 1 SheetDate FROM dye.ProdLoading AS pl LEFT JOIN dye.ProdLoadingDetail AS pld ON pl.SheetSeries = pld.SheetSeries WHERE pld.JobSheetNo = a.SheetNo ORDER BY SheetDate DESC), 21) AS LoadingDate FROM dye.JobSheet AS a LEFT JOIN dye.p_Process AS p ON a.CurrProcessID = p.ProcessID LEFT JOIN dye.JobProcess AS jp ON a.SheetSeries = jp.SheetSeries AND a.CurrProcessID = jp.ProcessID LEFT JOIN dye.p_Customer AS cu ON cu.CustomerID = a.CustomerID LEFT JOIN (SELECT KeyValue AS KeyValue, DisplayValue AS DisplayValue FROM dye.s_DBComboValue WHERE ComboID = 'C011') AS Kind ON a.JobKindID = Kind.KeyValue LEFT JOIN dye.p_Gray AS Gr ON a.ProdID = Gr.GrayID LEFT JOIN (SELECT A.Saler AS Saler, B.Name AS Name FROM (SELECT DISTINCT SalerID AS Saler FROM dye.p_Customer WHERE ISNULL(SalerID, '') <> '') AS A LEFT JOIN dye.h_Employee AS B ON B.EmpID = A.Saler) AS Sa ON cu.SalerID = sa.Saler WHERE 1 = 1 AND a.SheetDate >= @dtStart AND a.SheetDate <= @dtEnd AND (ISNULL(@SheetNo, '') = '' OR a.SheetNo LIKE '%' + @SheetNo + '%') AND (ISNULL(@ColorNum, '') = '' OR a.ColorNum LIKE '%' + @ColorNum + '%') AND (ISNULL(@CustomerID, '') = '' OR a.CustomerID = @CustomerID) AND (ISNULL(@LotNo, '') = '' OR a.LotNo LIKE '%' + @LotNo + '%')"
+    },
+    "assignments": [
+      "SELECT CustomerID AS CusID FROM dye.h_Employee WHERE EmpID = @empID AND IsCustomer = 1"
+    ]
+  },
+  "SP_DPWorkQty": {
+    "id": "SQL263",
+    "title": "SP_DPWorkQty",
+    "kind": "query",
+    "sql": [
+      "SELECT ROW_NUMBER() OVER (ORDER BY WProcessNo) AS id, NEWID() AS WProcessNo, j.OrderSheetNo, j.CustomerID, j.ProdID, j.ColorNum, j.ColorID, p.JobSheetNo, s.ProcessNo, s.ProcessID, p.ShiftID, p.EmpID, p.EndTime AS StartTime, p.EndTime, p1.CurrRolls, p1.CurrKg, p.Qty, '' AS CurveName, ISNULL(s.Price, 0) AS DyePrice, 0 AS DyeVat, 0 AS OutMoney, ISNULL(s.Price, 0) * p.Qty AS DyeMoney FROM (SELECT m.JobSheetNo AS JobSheetNo, ProcessID AS ProcessID, m.ShiftID AS ShiftID, m.EmpID AS EmpID, SUM(m.Qty) AS Qty, m.EndTime AS EndTime FROM (SELECT b.BarCode AS BarCode, a.JobSheetNo AS JobSheetNo, 'GX20' AS ProcessID, a.ShiftID AS ShiftID, b.EmpID AS EmpID, a.CustQty AS CustQty, a.CustQty / c.pre AS Qty, CONVERT(VARCHAR(10), a.PackTime, 20) AS EndTime FROM dye.RecordYield AS a JOIN dye.RecordEmp AS b ON b.BarCode = a.BarCode JOIN (SELECT b.BarCode AS BarCode, COUNT(b.BarCode) AS pre FROM dye.RecordEmp AS b WHERE 1 = 1 GROUP BY b.BarCode) AS c ON c.BarCode = b.BarCode WHERE 1 = 1 AND a.ShiftID IN ('04003', '04004') AND a.PackTime < @StartDate AND a.PackTime >= @EndDate AND b.EmpID = @EmpID) AS m GROUP BY m.JobSheetNo, ProcessID, m.ShiftID, m.EmpID, m.EndTime) AS p JOIN (SELECT JobSheetNo AS JobSheetNo, ShiftID AS ShiftID, COUNT(BarCode) AS CurrRolls, SUM(CustQty) AS CurrKg FROM dye.RecordYield WHERE ShiftID IN ('04003', '04004') AND PackTime < @StartDate AND PackTime >= @EndDate GROUP BY JobSheetNo, ShiftID) AS p1 ON p1.JobSheetNo = p.JobSheetNo AND p1.ShiftID = p.ShiftID JOIN dye.JobSheet AS j ON p.JobSheetNo = j.SheetNo LEFT JOIN dye.JobProcess AS s ON j.SheetSeries = s.SheetSeries AND s.ProcessID = 'GX20' LEFT JOIN dye.p_Process AS t ON p.ProcessID = t.ProcessID LEFT JOIN dye.p_Shift AS t1 ON p.ShiftID = t1.ShiftID",
+      "SELECT ROW_NUMBER() OVER (ORDER BY a.WProcessNo) AS id, a.WProcessNo, d.OrderSheetNo, d.CustomerID, d.ProdID, d.ColorNum, d.ColorID, a.JobSheetNo, a.ProcessNo, a.ProcessID, a.ShiftID, b.EmpID, StartTime, EndTime, CurrRolls, CurrKg, CurrKg / c.pre AS Qty, tempWp.CurveName, tempWp.DyePrice, tempWp.DyeVat, tempWp.OutMoney, CASE WHEN ROW_NUMBER() OVER (PARTITION BY a.JobSheetNo, tempWp.CurveName ORDER BY a.JobSheetNo, tempWp.CurveName) = 1 THEN tempWp.DyeMoney ELSE 0 END AS DyeMoney FROM dye.WProcess AS a JOIN dye.JobShiftEmp AS b ON a.JobSheetNo = b.JobSheetNo AND a.ShiftID = b.ShiftID AND a.ProcessID = b.ProcessID AND a.WProcessNo = b.WProcessNo AND a.ProcessNo = b.ProcessNo JOIN (SELECT JobSheetNo AS JobSheetNo, ShiftID AS ShiftID, ProcessNo AS ProcessNo, ProcessID AS ProcessID, COUNT(ShiftID) AS pre FROM dye.JobShiftEmp GROUP BY JobSheetNo, ShiftID, ProcessNo, ProcessID) AS c ON b.JobSheetNo = c.JobSheetNo AND b.ShiftID = c.ShiftID AND b.ProcessNo = c.ProcessNo AND b.ProcessID = c.ProcessID LEFT JOIN dye.JobSheet AS d ON c.JobSheetNo = d.SheetNo LEFT JOIN (SELECT JobSheetNo AS JobSheetNo, ColorNum AS ColorNum, ColorID AS ColorID, RealValue AS RealValue, ProcessNo AS ProcessNo, ProcessID AS ProcessID, MaxValue AS MaxValue, PhaseID AS PhaseID, CurveName AS CurveName, RecordID AS RecordID, ProdID AS ProdID, CustomerID AS CustomerID, ShiftNameID AS ShiftNameID, ClothNetKg AS ClothNetKg, CombineSheetNos AS CombineSheetNos, CurrTime1 AS CurrTime1, CASE WHEN processid = 'GX033' THEN 5.0 ELSE DyeOutPrice END AS DyePrice, CASE WHEN processid = 'GX033' THEN 1 ELSE DyeOutVat END AS DyeVat, CASE WHEN processid = 'GX033' THEN 5 ELSE ROUND(CAST(DyeOutPrice * DyeOutVat * (RealValue / 100) AS FLOAT), 6) END AS DyeMoney, CASE WHEN NumNo = 1 AND ISNULL(Memo, 0) = 0 THEN OutMoney ELSE 0 END AS OutMoney FROM (SELECT m.JobSheetNo AS JobSheetNo, wj.ColorNum AS ColorNum, wj.ColorID AS ColorID, RealValue * 100 AS RealValue, ProcessNo AS ProcessNo, m.ProcessID AS ProcessID, MaxValue AS MaxValue, m.PhaseID AS PhaseID, CurveName AS CurveName, RecordID AS RecordID, wj.ProdID AS ProdID, wj.CustomerID AS CustomerID, ShiftNameID AS ShiftNameID, ClothNetKg AS ClothNetKg, CombineSheetNos AS CombineSheetNos, CurrTime1 AS CurrTime1, CASE WHEN ISNULL(m.memo, 0) = 0 THEN [dye].[fn_GetDyePrice](m.OrderSheetNo, m.JobSheetNo, m.MachineID, wj.ProdID, m.PhaseID) ELSE 0 END AS DyeOutPrice, dye.fn_GetDyeVat(ClothNetKg) AS DyeOutVat, ROW_NUMBER() OVER (PARTITION BY m.WProcessNo ORDER BY m.WProcessNo) AS NumNo, m.OutMoney AS OutMoney, m.Memo AS Memo FROM (SELECT wp.WProcessNo AS WProcessNo, wp.OrderSheetNo AS OrderSheetNo, wp.MachineID AS MachineID, ws.JobSheetNo AS JobSheetNo, ProgramID AS ProgramID, RecordID AS RecordID, PhaseID AS PhaseID, CurveName AS CurveName, SUM(RealValue) AS RealValue, cu.MaxValue AS MaxValue, ws.ProcessID AS ProcessID, ws.ProcessNo AS ProcessNo, MAX(CurrTime) AS CurrTime1, MAX(ISNULL(AssignedMeter, 0)) AS OutMoney, wp.Memo AS Memo FROM dye.WProcessStep AS ws LEFT JOIN dye.WProcess AS wp ON wp.JobSheetNo = ws.JobSheetNo AND ws.WProcessNo = wp.WProcessNo LEFT JOIN (SELECT a.PhaseID AS PhaseID, a.CurveID AS CurveID, pv.Name AS CurveName, Remarks AS Remarks, MaxValue AS MaxValue, StepNo AS StepNo, DyeProcessID AS DyeProcessID, Price AS Price FROM dye.p_DyeCurve AS a INNER JOIN dye.p_DyeCurveDetail AS b ON a.CurveID = b.CurveID LEFT JOIN dye.p_FieldValid AS pv ON a.PhaseID = pv.Code AND FieldType = 'DyePhase' AND NOT StepNo IS NULL) AS cu ON ws.ProgramID = cu.CurveID AND ws.DyeProcessID = cu.DyeProcessID WHERE RecordID = @EmpID AND EndTime < @StartDate AND EndTime >= @EndDate GROUP BY wp.WProcessNo, wp.OrderSheetNo, wp.MachineID, ws.JobSheetNo, ProgramID, RecordID, PhaseID, CurveName, ws.ProcessID, ws.ProcessNo, cu.MaxValue, wp.Memo) AS m LEFT JOIN dye.JobSheet AS wj ON wj.SheetNo = m.JobSheetNo LEFT JOIN dye.h_Employee AS em ON m.RecordID = em.EmpID LEFT JOIN dye.p_Dept AS de ON em.DeptID = de.DeptID LEFT JOIN dye.p_Process AS pp ON m.ProcessID = pp.ProcessID LEFT JOIN (SELECT CombineSheetNos AS CombineSheetNos, JobSheetNo AS JobSheetNo, ClothNetKg AS ClothNetKg FROM (SELECT CombineSheetNos AS CombineSheetNos, JobSheetNo AS JobSheetNo, ClothNetKg AS ClothNetKg, ROW_NUMBER() OVER (PARTITION BY JobSheetNo ORDER BY JobSheetNo, CombineSheetNos, ClothNetKg DESC) AS id FROM dye.StuffWeight WHERE SheetKind = 2 AND RecipeType IN (0, 2)) AS a WHERE a.id = 1) AS st ON st.JobSheetNo = m.JobSheetNo WHERE RealValue <> 0) AS T) AS tempWp ON a.JobSheetNo = tempWp.JobSheetNo AND b.EmpID = tempWp.RecordID AND a.ProcessID = tempWp.ProcessID WHERE b.EmpID = @EmpID AND EndTime < @StartDate AND EndTime >= @EndDate"
+    ],
+    "temps": {},
+    "assignments": [
+      "SELECT ShiftID AS ShiftID FROM dye.p_ShiftEmp WHERE EmpID = @EmpID"
+    ]
+  },
+  "Sp_JobSheetNum2": {
+    "id": "SQL316",
+    "title": "Sp_JobSheetNum2",
+    "kind": "query",
+    "sql": [
+      "SELECT NEWID() AS ID, xx.Code, xx.Description, CONVERT(NUMERIC(10, 3), SUM(T1_SumWeightQty) / 1000) AS T1_SumWeightQty, CONVERT(NUMERIC(10, 3), SUM(T2_SumWeightQty) / 1000) AS T2_SumWeightQty, CONVERT(NUMERIC(10, 3), SUM(T3_SumWeightQty) / 1000) AS T3_SumWeightQty, SUM(T1_SumLengthQty) AS T1_SumLengthQty, SUM(T2_SumLengthQty) AS T2_SumLengthQty, SUM(T3_SumLengthQty) AS T3_SumLengthQty, CONVERT(NUMERIC(10, 3), SUM(F1_SumWeightQty) / 1000) AS F1_SumWeightQty, CONVERT(NUMERIC(10, 3), SUM(F2_SumWeightQty) / 1000) AS F2_SumWeightQty, CONVERT(NUMERIC(10, 3), SUM(F3_SumWeightQty) / 1000) AS F3_SumWeightQty, SUM(F1_SumLengthQty) AS F1_SumLengthQty, SUM(F1_SumLengthQty) AS F1_SumLengthQty, SUM(F3_SumLengthQty) AS F3_SumLengthQty FROM (SELECT T.Code, T.Description, T.T_SumWeightQty AS T1_SumWeightQty, 0.00 AS T2_SumWeightQty, 0.00 AS T3_SumWeightQty, T.T_SumLengthQty AS T1_SumLengthQty, 0.00 AS T2_SumLengthQty, 0.00 AS T3_SumLengthQty, 0.00 AS F1_SumWeightQty, 0.00 AS F2_SumWeightQty, 0.00 AS F3_SumWeightQty, 0.00 AS F1_SumLengthQty, 0.00 AS F2_SumLengthQty, 0.00 AS F3_SumLengthQty FROM #T1 AS T WHERE T.JobKindID = '01' UNION ALL SELECT T.Code, T.Description, 0.00 AS T1_SumWeightQty, T.T_SumWeightQty AS T2_SumWeightQty, 0.00 AS T3_SumWeightQty, 0.00 AS T1_SumLengthQty, T.T_SumLengthQty AS T2_SumLengthQty, 0.00 AS T3_SumLengthQty, 0.00 AS F1_SumWeightQty, 0.00 AS F2_SumWeightQty, 0.00 AS F3_SumWeightQty, 0.00 AS F1_SumLengthQty, 0.00 AS F2_SumLengthQty, 0.00 AS F3_SumLengthQty FROM #T1 AS T WHERE T.JobKindID = '02' UNION ALL SELECT T.Code, T.Description, 0.00 AS T1_SumWeightQty, 0.00 AS T2_SumWeightQty, T.T_SumWeightQty AS T3_SumWeightQty, 0.00 AS T1_SumLengthQty, 0.00 AS T2_SumLengthQty, T.T_SumLengthQty AS T3_SumLengthQty, 0.00 AS F1_SumWeightQty, 0.00 AS F2_SumWeightQty, 0.00 AS F3_SumWeightQty, 0.00 AS F1_SumLengthQty, 0.00 AS F2_SumLengthQty, 0.00 AS F3_SumLengthQty FROM #T1 AS T WHERE T.JobKindID = '03' UNION ALL SELECT F.Code, F.Description, 0.00 AS T1_SumWeightQty, 0.00 AS T2_SumWeightQty, 0.00 AS T3_SumWeightQty, 0.00 AS T1_SumLengthQty, 0.00 AS T2_SumLengthQty, 0.00 AS T3_SumLengthQty, F.F_SumWeightQty AS F1_SumWeightQty, 0.00 AS F2_SumWeightQty, 0.00 AS F3_SumWeightQty, F.F_SumLengthQty AS F1_SumLengthQty, 0.00 AS F2_SumLengthQty, 0.00 AS F3_SumLengthQty FROM #F1 AS F WHERE F.JobKindID = '01' UNION ALL SELECT F.Code, F.Description, 0.00 AS T1_SumWeightQty, 0.00 AS T2_SumWeightQty, 0.00 AS T3_SumWeightQty, 0.00 AS T1_SumLengthQty, 0.00 AS T2_SumLengthQty, 0.00 AS T3_SumLengthQty, 0.00 AS F1_SumWeightQty, F.F_SumWeightQty AS F2_SumWeightQty, 0.00 AS F3_SumWeightQty, 0.00 AS F1_SumLengthQty, F.F_SumLengthQty AS F2_SumLengthQty, 0.00 AS F3_SumLengthQty FROM #F1 AS F WHERE F.JobKindID = '02' UNION ALL SELECT F.Code, F.Description, 0.00 AS T1_SumWeightQty, 0.00 AS T2_SumWeightQty, 0.00 AS T3_SumWeightQty, 0.00 AS T1_SumLengthQty, 0.00 AS T2_SumLengthQty, 0.00 AS T3_SumLengthQty, 0.00 AS F1_SumWeightQty, 0.00 AS F2_SumWeightQty, F.F_SumWeightQty AS F3_SumWeightQty, 0.00 AS F1_SumLengthQty, 0.00 AS F2_SumLengthQty, F.F_SumLengthQty AS F3_SumLengthQty FROM #F1 AS F WHERE F.JobKindID = '03') AS xx GROUP BY xx.Code, xx.Description"
+    ],
+    "temps": {
+      "t1": "SELECT xx.JobKindID, xx.Code, XX.Description, SUM(xx.SumAssignedWeightQty) AS T_SumWeightQty, SUM(xx.SumAssignedLengthQty) AS T_SumLengthQty FROM (SELECT js.JobKindID AS JobKindID, pf.code AS code, pf.Description AS Description, IIF(AssignUnit = 1, PreVatQty, 0) AS SumAssignedWeightQty, IIF(AssignUnit = 0, PreVatQty, 0) AS SumAssignedLengthQty FROM dye.JobSheet AS js LEFT JOIN dye.p_Gray AS pg ON js.ProdID = pg.GrayID LEFT JOIN dye.p_FieldValid AS pf ON pg.FabricKindID = pf.Code AND pf.FieldType = 'FabricKind' WHERE (js.CreateDate >= @DayStartDate) AND (js.CreateDate <= @DayEndDate)) AS xx WHERE 1 = 1 AND ISNULL(xx.code, '') <> '' GROUP BY JobKindID, xx.Code, XX.Description",
+      "f1": "SELECT xx.JobKindID, xx.Code, xx.Description, SUM(xx.SumAssignedWeightQty) AS F_SumWeightQty, SUM(xx.SumAssignedLengthQty) AS F_SumLengthQty FROM (SELECT js.JobKindID AS JobKindID, pf.code AS code, pf.Description AS Description, IIF(AssignUnit = 1, PreVatQty, 0) AS SumAssignedWeightQty, IIF(AssignUnit = 0, PreVatQty, 0) AS SumAssignedLengthQty FROM dye.JobSheet AS js LEFT JOIN dye.p_Gray AS pg ON js.ProdID = pg.GrayID LEFT JOIN dye.p_FieldValid AS pf ON pg.FabricKindID = pf.Code AND pf.FieldType = 'FabricKind' WHERE (js.CreateDate >= @MonthStartDate) AND (js.CreateDate <= @MonthEndDate)) AS xx WHERE 1 = 1 AND ISNULL(xx.code, '') <> '' GROUP BY JobKindID, xx.Code, xx.Description"
+    },
+    "assignments": []
+  },
+  "SP_PackQty": {
+    "id": "SQL330",
+    "title": "SP_PackQty",
+    "kind": "query",
+    "sql": [
+      "SELECT NEWID() AS WProcessNo, a.JobSheetNo, a.ShiftID, j.CustomerID, j.ProdID, j.ColorID, j.ColorNum, a.ProcessID, a.EndTime, a.EmpID, b.CurrRolls, b.CurrKg, a.Qty, ROUND(CASE WHEN ISNULL(pc.IsAbroad, 0) = 0 THEN p.Price ELSE p.Price * 1.5 END, 2) AS Price, ROUND((CASE WHEN ISNULL(pc.IsAbroad, 0) = 0 THEN p.Price ELSE p.Price * 1.5 END) * a.Qty / 1000, 2) AS WorkMoney FROM (SELECT m.JobSheetNo AS JobSheetNo, m.ShiftID AS ShiftID, m.EmpID AS EmpID, SUM(m.Qty) AS Qty, m.EndTime AS EndTime, 'GX20' AS ProcessID FROM (SELECT b.BarCode AS BarCode, a.JobSheetNo AS JobSheetNo, a.ShiftID AS ShiftID, b.EmpID AS EmpID, a.CustQty AS CustQty, a.CustQty / c.pre AS Qty, CONVERT(VARCHAR(10), DATEADD(HOUR, -8, a.PackTime), 20) AS EndTime FROM dye.RecordYield AS a JOIN dye.RecordEmp AS b ON b.BarCode = a.BarCode LEFT JOIN dye.p_Shift ON p_Shift.ShiftID = a.ShiftID JOIN (SELECT b.BarCode AS BarCode, COUNT(b.BarCode) AS pre FROM dye.RecordEmp AS b WHERE 1 = 1 GROUP BY b.BarCode) AS c ON c.BarCode = b.BarCode WHERE p_Shift.StationID = '12' AND p_Shift.DeptID = '06' AND (a.PackTime >= @StartDate) AND (a.PackTime <= @EndDate)) AS m GROUP BY m.JobSheetNo, m.ShiftID, m.EmpID, m.EndTime) AS a JOIN (SELECT JobSheetNo AS JobSheetNo, RecordYield.ShiftID AS ShiftID, COUNT(BarCode) AS CurrRolls, SUM(CustQty) AS CurrKg FROM dye.RecordYield LEFT JOIN dye.p_Shift ON p_Shift.ShiftID = RecordYield.ShiftID WHERE 1 = 1 AND p_Shift.StationID = '12' AND p_Shift.DeptID = '06' AND (PackTime >= @StartDate) AND (PackTime <= @EndDate) GROUP BY JobSheetNo, RecordYield.ShiftID) AS b ON b.JobSheetNo = a.JobSheetNo AND b.ShiftID = a.ShiftID LEFT JOIN dye.p_Process AS p ON p.ProcessID = a.ProcessID LEFT JOIN dye.JobSheet AS j ON a.JobSheetNo = j.SheetNo LEFT JOIN dye.p_Customer AS pc ON j.CustomerID = pc.CustomerID WHERE a.EmpID = @EmpID"
+    ],
+    "temps": {},
+    "assignments": []
+  },
+  "Sp_ProductionReports3": {
+    "id": "SQL343",
+    "title": "Sp_ProductionReports3",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM #AA1 UNION ALL SELECT * FROM #AA2 UNION ALL SELECT '返修情况' AS XMName, '返修小计' AS CreditGrade, '吨' AS UnitName, SUM(JDayQty) AS JDayQty, SUM(YDayQty) AS YDayQty, SUM(JMonthQty) AS JMonthQty, SUM(YMonthQty) AS YMonthQty, SUM(AllDayQty) AS AllDayQty, SUM(ALLMonthQty) AS ALLMonthQty FROM #AA2 UNION ALL SELECT XMName, CreditGrade, UnitName, CONVERT(NUMERIC(12, 2), IIF(@A1 = 0, NULL, JDayQty / @A1 * 100)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(@A2 = 0, NULL, YDayQty / @A2 * 100)) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(@A3 = 0, NULL, JMonthQty / @A3 * 100)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(@A4 = 0, NULL, YMonthQty / @A4 * 100)) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@A5 = 0, NULL, AllDayQty / @A5 * 100)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@A6 = 0, NULL, ALLMonthQty / @A6 * 100)) AS ALLMonthQty FROM #AA3 UNION ALL SELECT * FROM #BB1 UNION ALL SELECT '定型助剂' AS XMName, '吨布耗用' AS CreditGrade, '元/吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@B5 = 0, NULL, AllDayQty / @B5 * 10000)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@B6 = 0, NULL, ALLMonthQty / @B6 * 10000)) AS ALLMonthQty FROM #BB1 UNION ALL SELECT * FROM #CC1 UNION ALL SELECT '导热油' AS XMName, '吨布耗用' AS CreditGrade, '吉焦/吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@B5 = 0, NULL, AllDayQty / @B5)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@B6 = 0, NULL, ALLMonthQty / @B6)) AS ALLMonthQty FROM #CC1 UNION ALL SELECT '导热油' AS XMName, '定型一次耗用' AS CreditGrade, '吉焦/吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@B5 = 0, NULL, AllDayQty / @B5)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@B6 = 0, NULL, ALLMonthQty / @B6)) AS ALLMonthQty FROM #CC1"
+    ],
+    "temps": {
+      "aa1": "SELECT '产量' AS XMName, A.ProcessID AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(A.JDayQty) / 1000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(A.YDayQty) / 1000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(A.JMonthQty) / 1000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(A.YMonthQty) / 1000) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JDayQty, 0)) + SUM(ISNULL(A.YDayQty, 0))) / 1000) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JMonthQty, 0)) + SUM(ISNULL(A.YMonthQty, 0))) / 1000) AS ALLMonthQty FROM (SELECT IIF(ProcessID IN ('GX09', 'GX10', 'GX11'), ProcessID, 'G其他') AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT 'H-产量小计' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT 'I-成定返修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.ProcessID = 'GX11' AND (SELECT ISNULL(LossStr, '') FROM dye.JobSheet AS J WHERE W.JobSheetNo = J.SheetNo) <> '' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT 'J-成定产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.ProcessID = 'GX11' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT 'J-成定产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', -1 * W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', -1 * W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.ProcessID = 'GX11' AND (SELECT ISNULL(LossStr, '') FROM dye.JobSheet AS J WHERE W.JobSheetNo = J.SheetNo) <> '' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT IIF(ProcessID IN ('GX09', 'GX10', 'GX11'), ProcessID, 'G其他') AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT 'H-产量小计' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT 'I-成定返修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.ProcessID = 'GX11' AND (SELECT ISNULL(LossStr, '') FROM dye.JobSheet AS J WHERE W.JobSheetNo = J.SheetNo) <> '' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT 'J-成定产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.ProcessID = 'GX11' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT 'J-成定产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', -1 * W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', -1 * W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.StationID = '05' AND W.ProcessID = 'GX11' AND (SELECT ISNULL(LossStr, '') FROM dye.JobSheet AS J WHERE W.JobSheetNo = J.SheetNo) <> '' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate) AS A GROUP BY A.ProcessID ORDER BY CreditGrade",
+      "aa2": "SELECT '返修情况' AS XMName, A.ProcessID AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(A.JDayQty) / 1000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(A.YDayQty) / 1000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(A.JMonthQty) / 1000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(A.YMonthQty) / 1000) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JDayQty, 0)) + SUM(ISNULL(A.YDayQty, 0))) / 1000) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JMonthQty, 0)) + SUM(ISNULL(A.YMonthQty, 0))) / 1000) AS ALLMonthQty FROM (SELECT '内修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS J ON W.JobSheetNo = J.SheetNo WHERE 1 = 1 AND W.StationID = '05' AND (SELECT TOP 1 wd.DefectDept FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '07' AND (SELECT TOP 1 wd.Kind FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '内部评审' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '退货返修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS J ON W.JobSheetNo = J.SheetNo WHERE 1 = 1 AND W.StationID = '05' AND (SELECT TOP 1 wd.DefectDept FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '07' AND (SELECT TOP 1 wd.Kind FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '客退评审' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '内修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS J ON W.JobSheetNo = J.SheetNo WHERE 1 = 1 AND W.StationID = '05' AND (SELECT TOP 1 wd.DefectDept FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '07' AND (SELECT TOP 1 wd.Kind FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '内部评审' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT '退货返修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS J ON W.JobSheetNo = J.SheetNo WHERE 1 = 1 AND W.StationID = '05' AND (SELECT TOP 1 wd.DefectDept FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '07' AND (SELECT TOP 1 wd.Kind FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '客退评审' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate) AS A GROUP BY A.ProcessID",
+      "aa3": "SELECT '返修情况' AS XMName, A.ProcessID AS CreditGrade, '%' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(A.JDayQty) / 1000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(A.YDayQty) / 1000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(A.JMonthQty) / 1000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(A.YMonthQty) / 1000) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JDayQty, 0)) + SUM(ISNULL(A.YDayQty, 0))) / 1000) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JMonthQty, 0)) + SUM(ISNULL(A.YMonthQty, 0))) / 1000) AS ALLMonthQty FROM (SELECT '返修率' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS J ON W.JobSheetNo = J.SheetNo WHERE 1 = 1 AND W.StationID = '05' AND (SELECT TOP 1 wd.DefectDept FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '07' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '返修率' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS J ON W.JobSheetNo = J.SheetNo WHERE 1 = 1 AND W.StationID = '05' AND (SELECT TOP 1 wd.DefectDept FROM dye.WDefect AS wd WHERE wd.SheetNo = J.LossStr) = '07' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate) AS A GROUP BY A.ProcessID",
+      "bb1": "SELECT '定型助剂' AS XMName, '耗用' AS CreditGrade, '万元' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(B.JDayQty) / 10000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(B.YDayQty) / 10000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(B.JMonthQty) / 10000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(B.YMonthQty) / 10000) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(B.AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(B.ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), s.OutMoney - s.InMoney) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty FROM dye.StuffStockBook AS s WHERE 1 = 1 AND s.WareHouseID = '14' AND s.BookKind IN (21, 33) AND s.BookDate >= @DayStartDate AND s.BookDate <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), s.OutMoney - s.InMoney) AS ALLMonthQty FROM dye.StuffStockBook AS s WHERE 1 = 1 AND s.WareHouseID = '14' AND s.BookKind IN (21, 33) AND s.BookDate >= @MonthStartDate AND s.BookDate <= @MonthEndDate) AS B",
+      "cc1": "SELECT '导热油' AS XMName, '用量' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(C.JDayQty) / 10000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(C.YDayQty) / 10000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(C.JMonthQty) / 10000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.YMonthQty) / 10000) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(C.ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @DayStartDate AND NULL <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @MonthStartDate AND NULL <= @MonthEndDate) AS C"
+    },
+    "assignments": [
+      "SELECT TOP 1 JDayQty AS A1, YDayQty AS A2, JMonthQty AS A3, YMonthQty AS A4, AllDayQty AS A5, ALLMonthQty AS A6 FROM #AA1 WHERE CreditGrade = 'H-产量小计'",
+      "SELECT TOP 1 JDayQty AS B1, YDayQty AS B2, JMonthQty AS B3, YMonthQty AS B4, AllDayQty AS B5, ALLMonthQty AS B6 FROM #AA1 WHERE CreditGrade = 'J-成品产量(不含返修)'"
+    ]
+  },
+  "Sp_ProductionReports4": {
+    "id": "SQL344",
+    "title": "Sp_ProductionReports4",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM #AA1 UNION ALL SELECT * FROM #BB1 UNION ALL SELECT '缸数' AS XMName, '直通率' AS CreditGrade, '%' AS UnitName, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.JDayQty, 0) = 0, NULL, A.JDayQty / B.JDayQty * 100)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.YDayQty, 0) = 0, NULL, A.YDayQty / B.YDayQty * 100)) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.JMonthQty, 0) = 0, NULL, A.JMonthQty / B.JMonthQty * 100)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.YMonthQty, 0) = 0, NULL, A.YMonthQty / B.YMonthQty * 100)) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.AllDayQty, 0) = 0, NULL, A.AllDayQty / B.AllDayQty * 100)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.ALLMonthQty, 0) = 0, NULL, A.ALLMonthQty / B.ALLMonthQty * 100)) AS ALLMonthQty FROM (SELECT * FROM #BB1 WHERE CreditGrade = '2-其中:未加色') AS A LEFT JOIN (SELECT * FROM #BB1 WHERE CreditGrade = '1-总缸数') AS B ON 1 = 1 UNION ALL SELECT * FROM #CC1 UNION ALL SELECT '返修情况' AS XMName, '返修小计' AS CreditGrade, '缸' AS UnitName, SUM(JDayQty) AS JDayQty, SUM(YDayQty) AS YDayQty, SUM(JMonthQty) AS JMonthQty, SUM(YMonthQty) AS YMonthQty, SUM(AllDayQty) AS AllDayQty, SUM(ALLMonthQty) AS ALLMonthQty FROM #CC1 UNION ALL SELECT '返修情况' AS XMName, '返修率' AS CreditGrade, '%' AS UnitName, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.JDayQty, 0) = 0, NULL, A.JDayQty / B.JDayQty * 100)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.YDayQty, 0) = 0, NULL, A.YDayQty / B.YDayQty * 100)) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.JMonthQty, 0) = 0, NULL, A.JMonthQty / B.JMonthQty * 100)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.YMonthQty, 0) = 0, NULL, A.YMonthQty / B.YMonthQty * 100)) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.AllDayQty, 0) = 0, NULL, A.AllDayQty / B.AllDayQty * 100)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.ALLMonthQty, 0) = 0, NULL, A.ALLMonthQty / B.ALLMonthQty * 100)) AS ALLMonthQty FROM (SELECT '' AS XMName, '' AS CreditGrade, '' AS UnitName, SUM(JDayQty) AS JDayQty, SUM(YDayQty) AS YDayQty, SUM(JMonthQty) AS JMonthQty, SUM(YMonthQty) AS YMonthQty, SUM(AllDayQty) AS AllDayQty, SUM(ALLMonthQty) AS ALLMonthQty FROM #CC1) AS A LEFT JOIN (SELECT * FROM #BB1 WHERE CreditGrade = '1-总缸数') AS B ON 1 = 1 UNION ALL SELECT * FROM #DD1 UNION ALL SELECT '染料助剂' AS XMName, '染料助剂合计' AS CreditGrade, '万元' AS UnitName, SUM(JDayQty) AS JDayQty, SUM(YDayQty) AS YDayQty, SUM(JMonthQty) AS JMonthQty, SUM(YMonthQty) AS YMonthQty, SUM(AllDayQty) AS AllDayQty, SUM(ALLMonthQty) AS ALLMonthQty FROM #DD1 UNION ALL SELECT '染料助剂' AS XMName, '吨布耗用' AS CreditGrade, '元/吨' AS UnitName, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.JDayQty, 0) = 0, NULL, A.JDayQty / B.JDayQty * 10000)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.YDayQty, 0) = 0, NULL, A.YDayQty / B.YDayQty * 10000)) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.JMonthQty, 0) = 0, NULL, A.JMonthQty / B.JMonthQty * 10000)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.YMonthQty, 0) = 0, NULL, A.YMonthQty / B.YMonthQty * 10000)) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.AllDayQty, 0) = 0, NULL, A.AllDayQty / B.AllDayQty * 10000)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(ISNULL(B.ALLMonthQty, 0) = 0, NULL, A.ALLMonthQty / B.ALLMonthQty * 10000)) AS ALLMonthQty FROM (SELECT '' AS XMName, '' AS CreditGrade, '' AS UnitName, SUM(JDayQty) AS JDayQty, SUM(YDayQty) AS YDayQty, SUM(JMonthQty) AS JMonthQty, SUM(YMonthQty) AS YMonthQty, SUM(AllDayQty) AS AllDayQty, SUM(ALLMonthQty) AS ALLMonthQty FROM #DD1) AS A LEFT JOIN (SELECT * FROM #AA1 WHERE CreditGrade = '5-染色产量(不含返修)') AS B ON 1 = 1 UNION ALL SELECT * FROM #EE1 UNION ALL SELECT '水' AS XMName, '吨布耗用' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@AllDayKg = 0, NULL, AllDayQty / @AllDayKg)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@ALLMonthKg = 0, NULL, ALLMonthQty / @ALLMonthKg)) AS ALLMonthQty FROM #EE1 UNION ALL SELECT * FROM #FF1 UNION ALL SELECT '蒸汽' AS XMName, '吨布耗用' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), IIF(@AllDayKg = 0, NULL, AllDayQty / @AllDayKg)) AS AllDayQty, CONVERT(NUMERIC(12, 2), IIF(@ALLMonthKg = 0, NULL, ALLMonthQty / @ALLMonthKg)) AS ALLMonthQty FROM #FF1"
+    ],
+    "temps": {
+      "aa1": "SELECT '产量' AS XMName, A.ProcessID AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(A.JDayQty) / 1000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(A.YDayQty) / 1000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(A.JMonthQty) / 1000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(A.YMonthQty) / 1000) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JDayQty, 0)) + SUM(ISNULL(A.YDayQty, 0))) / 1000) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(A.JMonthQty, 0)) + SUM(ISNULL(A.YMonthQty, 0))) / 1000) AS ALLMonthQty FROM (SELECT '1-单染' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = 'GX07' AND NOT EXISTS(SELECT 1 FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '2-套染' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = 'GX06' AND EXISTS(SELECT 1 FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '3-小计' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '4-返修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND (SELECT ISNULL(J.LossStr, '') FROM dye.JobSheet AS J WHERE J.SheetNo = W.JobSheetNo) <> '' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '5-染色产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '5-染色产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', -W.CurrKg * W.CurrDosage / 100, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', -W.CurrKg * W.CurrDosage / 100, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND (SELECT ISNULL(J.LossStr, '') FROM dye.JobSheet AS J WHERE J.SheetNo = W.JobSheetNo) <> '' AND W.CreateDate >= @DayStartDate AND W.CreateDate <= @DayEndDate UNION ALL SELECT '1-单染' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND NOT EXISTS(SELECT 1 FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) AND W.ProcessID = 'GX07' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT '2-套染' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND EXISTS(SELECT 1 FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) AND W.ProcessID = 'GX06' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT '3-小计' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT '4-返修产量' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND (SELECT ISNULL(J.LossStr, '') FROM dye.JobSheet AS J WHERE J.SheetNo = W.JobSheetNo) <> '' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT '5-染色产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate UNION ALL SELECT '5-染色产量(不含返修)' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', -W.CurrKg * W.CurrDosage / 100, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', -W.CurrKg * W.CurrDosage / 100, NULL)) AS YMonthQty FROM dye.WProcess AS W WHERE 1 = 1 AND W.ProcessID = IIF((SELECT COUNT(*) FROM dye.A_Overprinting AS AO WHERE AO.JobSheetNo = W.JobSheetNo) = 0, 'GX07', 'GX06') AND W.ProcessID IN ('GX06', 'GX07') AND (SELECT ISNULL(J.LossStr, '') FROM dye.JobSheet AS J WHERE J.SheetNo = W.JobSheetNo) <> '' AND W.CreateDate >= @MonthStartDate AND W.CreateDate <= @MonthEndDate) AS A GROUP BY A.ProcessID ORDER BY CreditGrade",
+      "bb1": "SELECT '缸数' AS XMName, B.ProcessID AS CreditGrade, '缸' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(B.JDayQty)) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(B.YDayQty)) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(B.JMonthQty)) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(B.YMonthQty)) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(B.JDayQty, 0)) + SUM(ISNULL(B.YDayQty, 0)))) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(B.JMonthQty, 0)) + SUM(ISNULL(B.YMonthQty, 0)))) AS ALLMonthQty FROM (SELECT '1-总缸数' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.EndTime >= @DayStartDate AND W.EndTime <= @DayEndDate UNION ALL SELECT '2-其中:未加色' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 = 0 AND W.EndTime >= @DayStartDate AND W.EndTime <= @DayEndDate UNION ALL SELECT '3-其中:加色一次' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 = 1 AND W.EndTime >= @DayStartDate AND W.EndTime <= @DayEndDate UNION ALL SELECT '4-其中:加色二次' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 = 2 AND W.EndTime >= @DayStartDate AND W.EndTime <= @DayEndDate UNION ALL SELECT '5-其中:加色三次及以上' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 >= 3 AND W.EndTime >= @DayStartDate AND W.EndTime <= @DayEndDate UNION ALL SELECT '1-总缸数' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.EndTime >= @MonthStartDate AND W.EndTime <= @MonthEndDate UNION ALL SELECT '2-其中:未加色' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 = 0 AND W.EndTime >= @MonthStartDate AND W.EndTime <= @MonthEndDate UNION ALL SELECT '3-其中:加色一次' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 = 1 AND W.EndTime >= @MonthStartDate AND W.EndTime <= @MonthEndDate UNION ALL SELECT '4-其中:加色二次' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 = 2 AND W.EndTime >= @MonthStartDate AND W.EndTime <= @MonthEndDate UNION ALL SELECT '5-其中:加色三次及以上' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.dyeCheckout AS W WHERE 1 = 1 AND W.AddNumber1 >= 3 AND W.EndTime >= @MonthStartDate AND W.EndTime <= @MonthEndDate) AS B GROUP BY B.ProcessID ORDER BY B.ProcessID",
+      "cc1": "SELECT '返修情况' AS XMName, C.ProcessID AS CreditGrade, '缸' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(C.JDayQty)) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(C.YDayQty)) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(C.JMonthQty)) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.YMonthQty)) AS YMonthQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(C.JDayQty, 0)) + SUM(ISNULL(C.YDayQty, 0)))) AS AllDayQty, CONVERT(NUMERIC(12, 2), (SUM(ISNULL(C.JMonthQty, 0)) + SUM(ISNULL(C.YMonthQty, 0)))) AS ALLMonthQty FROM (SELECT '1-内修缸数' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.dyeCheckout AS W LEFT JOIN dye.JobSheet AS J ON J.SheetNo = W.JobSheetNo WHERE 1 = 1 AND W.WDNum = 1 AND LEFT(J.LossStr, 1) = 'N' AND W.EndTime >= @DayStartDate AND W.EndTime <= @DayEndDate UNION ALL SELECT '2-退货返修缸数' AS ProcessID, CONVERT(NUMERIC(12, 2), IIF(ClassID = '03', 1, NULL)) AS JDayQty, CONVERT(NUMERIC(12, 2), IIF(ClassID = '04', 1, NULL)) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty FROM dye.dyeCheckout AS W LEFT JOIN dye.JobSheet AS J ON J.SheetNo = W.JobSheetNo WHERE 1 = 1 AND W.WDNum = 1 AND LEFT(J.LossStr, 1) = 'K' AND W.EndTime >= @DayStartDate AND W.EndTime <= @DayEndDate UNION ALL SELECT '1-内修缸数' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.dyeCheckout AS W LEFT JOIN dye.JobSheet AS J ON J.SheetNo = W.JobSheetNo WHERE 1 = 1 AND W.WDNum = 1 AND LEFT(J.LossStr, 1) = 'N' AND W.EndTime >= @MonthStartDate AND W.EndTime <= @MonthEndDate UNION ALL SELECT '2-退货返修缸数' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '03', 1, NULL)) AS JMonthQty, CONVERT(NUMERIC(12, 2), IIF(W.ClassID = '04', 1, NULL)) AS YMonthQty FROM dye.dyeCheckout AS W LEFT JOIN dye.JobSheet AS J ON J.SheetNo = W.JobSheetNo WHERE 1 = 1 AND W.WDNum = 1 AND LEFT(J.LossStr, 1) = 'K' AND W.EndTime >= @MonthStartDate AND W.EndTime <= @MonthEndDate) AS C GROUP BY C.ProcessID ORDER BY C.ProcessID",
+      "dd1": "SELECT '染料助剂' AS XMName, D.ProcessID AS CreditGrade, '万元' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(D.JDayQty)) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(D.YDayQty)) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(D.JMonthQty)) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(D.YMonthQty)) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT '1-主料单耗用' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), sod.Amount) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty FROM dye.StuffOutDetail AS sod LEFT JOIN dye.StuffOut AS so ON so.SheetSeries = sod.SheetSeries LEFT JOIN dye.StuffWeight AS sw ON sw.SheetNo = so.WeightSheetNo WHERE 1 = 1 AND sw.SheetKind = 2 AND sw.RecipeType = 0 AND so.SheetDate >= @DayStartDate AND so.SheetDate <= @DayEndDate UNION ALL SELECT '2-加料单耗用' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), sod.Amount) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty FROM dye.StuffOutDetail AS sod LEFT JOIN dye.StuffOut AS so ON so.SheetSeries = sod.SheetSeries LEFT JOIN dye.StuffWeight AS sw ON sw.SheetNo = so.WeightSheetNo WHERE 1 = 1 AND sw.SheetKind = 2 AND sw.RecipeType = 1 AND so.SheetDate >= @DayStartDate AND so.SheetDate <= @DayEndDate UNION ALL SELECT '1-主料单耗用' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), sod.Amount) AS ALLMonthQty FROM dye.StuffOutDetail AS sod LEFT JOIN dye.StuffOut AS so ON so.SheetSeries = sod.SheetSeries LEFT JOIN dye.StuffWeight AS sw ON sw.SheetNo = so.WeightSheetNo WHERE 1 = 1 AND sw.SheetKind = 2 AND sw.RecipeType = 0 AND so.SheetDate >= @MonthStartDate AND so.SheetDate <= @MonthEndDate UNION ALL SELECT '2-加料单耗用' AS ProcessID, CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), sod.Amount) AS ALLMonthQty FROM dye.StuffOutDetail AS sod LEFT JOIN dye.StuffOut AS so ON so.SheetSeries = sod.SheetSeries LEFT JOIN dye.StuffWeight AS sw ON sw.SheetNo = so.WeightSheetNo WHERE 1 = 1 AND sw.SheetKind = 2 AND sw.RecipeType = 1 AND so.SheetDate >= @MonthStartDate AND so.SheetDate <= @MonthEndDate) AS D GROUP BY D.ProcessID ORDER BY D.ProcessID",
+      "ee1": "SELECT '水' AS XMName, '用量' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(C.JDayQty) / 10000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(C.YDayQty) / 10000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(C.JMonthQty) / 10000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.YMonthQty) / 10000) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(C.AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(C.ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @DayStartDate AND NULL <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @MonthStartDate AND NULL <= @MonthEndDate) AS C",
+      "ff1": "SELECT '蒸汽' AS XMName, '用量' AS CreditGrade, '吨' AS UnitName, CONVERT(NUMERIC(12, 2), SUM(D.JDayQty) / 10000) AS JDayQty, CONVERT(NUMERIC(12, 2), SUM(D.YDayQty) / 10000) AS YDayQty, CONVERT(NUMERIC(12, 2), SUM(D.JMonthQty) / 10000) AS JMonthQty, CONVERT(NUMERIC(12, 2), SUM(D.YMonthQty) / 10000) AS YMonthQty, CONVERT(NUMERIC(12, 2), SUM(D.AllDayQty) / 10000) AS AllDayQty, CONVERT(NUMERIC(12, 2), SUM(D.ALLMonthQty) / 10000) AS ALLMonthQty FROM (SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @DayStartDate AND NULL <= @DayEndDate UNION ALL SELECT CONVERT(NUMERIC(12, 2), NULL) AS JDayQty, CONVERT(NUMERIC(12, 2), NULL) AS YDayQty, CONVERT(NUMERIC(12, 2), NULL) AS JMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS YMonthQty, CONVERT(NUMERIC(12, 2), NULL) AS AllDayQty, CONVERT(NUMERIC(12, 2), NULL) AS ALLMonthQty WHERE 1 = 1 AND NULL >= @MonthStartDate AND NULL <= @MonthEndDate) AS D"
+    },
+    "assignments": [
+      "SELECT TOP 1 AllDayQty AS ALLMonthKg, ALLMonthQty AS ALLMonthKg FROM #AA1"
+    ]
+  },
+  "Sp_QueryGetClothNotice": {
+    "id": "SQL359",
+    "title": "Sp_QueryGetClothNotice",
+    "kind": "paged",
+    "sql": [
+      "SELECT * FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT ROW_NUMBER() OVER (ORDER BY b.SheetDate DESC) AS rowIndex, a.SheetSeries, a.DetailNo, CONVERT(VARCHAR(19), b.SheetDate, 21) AS SheetDate, b.Driver, Dr.Name AS DriverName, a.AddrDlv, a.CustomerID, cu.ShortName AS CustomerName, a.ProdID, FK.Name AS ProdName, ISNULL(Rolls, 0) AS Rolls, ISNULL(ReceivingType, 0) AS ReceivingType, CASE WHEN ISNULL(ReceivingType, 0) = 0 THEN '未收货' WHEN ISNULL(ReceivingType, 0) = 1 THEN '已收货' WHEN ISNULL(ReceivingType, 0) = 2 THEN '部分收获' WHEN ISNULL(ReceivingType, 0) = 3 THEN '暂时不收货' END AS ReceivingTypeName, ISNULL(ReceivingRolls, 0) AS ReceivingRolls, (ISNULL(Rolls, 0) - ISNULL(ReceivingRolls, 0)) AS ResidueRolls FROM dye.GetClothNoticeDetail AS a LEFT JOIN dye.GetClothNotice AS b ON a.SheetSeries = b.SheetSeries LEFT JOIN dye.p_Customer AS cu ON a.CustomerID = cu.CustomerID LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'FabricKind') AS FK ON a.ProdID = FK.Code LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'Driver') AS Dr ON b.Driver = Dr.Code WHERE 1 = 1 AND (ISNULL(@CustomerID, '') = '' OR a.CustomerID = @CustomerID) AND (ISNULL(@Driver, '') = '' OR b.Driver = @Driver) AND ISNULL(Rolls, 0) > ISNULL(ReceivingRolls, 0)"
+    },
+    "assignments": []
+  },
+  "SP_Sp_QueryGetClothNoticeInfo": {
+    "id": "SQL375",
+    "title": "SP_Sp_QueryGetClothNoticeInfo",
+    "kind": "paged",
+    "sql": [
+      "SELECT * FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT ROW_NUMBER() OVER (ORDER BY b.SheetDate DESC) AS rowIndex, a.SheetSeries, a.DetailNo, CONVERT(VARCHAR(19), b.SheetDate, 21) AS SheetDate, b.Driver, Dr.Name AS DriverName, a.AddrDlv, a.CustomerID, cu.ShortName AS CustomerName, a.ProdID, FK.Name AS ProdName, ISNULL(Rolls, 0) AS Rolls, ISNULL(ReceivingType, 0) AS ReceivingType, CASE WHEN ISNULL(ReceivingType, 0) = 0 THEN '未收货' WHEN ISNULL(ReceivingType, 0) = 1 THEN '已收货' WHEN ISNULL(ReceivingType, 0) = 2 THEN '部分收货' WHEN ISNULL(ReceivingType, 0) = 3 THEN '暂时不收货' END AS ReceivingTypeName, ISNULL(ReceivingRolls, 0) AS ReceivingRolls, (Rolls - ReceivingRolls) AS ResidueRolls FROM dye.GetClothNoticeDetail AS a LEFT JOIN dye.GetClothNotice AS b ON a.SheetSeries = b.SheetSeries LEFT JOIN dye.p_Customer AS cu ON a.CustomerID = cu.CustomerID LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'FabricKind') AS FK ON a.ProdID = FK.Code LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'Driver') AS Dr ON b.Driver = Dr.Code WHERE 1 = 1 AND b.SheetDate >= @dtStart AND b.SheetDate <= @dtEnd AND (ISNULL(@CustomerID, '') = '' OR a.CustomerID = @CustomerID) AND (ISNULL(@Driver, '') = '' OR b.Driver = @Driver) AND (ISNULL(@SheetSeries, '') = '' OR a.SheetSeries LIKE '%' + @SheetSeries + '%') AND ReceivingType <> 0"
+    },
+    "assignments": []
+  },
+  "20260731": {
+    "id": "SQL083",
+    "title": "20260731",
+    "kind": "query",
+    "sql": [
+      "SELECT NEWID() AS ID, J.MaxRolls AS 缸型个数, * FROM (SELECT * FROM #T10 UNION ALL SELECT 日期, 'Z-总计' AS 缸型, CONVERT(NUMERIC(10, 2), SUM(订单数量)) AS 订单数量, CONVERT(NUMERIC(10, 1), SUM(全部订单缸数)) AS 全部订单缸数, CONVERT(NUMERIC(10, 1), SUM(本厂订单缸数)) AS 本厂订单缸数, CONVERT(NUMERIC(10, 1), SUM(外单订单缸数)) AS 外单订单缸数, CONVERT(NUMERIC(10, 0), SUM(每天来单缸数)) AS 每天来单缸数, CONVERT(NUMERIC(10, 0), SUM(本厂每天来单缸数)) AS 本厂每天来单缸数, CONVERT(NUMERIC(10, 0), SUM(外单每天来单缸数)) AS 外单每天来单缸数, CONVERT(NUMERIC(10, 0), SUM(订单未交货总缸数)) AS 订单未交货总缸数, CONVERT(NUMERIC(10, 0), SUM(订单未交货本厂缸数)) AS 订单未交货本厂缸数, CONVERT(NUMERIC(10, 0), SUM(订单未交货外单缸数)) AS 订单未交货外单缸数, CONVERT(NUMERIC(10, 0), SUM(完成缸数)) AS 完成缸数, CONVERT(NUMERIC(10, 0), SUM(完成本厂缸数)) AS 完成本厂缸数, CONVERT(NUMERIC(10, 0), SUM(完成外单缸数)) AS 完成外单缸数, CONVERT(NUMERIC(10, 0), SUM(每天出缸总数)) AS 每天出缸总数, CONVERT(NUMERIC(10, 0), SUM(本厂出缸总数)) AS 本厂出缸总数, CONVERT(NUMERIC(10, 0), SUM(外单出缸总数)) AS 外单出缸总数, CONVERT(NUMERIC(10, 0), NULL) AS 每天平均数, CONVERT(NUMERIC(10, 0), NULL) AS 预计完成天数 FROM #T10 GROUP BY 日期 UNION ALL SELECT '截止' + CONVERT(VARCHAR(10), @EndDate, 120) AS 日期, '总合计' AS 缸型, CONVERT(NUMERIC(10, 2), SUM(订单数量)) AS 订单数量, CONVERT(NUMERIC(10, 1), SUM(全部订单缸数)) AS 全部订单缸数, CONVERT(NUMERIC(10, 1), SUM(本厂订单缸数)) AS 本厂订单缸数, CONVERT(NUMERIC(10, 1), SUM(外单订单缸数)) AS 外单订单缸数, CONVERT(NUMERIC(10, 0), SUM(每天来单缸数)) AS 每天来单缸数, CONVERT(NUMERIC(10, 0), SUM(本厂每天来单缸数)) AS 本厂每天来单缸数, CONVERT(NUMERIC(10, 0), SUM(外单每天来单缸数)) AS 外单每天来单缸数, CONVERT(NUMERIC(10, 0), NULL) AS 订单未交货总缸数, CONVERT(NUMERIC(10, 0), NULL) AS 订单未交货本厂缸数, CONVERT(NUMERIC(10, 0), NULL) AS 订单未交货外单缸数, CONVERT(NUMERIC(10, 0), SUM(完成缸数)) AS 完成缸数, CONVERT(NUMERIC(10, 0), SUM(完成本厂缸数)) AS 完成本厂缸数, CONVERT(NUMERIC(10, 0), SUM(完成外单缸数)) AS 完成外单缸数, CONVERT(NUMERIC(10, 0), SUM(每天出缸总数)) AS 每天出缸总数, CONVERT(NUMERIC(10, 0), SUM(本厂出缸总数)) AS 本厂出缸总数, CONVERT(NUMERIC(10, 0), SUM(外单出缸总数)) AS 外单出缸总数, CONVERT(NUMERIC(10, 0), NULL) AS 每天平均数, CONVERT(NUMERIC(10, 0), NULL) AS 预计完成天数 FROM #T10) AS H LEFT JOIN (SELECT ROW_NUMBER() OVER (PARTITION BY KindName ORDER BY KindName) AS NUM, KindName AS KindName, MAX(MaxRolls) OVER (PARTITION BY KindName ORDER BY KindName) AS MaxRolls FROM dye.p_Machine) AS J ON H.缸型 = J.KindName AND J.NUM = 1 ORDER BY H.日期, H.缸型 ASC"
+    ],
+    "temps": {
+      "t1": "SELECT *, IIF(T1.CustomerID IN ('000', '004'), T1.GW_INT, 0) AS BGW_INT, IIF(T1.CustomerID IN ('000', '004'), 0, T1.GW_INT) AS WGW_INT FROM (SELECT A.CheckNo AS CheckNo, B.CustomerID AS CustomerID, CONVERT(VARCHAR(10), DATEADD(HOUR, -8, B.SheetDate), 120) AS SDATE, A.GWName AS GWName, A.OrderQty AS OrderQty, P.FabricKindID AS FabricKindID, C.MaxQty AS MaxQty, CONVERT(NUMERIC(10, 1), IIF(C.MaxQty = 0, 1, IIF(A.OrderQty < C.MaxQty, 1, A.OrderQty / C.MaxQty))) AS GW_INT FROM dye.OrderColor AS A LEFT JOIN dye.OrderMain AS B ON B.SheetSeries = A.SheetSeries LEFT JOIN dye.p_Gray AS P ON A.ProdID = P.GrayID LEFT JOIN (SELECT ROW_NUMBER() OVER (PARTITION BY FabricKindID, GWName ORDER BY SheetDate DESC) AS NUN, * FROM dye.GWName) AS C ON C.FabricKindID = P.FabricKindID AND C.GWName = A.GWName AND C.NUN = 1 WHERE 1 = 1 AND DATEADD(HOUR, -8, B.SheetDate) >= @StartDate AND DATEADD(HOUR, -8, B.SheetDate) <= @EndDate) AS T1",
+      "t2": "SELECT * FROM (SELECT DISTINCT B.SheetSeries AS SheetSeries, B.SheetNo AS SheetNo, B.CheckNo AS CheckNo, CONVERT(VARCHAR(10), DATEADD(HOUR, -8, B.SheetDate), 120) AS SDATE, CONVERT(VARCHAR(10), OM.SheetDate, 120) AS OMDATE, PM.KindName AS KindName, B.StereotypesName AS StereotypesName, IIF(B.CustomerID IN ('000', '004'), 1, 0) AS BJob_INT, IIF(B.CustomerID IN ('000', '004'), 0, 1) AS WJob_INT, 1 AS Job_INT FROM dye.JobSheet AS B LEFT JOIN dye.OrderColor AS F ON F.CheckNo = B.CheckNo LEFT JOIN dye.OrderMain AS OM ON OM.SheetSeries = F.SheetSeries LEFT JOIN dye.p_Gray AS P ON B.ProdID = P.GrayID LEFT JOIN dye.p_Machine AS PM ON (ISNULL(PM.MachineID, '') + '-') = B.StereotypesName WHERE 1 = 1 AND B.JobSheetType = '0' AND B.SheetDate > '2026-06-01' AND B.SheetSeries IN (SELECT SheetSeries FROM dye.JobProcess WHERE StationID = '06') AND ISNULL(F.Remarks02, '') NOT LIKE '%取消%' AND DATEADD(HOUR, -8, B.SheetDate) >= @LastYEAR AND DATEADD(HOUR, -8, B.SheetDate) <= @EndDate) AS T2",
+      "t3": "SELECT * FROM (SELECT DISTINCT CONVERT(VARCHAR(10), B.SheetDate, 120) AS RQ, W.ProcessID AS ProcessID, W.JobSheetNo AS JobSheetNo, PM.KindName AS KindName, W.MachineID AS MachineID, IIF(B.CustomerID IN ('000', '004'), 1, 0) AS BCH_INT, IIF(B.CustomerID IN ('000', '004'), 0, 1) AS WCH_INT, 1 AS CH_INT FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS B ON B.SheetNo = W.JobSheetNo LEFT JOIN dye.p_Machine AS PM ON ISNULL(PM.MachineID, '') + '-' = ISNULL(B.StereotypesName, '') WHERE W.StationID = '06' AND W.DyeState IN ('3', '4', '7') AND W.JobSheetNo IN (SELECT SheetNo FROM #T2)) AS WW",
+      "t4": "SELECT * FROM (SELECT DISTINCT CONVERT(VARCHAR(10), DATEADD(HOUR, -8, W.StartTime), 120) AS RQ, W.ProcessID AS ProcessID, W.JobSheetNo AS JobSheetNo, PM.KindName AS KindName, W.MachineID AS MachineID, IIF(B.CustomerID IN ('000', '004'), 1, 0) AS BCH_INT, IIF(B.CustomerID IN ('000', '004'), 0, 1) AS WCH_INT, 1 AS CH_INT FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS B ON B.SheetNo = W.JobSheetNo LEFT JOIN dye.p_Machine AS PM ON ISNULL(PM.MachineID, '') = ISNULL(W.MachineID, '') WHERE W.StationID = '06' AND W.DyeState IN ('3', '4', '7') AND DATEADD(HOUR, -8, W.StartTime) >= @StartDate AND DATEADD(HOUR, -8, W.StartTime) <= @EndDate) AS WW",
+      "t5": "SELECT WW.KindName, @LastMonthDays AS LastMonthDays, SUM(WW.CH_INT) AS CH_INT, CONVERT(NUMERIC(10, 1), IIF(@LastMonthDays = 0, 0, SUM(WW.CH_INT) / @LastMonthDays)) AS AVG_Month FROM (SELECT DISTINCT CONVERT(VARCHAR(10), DATEADD(HOUR, -8, W.StartTime), 120) AS RQ, W.ProcessID AS ProcessID, W.JobSheetNo AS JobSheetNo, PM.KindName AS KindName, W.MachineID AS MachineID, IIF(B.CustomerID IN ('000', '004'), 1, 0) AS BCH_INT, IIF(B.CustomerID IN ('000', '004'), 0, 1) AS WCH_INT, CONVERT(NUMERIC(10, 1), 1) AS CH_INT FROM dye.WProcess AS W LEFT JOIN dye.JobSheet AS B ON B.SheetNo = W.JobSheetNo LEFT JOIN dye.p_Machine AS PM ON ISNULL(PM.MachineID, '') = ISNULL(W.MachineID, '') WHERE W.StationID = '06' AND W.DyeState IN ('3', '4', '7') AND DATEADD(HOUR, -8, W.StartTime) >= @LastMonthStart AND DATEADD(HOUR, -8, W.StartTime) <= @LastMonthEnd) AS WW GROUP BY WW.KindName",
+      "t6": "WITH BoneCTE AS (SELECT A.RQ AS RQ, B.KindName AS KindName FROM #T0 AS A JOIN (SELECT DISTINCT KindName AS KindName FROM dye.p_Machine WHERE StationID = '06') AS B ON 1 = 1 WHERE A.RQ >= CONVERT(VARCHAR(10), @StartDate, 120) AND A.RQ <= CONVERT(VARCHAR(10), @EndDate, 120)), InitialBase_T2 AS (SELECT KindName AS KindName, SUM(BJob_INT) AS B期初累计, SUM(WJob_INT) AS W期初累计 FROM #T2 WHERE SDATE < @StartDate GROUP BY KindName), TargetDaily_T2 AS (SELECT CONVERT(VARCHAR(10), SDATE, 120) AS RQ, KindName AS KindName, SUM(BJob_INT) AS BJob_INT, SUM(WJob_INT) AS WJob_INT FROM #T2 WHERE SDATE >= @StartDate AND SDATE <= @EndDate GROUP BY CONVERT(VARCHAR(10), SDATE, 120), KindName), T2_Combined AS (SELECT b.RQ AS RQ, b.KindName AS KindName, ISNULL(t.BJob_INT, 0) AS BJob_INT, ISNULL(t.WJob_INT, 0) AS WJob_INT, ISNULL(ib.B期初累计, 0) AS B期初累计, ISNULL(ib.W期初累计, 0) AS W期初累计 FROM BoneCTE AS b LEFT JOIN TargetDaily_T2 AS t ON b.RQ = t.RQ AND b.KindName = t.KindName LEFT JOIN InitialBase_T2 AS ib ON b.KindName = ib.KindName) SELECT RQ, KindName, BJob_INT, WJob_INT, B期初累计 + SUM(BJob_INT) OVER (PARTITION BY KindName ORDER BY RQ ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS B截止当日累计, W期初累计 + SUM(WJob_INT) OVER (PARTITION BY KindName ORDER BY RQ ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS W截止当日累计 FROM T2_Combined ORDER BY RQ, KindName",
+      "t7": "WITH BoneCTE AS (SELECT A.RQ AS RQ, B.KindName AS KindName FROM #T0 AS A JOIN (SELECT DISTINCT KindName AS KindName FROM dye.p_Machine WHERE StationID = '06') AS B ON 1 = 1 WHERE A.RQ >= CONVERT(VARCHAR(10), @StartDate, 120) AND A.RQ <= CONVERT(VARCHAR(10), @EndDate, 120)), InitialBase_T3 AS (SELECT KindName AS KindName, SUM(BJob_INT) AS B期初累计, SUM(WJob_INT) AS W期初累计 FROM #T2 WHERE 1 = 1 AND SheetNo IN (SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM #T3 UNION ALL SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM dye.ProdIn UNION ALL SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM dye.JobInWareEdit UNION ALL SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM dye.JobSheetReceive WHERE ISNULL(JobSheetNo, '') <> '' UNION ALL SELECT ISNULL(SheetNo, '') AS JobSheetNo FROM dye.JobSheet WHERE ISNULL(SheetStatus, 0) = 10) AND SDATE < @StartDate GROUP BY KindName), TargetDaily_T3 AS (SELECT CONVERT(VARCHAR(10), SDATE, 120) AS RQ, KindName AS KindName, SUM(BJob_INT) AS BCH_INT, SUM(WJob_INT) AS WCH_INT FROM #T2 WHERE 1 = 1 AND SheetNo IN (SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM #T3 UNION ALL SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM dye.ProdIn UNION ALL SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM dye.JobInWareEdit UNION ALL SELECT ISNULL(JobSheetNo, '') AS JobSheetNo FROM dye.JobSheetReceive WHERE ISNULL(JobSheetNo, '') <> '' UNION ALL SELECT ISNULL(SheetNo, '') AS JobSheetNo FROM dye.JobSheet WHERE ISNULL(SheetStatus, 0) = 10) AND SDATE >= @StartDate AND SDATE < @EndDate GROUP BY CONVERT(VARCHAR(10), SDATE, 120), KindName), T3_Combined AS (SELECT b.RQ AS RQ, b.KindName AS KindName, ISNULL(t.BCH_INT, 0) AS BCH_INT, ISNULL(t.WCH_INT, 0) AS WCH_INT, ISNULL(ib.B期初累计, 0) AS B期初累计, ISNULL(ib.W期初累计, 0) AS W期初累计 FROM BoneCTE AS b LEFT JOIN TargetDaily_T3 AS t ON b.RQ = t.RQ AND b.KindName = t.KindName LEFT JOIN InitialBase_T3 AS ib ON b.KindName = ib.KindName) SELECT RQ, KindName, BCH_INT, WCH_INT, B期初累计 + SUM(BCH_INT) OVER (PARTITION BY KindName ORDER BY RQ ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS B截止当日累计, W期初累计 + SUM(WCH_INT) OVER (PARTITION BY KindName ORDER BY RQ ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS W截止当日累计 FROM T3_Combined ORDER BY RQ, KindName",
+      "t10": "SELECT A.RQ AS 日期, B.KindName AS 缸型, ISNULL(C.订单数量, 0) AS 订单数量, ISNULL(C.全部订单缸数, 0) AS 全部订单缸数, ISNULL(C.本厂订单缸数, 0) AS 本厂订单缸数, ISNULL(C.外单订单缸数, 0) AS 外单订单缸数, ISNULL(D.每天来单缸数, 0) AS 每天来单缸数, ISNULL(D.本厂每天来单缸数, 0) AS 本厂每天来单缸数, ISNULL(D.外单每天来单缸数, 0) AS 外单每天来单缸数, ISNULL(H.累计开卡缸数, 0) - ISNULL(I.累计完成缸数, 0) AS 订单未交货总缸数, ISNULL(H.本厂累计开卡缸数, 0) - ISNULL(I.本厂累计完成缸数, 0) AS 订单未交货本厂缸数, ISNULL(H.外单累计开卡缸数, 0) - ISNULL(I.外单累计完成缸数, 0) AS 订单未交货外单缸数, ISNULL(E.完成缸数, 0) AS 完成缸数, ISNULL(E.完成本厂缸数, 0) AS 完成本厂缸数, ISNULL(E.完成外单缸数, 0) AS 完成外单缸数, ISNULL(F.每天出缸总数, 0) AS 每天出缸总数, ISNULL(F.本厂出缸总数, 0) AS 本厂出缸总数, ISNULL(F.外单出缸总数, 0) AS 外单出缸总数, ISNULL(G.AVG_Month, 0) AS 每天平均数, CONVERT(NUMERIC(10, 1), IIF(G.AVG_Month = 0, 0, (ISNULL(H.累计开卡缸数, 0) - ISNULL(I.累计完成缸数, 0)) / G.AVG_Month)) AS 预计完成天数 FROM #T0 AS A JOIN (SELECT DISTINCT KindName AS KindName FROM dye.p_Machine WHERE StationID = '06') AS B ON 1 = 1 LEFT JOIN (SELECT SDATE AS SDATE, GWName AS GWName, SUM(OrderQty) AS 订单数量, SUM(GW_INT) AS 全部订单缸数, SUM(BGW_INT) AS 本厂订单缸数, SUM(WGW_INT) AS 外单订单缸数 FROM #T1 GROUP BY SDATE, GWName) AS C ON C.GWName = B.KindName AND C.SDATE = A.RQ LEFT JOIN (SELECT SDATE AS SDATE, KindName AS KindName, SUM(Job_INT) AS 每天来单缸数, SUM(BJob_INT) AS 本厂每天来单缸数, SUM(WJob_INT) AS 外单每天来单缸数 FROM #T2 WHERE 1 = 1 AND LEN(SheetNo) = LEN('260720J2701') AND SDATE = OMDATE GROUP BY SDATE, KindName) AS D ON D.KindName = B.KindName AND D.SDATE = A.RQ LEFT JOIN (SELECT RQ AS RQ, KindName AS KindName, SUM(CH_INT) AS 完成缸数, SUM(BCH_INT) AS 完成本厂缸数, SUM(WCH_INT) AS 完成外单缸数 FROM #T3 GROUP BY RQ, KindName) AS E ON E.KindName = B.KindName AND E.RQ = A.RQ LEFT JOIN (SELECT RQ AS RQ, KindName AS KindName, SUM(CH_INT) AS 每天出缸总数, SUM(BCH_INT) AS 本厂出缸总数, SUM(WCH_INT) AS 外单出缸总数 FROM #T4 GROUP BY RQ, KindName) AS F ON F.KindName = B.KindName AND F.RQ = A.RQ LEFT JOIN #T5 AS G ON G.KindName = B.KindName LEFT JOIN (SELECT RQ AS RQ, KindName AS KindName, SUM(ISNULL(B截止当日累计, 0) + ISNULL(W截止当日累计, 0)) AS 累计开卡缸数, SUM(B截止当日累计) AS 本厂累计开卡缸数, SUM(W截止当日累计) AS 外单累计开卡缸数 FROM #T6 GROUP BY RQ, KindName) AS H ON H.KindName = B.KindName AND H.RQ = A.RQ LEFT JOIN (SELECT RQ AS RQ, KindName AS KindName, SUM(ISNULL(B截止当日累计, 0) + ISNULL(W截止当日累计, 0)) AS 累计完成缸数, SUM(B截止当日累计) AS 本厂累计完成缸数, SUM(W截止当日累计) AS 外单累计完成缸数 FROM #T7 GROUP BY RQ, KindName) AS I ON I.KindName = B.KindName AND I.RQ = A.RQ ORDER BY A.RQ, B.KindName ASC"
+    },
+    "assignments": []
+  },
+  "sp_APP_GetMachineFaultFlowStatusRecord": {
+    "id": "SQL157",
+    "title": "sp_APP_GetMachineFaultFlowStatusRecord",
+    "kind": "special",
+    "sql": [
+      "SELECT * FROM #t",
+      "SELECT x.RecordID, h.Name, h.Mobile FROM (SELECT a.RecordID AS RecordID, SUBSTRING(a.HandlerIDs, b.number, CHARINDEX(';', a.HandlerIDs + ';', b.number) - b.number) AS HandlerID FROM #t AS a JOIN master..spt_values AS b ON b.type = 'P' WHERE CHARINDEX(';', ';' + a.HandlerIDs, b.number) = b.number AND a.Action = '指派') AS x LEFT JOIN dye.h_Employee AS h ON h.EmpID = x.HandlerID ORDER BY x.RecordID"
+    ],
+    "temps": {
+      "t": "SELECT m.RecordID, m.SheetSeries, m.Operator, m.ACTION, m.ActionType, m.HandlerIDs, m.Handlers, m.Remark, m.RecordDate, dye.ChangeIDListToEmpName(HandlerIDs, ';') AS HandlersList, CONVERT(VARCHAR(16), RecordDate, 21) AS ShowRecordDate, h.Name AS OperateMan, CASE WHEN m.[Action] = '指派' THEN ' 指派维修工' WHEN m.[Action] = '受理' THEN ' 指派工单给自己' WHEN m.[Action] = '退回' THEN ' 退回到[待指派]' WHEN m.[Action] = '提交' THEN ' 完成维修' WHEN m.[Action] = '拒绝' THEN ' 确认没修好' WHEN m.[Action] = '提交' THEN ' 确认已修好' WHEN m.[Action] = '恢复' THEN ' 恢复到[待指派]' ELSE ' ' + m.[Action] + '工单' END AS Options, h.Mobile FROM dye.MachineFaultRecord AS m LEFT JOIN dye.h_Employee AS h ON h.EmpID = m.Operator WHERE SheetSeries = @SheetSeries ORDER BY RecordDate DESC"
+    },
+    "assignments": [
+      "SELECT TOP 1 SheetSeries AS ss FROM dye.MachineFault WHERE SheetSeries = @SheetSeries OR SheetNo = @SheetSeries"
+    ]
+  },
+  "sp_App_QueryMachineArticleUseList": {
+    "id": "SQL180",
+    "title": "sp_App_QueryMachineArticleUseList",
+    "kind": "special",
+    "sql": [
+      "SELECT ISNULL(PName, '') AS TotalName, SUM(Total) AS TotalCount FROM #source GROUP BY ISNULL(PName, '')",
+      "SELECT TotalName AS name, TotalCount AS value, TotalName + CONVERT(VARCHAR(100), ISNULL(TotalCount, 0.0)) + '元' AS nameTitle FROM #t ORDER BY TotalCount DESC",
+      "SELECT CONVERT(VARCHAR(16), SheetDate, 20) AS SheetDate, Name, SheetSeries, SheetNo, STUFF((SELECT CHAR(10) + DetailInfo FROM #s AS a WHERE b.SheetDate = a.SheetDate AND b.Name = a.Name FOR XML PATH('')), 1, 1, '') AS Details, SUM(Total) AS TotolMoney FROM #s AS b GROUP BY SheetDate, Name, SheetSeries, SheetNo ORDER BY SheetDate DESC, NAME ASC"
+    ],
+    "temps": {
+      "source": "SELECT a.SheetDate, CONVERT(VARCHAR(4), a.SheetDate, 23) + '年' AS OutYear, CONVERT(VARCHAR(7), a.SheetDate, 23) AS OutMonth, CONVERT(VARCHAR(100), a.SheetDate, 23) AS OutDay, DATEPART(WEEK, a.SheetDate) AS OutWeekNo, DATEPART(WEEKDAY, a.SheetDate) AS OutWeek, ISNULL(pa.Name, b.ArticleID) AS ArticleName, p.PName, b.* FROM dye.v_App_ArticleOutDetail AS b LEFT JOIN dye.v_App_ArticleOut AS a ON b.SheetSeries = a.SheetSeries LEFT JOIN dye.p_Article AS pa ON pa.ArticleID = b.ArticleID LEFT OUTER JOIN (SELECT Code AS PCode, Name AS PName FROM dye.p_FieldValid WHERE FieldType LIKE '%project%') AS p ON b.ProjectNo = p.PCode WHERE b.MachineID = @MachineID AND (a.SheetDate >= @StartDate) AND (a.SheetDate <= @EndDate)",
+      "t": "SELECT CONVERT(NVARCHAR(200), '') AS TotalName, CONVERT(NUMERIC(10, 2), 0) AS TotalCount WHERE 1 = 2",
+      "s": "SELECT SheetDate, ye.Name, a.SheetSeries, a.SheetNo, CONVERT(NUMERIC(10, 2), b.Total) AS Total, c.Name + '：   ' + CONVERT(VARCHAR(100), CONVERT(NUMERIC(7, 2), b.OutQty)) + ISNULL(u.NAME, '') + ' ， 共' + CONVERT(VARCHAR(100), CONVERT(NUMERIC(10, 2), b.Total)) + '元' AS DetailInfo FROM dye.v_App_ArticleOut AS a LEFT JOIN dye.v_App_ArticleOutDetail AS b ON a.SheetSeries = b.SheetSeries LEFT JOIN dye.p_Article AS c ON b.ArticleID = c.Articleid LEFT JOIN (SELECT code AS code, name AS name FROM dye.p_FieldValid WHERE FieldType = 'ArticleUnit') AS u ON u.code = c.Unit LEFT JOIN dye.h_Employee AS ye ON b.EmpID = ye.EmpID WHERE SheetDate >= @StartDate AND SheetDate <= @EndDate AND b.MachineID = @MachineID"
+    },
+    "assignments": [
+      "SELECT DATEADD(MONTH, -3, GETDATE()) AS StartDate, GETDATE() AS EndDate"
+    ]
+  },
+  "sp_App_QueryMachineArticleUseTotal": {
+    "id": "SQL181",
+    "title": "sp_App_QueryMachineArticleUseTotal",
+    "kind": "special",
+    "sql": [
+      "SELECT ISNULL(DetailNo, '[null]') AS TotalName, SUM(OutQty) AS TotalCount FROM #source GROUP BY ISNULL(DetailNo, '[null]') UNION ALL SELECT '合计' AS TotalName, @SumCount AS TotalCount",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2",
+      "SELECT ISNULL(OutDay, '') AS TotalName, SUM(OutQty) AS TotalCount FROM #source GROUP BY ISNULL(OutDay, '') UNION ALL SELECT '合计' AS TotalName, @SumCount AS TotalCount",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2",
+      "SELECT ISNULL(OutYear, '') + '第' + CONVERT(VARCHAR(10), OutWeekNo) + '周' AS TotalName, SUM(OutQty) AS TotalCount FROM #source GROUP BY OutWeekNo, ISNULL(OutYear, '') UNION ALL SELECT '合计' AS TotalName, @SumCount AS TotalCount",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2",
+      "SELECT ISNULL(OutMonth, '') AS TotalName, SUM(OutQty) AS TotalCount FROM #source GROUP BY ISNULL(OutMonth, '') UNION ALL SELECT '合计' AS TotalName, @SumCount AS TotalCount",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2",
+      "SELECT ISNULL(OutYear, '') AS TotalName, SUM(OutQty) AS TotalCount FROM #source GROUP BY ISNULL(OutYear, '') UNION ALL SELECT '合计' AS TotalName, @SumCount AS TotalCount",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2",
+      "SELECT ISNULL(ArticleName, '') AS TotalName, SUM(OutQty) AS TotalCount FROM #source GROUP BY ISNULL(ArticleName, '') UNION ALL SELECT '合计' AS TotalName, @SumCount AS TotalCount",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2",
+      "SELECT ISNULL(PName, '') AS TotalName, SUM(Total) AS TotalCount FROM #source GROUP BY ISNULL(PName, '') UNION ALL SELECT '合计' AS TotalName, SUM(Total) AS TotalCount FROM #source",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2",
+      "SELECT ISNULL(p.Name, TSum.MachineID) AS Title1, TSum.TotalSum AS Title2, TSum.GroupIndex, TDetail.TotalName, TDetail.TotalCount, TDetail.DetailIndex FROM (SELECT s.MachineID AS MachineID, CONVERT(INTEGER, SUM(Total)) AS TotalSum, ROW_NUMBER() OVER (ORDER BY SUM(s.Total) DESC) AS GroupIndex FROM #source AS s GROUP BY s.MachineID) AS TSum LEFT OUTER JOIN (SELECT s.MachineID AS MachineID, ISNULL(PName, '') AS TotalName, CONVERT(INTEGER, SUM(Total)) AS TotalCount, ROW_NUMBER() OVER (PARTITION BY s.MachineID ORDER BY SUM(s.Total) DESC) AS DetailIndex FROM #source AS s GROUP BY s.MachineID, ISNULL(PName, '')) AS TDetail ON TDetail.MachineID = TSum.MachineID LEFT OUTER JOIN dye.p_Machine AS p ON TSum.MachineID = p.MachineID ORDER BY TSum.GroupIndex, TDetail.DetailIndex",
+      "SELECT '' AS TotalName, 0 AS TotalCount WHERE 1 = 1 AND 1 = 2"
+    ],
+    "temps": {
+      "source": "SELECT a.SheetDate, CONVERT(VARCHAR(4), a.SheetDate, 23) + '年' AS OutYear, CONVERT(VARCHAR(7), a.SheetDate, 23) AS OutMonth, CONVERT(VARCHAR(100), a.SheetDate, 23) AS OutDay, DATEPART(WEEK, a.SheetDate) AS OutWeekNo, DATEPART(WEEKDAY, a.SheetDate) AS OutWeek, ISNULL(pa.Name, b.ArticleID) AS ArticleName, p.PName, b.* FROM dye.v_App_ArticleOutDetail AS b LEFT JOIN dye.v_App_ArticleOut AS a ON b.SheetSeries = a.SheetSeries LEFT JOIN dye.p_Article AS pa ON pa.ArticleID = b.ArticleID LEFT OUTER JOIN (SELECT Code AS PCode, Name AS PName FROM dye.p_FieldValid WHERE FieldType LIKE '%project%') AS p ON b.ProjectNo = p.PCode WHERE a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate AND (@MachineID = '全部' OR b.MachineID = @MachineID)"
+    },
+    "assignments": [
+      "SELECT SUM(OutQty) AS SumCount FROM #source"
+    ],
+    "difference": "最新ArticleOutDetail已无MADetailNo，模式1按原表现存DetailNo归集，原全部来源行保留。"
+  },
+  "sp_App_QueryMachinePlanList": {
+    "id": "SQL189",
+    "title": "sp_App_QueryMachinePlanList",
+    "kind": "query",
+    "sql": [
+      "SELECT ISNULL(pf.Name, a.FaultID) AS FaultName, ps.Name AS SeverityName, pr.Name AS ResultName, dye.ChangeIDListToEmpName(a.HandlerIDs, ';') AS HandlerNames, pd.Name AS DeptName, pb.Name AS BusinessUnitName, a.* FROM dye.MachineFault AS a LEFT JOIN dye.p_FieldValid AS pf ON pf.FieldType = 'Fault' AND pf.Code = a.FaultID LEFT JOIN dye.p_FieldValid AS ps ON ps.FieldType = 'Severity' AND ps.Code = a.SeverityID LEFT JOIN dye.p_FieldValid AS pr ON pr.FieldType = 'Result' AND pr.Code = a.ResultID LEFT JOIN dye.p_Dept AS pd ON pd.DeptID = a.DeptID LEFT JOIN dye.p_FieldValid AS pb ON pb.FieldType = 'BusinessUnit' AND a.BusinessUnitID = pb.code WHERE 1 = 1 AND (@IsChecked1 = '1' OR a.HandlerIDs LIKE '%' + @HandlerIDs + '%') AND (ISNULL(@StartDate, '1900-01-01') < '1911-11-11' OR a.SheetDate >= @StartDate) AND (ISNULL(@EndDate, '1900-01-01') < '1911-11-11' OR a.SheetDate <= @EndDate)"
+    ],
+    "temps": {},
+    "assignments": []
+  },
+  "sp_App_QueryOutputSumChart": {
+    "id": "SQL192",
+    "title": "sp_App_QueryOutputSumChart",
+    "kind": "special",
+    "sql": [
+      "SELECT TOP (@DateCount) SUBSTRING(CONVERT(VARCHAR(10), DATEADD(DAY, ROW_NUMBER() OVER (ORDER BY id) - 1, @dtStart), 120), 1, @dtLength) AS RowNo FROM syscolumns",
+      "SELECT @LineName AS LineName, @LineColor AS LineColor, 14 AS TextOffset, @FieldName AS FieldName",
+      "SELECT SUBSTRING(#dtList.dtName, 6, 5) AS title, SUM(CurrRolls) AS SumRolls, SUM(CurrKg) AS SumKg, 0 AS sumLength FROM #dtList LEFT JOIN #t ON #dtList.dtName = #t.TotalDay GROUP BY #dtList.dtName ORDER BY title ASC"
+    ],
+    "temps": {
+      "t": "SELECT StationID, TotalDay, @PostName AS PostName, SUM(CurrRolls) AS CurrRolls, SUM(CurrKg) AS CurrKg FROM (SELECT a.StationID, CurrRolls, CurrKg, CONVERT(VARCHAR(20), EndTime, 23) AS TotalDay FROM dye.WProcess AS a WHERE a.StationID <> '02' AND (a.EndTime >= @dtStart) AND (a.EndTime < @dtEnd) AND StationID = @PostID UNION ALL SELECT '02' AS StationID, Rolls AS CurrRolls, WeightQty AS CurrKg, CONVERT(VARCHAR(20), CreateDate, 23) AS TotalDay FROM dye.JobSheetReceive WHERE ISNULL(JobSheetNo, '') <> '' AND CreateDate >= @dtStart AND CreateDate < @dtEnd AND '02' = @PostID) AS DG GROUP BY StationID, TotalDay",
+      "dtlist": "SELECT CONVERT(NVARCHAR(50), '') AS dtName WHERE 1 = 2"
+    },
+    "assignments": [
+      "SELECT Code AS PostID FROM dye.p_FieldValid WHERE FieldType = 'Station' AND NAME = @PostName"
+    ]
+  },
+  "sp_App_S_QueryJobCardSpeedList": {
+    "id": "SQL195",
+    "title": "sp_App_S_QueryJobCardSpeedList",
+    "kind": "special",
+    "sql": [
+      "SELECT @current AS [current], CEILING(CONVERT(NUMERIC(18, 2), COUNT(0)) / @size) AS pages, @size AS [size], COUNT(0) AS [total] FROM #t",
+      "SELECT * FROM #Output",
+      "SELECT * FROM #q WHERE ISNULL(processNo, 0) > 0",
+      "SELECT JobSheetNo, '出库' AS SheetKind, SUM(Rolls), SUM(WeightQty), '汇总' AS ShowSheetDate, DATEADD(DAY, -1, MIN(SheetDate)) FROM #ps WHERE sheetKind = '出库' AND ShowSheetDate <> '汇总' GROUP BY JobSheetNo",
+      "SELECT JobsheetNo, SheetDate, '入库' AS SheetKind, Rolls, WeightQty, SheetNo, RIGHT(CONVERT(VARCHAR(16), SheetDate, 21), 11) AS ShowSheetDate FROM [dye].[ProdIn] WHERE JobSheetNo IN (SELECT JobSheetNo FROM #Output) ORDER BY JobSheetNo ASC, SheetDate DESC",
+      "SELECT JobSheetNo, '入库' AS SheetKind, SUM(Rolls), SUM(WeightQty), '汇总' AS ShowSheetDate, DATEADD(DAY, -1, MIN(SheetDate)) FROM #ps WHERE sheetKind = '入库' AND ShowSheetDate <> '汇总' GROUP BY JobSheetNo",
+      "SELECT * FROM #ps ORDER BY JobsheetNo, SheetKind, SheetDate DESC",
+      "SELECT a.*, Atk.Name AS TypeName, b.SheetNo AS JobsheetNo FROM dye.JobAtte AS a LEFT JOIN Dye.JobSheet AS b ON a.SheetSeries = b.SheetSeries LEFT JOIN (SELECT Code AS Code, Name AS Name FROM dye.p_FieldValid WHERE FieldType = 'AtteKind') AS Atk ON a.FieldType = Atk.Code WHERE b.SheetNo IN (SELECT JobSheetNo FROM #Output)"
+    ],
+    "temps": {
+      "t": "SELECT ROW_NUMBER() OVER (ORDER BY js.SheetDate DESC) AS rowIndex, js.SheetSeries, js.CurrProcessNo, js.SheetDate, RIGHT(CONVERT(VARCHAR(16), js.SheetDate, 21), 11) AS ShowSheetDate, c.ShortName AS CustomerName, js.sheetNo AS JobSheetNo, CASE WHEN EXISTS(SELECT 1 FROM dye.Prodin WHERE jobSheetNo = js.SheetNo AND SheetKind = 11) AND NOT EXISTS(SELECT 1 FROM dye.Prodin WHERE jobSheetNo = js.SheetNo AND SheetKind = 16) AND NOT EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = js.SheetNo) THEN '成品入库' WHEN EXISTS(SELECT 1 FROM dye.Prodin WHERE jobSheetNo = js.SheetNo AND SheetKind = 16) AND NOT EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = js.SheetNo) THEN '退车间回修' WHEN EXISTS(SELECT 1 FROM dye.ProdOutDetail WHERE JobSheetNo = js.SheetNo) THEN (CASE WHEN (SELECT SUM(Rolls) FROM dye.ProdOutDetail WHERE JobSheetNo = js.SheetNo) >= js.SumAssignedRolls THEN '已出货' ELSE '已出' + CONVERT(VARCHAR, (SELECT SUM(CONVERT(NUMERIC(5, 1), Rolls)) FROM dye.ProdOutDetail WHERE JobSheetNo = js.SheetNo)) + '匹,余' + CONVERT(VARCHAR, js.SumAssignedRolls - (SELECT SUM(CONVERT(NUMERIC(5, 1), Rolls)) FROM dye.ProdOutDetail WHERE JobSheetNo = js.SheetNo)) + '匹' END) ELSE ISNULL(d.Name, CurrProcessID) END AS CurrStatus, CASE WHEN js.SheetKind = '10' THEN '客返' WHEN js.SheetKind = '40' THEN '内返' ELSE '' END AS ReDoSign, p.NameC AS ProdName, js.ColorNum, js.ColorID, js.width, js.Weight, js.PreRolls, js.PreVatQty, js.SumAssignedRolls, js.SumAssignedWeightQty, js.RedoReasonID, js.Creater, RIGHT(CONVERT(VARCHAR(16), js.CreateDate, 21), 11) AS ShowCreateDate FROM dye.JobSheet AS js LEFT JOIN dye.p_Customer AS c ON js.CustomerID = c.CustomerID LEFT JOIN dye.p_Gray AS p ON js.ProdID = p.GrayID LEFT JOIN dye.p_Process AS d ON d.ProcessID = js.CurrProcessID WHERE 1 = 1 AND NOT EXISTS(SELECT * FROM (SELECT JobSheetNo AS JobSheetNo, SUM(Rolls) AS Rolls FROM dye.ProdOutDetail GROUP BY JobSheetNo) AS b WHERE b.JobSheetNo = js.SheetNo AND js.SumAssignedRolls = b.Rolls) AND js.SheetStatus = 0 AND (ISNULL(js.PreRolls, 0) > 0 OR ISNULL(js.SumAssignedRolls, 0) > 0) AND ISNULL(js.Finish, 0) = 0 AND NOT js.AssignUnit IN (0, 2) AND js.SheetDate >= @dtStart AND js.SheetDate < @dtEnd AND (ISNULL(@conFilter, '') = '' OR js.sheetNo LIKE '%' + @conFilter + '%' OR c.ShortName LIKE '%' + @conFilter + '%' OR js.ColorNum LIKE '%' + @conFilter + '%' OR p.NameC LIKE '%' + @conFilter + '%' OR js.Creater LIKE '%' + @conFilter + '%') ORDER BY js.SheetDate DESC",
+      "output": "SELECT TOP (SELECT @size) * FROM #t AS t WHERE t.rowIndex > (@current - 1) * @size ORDER BY t.rowIndex ASC",
+      "q": "SELECT x.JobSheetNo, a.ProcessNo, a.ProcessID, b.NAME AS ProcessName, a.WPWorker, RIGHT(CONVERT(VARCHAR(16), a.EndTime, 21), 11) AS ShowEndDate FROM dye.#Output AS x LEFT JOIN dye.JobProcess AS a ON a.SheetSeries = x.SheetSeries LEFT JOIN dye.p_Process AS b ON a.ProcessID = b.ProcessID ORDER BY x.JobSheetNo, a.ProcessNo",
+      "ps": "SELECT JobsheetNo, SheetDate, '出库' AS SheetKind, Rolls, WeightQty, SheetNo, RIGHT(CONVERT(VARCHAR(16), SheetDate, 21), 11) AS ShowSheetDate FROM dye.ProdOutDetail AS a LEFT JOIN dye.ProdOut AS b ON a.SheetSeries = b.SheetSeries WHERE JobSheetNo IN (SELECT JobSheetNo FROM #Output) ORDER BY JobSheetNo ASC, SheetDate DESC"
+    },
+    "assignments": []
+  },
+  "sp_App_S_QueryJobSheetReceiveList": {
+    "id": "SQL196",
+    "title": "sp_App_S_QueryJobSheetReceiveList",
+    "kind": "paged",
+    "sql": [
+      "SELECT * FROM #t"
+    ],
+    "temps": {
+      "t": "SELECT ROW_NUMBER() OVER (ORDER BY a.createDate DESC) AS rowIndex, c.shortName AS CustomerName, a.JobSheetNo, a.Days, CASE WHEN a.dyeDescription = '首缸' THEN '首' ELSE '' END AS HeadVatSign, CASE WHEN a.ProgramItem = '双染' THEN '双' ELSE '' END AS DoubleDyeSign, a.CombineSheetNos, a.ProdID, d.NAMEC AS ProdName, a.ColorNum, a.ColorID, a.Rolls, a.WeightQty, a.LengthQty, e.NAME AS ColorMatchingName, a.MachineNo, f.Name AS MachineName, a.Creater, a.CreateDate, RIGHT(CONVERT(VARCHAR(16), a.CreateDate, 21), 11) AS ShowCreateDate FROM dye.JobSheetReceive AS a LEFT JOIN dye.jobsheet AS b ON b.sheetno = a.JobSheetNo LEFT JOIN dye.p_Customer AS c ON c.CustomerID = b.CustomerID LEFT JOIN dye.p_Gray AS d ON d.GrayID = a.ProdID LEFT JOIN dye.h_Employee AS e ON e.EmpID = a.ColorMatching LEFT JOIN dye.p_Machine AS f ON a.MachineNo = f.MachineID WHERE ISNULL(JobSheetNo, '') <> '' AND a.CreateDate >= @dtStart AND a.CreateDate < @dtEnd AND (ISNULL(@conFilter, '') = '' OR a.JobSheetNo LIKE '%' + @conFilter + '%' OR a.CombineSheetNos LIKE '%' + @conFilter + '%' OR c.ShortName LIKE '%' + @conFilter + '%' OR a.ColorNum LIKE '%' + @conFilter + '%' OR d.NameC LIKE '%' + @conFilter + '%' OR f.Name LIKE '%' + @conFilter + '%' OR e.NAME LIKE '%' + @conFilter + '%') ORDER BY createDate DESC"
+    },
+    "assignments": []
+  },
+  "sp_EmpID_DPWorkQty": {
+    "id": "SQL284",
+    "title": "sp_EmpID_DPWorkQty",
+    "kind": "query",
+    "sql": [
+      "SELECT CAST(NEWID() AS VARCHAR(36)) AS NEWID, ROW_NUMBER() OVER (ORDER BY JobSheetNo) AS id, CAST(NEWID() AS VARCHAR(36)) AS WProcessNo, * FROM dye.v_PatQuery WHERE ProcessID <> 'GX20' AND EmpID = @EmpID AND EndTime < @StartDate AND EndTime >= @EndDate UNION ALL SELECT CAST(NEWID() AS VARCHAR(36)) AS NEWID, ROW_NUMBER() OVER (ORDER BY p.JobSheetNo) AS id, CAST(NEWID() AS VARCHAR(36)) AS WProcessNo, j.OrderSheetNo, j.CustomerID, j.ProdID, j.ColorNum, j.ColorID, p.JobSheetNo, s.ProcessNo, s.ProcessID, p.ShiftID, p.EmpID, CAST(p.EndTime AS DATETIME) AS StartTime, CAST(p.EndTime AS DATETIME) AS EndTime, p1.CurrRolls, p1.CurrKg, p.Qty, '' AS CurveName, pr.Price AS DyePrice, 0.00 AS DyeVat, ISNULL(h.Ratio, 1) AS EffiRate, pr.Price * p.Qty * ISNULL(h.Ratio, 1) / 1000 AS WorkMoney, 0.00 AS OutMoney FROM (SELECT m.JobSheetNo AS JobSheetNo, m.ShiftID AS ShiftID, m.EmpID AS EmpID, SUM(m.Qty) AS Qty, m.EndTime AS EndTime FROM (SELECT b.BarCode AS BarCode, a.JobSheetNo AS JobSheetNo, a.ShiftID AS ShiftID, b.EmpID AS EmpID, a.CustQty AS CustQty, a.CustQty / c.pre AS Qty, CONVERT(VARCHAR(10), a.PackTime, 20) AS EndTime FROM dye.RecordYield AS a JOIN dye.RecordEmp AS b ON b.BarCode = a.BarCode JOIN dye.p_Shift AS ps ON a.ShiftID = ps.ShiftID JOIN (SELECT b.BarCode AS BarCode, COUNT(b.BarCode) AS pre FROM dye.RecordEmp AS b WHERE 1 = 1 GROUP BY b.BarCode) AS c ON c.BarCode = b.BarCode WHERE 1 = 1 AND ps.StationID = '12' AND a.PackTime >= @EndDate AND a.PackTime < @StartDate) AS m GROUP BY m.JobSheetNo, m.ShiftID, m.EmpID, m.EndTime) AS p JOIN (SELECT JobSheetNo AS JobSheetNo, RecordYield.ShiftID AS ShiftID, COUNT(BarCode) AS CurrRolls, SUM(CustQty) AS CurrKg FROM dye.RecordYield JOIN dye.p_Shift AS ps ON dye.RecordYield.ShiftID = ps.ShiftID WHERE ps.StationID = '12' AND PackTime >= @EndDate AND PackTime < @StartDate GROUP BY JobSheetNo, RecordYield.ShiftID) AS p1 ON p1.JobSheetNo = p.JobSheetNo AND p1.ShiftID = p.ShiftID JOIN dye.JobSheet AS j ON p.JobSheetNo = j.SheetNo JOIN dye.JobProcess AS s ON j.SheetSeries = s.SheetSeries AND s.ProcessID = 'GX20' JOIN dye.p_Process AS pr ON s.ProcessID = pr.ProcessID LEFT JOIN dye.p_ShiftEmp AS pe ON p.EmpID = pe.EmpID AND p.ShiftID = pe.ShiftID LEFT JOIN dye.h_Employee AS h ON h.EmpID = p.EmpID WHERE 1 = 1 AND p.EmpID = @EmpID"
+    ],
+    "temps": {},
+    "assignments": []
+  },
+  "Sp_JobSheetNum": {
+    "id": "SQL315",
+    "title": "Sp_JobSheetNum",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM #T1",
+      "SELECT * FROM #T2",
+      "SELECT * FROM #T3"
+    ],
+    "temps": {
+      "t1": "SELECT xx.JobKindID, xx.Code, xx.RQ, SUM(xx.SumAssignedWeightQty) / 1000 AS SumAssignedWeightQty, SUM(xx.SumAssignedLengthQty) AS SumAssignedLengthQty FROM (SELECT js.JobKindID AS JobKindID, pf.Code AS Code, CONVERT(VARCHAR(7), js.CreateDate, 120) AS RQ, ISNULL(js.SumAssignedWeightQty, 0) AS SumAssignedWeightQty, ISNULL(js.SumAssignedLengthQty, 0) AS SumAssignedLengthQty FROM dye.JobSheet AS js LEFT JOIN dye.p_Gray AS pg ON js.ProdID = pg.GrayID LEFT JOIN dye.p_FieldValid AS pf ON pg.FabricKindID = pf.Code AND pf.FieldType = 'FabricKind' WHERE js.JobKindID = '01' AND (js.CreateDate >= @StartDate) AND (js.CreateDate <= @EndDate)) AS xx GROUP BY JobKindID, Code, xx.RQ",
+      "t2": "SELECT xx.JobKindID, xx.Code, xx.RQ, SUM(xx.SumAssignedWeightQty) / 1000 AS SumAssignedWeightQty, SUM(xx.SumAssignedLengthQty) AS SumAssignedLengthQty FROM (SELECT js.JobKindID AS JobKindID, pf.Code AS Code, CONVERT(VARCHAR(7), js.CreateDate, 120) AS RQ, ISNULL(js.SumAssignedWeightQty, 0) AS SumAssignedWeightQty, ISNULL(js.SumAssignedLengthQty, 0) AS SumAssignedLengthQty FROM dye.JobSheet AS js LEFT JOIN dye.p_Gray AS pg ON js.ProdID = pg.GrayID LEFT JOIN dye.p_FieldValid AS pf ON pg.FabricKindID = pf.Code AND pf.FieldType = 'FabricKind' WHERE js.JobKindID = '02' AND (js.CreateDate >= @StartDate) AND (js.CreateDate <= @EndDate)) AS xx GROUP BY JobKindID, Code, xx.RQ",
+      "t3": "SELECT xx.JobKindID, xx.Code, xx.RQ, SUM(xx.SumAssignedWeightQty) / 1000 AS SumAssignedWeightQty, SUM(xx.SumAssignedLengthQty) AS SumAssignedLengthQty FROM (SELECT js.JobKindID AS JobKindID, pf.Code AS Code, CONVERT(VARCHAR(7), js.CreateDate, 120) AS RQ, ISNULL(js.SumAssignedWeightQty, 0) AS SumAssignedWeightQty, ISNULL(js.SumAssignedLengthQty, 0) AS SumAssignedLengthQty FROM dye.JobSheet AS js LEFT JOIN dye.p_Gray AS pg ON js.ProdID = pg.GrayID LEFT JOIN dye.p_FieldValid AS pf ON pg.FabricKindID = pf.Code AND pf.FieldType = 'FabricKind' WHERE js.JobKindID = '03' AND (js.CreateDate >= @StartDate) AND (js.CreateDate <= @EndDate)) AS xx GROUP BY JobKindID, Code, xx.RQ"
+    },
+    "assignments": []
+  },
+  "Sp_OLD_QueryWagesStatisticsInfo1": {
+    "id": "SQL323",
+    "title": "Sp_OLD_QueryWagesStatisticsInfo1",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM #T_WorkSumNew ORDER BY RQ,EmpID"
+    ],
+    "temps": {
+      "t_pack": "SELECT * FROM (SELECT CONVERT(VARCHAR(50), JobSheetNo + 'GX98' + ShiftID) AS WProcessNo, RY.JobSheetNo AS JobSheetNo, 99 AS ProcessNo, 'GX98' AS ProcessID, '07' AS StationID, RY.ShiftID AS ShiftID, '' AS EmpID, RY.Kg AS CurrKg, RY.Meter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN RY.Kg ELSE RY.Meter END AS Qty, 100 AS CurrDosage, RY.PackTime AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.RecordYield AS RY LEFT JOIN dye.JobSheet AS J ON RY.JobSheetNo = J.SheetNo WHERE 1 = 1 AND RY.PackTime >= @NewSTime AND RY.PackTime < @NewETime) AS Pack",
+      "t_dpmain": "SELECT DP.* FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessNo AS ProcessNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg ELSE WP.CurrMeter END AS Qty, CASE WHEN ProcessID IN ('GX00', 'GX01') AND WP.ProcessNo = 1 THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.WProcess AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo WHERE 1 = 1 AND WP.CreateDate >= @NewSTime AND WP.CreateDate < @NewETime AND WP.ShiftID = @ShiftID) AS DP",
+      "t_packnew": "SELECT * FROM (SELECT WProcessNo AS WProcessNo, JobSheetNo AS JobSheetNo, ProcessNo AS ProcessNo, ProcessID AS ProcessID, StationID AS StationID, ShiftID AS ShiftID, EmpID AS EmpID, SUM(CurrKg) AS CurrKg, SUM(CurrMeter) AS CurrMeter, SUM(Qty) AS Qty, CurrDosage AS CurrDosage, CreateDate AS CreateDate, ColorID AS ColorID, ColorNum AS ColorNum, CustomerID AS CustomerID FROM #T_Pack GROUP BY WProcessNo, JobSheetNo, ProcessNo, ProcessID, StationID, ShiftID, EmpID, CurrDosage, CreateDate, ColorID, ColorNum, CustomerID) AS NewPack",
+      "allprocessid": "SELECT * FROM (SELECT * FROM #T_DPMain UNION ALL SELECT * FROM #T_PackNew) AS DPPack",
+      "t_alljse": "SELECT * FROM (SELECT JE.* FROM dye.JobShiftEmp AS JE JOIN #AllProcessID AS Ws ON Ws.WProcessNo = JE.WProcessNo UNION ALL SELECT DISTINCT RYD.JobSheetNo, RYD.ShiftID, RE.EmpID, 0 AS EffiRate, NULL AS Remarks, NULL AS ModifyDate, NULL AS Modifyer, 99 AS ProcessNo, 'GX98' AS ProcessID, CONVERT(VARCHAR(50), JobSheetNo + 'GX98' + ShiftID) AS WProcessNo, NULL AS Post FROM dye.RecordEmp AS RE LEFT JOIN dye.RecordYield AS RYD ON RYD.BarCode = RE.BarCode WHERE 1 = 1 AND RYD.PackTime >= @NewSTime AND RYD.PackTime < @NewETime AND RYD.ShiftID = @ShiftID) AS AllJE",
+      "t_jse": "SELECT A.* FROM (SELECT AJE.WProcessNo AS WProcessNo, AJE.Post AS Post, COUNT(*) AS Num FROM #T_AllJSE AS AJE GROUP BY AJE.WProcessNo, AJE.Post) AS A",
+      "t_jse1": "SELECT * FROM (SELECT #T_JSE.*, B.CountNum AS CountNum, B.SumNum AS SumNum FROM #T_JSE LEFT JOIN (SELECT WProcessNo AS WProcessNo, COUNT(*) AS CountNum, SUM(Num) AS SumNum FROM #T_JSE GROUP BY #T_JSE.WProcessNo) AS B ON B.WProcessNo = #T_JSE.WProcessNo) AS C",
+      "t_wp": "SELECT *, dye.fn_ProcessIDPire(D.JobSheetNo, D.ProcessID, D.Qty) AS ProcessIDPire FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg * ISNULL(WP.CurrDosage, 0) / 100 ELSE WP.CurrMeter * ISNULL(WP.CurrDosage, 0) / 100 END AS Qty, CASE WHEN ProcessID IN ('GX00', 'GX01') AND WP.ProcessNo = 1 THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM #AllProcessID AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo) AS D",
+      "t_work": "SELECT * FROM (SELECT #T_AllJSE.ProcessNo AS ProcessNo, #T_AllJSE.ShiftID AS ShiftID, #T_AllJSE.EmpID AS EmpID, #T_WP.WProcessNo AS WProcessNo, #T_WP.JobSheetNo AS JobSheetNo, #T_WP.ProcessID AS ProcessID, #T_WP.StationID AS StationID, #T_WP.CurrKg AS CurrKg, #T_WP.CurrMeter AS CurrMeter, #T_WP.Qty AS Qty, #T_WP.CurrDosage AS CurrDosage, #T_WP.CreateDate AS CreateDate, #T_WP.ColorID AS ColorID, #T_WP.ColorNum AS ColorNum, #T_WP.CustomerID AS CustomerID, CONVERT(NUMERIC(10, 2), Qty / Num / CountNum) AS EmpIDQty, CONVERT(NUMERIC(10, 2), IIF(StationID = '06', #T_WP.ProcessIDPire * CurrDosage / 100 / Num / CountNum, Qty * #T_WP.ProcessIDPire / 1000 / Num / CountNum)) AS EmpIDAmount, CONVERT(VARCHAR(10), DATEADD(HOUR, -8, #T_WP.CreateDate), 120) AS RQ, #T_WP.ProcessIDPire AS ProcessIDPire, #T_AllJSE.Post AS Post, #T_JSE1.Num AS Num, #T_JSE1.CountNum AS CountNum, #T_JSE1.SumNum AS SumNum FROM #T_AllJSE JOIN #T_JSE1 ON #T_JSE1.WProcessNo = #T_AllJSE.WProcessNo AND ISNULL(#T_JSE1.Post, '01') = ISNULL(#T_AllJSE.Post, '01') LEFT JOIN #T_WP ON #T_WP.WProcessNo = #T_AllJSE.WProcessNo) AS E ORDER BY E.JobSheetNo, E.ProcessNo, E.WProcessNo",
+      "t_scamount": "SELECT * FROM (SELECT L.RQ AS RQ, L.ShiftID AS ShiftID, K.EmpID AS EmpID, SUM(ISNULL(K.Amount, 0)) AS SCAmount, SUM(ISNULL(K.SystemAmount, 0.00)) AS SystemAmount FROM dye.SalaryChangesDetail AS K LEFT JOIN dye.SalaryChanges AS L ON L.SheetSeries = K.SheetSeries GROUP BY L.RQ, L.ShiftID, K.EmpID) AS M",
+      "t_shifscamount": "SELECT * FROM (SELECT #T_SCAmount.RQ AS RQ, #T_SCAmount.ShiftID AS ShiftID, SUM(ISNULL(#T_SCAmount.SCAmount, 0)) AS ShifSCAmount, SUM(ISNULL(#T_SCAmount.SystemAmount, 0)) AS ShifSystemAmount FROM #T_SCAmount GROUP BY #T_SCAmount.RQ, #T_SCAmount.ShiftID) AS P",
+      "t_empidqty": "SELECT * FROM (SELECT F.RQ AS RQ, F.ShiftID AS ShiftID, F.EmpID AS EmpID, F.SumNum AS SumNum, F.SumEmpIDQty AS SumEmpIDQty, F.SumEmpIDAmount AS SumEmpIDAmount, #T_SCAmount.SCAmount AS SCAmount, #T_ShifSCAmount.ShifSCAmount AS ShifSCAmount, #T_SCAmount.SystemAmount AS SystemAmount, #T_ShifSCAmount.ShifSystemAmount AS ShifSystemAmount FROM (SELECT RQ AS RQ, ShiftID AS ShiftID, EmpID AS EmpID, MAX(SumNum) AS SumNum, SUM(EmpIDQty) AS SumEmpIDQty, SUM(EmpIDAmount) AS SumEmpIDAmount FROM #T_Work GROUP BY RQ, ShiftID, EmpID) AS F LEFT JOIN #T_SCAmount ON #T_SCAmount.EmpID = F.EmpID AND #T_SCAmount.ShiftID = F.ShiftID AND #T_SCAmount.RQ = F.RQ LEFT JOIN #T_ShifSCAmount ON #T_ShifSCAmount.RQ = F.RQ AND #T_ShifSCAmount.ShiftID = F.ShiftID) AS R",
+      "t_worksum": "SELECT * FROM (SELECT #T_EmpIDQty.RQ AS RQ, #T_EmpIDQty.ShiftID AS ShiftID, #T_EmpIDQty.EmpID AS EmpID, #T_EmpIDQty.SumNum AS SumNum, #T_EmpIDQty.SumEmpIDQty AS SumEmpIDQty, ISNULL(#T_EmpIDQty.SumEmpIDAmount, 0) AS SumEmpIDAmount, ISNULL(G.ShifQty, 0) AS ShifQty, ISNULL(G.ShifAmount, 0) AS ShifAmount, #T_EmpIDQty.SCAmount AS SCAmount, #T_EmpIDQty.ShifSCAmount AS ShifSCAmount, SystemAmount AS SystemAmount, ShifSystemAmount AS ShifSystemAmount, CASE WHEN StationID = '07' AND SumNum = 4 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum) WHEN StationID = '07' AND SumNum > 4 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum * ((SumNum - 4) * 0.5 + 1)) WHEN StationID = '01' AND SumNum = 5 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum) ELSE NULL END AS Supplements FROM #T_EmpIDQty LEFT JOIN (SELECT RQ AS RQ, ShiftID AS ShiftID, SUM(SumEmpIDQty) AS ShifQty, SUM(SumEmpIDAmount) AS ShifAmount FROM #T_EmpIDQty GROUP BY RQ, ShiftID) AS G ON G.RQ = #T_EmpIDQty.RQ AND G.ShiftID = #T_EmpIDQty.ShiftID LEFT JOIN dye.p_Shift ON p_Shift.ShiftID = #T_EmpIDQty.ShiftID) AS H",
+      "t_worksumnew": "SELECT * FROM (SELECT RQ AS RQ, CONVERT(VARCHAR(7), #T_WorkSum.RQ, 120) AS Years, RIGHT(100 + DAY(#T_WorkSum.RQ), 2) AS RQDay, ShiftID AS ShiftID, ISNULL(ShifAmount, 0) + ISNULL(ShifSystemAmount, 0) AS ShifAmount, ShifSCAmount AS ShifSCAmount, ShifSystemAmount AS ShifSystemAmount, Supplements AS Supplements, CONVERT(NUMERIC(8, 2), ISNULL(ShifAmount, 0) + ISNULL(ShifSCAmount, 0) + ISNULL(Supplements, 0)) + ISNULL(ShifSystemAmount, 0) AS Subtotal, SumNum AS SumNum, EmpID AS EmpID, ISNULL(SumEmpIDAmount, 0) + ISNULL(SystemAmount, 0) AS SumEmpIDAmount, SCAmount AS SCAmount, SystemAmount AS SystemAmount, CONVERT(NUMERIC(8, 2), Supplements / SumNum) AS EmpIDSupplements, ISNULL(SumEmpIDAmount, 0) + ISNULL(SCAmount, 0) + ISNULL(SystemAmount, 0) + ISNULL(CONVERT(NUMERIC(8, 2), Supplements / SumNum), 0) AS EmpIDSubtotal FROM #T_WorkSum) AS Z"
+    },
+    "assignments": []
+  },
+  "Sp_OLD_QueryWagesStatisticsInfo2": {
+    "id": "SQL324",
+    "title": "Sp_OLD_QueryWagesStatisticsInfo2",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM #T_WorkSumNew ORDER BY RQ,EmpID"
+    ],
+    "temps": {
+      "t_pack": "SELECT * FROM (SELECT CONVERT(VARCHAR(50), JobSheetNo + 'GX98' + ShiftID) AS WProcessNo, RY.JobSheetNo AS JobSheetNo, 99 AS ProcessNo, 'GX98' AS ProcessID, '07' AS StationID, RY.ShiftID AS ShiftID, '' AS EmpID, RY.Kg AS CurrKg, RY.Meter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN RY.Kg ELSE RY.Meter END AS Qty, 100 AS CurrDosage, RY.PackTime AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.RecordYield AS RY LEFT JOIN dye.JobSheet AS J ON RY.JobSheetNo = J.SheetNo WHERE 1 = 1 AND RY.PackTime >= @NewSTime AND RY.PackTime < @NewETime) AS Pack",
+      "t_dpmain": "SELECT DP.* FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessNo AS ProcessNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg ELSE WP.CurrMeter END AS Qty, CASE WHEN ProcessID IN ('GX00', 'GX01') AND WP.ProcessNo = 1 THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.WProcess AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo WHERE 1 = 1 AND WP.CreateDate >= @NewSTime AND WP.CreateDate < @NewETime AND WP.ShiftID = @ShiftID) AS DP",
+      "t_packnew": "SELECT * FROM (SELECT WProcessNo AS WProcessNo, JobSheetNo AS JobSheetNo, ProcessNo AS ProcessNo, ProcessID AS ProcessID, StationID AS StationID, ShiftID AS ShiftID, EmpID AS EmpID, SUM(CurrKg) AS CurrKg, SUM(CurrMeter) AS CurrMeter, SUM(Qty) AS Qty, CurrDosage AS CurrDosage, CreateDate AS CreateDate, ColorID AS ColorID, ColorNum AS ColorNum, CustomerID AS CustomerID FROM #T_Pack GROUP BY WProcessNo, JobSheetNo, ProcessNo, ProcessID, StationID, ShiftID, EmpID, CurrDosage, CreateDate, ColorID, ColorNum, CustomerID) AS NewPack",
+      "allprocessid": "SELECT * FROM (SELECT * FROM #T_DPMain UNION ALL SELECT * FROM #T_PackNew) AS DPPack",
+      "t_alljse": "SELECT * FROM (SELECT JE.JobSheetNo, Ws.ShiftID, JE.EmpID, JE.EffiRate, JE.Remarks, JE.ModifyDate, JE.Modifyer, JE.ProcessNo, JE.ProcessID, JE.WProcessNo, JE.Post FROM dye.JobShiftEmp AS JE JOIN #AllProcessID AS Ws ON Ws.WProcessNo = JE.WProcessNo UNION ALL SELECT DISTINCT RYD.JobSheetNo, RYD.ShiftID, RE.EmpID, 0 AS EffiRate, NULL AS Remarks, NULL AS ModifyDate, NULL AS Modifyer, 99 AS ProcessNo, 'GX98' AS ProcessID, CONVERT(VARCHAR(50), JobSheetNo + 'GX98' + ShiftID) AS WProcessNo, NULL AS Post FROM dye.RecordEmp AS RE LEFT JOIN dye.RecordYield AS RYD ON RYD.BarCode = RE.BarCode WHERE 1 = 1 AND RYD.PackTime >= @NewSTime AND RYD.PackTime < @NewETime AND RYD.ShiftID = @ShiftID) AS AllJE",
+      "t_jse": "SELECT A.* FROM (SELECT AJE.WProcessNo AS WProcessNo, AJE.Post AS Post, COUNT(*) AS Num FROM #T_AllJSE AS AJE GROUP BY AJE.WProcessNo, AJE.Post) AS A",
+      "t_jse1": "SELECT * FROM (SELECT #T_JSE.*, B.CountNum AS CountNum, B.SumNum AS SumNum FROM #T_JSE LEFT JOIN (SELECT WProcessNo AS WProcessNo, COUNT(*) AS CountNum, SUM(Num) AS SumNum FROM #T_JSE GROUP BY #T_JSE.WProcessNo) AS B ON B.WProcessNo = #T_JSE.WProcessNo) AS C",
+      "t_wp": "SELECT *, dye.fn_ProcessIDPire(D.JobSheetNo, D.ProcessID, D.RSQty) AS ProcessIDPire FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg * ISNULL(WP.CurrDosage, 0) / 100 ELSE WP.CurrMeter * ISNULL(WP.CurrDosage, 0) / 100 END AS Qty, IIF(J.AssignUnit = 1, WP.CurrKg, WP.CurrMeter) AS RSQty, CASE WHEN ProcessID IN ('GX00', 'GX01') AND WP.ProcessNo = 1 THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM #AllProcessID AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo) AS D",
+      "t_work": "SELECT * FROM (SELECT #T_AllJSE.ProcessNo AS ProcessNo, #T_AllJSE.ShiftID AS ShiftID, #T_AllJSE.EmpID AS EmpID, #T_WP.WProcessNo AS WProcessNo, #T_WP.JobSheetNo AS JobSheetNo, #T_WP.ProcessID AS ProcessID, #T_WP.StationID AS StationID, #T_WP.CurrKg AS CurrKg, #T_WP.CurrMeter AS CurrMeter, #T_WP.Qty AS Qty, #T_WP.CurrDosage AS CurrDosage, #T_WP.CreateDate AS CreateDate, #T_WP.ColorID AS ColorID, #T_WP.ColorNum AS ColorNum, #T_WP.CustomerID AS CustomerID, CONVERT(NUMERIC(10, 2), Qty / Num / CountNum) AS EmpIDQty, CONVERT(NUMERIC(10, 2), IIF(StationID = '06', #T_WP.ProcessIDPire * CurrDosage / 100 / Num / CountNum, Qty * #T_WP.ProcessIDPire / 1000 / Num / CountNum)) AS EmpIDAmount, CONVERT(VARCHAR(10), DATEADD(N, -(@NN * 60), #T_WP.CreateDate), 120) AS RQ, #T_WP.ProcessIDPire AS ProcessIDPire, #T_AllJSE.Post AS Post, #T_JSE1.Num AS Num, #T_JSE1.CountNum AS CountNum, #T_JSE1.SumNum AS SumNum FROM #T_AllJSE JOIN #T_JSE1 ON #T_JSE1.WProcessNo = #T_AllJSE.WProcessNo AND ISNULL(#T_JSE1.Post, '01') = ISNULL(#T_AllJSE.Post, '01') LEFT JOIN #T_WP ON #T_WP.WProcessNo = #T_AllJSE.WProcessNo) AS E ORDER BY E.JobSheetNo, E.ProcessNo, E.WProcessNo",
+      "t_scamount": "SELECT * FROM (SELECT L.RQ AS RQ, L.ShiftID AS ShiftID, K.EmpID AS EmpID, SUM(ISNULL(K.Amount, 0)) AS SCAmount, SUM(ISNULL(K.SystemAmount, 0.00)) AS SystemAmount, SUM(ISNULL(K.OtherAmount, 0.00)) AS OtherAmount FROM dye.SalaryChangesDetail AS K LEFT JOIN dye.SalaryChanges AS L ON L.SheetSeries = K.SheetSeries GROUP BY L.RQ, L.ShiftID, K.EmpID) AS M",
+      "t_shifscamount": "SELECT * FROM (SELECT #T_SCAmount.RQ AS RQ, #T_SCAmount.ShiftID AS ShiftID, SUM(ISNULL(#T_SCAmount.SCAmount, 0)) AS ShifSCAmount, SUM(ISNULL(#T_SCAmount.SystemAmount, 0)) AS ShifSystemAmount, SUM(ISNULL(#T_SCAmount.OtherAmount, 0)) AS ShifOtherAmount FROM #T_SCAmount GROUP BY #T_SCAmount.RQ, #T_SCAmount.ShiftID) AS P",
+      "t_sumqty": "SELECT * FROM (SELECT RQ AS RQ, ShiftID AS ShiftID, EmpID AS EmpID, COUNT(EmpID) OVER (PARTITION BY RQ, ShiftID ORDER BY RQ) AS SumNum, SUM(EmpIDQty) AS SumEmpIDQty, SUM(EmpIDAmount) AS SumEmpIDAmount FROM #T_Work GROUP BY RQ, ShiftID, EmpID) AS F",
+      "t_empidqty": "SELECT * FROM (SELECT #T_SumQty.RQ AS RQ, #T_SumQty.ShiftID AS ShiftID, #T_SumQty.EmpID AS EmpID, #T_SumQty.SumNum AS SumNum, #T_SumQty.SumEmpIDQty AS SumEmpIDQty, #T_SumQty.SumEmpIDAmount AS SumEmpIDAmount, #T_SCAmount.SCAmount AS SCAmount, #T_ShifSCAmount.ShifSCAmount AS ShifSCAmount, #T_SCAmount.SystemAmount AS SystemAmount, #T_ShifSCAmount.ShifSystemAmount AS ShifSystemAmount, #T_SCAmount.OtherAmount AS OtherAmount, #T_ShifSCAmount.ShifOtherAmount AS ShifOtherAmount FROM #T_SumQty LEFT JOIN #T_SCAmount ON #T_SCAmount.EmpID = #T_SumQty.EmpID AND #T_SCAmount.ShiftID = #T_SumQty.ShiftID AND #T_SCAmount.RQ = #T_SumQty.RQ LEFT JOIN #T_ShifSCAmount ON #T_ShifSCAmount.RQ = #T_SumQty.RQ AND #T_ShifSCAmount.ShiftID = #T_SumQty.ShiftID) AS R",
+      "t_sc": "SELECT * FROM (SELECT CONVERT(VARCHAR(10), sc.RQ) AS RQ, ISNULL(sc.ShiftID, @ShiftID) AS ShiftID, scd.EmpID AS EmpID, Z.SumNum AS SumNum, CAST(NULL AS DECIMAL(18,4)) AS SumEmpIDQty, CAST(NULL AS DECIMAL(18,4)) AS SumEmpIDAmount, Z.ShifQty AS ShifQty, Z.ShifAmount AS ShifAmount, scd.Amount AS SCAmount, #T_ShifSCAmount.ShifSCAmount AS ShifSCAmount, scd.SystemAmount AS SystemAmount, #T_ShifSCAmount.ShifSystemAmount AS ShifSystemAmount, scd.OtherAmount AS OtherAmount, #T_ShifSCAmount.ShifOtherAmount AS ShifOtherAmount, CAST(NULL AS DECIMAL(18,4)) AS Supplements FROM dye.SalaryChangesDetail AS scd LEFT JOIN dye.SalaryChanges AS sc ON sc.SheetSeries = scd.SheetSeries LEFT JOIN #T_ShifSCAmount ON #T_ShifSCAmount.ShiftID = sc.ShiftID AND #T_ShifSCAmount.RQ = sc.RQ LEFT JOIN (SELECT RQ AS RQ, ShiftID AS ShiftID, SumNum AS SumNum, SUM(SumEmpIDQty) AS ShifQty, SUM(SumEmpIDAmount) AS ShifAmount FROM #T_EmpIDQty GROUP BY RQ, ShiftID, SumNum) AS Z ON Z.RQ = sc.RQ AND Z.ShiftID = sc.ShiftID WHERE 1 = 1 AND NOT EXISTS(SELECT 1 FROM #T_SumQty WHERE sc.RQ = #T_SumQty.RQ AND sc.ShiftID = #T_SumQty.ShiftID AND scd.EmpID = #T_SumQty.EmpID) AND sc.RQ >= DATEADD(N, -(@NN * 60), @NewSTime) AND sc.RQ <= DATEADD(N, -(@NN * 60), @NewETime) AND sc.ShiftID = @ShiftID) AS Y",
+      "t_worksum": "SELECT * FROM (SELECT #T_EmpIDQty.RQ AS RQ, #T_EmpIDQty.ShiftID AS ShiftID, #T_EmpIDQty.EmpID AS EmpID, #T_EmpIDQty.SumNum AS SumNum, #T_EmpIDQty.SumEmpIDQty AS SumEmpIDQty, ISNULL(#T_EmpIDQty.SumEmpIDAmount, 0) AS SumEmpIDAmount, ISNULL(G.ShifQty, 0) AS ShifQty, ISNULL(G.ShifAmount, 0) AS ShifAmount, #T_EmpIDQty.SCAmount AS SCAmount, #T_EmpIDQty.ShifSCAmount AS ShifSCAmount, SystemAmount AS SystemAmount, ShifSystemAmount AS ShifSystemAmount, OtherAmount AS OtherAmount, ShifOtherAmount AS ShifOtherAmount, CASE WHEN StationID = '07' AND SumNum = 4 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum) WHEN StationID = '07' AND SumNum > 4 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum * ((SumNum - 4) * 0.5 + 1)) WHEN StationID = '01' AND SumNum = 5 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum) WHEN StationID = '01' AND SumNum > 5 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum * ((SumNum - 5) * 0.5 + 1)) ELSE NULL END AS Supplements FROM #T_EmpIDQty LEFT JOIN (SELECT RQ AS RQ, ShiftID AS ShiftID, SUM(SumEmpIDQty) AS ShifQty, SUM(SumEmpIDAmount) AS ShifAmount FROM #T_EmpIDQty GROUP BY RQ, ShiftID) AS G ON G.RQ = #T_EmpIDQty.RQ AND G.ShiftID = #T_EmpIDQty.ShiftID LEFT JOIN dye.p_Shift ON p_Shift.ShiftID = #T_EmpIDQty.ShiftID) AS H UNION ALL SELECT * FROM #T_SC",
+      "t_worksumnew": "SELECT * FROM (SELECT RQ AS RQ, CONVERT(VARCHAR(7), #T_WorkSum.RQ, 120) AS Years, RIGHT(100 + DAY(#T_WorkSum.RQ), 2) AS RQDay, ShiftID AS ShiftID, ROUND(ISNULL(ShifAmount, 0) + ISNULL(ShifSystemAmount, 0), 0) AS ShifAmount, ROUND(ShifSCAmount, 0) AS ShifSCAmount, ROUND(ShifSystemAmount, 0) AS ShifSystemAmount, ROUND(ShifOtherAmount, 0) AS ShifOtherAmount, ROUND(Supplements, 0) AS Supplements, ROUND(CONVERT(NUMERIC(8, 2), ISNULL(ShifAmount, 0) + ISNULL(ShifSCAmount, 0) + ISNULL(Supplements, 0) + ISNULL(ShifSystemAmount, 0) + ISNULL(ShifOtherAmount, 0)), 0) AS Subtotal, SumNum AS SumNum, EmpID AS EmpID, ROUND(ISNULL(SumEmpIDAmount, 0) + ISNULL(SystemAmount, 0), 0) AS SumEmpIDAmount, ROUND(SCAmount, 0) AS SCAmount, ROUND(SystemAmount, 0) AS SystemAmount, ROUND(OtherAmount, 0) AS OtherAmount, ROUND(CONVERT(NUMERIC(8, 2), Supplements / SumNum), 0) AS EmpIDSupplements, ROUND(ISNULL(SumEmpIDAmount, 0) + ISNULL(SCAmount, 0) + ISNULL(SystemAmount, 0) + ISNULL(OtherAmount, 0) + ISNULL(CONVERT(NUMERIC(8, 2), Supplements / SumNum), 0), 0) AS EmpIDSubtotal FROM #T_WorkSum) AS Z"
+    },
+    "assignments": []
+  },
+  "Sp_QueryWagesStatisticsInfo": {
+    "id": "SQL362",
+    "title": "Sp_QueryWagesStatisticsInfo",
+    "kind": "query",
+    "sql": [
+      "SELECT * FROM #T_WorkSumNew ORDER BY RQ,EmpID"
+    ],
+    "temps": {
+      "t_pack": "SELECT * FROM (SELECT CONVERT(VARCHAR(50), JobSheetNo + 'GX98' + ShiftID) + CONVERT(VARCHAR(10), RY.PackTime, 120) AS WProcessNo, RY.JobSheetNo AS JobSheetNo, 99 AS ProcessNo, 'GX98' AS ProcessID, '07' AS StationID, RY.ShiftID AS ShiftID, '' AS EmpID, RY.Kg AS CurrKg, RY.Meter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN RY.Kg ELSE RY.Meter END AS Qty, 100 AS CurrDosage, RY.PackTime AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.RecordYield AS RY LEFT JOIN dye.JobSheet AS J ON RY.JobSheetNo = J.SheetNo WHERE 1 = 1 AND RY.PackTime >= @NewSTime AND RY.PackTime < @NewETime) AS Pack",
+      "t_dpmain": "SELECT DP.* FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessNo AS ProcessNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg ELSE WP.CurrMeter END AS Qty, CASE WHEN ProcessID IN ('GX00', 'GX01') THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.WProcess AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo WHERE 1 = 1 AND WP.CreateDate >= @NewSTime AND WP.CreateDate < @NewETime AND WP.ShiftID = @ShiftID) AS DP",
+      "t_packnew": "SELECT * FROM (SELECT WProcessNo AS WProcessNo, JobSheetNo AS JobSheetNo, ProcessNo AS ProcessNo, ProcessID AS ProcessID, StationID AS StationID, ShiftID AS ShiftID, EmpID AS EmpID, SUM(CurrKg) AS CurrKg, SUM(CurrMeter) AS CurrMeter, SUM(Qty) AS Qty, CurrDosage AS CurrDosage, CreateDate AS CreateDate, ColorID AS ColorID, ColorNum AS ColorNum, CustomerID AS CustomerID FROM #T_Pack GROUP BY WProcessNo, JobSheetNo, ProcessNo, ProcessID, StationID, ShiftID, EmpID, CurrDosage, CreateDate, ColorID, ColorNum, CustomerID) AS NewPack",
+      "allprocessid": "SELECT * FROM (SELECT * FROM #T_DPMain UNION ALL SELECT * FROM #T_PackNew) AS DPPack",
+      "t_alljse": "SELECT * FROM (SELECT JE.JobSheetNo, Ws.ShiftID, JE.EmpID, JE.EffiRate, JE.Remarks, JE.ModifyDate, JE.Modifyer, JE.ProcessNo, JE.ProcessID, JE.WProcessNo, JE.Post FROM dye.JobShiftEmp AS JE JOIN #AllProcessID AS Ws ON Ws.WProcessNo = JE.WProcessNo UNION ALL SELECT DISTINCT RYD.JobSheetNo, RYD.ShiftID, RE.EmpID, 0 AS EffiRate, NULL AS Remarks, NULL AS ModifyDate, NULL AS Modifyer, 99 AS ProcessNo, 'GX98' AS ProcessID, CONVERT(VARCHAR(50), JobSheetNo + 'GX98' + ShiftID) + CONVERT(VARCHAR(10), RYD.PackTime, 120) AS WProcessNo, NULL AS Post FROM dye.RecordEmp AS RE LEFT JOIN dye.RecordYield AS RYD ON RYD.BarCode = RE.BarCode WHERE 1 = 1 AND RYD.PackTime >= @NewSTime AND RYD.PackTime < @NewETime AND RYD.ShiftID = @ShiftID) AS AllJE",
+      "t_jse": "SELECT A.* FROM (SELECT AJE.WProcessNo AS WProcessNo, AJE.Post AS Post, COUNT(*) AS Num FROM #T_AllJSE AS AJE GROUP BY AJE.WProcessNo, AJE.Post) AS A",
+      "t_jse1": "SELECT * FROM (SELECT #T_JSE.*, B.CountNum AS CountNum, B.SumNum AS SumNum FROM #T_JSE LEFT JOIN (SELECT WProcessNo AS WProcessNo, COUNT(*) AS CountNum, SUM(Num) AS SumNum FROM #T_JSE GROUP BY #T_JSE.WProcessNo) AS B ON B.WProcessNo = #T_JSE.WProcessNo) AS C",
+      "t_wp": "SELECT *, dye.fn_ProcessIDPire(D.JobSheetNo, D.ProcessID, D.RSQty) AS ProcessIDPire FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg * ISNULL(WP.CurrDosage, 0) / 100 ELSE WP.CurrMeter * ISNULL(WP.CurrDosage, 0) / 100 END AS Qty, IIF(J.AssignUnit = 1, WP.CurrKg, WP.CurrMeter) AS RSQty, CASE WHEN ProcessID IN ('GX00', 'GX01') AND WP.ProcessNo = 1 THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM #AllProcessID AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo) AS D",
+      "t_work": "SELECT * FROM (SELECT #T_AllJSE.ProcessNo AS ProcessNo, #T_AllJSE.ShiftID AS ShiftID, #T_AllJSE.EmpID AS EmpID, #T_WP.WProcessNo AS WProcessNo, #T_WP.JobSheetNo AS JobSheetNo, #T_WP.ProcessID AS ProcessID, #T_WP.StationID AS StationID, #T_WP.CurrKg AS CurrKg, #T_WP.CurrMeter AS CurrMeter, #T_WP.Qty AS Qty, #T_WP.CurrDosage AS CurrDosage, #T_WP.CreateDate AS CreateDate, #T_WP.ColorID AS ColorID, #T_WP.ColorNum AS ColorNum, #T_WP.CustomerID AS CustomerID, CONVERT(NUMERIC(10, 2), Qty / Num / CountNum) AS EmpIDQty, CONVERT(NUMERIC(10, 2), IIF(StationID = '06', #T_WP.ProcessIDPire * CurrDosage / 100 / Num / CountNum, Qty * #T_WP.ProcessIDPire / 1000 / Num / CountNum)) AS EmpIDAmount, CONVERT(VARCHAR(10), DATEADD(N, -(@NN * 60), #T_WP.CreateDate), 120) AS RQ, #T_WP.ProcessIDPire AS ProcessIDPire, #T_AllJSE.Post AS Post, #T_JSE1.Num AS Num, #T_JSE1.CountNum AS CountNum, #T_JSE1.SumNum AS SumNum FROM #T_AllJSE JOIN #T_JSE1 ON #T_JSE1.WProcessNo = #T_AllJSE.WProcessNo AND ISNULL(#T_JSE1.Post, '01') = ISNULL(#T_AllJSE.Post, '01') LEFT JOIN #T_WP ON #T_WP.WProcessNo = #T_AllJSE.WProcessNo) AS E ORDER BY E.JobSheetNo, E.ProcessNo, E.WProcessNo",
+      "t_scamount": "SELECT * FROM (SELECT L.RQ AS RQ, L.ShiftID AS ShiftID, K.EmpID AS EmpID, SUM(ISNULL(K.Amount, 0)) AS SCAmount, SUM(ISNULL(K.SystemAmount, 0.00)) AS SystemAmount, SUM(ISNULL(K.OtherAmount, 0.00)) AS OtherAmount FROM dye.SalaryChangesDetail AS K LEFT JOIN dye.SalaryChanges AS L ON L.SheetSeries = K.SheetSeries WHERE L.RightStatus = 10 GROUP BY L.RQ, L.ShiftID, K.EmpID) AS M",
+      "t_shifscamount": "SELECT * FROM (SELECT #T_SCAmount.RQ AS RQ, #T_SCAmount.ShiftID AS ShiftID, SUM(ISNULL(#T_SCAmount.SCAmount, 0)) AS ShifSCAmount, SUM(ISNULL(#T_SCAmount.SystemAmount, 0)) AS ShifSystemAmount, SUM(ISNULL(#T_SCAmount.OtherAmount, 0)) AS ShifOtherAmount FROM #T_SCAmount GROUP BY #T_SCAmount.RQ, #T_SCAmount.ShiftID) AS P",
+      "t_sumqty": "SELECT * FROM (SELECT F1.RQ AS RQ, F1.ShiftID AS ShiftID, F1.EmpID AS EmpID, F1.SumNum + (SELECT COUNT(DISTINCT scd.EmpID) FROM dye.SalaryChangesDetail AS scd LEFT JOIN dye.SalaryChanges AS sc ON sc.SheetSeries = scd.SheetSeries WHERE sc.RQ = F1.RQ AND sc.ShiftID = F1.ShiftID AND sc.RightStatus = 10 AND NOT EXISTS(SELECT 1 FROM (SELECT DISTINCT RQ AS RQ, ShiftID AS ShiftID, EmpID AS EmpID FROM #T_Work) AS F3 WHERE scd.EmpID = F3.EmpID AND sc.RQ = F3.RQ AND sc.ShiftID = F3.ShiftID)) AS SumNum, F1.SumEmpIDQty AS SumEmpIDQty, F1.SumEmpIDAmount AS SumEmpIDAmount FROM (SELECT RQ AS RQ, ShiftID AS ShiftID, EmpID AS EmpID, COUNT(EmpID) OVER (PARTITION BY RQ, ShiftID ORDER BY RQ) AS SumNum, SUM(EmpIDQty) AS SumEmpIDQty, SUM(EmpIDAmount) AS SumEmpIDAmount FROM #T_Work GROUP BY RQ, ShiftID, EmpID) AS F1) AS F2",
+      "t_empidqty": "SELECT * FROM (SELECT #T_SumQty.RQ AS RQ, #T_SumQty.ShiftID AS ShiftID, #T_SumQty.EmpID AS EmpID, #T_SumQty.SumNum AS SumNum, #T_SumQty.SumEmpIDQty AS SumEmpIDQty, #T_SumQty.SumEmpIDAmount AS SumEmpIDAmount, #T_SCAmount.SCAmount AS SCAmount, #T_ShifSCAmount.ShifSCAmount AS ShifSCAmount, #T_SCAmount.SystemAmount AS SystemAmount, #T_ShifSCAmount.ShifSystemAmount AS ShifSystemAmount, #T_SCAmount.OtherAmount AS OtherAmount, #T_ShifSCAmount.ShifOtherAmount AS ShifOtherAmount FROM #T_SumQty LEFT JOIN #T_SCAmount ON #T_SCAmount.EmpID = #T_SumQty.EmpID AND #T_SCAmount.ShiftID = #T_SumQty.ShiftID AND #T_SCAmount.RQ = #T_SumQty.RQ LEFT JOIN #T_ShifSCAmount ON #T_ShifSCAmount.RQ = #T_SumQty.RQ AND #T_ShifSCAmount.ShiftID = #T_SumQty.ShiftID) AS R",
+      "t_sc": "SELECT * FROM (SELECT CONVERT(VARCHAR(10), sc.RQ) AS RQ, ISNULL(sc.ShiftID, @ShiftID) AS ShiftID, scd.EmpID AS EmpID, Z.SumNum AS SumNum, CAST(NULL AS DECIMAL(18,4)) AS SumEmpIDQty, CAST(NULL AS DECIMAL(18,4)) AS SumEmpIDAmount, Z.ShifQty AS ShifQty, Z.ShifAmount AS ShifAmount, scd.Amount AS SCAmount, #T_ShifSCAmount.ShifSCAmount AS ShifSCAmount, scd.SystemAmount AS SystemAmount, #T_ShifSCAmount.ShifSystemAmount AS ShifSystemAmount, scd.OtherAmount AS OtherAmount, #T_ShifSCAmount.ShifOtherAmount AS ShifOtherAmount, CASE WHEN StationID = '07' AND SumNum = 4 THEN CONVERT(NUMERIC(8, 2), Z.ShifAmount / SumNum) WHEN StationID = '07' AND SumNum > 4 THEN CONVERT(NUMERIC(8, 2), Z.ShifAmount / SumNum * ((SumNum - 4) * 0.5 + 1)) WHEN StationID = '01' AND SumNum = 5 THEN CONVERT(NUMERIC(8, 2), Z.ShifAmount / SumNum) WHEN StationID = '01' AND SumNum > 5 THEN CONVERT(NUMERIC(8, 2), Z.ShifAmount / SumNum * ((SumNum - 5) * 0.5 + 1)) ELSE NULL END AS Supplements FROM dye.SalaryChangesDetail AS scd LEFT JOIN dye.SalaryChanges AS sc ON sc.SheetSeries = scd.SheetSeries LEFT JOIN #T_ShifSCAmount ON #T_ShifSCAmount.ShiftID = sc.ShiftID AND #T_ShifSCAmount.RQ = sc.RQ LEFT JOIN (SELECT RQ AS RQ, ShiftID AS ShiftID, SumNum AS SumNum, SUM(SumEmpIDQty) AS ShifQty, SUM(SumEmpIDAmount) AS ShifAmount FROM #T_EmpIDQty GROUP BY RQ, ShiftID, SumNum) AS Z ON Z.RQ = sc.RQ AND Z.ShiftID = sc.ShiftID LEFT JOIN dye.p_Shift AS P ON #T_ShifSCAmount.ShiftID = P.ShiftID WHERE 1 = 1 AND sc.RightStatus = 10 AND NOT EXISTS(SELECT 1 FROM #T_SumQty WHERE sc.RQ = #T_SumQty.RQ AND sc.ShiftID = #T_SumQty.ShiftID AND scd.EmpID = #T_SumQty.EmpID) AND sc.RQ >= DATEADD(N, -(@NN * 60), @NewSTime) AND sc.RQ < DATEADD(N, -(@NN * 60), @NewETime) AND sc.ShiftID = @ShiftID) AS Y",
+      "t_worksum": "SELECT * FROM (SELECT #T_EmpIDQty.RQ AS RQ, #T_EmpIDQty.ShiftID AS ShiftID, #T_EmpIDQty.EmpID AS EmpID, #T_EmpIDQty.SumNum AS SumNum, #T_EmpIDQty.SumEmpIDQty AS SumEmpIDQty, ISNULL(#T_EmpIDQty.SumEmpIDAmount, 0) AS SumEmpIDAmount, ISNULL(G.ShifQty, 0) AS ShifQty, ISNULL(G.ShifAmount, 0) AS ShifAmount, #T_EmpIDQty.SCAmount AS SCAmount, #T_EmpIDQty.ShifSCAmount AS ShifSCAmount, SystemAmount AS SystemAmount, ShifSystemAmount AS ShifSystemAmount, OtherAmount AS OtherAmount, ShifOtherAmount AS ShifOtherAmount, CASE WHEN StationID = '07' AND SumNum = 4 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum) WHEN StationID = '07' AND SumNum > 4 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum * ((SumNum - 4) * 0.5 + 1)) WHEN StationID = '01' AND SumNum = 5 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum) WHEN StationID = '01' AND SumNum > 5 THEN CONVERT(NUMERIC(8, 2), G.ShifAmount / SumNum * ((SumNum - 5) * 0.5 + 1)) ELSE NULL END AS Supplements FROM #T_EmpIDQty LEFT JOIN (SELECT RQ AS RQ, ShiftID AS ShiftID, SUM(SumEmpIDQty) AS ShifQty, SUM(SumEmpIDAmount) AS ShifAmount FROM #T_EmpIDQty GROUP BY RQ, ShiftID) AS G ON G.RQ = #T_EmpIDQty.RQ AND G.ShiftID = #T_EmpIDQty.ShiftID LEFT JOIN dye.p_Shift ON p_Shift.ShiftID = #T_EmpIDQty.ShiftID) AS H UNION ALL SELECT * FROM #T_SC",
+      "t_worksumnew": "SELECT * FROM (SELECT RQ AS RQ, CONVERT(VARCHAR(7), #T_WorkSum.RQ, 120) AS Years, RIGHT(100 + DAY(#T_WorkSum.RQ), 2) AS RQDay, ShiftID AS ShiftID, ROUND(ISNULL(ShifAmount, 0) + ISNULL(ShifSystemAmount, 0), 0) AS ShifAmount, ROUND(ShifSCAmount, 0) AS ShifSCAmount, ROUND(ShifSystemAmount, 0) AS ShifSystemAmount, ROUND(ShifOtherAmount, 0) AS ShifOtherAmount, ROUND(Supplements, 0) AS Supplements, ROUND(CONVERT(NUMERIC(8, 2), ISNULL(ShifAmount, 0) + ISNULL(ShifSCAmount, 0) + ISNULL(Supplements, 0) + ISNULL(ShifSystemAmount, 0) + ISNULL(ShifOtherAmount, 0)), 0) AS Subtotal, SumNum AS SumNum, EmpID AS EmpID, ROUND(ISNULL(SumEmpIDAmount, 0) + ISNULL(SystemAmount, 0), 0) AS SumEmpIDAmount, ROUND(SCAmount, 0) AS SCAmount, ROUND(SystemAmount, 0) AS SystemAmount, ROUND(OtherAmount, 0) AS OtherAmount, ROUND(CONVERT(NUMERIC(8, 2), Supplements / SumNum), 0) AS EmpIDSupplements, ROUND(ISNULL(SumEmpIDAmount, 0) + ISNULL(SCAmount, 0) + ISNULL(SystemAmount, 0) + ISNULL(OtherAmount, 0) + ISNULL(CONVERT(NUMERIC(8, 2), Supplements / SumNum), 0), 0) AS EmpIDSubtotal FROM #T_WorkSum) AS Z"
+    },
+    "assignments": []
+  },
+  "SP_WDefectList": {
+    "id": "SQL422",
+    "title": "SP_WDefectList",
+    "kind": "query",
+    "sql": [
+      "SELECT NEWID() AS ID, #t1.*, FORMAT(#t2.DefectQty / NULLIF(#t3.DefectQty, 0), 'P') AS bl1, CASE WHEN #t4.Defects = 'dt003' THEN '染部责任' + FORMAT(#t4.DefectQty / NULLIF(#t3.DefectQty, 0), 'P') WHEN #t4.Defects = 'dt004' THEN '定型部责任' + FORMAT(#t4.DefectQty / NULLIF(#t3.DefectQty, 0), 'P') ELSE '其他部门' + FORMAT(#t4.DefectQty / NULLIF(#t3.DefectQty, 0), 'P') END AS bl2 FROM #t1 LEFT JOIN #t2 ON #t2.SheetDate = #t1.SheetDate AND #t2.DefectKind = #t1.DefectKind LEFT JOIN #t3 ON #t3.SheetDate = #t1.SheetDate LEFT JOIN #t4 ON #t4.SheetDate = #t1.SheetDate AND #t4.Defects = #t1.Defects WHERE 1 = 1"
+    ],
+    "temps": {
+      "t1": "SELECT a.SheetNo AS SheetNo, CAST(a.SheetDate AS DATE) AS SheetDate, a.CustomerID AS CustomerID, a.JobSheetNo AS JobSheetNo, a.ProdID AS ProdID, a.ColorNum AS ColorNum, a.ColorID AS ColorID, a.FromRolls AS PreRolls, a.FromWeightQty AS PreVatQty, a.DefectRolls AS DefectRolls, a.DefectQty AS DefectQty, a.DefectFactory AS DefectFactory, a.DefectKind AS DefectKind, a.Defects AS Defects, a.Signer AS Signer, a.DetailCustName AS DetailCustName, a.SignedDate AS SignedDate, a.Remarks AS Remarks FROM dye.WDefect AS a WHERE a.SheetType <> 10 AND a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate",
+      "t2": "SELECT CAST(a.SheetDate AS DATE) AS SheetDate, a.DefectKind AS DefectKind, SUM(a.DefectQty) AS DefectQty FROM dye.WDefect AS a LEFT JOIN dye.JobSheet AS b ON b.sheetno = a.JobSheetNo WHERE a.SheetType <> 10 AND a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate GROUP BY CAST(a.sheetdate AS DATE), a.DefectKind",
+      "t3": "SELECT CAST(a.SheetDate AS DATE) AS SheetDate, SUM(a.DefectQty) AS DefectQty FROM dye.WDefect AS a LEFT JOIN dye.JobSheet AS b ON b.sheetno = a.JobSheetNo WHERE a.SheetType <> 10 AND a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate GROUP BY CAST(a.sheetdate AS DATE)",
+      "t4": "SELECT CAST(a.SheetDate AS DATE) AS SheetDate, Defects AS Defects, SUM(a.DefectQty) AS DefectQty FROM dye.WDefect AS a LEFT JOIN dye.JobSheet AS b ON b.sheetno = a.JobSheetNo WHERE a.SheetType <> 10 AND a.SheetDate >= @StartDate AND a.SheetDate <= @EndDate GROUP BY CAST(a.sheetdate AS DATE), Defects"
+    },
+    "assignments": [],
+    "difference": "原日疵点总量为0时比例无数学定义；保留每条疵点记录，bl1/bl2为NULL，不以0代替比例。"
+  },
+  "QueryJobSheetNoIsClosed": {
+    "id": "SQL111",
+    "title": "QueryJobSheetNoIsClosed",
+    "kind": "special",
+    "sql": []
+  },
+  "sp_App_GetMachineInfo": {
+    "id": "SQL158",
+    "title": "sp_App_GetMachineInfo",
+    "kind": "special",
+    "sql": []
+  },
+  "sp_App_MachineArticleGroupSum": {
+    "id": "SQL161",
+    "title": "sp_App_MachineArticleGroupSum",
+    "kind": "special",
+    "sql": []
+  },
+  "sp_app_QueryEmployees_ForMachineFault": {
+    "id": "SQL172",
+    "title": "sp_app_QueryEmployees_ForMachineFault",
+    "kind": "special",
+    "sql": []
+  },
+  "SP_APP_QueryFaultBillCount": {
+    "id": "SQL174",
+    "title": "SP_APP_QueryFaultBillCount",
+    "kind": "special",
+    "sql": []
+  },
+  "sp_App_QueryFigMachinePlanByPage": {
+    "id": "SQL176",
+    "title": "sp_App_QueryFigMachinePlanByPage",
+    "kind": "special",
+    "sql": []
+  },
+  "Sp_GetSZRollNoByPackMachine": {
+    "id": "SQL295",
+    "title": "Sp_GetSZRollNoByPackMachine",
+    "kind": "special",
+    "sql": []
+  },
+  "SP_GetXMInfoToXML": {
+    "id": "SQL296",
+    "title": "SP_GetXMInfoToXML",
+    "kind": "special",
+    "sql": []
+  },
+  "sp_App_GetInspectionLogBySheetSeries": {
+    "id": "SQL151",
+    "title": "sp_App_GetInspectionLogBySheetSeries",
+    "kind": "special",
+    "sql": [
+      "SELECT SheetSeries ,\nSheetNo ,\nConvert(varchar(20),SheetDate,23) AS SheetDate ,\nSheetKind ,\nEmpID ,\nInspectDetailNo AS DetailNo,\nInspector,\nInspectorList,\ndye.ChangeIDListToEmpName(InspectorList,';') AS InspectorListNames,\nCONVERT(VARCHAR(10),InspectDate,23) AS InspectDate ,\nInspectionSurvey ,\nRemarks ,\nCreater ,\nCreateDate ,\nModifyer ,\nModifyDate ,\nMachineID ,\nMachineName ,\nMachineLocation ,\n@IsUseMachineCase AS IsUseMachineCase FROM dye.InspectionLog WHERE SheetSeries = @SheetSeries\n"
+    ]
+  },
+  "sp_App_GetMachineCareRecordsBySheetSeries": {
+    "id": "SQL153",
+    "title": "sp_App_GetMachineCareRecordsBySheetSeries",
+    "kind": "special",
+    "sql": [
+      "SELECT SheetSeries ,\nSheetNo ,\nSheetDate ,\nSheetKind ,\nMachineID ,\nCarePlanDetailNo AS DetailNo,\nEmpID ,\nCONVERT(VARCHAR(10),CareDate,21) AS CareDate ,\nRemarks ,\nCreater ,\nCreateDate ,\nModifyer ,\nModifyDate ,\nRightStatus ,\nApproveDate ,\nApprover ,\nHandlerIDs ,\ndye.ChangeIDListToEmpName(HandlerIDs,';') AS HandlerNames,\nHandleIdea ,\nResultID ,\nMachineName ,\nMachineLocation ,@IsUseMachineCase AS IsUseMachineCase FROM dye.MachineCareRecords WHERE SheetSeries = @SheetSeries\n"
+    ]
+  },
+  "Sp_WorkQtySum": {
+    "id": "SQL425",
+    "title": "Sp_WorkQtySum",
+    "kind": "query",
+    "sql": [
+      "SELECT ROW_NUMBER() OVER (ORDER BY B.StationID) AS XU, * FROM (SELECT StationID AS StationID, StationIDName AS StationIDName, ShiftID AS ShiftID, ShiftIDName AS ShiftIDName, EmpID AS EmpID, EmpID AS NAME, SUM(A.KgQty) AS CurrKg, SUM(A.MeterQty) AS CurrMeter, SUM(A.CurrMoney) AS CurrMoney FROM (SELECT StationID AS StationID, StationID AS StationIDName, ShiftID AS ShiftID, ShiftID AS ShiftIDName, EmpID AS EmpID, EmpID AS NAME, KgQty AS KgQty, MeterQty AS MeterQty, CONVERT(NUMERIC(10, 2), Qty * ProcessIDPire / 1000) AS CurrMoney FROM #T_WP) AS A GROUP BY A.StationID, A.StationIDName, A.ShiftID, A.ShiftIDName, A.EmpID, A.NAME) AS B WHERE 1 = 1 AND (ISNULL(@StationID, '') = '' OR B.StationID = @StationID) AND (ISNULL(@ShiftID, '') = '' OR B.ShiftID = @ShiftID)"
+    ],
+    "temps": {
+      "t_pack": "SELECT * FROM (SELECT CONVERT(VARCHAR(50), JobSheetNo + 'GX98' + ShiftID) AS WProcessNo, RY.JobSheetNo AS JobSheetNo, 99 AS ProcessNo, 'GX98' AS ProcessID, '07' AS StationID, RY.ShiftID AS ShiftID, '' AS EmpID, RY.Kg AS CurrKg, RY.Meter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN RY.Kg ELSE RY.Meter END AS Qty, 100 AS CurrDosage, RY.PackTime AS CreateDate, '' AS Creater, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.RecordYield AS RY LEFT JOIN dye.JobSheet AS J ON RY.JobSheetNo = J.SheetNo WHERE 1 = 1 AND RY.PackTime >= @NewSTime AND RY.PackTime < @NewETime) AS Pack",
+      "t_dpmain": "SELECT DP.* FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessNo AS ProcessNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg ELSE WP.CurrMeter END AS Qty, CASE WHEN ProcessID IN ('GX00', 'GX01') AND WP.Creater = '翻布刷卡' THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, WP.Creater AS Creater, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM dye.WProcess AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo WHERE 1 = 1 AND WP.CreateDate >= @NewSTime AND WP.CreateDate < @NewETime) AS DP",
+      "t_packnew": "SELECT * FROM (SELECT WProcessNo AS WProcessNo, JobSheetNo AS JobSheetNo, ProcessNo AS ProcessNo, ProcessID AS ProcessID, StationID AS StationID, ShiftID AS ShiftID, EmpID AS EmpID, SUM(CurrKg) AS CurrKg, SUM(CurrMeter) AS CurrMeter, SUM(Qty) AS Qty, CurrDosage AS CurrDosage, CreateDate AS CreateDate, Creater AS Creater, ColorID AS ColorID, ColorNum AS ColorNum, CustomerID AS CustomerID FROM #T_Pack GROUP BY WProcessNo, JobSheetNo, ProcessNo, ProcessID, StationID, ShiftID, EmpID, CurrDosage, CreateDate, Creater, ColorID, ColorNum, CustomerID) AS NewPack",
+      "allprocessid": "SELECT * FROM (SELECT * FROM #T_DPMain UNION ALL SELECT * FROM #T_PackNew) AS DPPack",
+      "t_wp": "SELECT *, dye.fn_ProcessIDPire(D.JobSheetNo, D.ProcessID, D.Qty) AS ProcessIDPire FROM (SELECT WP.WProcessNo AS WProcessNo, WP.JobSheetNo AS JobSheetNo, WP.ProcessID AS ProcessID, WP.StationID AS StationID, WP.ShiftID AS ShiftID, WP.EmpID AS EmpID, WP.CurrKg AS CurrKg, WP.CurrMeter AS CurrMeter, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg * ISNULL(WP.CurrDosage, 0) / 100 ELSE WP.CurrMeter * ISNULL(WP.CurrDosage, 0) / 100 END AS Qty, CASE WHEN J.AssignUnit = 1 THEN WP.CurrKg * ISNULL(WP.CurrDosage, 0) / 100 ELSE 0.00 END AS KgQty, CASE WHEN J.AssignUnit = 0 THEN WP.CurrMeter * ISNULL(WP.CurrDosage, 0) / 100 ELSE 0.00 END AS MeterQty, CASE WHEN ProcessID IN ('GX00', 'GX01') AND WP.Creater = '翻布刷卡' THEN 100 ELSE WP.CurrDosage END AS CurrDosage, WP.CreateDate AS CreateDate, J.ColorID AS ColorID, J.ColorNum AS ColorNum, J.CustomerID AS CustomerID FROM #AllProcessID AS WP LEFT JOIN dye.JobSheet AS J ON J.SheetNo = WP.JobSheetNo) AS D"
+    }
+  }
+}

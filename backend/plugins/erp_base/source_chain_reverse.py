@@ -22,9 +22,9 @@ BOOKS={'StuffOut':'StuffStockBook','StuffIn':'StuffStockBook','GrayOut':'GraySto
        'SemiOut':'SemiStockBook','SemiIn':'SemiStockBook','ProdOut':'ProdStockBook','ProdIn':'ProdStockBook'}
 MEASURES={'Qty','Money','Rolls','Packs','WeightQty','LengthQty','GrayQty','NetKg'}
 DIRECT={'WProcess','StuffWeight','RecordYield','ProdIn','GrayOutDetail','SemiOutDetail','StuffOut',
-        'ProdOutDetail','JobGrayRecord','ColoringCheck','DyeCheckout','CarryMaterialDetail'}
+        'ProdOutDetail','JobGrayRecord','ColoringCheck','DyeCheckout','CarryMaterialDetail','GetJobSheetReceive'}
 LINKABLE=DIRECT|set(BOOKS)|set(BOOKS.values())|{'ProdInRecord','ProdOutRecord','GrayOutRecord','SemiOutRecord',
-    'StuffWeightPhase','StuffWeightDetail','WProcessStep','JobShiftEmp','ColorShiftEmp'}
+    'StuffWeightPhase','StuffWeightDetail','StuffWeightJobSheetNo','StuffCombineSheets','WProcessStep','JobShiftEmp','ColorShiftEmp'}
 
 
 def capture_change(item,before,after):
@@ -47,6 +47,12 @@ def capture():
     changes=[];token=_changes.set(changes)
     try:yield changes
     finally:_changes.reset(token)
+
+
+def include_nested_changes(changes):
+    """嵌套服务自己收集的回写，也归入正在办理的外层撤销链。"""
+    parent=_changes.get()
+    if parent is not None:parent.extend(changes)
 
 
 def source_models():
@@ -139,7 +145,8 @@ def discover(job,query=reader):
                     children=list(related(active(sources(query,type(item))),rule,parent))
                     if children and all(identity(child) in nodes for child in children):add(parent,item,'全部该类明细已在范围')
             links=[]
-            if item.SOURCE_TABLE=='StuffWeight':links=[('StuffOut',{'WeightSheetNo':raw(item,'SheetNo')})]
+            if item.SOURCE_TABLE=='StuffWeight':links=[('StuffOut',{'WeightSheetNo':raw(item,'SheetNo')}),
+                ('StuffWeightJobSheetNo',{'SheetSeries':raw(item,'SheetSeries')}),('StuffCombineSheets',{'StuffSheetNo':raw(item,'SheetNo')})]
             elif item.SOURCE_TABLE=='ProdIn':
                 links=[('ProdOutDetail',{'InSheetNo':raw(item,'SheetNo'),'JobSheetNo':raw(item,'JobSheetNo')}),
                     ('ProdIn',{'ProdInOriSheetNo':raw(item,'SheetNo'),'JobSheetNo':raw(item,'JobSheetNo')})]
@@ -276,6 +283,9 @@ def projections(job,nodes,actor,work_mode):
         if work_mode=='trigger_then_maintenance':maintain_removed(row,actor,retain_children=True)
     for row in nodes:
         if row.SOURCE_TABLE=='ProdIn':refresh_product_inbound(row,actor)
+        if row.SOURCE_TABLE in ['ProdIn','GrayOutDetail','GetJobSheetReceive']:
+            from .source_phase5_triggers import removed
+            removed(row,actor)
     # QC原聚合字段按仍活动包装重算；无包装时原COUNT=0，SUM=NULL。
     packages=matching(active(reader('RecordYield','erp_warehouse')),JobSheetNo=raw(job,'SheetNo'))
     from django.db.models import Count

@@ -1,4 +1,4 @@
-﻿param([int]$Port = 8000)
+﻿param([int]$Port = 8001)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'python-env.ps1')

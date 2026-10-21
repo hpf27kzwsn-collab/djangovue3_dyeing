@@ -1,0 +1,145 @@
+[
+  {
+    "id": 175,
+    "Price": "-7.000000",
+    "LastPrice": "-7.000000",
+    "candidates": {
+      "entry": "CookIn",
+      "source_entry_id": 6,
+      "source_sheet_series": "META-COOK",
+      "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+      "candidates": [
+        {
+          "article_in_id": 153,
+          "detail_id": 231,
+          "TaxPrice": "2.000000"
+        },
+        {
+          "article_in_id": 153,
+          "detail_id": 232,
+          "TaxPrice": "-3.000000"
+        },
+        {
+          "article_in_id": 153,
+          "detail_id": 233,
+          "TaxPrice": "-7.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 231,
+          "TaxPrice": "2.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 232,
+          "TaxPrice": "-3.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 233,
+          "TaxPrice": "-7.000000"
+        }
+      ],
+      "chosen_detail_id": 233,
+      "updated_values": {
+        "LastPrice": "-7.000000",
+        "Price": "-7.000000"
+      }
+    }
+  },
+  {
+    "id": 176,
+    "Price": "-7.000000",
+    "LastPrice": "-7.000000",
+    "candidates": {
+      "entry": "CookIn",
+      "source_entry_id": 6,
+      "source_sheet_series": "META-COOK",
+      "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+      "candidates": [
+        {
+          "article_in_id": 153,
+          "detail_id": 231,
+          "TaxPrice": "2.000000"
+        },
+        {
+          "article_in_id": 153,
+          "detail_id": 232,
+          "TaxPrice": "-3.000000"
+        },
+        {
+          "article_in_id": 153,
+          "detail_id": 233,
+          "TaxPrice": "-7.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 231,
+          "TaxPrice": "2.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 232,
+          "TaxPrice": "-3.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 233,
+          "TaxPrice": "-7.000000"
+        }
+      ],
+      "chosen_detail_id": 233,
+      "updated_values": {
+        "LastPrice": "-7.000000",
+        "Price": "-7.000000"
+      }
+    }
+  },
+  {
+    "id": 177,
+    "Price": "9.000000",
+    "LastPrice": "-7.000000",
+    "candidates": {
+      "entry": "CookIn",
+      "source_entry_id": 6,
+      "source_sheet_series": "META-COOK",
+      "rule": "原UPDATE未排序；采用承接顺序末项，全部连接候选留档，不以CookInDetail代替ArticleInDetail",
+      "candidates": [
+        {
+          "article_in_id": 153,
+          "detail_id": 231,
+          "TaxPrice": "2.000000"
+        },
+        {
+          "article_in_id": 153,
+          "detail_id": 232,
+          "TaxPrice": "-3.000000"
+        },
+        {
+          "article_in_id": 153,
+          "detail_id": 233,
+          "TaxPrice": "-7.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 231,
+          "TaxPrice": "2.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 232,
+          "TaxPrice": "-3.000000"
+        },
+        {
+          "article_in_id": 152,
+          "detail_id": 233,
+          "TaxPrice": "-7.000000"
+        }
+      ],
+      "chosen_detail_id": 233,
+      "updated_values": {
+        "LastPrice": "-7.000000"
+      }
+    }
+  }
+]
