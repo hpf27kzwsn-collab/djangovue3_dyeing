@@ -82,7 +82,7 @@ function createCrudOptions() {
   if(props.meta.workflow?.entries?.length){
     const entries=props.meta.workflow.entries
     columns._entry={title:'业务类型',type:'dict-select',dict:dict({data:entries,value:'value',label:'label'}),
-      column:{show:false},search:{show:false},form:{value:entries.some((e:any)=>e.value===context.value._entry)?context.value._entry:entries.length===1?entries[0].value:undefined},
+      column:{show:false},search:{show:false},form:{value:entries.some((e:any)=>e.value===context.value._entry)?context.value._entry:props.meta.workflow.default_entry??(entries.length===1?entries[0].value:undefined)},
       addForm:{show:true},editForm:{show:false},viewForm:{show:false}}
     columns._use_entry_defaults={title:'使用表单默认值',column:{show:false},search:{show:false},
       form:{value:true,component:{name:'el-switch',vModel:'modelValue'}},

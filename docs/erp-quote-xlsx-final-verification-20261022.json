@@ -1,0 +1,141 @@
+{
+  "workbooks": 23,
+  "data_workbooks": 22,
+  "original_rows": 888,
+  "files": [
+    {
+      "file": "01业务报价/已有资料/01_染整报价表头.xlsx",
+      "rows": 20,
+      "sha256": "12e8253b9307cb9c2f16dc78ae4602cc25da7199204c5426018bae5e6c3bdab7",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/01_染整报价表头.xlsx",
+      "rows": 0,
+      "sha256": "3e8508d5e2fc838b31511ce70bd7196bcd08b8963ed390f9f2aaf73be8923570",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/02_染整报价明细.xlsx",
+      "rows": 847,
+      "sha256": "63abcf7189d7dfd1fbfe17bd7c450ff469e577b410c9221a98e7ce351f9986a3",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/02_染整报价明细.xlsx",
+      "rows": 0,
+      "sha256": "d1bc096f024a97e591759df978d83f910a069ba4698a3f2c5ec8fa02cc88c02a",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/03_染整报价要求.xlsx",
+      "rows": 0,
+      "sha256": "1e758ecaa9d1348f2c0a2a40bbc3810f533ac4fd47c2dcf03c1970493c80a66d",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/03_染整报价要求.xlsx",
+      "rows": 0,
+      "sha256": "ca843c71b5bed2d35f5668444ba52ad4509ced21a939d108912523d270f1d9bc",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/04_染整报价工序.xlsx",
+      "rows": 0,
+      "sha256": "cbda4c59f372d857c3fcd06e4ff642827bdaafa5a1f4bdccfbc9e97e7e055c47",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/04_染整报价工序.xlsx",
+      "rows": 0,
+      "sha256": "fd476a82bee5154312add3a95a31287cff639dc84e598be1b60415059762ad3e",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/05_报价加价项目.xlsx",
+      "rows": 1,
+      "sha256": "fc0f3d54993531f4aa42598822d817e2431df3efa8a9cd715ddad661b1c87bea",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/05_报价加价项目.xlsx",
+      "rows": 0,
+      "sha256": "b26b754ac94bcc4a0d905740f5562afaf16c7cbccbe4137ddd92ac821220ce71",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/06_报价要求价格.xlsx",
+      "rows": 2,
+      "sha256": "a9e602a25cdb86acfd81d5e29b13a128abf0e09c244a1891a0c16055a50a0738",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/06_报价要求价格.xlsx",
+      "rows": 0,
+      "sha256": "7d9a9773455b19422f537326efcdea5aa6b1616025ae0159e3a971e576cd809b",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/07_报价工序价格.xlsx",
+      "rows": 0,
+      "sha256": "4c78aa7d7d62ceef3d4ac5440eed575b254a3de6b4713287a8c7b4b8a6549ad5",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/07_报价工序价格.xlsx",
+      "rows": 0,
+      "sha256": "21ac147b96e13d4b611176a22a1b20dffad7751ab42ab74f368e4ec3fb69424b",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/08_克重报价规则.xlsx",
+      "rows": 5,
+      "sha256": "ed4af12e33166fb816dbb152a01be694e5aa0a660206c421ab993fc5f7069c10",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/08_克重报价规则.xlsx",
+      "rows": 0,
+      "sha256": "412ac381f747b5e2ab041742dfbfafef5d457de55aa75544e81e71cd05e7e7cc",
+      "kind": "日常新增"
+    },
+    {
+      "file": "01业务报价/已有资料/09_克重报价规则明细.xlsx",
+      "rows": 5,
+      "sha256": "950cbb8f783aa8a36e5b4f2fd03144a24c6b87847a52cb191ccdac94916f5c32",
+      "kind": "原值承接"
+    },
+    {
+      "file": "01业务报价/新增空白模板/09_克重报价规则明细.xlsx",
+      "rows": 0,
+      "sha256": "101b2a34fa74caca9c63270a96dd191fafe0f8cc854f4bff2aee6c0ced48548e",
+      "kind": "日常新增"
+    },
+    {
+      "file": "02配套选项/已有资料/10_计价单位_C010.xlsx",
+      "rows": 6,
+      "sha256": "ba1a38b7edb90bbaea276f785b2bf4422a48f91123db5e4f29909d40dbb79d1d",
+      "kind": "原值承接"
+    },
+    {
+      "file": "02配套选项/新增空白模板/10_计价单位_C010.xlsx",
+      "rows": 0,
+      "sha256": "794ee76f3d31940314c9eda6a7a6f2e81b790403ad7e811b14cc98db11609e5f",
+      "kind": "日常新增"
+    },
+    {
+      "file": "02配套选项/已有资料/11_服务方式_Z010.xlsx",
+      "rows": 2,
+      "sha256": "15abbf41a930dae9a34c1d75476332607e55d7a37508560ec83ec855545f5d9c",
+      "kind": "原值承接"
+    },
+    {
+      "file": "02配套选项/新增空白模板/11_服务方式_Z010.xlsx",
+      "rows": 0,
+      "sha256": "57d5c67a127bfed280d7f2b816028633cb17ca97d3b7fc3be4815725dea5010a",
+      "kind": "日常新增"
+    }
+  ],
+  "all_headers_settings_paths_values_checked": true,
+  "formal_imported": 0
+}

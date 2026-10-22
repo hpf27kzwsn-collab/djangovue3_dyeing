@@ -7,7 +7,7 @@ from .source_api import OWNED
 
 ROOTS = {'基础信息': 'erp_base', '销售管理': 'erp_sales', '采购管理': 'erp_purchase',
          '打样管理': 'erp_sampling', '生产管理': 'erp_production', '仓储管理': 'erp_warehouse',
-         '质量管理': 'erp_quality', '系统管理': 'system'}
+         '质量管理': 'erp_quality', '系统管理': 'system', '工艺设计': 'erp_technology', '排产管理': 'erp_scheduling'}
 
 
 def folder(path):

@@ -1,0 +1,716 @@
+{
+  "checked_on": "2026-10-22",
+  "database": "Textile_GXHFRS",
+  "connection": "localhost default instance / Windows authentication",
+  "sql_statements": "SELECT only",
+  "old_database_writes": 0,
+  "code_changes": 0,
+  "order_counts": [
+    {
+      "table_name": "OrderMain",
+      "rows": 17032,
+      "first_date": "2014-12-20T00:00:00",
+      "last_date": "2026-08-15T11:52:04.84"
+    },
+    {
+      "table_name": "OrderColor",
+      "rows": 80053,
+      "first_date": null,
+      "last_date": null
+    },
+    {
+      "table_name": "OrderProcess",
+      "rows": 0,
+      "first_date": null,
+      "last_date": null
+    },
+    {
+      "table_name": "OrderInfo",
+      "rows": 0,
+      "first_date": null,
+      "last_date": null
+    },
+    {
+      "table_name": "OrderInfoProcess",
+      "rows": 0,
+      "first_date": null,
+      "last_date": null
+    }
+  ],
+  "order_kinds": [
+    {
+      "SheetKind": 1,
+      "SheetType": 10,
+      "BusinessKind": null,
+      "OrderKindID": null,
+      "rows": 13133,
+      "first_date": "2014-12-20T00:00:00",
+      "last_date": "2026-08-15T11:52:04.84"
+    },
+    {
+      "SheetKind": 2,
+      "SheetType": 10,
+      "BusinessKind": null,
+      "OrderKindID": null,
+      "rows": 3899,
+      "first_date": "2024-09-02T00:00:00",
+      "last_date": "2026-08-15T11:26:49.653"
+    }
+  ],
+  "quote_headers": [
+    {
+      "table_name": "FixedPrice",
+      "rows": 20,
+      "customers": 13,
+      "first_date": "2026-01-01T00:00:00",
+      "last_date": "2026-07-30T08:00:00",
+      "last_modified": "2026-07-31T09:46:52.49"
+    },
+    {
+      "table_name": "Quote",
+      "rows": 0,
+      "customers": 0,
+      "first_date": null,
+      "last_date": null,
+      "last_modified": null
+    },
+    {
+      "table_name": "CusAddPrice",
+      "rows": 0,
+      "customers": 0,
+      "first_date": null,
+      "last_date": null,
+      "last_modified": null
+    },
+    {
+      "table_name": "ZDAddPrice",
+      "rows": 0,
+      "customers": 0,
+      "first_date": null,
+      "last_date": null,
+      "last_modified": null
+    }
+  ],
+  "quote_details": [
+    {
+      "table_name": "FixedPriceDetail",
+      "rows": 847,
+      "distinct_headers": 20,
+      "null_prices": 847,
+      "zero_prices": 0,
+      "negative_prices": 0,
+      "products": 303,
+      "colours": 0
+    },
+    {
+      "table_name": "QuoteDetail",
+      "rows": 0,
+      "distinct_headers": 0,
+      "null_prices": null,
+      "zero_prices": null,
+      "negative_prices": null,
+      "products": 0,
+      "colours": 0
+    },
+    {
+      "table_name": "CusAddPriceDetail",
+      "rows": 0,
+      "distinct_headers": 0,
+      "null_prices": null,
+      "zero_prices": null,
+      "negative_prices": null,
+      "products": 0,
+      "colours": null
+    },
+    {
+      "table_name": "ZDAddPriceDetail",
+      "rows": 0,
+      "distinct_headers": 0,
+      "null_prices": null,
+      "zero_prices": null,
+      "negative_prices": null,
+      "products": 0,
+      "colours": null
+    }
+  ],
+  "quote_price_fields": [
+    {
+      "field_name": "ConPrice",
+      "rows": 847,
+      "nonnull_rows": 0,
+      "nonzero_rows": 0,
+      "zero_rows": 0,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "CusPrice",
+      "rows": 847,
+      "nonnull_rows": 837,
+      "nonzero_rows": 837,
+      "zero_rows": 0,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "MinAmount",
+      "rows": 847,
+      "nonnull_rows": 0,
+      "nonzero_rows": 0,
+      "zero_rows": 0,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "Price",
+      "rows": 847,
+      "nonnull_rows": 0,
+      "nonzero_rows": 0,
+      "zero_rows": 0,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "Pricesum",
+      "rows": 847,
+      "nonnull_rows": 847,
+      "nonzero_rows": 0,
+      "zero_rows": 847,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "ProcessPrice",
+      "rows": 847,
+      "nonnull_rows": 0,
+      "nonzero_rows": 0,
+      "zero_rows": 0,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "RecipePrice",
+      "rows": 847,
+      "nonnull_rows": 0,
+      "nonzero_rows": 0,
+      "zero_rows": 0,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "StanPrice",
+      "rows": 847,
+      "nonnull_rows": 0,
+      "nonzero_rows": 0,
+      "zero_rows": 0,
+      "negative_rows": 0
+    },
+    {
+      "field_name": "SumPrice",
+      "rows": 847,
+      "nonnull_rows": 0,
+      "nonzero_rows": 0,
+      "zero_rows": 0,
+      "negative_rows": 0
+    }
+  ],
+  "quote_orphans": [
+    {
+      "missing_header_rows": 0
+    }
+  ],
+  "quote_price_related_counts": [
+    {
+      "table_name": "FixedPriceAtte",
+      "rows": 0
+    },
+    {
+      "table_name": "FixedPriceProcess",
+      "rows": 0
+    },
+    {
+      "table_name": "QuoteAtte",
+      "rows": 0
+    },
+    {
+      "table_name": "QuoteItemPrice",
+      "rows": 1
+    },
+    {
+      "table_name": "QuotePriceAtte",
+      "rows": 2
+    },
+    {
+      "table_name": "QuotePriceProcess",
+      "rows": 0
+    },
+    {
+      "table_name": "p_PriceList",
+      "rows": 6
+    },
+    {
+      "table_name": "p_PriceListProcess",
+      "rows": 9
+    },
+    {
+      "table_name": "p_PriceListColor",
+      "rows": 8
+    },
+    {
+      "table_name": "p_ProcessPrice",
+      "rows": 0
+    }
+  ],
+  "modules": [
+    {
+      "ModuleNo": 1,
+      "ModuleName": "navOrder",
+      "ModuleCaption": "销售管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 2,
+      "ModuleName": "navPurchase",
+      "ModuleCaption": "采购管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 3,
+      "ModuleName": "navJob",
+      "ModuleCaption": "工卡管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 4,
+      "ModuleName": "navPlan",
+      "ModuleCaption": "计划管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 5,
+      "ModuleName": "navFabric",
+      "ModuleCaption": "胚纱管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 6,
+      "ModuleName": "navProduct",
+      "ModuleCaption": "成品管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 7,
+      "ModuleName": "navSemi",
+      "ModuleCaption": "半成品管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 8,
+      "ModuleName": "navSample",
+      "ModuleCaption": "样品管理",
+      "IsEnable": false
+    },
+    {
+      "ModuleNo": 9,
+      "ModuleName": "navArticle",
+      "ModuleCaption": "机物料管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 10,
+      "ModuleName": "navStuff",
+      "ModuleCaption": "染化料管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 11,
+      "ModuleName": "navScreen",
+      "ModuleCaption": "染色管理",
+      "IsEnable": false
+    },
+    {
+      "ModuleNo": 12,
+      "ModuleName": "navWork",
+      "ModuleCaption": "车间管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 13,
+      "ModuleName": "navHuman",
+      "ModuleCaption": "人事管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 14,
+      "ModuleName": "navAP",
+      "ModuleCaption": "应付管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 15,
+      "ModuleName": "navAR",
+      "ModuleCaption": "应收管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 16,
+      "ModuleName": "navCost",
+      "ModuleCaption": "成本核算",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 17,
+      "ModuleName": "navJob",
+      "ModuleCaption": "色纱库存仓库",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 20,
+      "ModuleName": "navPrintTech",
+      "ModuleCaption": "印花技术管理",
+      "IsEnable": false
+    },
+    {
+      "ModuleNo": 21,
+      "ModuleName": "navDyeTech",
+      "ModuleCaption": "染色技术管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 22,
+      "ModuleName": "navCraft",
+      "ModuleCaption": "工艺参数管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 23,
+      "ModuleName": "navQuality",
+      "ModuleCaption": "质量管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 24,
+      "ModuleName": "navEnergy",
+      "ModuleCaption": "能耗管理",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 26,
+      "ModuleName": "navDevice",
+      "ModuleCaption": "设备管理",
+      "IsEnable": false
+    },
+    {
+      "ModuleNo": 27,
+      "ModuleName": "navAbnormal",
+      "ModuleCaption": "异常中心",
+      "IsEnable": false
+    },
+    {
+      "ModuleNo": 40,
+      "ModuleName": "navQc",
+      "ModuleCaption": "验布系统",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 47,
+      "ModuleName": "navLocalReport",
+      "ModuleCaption": "统计报表",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 48,
+      "ModuleName": "navRemoteReport",
+      "ModuleCaption": "远程报表",
+      "IsEnable": false
+    },
+    {
+      "ModuleNo": 49,
+      "ModuleName": "navSys",
+      "ModuleCaption": "系统设定",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 50,
+      "ModuleName": "navBasic",
+      "ModuleCaption": "基础数据",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 60,
+      "ModuleName": "navProcess",
+      "ModuleCaption": "刷卡程序",
+      "IsEnable": true
+    },
+    {
+      "ModuleNo": 90,
+      "ModuleName": "navWebDevice",
+      "ModuleCaption": "App设备管理",
+      "IsEnable": false
+    },
+    {
+      "ModuleNo": 91,
+      "ModuleName": "navQuery",
+      "ModuleCaption": "业务查询",
+      "IsEnable": true
+    }
+  ],
+  "production_counts": [
+    {
+      "table_name": "ProcessSchedule",
+      "rows": 139
+    },
+    {
+      "table_name": "JobSheet",
+      "rows": 92538
+    },
+    {
+      "table_name": "WProcess",
+      "rows": 389052
+    },
+    {
+      "table_name": "DyeRecipe",
+      "rows": 65678
+    },
+    {
+      "table_name": "DyeRecipeDetail",
+      "rows": 541217
+    },
+    {
+      "table_name": "RecordYield",
+      "rows": 377215
+    }
+  ],
+  "selected_old_functions": [
+    {
+      "FuncNo": "010100",
+      "FuncName": "报价管理",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 1,
+      "FormName": "F_QuoteList",
+      "FormCaption": "单价管理",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": "报价单浏览，工作流模式下实现报价的审核"
+    },
+    {
+      "FuncNo": "010101",
+      "FuncName": "染整报价新增",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 1,
+      "FormName": "F_QuoteEdit",
+      "FormCaption": "染整报价新增",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": "报价单编辑"
+    },
+    {
+      "FuncNo": "010102",
+      "FuncName": "染整报价查询",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 1,
+      "FormName": "F_Single",
+      "FormCaption": "染整报价查询",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": null
+    },
+    {
+      "FuncNo": "010200",
+      "FuncName": "染整订单",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 1,
+      "FormName": "F_OrderList",
+      "FormCaption": "染整订单",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": "登记销售部门和客户之间签定的订单情况,详细记录每个订单产品名称、颜色以及相应的单价和订单交期、质量要求等，确定订单数据无误后，下发生产调度，由生产调度安排生产"
+    },
+    {
+      "FuncNo": "010201",
+      "FuncName": "订单新增",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 1,
+      "FormName": "F_OrderEdit",
+      "FormCaption": "订单新增",
+      "FormParam": null,
+      "FuncParams": "4887",
+      "Description": "登记销售部门和客户之间签定的订单情况,详细记录每个订单产品名称、颜色以及相应的单价和订单交期、加工要求等，确定订单数据无误后，下发生产调度，由生产调度安排生产"
+    },
+    {
+      "FuncNo": "010210",
+      "FuncName": "印花订单新增",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 1,
+      "FormName": "F_PrintOrderEdit",
+      "FormCaption": "印花订单新增",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": null
+    },
+    {
+      "FuncNo": "010211",
+      "FuncName": "印花订单管理",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 1,
+      "FormName": "F_PrintOrderList",
+      "FormCaption": "印花订单管理",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": null
+    },
+    {
+      "FuncNo": "040300",
+      "FuncName": "排产管理",
+      "FullName": null,
+      "IsEnable": false,
+      "ModuleNo": 4,
+      "FormName": "F_ProcessPlan",
+      "FormCaption": "排产管理",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": null
+    },
+    {
+      "FuncNo": "041100",
+      "FuncName": "新排产计划",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 4,
+      "FormName": null,
+      "FormCaption": "新排产计划",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": null
+    },
+    {
+      "FuncNo": "041101",
+      "FuncName": "染色排产新增",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 4,
+      "FormName": "F_ProcessPlanRS",
+      "FormCaption": "染色排产新增",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": null
+    },
+    {
+      "FuncNo": "041102",
+      "FuncName": "染色排产查询",
+      "FullName": null,
+      "IsEnable": true,
+      "ModuleNo": 4,
+      "FormName": "F_ProcessPlanList",
+      "FormCaption": "染色排产查询",
+      "FormParam": null,
+      "FuncParams": null,
+      "Description": null
+    }
+  ],
+  "quote_combo_values": [
+    {
+      "ComboID": "C010",
+      "KeyValue": "2",
+      "DisplayValue": "元/吨",
+      "DisplayIndex": 1
+    },
+    {
+      "ComboID": "C010",
+      "KeyValue": "1",
+      "DisplayValue": "元/kg",
+      "DisplayIndex": 2
+    },
+    {
+      "ComboID": "C010",
+      "KeyValue": "5",
+      "DisplayValue": "元/缸",
+      "DisplayIndex": 3
+    },
+    {
+      "ComboID": "C010",
+      "KeyValue": "3",
+      "DisplayValue": "元/米",
+      "DisplayIndex": 4
+    },
+    {
+      "ComboID": "C010",
+      "KeyValue": "4",
+      "DisplayValue": "元/条",
+      "DisplayIndex": 5
+    },
+    {
+      "ComboID": "C010",
+      "KeyValue": "6",
+      "DisplayValue": "元/码",
+      "DisplayIndex": 6
+    },
+    {
+      "ComboID": "Z010",
+      "KeyValue": "本厂采购",
+      "DisplayValue": "包工包料",
+      "DisplayIndex": 1
+    },
+    {
+      "ComboID": "Z010",
+      "KeyValue": "客户来纱",
+      "DisplayValue": "来料加工",
+      "DisplayIndex": 2
+    }
+  ],
+  "old_order_kind_options": [
+    {
+      "FieldType": "BusinessKind",
+      "Code": "01",
+      "Name": "国有企业"
+    },
+    {
+      "FieldType": "BusinessKind",
+      "Code": "02",
+      "Name": "民营企业"
+    },
+    {
+      "FieldType": "OrderKind",
+      "Code": "01",
+      "Name": "坯布加工"
+    },
+    {
+      "FieldType": "OrderKind",
+      "Code": "02",
+      "Name": "色布加工"
+    },
+    {
+      "FieldType": "OrderKind",
+      "Code": "03",
+      "Name": "客退回修"
+    },
+    {
+      "FieldType": "OrderKind",
+      "Code": "04",
+      "Name": "销售订单"
+    },
+    {
+      "FieldType": "QuoteKind",
+      "Code": "01",
+      "Name": "大货报价"
+    },
+    {
+      "FieldType": "QuoteKind",
+      "Code": "02",
+      "Name": "样品报价"
+    },
+    {
+      "FieldType": "QuoteKind",
+      "Code": "03",
+      "Name": "客户报价"
+    }
+  ],
+  "quote_files_provided_in_master_xlsx_20261021": false,
+  "quote_models_exist": true,
+  "extra_legacy_erp_id_added": false,
+  "conclusions": {
+    "orders": "原OrderMain及类型/入口；未证明另有加工订单原表，不按SheetKind数字编造中文分类",
+    "quotes": "FixedPrice20表头/FixedPriceDetail847明细；837对客报价非零/10NULL；已有资料包未提供该批报价",
+    "production": "建议按工艺设计、排产管理、生产管理划分工作入口，保留打样/仓储/质量边界并复用模型服务"
+  }
+}

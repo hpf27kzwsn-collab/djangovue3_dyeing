@@ -1,0 +1,12 @@
+{
+  "ports": {
+    "5439": true,
+    "5440": false,
+    "8001": true,
+    "8002": false,
+    "8080": true,
+    "8081": false
+  },
+  "quote_zip_sha256": "91202bc1252bdb5ed44add6908cd21caf264dfb338850545ccc894ddedd83842",
+  "formal_imported": 0
+}

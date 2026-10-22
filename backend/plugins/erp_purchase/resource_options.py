@@ -87,3 +87,6 @@ RESOURCE_OPTIONS.update(SOURCE_RESOURCES)
 
 from plugins.erp_base.foundation_catalog import configure_resources
 configure_resources(RESOURCE_OPTIONS, 'erp_purchase')
+
+from plugins.erp_base.business_navigation import configure_resources as configure_business_navigation
+configure_business_navigation(RESOURCE_OPTIONS, 'erp_purchase')

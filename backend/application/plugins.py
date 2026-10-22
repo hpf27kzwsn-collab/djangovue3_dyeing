@@ -14,4 +14,4 @@ MODEL_EXCLUDE_APPS = [
     'auth', 'contenttypes', 'sessions', 'captcha',
     'django_celery_beat', 'django_celery_results',
 ]
-INITIALIZERS = ['plugins.erp_base.initialize.load', 'plugins.erp_base.business_initialize.load', 'plugins.erp_base.source_initialize.load', 'plugins.erp_base.foundation_initialize.load', 'system.management_layout.load']
+INITIALIZERS = ['plugins.erp_base.initialize.load', 'plugins.erp_base.business_initialize.load', 'plugins.erp_base.source_initialize.load', 'plugins.erp_base.business_navigation.ensure_roots', 'plugins.erp_base.foundation_initialize.load', 'system.management_layout.load', 'plugins.erp_base.business_navigation.load']

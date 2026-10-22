@@ -9,6 +9,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         from plugins.erp_base.foundation_initialize import load as foundation
         from system.management_layout import load
+        from plugins.erp_base import business_navigation
+        business_navigation.ensure_roots()
         foundation()
         result = load()
+        business_navigation.load()
         self.stdout.write(f"系统管理已整理：{result['groups']}个分组、{result['reused_pages']}个复用入口；未导入业务资料。")

@@ -1,0 +1,1284 @@
+{
+  "database": "erp_master_xlsx_verify_20261021",
+  "port": 5440,
+  "checks": [
+    {
+      "name": "重复整理不修改接口/字段/数据范围授权",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "171个资源业务行原样保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "原菜单ID、地址、资源及显示状态保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "归属 erp_base.SourceDyePCraftParam",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_base.SourceDyePCraftPParam",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_base.SourceDyePDyeCurve",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_base.SourceDyePDyeCurveDetail",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_base.SourceDyePProcessChemical",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_base.SourceDyePProcessCraft",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_base.SourceDyePProcessCraft1",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_base.SourceDyePProcessPCraft",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.Recipe",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.RecipeVersion",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.RecipeStage",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.RecipeIngredient",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.ProcessCurveVersion",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.ProcessCurveStep",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyeAddDyeWProcessStep",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyeDyeProduceItem",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyeDyeRecipe",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyeDyeRecipeDetail",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyeDyeRecipeJob",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyeDyeRecipePhase",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyeDyeStartDateTime",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyePrintRecipe",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyePrintRecipeColor",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sampling.SourceDyePrintRecipeDetail",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.PhysicalBatchExecution",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.PhysicalExecutionCorrection",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.WorkCard",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.WorkCardOrderAllocation",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.DyeBatch",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.DyeBatchWorkCard",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.DyeBatchAllocation",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.WorkCardOperation",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.OperationParameter",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.WorkCardRequirement",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.ScheduleAssignment",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.OperationExecution",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.ExecutionWorker",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.ExecutionMeasurement",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.ExecutionCorrection",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.ProductionRecipe",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.MaterialPlanStage",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.MaterialPlanLine",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.WeighingOrder",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.WeighingStage",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.WeighingLine",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.WeighingRecord",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.ReworkOrder",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeColorShiftEmp",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeDPWorkQty",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeEEnergyDay",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeEYardMeterGether",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeEmpShiftClock",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeEnergyConsumption",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeEnergyConsumptionDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeEnergyRecords",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeGetClothNotice",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeGetClothNoticeDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeGrayReturnApply",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeGrayReturnApplyDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeHSalaryWorkQty",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeHSalaryWorkShift",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeHSJobsheetNo",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJingShaRegister",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJingShaRegisterDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobAssign",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobAtte",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobColor",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobCombine",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobCombineOrder",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobExceptions",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobGrayRecord",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobInWareEdit",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobMain",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobOutWareEdit",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobPreRegist",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobProcess",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobProcessPre",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobSheet",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobSheetMasrkCar",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobSheetNoRushOrder",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobSheetOther",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobSheetReceive",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobSheetRegister",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobSheetSchedule",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobShiftEmp",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobShiftEmpBak",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeJobStartRollNo",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineCarePlan",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineCarePlanDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineCareProject",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineCareRecords",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineCase",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineCaseDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineCaseProject",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineFault",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineFaultArticleInfo",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineFaultComment",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineFaultFilter",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachineFaultRecord",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMachines",
+      "passed": true,
+      "detail": "erp_base"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeMoveShiftBill",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeOutWorkApply",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeOutWorkApplyDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyePlanDetail",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyePlanMain",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyePrePlanOrder",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeProcessCraft",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeProcessCraftJobNo",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeProcessCraftOrderNo",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeProcessSchedule",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeProcessSchedulebak",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyePStuffWeight",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyePStuffWeightDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyePStuffWeightPhase",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeRecordEmp",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeSalaryChanges",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeSalaryChangesDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeSemiOutWorkApply",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeSemiOutWorkApplyDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeShiftArrange",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeShiftArrangeDetail",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeShiftPlan",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeShiftPlanDetail",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStandCraft",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStandCraftBeforeDetail",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStandCraftDetail",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStandCraftJobNo",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeSterotypeTech",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffCombineSheets",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffDeptApply",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffDeptApplyDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffOutApply",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffOutApplyDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffWeight",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffWeightDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffWeightJobSheetNo",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffWeightPhase",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeStuffWeightPrint",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeTightTube",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeTightTubeDetail",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeTightTubePlan",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeTightTubePlanDetail",
+      "passed": true,
+      "detail": "erp_scheduling"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeUserACMachines",
+      "passed": true,
+      "detail": "erp_base"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeUsersMachines",
+      "passed": true,
+      "detail": "erp_base"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWashTheTankDye",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWProcess",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWProcessBak",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWProcessStep",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWProcessStepBak",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWVehicle",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWWorkRecord",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_production.SourceDyeWWorkTime",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_warehouse.SourceDyeAProdRecord",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_warehouse.SourceDyeRecordYield",
+      "passed": true,
+      "detail": "erp_production"
+    },
+    {
+      "name": "归属 erp_warehouse.SourceDyeWeightTechInfo",
+      "passed": true,
+      "detail": "erp_technology"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeOrderMain",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeOrderColor",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeOrderAtte",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeFixedPrice",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeFixedPriceDetail",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeFixedPriceAtte",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeFixedPriceProcess",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeQuoteItemPrice",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeQuotePriceAtte",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeQuotePriceProcess",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeQuote",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SourceDyeQuoteDetail",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.SalesOrder",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_sales.CommercialPrice",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_base.SourceDyeFixedCanRecord",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "归属 erp_base.SourceDyeFixedCanDetail",
+      "passed": true,
+      "detail": "erp_sales"
+    },
+    {
+      "name": "试样业务仍保留打样模块",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整订单元数据和默认原入口",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整订单Excel默认入口与页面一致",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价元数据和默认原入口",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价Excel默认入口与页面一致",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价表头原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价表头全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价表头实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 20, 'created': 20, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 1}, {'row': 3, 'status': 'created', 'id': 2}, {'row': 4, 'status': 'created', 'id': 3}, {'row': 5, 'status': 'created', 'id': 4}, {'row': 6, 'status': 'created', 'id': 5}, {'row': 7, 'status': 'created', 'id': 6}, {'row': 8, 'status': 'created', 'id': 7}, {'row': 9, 'status': 'created', 'id': 8}, {'row': 10, 'status': 'created', 'id': 9}, {'row': 11, 'status': 'created', 'id': 10}, {'row': 12, 'status': 'created', 'id': 11}, {'row': 13, 'status': 'created', 'id': 12}, {'row': 14, 'status': 'created', 'id': 13}, {'row': 15, 'status': '"
+    },
+    {
+      "name": "染整报价表头不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价表头新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价表头空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "染整报价明细原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价明细全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价明细实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 847, 'created': 847, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 1}, {'row': 3, 'status': 'created', 'id': 2}, {'row': 4, 'status': 'created', 'id': 3}, {'row': 5, 'status': 'created', 'id': 4}, {'row': 6, 'status': 'created', 'id': 5}, {'row': 7, 'status': 'created', 'id': 6}, {'row': 8, 'status': 'created', 'id': 7}, {'row': 9, 'status': 'created', 'id': 8}, {'row': 10, 'status': 'created', 'id': 9}, {'row': 11, 'status': 'created', 'id': 10}, {'row': 12, 'status': 'created', 'id': 11}, {'row': 13, 'status': 'created', 'id': 12}, {'row': 14, 'status': 'created', 'id': 13}, {'row': 15, 'status':"
+    },
+    {
+      "name": "染整报价明细不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价明细新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价明细空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "染整报价要求原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价要求全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价要求实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "染整报价要求不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价要求新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价要求空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "染整报价工序原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价工序全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价工序实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "染整报价工序不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价工序新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "染整报价工序空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "报价加价项目原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价加价项目全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价加价项目实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 1, 'created': 1, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 1}]}}"
+    },
+    {
+      "name": "报价加价项目不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价加价项目新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价加价项目空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "报价要求价格原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价要求价格全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价要求价格实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 2, 'created': 2, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 1}, {'row': 3, 'status': 'created', 'id': 2}]}}"
+    },
+    {
+      "name": "报价要求价格不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价要求价格新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价要求价格空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "报价工序价格原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价工序价格全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价工序价格实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "报价工序价格不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价工序价格新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价工序价格空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "克重报价规则原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 5, 'created': 5, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 1}, {'row': 3, 'status': 'created', 'id': 2}, {'row': 4, 'status': 'created', 'id': 3}, {'row': 5, 'status': 'created', 'id': 4}, {'row': 6, 'status': 'created', 'id': 5}]}}"
+    },
+    {
+      "name": "克重报价规则不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "克重报价规则明细原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则明细全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则明细实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 5, 'created': 5, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 1}, {'row': 3, 'status': 'created', 'id': 2}, {'row': 4, 'status': 'created', 'id': 3}, {'row': 5, 'status': 'created', 'id': 4}, {'row': 6, 'status': 'created', 'id': 5}]}}"
+    },
+    {
+      "name": "克重报价规则明细不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则明细新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "克重报价规则明细空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "计价单位_C010原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "计价单位_C010全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "计价单位_C010实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 6, 'created': 6, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 1}, {'row': 3, 'status': 'created', 'id': 2}, {'row': 4, 'status': 'created', 'id': 3}, {'row': 5, 'status': 'created', 'id': 4}, {'row': 6, 'status': 'created', 'id': 5}, {'row': 7, 'status': 'created', 'id': 6}]}}"
+    },
+    {
+      "name": "计价单位_C010不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "计价单位_C010新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "计价单位_C010空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "服务方式_Z010原字段表头完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "服务方式_Z010全部原行保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "服务方式_Z010实际接口试导",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 2, 'created': 2, 'updated': 0, 'skipped': 0, 'rows': [{'row': 2, 'status': 'created', 'id': 7}, {'row': 3, 'status': 'created', 'id': 8}]}}"
+    },
+    {
+      "name": "服务方式_Z010不重演新业务事件",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "服务方式_Z010新增行数完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "服务方式_Z010空白新增模板识别",
+      "passed": true,
+      "detail": "{'code': 2000, 'msg': '导入成功', 'data': {'mode': 'create', 'count': 0, 'created': 0, 'updated': 0, 'skipped': 1, 'rows': [{'row': 2, 'status': 'blank'}]}}"
+    },
+    {
+      "name": "837个对客价及10个NULL原样保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "847个零总价与NULL客确价保留",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "报价主从自动关联完整",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "同批重复提交明确失败且整批零写入",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "888原行和23份xlsx全部覆盖",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": 250,
+  "rows_imported": 888,
+  "field_comparisons": 44896,
+  "source_batch": "染整报价20261022-334ba38b68f9",
+  "formal_imported": 0,
+  "preserved_authorizations": {
+    "system.MenuButton": {
+      "rows": 46840,
+      "sha256": "7c4578c7834f32d0c9237e3dd9d018487a724c3e57e8688a5c45485ec8361a4e"
+    },
+    "system.MenuField": {
+      "rows": 20131,
+      "sha256": "29eee3e90f4bf5f8da264f4b15f590acf0c05cf5dec112973574ac3729ab70f1"
+    },
+    "system.RoleMenuButtonPermission": {
+      "rows": 111122,
+      "sha256": "be55ed5740788432376553d28dd6eb717c1472f722bbf01ff0298b0cb5fa8b7c"
+    },
+    "system.FieldPermission": {
+      "rows": 71841,
+      "sha256": "9e6a4808c3ba2e3d4af140419fb1aff305b2c4173436677cffb5005462053072"
+    },
+    "system.RoleMenuButtonPermission_dept": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "scope": "独立库导入及开发验证；不代表正式历史对账或现场验收"
+}

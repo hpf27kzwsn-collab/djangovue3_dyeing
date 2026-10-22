@@ -21,3 +21,5 @@ database.ini
 # Local ERP source workbooks contain original business and personnel data.
 outputs/基础资料导入包_*/
 outputs/基础资料导入包_*.zip
+outputs/染整报价导入包_*/
+outputs/染整报价导入包_*.zip

@@ -1,7 +1,7 @@
 import type {Menu} from './store'
 import presentation from './erp-business-presentation.json'
 
-export const moduleKeys=['erp_base','erp_sales','erp_purchase','erp_sampling','erp_production','erp_warehouse','erp_quality']
+export const moduleKeys=['erp_base','erp_sales','erp_purchase','erp_sampling','erp_technology','erp_scheduling','erp_production','erp_warehouse','erp_quality']
 const systemKeys=new Set(['system'])
 const demos=new Set(['component_demo','chart_demo'])
 export const commonKeys=presentation.common_keys
@@ -51,4 +51,4 @@ export function descendants(menu:Menu,menus:Menu[]):Menu[]{
   return menus.filter(item=>!item.is_catalog&&belongsTo(item,new Set([menu.component_name]),byId))
 }
 export function businessBrand(title:string){return title==='ERP 管理平台'?'染色ERP':title}
-export function businessSubtitle(subtitle:string){return subtitle==='组织、权限、系统数据与消息任务'?'销售、采购、打样、生产、仓储与质量业务管理':subtitle}
+export function businessSubtitle(subtitle:string){return ['组织、权限、系统数据与消息任务','销售、采购、打样、生产、仓储与质量业务管理'].includes(subtitle)?'销售、采购、打样、工艺、排产、生产、仓储与质量业务管理':subtitle}

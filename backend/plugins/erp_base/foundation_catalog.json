@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-21",
+  "version": "2026-10-22",
   "scope": "分类、入口及原表资料维护；财务执行/打印/35项查询暂缓",
   "model_titles": {
     "erp_base.SourceDyePDept": "部门",
@@ -728,7 +728,7 @@
       "entity": "erp_base_sourcedyepprocesschemical",
       "title": "工序染化料配置",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工序与排班基础",
         "工序染化料配置"
       ],
@@ -1192,7 +1192,7 @@
       "entity": "erp_base_sourcedyepdyecurve",
       "title": "染色流程曲线",
       "path": [
-        "打样管理",
+        "工艺设计",
         "颜色工艺基础",
         "染色流程曲线"
       ],
@@ -1208,7 +1208,7 @@
       "entity": "erp_base_sourcedyepdyecurvedetail",
       "title": "染色流程曲线步骤",
       "path": [
-        "打样管理",
+        "工艺设计",
         "颜色工艺基础",
         "染色流程曲线步骤"
       ],
@@ -1256,7 +1256,7 @@
       "entity": "erp_base_sourcedyepcraftparam",
       "title": "工艺参数项目",
       "path": [
-        "打样管理",
+        "工艺设计",
         "颜色工艺基础",
         "工艺参数项目"
       ],
@@ -1272,7 +1272,7 @@
       "entity": "erp_base_sourcedyepcraftpparam",
       "title": "前工艺参数项目原表",
       "path": [
-        "打样管理",
+        "工艺设计",
         "颜色工艺基础",
         "前工艺参数项目原表"
       ],
@@ -1320,7 +1320,7 @@
       "entity": "erp_base_sourcedyepprocesscraft",
       "title": "工序工艺参数范围",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工序工艺基础",
         "工序工艺参数范围"
       ],
@@ -1336,7 +1336,7 @@
       "entity": "erp_base_sourcedyepprocesscraft1",
       "title": "工序工艺参数另一原表",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工序工艺基础",
         "工序工艺参数另一原表"
       ],
@@ -1352,7 +1352,7 @@
       "entity": "erp_base_sourcedyepprocesspcraft",
       "title": "工序前工艺参数范围",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工序工艺基础",
         "工序前工艺参数范围"
       ],
@@ -1656,7 +1656,7 @@
       "entity": "erp_warehouse_sourcedyeweighttechinfo",
       "title": "称料工艺参数（来源关联待核）",
       "path": [
-        "生产管理",
+        "工艺设计",
         "称料基础",
         "称料工艺参数（来源关联待核）"
       ],
@@ -2232,7 +2232,7 @@
       "entity": "erp_production_sourcedyeprocesscraft",
       "title": "工序工艺单",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工艺技术资料",
         "工序工艺单"
       ],
@@ -2248,7 +2248,7 @@
       "entity": "erp_production_sourcedyeprocesscraftjobno",
       "title": "工序工艺工卡关联",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工艺技术资料",
         "工序工艺工卡关联"
       ],
@@ -2264,7 +2264,7 @@
       "entity": "erp_production_sourcedyeprocesscraftorderno",
       "title": "工序工艺订单关联",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工艺技术资料",
         "工序工艺订单关联"
       ],
@@ -2280,7 +2280,7 @@
       "entity": "erp_production_sourcedyestandcraft",
       "title": "标准工艺单",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工艺技术资料",
         "标准工艺单"
       ],
@@ -2296,7 +2296,7 @@
       "entity": "erp_production_sourcedyestandcraftbeforedetail",
       "title": "标准工艺前置明细",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工艺技术资料",
         "标准工艺前置明细"
       ],
@@ -2312,7 +2312,7 @@
       "entity": "erp_production_sourcedyestandcraftdetail",
       "title": "标准工艺明细",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工艺技术资料",
         "标准工艺明细"
       ],
@@ -2328,7 +2328,7 @@
       "entity": "erp_production_sourcedyestandcraftjobno",
       "title": "标准工艺工卡关联",
       "path": [
-        "生产管理",
+        "工艺设计",
         "工艺技术资料",
         "标准工艺工卡关联"
       ],

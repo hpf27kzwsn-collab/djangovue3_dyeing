@@ -9,7 +9,7 @@ const router=useRouter(),account=useAccount()
 const menus=computed(()=>businessMenus(account.menus))
 const common=computed(()=>commonKeys.map(key=>menus.value.find(menu=>menu.component_name===key)).filter((menu):menu is Menu=>Boolean(menu)))
 const modules=computed(()=>moduleKeys.map(key=>menus.value.find(menu=>menu.component_name===key)).filter((menu):menu is Menu=>Boolean(menu)))
-const descriptions:Record<string,string>={erp_base:'维护组织、人员、往来单位、物料与业务分类',erp_sales:'办理销售订单、加工报价与客户交付',erp_purchase:'办理采购申请、订单、到货与退回',erp_sampling:'办理打样、对色、配方与色卡流转',erp_production:'办理工卡、排程、报工、称料与外协',erp_warehouse:'办理坯料、成品、染化料及机物料收发',erp_quality:'办理检验、异常、返修与质量放行'}
+const descriptions:Record<string,string>={erp_base:'维护组织、人员、往来单位、物料与业务分类',erp_sales:'办理染整订单、染整报价与客户交付',erp_purchase:'办理采购申请、订单、到货与退回',erp_sampling:'办理打样、对色、配方与色卡流转',erp_technology:'编制工艺路线、标准与生产配方、技术参数',erp_scheduling:'办理工卡、分缸合卡、机台与工序排程',erp_production:'办理现场报工、称料、产量、返修与外协执行',erp_warehouse:'办理坯料、成品、染化料及机物料收发',erp_quality:'办理检验、异常、返修与质量放行'}
 function links(module:Menu){
   const pages=descendants(module,menus.value),preferred=preferredEntries[module.component_name]??[]
   const selected=preferred.map(key=>pages.find(menu=>menu.component_name===key)).filter((menu):menu is Menu=>Boolean(menu))

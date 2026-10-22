@@ -1,0 +1,82 @@
+{
+  "checks": [
+    {
+      "name": "独立库首页显示九个业务模块",
+      "passed": true
+    },
+    {
+      "name": "销售主目录突出染整订单和染整报价，明细及规则折叠保留",
+      "passed": true
+    },
+    {
+      "name": "报价新增默认Quote（报价新增）",
+      "passed": true
+    },
+    {
+      "name": "报价浏览器新增保存生成BJ261022001",
+      "passed": true
+    },
+    {
+      "name": "报价整单编辑显示染整报价明细及工序",
+      "passed": true
+    },
+    {
+      "name": "订单新增默认OrderMain（订单主表）",
+      "passed": true
+    },
+    {
+      "name": "订单浏览器新增保存生成K261022001/K#261022001",
+      "passed": true
+    },
+    {
+      "name": "订单刷新直达保留新增结果",
+      "passed": true
+    },
+    {
+      "name": "工艺设计打开染色配方且面包屑归属正确",
+      "passed": true
+    },
+    {
+      "name": "排产管理打开工序排产且面包屑归属正确",
+      "passed": true
+    },
+    {
+      "name": "生产管理打开原RecordYield产量页且面包屑归属正确",
+      "passed": true
+    },
+    {
+      "name": "报价xlsx导入窗口默认报价新增且历史/日常说明可见",
+      "passed": true
+    },
+    {
+      "name": "当前8080首页显示新九模块与两个主要销售快捷入口",
+      "passed": true
+    },
+    {
+      "name": "当前8080侧栏染整订单、染整报价与两类可展开子目录可见",
+      "passed": true
+    },
+    {
+      "name": "测试页记录的控制台error为0",
+      "passed": true
+    }
+  ],
+  "passed": 15,
+  "test_environment": "8081/8002 → 独立库5440",
+  "current_environment": "8080/8001 → 当前项目5439；只读页面验证",
+  "business_writes_in_current_environment": 0,
+  "screenshots": [
+    "assets/20261022-sales-production-home.png",
+    "assets/20261022-quote-import-test.png",
+    "assets/20261022-production-modules.png"
+  ],
+  "scope": "开发验证，不代表真实岗位或现场验收",
+  "regression_tests": {
+    "passed": 23,
+    "database": "test_erp_numbering_regression_20261021",
+    "port": 5440,
+    "schema": "预建当前模型测试结构；不将其计为历史迁移重放验证"
+  },
+  "current_final_fresh_session_console_errors": [],
+  "restart_previous_page_note": "旧页面在前后端重启窗口记录过3条502；服务稳定后新会话菜单、页面正常且console error为0。"
+}

@@ -47,6 +47,13 @@ common=['erp_base_sourcedyepdept','erp_base_sourcedyehemployee','foundation_part
  next(k for k,v in foundation.items() if v['filters']=={'old_field_type':'WareHouseID'}),
  'foundation_unit_width','foundation_unit_weight','erp_base_sourcedyepprocess']
 preferred['erp_base']=common[:3]
+navigation=read('backend/plugins/erp_base/business_navigation.json')['resources']
+names.update({item['entity']:item['title'] for item in navigation.values()})
+names.update({'erp_technology':'工艺设计','erp_scheduling':'排产管理'})
+preferred['erp_sales']=['erp_sales_sourcedyeordermain','erp_sales_sourcedyefixedprice']
+preferred['erp_technology']=['erp_sampling_sourcedyedyerecipe','erp_production_sourcedyeprocesscraft','erp_production_sourcedyestandcraft']
+preferred['erp_scheduling']=['erp_production_sourcedyejobsheet','erp_production_sourcedyeprocessschedule','erp_production_sourcedyeshiftplan']
+preferred['erp_production']=['erp_production_sourcedyewprocess','erp_production_sourcedyestuffweight','erp_warehouse_sourcedyerecordyield']
 result={'names':names,'common_keys':common,'preferred':preferred}
 (ROOT/'web/src/erp-business-presentation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(len(names),'展示名称；菜单归属使用已授权的实际目录。')

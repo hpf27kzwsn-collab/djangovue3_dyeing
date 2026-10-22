@@ -1,0 +1,48 @@
+{
+  "database": "erp_full_trial_20261014",
+  "port": 5439,
+  "only_configuration_writes": {
+    "system_menu": 1507
+  },
+  "business_and_authorization_unchanged": {
+    "system.MenuButton": {
+      "rows": 54510,
+      "sha256": "6228073c8f392dd163f6d897237084a368f4d92652e80d0b14950f507db3edd4"
+    },
+    "system.MenuField": {
+      "rows": 20131,
+      "sha256": "c32fb14fe6a1c42b0c38c5a958b543ef469c96c0261d082ed3fb9dade55e0953"
+    },
+    "system.RoleMenuButtonPermission": {
+      "rows": 30324,
+      "sha256": "eb0c68f2b123cee1b238c621afb916b4fa935db2b5759f9f8cf096d1f7ad0945"
+    },
+    "system.FieldPermission": {
+      "rows": 45477,
+      "sha256": "d8b9925228800b6c01151559eb3c73d4507b2c309e8c3f6ce6e6c65a11c25970"
+    },
+    "system.RoleMenuButtonPermission_dept": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "erp_sales.SourceDyeOrderMain": {
+      "rows": 17032,
+      "sha256": "18978613d04c20d3fb6bc0c4254ecac0c16d60905ecc34b776aa93a4933f0805"
+    },
+    "erp_sales.SourceDyeFixedPrice": {
+      "rows": 20,
+      "sha256": "8a21afa3a75d5af0a4bd53299b25c376f29719d800ece7f9f04d9eb5478f6668"
+    },
+    "erp_sales.SourceDyeFixedPriceDetail": {
+      "rows": 847,
+      "sha256": "f17f5187ed220eb4c0fb807ff67fa4057e3ab2ca6128a3ce7ebab83715691f99"
+    },
+    "erp_base.NumberingRule": {
+      "rows": 29,
+      "sha256": "b3a6efb9d0feec544ba20d2755b693f79c83efddecca9c1e702f71cfbf7e03a1"
+    }
+  },
+  "original_menus_preserved": 1195,
+  "new_menus": 0,
+  "formal_business_rows_imported": 0
+}

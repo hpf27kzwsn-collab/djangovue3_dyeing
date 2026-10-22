@@ -1,0 +1,1237 @@
+{
+  "version": "2026-10-22",
+  "resources": {
+    "erp_base.SourceDyePCraftParam": {
+      "entity": "erp_base_sourcedyepcraftparam",
+      "module": "erp_technology",
+      "title": "工艺参数项目",
+      "table": "p_CraftParam",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_base.SourceDyePCraftPParam": {
+      "entity": "erp_base_sourcedyepcraftpparam",
+      "module": "erp_technology",
+      "title": "前工艺参数项目原表",
+      "table": "p_CraftPParam",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_base.SourceDyePDyeCurve": {
+      "entity": "erp_base_sourcedyepdyecurve",
+      "module": "erp_technology",
+      "title": "染色流程曲线",
+      "table": "p_DyeCurve",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_base.SourceDyePDyeCurveDetail": {
+      "entity": "erp_base_sourcedyepdyecurvedetail",
+      "module": "erp_technology",
+      "title": "染色流程曲线步骤",
+      "table": "p_DyeCurveDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_base.SourceDyePProcessChemical": {
+      "entity": "erp_base_sourcedyepprocesschemical",
+      "module": "erp_technology",
+      "title": "工序染化料配置",
+      "table": "p_ProcessChemical",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_base.SourceDyePProcessCraft": {
+      "entity": "erp_base_sourcedyepprocesscraft",
+      "module": "erp_technology",
+      "title": "工序工艺参数范围",
+      "table": "p_ProcessCraft",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_base.SourceDyePProcessCraft1": {
+      "entity": "erp_base_sourcedyepprocesscraft1",
+      "module": "erp_technology",
+      "title": "工序工艺参数另一原表",
+      "table": "p_ProcessCraft1",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_base.SourceDyePProcessPCraft": {
+      "entity": "erp_base_sourcedyepprocesspcraft",
+      "module": "erp_technology",
+      "title": "工序前工艺参数范围",
+      "table": "p_ProcessPCraft",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.Recipe": {
+      "entity": "erp_sampling_recipe",
+      "module": "erp_technology",
+      "title": "共用配方主体（含试样与生产）",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.RecipeVersion": {
+      "entity": "erp_sampling_recipeversion",
+      "module": "erp_technology",
+      "title": "配方版本",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.RecipeStage": {
+      "entity": "erp_sampling_recipestage",
+      "module": "erp_technology",
+      "title": "配方染程阶段",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.RecipeIngredient": {
+      "entity": "erp_sampling_recipeingredient",
+      "module": "erp_technology",
+      "title": "配方物料明细",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.ProcessCurveVersion": {
+      "entity": "erp_sampling_processcurveversion",
+      "module": "erp_technology",
+      "title": "染色工艺曲线版本",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.ProcessCurveStep": {
+      "entity": "erp_sampling_processcurvestep",
+      "module": "erp_technology",
+      "title": "工艺曲线步骤",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.SourceDyeAddDyeWProcessStep": {
+      "entity": "erp_sampling_sourcedyeadddyewprocessstep",
+      "module": "erp_production",
+      "title": "染色产量补录",
+      "table": "AddDyeWProcessStep",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_sampling.SourceDyeDyeProduceItem": {
+      "entity": "erp_sampling_sourcedyedyeproduceitem",
+      "module": "erp_production",
+      "title": "工卡染色投料项目",
+      "table": "DyeProduceItem",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_sampling.SourceDyeDyeRecipe": {
+      "entity": "erp_sampling_sourcedyedyerecipe",
+      "module": "erp_technology",
+      "title": "染色配方",
+      "table": "DyeRecipe",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.SourceDyeDyeRecipeDetail": {
+      "entity": "erp_sampling_sourcedyedyerecipedetail",
+      "module": "erp_technology",
+      "title": "染色配方明细表",
+      "table": "DyeRecipeDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.SourceDyeDyeRecipeJob": {
+      "entity": "erp_sampling_sourcedyedyerecipejob",
+      "module": "erp_technology",
+      "title": "染色配方工卡表",
+      "table": "DyeRecipeJob",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.SourceDyeDyeRecipePhase": {
+      "entity": "erp_sampling_sourcedyedyerecipephase",
+      "module": "erp_technology",
+      "title": "染色配方染程表",
+      "table": "DyeRecipePhase",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.SourceDyeDyeStartDateTime": {
+      "entity": "erp_sampling_sourcedyedyestartdatetime",
+      "module": "erp_production",
+      "title": "资料（DyeStartDateTime）",
+      "table": "DyeStartDateTime",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_sampling.SourceDyePrintRecipe": {
+      "entity": "erp_sampling_sourcedyeprintrecipe",
+      "module": "erp_technology",
+      "title": "资料（PrintRecipe）",
+      "table": "PrintRecipe",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.SourceDyePrintRecipeColor": {
+      "entity": "erp_sampling_sourcedyeprintrecipecolor",
+      "module": "erp_technology",
+      "title": "资料（PrintRecipeColor）",
+      "table": "PrintRecipeColor",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_sampling.SourceDyePrintRecipeDetail": {
+      "entity": "erp_sampling_sourcedyeprintrecipedetail",
+      "module": "erp_technology",
+      "title": "资料（PrintRecipeDetail）",
+      "table": "PrintRecipeDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.PhysicalBatchExecution": {
+      "entity": "erp_production_physicalbatchexecution",
+      "module": "erp_production",
+      "title": "同缸物理执行",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.PhysicalExecutionCorrection": {
+      "entity": "erp_production_physicalexecutioncorrection",
+      "module": "erp_production",
+      "title": "整缸执行更正",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.WorkCard": {
+      "entity": "erp_production_workcard",
+      "module": "erp_scheduling",
+      "title": "生产工卡",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.WorkCardOrderAllocation": {
+      "entity": "erp_production_workcardorderallocation",
+      "module": "erp_scheduling",
+      "title": "订单工卡数量分配",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.DyeBatch": {
+      "entity": "erp_production_dyebatch",
+      "module": "erp_scheduling",
+      "title": "染色缸批",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.DyeBatchWorkCard": {
+      "entity": "erp_production_dyebatchworkcard",
+      "module": "erp_scheduling",
+      "title": "缸批与工卡关联",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.DyeBatchAllocation": {
+      "entity": "erp_production_dyebatchallocation",
+      "module": "erp_scheduling",
+      "title": "工卡分配到缸批的数量",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.WorkCardOperation": {
+      "entity": "erp_production_workcardoperation",
+      "module": "erp_scheduling",
+      "title": "工卡计划工序",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.OperationParameter": {
+      "entity": "erp_production_operationparameter",
+      "module": "erp_technology",
+      "title": "工卡工艺参数快照",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.WorkCardRequirement": {
+      "entity": "erp_production_workcardrequirement",
+      "module": "erp_scheduling",
+      "title": "工卡附加技术与包装要求",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.ScheduleAssignment": {
+      "entity": "erp_production_scheduleassignment",
+      "module": "erp_scheduling",
+      "title": "排产记录",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.OperationExecution": {
+      "entity": "erp_production_operationexecution",
+      "module": "erp_production",
+      "title": "实际工序执行",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.ExecutionWorker": {
+      "entity": "erp_production_executionworker",
+      "module": "erp_production",
+      "title": "执行人员",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.ExecutionMeasurement": {
+      "entity": "erp_production_executionmeasurement",
+      "module": "erp_production",
+      "title": "执行实际参数",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.ExecutionCorrection": {
+      "entity": "erp_production_executioncorrection",
+      "module": "erp_production",
+      "title": "报工更正",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.ProductionRecipe": {
+      "entity": "erp_production_productionrecipe",
+      "module": "erp_technology",
+      "title": "生产采用配方快照",
+      "table": "",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.MaterialPlanStage": {
+      "entity": "erp_production_materialplanstage",
+      "module": "erp_production",
+      "title": "生产用料阶段",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.MaterialPlanLine": {
+      "entity": "erp_production_materialplanline",
+      "module": "erp_production",
+      "title": "生产用料计划",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.WeighingOrder": {
+      "entity": "erp_production_weighingorder",
+      "module": "erp_production",
+      "title": "称料及加料单",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.WeighingStage": {
+      "entity": "erp_production_weighingstage",
+      "module": "erp_production",
+      "title": "料单染程阶段",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.WeighingLine": {
+      "entity": "erp_production_weighingline",
+      "module": "erp_production",
+      "title": "称料明细",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.WeighingRecord": {
+      "entity": "erp_production_weighingrecord",
+      "module": "erp_production",
+      "title": "一次实际称量",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.ReworkOrder": {
+      "entity": "erp_production_reworkorder",
+      "module": "erp_production",
+      "title": "返修任务",
+      "table": "",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeColorShiftEmp": {
+      "entity": "erp_production_sourcedyecolorshiftemp",
+      "module": "erp_production",
+      "title": "资料（ColorShiftEmp）",
+      "table": "ColorShiftEmp",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeDPWorkQty": {
+      "entity": "erp_production_sourcedyedpworkqty",
+      "module": "erp_production",
+      "title": "资料（DP_WorkQty）",
+      "table": "DP_WorkQty",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeEEnergyDay": {
+      "entity": "erp_production_sourcedyeeenergyday",
+      "module": "erp_production",
+      "title": "资料（e_Energy_day）",
+      "table": "e_Energy_day",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeEYardMeterGether": {
+      "entity": "erp_production_sourcedyeeyardmetergether",
+      "module": "erp_production",
+      "title": "刷卡-码表数据选择应用",
+      "table": "e_YardMeterGether",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeEmpShiftClock": {
+      "entity": "erp_production_sourcedyeempshiftclock",
+      "module": "erp_production",
+      "title": "资料（EmpShiftClock）",
+      "table": "EmpShiftClock",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeEnergyConsumption": {
+      "entity": "erp_production_sourcedyeenergyconsumption",
+      "module": "erp_production",
+      "title": "能耗记录",
+      "table": "EnergyConsumption",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeEnergyConsumptionDetail": {
+      "entity": "erp_production_sourcedyeenergyconsumptiondetail",
+      "module": "erp_production",
+      "title": "能耗记录明细",
+      "table": "EnergyConsumptionDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeEnergyRecords": {
+      "entity": "erp_production_sourcedyeenergyrecords",
+      "module": "erp_production",
+      "title": "能耗记录录入",
+      "table": "EnergyRecords",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeGetClothNotice": {
+      "entity": "erp_production_sourcedyegetclothnotice",
+      "module": "erp_production",
+      "title": "收坯通知单",
+      "table": "GetClothNotice",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeGetClothNoticeDetail": {
+      "entity": "erp_production_sourcedyegetclothnoticedetail",
+      "module": "erp_production",
+      "title": "收坯通知单明细",
+      "table": "GetClothNoticeDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeGrayReturnApply": {
+      "entity": "erp_production_sourcedyegrayreturnapply",
+      "module": "erp_production",
+      "title": "坯布退货申请单",
+      "table": "GrayReturnApply",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeGrayReturnApplyDetail": {
+      "entity": "erp_production_sourcedyegrayreturnapplydetail",
+      "module": "erp_production",
+      "title": "坯布退货申请单明细",
+      "table": "GrayReturnApplyDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeHSalaryWorkQty": {
+      "entity": "erp_production_sourcedyehsalaryworkqty",
+      "module": "erp_production",
+      "title": "员工工序产量原始汇总（h_SalaryWorkQty）",
+      "table": "h_SalaryWorkQty",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeHSalaryWorkShift": {
+      "entity": "erp_production_sourcedyehsalaryworkshift",
+      "module": "erp_production",
+      "title": "班组工序产量原始汇总（h_SalaryWorkShift）",
+      "table": "h_SalaryWorkShift",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeHSJobsheetNo": {
+      "entity": "erp_production_sourcedyehsjobsheetno",
+      "module": "erp_production",
+      "title": "商业发票单价录入",
+      "table": "HS_JobsheetNo",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJingShaRegister": {
+      "entity": "erp_production_sourcedyejingsharegister",
+      "module": "erp_production",
+      "title": "井纱信息登记",
+      "table": "JingShaRegister",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJingShaRegisterDetail": {
+      "entity": "erp_production_sourcedyejingsharegisterdetail",
+      "module": "erp_production",
+      "title": "井纱信息登记明细",
+      "table": "JingShaRegisterDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobAssign": {
+      "entity": "erp_production_sourcedyejobassign",
+      "module": "erp_scheduling",
+      "title": "工卡预配信息",
+      "table": "JobAssign",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobAtte": {
+      "entity": "erp_production_sourcedyejobatte",
+      "module": "erp_scheduling",
+      "title": "加工要求表",
+      "table": "JobAtte",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobColor": {
+      "entity": "erp_production_sourcedyejobcolor",
+      "module": "erp_scheduling",
+      "title": "资料（JobColor）",
+      "table": "JobColor",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobCombine": {
+      "entity": "erp_production_sourcedyejobcombine",
+      "module": "erp_scheduling",
+      "title": "工卡并缸表",
+      "table": "JobCombine",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobCombineOrder": {
+      "entity": "erp_production_sourcedyejobcombineorder",
+      "module": "erp_scheduling",
+      "title": "工卡合染订单",
+      "table": "JobCombineOrder",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobExceptions": {
+      "entity": "erp_production_sourcedyejobexceptions",
+      "module": "erp_production",
+      "title": "工卡流程异常表",
+      "table": "JobExceptions",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobGrayRecord": {
+      "entity": "erp_production_sourcedyejobgrayrecord",
+      "module": "erp_production",
+      "title": "码单明细",
+      "table": "JobGrayRecord",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobInWareEdit": {
+      "entity": "erp_production_sourcedyejobinwareedit",
+      "module": "erp_production",
+      "title": "工卡进仓登记",
+      "table": "JobInWareEdit",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobMain": {
+      "entity": "erp_production_sourcedyejobmain",
+      "module": "erp_scheduling",
+      "title": "资料（JobMain）",
+      "table": "JobMain",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobOutWareEdit": {
+      "entity": "erp_production_sourcedyejoboutwareedit",
+      "module": "erp_production",
+      "title": "工卡出仓登记",
+      "table": "JobOutWareEdit",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobPreRegist": {
+      "entity": "erp_production_sourcedyejobpreregist",
+      "module": "erp_scheduling",
+      "title": "工序前处理工卡登记",
+      "table": "JobPreRegist",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobProcess": {
+      "entity": "erp_production_sourcedyejobprocess",
+      "module": "erp_scheduling",
+      "title": "工卡工序表",
+      "table": "JobProcess",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobProcessPre": {
+      "entity": "erp_production_sourcedyejobprocesspre",
+      "module": "erp_scheduling",
+      "title": "工卡工序表",
+      "table": "JobProcessPre",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobSheet": {
+      "entity": "erp_production_sourcedyejobsheet",
+      "module": "erp_scheduling",
+      "title": "生产工卡",
+      "table": "JobSheet",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobSheetMasrkCar": {
+      "entity": "erp_production_sourcedyejobsheetmasrkcar",
+      "module": "erp_production",
+      "title": "码卡打印",
+      "table": "JobSheetMasrkCar",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobSheetNoRushOrder": {
+      "entity": "erp_production_sourcedyejobsheetnorushorder",
+      "module": "erp_scheduling",
+      "title": "急单信息",
+      "table": "JobSheetNoRushOrder",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobSheetOther": {
+      "entity": "erp_production_sourcedyejobsheetother",
+      "module": "erp_scheduling",
+      "title": "缸号信息",
+      "table": "JobSheetOther",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobSheetReceive": {
+      "entity": "erp_production_sourcedyejobsheetreceive",
+      "module": "erp_production",
+      "title": "染色出缸登记",
+      "table": "JobSheetReceive",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobSheetRegister": {
+      "entity": "erp_production_sourcedyejobsheetregister",
+      "module": "erp_production",
+      "title": "染色登记",
+      "table": "JobSheetRegister",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobSheetSchedule": {
+      "entity": "erp_production_sourcedyejobsheetschedule",
+      "module": "erp_scheduling",
+      "title": "流程卡生产计划表",
+      "table": "JobSheetSchedule",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeJobShiftEmp": {
+      "entity": "erp_production_sourcedyejobshiftemp",
+      "module": "erp_production",
+      "title": "工卡班组员工表",
+      "table": "JobShiftEmp",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobShiftEmpBak": {
+      "entity": "erp_production_sourcedyejobshiftempbak",
+      "module": "erp_production",
+      "title": "资料（JobShiftEmpBak）",
+      "table": "JobShiftEmpBak",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeJobStartRollNo": {
+      "entity": "erp_production_sourcedyejobstartrollno",
+      "module": "erp_production",
+      "title": "资料（JobStartRollNo）",
+      "table": "JobStartRollNo",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineCarePlan": {
+      "entity": "erp_production_sourcedyemachinecareplan",
+      "module": "erp_production",
+      "title": "设备保养计划",
+      "table": "MachineCarePlan",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineCarePlanDetail": {
+      "entity": "erp_production_sourcedyemachinecareplandetail",
+      "module": "erp_production",
+      "title": "设备保养计划明细",
+      "table": "MachineCarePlanDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineCareProject": {
+      "entity": "erp_production_sourcedyemachinecareproject",
+      "module": "erp_production",
+      "title": "保养计划执行项目",
+      "table": "MachineCareProject",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineCareRecords": {
+      "entity": "erp_production_sourcedyemachinecarerecords",
+      "module": "erp_production",
+      "title": "设备保养记录",
+      "table": "MachineCareRecords",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineCase": {
+      "entity": "erp_production_sourcedyemachinecase",
+      "module": "erp_production",
+      "title": "机台保养方案",
+      "table": "MachineCase",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineCaseDetail": {
+      "entity": "erp_production_sourcedyemachinecasedetail",
+      "module": "erp_production",
+      "title": "方案适用机台明细",
+      "table": "MachineCaseDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineCaseProject": {
+      "entity": "erp_production_sourcedyemachinecaseproject",
+      "module": "erp_production",
+      "title": "机台方案项目",
+      "table": "MachineCaseProject",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineFault": {
+      "entity": "erp_production_sourcedyemachinefault",
+      "module": "erp_production",
+      "title": "设备报修新增",
+      "table": "MachineFault",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineFaultArticleInfo": {
+      "entity": "erp_production_sourcedyemachinefaultarticleinfo",
+      "module": "erp_production",
+      "title": "资料（MachineFaultArticleInfo）",
+      "table": "MachineFaultArticleInfo",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineFaultComment": {
+      "entity": "erp_production_sourcedyemachinefaultcomment",
+      "module": "erp_production",
+      "title": "资料（MachineFaultComment）",
+      "table": "MachineFaultComment",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineFaultFilter": {
+      "entity": "erp_production_sourcedyemachinefaultfilter",
+      "module": "erp_production",
+      "title": "设备故障业务页签筛选配置",
+      "table": "MachineFaultFilter",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachineFaultRecord": {
+      "entity": "erp_production_sourcedyemachinefaultrecord",
+      "module": "erp_production",
+      "title": "资料（MachineFaultRecord）",
+      "table": "MachineFaultRecord",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMachines": {
+      "entity": "erp_production_sourcedyemachines",
+      "module": "erp_base",
+      "title": "考勤设备（独立于生产机台）",
+      "table": "Machines",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeMoveShiftBill": {
+      "entity": "erp_production_sourcedyemoveshiftbill",
+      "module": "erp_production",
+      "title": "员工调班单",
+      "table": "MoveShiftBill",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeOutWorkApply": {
+      "entity": "erp_production_sourcedyeoutworkapply",
+      "module": "erp_production",
+      "title": "发外加工申请单",
+      "table": "OutWorkApply",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeOutWorkApplyDetail": {
+      "entity": "erp_production_sourcedyeoutworkapplydetail",
+      "module": "erp_production",
+      "title": "发外加工申请明细",
+      "table": "OutWorkApplyDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyePlanDetail": {
+      "entity": "erp_production_sourcedyeplandetail",
+      "module": "erp_scheduling",
+      "title": "计划明细表",
+      "table": "PlanDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyePlanMain": {
+      "entity": "erp_production_sourcedyeplanmain",
+      "module": "erp_scheduling",
+      "title": "计划主表",
+      "table": "PlanMain",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyePrePlanOrder": {
+      "entity": "erp_production_sourcedyepreplanorder",
+      "module": "erp_scheduling",
+      "title": "资料（PrePlanOrder）",
+      "table": "PrePlanOrder",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeProcessCraft": {
+      "entity": "erp_production_sourcedyeprocesscraft",
+      "module": "erp_technology",
+      "title": "工序工艺单",
+      "table": "ProcessCraft",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeProcessCraftJobNo": {
+      "entity": "erp_production_sourcedyeprocesscraftjobno",
+      "module": "erp_technology",
+      "title": "工序工艺工卡关联",
+      "table": "ProcessCraftJobNo",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeProcessCraftOrderNo": {
+      "entity": "erp_production_sourcedyeprocesscraftorderno",
+      "module": "erp_technology",
+      "title": "工序工艺订单关联",
+      "table": "ProcessCraftOrderNo",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeProcessSchedule": {
+      "entity": "erp_production_sourcedyeprocessschedule",
+      "module": "erp_scheduling",
+      "title": "工序排产与染色排产",
+      "table": "ProcessSchedule",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeProcessSchedulebak": {
+      "entity": "erp_production_sourcedyeprocessschedulebak",
+      "module": "erp_scheduling",
+      "title": "历史工序排产备份",
+      "table": "ProcessSchedulebak",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyePStuffWeight": {
+      "entity": "erp_production_sourcedyepstuffweight",
+      "module": "erp_production",
+      "title": "资料（PStuffWeight）",
+      "table": "PStuffWeight",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyePStuffWeightDetail": {
+      "entity": "erp_production_sourcedyepstuffweightdetail",
+      "module": "erp_production",
+      "title": "资料（PStuffWeightDetail）",
+      "table": "PStuffWeightDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyePStuffWeightPhase": {
+      "entity": "erp_production_sourcedyepstuffweightphase",
+      "module": "erp_production",
+      "title": "资料（PStuffWeightPhase）",
+      "table": "PStuffWeightPhase",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeRecordEmp": {
+      "entity": "erp_production_sourcedyerecordemp",
+      "module": "erp_production",
+      "title": "资料（RecordEmp）",
+      "table": "RecordEmp",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeSalaryChanges": {
+      "entity": "erp_production_sourcedyesalarychanges",
+      "module": "erp_production",
+      "title": "工卡及人员调整原表（SalaryChanges）",
+      "table": "SalaryChanges",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeSalaryChangesDetail": {
+      "entity": "erp_production_sourcedyesalarychangesdetail",
+      "module": "erp_production",
+      "title": "工卡及人员调整明细原表（SalaryChangesDetail）",
+      "table": "SalaryChangesDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeSemiOutWorkApply": {
+      "entity": "erp_production_sourcedyesemioutworkapply",
+      "module": "erp_production",
+      "title": "发外加工申请单(半成品)",
+      "table": "SemiOutWorkApply",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeSemiOutWorkApplyDetail": {
+      "entity": "erp_production_sourcedyesemioutworkapplydetail",
+      "module": "erp_production",
+      "title": "发外加工申请明细(半成品)",
+      "table": "SemiOutWorkApplyDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeShiftArrange": {
+      "entity": "erp_production_sourcedyeshiftarrange",
+      "module": "erp_scheduling",
+      "title": "排班记录主表",
+      "table": "ShiftArrange",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeShiftArrangeDetail": {
+      "entity": "erp_production_sourcedyeshiftarrangedetail",
+      "module": "erp_scheduling",
+      "title": "排班记录明细",
+      "table": "ShiftArrangeDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeShiftPlan": {
+      "entity": "erp_production_sourcedyeshiftplan",
+      "module": "erp_scheduling",
+      "title": "排班主表",
+      "table": "ShiftPlan",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeShiftPlanDetail": {
+      "entity": "erp_production_sourcedyeshiftplandetail",
+      "module": "erp_scheduling",
+      "title": "排班子表",
+      "table": "ShiftPlanDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeStandCraft": {
+      "entity": "erp_production_sourcedyestandcraft",
+      "module": "erp_technology",
+      "title": "标准工艺单",
+      "table": "StandCraft",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeStandCraftBeforeDetail": {
+      "entity": "erp_production_sourcedyestandcraftbeforedetail",
+      "module": "erp_technology",
+      "title": "标准工艺前置明细",
+      "table": "StandCraftBeforeDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeStandCraftDetail": {
+      "entity": "erp_production_sourcedyestandcraftdetail",
+      "module": "erp_technology",
+      "title": "标准工艺明细",
+      "table": "StandCraftDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeStandCraftJobNo": {
+      "entity": "erp_production_sourcedyestandcraftjobno",
+      "module": "erp_technology",
+      "title": "标准工艺工卡关联",
+      "table": "StandCraftJobNo",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeSterotypeTech": {
+      "entity": "erp_production_sourcedyesterotypetech",
+      "module": "erp_technology",
+      "title": "定型工艺单",
+      "table": "SterotypeTech",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeStuffCombineSheets": {
+      "entity": "erp_production_sourcedyestuffcombinesheets",
+      "module": "erp_production",
+      "title": "资料（StuffCombineSheets）",
+      "table": "StuffCombineSheets",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffDeptApply": {
+      "entity": "erp_production_sourcedyestuffdeptapply",
+      "module": "erp_production",
+      "title": "染化料部门采购",
+      "table": "StuffDeptApply",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffDeptApplyDetail": {
+      "entity": "erp_production_sourcedyestuffdeptapplydetail",
+      "module": "erp_production",
+      "title": "染化料部门采购明细",
+      "table": "StuffDeptApplyDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffOutApply": {
+      "entity": "erp_production_sourcedyestuffoutapply",
+      "module": "erp_production",
+      "title": "染化料领用申请",
+      "table": "StuffOutApply",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffOutApplyDetail": {
+      "entity": "erp_production_sourcedyestuffoutapplydetail",
+      "module": "erp_production",
+      "title": "染化料领用申请新增",
+      "table": "StuffOutApplyDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffWeight": {
+      "entity": "erp_production_sourcedyestuffweight",
+      "module": "erp_production",
+      "title": "染料称料",
+      "table": "StuffWeight",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffWeightDetail": {
+      "entity": "erp_production_sourcedyestuffweightdetail",
+      "module": "erp_production",
+      "title": "染料称料明细",
+      "table": "StuffWeightDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffWeightJobSheetNo": {
+      "entity": "erp_production_sourcedyestuffweightjobsheetno",
+      "module": "erp_production",
+      "title": "资料（StuffWeightJobSheetNo）",
+      "table": "StuffWeightJobSheetNo",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffWeightPhase": {
+      "entity": "erp_production_sourcedyestuffweightphase",
+      "module": "erp_production",
+      "title": "染料称料染程",
+      "table": "StuffWeightPhase",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeStuffWeightPrint": {
+      "entity": "erp_production_sourcedyestuffweightprint",
+      "module": "erp_production",
+      "title": "资料（StuffWeightPrint）",
+      "table": "StuffWeightPrint",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeTightTube": {
+      "entity": "erp_production_sourcedyetighttube",
+      "module": "erp_production",
+      "title": "资料（TightTube）",
+      "table": "TightTube",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeTightTubeDetail": {
+      "entity": "erp_production_sourcedyetighttubedetail",
+      "module": "erp_production",
+      "title": "资料（TightTubeDetail）",
+      "table": "TightTubeDetail",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeTightTubePlan": {
+      "entity": "erp_production_sourcedyetighttubeplan",
+      "module": "erp_scheduling",
+      "title": "紧筒排产单",
+      "table": "TightTubePlan",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeTightTubePlanDetail": {
+      "entity": "erp_production_sourcedyetighttubeplandetail",
+      "module": "erp_scheduling",
+      "title": "紧筒排产明细",
+      "table": "TightTubePlanDetail",
+      "basis": "明确工艺/排程对象"
+    },
+    "erp_production.SourceDyeUserACMachines": {
+      "entity": "erp_production_sourcedyeuseracmachines",
+      "module": "erp_base",
+      "title": "员工门禁设备关联",
+      "table": "UserACMachines",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeUsersMachines": {
+      "entity": "erp_production_sourcedyeusersmachines",
+      "module": "erp_base",
+      "title": "员工设备关联另一原表",
+      "table": "UsersMachines",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWashTheTankDye": {
+      "entity": "erp_production_sourcedyewashthetankdye",
+      "module": "erp_production",
+      "title": "洗缸料单染化料",
+      "table": "WashTheTankDye",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWProcess": {
+      "entity": "erp_production_sourcedyewprocess",
+      "module": "erp_production",
+      "title": "实际工序执行",
+      "table": "WProcess",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWProcessBak": {
+      "entity": "erp_production_sourcedyewprocessbak",
+      "module": "erp_production",
+      "title": "资料（WProcessBak）",
+      "table": "WProcessBak",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWProcessStep": {
+      "entity": "erp_production_sourcedyewprocessstep",
+      "module": "erp_production",
+      "title": "资料（WProcessStep）",
+      "table": "WProcessStep",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWProcessStepBak": {
+      "entity": "erp_production_sourcedyewprocessstepbak",
+      "module": "erp_production",
+      "title": "资料（WProcessStepBak）",
+      "table": "WProcessStepBak",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWVehicle": {
+      "entity": "erp_production_sourcedyewvehicle",
+      "module": "erp_production",
+      "title": "资料（WVehicle）",
+      "table": "WVehicle",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWWorkRecord": {
+      "entity": "erp_production_sourcedyewworkrecord",
+      "module": "erp_production",
+      "title": "考勤记录",
+      "table": "WWorkRecord",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_production.SourceDyeWWorkTime": {
+      "entity": "erp_production_sourcedyewworktime",
+      "module": "erp_production",
+      "title": "刷卡有效工时记录",
+      "table": "WWorkTime",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_warehouse.SourceDyeAProdRecord": {
+      "entity": "erp_warehouse_sourcedyeaprodrecord",
+      "module": "erp_production",
+      "title": "资料（A_ProdRecord）",
+      "table": "A_ProdRecord",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_warehouse.SourceDyeRecordYield": {
+      "entity": "erp_warehouse_sourcedyerecordyield",
+      "module": "erp_production",
+      "title": "生产产量记录",
+      "table": "RecordYield",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_warehouse.SourceDyeWeightTechInfo": {
+      "entity": "erp_warehouse_sourcedyeweighttechinfo",
+      "module": "erp_technology",
+      "title": "称料工艺参数",
+      "table": "WeightTechInfo",
+      "basis": "现场执行及其来源；未重解释的原生产资料继续完整保留"
+    },
+    "erp_sales.SourceDyeOrderMain": {
+      "entity": "erp_sales_sourcedyeordermain",
+      "module": "erp_sales",
+      "title": "染整订单",
+      "table": "OrderMain",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeOrderColor": {
+      "entity": "erp_sales_sourcedyeordercolor",
+      "module": "erp_sales",
+      "title": "染整订单颜色明细",
+      "table": "OrderColor",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeOrderAtte": {
+      "entity": "erp_sales_sourcedyeorderatte",
+      "module": "erp_sales",
+      "title": "染整订单要求",
+      "table": "OrderAtte",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeFixedPrice": {
+      "entity": "erp_sales_sourcedyefixedprice",
+      "module": "erp_sales",
+      "title": "染整报价",
+      "table": "FixedPrice",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeFixedPriceDetail": {
+      "entity": "erp_sales_sourcedyefixedpricedetail",
+      "module": "erp_sales",
+      "title": "染整报价明细",
+      "table": "FixedPriceDetail",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeFixedPriceAtte": {
+      "entity": "erp_sales_sourcedyefixedpriceatte",
+      "module": "erp_sales",
+      "title": "染整报价要求",
+      "table": "FixedPriceAtte",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeFixedPriceProcess": {
+      "entity": "erp_sales_sourcedyefixedpriceprocess",
+      "module": "erp_sales",
+      "title": "染整报价工序",
+      "table": "FixedPriceProcess",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeQuoteItemPrice": {
+      "entity": "erp_sales_sourcedyequoteitemprice",
+      "module": "erp_sales",
+      "title": "报价加价项目",
+      "table": "QuoteItemPrice",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeQuotePriceAtte": {
+      "entity": "erp_sales_sourcedyequotepriceatte",
+      "module": "erp_sales",
+      "title": "报价要求价格",
+      "table": "QuotePriceAtte",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeQuotePriceProcess": {
+      "entity": "erp_sales_sourcedyequotepriceprocess",
+      "module": "erp_sales",
+      "title": "报价工序价格",
+      "table": "QuotePriceProcess",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeQuote": {
+      "entity": "erp_sales_sourcedyequote",
+      "module": "erp_sales",
+      "title": "其他报价原表（Quote）",
+      "table": "Quote",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SourceDyeQuoteDetail": {
+      "entity": "erp_sales_sourcedyequotedetail",
+      "module": "erp_sales",
+      "title": "其他报价明细原表（QuoteDetail）",
+      "table": "QuoteDetail",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.SalesOrder": {
+      "entity": "erp_sales_salesorder",
+      "module": "erp_sales",
+      "title": "销售订单整理单据",
+      "table": "",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_sales.CommercialPrice": {
+      "entity": "erp_sales_commercialprice",
+      "module": "erp_sales",
+      "title": "客户价格整理单据",
+      "table": "",
+      "basis": "本轮销售入口核查"
+    },
+    "erp_base.SourceDyeFixedCanRecord": {
+      "entity": "erp_base_sourcedyefixedcanrecord",
+      "module": "erp_sales",
+      "title": "克重报价规则",
+      "table": "FixedCanRecord",
+      "basis": "染整报价克重价格规则原表，保留原主键和明细，不归入财务。"
+    },
+    "erp_base.SourceDyeFixedCanDetail": {
+      "entity": "erp_base_sourcedyefixedcandetail",
+      "module": "erp_sales",
+      "title": "克重报价规则明细",
+      "table": "FixedCanDetail",
+      "basis": "染整报价克重价格规则原表，保留原主键和明细，不归入财务。"
+    },
+    "erp_sales.SourceDyeOrderProcess": {
+      "entity": "erp_sales_sourcedyeorderprocess",
+      "module": "erp_sales",
+      "title": "染整订单工序",
+      "table": "OrderProcess",
+      "basis": "保留旧库独立原表；空表及其他原订单报价不冒充主要染整订单或报价。"
+    },
+    "erp_sales.SourceDyeOrderProcessPre": {
+      "entity": "erp_sales_sourcedyeorderprocesspre",
+      "module": "erp_sales",
+      "title": "染整订单前工序",
+      "table": "OrderProcessPre",
+      "basis": "保留旧库独立原表；空表及其他原订单报价不冒充主要染整订单或报价。"
+    },
+    "erp_sales.SourceDyeOrderInfo": {
+      "entity": "erp_sales_sourcedyeorderinfo",
+      "module": "erp_sales",
+      "title": "其他订单信息（OrderInfo）",
+      "table": "OrderInfo",
+      "basis": "保留旧库独立原表；空表及其他原订单报价不冒充主要染整订单或报价。"
+    },
+    "erp_sales.SourceDyeOrderInfoProcess": {
+      "entity": "erp_sales_sourcedyeorderinfoprocess",
+      "module": "erp_sales",
+      "title": "其他订单信息工序（OrderInfoProcess）",
+      "table": "OrderInfoProcess",
+      "basis": "保留旧库独立原表；空表及其他原订单报价不冒充主要染整订单或报价。"
+    },
+    "erp_sales.SourceDyeQuoteAtte": {
+      "entity": "erp_sales_sourcedyequoteatte",
+      "module": "erp_sales",
+      "title": "其他报价要求（QuoteAtte）",
+      "table": "QuoteAtte",
+      "basis": "保留旧库独立原表；空表及其他原订单报价不冒充主要染整订单或报价。"
+    }
+  }
+}

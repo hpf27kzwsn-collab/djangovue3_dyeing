@@ -57,6 +57,9 @@ class SourceExcelActions:
         profile_context={'基础资料入口':self.excel_foundation['key'],'基础资料类别':self.excel_foundation['title']} if self.excel_foundation else {}
         if getattr(self,'excel_historical',False):return {'导入方式':'历史基础资料原值承接',**profile_context}
         if selected in [None,''] and self.excel_foundation:selected=self.excel_foundation['entry']
+        if selected in [None,'']:
+            from core.resources import resource_options
+            selected=resource_options(self.queryset.model).get('workflow',{}).get('default_entry')
         if selected in [None,'']:return profile_context
         entry=serializers.ChoiceField(choices=list(ENTRY_RULES.get(self.queryset.model._meta.label,{}))).run_validation(selected)
         return {ENTRY_TITLE:entry,**profile_context}
