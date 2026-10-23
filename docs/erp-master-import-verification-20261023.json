@@ -1,0 +1,236 @@
+{
+  "summary": {
+    "date": "2026-10-23",
+    "source_dates": [
+      "2026-10-21",
+      "2026-10-22"
+    ],
+    "logical_types": 328,
+    "source_tables": 166,
+    "source_rows": 110433,
+    "history_files": 246,
+    "templates": 320,
+    "xlsx_total": 567,
+    "empty_sources": 131,
+    "sections": {
+      "01基础资料": {
+        "types": 237,
+        "rows": 48369
+      },
+      "02业务资料": {
+        "types": 23,
+        "rows": 890
+      },
+      "04历史与配置": {
+        "types": 60,
+        "rows": 61107
+      },
+      "05财务暂缓参考": {
+        "types": 8,
+        "rows": 67
+      }
+    }
+  },
+  "validation": {
+    "database": "erp_master_xlsx_verify_20261023",
+    "port": 5440,
+    "files": 566,
+    "failed": 0,
+    "imported_rows": 110366,
+    "original_field_comparisons": 4966377,
+    "financial_reference_comparisons": 1675,
+    "historical_business_actions": 0,
+    "document_contexts": 0,
+    "formal_import": false,
+    "unresolved_relations": [
+      {
+        "child": "dye.p_ShiftEmp",
+        "source_fields": [
+          "ShiftID"
+        ],
+        "parent": "p_Shift",
+        "rows": 29,
+        "same_batch_candidates": 0,
+        "all_batch_candidates": 0
+      }
+    ],
+    "all_field_comparisons": 4968052,
+    "batches": [
+      {
+        "id": 1,
+        "number": "基础资料20261021-ada0cffb8536",
+        "row_count": 109083
+      },
+      {
+        "id": 2,
+        "number": "染整报价20261022-334ba38b68f9",
+        "row_count": 1283
+      }
+    ],
+    "snapshot_rows_covered_exactly": 110433
+  },
+  "extra_cases": [
+    {
+      "case": "部门 / daily-1",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "DeptID": "11"
+        }
+      ]
+    },
+    {
+      "case": "业务员工 / daily-2",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "EmpID": "HF1687"
+        }
+      ]
+    },
+    {
+      "case": "客户资料 / daily-3",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "CustomerID": "107"
+        }
+      ]
+    },
+    {
+      "case": "供应商资料 / daily-4",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "CustomerID": "G094"
+        }
+      ]
+    },
+    {
+      "case": "仓库注册 / daily-5",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "FieldType": "WareHouseID",
+          "Code": "0804"
+        }
+      ]
+    },
+    {
+      "case": "幅宽单位 / daily-6",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "Code": "019"
+        }
+      ]
+    },
+    {
+      "case": "克重单位 / daily-7",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "Code": "020"
+        }
+      ]
+    },
+    {
+      "case": "坯纱坯料与本厂规格 / daily-8",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "GrayID": "00715"
+        }
+      ]
+    },
+    {
+      "case": "染化料 / daily-9",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "StuffID": "A231"
+        }
+      ]
+    },
+    {
+      "case": "机物料与辅料 / daily-10",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "ArticleID": "PD-227"
+        }
+      ]
+    },
+    {
+      "case": "坯料成品库位 / daily-11",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "FieldType": "GrayStorage",
+          "Code": "0801"
+        }
+      ]
+    },
+    {
+      "case": "染整报价表头 / daily-12",
+      "status": "PASS",
+      "created": 1,
+      "generated_numbers": [
+        {
+          "SheetSeries": "BJ261023001"
+        }
+      ]
+    },
+    {
+      "case": "客户资料 / manual-duplicates",
+      "status": "PASS",
+      "created": 2,
+      "generated_numbers": [
+        {
+          "CustomerID": "DX23"
+        },
+        {
+          "CustomerID": "DX23"
+        }
+      ]
+    },
+    {
+      "case": "历史代码资料C / history-duplicates",
+      "status": "PASS",
+      "created": 2,
+      "generated_numbers": [
+        {},
+        {}
+      ]
+    },
+    {
+      "case": "报价表头到明细，-2.50对客价与0客确价分别保存",
+      "status": "PASS",
+      "detail_number": "BJ261023001-001"
+    },
+    {
+      "case": "同一批次同一原行重复提交明确拒绝、整批零写入",
+      "status": "PASS"
+    },
+    {
+      "case": "客户文件误从供应商分类导入明确拒绝、整批零写入",
+      "status": "PASS"
+    },
+    {
+      "case": "全部非空新增专项回滚，历史已核验资料行数不变",
+      "status": "PASS"
+    }
+  ],
+  "formal_import": false
+}
