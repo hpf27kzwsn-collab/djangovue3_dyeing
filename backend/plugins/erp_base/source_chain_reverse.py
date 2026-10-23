@@ -166,6 +166,12 @@ def discover(job,query=reader):
                         model=apps.get_model(context.entity)
                         for linked in active(sources(query,model)).filter(pk=context.object_id):
                             add(linked,item,key if anchor.pk==item.pk else f'包装替换前原记录#{anchor.pk}：{key}')
+                # 装车采用的是明确出库原行；相同出库明细码不能把另一原行的装车一起撤回。
+                contexts=SourceDocumentContext.objects.filter(effects__loading_source__source__entity=anchor._meta.label,
+                    effects__loading_source__source__source__id=anchor.pk)
+                for context in contexts:
+                    model=apps.get_model(context.entity)
+                    for linked in active(sources(query,model)).filter(pk=context.object_id):add(linked,item,'明确装车出库原行')
             context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
             if context is not None:
                 if item.SOURCE_TABLE=='ColoringCheck':

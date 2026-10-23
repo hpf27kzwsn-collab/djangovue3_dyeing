@@ -142,7 +142,7 @@ def remaining_steps(job,process_id,process_no,actor,query=rows):
 
 
 @transaction.atomic
-def automatic_sync(item,actor,machine,time_way,plan_have_time,as_of,at,reason,query=rows,completion_status=None):
+def automatic_sync(item,actor,machine,time_way,plan_have_time,as_of,at,reason,query=rows,completion_status=None,process_variable=None):
     item=locked(item)
     result=choose_route(item,plan_have_time,as_of,query)
     targets=list(query('JobProcess','erp_production').filter(pk__in=result['targets']).order_by('pk'))
@@ -159,7 +159,7 @@ def automatic_sync(item,actor,machine,time_way,plan_have_time,as_of,at,reason,qu
         result['remaining_steps'].append({'job_id':job.pk,'process_id':step['process_id'],'missing':missing})
     result['at']=at;result['reason']=reason
     from .source_dye_rebuild import rebuild
-    quality=rebuild(item,actor,completion_status,at,reason,query)
+    quality=rebuild(item,actor,completion_status,at,reason,query,process_variable=process_variable)
     result['quality_rebuild']=quality
     result['result_rows']=quality['rows']
     result['notes'].extend(['已执行权限范围内全库空进度维护；质量重建使用本次传入完成状态，区别于来源工序Status。',*quality['notes']])

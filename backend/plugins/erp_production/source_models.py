@@ -4145,10 +4145,11 @@ class SourceDyeTightTubeDetail(SourceRecord):
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
     SOURCE_COLLATIONS={'old_sheetseries': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_cust_fabric_name': 'Chinese_PRC_CI_AS', 'old_color_remarks': 'Chinese_PRC_CI_AS', 'old_remarks': 'Chinese_PRC_CI_AS', 'old_dye_date': 'Chinese_PRC_CI_AS', 'old_detail_cust_name': 'Chinese_PRC_CI_AS', 'old_fen_tou': 'Chinese_PRC_CI_AS', 'old_approver': 'Chinese_PRC_CI_AS', 'old_modifyer': 'Chinese_PRC_CI_AS'}
-    SOURCE_RELATIONS=[]
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '所属TightTube', 'target': 'erp_production.SourceDyeTightTube', 'source_fields': ['Sheetseries'], 'target_fields': ['SheetSeries'], 'evidence': ['旧有效入口CancelTightTubeDetail,TightTubeBalanceDetail的MasterDataTableName及SheetSeries关联；2026-10-22 L21/L38核查']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
     SOURCE_IDENTITY_RULES={}
+    source_parent_1=models.ForeignKey('erp_production.SourceDyeTightTube', verbose_name='所属TightTube', null=True, blank=True, on_delete=models.PROTECT, related_name='+')
     old_sheetseries=models.CharField('表单号', null=False, blank=True, max_length=50)
     old_detail_no=models.CharField('明细单号', null=False, blank=True, max_length=50)
     old_customer_id=models.CharField('客户', null=True, blank=True, max_length=30)

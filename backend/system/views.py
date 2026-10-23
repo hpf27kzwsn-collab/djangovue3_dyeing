@@ -538,7 +538,13 @@ class Metadata(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, entity):
+        from plugins.erp_base.source_documents import SourceRecord
+        from plugins.erp_base.source_services import literal_default
         model = ENTITIES[entity]
+        entry_defaults=set()
+        if issubclass(model,SourceRecord):
+            from plugins.erp_base.source_entry_registry import ENTRY_RULES
+            entry_defaults={model.SOURCE_FIELDS[old] for entry in ENTRY_RULES.get(model._meta.label,{}).values() for old in entry['default_fields']}
         serializer = view_for(entity, model).serializer_class(context={'request': request})
         permissions = field_access(request.user, model)
         fields = []
@@ -615,6 +621,11 @@ class Metadata(APIView):
                 kind = 'select'
                 options = [{'label':name,'value':name} for name in app.tasks if not name.startswith('celery.')]
             default = [] if mf.many_to_many else mf.get_default()
+            if key in entry_defaults:
+                default=None  # 类型、当前日期及登录人等入口默认值留给保存服务，避免被表级常量覆盖。
+            elif issubclass(model,SourceRecord) and key in model.SOURCE_DEFAULTS:
+                kind_default,value_default=model.SOURCE_DEFAULTS[key]
+                if kind_default=='literal':default=literal_default(model,key,value_default)
             if model is Users and key == 'password':
                 default = config('base.default_password', 'admin123456')
             if default is not None and not isinstance(default, (str, int, float, bool, list, dict)):

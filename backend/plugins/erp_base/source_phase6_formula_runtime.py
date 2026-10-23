@@ -131,6 +131,12 @@ def apply(item,data,entry,creating=False,upstream=None,aggregate=False,own_save=
     rules=rules_for(item._meta.label,entry);changed=set(data);changes={};pending=[];unresolved=set()
     # 双向公式以本次明确输入为方向；单价只在明确金额/含税价输入时反推。
     omitted=set()
+    if item.SOURCE_TABLE=='JobSheet' and item.pk is not None:
+        from .source_context import SourceDocumentContext
+        if SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk,
+            effects__first_card_origin__number_policy__in=['legacy_prefix','complete_generated_number']).exists():
+            # 首次开卡服务已采用完整编号；保留旧表达式供其他原入口及历史核对。
+            omitted.add('SheetNo')
     if entry in ['CookInDetail','OtherInDetail']:
         omitted.add('Price' if item.SOURCE_FIELDS['TaxPrice'] not in data or item.SOURCE_FIELDS['Price'] in data else 'TaxPrice')
     if entry=='SmallStuffInDetail' and item.SOURCE_FIELDS['Amount'] not in data:omitted.add('Price')

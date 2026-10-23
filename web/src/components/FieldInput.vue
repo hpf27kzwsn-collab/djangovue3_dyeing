@@ -11,7 +11,8 @@ const ArrayInput=defineAsyncComponent(()=>import('./ArrayInput.vue'))
 const TableSelect=defineAsyncComponent(()=>import('./TableSelect.vue'))
 const ApiPathInput=defineAsyncComponent(()=>import('./ApiPathInput.vue'))
 const OriginalLookupField=defineAsyncComponent(()=>import('../plugins/erp/OriginalLookupField.vue'))
-const props = defineProps<{modelValue: any; field: {kind: string; options: any[]; key: string;nullable?:boolean;placeholder?:string;originalLookup?:{entity:string;entry:string;field:string;context:Record<string,any>};remote?:{entity:string;pk:string;label:string;columns?:any[];params?:Record<string,any>}}}>()
+const OrderPriceChooser=defineAsyncComponent(()=>import('../plugins/erp/OrderPriceChooser.vue'))
+const props = defineProps<{modelValue: any; field: {kind: string; options: any[]; key: string;nullable?:boolean;placeholder?:string;pricingRow?:any;pricingOrder?:any;originalLookup?:{entity:string;entry:string;field:string;context:Record<string,any>};remote?:{entity:string;pk:string;label:string;columns?:any[];params?:Record<string,any>}}}>()
 const departmentTree=computed(()=>toTree(props.field.options,'value','parent'))
 const emit = defineEmits(['update:modelValue'])
 const jsonText=ref('')
@@ -23,7 +24,8 @@ async function upload(event: Event) {
 function json(value: string) {emit('update:modelValue', JSON.parse(value))}
 </script>
 <template>
-  <OriginalLookupField v-if="field.originalLookup" :model-value="modelValue" v-bind="field.originalLookup" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>
+  <OrderPriceChooser v-if="field.kind==='order-pricing'" :model-value="modelValue" :row="field.pricingRow" :order="field.pricingOrder" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>
+  <OriginalLookupField v-else-if="field.originalLookup" :model-value="modelValue" v-bind="field.originalLookup" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>
   <input v-else-if="field.kind === 'file'" type="file" @change="upload">
   <AvatarCrop v-else-if="field.kind === 'avatar'" :model-value="modelValue" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>
   <RichText v-else-if="field.kind === 'richtext'" :model-value="modelValue || ''" @update:model-value="(value:any)=>emit('update:modelValue',value)"/>

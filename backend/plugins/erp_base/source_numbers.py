@@ -47,7 +47,8 @@ def generate(item, old, rule, actor, at):
     if kind == 'Guid':
         value = str(uuid4())
     elif kind == 'FollowSeries':
-        value = item.old_sheet_series
+        series_key=next(field for name,field in item.SOURCE_FIELDS.items() if name.casefold()=='sheetseries')
+        value = getattr(item,series_key)
     elif kind == 'AutoAdd_Time':
         clock = int(at.strftime('%Y%m%d%H%M%S') + f'{at.microsecond // 1000:03d}')
         value = reserve(item, key, {'kind': kind}, lambda: clock - 1, actor)
@@ -73,14 +74,23 @@ def generate(item, old, rule, actor, at):
     elif kind in ['SeriesAndRowNo', 'SheetRowNo', 'RowNo', 'AutoAdd_Local', 'AutoAdd_LocalPlusPrev', 'AutoAdd_LocalPlusPrev_LEFT']:
         scope = owner_scope(item, key)
         width = 2 if not rule['FixedLength'] or rule['FixedLength'] <= 0 else rule['FixedLength']
-        series = str(item.old_sheet_series) if kind == 'SeriesAndRowNo' else ''
+        series = str(getattr(item,next(field for name,field in item.SOURCE_FIELDS.items() if name.casefold()=='sheetseries'))) if kind == 'SeriesAndRowNo' else ''
         prefix = (rule['Prefix'] or '') if kind in ['AutoAdd_LocalPlusPrev', 'AutoAdd_LocalPlusPrev_LEFT'] else ''
         def initial():
             query = type(item).objects.filter(**scope)
+            if kind == 'SeriesAndRowNo':
+                from .source_business_updates import matching
+                series_old=next(name for name in item.SOURCE_FIELDS if name.casefold()=='sheetseries')
+                query=matching(query,**{series_old:getattr(item,item.SOURCE_FIELDS[series_old])})
             if prefix:
                 query = query.filter(**{key + '__startswith': prefix})
             values = query.values_list(key, flat=True)
-            return max((integer(str(value).split('-', 1)[-1] if kind == 'SeriesAndRowNo' else str(value)[len(prefix):], key)
+            # 同父单的非数值原号仍报出，不能按编号字符串前缀筛掉异常行。
+            def suffix(value):
+                text=str(value)
+                if kind == 'SeriesAndRowNo':return text[len(series)+1:] if text[:len(series)+1].upper()==(series+'-').upper() else text
+                return text[len(prefix):]
+            return max((integer(suffix(value), key)
                         for value in values if value not in [None, '']), default=0)
         number = reserve(item, key, {'kind': kind, 'scope': scope, 'series': series, 'prefix': prefix}, initial, actor)
         value = (series + '-' if kind == 'SeriesAndRowNo' else prefix) + str(number).zfill(width)

@@ -124,7 +124,7 @@ def saved(item,data,created,actor):
         if station in ['01','02','08'] and processes and raw(processes[0],'IsCanAddWorkQty') and raw(processes[0],'InputQtyCheckWay')==0:
             change(targets,{k:0 for k in ['CurrRolls','CurrMeter','CurrKg','CurrVats','CurrEffirate','WorkQty']},actor)
         end=raw(item,'EndTime')
-        if created and (end is None or timezone.localtime(end).replace(tzinfo=None)==__import__('datetime').datetime(1900,1,1)):
+        if created and raw(item,'Status') not in ['4','5'] and (end is None or timezone.localtime(end).replace(tzinfo=None)==__import__('datetime').datetime(1900,1,1)):
             change(matching(source(table),WProcessNo=wno),{'EndTime':timezone.now()},actor)
     elif table=='GetJobSheetReceive':
         candidates=list(matching(source(table),SheetSeries=series).order_by('pk'));head=None if not candidates else candidates[-1]

@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-22",
+  "database": "erp_full_trial_20261014",
+  "port": 5439,
+  "transaction_read_only": "on",
+  "previous_documented_counts_match": {
+    "OrderMain": 17032,
+    "FixedPrice": 20,
+    "FixedPriceDetail": 847
+  },
+  "test_markers": {
+    "OrderMain": 0,
+    "FixedPrice": 0,
+    "DyeRecipe": 0,
+    "JobSheet": 0,
+    "ProcessSchedule": 0,
+    "WProcess": 0,
+    "StuffWeight": 0,
+    "RecordYield": 0
+  },
+  "metadata_resources_refreshed": 15,
+  "formal_import_executed": false,
+  "current_browser_readonly": {
+    "origin": "http://127.0.0.1:8080",
+    "backend_port": 8001,
+    "page": "/erp/sales/original/sourcedyefixedprice",
+    "quote_rows": 20,
+    "loaded_modules": [
+      "工艺设计",
+      "排产管理",
+      "生产管理"
+    ],
+    "final_page_console_errors": 0,
+    "create_dialog_checked_then_cancelled": true,
+    "saved_business_rows": 0
+  },
+  "temporary_services_stopped": [
+    8081,
+    8002,
+    5440
+  ]
+}

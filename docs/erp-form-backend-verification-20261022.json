@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-22",
+  "passed": 70,
+  "new_tests": 11,
+  "runner": "Django TestCase / APIClient",
+  "database_port": 5440,
+  "modules": [
+    "test_source_business_forms",
+    "test_source_excel_entry",
+    "test_source_excel_history",
+    "test_source_entries",
+    "test_source_sales_links",
+    "test_source_phase6_save_timing_print",
+    "test_source_phase6_field_bindings"
+  ],
+  "log_tail": "Using existing test database for alias 'default'...\n\n......................................................................\n----------------------------------------------------------------------\nRan 70 tests in 29.436s\n\nOK\nPreserving test database for alias 'default'...\n\nFound 70 test(s).\nSystem check identified no issues (0 silenced).\n",
+  "print_features_modified": false
+}

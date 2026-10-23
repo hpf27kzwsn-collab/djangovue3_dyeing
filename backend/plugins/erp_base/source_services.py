@@ -6,6 +6,7 @@ from django.db import transaction
 from django.db.models.deletion import ProtectedError
 from django.utils import timezone
 from uuid import uuid4
+from datetime import datetime
 from .business import locked, persist, record, snapshot
 from .source_ownership import OWNERS
 from .source_calculations import field_values,packaging_values,aggregate_values,price_from_amount,PRODUCTS,SPECIAL_TABLES,PACK_METHODS,AGGREGATES
@@ -119,6 +120,14 @@ def assign_reference_values(item,data,entry=None):
             setattr(item,key,value)
 
 
+def literal_default(model,key,value):
+    if model.SOURCE_TABLE == 'PurMain' and key == 'old_sheet_status' and value == '':
+        value=0  # 原整数列DEFAULT('')在SQL Server中的实际转换结果。
+    if model.SOURCE_TABLE == 'CHECKEXACT' and key == 'old_checktime' and value == 0:
+        value=datetime(1900,1,1)  # 已核实原datetime DEFAULT((0))及CAST(0 AS datetime)的实际值。
+    return model._meta.get_field(key).to_python(value)
+
+
 def apply_defaults(item, data):
     if item.SOURCE_TABLE == 'RecordYield' and 'old_guid' not in data:
         item.old_guid = str(uuid4())
@@ -130,9 +139,7 @@ def apply_defaults(item, data):
         elif kind == 'uuid':
             value = uuid4()
         field = item._meta.get_field(key)
-        if item.SOURCE_TABLE == 'PurMain' and key == 'old_sheet_status' and value == '':
-            value = 0  # 原整数列DEFAULT('')在SQL Server中的实际转换结果。
-        value = field.to_python(value)
+        value = literal_default(type(item),key,value) if kind == 'literal' else field.to_python(value)
         if field.get_internal_type() == 'DateTimeField' and value is not None and timezone.is_naive(value):
             value = timezone.make_aware(value)
         setattr(item, key, value)
@@ -193,6 +200,7 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
     from copy import copy
     numbering.lock_model(model)
     data = dict(data)
+    pricing_choice=data.pop('_pricing',None)
     selected_entry = data.pop('_entry', None)
     copy_from = data.pop('_entry_copy_from', None)
     if instance is not None and copy_from is not None:
@@ -269,6 +277,9 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
             item.dept_belong_id = actor.dept_id if len(owner_chain) == 1 else owner_chain[0].dept_belong_id
     from .source_phase6_auto_values import before_save as entry_auto_values
     entry_auto_values(item, data, entry, instance is None)
+    if model.SOURCE_TABLE=='OrderColor':
+        from .source_order_pricing import prepare as prepare_pricing
+        prepare_pricing(item,data,pricing_choice,actor)
     result = persist(item)
     from .source_master_data import saved as master_saved
     master_saved(item, data, instance is None, actor)
@@ -282,6 +293,9 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
     phase5_saved(item, data, instance is None, actor)
     if entry is not None:
         entries.save_context(item, actor, entry)
+    if model.SOURCE_TABLE in ['OrderMain','OrderColor']:
+        from .source_order_pricing import saved as pricing_saved
+        pricing_saved(item,data,actor)
     from .source_phase6_service_values import saved as service_values_saved
     service_values_saved(item,data,entry,instance is None,actor)
     from .source_phase6_formula_runtime import saved as remaining_values_saved
@@ -290,6 +304,8 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
     charges.saved(item, actor)
     sampling.saved(item, actor)
     quality.saved(item, instance is None, actor)
+    from .source_work_progress import saved as work_progress_saved
+    work_progress_saved(item,data,instance is None,actor,previous_numbering)
     packing.saved(item, instance is None, actor)
     if item.SOURCE_TABLE=='ShiftArrange':
         from .source_shift_work import trigger
@@ -380,6 +396,7 @@ def delete_documents(queryset, actor):
 def delete(queryset,actor=None,apply_effects=True):
     affected = {}
     removed = []
+    work_progress = set()
     for item in queryset.order_by('pk'):
         require_operation_retention(item)
         editable(lock_chain(item))
@@ -418,6 +435,7 @@ def delete(queryset,actor=None,apply_effects=True):
         from .source_context import SourceDocumentContext
         context = SourceDocumentContext.objects.filter(entity=item._meta.label, object_id=item.pk).first()
         if context is not None:
+            if item.SOURCE_TABLE=='WProcess' and 'work_plan_progress' in context.effects:work_progress.add(item.pk)
             from .source_stock_job_services import removing
             removing(item, context, actor)
             stock.clear_effects(context, actor)
@@ -443,7 +461,7 @@ def delete(queryset,actor=None,apply_effects=True):
     if apply_effects:
         finish(list(affected.values()), actor)
         for item in removed:
-            workflow.refresh_removed(item, actor)
+            workflow.refresh_removed(item, actor,refresh_work_progress=item.SOURCE_TABLE=='WProcess' and item.pk in work_progress)
 
 
 @transaction.atomic

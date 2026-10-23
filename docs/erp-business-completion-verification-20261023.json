@@ -1,0 +1,363 @@
+{
+  "date": "2026-10-23",
+  "database": "erp_master_xlsx_verify_20261021",
+  "port": 5440,
+  "tests": {
+    "inventory": {
+      "tests": 619,
+      "status": "PASS",
+      "sha256": "6c24d49d67c48ed765ea4de9fb8bb4bf1d35ab57004011d07c3172aa9ae64d84"
+    },
+    "numbering_and_completion": {
+      "tests": 31,
+      "status": "PASS",
+      "sha256": "c334800c957608bdf4fceef297743f618ce9dca759c1e15103e28306d1f2fa27"
+    },
+    "final_related_regression": {
+      "tests": 102,
+      "status": "PASS",
+      "sha256": "be6c1737c3d543d3822f4a32eaf09c92a1d5a07aac95c2e4777fe10ddb76c1f9"
+    }
+  },
+  "frontend_build": "PASS",
+  "migration_consistency": "PASS",
+  "applied_migrations": [
+    [
+      "erp_production",
+      "0023_explicit_material_tighttube_parents"
+    ],
+    [
+      "erp_warehouse",
+      "0017_explicit_material_tighttube_parents"
+    ]
+  ],
+  "source_models": 655,
+  "original_fields": 12606,
+  "source_quotes_unchanged": {
+    "counts": {
+      "FixedPrice": 20,
+      "FixedPriceDetail": 847
+    },
+    "sha256": "21381facf3f111ab0acdf4ed793aab6b540d0c45f50d08dfa8c579e3511f072d"
+  },
+  "browser_cases": [
+    {
+      "id": "V01",
+      "title": "订单首次开卡、订单成员、工序和明确前缀",
+      "status": "PASS",
+      "database_checks": {
+        "job_id": 5,
+        "number": "261023J0101",
+        "new_number": "J01-26102301",
+        "order_line_id": 5,
+        "member_quantity": "10.00",
+        "processes": [
+          "GX03",
+          "GX07",
+          "GX98"
+        ]
+      }
+    },
+    {
+      "id": "V02",
+      "title": "提料头明细整单保存及未匹配原码保留",
+      "status": "PASS",
+      "database_checks": {
+        "head_id": 1,
+        "line_id": 1,
+        "quantity": "-1.00",
+        "original_reference": "BC1023未匹配原码"
+      }
+    },
+    {
+      "id": "V03",
+      "title": "紧筒独立业务变体：CancelTightTubeDetail",
+      "status": "PASS",
+      "database_checks": {
+        "head_id": 1,
+        "line_id": 1,
+        "quantity": "0.00"
+      }
+    },
+    {
+      "id": "V04",
+      "title": "紧筒独立业务变体：TightTubeBalanceDetail",
+      "status": "PASS",
+      "database_checks": {
+        "head_id": 2,
+        "line_id": 2,
+        "quantity": "-1.00"
+      }
+    },
+    {
+      "id": "V05",
+      "title": "普通报工直接保存联动",
+      "status": "PASS",
+      "database_checks": {
+        "work_id": 2,
+        "plan_id": 3,
+        "status": "1",
+        "quantity": "12.000",
+        "current": "GX07",
+        "next": "GX98"
+      }
+    },
+    {
+      "id": "V06",
+      "title": "配方明确采用三个来源，同号不同原行",
+      "status": "PASS",
+      "database_checks": {
+        "recipe_id": 4,
+        "color_id": 1,
+        "original_recipe_id": 2,
+        "standard_recipe_id": 3
+      }
+    },
+    {
+      "id": "V07",
+      "title": "评审开回修保留负计划量和原评审",
+      "status": "PASS",
+      "database_checks": {
+        "review_id": 1,
+        "source_job_id": 2,
+        "target_job_id": 4,
+        "quantity": "-3.00"
+      }
+    },
+    {
+      "id": "V08",
+      "title": "执行链cancelled",
+      "status": "PASS",
+      "database_checks": {
+        "stage": "cancelled",
+        "rows": {
+          "WProcess": {
+            "id": 2,
+            "exists": true,
+            "active": false,
+            "CurrKg": "12.000"
+          },
+          "CarryMaterial": {
+            "id": 1,
+            "exists": true,
+            "active": false
+          },
+          "CarryMaterialDetail": {
+            "id": 1,
+            "exists": true,
+            "active": false,
+            "Qty": "-1.00",
+            "ReceSheetNo": "BC1023未匹配原码"
+          },
+          "dyeCheckout": {
+            "id": 1,
+            "exists": true,
+            "active": false,
+            "ClothQtyKg": 12.0
+          }
+        },
+        "expected_active": false,
+        "job": {
+          "id": 3,
+          "current": null,
+          "next": null
+        },
+        "processes": [
+          {
+            "id": 2,
+            "old_process_no": 1,
+            "old_process_id": "GX03",
+            "old_status": "0"
+          },
+          {
+            "id": 3,
+            "old_process_no": 2,
+            "old_process_id": "GX07",
+            "old_status": "0"
+          },
+          {
+            "id": 4,
+            "old_process_no": 3,
+            "old_process_id": "GX98",
+            "old_status": "0"
+          }
+        ],
+        "other_card_unchanged": true
+      }
+    },
+    {
+      "id": "V09",
+      "title": "执行链restored",
+      "status": "PASS",
+      "database_checks": {
+        "stage": "restored",
+        "rows": {
+          "WProcess": {
+            "id": 2,
+            "exists": true,
+            "active": true,
+            "CurrKg": "12.000"
+          },
+          "CarryMaterial": {
+            "id": 1,
+            "exists": true,
+            "active": true
+          },
+          "CarryMaterialDetail": {
+            "id": 1,
+            "exists": true,
+            "active": true,
+            "Qty": "-1.00",
+            "ReceSheetNo": "BC1023未匹配原码"
+          },
+          "dyeCheckout": {
+            "id": 1,
+            "exists": true,
+            "active": true,
+            "ClothQtyKg": 12.0
+          }
+        },
+        "expected_active": true,
+        "job": {
+          "id": 3,
+          "current": "GX07",
+          "next": "GX98"
+        },
+        "processes": [
+          {
+            "id": 2,
+            "old_process_no": 1,
+            "old_process_id": "GX03",
+            "old_status": "0"
+          },
+          {
+            "id": 3,
+            "old_process_no": 2,
+            "old_process_id": "GX07",
+            "old_status": "1"
+          },
+          {
+            "id": 4,
+            "old_process_no": 3,
+            "old_process_id": "GX98",
+            "old_status": "0"
+          }
+        ],
+        "other_card_unchanged": true
+      }
+    },
+    {
+      "id": "V10",
+      "title": "装车采用两条同号出库原行",
+      "status": "PASS",
+      "database_checks": {
+        "loading_id": 1,
+        "line_ids": [
+          1,
+          2
+        ],
+        "quantities": [
+          "0.00",
+          "-2.00"
+        ]
+      }
+    },
+    {
+      "id": "V11",
+      "title": "进仓到出仓登记，原进仓不改量",
+      "status": "PASS",
+      "database_checks": {
+        "incoming_id": 1,
+        "outgoing_id": 1,
+        "quantity": "-2.00"
+      }
+    },
+    {
+      "id": "V12",
+      "title": "投诉整单及Sheetseries自动编号",
+      "status": "PASS",
+      "database_checks": {
+        "head_id": 1,
+        "line_ids": [
+          1,
+          2
+        ],
+        "numbers": [
+          "CT261023001-01",
+          "CT261023001-02"
+        ]
+      }
+    },
+    {
+      "id": "V13",
+      "title": "部门接收保存、原删除与工序恢复",
+      "status": "PASS",
+      "database_checks": {
+        "saved": {
+          "stage": "saved",
+          "receipt_id": 1,
+          "series": "JR2610230001",
+          "department": "DT036",
+          "job_current": "染部收单"
+        },
+        "removed": {
+          "stage": "removed",
+          "job_current": "GX07",
+          "job_next": "GX98",
+          "original_progress_restored": true
+        }
+      }
+    },
+    {
+      "id": "V14",
+      "title": "DyeRecipe材料平铺按原流水核对",
+      "status": "PASS",
+      "database_checks": {
+        "head_id": 1,
+        "series": "PF261022001",
+        "rows": [
+          {
+            "id": 1,
+            "old_sheet_series": "PF261022001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "V15",
+      "title": "StuffWeight材料平铺按原流水核对",
+      "status": "PASS",
+      "database_checks": {
+        "head_id": 2,
+        "series": "BC1023-FLAT",
+        "rows": [
+          {
+            "id": 1,
+            "old_sheet_series": "BC1023-FLAT"
+          }
+        ]
+      }
+    }
+  ],
+  "route_groups": {
+    "planned": 17,
+    "actual": 364,
+    "empty_group": "A0000",
+    "groups": 382,
+    "sequence_rows": 3203,
+    "method": "逐组结构往返；A组末次报工重建。不是原15,014卡历史整链重放。"
+  },
+  "formal_import": false,
+  "formal_full_history_reconciliation": false,
+  "onsite_acceptance": false,
+  "deferred": [
+    "finance",
+    "all_printing",
+    "original_35_queries"
+  ],
+  "non_equivalent_original_formulas": [
+    "F004",
+    "F281",
+    "F273"
+  ]
+}

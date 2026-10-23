@@ -143,6 +143,13 @@ class BusinessViewSet(ResourceViewSet):
                 serializer = serializer_for(model, serializer_class)(previous, data=data, partial=previous is not None, context={'request': request})
                 serializer.is_valid(raise_exception=True)
                 values = dict(serializer.validated_data)
+                if previous is None and issubclass(model,SourceRecord):
+                    from .source_entry_registry import ENTRY_RULES
+                    from .source_entry_services import resolve_entry
+                    from .source_services import parents
+                    candidate=model(**{k:v for k,v in values.items() if not k.startswith('_')})
+                    if ENTRY_RULES.get(model._meta.label) and resolve_entry(candidate,values.get('_entry'),parents(candidate)) is None:
+                        raise serializers.ValidationError({'children':{entity:{'_entry':'本明细没有唯一可继承的业务类型，请明确选择；本次整单未保存。'}}})
                 values.pop(parent_key,None)
                 prepared[model]['upsert'].append({'instance':previous,'data':values})
             if changes['delete']:

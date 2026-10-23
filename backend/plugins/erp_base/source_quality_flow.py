@@ -65,7 +65,7 @@ def work_record(item, created, actor):
     if station in ['01', '02', '08'] and process is not None and raw(process, 'IsCanAddWorkQty') and raw(process, 'InputQtyCheckWay') == 0:
         change(targets, {key: 0 for key in ['CurrRolls', 'CurrMeter', 'CurrKg', 'CurrVats', 'CurrEffirate', 'WorkQty']}, actor)
     end = raw(item, 'EndTime')
-    if created and (end is None or timezone.localtime(end).replace(tzinfo=None) == datetime(1900, 1, 1)):
+    if created and raw(item,'Status') not in ['4','5'] and (end is None or timezone.localtime(end).replace(tzinfo=None) == datetime(1900, 1, 1)):
         change(matching(work, WProcessNo=number), {'EndTime': timezone.now()}, actor)
 
 
@@ -111,6 +111,14 @@ def refresh_current_process(job, actor):
     from .source_workflow_services import process_status
     done = [p for p in processes if process_status(p) == 1 and raw(p, 'ProcessNo') is not None]
     if not done:
+        running = [p for p in processes if process_status(p) in [4,5]]
+        if running:
+            current=running[-1]
+            change(type(job).objects.filter(pk=job.pk),{'CurrProcessID':raw(current,'ProcessID'),
+                'CurrProcessNo':raw(current,'ProcessNo'),'CurrStationID':raw(current,'StationID'),
+                'NextProcessID':raw(current,'ProcessID'),'NextStationID':raw(current,'StationID'),
+                'PlanDate':raw(current,'StartTime')},actor)
+            return
         pending = next((p for p in processes if process_status(p) != 1), None)
         values = {'CurrProcessID': None, 'CurrProcessNo': None, 'CurrStationID': None,
             'NextProcessID': None if pending is None else raw(pending, 'ProcessID'),

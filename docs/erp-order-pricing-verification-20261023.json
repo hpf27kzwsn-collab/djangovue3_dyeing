@@ -1,0 +1,433 @@
+{
+  "date": "2026-10-23",
+  "scope": "Q01-Q12限定开发及独立验证",
+  "development": "完成",
+  "historical_full_reconciliation": "未执行",
+  "onsite_acceptance": "未执行",
+  "backend_tests": {
+    "total": 61,
+    "new_pricing_tests": 16,
+    "regression_tests": 45,
+    "passed": 61,
+    "skipped": 0,
+    "database": "test_erp_numbering_regression_20261021",
+    "port": 5440
+  },
+  "frontend": {
+    "typecheck": "通过",
+    "production_build": "通过",
+    "url": "http://127.0.0.1:8081",
+    "backend_port": 8003
+  },
+  "browser_database": "erp_master_xlsx_verify_20261021",
+  "browser_database_port": "5440",
+  "original_quotes": {
+    "before": {
+      "counts": {
+        "FixedPrice": 20,
+        "FixedPriceDetail": 847
+      },
+      "sha256": "21381facf3f111ab0acdf4ed793aab6b540d0c45f50d08dfa8c579e3511f072d"
+    },
+    "after": {
+      "counts": {
+        "FixedPrice": 20,
+        "FixedPriceDetail": 847
+      },
+      "sha256": "21381facf3f111ab0acdf4ed793aab6b540d0c45f50d08dfa8c579e3511f072d"
+    },
+    "unchanged": true
+  },
+  "real_sample": {
+    "order_no": "K#250211045",
+    "check_no": "K250211045-01",
+    "customer": "000",
+    "prod_id": "00149",
+    "price": "35.50"
+  },
+  "browser_steps": [
+    {
+      "database": "erp_master_xlsx_verify_20261021",
+      "port": "5440",
+      "order_id": 17,
+      "order_no": "K#261023001",
+      "summary": {
+        "line_count": 1,
+        "unpriced_count": 0,
+        "known_subtotal": "355.00",
+        "total": "355.00"
+      },
+      "rows": [
+        {
+          "id": 2,
+          "prod_id": "00149",
+          "quantity": "10.00",
+          "price": "35.50",
+          "amount": "355.00",
+          "adoption": {
+            "mode": "quote",
+            "price": "35.50",
+            "amount": "355.00",
+            "reason": "",
+            "status": "priced",
+            "prod_id": "00149",
+            "quantity": "10.00",
+            "quote_id": 851,
+            "line_unit": "KG",
+            "adopted_at": "2026-10-23T04:18:20.186988+00:00",
+            "price_unit": 1,
+            "amount_mode": "calculated",
+            "customer_id": "000",
+            "price_basis": "CusPrice",
+            "quote_prices": {
+              "Price": null,
+              "CusPrice": "35.50",
+              "Pricesum": "0.00",
+              "MinAmount": null,
+              "FenTouPrice": "1.00",
+              "ProcessPrice": null
+            },
+            "quote_source": {
+              "key": {
+                "DetailNo": "Q-SAME"
+              },
+              "row": null,
+              "table": "FixedPriceDetail",
+              "schema": "dye",
+              "batch_id": null
+            },
+            "manual_amount": null,
+            "quantity_mode": "order",
+            "quote_head_id": 25,
+            "yarn_category": "本厂采购",
+            "quantity_basis": "OrderQty（KG）",
+            "quote_sheet_no": "BJ261023001",
+            "quote_detail_no": "Q-SAME",
+            "quote_head_source": {
+              "key": {
+                "SheetSeries": "BJ261023001"
+              },
+              "row": null,
+              "table": "FixedPrice",
+              "schema": "dye",
+              "batch_id": null
+            },
+            "original_price_unit": null,
+            "source_exists": true
+          }
+        }
+      ],
+      "source_quote_check": {
+        "counts": {
+          "FixedPrice": 20,
+          "FixedPriceDetail": 847
+        },
+        "sha256": "21381facf3f111ab0acdf4ed793aab6b540d0c45f50d08dfa8c579e3511f072d"
+      },
+      "original_quotes_unchanged": true
+    },
+    {
+      "database": "erp_master_xlsx_verify_20261021",
+      "port": "5440",
+      "order_id": 17,
+      "order_no": "K#261023001",
+      "summary": {
+        "line_count": 1,
+        "unpriced_count": 0,
+        "known_subtotal": "443.75",
+        "total": "443.75"
+      },
+      "rows": [
+        {
+          "id": 2,
+          "prod_id": "00149",
+          "quantity": "12.50",
+          "price": "35.50",
+          "amount": "443.75",
+          "adoption": {
+            "mode": "quote",
+            "price": "35.50",
+            "amount": "443.75",
+            "reason": "",
+            "status": "priced",
+            "prod_id": "00149",
+            "quantity": "12.50",
+            "quote_id": 851,
+            "line_unit": "KG",
+            "adopted_at": "2026-10-23T04:18:20.186988+00:00",
+            "price_unit": 1,
+            "amount_mode": "calculated",
+            "customer_id": "000",
+            "price_basis": "CusPrice",
+            "quote_prices": {
+              "Price": null,
+              "CusPrice": "35.50",
+              "Pricesum": "0.00",
+              "MinAmount": null,
+              "FenTouPrice": "1.00",
+              "ProcessPrice": null
+            },
+            "quote_source": {
+              "key": {
+                "DetailNo": "Q-SAME"
+              },
+              "row": null,
+              "table": "FixedPriceDetail",
+              "schema": "dye",
+              "batch_id": null
+            },
+            "manual_amount": null,
+            "quantity_mode": "order",
+            "quote_head_id": 25,
+            "yarn_category": "本厂采购",
+            "quantity_basis": "OrderQty（KG）",
+            "quote_sheet_no": "BJ261023001",
+            "quote_detail_no": "Q-SAME",
+            "quote_head_source": {
+              "key": {
+                "SheetSeries": "BJ261023001"
+              },
+              "row": null,
+              "table": "FixedPrice",
+              "schema": "dye",
+              "batch_id": null
+            },
+            "original_price_unit": null,
+            "source_exists": true
+          }
+        }
+      ],
+      "source_quote_check": {
+        "counts": {
+          "FixedPrice": 20,
+          "FixedPriceDetail": 847
+        },
+        "sha256": "21381facf3f111ab0acdf4ed793aab6b540d0c45f50d08dfa8c579e3511f072d"
+      },
+      "original_quotes_unchanged": true
+    },
+    {
+      "database": "erp_master_xlsx_verify_20261021",
+      "port": "5440",
+      "order_id": 17,
+      "order_no": "K#261023001",
+      "summary": {
+        "line_count": 1,
+        "unpriced_count": 0,
+        "known_subtotal": "506.25",
+        "total": "506.25"
+      },
+      "rows": [
+        {
+          "id": 2,
+          "prod_id": "00149",
+          "quantity": "12.50",
+          "price": "40.50",
+          "amount": "506.25",
+          "adoption": {
+            "mode": "quote",
+            "price": "40.50",
+            "amount": "506.25",
+            "reason": "",
+            "status": "priced",
+            "prod_id": "00149",
+            "quantity": "12.50",
+            "quote_id": 851,
+            "line_unit": "KG",
+            "adopted_at": "2026-10-23T04:22:03.496885+00:00",
+            "price_unit": 1,
+            "amount_mode": "calculated",
+            "customer_id": "000",
+            "price_basis": "CusPrice",
+            "quote_prices": {
+              "Price": null,
+              "CusPrice": "40.50",
+              "Pricesum": "0.00",
+              "MinAmount": null,
+              "FenTouPrice": "1.00",
+              "ProcessPrice": null
+            },
+            "quote_source": {
+              "key": {
+                "DetailNo": "Q-SAME"
+              },
+              "row": null,
+              "table": "FixedPriceDetail",
+              "schema": "dye",
+              "batch_id": null
+            },
+            "manual_amount": null,
+            "quantity_mode": "order",
+            "quote_head_id": 25,
+            "yarn_category": "本厂采购",
+            "quantity_basis": "OrderQty（KG）",
+            "quote_sheet_no": "BJ261023001",
+            "quote_detail_no": "Q-SAME",
+            "quote_head_source": {
+              "key": {
+                "SheetSeries": "BJ261023001"
+              },
+              "row": null,
+              "table": "FixedPrice",
+              "schema": "dye",
+              "batch_id": null
+            },
+            "original_price_unit": null,
+            "source_exists": true
+          }
+        }
+      ],
+      "source_quote_check": {
+        "counts": {
+          "FixedPrice": 20,
+          "FixedPriceDetail": 847
+        },
+        "sha256": "21381facf3f111ab0acdf4ed793aab6b540d0c45f50d08dfa8c579e3511f072d"
+      },
+      "original_quotes_unchanged": true
+    }
+  ],
+  "browser_new_order": {
+    "id": 18,
+    "number": "K#261023002",
+    "summary": {
+      "line_count": 2,
+      "unpriced_count": 0,
+      "known_subtotal": "702.50",
+      "total": "702.50"
+    },
+    "lines": [
+      {
+        "id": 3,
+        "number": "K261023002-03",
+        "quantity": "20.00",
+        "price": "35.50",
+        "amount": "710.00",
+        "adoption": {
+          "mode": "quote",
+          "price": "35.50",
+          "amount": "710.00",
+          "reason": "",
+          "status": "priced",
+          "prod_id": "00149",
+          "quantity": "20.00",
+          "quote_id": 188,
+          "line_unit": "KG",
+          "adopted_at": "2026-10-23T04:24:45.019239+00:00",
+          "price_unit": 1,
+          "amount_mode": "calculated",
+          "customer_id": "000",
+          "price_basis": "CusPrice",
+          "quote_prices": {
+            "Price": null,
+            "CusPrice": "35.50",
+            "Pricesum": "0.00",
+            "MinAmount": null,
+            "FenTouPrice": "1.00",
+            "ProcessPrice": null
+          },
+          "quote_source": {
+            "key": {
+              "DetailNo": "BJ260706002-060"
+            },
+            "row": 188,
+            "table": "FixedPriceDetail",
+            "schema": "dye",
+            "batch_id": 14
+          },
+          "manual_amount": null,
+          "quantity_mode": "order",
+          "quote_head_id": 3,
+          "yarn_category": "本厂采购",
+          "quantity_basis": "OrderQty（KG）",
+          "quote_sheet_no": "BJ260706002",
+          "quote_detail_no": "BJ260706002-060",
+          "quote_head_source": {
+            "key": {
+              "SheetSeries": "BJ260706002"
+            },
+            "row": 3,
+            "table": "FixedPrice",
+            "schema": "dye",
+            "batch_id": 14
+          },
+          "original_price_unit": null,
+          "source_exists": true
+        }
+      },
+      {
+        "id": 4,
+        "number": "K261023002-04",
+        "quantity": "3.00",
+        "price": "-2.50",
+        "amount": "-7.50",
+        "adoption": {
+          "mode": "quote",
+          "price": "-2.50",
+          "amount": "-7.50",
+          "reason": "",
+          "status": "priced",
+          "prod_id": "00149",
+          "quantity": "3.00",
+          "quote_id": 855,
+          "line_unit": "KG",
+          "adopted_at": "2026-10-23T04:26:39.372968+00:00",
+          "price_unit": 1,
+          "amount_mode": "calculated",
+          "customer_id": "000",
+          "price_basis": "CusPrice",
+          "quote_prices": {
+            "Price": null,
+            "CusPrice": "-2.50",
+            "Pricesum": "0.00",
+            "MinAmount": null,
+            "FenTouPrice": "1.00",
+            "ProcessPrice": null
+          },
+          "quote_source": {
+            "key": {
+              "DetailNo": "Q-SAME"
+            },
+            "row": null,
+            "table": "FixedPriceDetail",
+            "schema": "dye",
+            "batch_id": null
+          },
+          "manual_amount": null,
+          "quantity_mode": "order",
+          "quote_head_id": 25,
+          "yarn_category": "本厂采购",
+          "quantity_basis": "OrderQty（KG）",
+          "quote_sheet_no": "BJ261023001",
+          "quote_detail_no": "Q-SAME",
+          "quote_head_source": {
+            "key": {
+              "SheetSeries": "BJ261023001"
+            },
+            "row": null,
+            "table": "FixedPrice",
+            "schema": "dye",
+            "batch_id": null
+          },
+          "original_price_unit": null,
+          "source_exists": true
+        }
+      }
+    ]
+  },
+  "formal_import_performed": false,
+  "extra_legacy_id_added": false,
+  "model_migrations_added": false,
+  "paused": [
+    "财务",
+    "全部打印",
+    "原35项查询"
+  ],
+  "remaining": [
+    "F281报价头Price来源",
+    "完整分头费/最低消费/另收费口径",
+    "B01-B08后续业务链"
+  ],
+  "environment_note": "Redis6389未启动，原消息事件返回500；未纳入报价链成功，未修改消息后台任务。",
+  "screenshot": "assets/erp-order-pricing-20261023.png"
+}

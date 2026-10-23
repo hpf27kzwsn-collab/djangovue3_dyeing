@@ -1,0 +1,88 @@
+{
+  "checked": 496,
+  "errors": [],
+  "sql_zero_date_evidence": {
+    "table": "dye.CHECKEXACT",
+    "field": "CHECKTIME",
+    "sql_type": "datetime",
+    "default": "((0))",
+    "select_cast_result": "1900-01-01 00:00:00.000"
+  },
+  "model_fields_changed": 0,
+  "table_entry_conflicts": 9,
+  "service_priority_preserved": true,
+  "conflicts": [
+    {
+      "model": "erp_base.SourceDyeArrivalNotice",
+      "entry": "ArrivalNotice",
+      "field": "old_create_date",
+      "table_value": "1900-01-01 00:00:00",
+      "entry_kind": "DefaultDate",
+      "entry_value": "None"
+    },
+    {
+      "model": "erp_base.SourceDyeArrivalNotice",
+      "entry": "ArrivalNotice",
+      "field": "old_modify_date",
+      "table_value": "1900-01-01 00:00:00",
+      "entry_kind": "DefaultDate",
+      "entry_value": "None"
+    },
+    {
+      "model": "erp_sales.SourceDyeQuoteDetail",
+      "entry": "FixedPriceDetail",
+      "field": "old_price_unit",
+      "table_value": "0",
+      "entry_kind": "DefaultValue",
+      "entry_value": "1"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutJob",
+      "field": "old_sheet_date",
+      "table_value": "1900-01-01 00:00:00",
+      "entry_kind": "DefaultDate",
+      "entry_value": "None"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutJob",
+      "field": "old_sheet_kind",
+      "table_value": "0",
+      "entry_kind": "DefaultValue",
+      "entry_value": "34"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOut",
+      "entry": "GrayOutJob",
+      "field": "old_ware_house_id",
+      "table_value": "",
+      "entry_kind": "DefaultValue",
+      "entry_value": "0801"
+    },
+    {
+      "model": "erp_purchase.SourceDyePurMain",
+      "entry": "PurMain",
+      "field": "old_buyer_id",
+      "table_value": "",
+      "entry_kind": "LoginPeople_EmpID",
+      "entry_value": "None"
+    },
+    {
+      "model": "erp_purchase.SourceDyePurMain",
+      "entry": "PurMain",
+      "field": "old_create_date",
+      "table_value": "1900-01-01 00:00:00",
+      "entry_kind": "DefaultDate",
+      "entry_value": "None"
+    },
+    {
+      "model": "erp_purchase.SourceDyePurMain",
+      "entry": "PurMain",
+      "field": "old_dlv_date",
+      "table_value": "1900-01-01 00:00:00",
+      "entry_kind": "DefaultDate",
+      "entry_value": "None"
+    }
+  ]
+}

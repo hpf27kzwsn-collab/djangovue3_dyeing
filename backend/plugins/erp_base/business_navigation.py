@@ -4,6 +4,10 @@ from pathlib import Path
 from django.db import transaction
 
 RESOURCES = json.loads(Path(__file__).with_suffix('.json').read_text(encoding='utf8'))['resources']
+RESOURCES['erp_base.SourceDyeGetJobSheetReceive']={'entity':'erp_base_sourcedyegetjobsheetreceive',
+    'title':'部门接收登记','table':'GetJobSheetReceive','module':'erp_production'}
+RESOURCES['erp_production.SourceDyeTightTube']['title']='紧筒取消与平账'
+RESOURCES['erp_production.SourceDyeTightTubeDetail']['title']='紧筒业务明细'
 MODULES = {'erp_technology': '工艺设计', 'erp_scheduling': '排产管理', 'erp_production': '生产管理'}
 
 
@@ -14,11 +18,16 @@ def configure_resources(options, app):
         if label in RESOURCES:
             config['title'] = RESOURCES[label]['title']
         for child in config.get('workflow', {}).get('children', []):
-            if child['entity'] in titles:
+            if child['entity'] in titles and not child.get('parent_field'):
                 child['title'] = titles[child['entity']]
-    for name, entry in {'SourceDyeOrderMain': 'OrderMain', 'SourceDyeFixedPrice': 'Quote'}.items():
-        if app == 'erp_sales':
-            options[name]['workflow']['default_entry'] = entry
+    defaults = {
+        'erp_sales': {'SourceDyeOrderMain':'OrderMain','SourceDyeOrderColor':'OrderColor','SourceDyeFixedPrice':'Quote','SourceDyeFixedPriceDetail':'QuoteDetail'},
+        'erp_sampling': {'SourceDyeDyeRecipe':'DyeRecipe','SourceDyeDyeRecipePhase':'DyeRecipePhase','SourceDyeDyeRecipeDetail':'DyeRecipeDetail'},
+        'erp_production': {'SourceDyeProcessCraft':'ProcessCraft','SourceDyeStandCraft':'StandCraft','SourceDyeJobSheet':'JobSheet','SourceDyeJobProcess':'JobProcess','SourceDyeProcessSchedule':'ProcessSchedule','SourceDyeWProcess':'WProcessEdit','SourceDyeStuffWeight':'StuffWeight'},
+        'erp_warehouse': {'SourceDyeRecordYield':'RecordYield'},
+    }
+    for name,entry in defaults.get(app,{}).items():
+        options[name]['workflow']['default_entry'] = entry
 
 
 @transaction.atomic
@@ -51,7 +60,7 @@ def load():
     from system.catalog import ENTITIES
     from .foundation_catalog import DEFINITIONS
     profiles = {p['entity'] for p in DEFINITIONS.values()}
-    primary = {'JobSheet','ProcessSchedule','ProcessCraft','StandCraft','DyeRecipe','WProcess','StuffWeight','RecordYield','OutWorkApply','ReworkOrder'}
+    primary = {'JobSheet','ProcessSchedule','ProcessCraft','StandCraft','DyeRecipe','WProcess','StuffWeight','RecordYield','OutWorkApply','ReworkOrder','GetJobSheetReceive'}
     for label, spec in RESOURCES.items():
         menu = menus[spec['entity']]
         menu.name = spec['title']

@@ -10,6 +10,9 @@ from .source_entry_registry import ENTRY_RULES, entry_options
 from .source_entry_services import entry_for
 from .source_transfer_numbers import parameters as transfer_number_parameters
 from .source_excel import SourceExcelActions
+from .source_order_pricing_api import PricingInput,OrderPricingMixin
+from .source_order_card_api import OrderCardMixin,RouteMixin,ReviewCardMixin
+from .source_registration_api import LoadingMixin,JobWarehouseMixin,RecipeReferencesMixin
 
 
 class SourceRecordSerializer(BusinessSerializer):
@@ -34,13 +37,26 @@ class SourceRecordSerializer(BusinessSerializer):
             fields[key].required = False
         for field in fields.values():
             if isinstance(field,serializers.CharField):field.trim_whitespace=False
+        if self.Meta.model.SOURCE_TABLE=='OrderColor':fields['_pricing']=PricingInput(write_only=True,required=False)
         return fields
+
+    def to_representation(self,instance):
+        result=super().to_representation(instance)
+        if instance.SOURCE_TABLE=='OrderColor' and all(self.field_permissions.get(k,{}).get('is_query',True) for k in ['old_price','old_amount']):
+            from .source_order_pricing import info
+            result['pricing_info']=info(instance)
+        return result
 
     def to_internal_value(self,data):
         denied=OWNED.intersection(data)
         if denied:raise ValidationError({name:'由来源导入或明确办理动作维护。' for name in denied})
         from .foundation_catalog import bind
         data=bind(data,self.context.get('foundation_definition'),create=self.instance is None)
+        # 明确父记录时由既有服务承接原关联码；独立录入仍要求原必填字段。
+        for relation in services.owner_relations(self.Meta.model):
+            if data.get(relation['field']) is not None:
+                for old in relation['source_fields']:
+                    self.fields[self.Meta.model.SOURCE_FIELDS[old]].required=False
         return super().to_internal_value(data)
 
     def create(self,validated_data):
@@ -505,7 +521,7 @@ class SourceRecordViewSet(SourceExcelActions,BusinessViewSet):
         return self.performed(services.calculate,data)
 
 
-class SourceOrderViewSet(SourceRecordViewSet):
+class SourceOrderViewSet(OrderPricingMixin,SourceRecordViewSet):
     @action(methods=['post'],detail=True,url_name='close_expired')
     def close_expired(self,request,pk=None):
         from .business_api import parameters
@@ -650,7 +666,7 @@ class SourceDipsViewSet(SourceSampleReportsViewSet):
         return recipe_result(adopt_recipe(self.get_object(), request.user, **values))
 
 
-class SourceRecipeViewSet(SourceRecordViewSet):
+class SourceRecipeViewSet(RecipeReferencesMixin,SourceRecordViewSet):
     @action(methods=['post'], detail=True, url_name='to_production')
     def to_production(self, request, pk=None):
         from .business_api import parameters
@@ -660,7 +676,7 @@ class SourceRecipeViewSet(SourceRecordViewSet):
         return recipe_result(adopt_recipe(self.get_object(), request.user, entry='BulkDyeRecipe', **values))
 
 
-class SourceJobViewSet(SourceRecordViewSet):
+class SourceJobViewSet(RouteMixin,SourceRecordViewSet):
     @action(methods=['post'],detail=True,url_name='site_records')
     def site_records(self,request,pk=None):
         from .source_site_work import job_records
@@ -1264,6 +1280,18 @@ def movement_fields():
         'warehouse':nullable_text(),'unit':serializers.IntegerField(allow_null=True,required=False,default=None),'sheet_kind':serializers.IntegerField()}
 
 
+class SourceLoadingViewSet(LoadingMixin,SourceRecordViewSet):
+    pass
+
+
+class SourceJobWarehouseViewSet(JobWarehouseMixin,SourceRecordViewSet):
+    pass
+
+
+class SourceReviewViewSet(ReviewCardMixin,SourceQualityViewSet):
+    pass
+
+
 def card_fields():
     from .source_job_flow import rows
     return {**event_fields(),'quantity':number_field(),'rolls':number_field(),
@@ -1743,3 +1771,7 @@ class SourceMachineFaultViewSet(SourceEquipmentViewSet):
 class SourceSalesLimitReadOnlyViewSet(SourceRecordViewSet):
     """销售限制所需共享来源，仅提供查询。"""
     http_method_names=["get","head","options"]
+
+
+class SourceOrderColorViewSet(OrderCardMixin,OrderPricingMixin,SourceOutworkOrderViewSet):
+    """订单选价保留既有外协动作；保存仍由公共订单服务办理。"""

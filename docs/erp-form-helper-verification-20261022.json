@@ -1,0 +1,121 @@
+{
+  "passed": 29,
+  "checks": [
+    {
+      "name": "默认入口 erp_sales_sourcedyeordermain",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_sales_sourcedyefixedprice",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_sales_sourcedyeordercolor",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_sales_sourcedyefixedpricedetail",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_sampling_sourcedyedyerecipe",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_sampling_sourcedyedyerecipephase",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_sampling_sourcedyedyerecipedetail",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_production_sourcedyejobsheet",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_production_sourcedyejobprocess",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_production_sourcedyeprocessschedule",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_production_sourcedyeprocesscraft",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_production_sourcedyestandcraft",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_production_sourcedyewprocess",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_production_sourcedyestuffweight",
+      "passed": true
+    },
+    {
+      "name": "默认入口 erp_warehouse_sourcedyerecordyield",
+      "passed": true
+    },
+    {
+      "name": "普通配方阶段采用明确标准入口",
+      "passed": true
+    },
+    {
+      "name": "试样配方阶段继承试样变体",
+      "passed": true
+    },
+    {
+      "name": "阶段材料继承阶段入口",
+      "passed": true
+    },
+    {
+      "name": "加捻工序继承加捻工卡",
+      "passed": true
+    },
+    {
+      "name": "明确选中的少用类型保持",
+      "passed": true
+    },
+    {
+      "name": "修改没有删掉配方变体",
+      "passed": true
+    },
+    {
+      "name": "客户原必填生效",
+      "passed": true
+    },
+    {
+      "name": "默认生成值不被空输入覆盖",
+      "passed": true
+    },
+    {
+      "name": "关闭默认后明确NULL仍提交",
+      "passed": true
+    },
+    {
+      "name": "零、空文本、非生成NULL分别保留",
+      "passed": true
+    },
+    {
+      "name": "原值对象不被改写",
+      "passed": true
+    },
+    {
+      "name": "非来源整理模型也能复用整单表单",
+      "passed": true
+    },
+    {
+      "name": "原码可用于历史行关联资料上下文",
+      "passed": true
+    },
+    {
+      "name": "关联选择使用正在编辑的原码与父上下文",
+      "passed": true
+    }
+  ]
+}

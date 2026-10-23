@@ -13,7 +13,13 @@ def field_key(name):
 
 
 def extend(resources):
+    from .source_completion_resources import extend as completion_resources
+    completion_resources(resources)
     for model,options in resources.items():
+        if model=='SourceDyeOrderColor':
+            options['viewset']='plugins.erp_base.source_api.SourceOrderColorViewSet'
+            options['workflow']['order_pricing']=True
+        if model=='SourceDyeOrderMain':options['workflow']['order_pricing_head']=True
         options['workflow']['parent_bindings']=[{'relation':rule['field'],'fields':[
             {'field':field_key(old),'parent_original_field':parent_old}
             for old,parent_old in zip(rule['source_fields'],rule['target_fields'])]}
@@ -100,7 +106,7 @@ def extend(resources):
             for key,table,old,title in NUMBER_INPUTS.get(action['key'],[]):
                 action['inputs'].append({'key':key,'title':title+'（留空自动编号）','kind':'text','required':False,'options':[]})
         rules={name:rule for label,entries in ENTRY_RULES.items() if label.split('.')[1]==model for name,rule in entries.items()}
-        options['workflow']['entries']=[{'value':name,'label':rule['title'],
+        options['workflow']['entries']=[{'value':name,'label':rule['title'],'master_entry':rule['master_entry'],
             'generated_fields':[field_key(old) for old in [*rule['number_fields'],*rule['default_fields']]]} for name,rule in rules.items()]
         formulas=[{'value':name,'label':rule['title']} for label,rules in ENTRY_RULES.items() if label.split('.')[1]==model for name,rule in rules.items() if rule['formula_fields']]
         if formulas:options['workflow']['actions'].append({'key':'phase6_formula','title':'旧入口公式试算与采用','states':['draft','confirmed','approved',None],

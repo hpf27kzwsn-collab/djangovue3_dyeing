@@ -611,3 +611,7 @@ OWNERS.update({
     'erp_quality.SourceDyeFARRecord': [{'field': 'source_parent_1', 'source_fields': ['SheetSeries', 'DetailNo'],
         'target_fields': ['SheetSeries', 'DetailNo'], 'target': 'erp_quality.SourceDyeFARDetail'}],
 })
+
+OWNERS['erp_production.SourceDyeTightTubeDetail'] = [{'field': 'source_parent_1', 'source_fields': ['Sheetseries'], 'target_fields': ['SheetSeries'], 'target': 'erp_production.SourceDyeTightTube'}]
+
+OWNERS['erp_warehouse.SourceDyeCarryMaterialDetail'] = [{'field': 'source_parent_1', 'source_fields': ['Sheetseries'], 'target_fields': ['SheetSeries'], 'target': 'erp_warehouse.SourceDyeCarryMaterial'}]

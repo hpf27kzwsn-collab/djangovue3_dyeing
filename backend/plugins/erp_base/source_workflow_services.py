@@ -13,7 +13,10 @@ JOB_KIND_ENTRIES = {'JobSheet', 'PrintJobSheet', 'SaleJobSheet', 'TwiJobSheet'}
 
 def process_status(line):
     value = raw(line, 'Status')
-    return 0 if value is None or value.strip() == '' else int(value)
+    if value is None or value.strip() == '':return 0
+    # 原字符字段允许非数字状态；保留该状态，不把它冒充未开始或已完成。
+    from re import fullmatch
+    return int(value) if fullmatch(r'[+-]?\d+',value.strip()) else value
 
 
 def apply_changes(item, values, actor, action):
@@ -89,6 +92,9 @@ def refresh_chain(items, actor):
             refresh(item, actor)
 
 
-def refresh_removed(item, actor):
+def refresh_removed(item, actor,refresh_work_progress=False):
+    if item.SOURCE_TABLE=='WProcess' and refresh_work_progress:
+        from .source_work_progress import refresh
+        refresh(item,actor,remember=False)
     if item.SOURCE_TABLE == 'ProdIn':
         refresh_product_inbound(item, actor)

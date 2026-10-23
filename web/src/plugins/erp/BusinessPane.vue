@@ -16,17 +16,17 @@ import LossRows from './LossRows.vue'
 import ReworkSources from './ReworkSources.vue'
 import OriginalEntryWorkbench from './OriginalEntryWorkbench.vue'
 import OriginalDocumentPrint from './OriginalDocumentPrint.vue'
-const props=defineProps<{entity:string;context?:Record<string,any>;lookupContext?:Record<string,any>;contextLabel?:string;contextState?:string;readonly?:boolean;foundation?:any}>()
+import {originalValues} from './source-form'
+import OrderPricingWorkspace from './OrderPricingWorkspace.vue'
+const props=defineProps<{entity:string;context?:Record<string,any>;lookupContext?:Record<string,any>;parentEntry?:string;contextLabel?:string;contextState?:string;readonly?:boolean;foundation?:any}>()
 const route=useRoute(),maintenance=computed(()=>route.query.workspace==='maintenance')
 const account=useAccount(),meta=ref<any>(),table=ref(),selected=ref<any>(),open=ref(false),activeTab=ref(''),editor=ref(false)
 const actionOpen=ref(false),currentAction=ref<any>(),actionRow=ref<any>(),actionData=ref<Record<string,any>>({}),actionForm=ref(),saving=ref(false)
 const actionResult=ref('')
 const reportOpen=ref(false),report=ref<any>()
 const entryWorkbench=ref(false),printOpen=ref(false),printRow=ref<any>()
-const childLookupContext=computed(()=>{
-  const rules=meta.value?.workflow?.entries?.find((e:any)=>e.value===selected.value?.entry_name)?.field_rules??{}
-  return {...props.lookupContext,...Object.fromEntries(Object.entries(rules).filter(([key])=>selected.value[key]!==undefined).map(([key,rule]:[string,any])=>[rule.old_name,selected.value[key]]))}
-})
+const pricingOrder=ref<any>()
+const childLookupContext=computed(()=>({...props.lookupContext,...(selected.value?originalValues(meta.value,selected.value):{})}))
 const reportTables=computed(()=>report.value?[{title:'办理或查询结果',rows:report.value.rows},{title:'补充明细（含原筛选未展示记录）',rows:report.value.supplemental_rows??[]},{title:'未归类来源',rows:report.value.unclassified_rows??[]},...(report.value.quantity_sources?[{title:'本次报告数量来源',rows:report.value.quantity_sources}]:[]),...(report.value.candidate_rows?[{title:'原多候选及本次采用',rows:report.value.candidate_rows}]:[]),...(report.value.summary?[{title:'原变量与循环依据',rows:[report.value.summary]}]:[]),...(report.value.seed_rows?[{title:'上一循环班组种子来源',rows:report.value.seed_rows}]:[]),...(report.value.generation?[{title:'本次自动生成日历',rows:report.value.generation.rows}]:[]),...(report.value.result_rows?[{title:'结果与参与来源明细',rows:report.value.result_rows}]:[]),...(report.value.result_sets??[])]:[])
 const columns=(rows:any[])=>Array.from(new Set(rows.flatMap(row=>Object.keys(row))))
 const reportLabels:Record<string,string>={DefectDept:'责任部门编码',DefectDeptName:'责任部门',ClassName:'班次',UnitName:'计量口径',OneGrade:'一级分类',TowGrade:'二级分类',ClassID:'班次编码',AClassIDNum:'本班产量次数',BClassIDNum:'责任数量',ClassIDMoeny:'质量奖份额',KFMoeny:'质量扣罚',Rate:'责任比例（%）',Moeny:'质量奖结果',N1:'旬内审比例（%）',N2:'月内审比例（%）',K1:'旬客退比例（%）',K2:'月客退比例（%）',unit:'库存单位编码',measure:'数量种类',dispatched:'实际发出',received:'实际回货',difference:'收发差额',confirmed_loss:'确认损耗',unexplained_difference:'未解释差额',dispatch_nulls:'发出空值条数',receipt_nulls:'回货空值条数',unresolved_unit_source:'未确定单位的原记录',direction:'收发方向',entity:'来源表',source:'原字段来源',detail_no:'原明细号',header_count:'匹配表头数',reason:'说明'}
@@ -57,6 +57,7 @@ const tabs=computed(()=>(workflow.value.children??[]).filter((child:any)=>accoun
 const frozen=(row:any)=>props.readonly||workflow.value.readonly||Boolean(workflow.value.freeze_when?.some((key:string)=>row[key]))||Boolean(workflow.value.editable_states&&!workflow.value.editable_states.includes(row[workflow.value.state_field??'status']))
 function state(row:any){return workflow.value.state_from_parent?props.contextState:row[workflow.value.state_field??'status']}
 function childReadonly(child:any){return child.parent_states?!child.parent_states.includes(state(selected.value)):frozen(selected.value)}
+function childHasKey(child:any){return !child.parent_field||![null,undefined,''].includes(selected.value[child.parent_field])}
 function actionField(field:any){return field.params_from_row?{...field,remote:{...field.remote,params:Object.fromEntries(Object.entries(field.params_from_row).map(([key,source])=>[key,actionRow.value[String(source)]]))}}:field}
 async function submitAction(){
   await actionForm.value.validate()
@@ -67,6 +68,7 @@ function businessNow(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Sh
 function openAction(action:any,row?:any){currentAction.value=action;actionRow.value=row;actionData.value=Object.fromEntries(action.inputs.filter((f:any)=>f.source_field!==undefined||f.default!==undefined||f.kind==='multi'||f.kind==='datetime'&&f.default_now!==false).map((f:any)=>[f.key,f.source_field!==undefined?row[f.source_field]:f.default??(f.kind==='multi'?[]:businessNow())]));actionOpen.value=true}
 const actions=computed(()=>{
   const result:any[]=[]
+  if(workflow.value.order_pricing_head)result.push({key:'order_pricing',text:'订单选价',permission:props.entity+':detail',click:(row:any)=>{pricingOrder.value=row}})
   if(maintenance.value&&!props.foundation&&workflow.value.source_model&&workflow.value.entries?.length&&account.superuser)result.push({key:'original_print',text:'数据版打印',permission:props.entity+':phase6_prepare_print-post',click:(row:any)=>{printRow.value=row;printOpen.value=true}})
   if(tabs.value.length)result.push({key:'children',text:'明细与关联',permission:props.entity+':detail',click:(row:any)=>{selected.value=row;activeTab.value=tabs.value[0].entity;open.value=true}})
   if((workflow.value.children??[]).some((child:any)=>child.atomic))result.push({key:'document',text:'整单编辑',permission:props.entity+':save-document-post',show:(row:any)=>!frozen(row),click:(row:any)=>{selected.value=row;editor.value=true}})
@@ -101,16 +103,18 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons],async()=
 </script>
 <template>
   <div class="business-pane"><el-alert v-if="contextLabel" :title="contextLabel" type="info" :closable="false"/>
+    <el-dialog :model-value="!!pricingOrder" title="染整订单报价与金额" width="min(1350px,96vw)" destroy-on-close @close="pricingOrder=undefined"><OrderPricingWorkspace v-if="pricingOrder" :row="pricingOrder" @saved="table.refresh()"/></el-dialog>
     <el-alert v-if="actionResult" :title="actionResult" type="success" @close="actionResult=''"/>
     <div v-if="maintenance&&!foundation&&workflow.source_model&&account.can(entity+':phase6_catalog-get')"><el-button @click="entryWorkbench=true">数据来源与字段配置</el-button></div>
     <el-drawer v-model="entryWorkbench" title="旧业务入口" size="96vw" destroy-on-close><OriginalEntryWorkbench v-if="entryWorkbench" :entity="entity"/></el-drawer>
     <el-dialog v-model="printOpen" title="单据数据版打印" width="800px" destroy-on-close><OriginalDocumentPrint v-if="printOpen" :entity="entity" :row="printRow" :entries="workflow.print_entries" @saved="table.refresh()"/></el-dialog>
     <div v-if="maintenance&&!foundation&&collectionActions.length"><el-button v-for="action in collectionActions" :key="action.key" @click="openAction(action)">{{action.title}}</el-button></div>
     <el-alert v-if="readonly" title="本层资料已经冻结，业务进度通过对应操作维护。" type="info" :closable="false"/>
-    <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :lookup-context="lookupContext" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :disable-delete="workflow.delete_disabled" :row-actions="actions"/><el-skeleton v-else animated/>
+    <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :lookup-context="lookupContext" :parent-entry="parentEntry" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :disable-delete="workflow.delete_disabled" :row-actions="actions"/><el-skeleton v-else animated/>
     <el-drawer v-model="open" :title="meta?.title+' · 明细与关联'" size="min(1400px, 97vw)" destroy-on-close>
       <el-tabs v-if="open" v-model="activeTab"><el-tab-pane v-for="child in tabs" :key="child.entity" :name="child.entity" :label="child.title">
-        <BusinessPane v-if="activeTab===child.entity" :key="child.entity+'-'+selected.id" :entity="child.entity" :context="{[child.key]:selected.id,...(child.entry?{_entry:child.entry}:{})}" :lookup-context="childLookupContext" :foundation="foundation?{title:child.title,entry:child.entry,filters:{},field_titles:child.field_titles,simple_master:foundation.simple_master}:undefined" :context-state="state(selected)" :context-label="String(selected.number??selected.code??selected.name??selected.id)" :readonly="childReadonly(child)"/>
+        <el-alert v-if="activeTab===child.entity&&!childHasKey(child)" title="此表头的关联流水为空，无法按流水确定所属明细。原行仍保留，可从染程或材料明细入口核对。" type="info" :closable="false"/>
+        <BusinessPane v-else-if="activeTab===child.entity" :key="child.entity+'-'+selected.id" :entity="child.entity" :context="{[child.key]:selected[child.parent_field??'id'],...(child.entry?{_entry:child.entry}:{})}" :lookup-context="childLookupContext" :parent-entry="selected.entry_name" :foundation="foundation?{title:child.title,entry:child.entry,filters:{},field_titles:child.field_titles,simple_master:foundation.simple_master}:undefined" :context-state="state(selected)" :context-label="String(selected.number??selected.code??selected.name??selected.id)" :readonly="childReadonly(child)"/>
       </el-tab-pane></el-tabs>
     </el-drawer>
     <el-drawer v-model="editor" :title="meta?.title+' · 整单编辑'" size="min(1500px, 98vw)" destroy-on-close><DocumentEditor v-if="editor" :meta="meta" :row="selected" :context="context" @saved="editor=false;table.refresh()"/></el-drawer>

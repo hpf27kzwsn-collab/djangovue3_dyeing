@@ -3413,7 +3413,22 @@
         "PDQty": "排单重量",
         "PreField1": "捻度(H/S)"
       },
-      "relations": [],
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "所属CarryMaterial",
+          "target": "erp_warehouse.SourceDyeCarryMaterial",
+          "source_fields": [
+            "Sheetseries"
+          ],
+          "target_fields": [
+            "SheetSeries"
+          ],
+          "evidence": [
+            "旧有效入口CarryMaterialDetail的MasterDataTableName及SheetSeries关联；2026-10-22 L21/L38核查"
+          ]
+        }
+      ],
       "document": false
     },
     {
@@ -41080,7 +41095,22 @@
         "Modifyer": "修改人",
         "ModifyDate": "修改时间"
       },
-      "relations": [],
+      "relations": [
+        {
+          "field": "source_parent_1",
+          "title": "所属TightTube",
+          "target": "erp_production.SourceDyeTightTube",
+          "source_fields": [
+            "Sheetseries"
+          ],
+          "target_fields": [
+            "SheetSeries"
+          ],
+          "evidence": [
+            "旧有效入口CancelTightTubeDetail,TightTubeBalanceDetail的MasterDataTableName及SheetSeries关联；2026-10-22 L21/L38核查"
+          ]
+        }
+      ],
       "document": false
     },
     {

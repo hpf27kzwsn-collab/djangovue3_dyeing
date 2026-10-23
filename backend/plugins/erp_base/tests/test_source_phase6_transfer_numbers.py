@@ -19,7 +19,8 @@ class TransferNumberTests(TestCase):
         return services.write(model(table),{'_entry':table,'old_sheet_series':'H','old_sheet_no':'H',**extra},actor=self.actor)
 
     def test_department_non_numeric_original_survives_and_duplicate_explicit_numbers_are_saved(self):
-        bad=create('PurDetail',DetailNo='异常原号')
+        # SeriesAndRowNo按所属父流水检查旧号，不用另一父单或无父码原行阻断全库取号。
+        bad=create('PurDetail',SheetSeries='H',DetailNo='异常原号')
         for prefix in ['Article','Stuff']:
             head=self.head(prefix+'PurMain')
             application=create(prefix+'DeptApply',SheetSeries='A',SheetNo='A')

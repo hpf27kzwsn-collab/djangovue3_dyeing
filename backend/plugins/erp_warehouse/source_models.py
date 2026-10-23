@@ -549,10 +549,11 @@ class SourceDyeCarryMaterialDetail(SourceRecord):
     SOURCE_KEY=('DetailNo',)
     SOURCE_DOCUMENT=False
     SOURCE_COLLATIONS={'old_sheetseries': 'Chinese_PRC_CI_AS', 'old_detail_no': 'Chinese_PRC_CI_AS', 'old_customer_id': 'Chinese_PRC_CI_AS', 'old_job_sheet_no': 'Chinese_PRC_CI_AS', 'old_prod_id': 'Chinese_PRC_CI_AS', 'old_color_num': 'Chinese_PRC_CI_AS', 'old_color_id': 'Chinese_PRC_CI_AS', 'old_lot_no': 'Chinese_PRC_CI_AS', 'old_area': 'Chinese_PRC_CI_AS', 'old_cust_self_no': 'Chinese_PRC_CI_AS', 'old_contract_no': 'Chinese_PRC_CI_AS', 'old_semi_owner': 'Chinese_PRC_CI_AS', 'old_in_sheet_kind': 'Chinese_PRC_CI_AS', 'old_rece_sheet_no': 'Chinese_PRC_CI_AS', 'old_supplier_id': 'Chinese_PRC_CI_AS', 'old_job_color_id': 'Chinese_PRC_CI_AS', 'old_purchase_orders': 'Chinese_PRC_CI_AS', 'old_a_a': 'Chinese_PRC_CI_AS', 'old_a_b': 'Chinese_PRC_CI_AS', 'old_pre_field1': 'Chinese_PRC_CI_AS'}
-    SOURCE_RELATIONS=[]
+    SOURCE_RELATIONS=[{'field': 'source_parent_1', 'title': '所属CarryMaterial', 'target': 'erp_warehouse.SourceDyeCarryMaterial', 'source_fields': ['Sheetseries'], 'target_fields': ['SheetSeries'], 'evidence': ['旧有效入口CarryMaterialDetail的MasterDataTableName及SheetSeries关联；2026-10-22 L21/L38核查']}]
     SOURCE_DEFAULTS={}
     SOURCE_IDENTITIES=()
     SOURCE_IDENTITY_RULES={}
+    source_parent_1=models.ForeignKey('erp_warehouse.SourceDyeCarryMaterial', verbose_name='所属CarryMaterial', null=True, blank=True, on_delete=models.PROTECT, related_name='+')
     old_sheetseries=models.CharField('表单号', null=False, blank=True, max_length=50)
     old_detail_no=models.CharField('明细单号', null=False, blank=True, max_length=50)
     old_customer_id=models.CharField('客户', null=True, blank=True, max_length=30)

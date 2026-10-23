@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-22",
+  "database": "erp_master_xlsx_verify_20261021",
+  "port": 5440,
+  "browser_origin": "http://127.0.0.1:8081",
+  "passed": 13,
+  "checks": [
+    {
+      "name": "浏览器选择客户后订单与既有关联工卡回写",
+      "passed": true,
+      "actual": {
+        "order": "001",
+        "card": "001"
+      }
+    },
+    {
+      "name": "订单负数明细原值保留",
+      "passed": true,
+      "actual": "-2.00"
+    },
+    {
+      "name": "数量变更没有冒充重算工卡计划",
+      "passed": true,
+      "actual": "None"
+    },
+    {
+      "name": "浏览器报价明细正确关联头及入口",
+      "passed": true,
+      "actual": [
+        [
+          850,
+          "QuoteDetail",
+          24
+        ]
+      ]
+    },
+    {
+      "name": "报价原0默认值及明确NULL分别保存",
+      "passed": true,
+      "actual": {
+        "width": "0.00",
+        "weight": "0.00",
+        "cus_price": "12.34",
+        "price": null,
+        "pricesum": "0.00"
+      }
+    },
+    {
+      "name": "配方头阶段材料三层原码承接",
+      "passed": true,
+      "actual": {
+        "sheet": "PF261022001",
+        "phase": 1,
+        "head": 1,
+        "phase_id": 1,
+        "detail_id": 1
+      }
+    },
+    {
+      "name": "配方阶段和明细入口分别保留",
+      "passed": true,
+      "actual": [
+        "DyeRecipePhase",
+        "DyeRecipeDetail"
+      ]
+    },
+    {
+      "name": "浏览器新增正式工序关联工卡",
+      "passed": true,
+      "actual": {
+        "id": 1,
+        "entry": "JobProcess",
+        "card_series": "20261022204212978",
+        "process": "FORM-P"
+      }
+    },
+    {
+      "name": "染色排产原变体保存后不被普通类型覆盖",
+      "passed": true,
+      "actual": {
+        "entry": "ProcessScheduleRS",
+        "sequence": 2
+      }
+    },
+    {
+      "name": "报工整单保存沿用原入口",
+      "passed": true,
+      "actual": {
+        "entry": "WProcessEdit",
+        "remarks": "FL20261022-生产报工-浏览器保存"
+      }
+    },
+    {
+      "name": "普通称料阶段继承正确变体与浴比",
+      "passed": true,
+      "actual": {
+        "entry": "NormalStuffWeightPhaseDetail",
+        "bath_ratio": "5.00",
+        "parent": 1
+      }
+    },
+    {
+      "name": "生产产量保存未更换条码或GUID",
+      "passed": true,
+      "actual": {
+        "remarks": "FL20261022-生产产量-浏览器保存",
+        "barcode": "FORM-REPEAT",
+        "guid": "2cd94d15-efeb-4b53-ab04-f973bf2ea62b"
+      }
+    },
+    {
+      "name": "独立浏览器记录没有历史导入批次",
+      "passed": true,
+      "actual": 14
+    }
+  ],
+  "formal_history_reconciliation": false,
+  "onsite_acceptance": false
+}
