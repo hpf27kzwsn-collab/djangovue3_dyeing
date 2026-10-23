@@ -185,6 +185,8 @@ def finish(items, actor):
     stock.refresh_chain(items, actor)
     workflow.refresh_chain(items, actor)
     sampling.refresh_chain(items, actor)
+    from .source_button_events import result_saved
+    result_saved(items, actor)
     from .source_sample_flow import sync_lab
     for item in items:
         sync_lab(item, actor)
@@ -277,10 +279,14 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
             item.dept_belong_id = actor.dept_id if len(owner_chain) == 1 else owner_chain[0].dept_belong_id
     from .source_phase6_auto_values import before_save as entry_auto_values
     entry_auto_values(item, data, entry, instance is None)
+    from .source_button_events import before_save as button_before_save
+    button_before_save(item, data, instance is None)
     if model.SOURCE_TABLE=='OrderColor':
         from .source_order_pricing import prepare as prepare_pricing
         prepare_pricing(item,data,pricing_choice,actor)
     result = persist(item)
+    from .source_button_events import checked
+    checked(item, actor)
     from .source_master_data import saved as master_saved
     master_saved(item, data, instance is None, actor)
     from .source_phase2_triggers import saved as phase2_saved
@@ -307,6 +313,8 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
     from .source_work_progress import saved as work_progress_saved
     work_progress_saved(item,data,instance is None,actor,previous_numbering)
     packing.saved(item, instance is None, actor)
+    from .source_button_events import packaging_saved
+    packaging_saved(item, data, actor)
     if item.SOURCE_TABLE=='ShiftArrange':
         from .source_shift_work import trigger
         trigger(item,data,instance is None,actor)
@@ -471,7 +479,7 @@ def advance(item, actor, expected, target):
     require_origin_edit(item)
     if not item.SOURCE_DOCUMENT or len(objects) > 1:
         raise ValidationError({'approval_stage': '关联明细由所属表头办理，请从表头确认或审核。'})
-    if item.approval_stage != expected:
+    if item.approval_stage not in expected:
         raise ValidationError({'approval_stage': '当前办理阶段不允许此动作。'})
     validate_document(item)
     if target=='approved':
@@ -507,11 +515,11 @@ def advance(item, actor, expected, target):
 
 
 def confirm(item, actor):
-    return advance(item, actor, 'draft', 'confirmed')
+    return advance(item, actor, ['draft'], 'confirmed')
 
 
 def approve(item, actor):
-    return advance(item, actor, 'confirmed', 'approved')
+    return advance(item, actor, ['draft', 'confirmed'], 'approved')
 
 
 @transaction.atomic

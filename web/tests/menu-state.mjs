@@ -55,7 +55,7 @@ await scope.run(async()=>{
  const binding=ref({pagination:{currentPage:3,pageSize:20}}),search=ref({name__icontains:'keep'}),resourceMobile=ref(false);let resets=0,refreshes=0;
  const crudExpose={getSearchFormData:()=>search.value,setSearchFormData:({form})=>search.value=form,doRefresh:async()=>refreshes++,getBaseTableRef:()=>({clearSelection:()=>{}})};
  const table=evaluate('components/ResourceTable.vue',{...vue,...hooks,defineProps:()=>props,useAccount:()=>account,useRoute:()=>route,useRouter:()=>({}),useMobile:()=>resourceMobile,
- api:async()=>({data:[]}),resourceQuery:x=>x,toTree:x=>x,dict:x=>x,compute:fn=>fn,searches:{post:['name']},componentNames:[],fileSize:x=>x,merge:(target,value)=>Object.assign(target,value),
+ api:async()=>({data:[]}),numberingUpdated:ref({}),resourceQuery:x=>x,toTree:x=>x,dict:x=>x,compute:fn=>fn,searches:{post:['name']},componentNames:[],fileSize:x=>x,merge:(target,value)=>Object.assign(target,value),
  useFs:()=>({crudBinding:binding,crudRef:ref(),crudExpose,appendCrudBinding:options=>Object.assign(binding.value,options),resetCrudOptions:options=>{resets++;binding.value={pagination:{currentPage:1,pageSize:10},...options}}})},'{can,permissionPrefix,isOwnRoute,createCrudOptions,payload}');
  assert.equal(table.can('add'),true);account.menus=[{...account.menus[0],component_name:'after',web_path:'/renamed'}];account.buttons=['after:add'];route.path='/renamed';
  assert.equal(table.permissionPrefix.value,'after');assert.equal(table.can('add'),true);assert.equal(table.isOwnRoute(),true);

@@ -51,6 +51,10 @@ def job_records(job,query=rows):
             '原现场入口的1=2用于空白录入窗初始化，不代表这些业务不能录入。异常原码、NULL、负数及重复记录全部保留。']}
 
 
+from django.db import transaction
+
+
+@transaction.atomic
 def create_record(job,entry,values,actor):
     from .source_package_operations import reader
     from .source_services import write
@@ -67,4 +71,21 @@ def create_record(job,entry,values,actor):
             ClassID=values['class_id'],StationID=values['station'],CurrRolls=values['rolls'],CurrKg=values['weight'],
             CurrMeter=values['length'],DyeState=values['dye_state'],Memo=values['remarks'])
         if values['end'] is not None:data['EndTime']=values['end']
-    return write(model,{'_entry':entry,**{model.SOURCE_FIELDS[k]:v for k,v in data.items()}},actor=actor)
+    resolution=None
+    if not independent and values.get('auto_shift',False):
+        from .source_shift_calendar import resolve
+        from django.utils import timezone
+        from django.core.exceptions import ValidationError
+        resolution=resolve(job,values['start'],values['machine'],actor,timezone.now(),'现场报工按明确机台时间确定班组')
+        identities={(row['ShiftID'],row['ClassID']) for row in resolution['rows']}
+        if len(identities)>1:
+            raise ValidationError({'shift':'机台时间命中多个班组，请手工选择；全部候选：'+str(resolution['rows'])})
+        if identities:
+            shift,cls=identities.pop()
+            if values['shift'] is None:data['ShiftID']=shift
+            if values['class_id'] is None:data['ClassID']=cls
+    item=write(model,{'_entry':entry,**{model.SOURCE_FIELDS[k]:v for k,v in data.items()}},actor=actor)
+    if resolution is not None:
+        from .source_continuation import save_effect
+        save_effect(item,'site_shift_resolution',resolution,actor,'保留全部班组候选及缺日历依据；未匹配不补默认班组')
+    return item

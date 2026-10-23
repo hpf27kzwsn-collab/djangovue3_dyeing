@@ -13,6 +13,7 @@ const choice=reactive<any>({mode:previous.mode??'quote',yarn_category:previous.y
   quantity_mode:previous.quantity_mode??'order',quantity:previous.quantity??null,amount_mode:previous.amount_mode??'calculated',
   manual_amount:previous.manual_amount??null,manual_price:'manual_price' in previous?previous.manual_price:previous.mode==='manual'?previous.price:props.row.old_price??null,reason:''})
 const rows=ref<any[]>([]),preview=ref<any>(),busy=ref(false),applied=ref(!!props.modelValue)
+const cancelled=ref(false)
 const statusLabels:Record<string,string>={priced:'已采用并计价',unpriced:'未完整计价',invalid:'需重新选价',manual_input:'手工价格',manual_amount:'手工金额'}
 function query(){
   const data:any={order_id:props.order?.id??props.row.source_parent_1,line_id:props.row.id,
@@ -36,22 +37,25 @@ async function find(){
   try{rows.value=(await api('/api/system/erp_sales_sourcedyeordercolor/pricing_candidates/',{method:'POST',data:{...query(),yarn_category:choice.yarn_category}})).data.rows}finally{busy.value=false}
 }
 function choose(row:any){choice.quote_id=row.quote_id;choice.quote_head_id=row.quote_head_id;choice.yarn_category=row.yarn_category;if(row.price_unit!==null)choice.price_unit=row.price_unit;preview.value=undefined;applied.value=false}
-async function use(){
-  if(choice.mode==='quote'&&!choice.quote_id){ElMessage.info('请先选择一条报价');return}
+async function prepare(){
+  if(cancelled.value){ElMessage.info('本次选价已取消，请重新选择报价或录入议价');return null}
+  if(choice.mode==='quote'&&!choice.quote_id){ElMessage.info('请先选择一条报价');return null}
   busy.value=true
   try{preview.value=(await api('/api/system/erp_sales_sourcedyeordercolor/pricing_preview/',{method:'POST',data:{...query(),pricing:payload()}})).data;
-    emit('update:modelValue',payload());applied.value=true;ElMessage.success('已采用到本行，保存单据后生效')}finally{busy.value=false}
+    const value=payload();emit('update:modelValue',value);applied.value=true;return value}finally{busy.value=false}
 }
-function unchanged(){emit('update:modelValue',null);applied.value=false;preview.value=undefined}
+function unchanged(){emit('update:modelValue',null);applied.value=false;preview.value=undefined;cancelled.value=true}
 watch([()=>props.row.old_prod_id,()=>props.row.old_unit,()=>props.order?.old_customer_id],()=>{
   rows.value=[];choice.quote_id=undefined;choice.quote_head_id=undefined;unchanged()
 })
 watch([()=>props.row.old_order_qty,()=>props.row.old_card_qty],()=>{preview.value=undefined})
 watch(()=>choice.yarn_category,()=>{rows.value=[];choice.quote_id=undefined;choice.quote_head_id=undefined;unchanged()})
 watch(()=>[choice.mode,choice.quote_id,choice.quote_head_id,choice.price_basis,choice.price_unit,choice.quantity_mode,choice.quantity,choice.amount_mode,choice.manual_price,choice.manual_amount,choice.reason],()=>{
-  if(applied.value)unchanged()
+  preview.value=undefined
+  if(choice.mode==='manual'||choice.quote_id){cancelled.value=false;emit('update:modelValue',payload());applied.value=true}
+  else unchanged()
 })
-defineExpose({query,payload})
+defineExpose({query,payload,prepare})
 </script>
 <template>
   <div class="order-price-chooser">
@@ -90,7 +94,7 @@ defineExpose({query,payload})
         <label>采用说明</label><el-input v-model="choice.reason" aria-label="采用说明"/>
       </div>
       <p>报价原单位为空时，本单所选单位只记录在订单中。已有订单不随报价修改自动改价。</p>
-      <div class="price-controls"><el-button type="primary" :loading="busy" @click="use">{{saved?'重新取价并采用到本行':'试算并采用到本行'}}</el-button><el-button @click="unchanged">取消本次选价</el-button><el-tag v-if="applied" type="success">本次采用待保存</el-tag></div>
+      <div class="price-controls"><el-button :loading="busy" @click="prepare">预览计价</el-button><el-button @click="unchanged">取消本次选价</el-button><el-tag v-if="applied" type="success">选价待保存</el-tag></div>
       <el-alert v-if="preview" :title="'本次单价：'+(preview.price??'未计价')+'；金额：'+(preview.amount??'未完整计价')+'；数量依据：'+preview.adoption.quantity_basis" :type="preview.amount===null?'warning':'success'" :closable="false"/>
     </template>
   </div>

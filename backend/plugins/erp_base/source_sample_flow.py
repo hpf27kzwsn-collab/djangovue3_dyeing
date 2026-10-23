@@ -131,6 +131,8 @@ def reply(item, actor, note, status, confirm_version, reply_at):
         'note': note, 'raw_status': status, 'confirm_version': confirm_version}, ensure_ascii=False))
     for key in ['ColorNum', 'ColorNo']:
         change(matching(rows('PColorNum', 'erp_base'), **{key: raw(item, key)}), {'Note': note}, actor)
+    if confirm_version not in [None, '']:
+        update_result(item, actor)
     return item
 
 

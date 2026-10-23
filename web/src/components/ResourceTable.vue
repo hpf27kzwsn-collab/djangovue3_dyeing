@@ -40,10 +40,12 @@ const tree=ref<any[]>([]),contextTitle=ref(''),jsonDetail=ref<any>(),recipientMe
 const settings=ref<any>(),settingsOpen=ref(false),userGrantOpen=ref(false),grantRole=ref<any>()
 const passwordRef=ref(),passwordUser=ref<any>(),passwordForm=reactive({password:'',password_confirm:''}),passwordOpen=ref(false),preview=ref<any>(),models=ref<any[]>([]),model=ref(''),matchOpen=ref(false)
 const buttonEntity=ref(''),buttonEditorOpen=ref(false)
+const passwordActionsOpen=ref(false)
 const pageMenuId=account.menus.find(menu=>menu.web_path===ownPath)?.id
 const pageMenu=computed(()=>account.menus.find(menu=>menu.id===pageMenuId))
 const permissionPrefix=computed(()=>!props.context&&pageMenu.value?.component==='system/Resource'?pageMenu.value.component_name:entity)
 const can=(action:string)=>account.can(`${permissionPrefix.value}:${action}`)
+const copyEnabled=computed(()=>editable&&can('copy')&&props.meta.crud_options?.rowHandle?.buttons?.copy?.show!==false)
 const isOwnRoute=()=>route.path===(pageMenu.value?.web_path||ownPath)
 function numberingPolicy(form:any,field:string){
   const equal=(a:any,b:any)=>typeof a==='string'&&typeof b==='string'?a.trimEnd().toUpperCase()===b.trimEnd().toUpperCase():String(a)===String(b)
@@ -170,30 +172,20 @@ function createCrudOptions() {
   for(const field of props.meta.fields.filter((f:any)=>f.is_query&&f.kind==='datetime'&&['create_datetime','update_datetime','date_done'].includes(f.key)))for(const [suffix,label] of [['gte','起'],['lte','止']]){columns[field.key+'__'+suffix]={title:field.title+'（'+label+'）',column:{show:false},form:{show:false},search:{show:true,component:{name:'FieldInput',vModel:'modelValue',field}}}}
   columns.search={title:'关键词',type:'text',column:{show:false},form:{show:false},search:{show:true}}
   const buttons:any={view:{show:can('detail')},edit:{show:editable&&can('patch')},remove:{show:!props.readonly&&!['operation_log','login_log'].includes(entity)&&can('delete')}}
-  buttons.copy={text:'复制',show:editable&&can('copy'),click:({row}:any)=>crudExpose.openCopy({row})}
-  if(props.meta.workflow?.entries?.some((entry:any)=>entry.copy_fields?.length))buttons.entryContinue={
-    text:'按旧配置续行',show:editable&&can('add'),click:({row}:any)=>{
-      const entry=props.meta.workflow.entries.find((e:any)=>e.value===(row.entry_name??context.value._entry))
-      if(!entry?.copy_fields?.length){ElMessage.info('请先选择有续行字段的业务类型');return}
-      const values:any={_entry:entry.value,_entry_copy_from:row[props.meta.pk]}
-      for(const key of entry.copy_fields)values[key]=row[key]
-      return crudExpose.openAdd({row:values})
-    }}
+  buttons.copy={show:false}
   if(entity==='role') buttons.permissions={text:'权限配置',show:can('permissions-get'),click:({row}:any)=>{role.value=row;permissionOpen.value=true}}
   if(entity==='role') buttons.users={text:'授权用户',show:can('users-get'),click:({row}:any)=>{grantRole.value=row;userGrantOpen.value=true}}
   if(entity==='dept') buttons.users={text:'部门用户',show:account.can('user:list'),click:({row}:any)=>{workspaceRow.value=row;workspaceTab.value='users'}}
   if(entity==='dictionary')buttons.items={text:'字典配置',show:compute(({row}:any)=>can('list')&&!row.is_value),click:({row}:any)=>router.push({path:'/system/dictionary',query:{parent:row.id,parent_title:row.label}})}
   if(entity==='menu') {
-    buttons.buttons={text:'按钮',show:account.can('menu_button:list'),click:({row}:any)=>{workspaceRow.value=row;workspaceTab.value='buttons'}}
-    buttons.fields={text:'字段',show:account.can('column:list'),click:({row}:any)=>{workspaceRow.value=row;workspaceTab.value='fields'}}
+    buttons.configuration={text:'权限配置',show:account.can('menu_button:list')||account.can('column:list'),click:({row}:any)=>{workspaceRow.value=row;workspaceTab.value=account.can('menu_button:list')?'buttons':'fields'}}
   }
   if(['dept','menu'].includes(entity))for(const direction of ['up','down'])buttons[direction]={text:direction==='up'?'上移':'下移',show:can('move-'+direction+'-post'),click:async({row}:any)=>{await api(base+'move_'+direction+'/',{method:'POST',data:{id:row.id}});await refreshTree()}}
   if(entity==='system_config') buttons.settings={text:'配置表单',show:can('content-put'),click:({row}:any)=>{settings.value=row;settingsOpen.value=true}}
   if(entity==='user'){
-    buttons.reset={text:'重置密码',show:account.superuser&&can('reset-password-post'),click:({row}:any)=>{passwordUser.value=row;passwordForm.password='';passwordForm.password_confirm='';passwordOpen.value=true}}
-    buttons.defaultPassword={text:'恢复默认密码',show:account.superuser&&can('reset-to-default-password-put'),click:async({row}:any)=>{await api(`${base}${row.id}/reset_to_default_password/`,{method:'PUT',data:{}});ElMessage.success('已恢复配置的默认密码')}}
+    buttons.passwordActions={text:'密码操作',show:account.superuser&&(can('reset-password-post')||can('reset-to-default-password-put')),click:({row}:any)=>{passwordUser.value=row;passwordActionsOpen.value=true}}
   }
-  if(['operation_log','task_result'].includes(entity))buttons.json={text:'JSON 明细',show:can('detail'),click:({row}:any)=>{jsonDetail.value=row}}
+  if(['operation_log','task_result'].includes(entity))buttons.view={text:'查看',show:can('detail'),click:({row}:any)=>{jsonDetail.value=row}}
   if(entity==='message_center')buttons.recipients={text:'收件明细',show:can('recipients-get'),click:({row}:any)=>{recipientMessage.value=row;recipientsOpen.value=true}}
   if(entity==='message_center') buttons.publish={text:'发布',show:can('publish-post'),click:async({row}:any)=>{const result=await api(`${base}${row.id}/publish/`,{method:'POST',data:{}});ElMessage.success(`已发送给 ${result.data.count} 位用户`)}}
   if(entity==='periodic_task') buttons.run={text:'执行一次',show:can('run-post'),click:async({row}:any)=>{await api(`${base}${row.id}/run/`,{method:'POST',data:{}});ElMessage.success('任务已提交')}}
@@ -253,12 +245,21 @@ function clearSelected(){crudExpose.getBaseTableRef().clearSelection();selection
 function deselect(row:any){crudExpose.getBaseTableRef().toggleRowSelection(row,false)}
 async function removeSelected(){await api(base+'multiple_delete/',{method:'DELETE',params:{_foundation:context.value._foundation},data:{keys:selection.value.map(x=>x[props.meta.pk])}});clearSelected();await refreshTree()}
 async function asynchronous(){await api(base+'async_export/',{method:'POST',data:{},params:exportFilters()});ElMessage.success('导出任务已提交，可在下载中心查看')}
+function copySelected(){return crudExpose.openCopy({row:selection.value[0]})}
+const continuationEntry=computed(()=>selection.value.length===1?props.meta.workflow?.entries?.find((entry:any)=>entry.value===(selection.value[0].entry_name??context.value._entry)&&entry.copy_fields?.length):undefined)
+function continueSelected(){
+  const entry=continuationEntry.value,row=selection.value[0],values:any={_entry:entry.value,_entry_copy_from:row[props.meta.pk]}
+  for(const key of entry.copy_fields)values[key]=row[key]
+  return crudExpose.openAdd({row:values})
+}
 async function filterTree(row:any){treeOpen.value=false;workspaceRow.value=row;contextTitle.value=row.name||row.title||row.label;if(entity==='dept'&&account.can('user:list'))workspaceTab.value='users';if(entity==='menu'&&account.can('menu_button:list'))workspaceTab.value='buttons';context.value={...context.value,parent_title:row.name||row.title||row.label,[entity==='area'?'pcode':'parent']:row[props.meta.pk]};crudExpose.setSearchFormData({form:{}});await updateContext()}
 async function allRows(){workspaceRow.value=undefined;workspaceTab.value='main';context.value={...context.value};delete context.value[entity==='area'?'pcode':'parent'];delete context.value.parent_title;crudExpose.setSearchFormData({form:{}});await updateContext()}
 async function departmentSummary(){await refresh();departmentInfo.value=(await api(`/api/system/dept/${context.value.dept}/info/`,{params:{include_children:includeChildren.value}})).data}
 watch(()=>context.value.dept,async dept=>{if(entity==='user'&&dept)departmentInfo.value=(await api(`/api/system/dept/${dept}/info/`,{params:{include_children:includeChildren.value}})).data},{immediate:true})
 async function sortTree(){const rows:any[]=[];function walk(nodes:any[],parent:number|null=null){nodes.forEach((node,sort)=>{rows.push({id:node.id,parent,sort});walk(node.children,node.id)})}walk(tree.value);await api(base+'batch_update/',{method:'PUT',data:rows});await refreshTree()}
 async function resetPassword(){if(!await passwordRef.value.validate(()=>{}))return;await api(`${base}${passwordUser.value.id}/reset_password/`,{method:'POST',data:passwordForm});passwordOpen.value=false;ElMessage.success('密码已重置')}
+function newPassword(){passwordActionsOpen.value=false;passwordForm.password='';passwordForm.password_confirm='';passwordOpen.value=true}
+async function defaultPassword(){await api(`${base}${passwordUser.value.id}/reset_to_default_password/`,{method:'PUT',data:{}});passwordActionsOpen.value=false;ElMessage.success('已恢复配置的默认密码')}
 async function matchFields(){await api(base+'auto_match_fields/',{method:'POST',data:{model:model.value,menu:context.value.menu}});matchOpen.value=false;await refresh()}
 async function showMatch(){models.value=(await api(base+'get_models/')).data;matchOpen.value=true}
 async function createButtons(){models.value=props.meta.resources;buttonEntity.value='';buttonEditorOpen.value=true}
@@ -267,11 +268,19 @@ async function saveButtons(){await api(base+'batch_create/',{method:'POST',data:
 <template><div class="page"><div class="page-heading"><h2>{{meta.title}}</h2><div class="toolbar"><el-button v-if="entity==='message_center'" @click="router.push('/inbox')">我的接收</el-button><el-button v-if="mobile&&tree.length" @click="treeOpen=!treeOpen">{{treeOpen?'收起筛选':'树形筛选'}}</el-button>
   <el-button v-if="entity==='column'&&context.menu&&can('auto-match-fields-post')" @click="showMatch">自动匹配模型字段</el-button>
   <el-button v-if="entity==='menu_button'&&context.menu&&can('batch-create-post')" @click="createButtons">批量生成按钮</el-button>
-  <el-button v-if="can('export-get')" @click="download(base+'export/',meta.title+'导出.xlsx',exportFilters())">导出</el-button>
-  <el-button v-if="can('async-export-post')" @click="asynchronous">异步导出</el-button>
-  <el-button v-if="meta.excel_import&&can('import-template-get')" @click="download(base+'import_template/',meta.title+'新增模板.xlsx',{_entry:defaultEntry,_foundation:context._foundation})">新增模板</el-button>
-  <el-button v-if="meta.excel_import&&can('update-template-get')&&can('patch')" @click="download(base+'update_template/',meta.title+'更新模板.xlsx',exportFilters())">更新模板</el-button>
-  <el-button v-if="editable&&meta.excel_import&&can('import-data-post')&&(can('add')||can('patch'))" @click="importOpen=true">xlsx 导入</el-button>
+  <el-dropdown v-if="can('export-get')||can('async-export-post')" trigger="click"><el-button>导出</el-button><template #dropdown><el-dropdown-menu>
+    <el-dropdown-item v-if="can('export-get')" @click="download(base+'export/',meta.title+'导出.xlsx',exportFilters())">导出当前筛选全部记录</el-dropdown-item>
+    <el-dropdown-item v-if="can('async-export-post')" @click="asynchronous">后台导出</el-dropdown-item>
+  </el-dropdown-menu></template></el-dropdown>
+  <el-dropdown v-if="meta.excel_import&&(can('import-template-get')||can('update-template-get')&&can('patch')||editable&&can('import-data-post')&&(can('add')||can('patch')))" trigger="click"><el-button>导入</el-button><template #dropdown><el-dropdown-menu>
+    <el-dropdown-item v-if="editable&&can('import-data-post')&&(can('add')||can('patch'))" @click="importOpen=true">上传xlsx资料</el-dropdown-item>
+    <el-dropdown-item v-if="can('import-template-get')" @click="download(base+'import_template/',meta.title+'新增模板.xlsx',{_entry:defaultEntry,_foundation:context._foundation})">下载新增模板</el-dropdown-item>
+    <el-dropdown-item v-if="can('update-template-get')&&can('patch')" @click="download(base+'update_template/',meta.title+'更新模板.xlsx',exportFilters())">下载更新模板</el-dropdown-item>
+  </el-dropdown-menu></template></el-dropdown>
+  <el-dropdown v-if="editable&&selection.length===1&&(copyEnabled||can('add')&&continuationEntry)" trigger="click"><el-button>基于所选新增</el-button><template #dropdown><el-dropdown-menu>
+    <el-dropdown-item v-if="copyEnabled" @click="copySelected">复制新增</el-dropdown-item>
+    <el-dropdown-item v-if="can('add')&&continuationEntry" @click="continueSelected">继续新增下一行</el-dropdown-item>
+  </el-dropdown-menu></template></el-dropdown>
   <el-button v-if="route.query.workspace==='maintenance'&&can('init-data-get')" @click="download(base+'init_data/',entity+'.json',exportFilters())">初始化数据</el-button>
   <el-popover trigger="click" width="min(500px, calc(100vw - 24px))"><template #reference><el-button>已选 {{selection.length}} 项</el-button></template><el-button @click="clearSelected">清空选择</el-button><el-table :data="selection"><el-table-column :prop="meta.pk" label="主键"/><el-table-column label="名称"><template #default="{row}">{{row.name||row.title||row.label||row.field_name}}</template></el-table-column><el-table-column label="操作"><template #default="{row}"><el-button text @click="deselect(row)">移除</el-button></template></el-table-column></el-table></el-popover><el-button v-if="!props.readonly&&!props.disableDelete&&!['operation_log','login_log'].includes(entity)&&can('multiple-delete-delete')" :disabled="selection.length===0" @click="removeSelected">批量删除</el-button>
   <template v-if="entity==='periodic_task'"><el-button @click="router.push('/system/interval_schedule')">间隔规则</el-button><el-button @click="router.push('/system/crontab_schedule')">Crontab 规则</el-button><el-button @click="router.push('/system/clocked_schedule')">指定时间</el-button><el-button @click="router.push('/system/solar_schedule')">太阳事件</el-button></template>
@@ -281,6 +290,7 @@ async function saveButtons(){await api(base+'batch_create/',{method:'POST',data:
 <el-dialog v-model="buttonEditorOpen" title="生成资源权限按钮" width="min(550px, calc(100vw - 24px))"><el-select v-model="buttonEntity" filterable placeholder="选择实际接口资源"><el-option v-for="item in models" :key="item.entity" :value="item.entity" :label="item.title+' ('+item.entity+')'"/></el-select><template #footer><el-button @click="buttonEditorOpen=false">取消</el-button><el-button type="primary" @click="saveButtons">生成</el-button></template></el-dialog><ExcelImport v-if="importOpen" v-model="importOpen" :base="base" :title="meta.title" :filters="exportFilters()" :entries="meta.workflow?.entries" :entry="defaultEntry" :create-template="can('import-template-get')&&can('add')" :update-template="can('update-template-get')&&can('patch')" @imported="refresh"/>
 <el-drawer v-model="settingsOpen" :title="settings?.title+' · 配置表单'" size="min(700px, 100vw)"><SettingsForm v-if="settingsOpen" :group="settings"/></el-drawer>
 <RoleUsers v-if="userGrantOpen" v-model="userGrantOpen" :role="grantRole" :editable="can('users-put')"/>
+<el-dialog v-model="passwordActionsOpen" :title="'密码操作 · '+passwordUser?.username" width="min(450px, calc(100vw - 24px))"><el-button v-if="account.superuser&&can('reset-password-post')" @click="newPassword">重置密码</el-button><el-button v-if="account.superuser&&can('reset-to-default-password-put')" @click="defaultPassword">恢复默认密码</el-button></el-dialog>
 <el-dialog v-model="passwordOpen" :title="'重置密码 · '+passwordUser?.username" width="min(450px, calc(100vw - 24px))"><el-form ref="passwordRef" :model="passwordForm" label-width="100px"><el-form-item label="新密码" prop="password" :rules="[{required:true,message:'请填写新密码'}]"><el-input v-model="passwordForm.password" type="password" show-password/></el-form-item><el-form-item label="确认密码" prop="password_confirm" :rules="[{required:true,message:'请确认新密码'},{validator:(_rule:any,value:string)=>value===passwordForm.password||new Error('两次密码不匹配')}]"><el-input v-model="passwordForm.password_confirm" type="password" show-password/></el-form-item></el-form><template #footer><el-button type="primary" @click="resetPassword">重置密码</el-button></template></el-dialog>
 <el-dialog v-model="matchOpen" title="自动匹配模型字段" width="min(500px, calc(100vw - 24px))"><el-select v-model="model" filterable style="width:100%"><el-option v-for="item in models" :key="item.key" :value="item.key" :label="item.app+' · '+item.title+' ('+item.key+')'"/></el-select><template #footer><el-button type="primary" @click="matchFields">匹配字段</el-button></template></el-dialog><MediaPreview v-model="preview"/>
 </div></template>

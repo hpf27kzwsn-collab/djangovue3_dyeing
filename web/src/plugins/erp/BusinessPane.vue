@@ -2,7 +2,7 @@
 import {computed,ref,watch} from 'vue'
 import {compute} from '@fast-crud/fast-crud'
 import {ElMessage} from 'element-plus'
-import {useRoute} from 'vue-router'
+import {useRoute,useRouter} from 'vue-router'
 import {businessTitle,businessFieldTitle} from '../../erp-workspace'
 import {api} from '../../api'
 import {useAccount} from '../../store'
@@ -18,14 +18,20 @@ import OriginalEntryWorkbench from './OriginalEntryWorkbench.vue'
 import OriginalDocumentPrint from './OriginalDocumentPrint.vue'
 import {originalValues} from './source-form'
 import OrderPricingWorkspace from './OrderPricingWorkspace.vue'
+import BusinessActionPanel from './BusinessActionPanel.vue'
+import {availableActions,type BusinessAction} from './action-presentation'
 const props=defineProps<{entity:string;context?:Record<string,any>;lookupContext?:Record<string,any>;parentEntry?:string;contextLabel?:string;contextState?:string;readonly?:boolean;foundation?:any}>()
-const route=useRoute(),maintenance=computed(()=>route.query.workspace==='maintenance')
+const route=useRoute(),router=useRouter(),maintenance=computed(()=>route.query.workspace==='maintenance')
 const account=useAccount(),meta=ref<any>(),table=ref(),selected=ref<any>(),open=ref(false),activeTab=ref(''),editor=ref(false)
 const actionOpen=ref(false),currentAction=ref<any>(),actionRow=ref<any>(),actionData=ref<Record<string,any>>({}),actionForm=ref(),saving=ref(false)
 const actionResult=ref('')
 const reportOpen=ref(false),report=ref<any>()
 const entryWorkbench=ref(false),printOpen=ref(false),printRow=ref<any>()
 const pricingOrder=ref<any>()
+const operationOpen=ref(false),operationRow=ref<any>(),collectionOpen=ref(false)
+const generatedDocument=ref<any>()
+const generatedMenu=computed(()=>account.menus.find(menu=>menu.resource===generatedDocument.value?.entity&&menu.component_name===menu.resource))
+function openGenerated(){operationOpen.value=false;collectionOpen.value=false;router.push({path:generatedMenu.value!.web_path,query:{id:generatedDocument.value.id}})}
 const childLookupContext=computed(()=>({...props.lookupContext,...(selected.value?originalValues(meta.value,selected.value):{})}))
 const reportTables=computed(()=>report.value?[{title:'办理或查询结果',rows:report.value.rows},{title:'补充明细（含原筛选未展示记录）',rows:report.value.supplemental_rows??[]},{title:'未归类来源',rows:report.value.unclassified_rows??[]},...(report.value.quantity_sources?[{title:'本次报告数量来源',rows:report.value.quantity_sources}]:[]),...(report.value.candidate_rows?[{title:'原多候选及本次采用',rows:report.value.candidate_rows}]:[]),...(report.value.summary?[{title:'原变量与循环依据',rows:[report.value.summary]}]:[]),...(report.value.seed_rows?[{title:'上一循环班组种子来源',rows:report.value.seed_rows}]:[]),...(report.value.generation?[{title:'本次自动生成日历',rows:report.value.generation.rows}]:[]),...(report.value.result_rows?[{title:'结果与参与来源明细',rows:report.value.result_rows}]:[]),...(report.value.result_sets??[])]:[])
 const columns=(rows:any[])=>Array.from(new Set(rows.flatMap(row=>Object.keys(row))))
@@ -50,9 +56,12 @@ Object.assign(reportLabels,{ZuoRiJiaBan:'昨日甲班',ZuoRiYiBan:'昨日乙班'
 Object.assign(reportLabels,{TotalKg:'原出缸总重量',ZKg:'原直通重量',JKg:'原加色重量',RTKg:'原返修重量',ZNum:'原直通次数',JNum:'原加色次数',RNum:'原返修次数',TNum:'原总次数',JTimes:'原加色次数字段',RTRate:'原返修率（%）',DyeAdd:'称料单加色次数',DayType:'统计期间',original_group:'原分组',ratio_issue:'比例说明',original_depth_code:'原色级码',ColorDepthName:'色级名称',pinzhong:'原品种',WindingID:'络筒原编码',CmOk:'原检查结果（1为提示）',rule:'原检查规则',Mesge:'原检查说明',Interval:'原分钟间隔',required_minutes:'原要求间隔分钟',MinNUM:'最早排程序位',NUM:'本卡排程序位',source_unit:'原数量单位',source_price_unit:'原价格单位',source_pack_unit:'原包装单位'})
 const display=(value:any)=>value===null?'NULL':typeof value==='object'?JSON.stringify(value):String(value)
 Object.assign(reportLabels,{retained_count:'本次原单留档数',compensation_count:'新增反向库存流水数',table:'原表',effect:'本次处理',source_entity:'来源表',source_id:'来源记录ID',target_entity:'下游表',relation:'关联依据',WareHouseID:'仓库',LotNo:'批号',StorageUnitIDs:'库位',InQty:'原入库量',OutQty:'原出库量',InWeightQty:'原入库重量',OutWeightQty:'原出库重量',InRolls:'原入库粒数',OutRolls:'原出库粒数',InLengthQty:'原入库长度',OutLengthQty:'原出库长度',InMoney:'原入库金额',OutMoney:'原出库金额'})
-function showActionResult(result:{msg:string;data:any}){actionResult.value=result.msg==='success'?'':result.msg;ElMessage.success(actionResult.value||'操作成功');if(result.data?.report){report.value=result.data;reportOpen.value=true}}
+function showActionResult(result:{msg:string;data:any}){actionResult.value=result.msg==='success'?'':result.msg;ElMessage.success(actionResult.value||'操作成功');if(result.data?.entity&&result.data?.id)generatedDocument.value=result.data;if(result.data?.report){report.value=result.data;reportOpen.value=true}}
 const workflow=computed(()=>meta.value?.workflow??{})
-const collectionActions=computed(()=>(workflow.value.actions??[]).filter((action:any)=>action.detail===false&&account.can(action.permission)))
+const collectionActions=computed(()=>availableActions((workflow.value.actions??[]).filter((action:any)=>action.detail===false),null,{},permission=>account.can(permission),maintenance.value))
+const rowActions=computed(()=>operationRow.value?availableActions((workflow.value.actions??[]).filter((action:any)=>action.detail!==false),state(operationRow.value),operationRow.value,permission=>account.can(permission),maintenance.value):[])
+const hasMaintenance=computed(()=>(workflow.value.actions??[]).some((action:any)=>['maintenance','automatic'].includes(action.placement)&&account.can(action.permission)))
+function switchWorkspace(){const query={...route.query};if(maintenance.value)delete query.workspace;else query.workspace='maintenance';router.push({path:route.path,query})}
 const tabs=computed(()=>(workflow.value.children??[]).filter((child:any)=>account.can(child.entity+':list')))
 const frozen=(row:any)=>props.readonly||workflow.value.readonly||Boolean(workflow.value.freeze_when?.some((key:string)=>row[key]))||Boolean(workflow.value.editable_states&&!workflow.value.editable_states.includes(row[workflow.value.state_field??'status']))
 function state(row:any){return workflow.value.state_from_parent?props.contextState:row[workflow.value.state_field??'status']}
@@ -62,26 +71,36 @@ function actionField(field:any){return field.params_from_row?{...field,remote:{.
 async function submitAction(){
   await actionForm.value.validate()
   saving.value=true
-  try{const result=await api(`/api/system/${props.entity}/${currentAction.value.detail===false?'':actionRow.value.id+'/'}${currentAction.value.key}/`,{method:'POST',data:actionData.value});actionOpen.value=false;showActionResult(result);await table.value.refresh()}finally{saving.value=false}
+  try{await performAction(currentAction.value,actionRow.value,actionData.value);actionOpen.value=false}finally{saving.value=false}
+}
+async function performAction(action:BusinessAction,row:any,data:any){
+  const result=await api(`/api/system/${props.entity}/${action.detail===false?'':row.id+'/'}${action.key}/`,{method:'POST',data})
+  showActionResult(result);await table.value.refresh()
+  if(action.detail!==false&&operationRow.value?.id===row.id){
+    if(action.key==='delete_shift_record'){operationOpen.value=false;operationRow.value=undefined}
+    else operationRow.value=(await api(`/api/system/${props.entity}/${row.id}/`)).data
+  }
+}
+async function executeAction(action:BusinessAction,row?:any){
+  if(action.inputs.length)openAction(action,row)
+  else await performAction(action,row,{})
 }
 function businessNow(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).format(new Date())}
 function openAction(action:any,row?:any){currentAction.value=action;actionRow.value=row;actionData.value=Object.fromEntries(action.inputs.filter((f:any)=>f.source_field!==undefined||f.default!==undefined||f.kind==='multi'||f.kind==='datetime'&&f.default_now!==false).map((f:any)=>[f.key,f.source_field!==undefined?row[f.source_field]:f.default??(f.kind==='multi'?[]:businessNow())]));actionOpen.value=true}
 const actions=computed(()=>{
   const result:any[]=[]
   if(workflow.value.order_pricing_head)result.push({key:'order_pricing',text:'订单选价',permission:props.entity+':detail',click:(row:any)=>{pricingOrder.value=row}})
-  if(maintenance.value&&!props.foundation&&workflow.value.source_model&&workflow.value.entries?.length&&account.superuser)result.push({key:'original_print',text:'数据版打印',permission:props.entity+':phase6_prepare_print-post',click:(row:any)=>{printRow.value=row;printOpen.value=true}})
-  if(tabs.value.length)result.push({key:'children',text:'明细与关联',permission:props.entity+':detail',click:(row:any)=>{selected.value=row;activeTab.value=tabs.value[0].entity;open.value=true}})
-  if((workflow.value.children??[]).some((child:any)=>child.atomic))result.push({key:'document',text:'整单编辑',permission:props.entity+':save-document-post',show:(row:any)=>!frozen(row),click:(row:any)=>{selected.value=row;editor.value=true}})
-  for(const action of (workflow.value.actions??[]).filter((action:any)=>action.detail!==false&&(maintenance.value||action.title!=='旧入口公式试算与采用')))result.push({key:action.key,text:businessTitle(action.title),permission:action.permission,show:(row:any)=>!row.transfer_retained&&action.states.includes(state(row))&&!(action.hide_when??[]).some((key:string)=>row[key])&&!(props.entity==='erp_sampling_sampleconfirmation'&&action.key==='send'&&row.sent_at!==null),click:async(row:any)=>{
-    if(action.inputs.length){openAction(action,row)}
-    else{const result=await api(`/api/system/${props.entity}/${row.id}/${action.key}/`,{method:'POST',data:{}});showActionResult(result);await table.value.refresh()}
-  }})
+  if(tabs.value.length)result.push({key:'children',text:'单据明细',permission:props.entity+':detail',click:(row:any)=>{selected.value=row;activeTab.value=tabs.value[0].entity;open.value=true}})
+  if((workflow.value.actions??[]).some((action:any)=>action.detail!==false&&action.placement!=='deferred'&&(maintenance.value||action.placement==='business')&&account.can(action.permission)))result.push({key:'business',text:maintenance.value?'维护办理':'业务办理',permission:props.entity+':detail',show:(row:any)=>availableActions((workflow.value.actions??[]).filter((action:any)=>action.detail!==false),state(row),row,permission=>account.can(permission),maintenance.value).length>0,click:(row:any)=>{operationRow.value=row;operationOpen.value=true}})
   return result
 })
-watch(()=>[props.entity,props.foundation,account.menus,account.buttons],async()=>{
+watch(()=>[props.entity,props.foundation,account.menus,account.buttons,maintenance.value],async()=>{
   const data=(await api('/api/meta/'+props.entity+'/')).data
   data.title=account.menus.find(menu=>menu.component_name===props.entity)?.name??businessTitle(data.title)
   for(const field of data.fields)field.title=businessFieldTitle(field.title)
+  if(data.workflow?.source_model&&!maintenance.value)for(const field of data.fields){
+    if(['approval_stage','confirmed_at','confirmed_by','approved_at','approved_by'].includes(field.key))field.column={...field.column,show:false}
+  }
   if(props.foundation){
     const entry=props.foundation
     data.title=account.menus.find(menu=>menu.component_name===entry.key)?.name??businessTitle(entry.title);data.foundation=entry
@@ -97,7 +116,8 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons],async()=
     }
   }
   for(const field of data.fields)if(props.context&&field.key in props.context)field.form={...field.form,component:{name:'FieldInput',vModel:'modelValue',field:{...field},disabled:true}}
-  data.crud_options={...data.crud_options,rowHandle:{width:620,buttons:{edit:{show:compute(({row}:any)=>!frozen(row)&&!(props.entity==='erp_sampling_sampleconfirmation'&&row.sent_at!==null)&&account.can(props.entity+':patch'))},remove:{show:compute(({row}:any)=>!frozen(row)&&!workflow.value.delete_disabled&&account.can(props.entity+':delete'))},copy:{show:false}}}}
+  const atomic=(data.workflow.children??[]).some((child:any)=>child.atomic)&&account.can(props.entity+':save-document-post')
+  data.crud_options={...data.crud_options,rowHandle:{width:data.workflow.order_pricing_head?420:340,buttons:{edit:{show:compute(({row}:any)=>!frozen(row)&&!(props.entity==='erp_sampling_sampleconfirmation'&&row.sent_at!==null)&&account.can(props.entity+':patch')), ...(atomic?{click:({row}:any)=>{selected.value=row;editor.value=true}}:{})},remove:{show:compute(({row}:any)=>!frozen(row)&&!workflow.value.delete_disabled&&account.can(props.entity+':delete'))},copy:{show:false}}}}
   meta.value=data
 },{immediate:true})
 </script>
@@ -105,10 +125,17 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons],async()=
   <div class="business-pane"><el-alert v-if="contextLabel" :title="contextLabel" type="info" :closable="false"/>
     <el-dialog :model-value="!!pricingOrder" title="染整订单报价与金额" width="min(1350px,96vw)" destroy-on-close @close="pricingOrder=undefined"><OrderPricingWorkspace v-if="pricingOrder" :row="pricingOrder" @saved="table.refresh()"/></el-dialog>
     <el-alert v-if="actionResult" :title="actionResult" type="success" @close="actionResult=''"/>
+    <div v-if="generatedDocument&&!operationOpen">已生成：{{generatedDocument.sheet_no??generatedDocument.id}} <el-button v-if="generatedMenu" text @click="openGenerated">打开新单</el-button></div>
+    <el-drawer v-model="operationOpen" :title="meta?.title+' · '+(maintenance?'维护办理':'业务办理')" size="min(1000px,96vw)" destroy-on-close>
+      <p v-if="operationRow" class="document-identity">{{operationRow.old_sheet_no??operationRow.number??operationRow.code??operationRow.id}}</p>
+      <p v-if="generatedDocument">已生成：{{generatedDocument.sheet_no??generatedDocument.id}} <el-button v-if="generatedMenu" text @click="openGenerated">打开新单</el-button></p>
+      <BusinessActionPanel :actions="rowActions" @execute="action=>executeAction(action,operationRow)"/>
+    </el-drawer>
+    <el-drawer v-model="collectionOpen" :title="meta?.title+' · '+(maintenance?'专题工具':'业务查询与办理')" size="min(1000px,96vw)" destroy-on-close><BusinessActionPanel :actions="collectionActions" collection @execute="action=>executeAction(action)"/></el-drawer>
     <div v-if="maintenance&&!foundation&&workflow.source_model&&account.can(entity+':phase6_catalog-get')"><el-button @click="entryWorkbench=true">数据来源与字段配置</el-button></div>
     <el-drawer v-model="entryWorkbench" title="旧业务入口" size="96vw" destroy-on-close><OriginalEntryWorkbench v-if="entryWorkbench" :entity="entity"/></el-drawer>
     <el-dialog v-model="printOpen" title="单据数据版打印" width="800px" destroy-on-close><OriginalDocumentPrint v-if="printOpen" :entity="entity" :row="printRow" :entries="workflow.print_entries" @saved="table.refresh()"/></el-dialog>
-    <div v-if="maintenance&&!foundation&&collectionActions.length"><el-button v-for="action in collectionActions" :key="action.key" @click="openAction(action)">{{action.title}}</el-button></div>
+    <div v-if="collectionActions.length||hasMaintenance" class="business-toolbar"><el-button v-if="collectionActions.length" @click="collectionOpen=true">{{maintenance?'专题工具':'业务查询与办理'}}</el-button><el-button v-if="hasMaintenance" text @click="switchWorkspace">{{maintenance?'返回业务':'数据维护'}}</el-button></div>
     <el-alert v-if="readonly" title="本层资料已经冻结，业务进度通过对应操作维护。" type="info" :closable="false"/>
     <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :lookup-context="lookupContext" :parent-entry="parentEntry" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :disable-delete="workflow.delete_disabled" :row-actions="actions"/><el-skeleton v-else animated/>
     <el-drawer v-model="open" :title="meta?.title+' · 明细与关联'" size="min(1400px, 97vw)" destroy-on-close>
@@ -118,7 +145,7 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons],async()=
       </el-tab-pane></el-tabs>
     </el-drawer>
     <el-drawer v-model="editor" :title="meta?.title+' · 整单编辑'" size="min(1500px, 98vw)" destroy-on-close><DocumentEditor v-if="editor" :meta="meta" :row="selected" :context="context" @saved="editor=false;table.refresh()"/></el-drawer>
-    <el-dialog v-model="actionOpen" :title="currentAction?.title" width="min(900px,95vw)" destroy-on-close><el-form v-if="actionOpen" ref="actionForm" :model="actionData" label-width="150px">
+    <el-dialog v-model="actionOpen" :title="currentAction?.display_title" width="min(900px,95vw)" destroy-on-close><el-form v-if="actionOpen" ref="actionForm" :model="actionData" label-width="150px">
       <el-form-item v-for="field in currentAction.inputs" :key="field.key" :prop="field.key" :label="field.title" :rules="[{required:field.required,message:'请填写'+field.title}]"><ReworkSources v-if="field.kind==='rework_sources'" v-model="actionData[field.key]"/><LossRows v-else-if="field.kind==='losses'" v-model="actionData[field.key]"/><EditableActionRows v-else-if="field.kind==='editable_rows'" v-model="actionData[field.key]" :field="field"/><ActionRows v-else-if="field.kind==='rows'" v-model="actionData[field.key]" :field="field" :form="actionData" :row="actionRow"/><ActionChanges v-else-if="field.kind==='changes'" v-model="actionData[field.key]" :field="field"/><FieldInput v-else v-model="actionData[field.key]" :field="actionField(field)"/></el-form-item>
     </el-form><template #footer><el-button @click="actionOpen=false">取消</el-button><el-button type="primary" :loading="saving" @click="submitAction">确认操作</el-button></template></el-dialog>
     <el-dialog v-model="reportOpen" :title="report?.report" width="96vw" destroy-on-close>

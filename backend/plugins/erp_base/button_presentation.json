@@ -1,0 +1,5830 @@
+{
+  "erp_base_sourcedboaa:confirm": {
+    "placement": "business",
+    "audit": "B0001"
+  },
+  "erp_base_sourcedboaa:approve": {
+    "placement": "business",
+    "audit": "B0002"
+  },
+  "erp_base_sourcedboaa:reopen": {
+    "placement": "business",
+    "audit": "B0003"
+  },
+  "erp_base_sourcedboaaa:confirm": {
+    "placement": "business",
+    "audit": "B0004"
+  },
+  "erp_base_sourcedboaaa:approve": {
+    "placement": "business",
+    "audit": "B0005"
+  },
+  "erp_base_sourcedboaaa:reopen": {
+    "placement": "business",
+    "audit": "B0006"
+  },
+  "erp_base_sourcedboaakc1:confirm": {
+    "placement": "business",
+    "audit": "B0007"
+  },
+  "erp_base_sourcedboaakc1:approve": {
+    "placement": "business",
+    "audit": "B0008"
+  },
+  "erp_base_sourcedboaakc1:reopen": {
+    "placement": "business",
+    "audit": "B0009"
+  },
+  "erp_base_sourcedboabc:confirm": {
+    "placement": "business",
+    "audit": "B0010"
+  },
+  "erp_base_sourcedboabc:approve": {
+    "placement": "business",
+    "audit": "B0011"
+  },
+  "erp_base_sourcedboabc:reopen": {
+    "placement": "business",
+    "audit": "B0012"
+  },
+  "erp_base_sourcedboadd:confirm": {
+    "placement": "business",
+    "audit": "B0013"
+  },
+  "erp_base_sourcedboadd:approve": {
+    "placement": "business",
+    "audit": "B0014"
+  },
+  "erp_base_sourcedboadd:reopen": {
+    "placement": "business",
+    "audit": "B0015"
+  },
+  "erp_base_sourcedboaee:confirm": {
+    "placement": "business",
+    "audit": "B0016"
+  },
+  "erp_base_sourcedboaee:approve": {
+    "placement": "business",
+    "audit": "B0017"
+  },
+  "erp_base_sourcedboaee:reopen": {
+    "placement": "business",
+    "audit": "B0018"
+  },
+  "erp_base_sourcedboc:confirm": {
+    "placement": "business",
+    "audit": "B0019"
+  },
+  "erp_base_sourcedboc:approve": {
+    "placement": "business",
+    "audit": "B0020"
+  },
+  "erp_base_sourcedboc:reopen": {
+    "placement": "business",
+    "audit": "B0021"
+  },
+  "erp_base_sourcedbocbbz1109:confirm": {
+    "placement": "business",
+    "audit": "B0022"
+  },
+  "erp_base_sourcedbocbbz1109:approve": {
+    "placement": "business",
+    "audit": "B0023"
+  },
+  "erp_base_sourcedbocbbz1109:reopen": {
+    "placement": "business",
+    "audit": "B0024"
+  },
+  "erp_base_sourcedbockpd20221024:confirm": {
+    "placement": "business",
+    "audit": "B0025"
+  },
+  "erp_base_sourcedbockpd20221024:approve": {
+    "placement": "business",
+    "audit": "B0026"
+  },
+  "erp_base_sourcedbockpd20221024:reopen": {
+    "placement": "business",
+    "audit": "B0027"
+  },
+  "erp_base_sourcedbockpd20221024bak:confirm": {
+    "placement": "business",
+    "audit": "B0028"
+  },
+  "erp_base_sourcedbockpd20221024bak:approve": {
+    "placement": "business",
+    "audit": "B0029"
+  },
+  "erp_base_sourcedbockpd20221024bak:reopen": {
+    "placement": "business",
+    "audit": "B0030"
+  },
+  "erp_base_sourcedbockpd20221027:confirm": {
+    "placement": "business",
+    "audit": "B0031"
+  },
+  "erp_base_sourcedbockpd20221027:approve": {
+    "placement": "business",
+    "audit": "B0032"
+  },
+  "erp_base_sourcedbockpd20221027:reopen": {
+    "placement": "business",
+    "audit": "B0033"
+  },
+  "erp_base_sourcedbocksgz20221024:confirm": {
+    "placement": "business",
+    "audit": "B0034"
+  },
+  "erp_base_sourcedbocksgz20221024:approve": {
+    "placement": "business",
+    "audit": "B0035"
+  },
+  "erp_base_sourcedbocksgz20221024:reopen": {
+    "placement": "business",
+    "audit": "B0036"
+  },
+  "erp_base_sourcedbocpdqkc20221024:confirm": {
+    "placement": "business",
+    "audit": "B0037"
+  },
+  "erp_base_sourcedbocpdqkc20221024:approve": {
+    "placement": "business",
+    "audit": "B0038"
+  },
+  "erp_base_sourcedbocpdqkc20221024:reopen": {
+    "placement": "business",
+    "audit": "B0039"
+  },
+  "erp_base_sourcedbodxchanliang:confirm": {
+    "placement": "business",
+    "audit": "B0040"
+  },
+  "erp_base_sourcedbodxchanliang:approve": {
+    "placement": "business",
+    "audit": "B0041"
+  },
+  "erp_base_sourcedbodxchanliang:reopen": {
+    "placement": "business",
+    "audit": "B0042"
+  },
+  "erp_base_sourcedbohypf:confirm": {
+    "placement": "business",
+    "audit": "B0043"
+  },
+  "erp_base_sourcedbohypf:approve": {
+    "placement": "business",
+    "audit": "B0044"
+  },
+  "erp_base_sourcedbohypf:reopen": {
+    "placement": "business",
+    "audit": "B0045"
+  },
+  "erp_base_sourcedboitbak20221120:confirm": {
+    "placement": "business",
+    "audit": "B0046"
+  },
+  "erp_base_sourcedboitbak20221120:approve": {
+    "placement": "business",
+    "audit": "B0047"
+  },
+  "erp_base_sourcedboitbak20221120:reopen": {
+    "placement": "business",
+    "audit": "B0048"
+  },
+  "erp_base_sourcedboitbak20221121:confirm": {
+    "placement": "business",
+    "audit": "B0049"
+  },
+  "erp_base_sourcedboitbak20221121:approve": {
+    "placement": "business",
+    "audit": "B0050"
+  },
+  "erp_base_sourcedboitbak20221121:reopen": {
+    "placement": "business",
+    "audit": "B0051"
+  },
+  "erp_base_sourcedbojxtbzyq:confirm": {
+    "placement": "business",
+    "audit": "B0052"
+  },
+  "erp_base_sourcedbojxtbzyq:approve": {
+    "placement": "business",
+    "audit": "B0053"
+  },
+  "erp_base_sourcedbojxtbzyq:reopen": {
+    "placement": "business",
+    "audit": "B0054"
+  },
+  "erp_base_sourcedbojxtkckh:confirm": {
+    "placement": "business",
+    "audit": "B0055"
+  },
+  "erp_base_sourcedbojxtkckh:approve": {
+    "placement": "business",
+    "audit": "B0056"
+  },
+  "erp_base_sourcedbojxtkckh:reopen": {
+    "placement": "business",
+    "audit": "B0057"
+  },
+  "erp_base_sourcedbonhtj:confirm": {
+    "placement": "business",
+    "audit": "B0058"
+  },
+  "erp_base_sourcedbonhtj:approve": {
+    "placement": "business",
+    "audit": "B0059"
+  },
+  "erp_base_sourcedbonhtj:reopen": {
+    "placement": "business",
+    "audit": "B0060"
+  },
+  "erp_base_sourcedbopbpd20230422:confirm": {
+    "placement": "business",
+    "audit": "B0061"
+  },
+  "erp_base_sourcedbopbpd20230422:approve": {
+    "placement": "business",
+    "audit": "B0062"
+  },
+  "erp_base_sourcedbopbpd20230422:reopen": {
+    "placement": "business",
+    "audit": "B0063"
+  },
+  "erp_base_sourcedbops20221218:confirm": {
+    "placement": "business",
+    "audit": "B0064"
+  },
+  "erp_base_sourcedbops20221218:approve": {
+    "placement": "business",
+    "audit": "B0065"
+  },
+  "erp_base_sourcedbops20221218:reopen": {
+    "placement": "business",
+    "audit": "B0066"
+  },
+  "erp_base_sourcedboransechugangtongji:confirm": {
+    "placement": "business",
+    "audit": "B0067"
+  },
+  "erp_base_sourcedboransechugangtongji:approve": {
+    "placement": "business",
+    "audit": "B0068"
+  },
+  "erp_base_sourcedboransechugangtongji:reopen": {
+    "placement": "business",
+    "audit": "B0069"
+  },
+  "erp_base_sourcedboransetongji:confirm": {
+    "placement": "business",
+    "audit": "B0070"
+  },
+  "erp_base_sourcedboransetongji:approve": {
+    "placement": "business",
+    "audit": "B0071"
+  },
+  "erp_base_sourcedboransetongji:reopen": {
+    "placement": "business",
+    "audit": "B0072"
+  },
+  "erp_base_sourcedborcddzjb:confirm": {
+    "placement": "business",
+    "audit": "B0073"
+  },
+  "erp_base_sourcedborcddzjb:approve": {
+    "placement": "business",
+    "audit": "B0074"
+  },
+  "erp_base_sourcedborcddzjb:reopen": {
+    "placement": "business",
+    "audit": "B0075"
+  },
+  "erp_base_sourcedboshda:confirm": {
+    "placement": "business",
+    "audit": "B0076"
+  },
+  "erp_base_sourcedboshda:approve": {
+    "placement": "business",
+    "audit": "B0077"
+  },
+  "erp_base_sourcedboshda:reopen": {
+    "placement": "business",
+    "audit": "B0078"
+  },
+  "erp_base_sourcedboshift:confirm": {
+    "placement": "business",
+    "audit": "B0079"
+  },
+  "erp_base_sourcedboshift:approve": {
+    "placement": "business",
+    "audit": "B0080"
+  },
+  "erp_base_sourcedboshift:reopen": {
+    "placement": "business",
+    "audit": "B0081"
+  },
+  "erp_base_sourcedboshleixing:confirm": {
+    "placement": "business",
+    "audit": "B0082"
+  },
+  "erp_base_sourcedboshleixing:approve": {
+    "placement": "business",
+    "audit": "B0083"
+  },
+  "erp_base_sourcedboshleixing:reopen": {
+    "placement": "business",
+    "audit": "B0084"
+  },
+  "erp_base_sourcedbotmp20221104:confirm": {
+    "placement": "business",
+    "audit": "B0085"
+  },
+  "erp_base_sourcedbotmp20221104:approve": {
+    "placement": "business",
+    "audit": "B0086"
+  },
+  "erp_base_sourcedbotmp20221104:reopen": {
+    "placement": "business",
+    "audit": "B0087"
+  },
+  "erp_base_sourcedboxxtcbkc20221023:confirm": {
+    "placement": "business",
+    "audit": "B0088"
+  },
+  "erp_base_sourcedboxxtcbkc20221023:approve": {
+    "placement": "business",
+    "audit": "B0089"
+  },
+  "erp_base_sourcedboxxtcbkc20221023:reopen": {
+    "placement": "business",
+    "audit": "B0090"
+  },
+  "erp_base_sourcedboxxtzzp20221024:confirm": {
+    "placement": "business",
+    "audit": "B0091"
+  },
+  "erp_base_sourcedboxxtzzp20221024:approve": {
+    "placement": "business",
+    "audit": "B0092"
+  },
+  "erp_base_sourcedboxxtzzp20221024:reopen": {
+    "placement": "business",
+    "audit": "B0093"
+  },
+  "erp_base_sourcedbozhenzhibaobiao:confirm": {
+    "placement": "business",
+    "audit": "B0094"
+  },
+  "erp_base_sourcedbozhenzhibaobiao:approve": {
+    "placement": "business",
+    "audit": "B0095"
+  },
+  "erp_base_sourcedbozhenzhibaobiao:reopen": {
+    "placement": "business",
+    "audit": "B0096"
+  },
+  "erp_base_sourcedbozjhxmxbb:confirm": {
+    "placement": "business",
+    "audit": "B0097"
+  },
+  "erp_base_sourcedbozjhxmxbb:approve": {
+    "placement": "business",
+    "audit": "B0098"
+  },
+  "erp_base_sourcedbozjhxmxbb:reopen": {
+    "placement": "business",
+    "audit": "B0099"
+  },
+  "erp_base_sourcedyeacgroup:confirm": {
+    "placement": "business",
+    "audit": "B0100"
+  },
+  "erp_base_sourcedyeacgroup:approve": {
+    "placement": "business",
+    "audit": "B0101"
+  },
+  "erp_base_sourcedyeacgroup:reopen": {
+    "placement": "business",
+    "audit": "B0102"
+  },
+  "erp_base_sourcedyeacholiday:confirm": {
+    "placement": "business",
+    "audit": "B0103"
+  },
+  "erp_base_sourcedyeacholiday:approve": {
+    "placement": "business",
+    "audit": "B0104"
+  },
+  "erp_base_sourcedyeacholiday:reopen": {
+    "placement": "business",
+    "audit": "B0105"
+  },
+  "erp_base_sourcedyeacunlockcomb:confirm": {
+    "placement": "business",
+    "audit": "B0106"
+  },
+  "erp_base_sourcedyeacunlockcomb:approve": {
+    "placement": "business",
+    "audit": "B0107"
+  },
+  "erp_base_sourcedyeacunlockcomb:reopen": {
+    "placement": "business",
+    "audit": "B0108"
+  },
+  "erp_base_sourcedyeappuploadfilesinfo:confirm": {
+    "placement": "business",
+    "audit": "B0109"
+  },
+  "erp_base_sourcedyeappuploadfilesinfo:approve": {
+    "placement": "business",
+    "audit": "B0110"
+  },
+  "erp_base_sourcedyeappuploadfilesinfo:reopen": {
+    "placement": "business",
+    "audit": "B0111"
+  },
+  "erp_base_sourcedyeappuploadfilesinfo:phase4_equipment": {
+    "placement": "business",
+    "audit": "B0112"
+  },
+  "erp_base_sourcedyeappuploadfilesinfodel:confirm": {
+    "placement": "business",
+    "audit": "B0113"
+  },
+  "erp_base_sourcedyeappuploadfilesinfodel:approve": {
+    "placement": "business",
+    "audit": "B0114"
+  },
+  "erp_base_sourcedyeappuploadfilesinfodel:reopen": {
+    "placement": "business",
+    "audit": "B0115"
+  },
+  "erp_base_sourcedyearrivalnotice:confirm": {
+    "placement": "business",
+    "audit": "B0116"
+  },
+  "erp_base_sourcedyearrivalnotice:approve": {
+    "placement": "business",
+    "audit": "B0117"
+  },
+  "erp_base_sourcedyearrivalnotice:reopen": {
+    "placement": "business",
+    "audit": "B0118"
+  },
+  "erp_base_sourcedyearrivalnotice:phase6_purchase_to_arrival": {
+    "placement": "business",
+    "audit": "B0119"
+  },
+  "erp_base_sourcedyearrivalnoticedetail:phase6_reverse_line_transfer": {
+    "placement": "business",
+    "audit": "B0120"
+  },
+  "erp_base_sourcedyeattachment:confirm": {
+    "placement": "business",
+    "audit": "B0121"
+  },
+  "erp_base_sourcedyeattachment:approve": {
+    "placement": "business",
+    "audit": "B0122"
+  },
+  "erp_base_sourcedyeattachment:reopen": {
+    "placement": "business",
+    "audit": "B0123"
+  },
+  "erp_base_sourcedyeattparam:confirm": {
+    "placement": "business",
+    "audit": "B0124"
+  },
+  "erp_base_sourcedyeattparam:approve": {
+    "placement": "business",
+    "audit": "B0125"
+  },
+  "erp_base_sourcedyeattparam:reopen": {
+    "placement": "business",
+    "audit": "B0126"
+  },
+  "erp_base_sourcedyeauditedexc:confirm": {
+    "placement": "business",
+    "audit": "B0127"
+  },
+  "erp_base_sourcedyeauditedexc:approve": {
+    "placement": "business",
+    "audit": "B0128"
+  },
+  "erp_base_sourcedyeauditedexc:reopen": {
+    "placement": "business",
+    "audit": "B0129"
+  },
+  "erp_base_sourcedyeauthdevice:confirm": {
+    "placement": "business",
+    "audit": "B0130"
+  },
+  "erp_base_sourcedyeauthdevice:approve": {
+    "placement": "business",
+    "audit": "B0131"
+  },
+  "erp_base_sourcedyeauthdevice:reopen": {
+    "placement": "business",
+    "audit": "B0132"
+  },
+  "erp_base_sourcedyebalancingconditions:confirm": {
+    "placement": "business",
+    "audit": "B0133"
+  },
+  "erp_base_sourcedyebalancingconditions:approve": {
+    "placement": "business",
+    "audit": "B0134"
+  },
+  "erp_base_sourcedyebalancingconditions:reopen": {
+    "placement": "business",
+    "audit": "B0135"
+  },
+  "erp_base_sourcedyebasecase:confirm": {
+    "placement": "business",
+    "audit": "B0136"
+  },
+  "erp_base_sourcedyebasecase:approve": {
+    "placement": "business",
+    "audit": "B0137"
+  },
+  "erp_base_sourcedyebasecase:reopen": {
+    "placement": "business",
+    "audit": "B0138"
+  },
+  "erp_base_sourcedyebiotemplate:confirm": {
+    "placement": "business",
+    "audit": "B0139"
+  },
+  "erp_base_sourcedyebiotemplate:approve": {
+    "placement": "business",
+    "audit": "B0140"
+  },
+  "erp_base_sourcedyebiotemplate:reopen": {
+    "placement": "business",
+    "audit": "B0141"
+  },
+  "erp_base_sourcedyeclockshift:confirm": {
+    "placement": "business",
+    "audit": "B0142"
+  },
+  "erp_base_sourcedyeclockshift:approve": {
+    "placement": "business",
+    "audit": "B0143"
+  },
+  "erp_base_sourcedyeclockshift:reopen": {
+    "placement": "business",
+    "audit": "B0144"
+  },
+  "erp_base_sourcedyecompensatemain:confirm": {
+    "placement": "business",
+    "audit": "B0145"
+  },
+  "erp_base_sourcedyecompensatemain:approve": {
+    "placement": "business",
+    "audit": "B0146"
+  },
+  "erp_base_sourcedyecompensatemain:reopen": {
+    "placement": "business",
+    "audit": "B0147"
+  },
+  "erp_base_sourcedyecookin:confirm": {
+    "placement": "business",
+    "audit": "B0148"
+  },
+  "erp_base_sourcedyecookin:approve": {
+    "placement": "business",
+    "audit": "B0149"
+  },
+  "erp_base_sourcedyecookin:reopen": {
+    "placement": "business",
+    "audit": "B0150"
+  },
+  "erp_base_sourcedyedepartments:confirm": {
+    "placement": "business",
+    "audit": "B0151"
+  },
+  "erp_base_sourcedyedepartments:approve": {
+    "placement": "business",
+    "audit": "B0152"
+  },
+  "erp_base_sourcedyedepartments:reopen": {
+    "placement": "business",
+    "audit": "B0153"
+  },
+  "erp_base_sourcedyedeptusedschs:confirm": {
+    "placement": "business",
+    "audit": "B0154"
+  },
+  "erp_base_sourcedyedeptusedschs:approve": {
+    "placement": "business",
+    "audit": "B0155"
+  },
+  "erp_base_sourcedyedeptusedschs:reopen": {
+    "placement": "business",
+    "audit": "B0156"
+  },
+  "erp_base_sourcedyedyeprocessprice:confirm": {
+    "placement": "business",
+    "audit": "B0157"
+  },
+  "erp_base_sourcedyedyeprocessprice:approve": {
+    "placement": "business",
+    "audit": "B0158"
+  },
+  "erp_base_sourcedyedyeprocessprice:reopen": {
+    "placement": "business",
+    "audit": "B0159"
+  },
+  "erp_base_sourcedyeemproom:confirm": {
+    "placement": "business",
+    "audit": "B0160"
+  },
+  "erp_base_sourcedyeemproom:approve": {
+    "placement": "business",
+    "audit": "B0161"
+  },
+  "erp_base_sourcedyeemproom:reopen": {
+    "placement": "business",
+    "audit": "B0162"
+  },
+  "erp_base_sourcedyeenablecard:confirm": {
+    "placement": "business",
+    "audit": "B0163"
+  },
+  "erp_base_sourcedyeenablecard:approve": {
+    "placement": "business",
+    "audit": "B0164"
+  },
+  "erp_base_sourcedyeenablecard:reopen": {
+    "placement": "business",
+    "audit": "B0165"
+  },
+  "erp_base_sourcedyeexcnotes:confirm": {
+    "placement": "business",
+    "audit": "B0166"
+  },
+  "erp_base_sourcedyeexcnotes:approve": {
+    "placement": "business",
+    "audit": "B0167"
+  },
+  "erp_base_sourcedyeexcnotes:reopen": {
+    "placement": "business",
+    "audit": "B0168"
+  },
+  "erp_base_sourcedyefacetemp:confirm": {
+    "placement": "business",
+    "audit": "B0169"
+  },
+  "erp_base_sourcedyefacetemp:approve": {
+    "placement": "business",
+    "audit": "B0170"
+  },
+  "erp_base_sourcedyefacetemp:reopen": {
+    "placement": "business",
+    "audit": "B0171"
+  },
+  "erp_base_sourcedyefeeloffermain:confirm": {
+    "placement": "business",
+    "audit": "B0172"
+  },
+  "erp_base_sourcedyefeeloffermain:approve": {
+    "placement": "business",
+    "audit": "B0173"
+  },
+  "erp_base_sourcedyefeeloffermain:reopen": {
+    "placement": "business",
+    "audit": "B0174"
+  },
+  "erp_base_sourcedyegetjobsheetreceive:confirm": {
+    "placement": "business",
+    "audit": "B0175"
+  },
+  "erp_base_sourcedyegetjobsheetreceive:approve": {
+    "placement": "business",
+    "audit": "B0176"
+  },
+  "erp_base_sourcedyegetjobsheetreceive:reopen": {
+    "placement": "business",
+    "audit": "B0177"
+  },
+  "erp_base_sourcedyegwname:confirm": {
+    "placement": "business",
+    "audit": "B0178"
+  },
+  "erp_base_sourcedyegwname:approve": {
+    "placement": "business",
+    "audit": "B0179"
+  },
+  "erp_base_sourcedyegwname:reopen": {
+    "placement": "business",
+    "audit": "B0180"
+  },
+  "erp_base_sourcedyehemployee:correspondence": {
+    "placement": "maintenance",
+    "audit": "B0181"
+  },
+  "erp_base_sourcedyehemployee:business_units": {
+    "placement": "business",
+    "audit": "B0182"
+  },
+  "erp_base_sourcedyehemployee:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0183"
+  },
+  "erp_base_sourcedyeholidays:confirm": {
+    "placement": "business",
+    "audit": "B0184"
+  },
+  "erp_base_sourcedyeholidays:approve": {
+    "placement": "business",
+    "audit": "B0185"
+  },
+  "erp_base_sourcedyeholidays:reopen": {
+    "placement": "business",
+    "audit": "B0186"
+  },
+  "erp_base_sourcedyehuman:confirm": {
+    "placement": "business",
+    "audit": "B0187"
+  },
+  "erp_base_sourcedyehuman:approve": {
+    "placement": "business",
+    "audit": "B0188"
+  },
+  "erp_base_sourcedyehuman:reopen": {
+    "placement": "business",
+    "audit": "B0189"
+  },
+  "erp_base_sourcedyeitmanage:confirm": {
+    "placement": "business",
+    "audit": "B0190"
+  },
+  "erp_base_sourcedyeitmanage:approve": {
+    "placement": "business",
+    "audit": "B0191"
+  },
+  "erp_base_sourcedyeitmanage:reopen": {
+    "placement": "business",
+    "audit": "B0192"
+  },
+  "erp_base_sourcedyekindlimit:confirm": {
+    "placement": "business",
+    "audit": "B0193"
+  },
+  "erp_base_sourcedyekindlimit:approve": {
+    "placement": "business",
+    "audit": "B0194"
+  },
+  "erp_base_sourcedyekindlimit:reopen": {
+    "placement": "business",
+    "audit": "B0195"
+  },
+  "erp_base_sourcedyekq:confirm": {
+    "placement": "business",
+    "audit": "B0196"
+  },
+  "erp_base_sourcedyekq:approve": {
+    "placement": "business",
+    "audit": "B0197"
+  },
+  "erp_base_sourcedyekq:reopen": {
+    "placement": "business",
+    "audit": "B0198"
+  },
+  "erp_base_sourcedyekq:phase4_attendance": {
+    "placement": "business",
+    "audit": "B0199"
+  },
+  "erp_base_sourcedyekqquery:confirm": {
+    "placement": "business",
+    "audit": "B0200"
+  },
+  "erp_base_sourcedyekqquery:approve": {
+    "placement": "business",
+    "audit": "B0201"
+  },
+  "erp_base_sourcedyekqquery:reopen": {
+    "placement": "business",
+    "audit": "B0202"
+  },
+  "erp_base_sourcedyekqquery:phase4_attendance": {
+    "placement": "business",
+    "audit": "B0203"
+  },
+  "erp_base_sourcedyeleaveclass:confirm": {
+    "placement": "business",
+    "audit": "B0204"
+  },
+  "erp_base_sourcedyeleaveclass:approve": {
+    "placement": "business",
+    "audit": "B0205"
+  },
+  "erp_base_sourcedyeleaveclass:reopen": {
+    "placement": "business",
+    "audit": "B0206"
+  },
+  "erp_base_sourcedyeleaveclass1:confirm": {
+    "placement": "business",
+    "audit": "B0207"
+  },
+  "erp_base_sourcedyeleaveclass1:approve": {
+    "placement": "business",
+    "audit": "B0208"
+  },
+  "erp_base_sourcedyeleaveclass1:reopen": {
+    "placement": "business",
+    "audit": "B0209"
+  },
+  "erp_base_sourcedyelimit:confirm": {
+    "placement": "business",
+    "audit": "B0210"
+  },
+  "erp_base_sourcedyelimit:approve": {
+    "placement": "business",
+    "audit": "B0211"
+  },
+  "erp_base_sourcedyelimit:reopen": {
+    "placement": "business",
+    "audit": "B0212"
+  },
+  "erp_base_sourcedyelossbill:confirm": {
+    "placement": "business",
+    "audit": "B0213"
+  },
+  "erp_base_sourcedyelossbill:approve": {
+    "placement": "business",
+    "audit": "B0214"
+  },
+  "erp_base_sourcedyelossbill:reopen": {
+    "placement": "business",
+    "audit": "B0215"
+  },
+  "erp_base_sourcedyematerialpriceadjust:confirm": {
+    "placement": "business",
+    "audit": "B0216"
+  },
+  "erp_base_sourcedyematerialpriceadjust:approve": {
+    "placement": "business",
+    "audit": "B0217"
+  },
+  "erp_base_sourcedyematerialpriceadjust:reopen": {
+    "placement": "business",
+    "audit": "B0218"
+  },
+  "erp_base_sourcedyenolimit:confirm": {
+    "placement": "business",
+    "audit": "B0219"
+  },
+  "erp_base_sourcedyenolimit:approve": {
+    "placement": "business",
+    "audit": "B0220"
+  },
+  "erp_base_sourcedyenolimit:reopen": {
+    "placement": "business",
+    "audit": "B0221"
+  },
+  "erp_base_sourcedyenumrun:confirm": {
+    "placement": "business",
+    "audit": "B0222"
+  },
+  "erp_base_sourcedyenumrun:approve": {
+    "placement": "business",
+    "audit": "B0223"
+  },
+  "erp_base_sourcedyenumrun:reopen": {
+    "placement": "business",
+    "audit": "B0224"
+  },
+  "erp_base_sourcedyenumrundeil:confirm": {
+    "placement": "business",
+    "audit": "B0225"
+  },
+  "erp_base_sourcedyenumrundeil:approve": {
+    "placement": "business",
+    "audit": "B0226"
+  },
+  "erp_base_sourcedyenumrundeil:reopen": {
+    "placement": "business",
+    "audit": "B0227"
+  },
+  "erp_base_sourcedyeparticle:correspondence": {
+    "placement": "maintenance",
+    "audit": "B0228"
+  },
+  "erp_base_sourcedyepcustomer:correspondence": {
+    "placement": "maintenance",
+    "audit": "B0229"
+  },
+  "erp_base_sourcedyepcustomer:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0230"
+  },
+  "erp_base_sourcedyepdyecurvedetail:calculate": {
+    "placement": "automatic",
+    "audit": "B0231"
+  },
+  "erp_base_sourcedyepdyecurvedetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0232"
+  },
+  "erp_base_sourcedyepfieldvalid:convert_unit": {
+    "placement": "maintenance",
+    "audit": "B0233"
+  },
+  "erp_base_sourcedyepfieldvalid:calendar_days": {
+    "placement": "maintenance",
+    "audit": "B0234"
+  },
+  "erp_base_sourcedyepfieldvalid:foundation_lookup": {
+    "placement": "business",
+    "audit": "B0235"
+  },
+  "erp_base_sourcedyepfieldvalid:original_combo": {
+    "placement": "business",
+    "audit": "B0236"
+  },
+  "erp_base_sourcedyepfieldvalid:machine_board": {
+    "placement": "business",
+    "audit": "B0237"
+  },
+  "erp_base_sourcedyepfieldvalid:original_view": {
+    "placement": "business",
+    "audit": "B0238"
+  },
+  "erp_base_sourcedyepfieldvalid:original_app_report": {
+    "placement": "business",
+    "audit": "B0239"
+  },
+  "erp_base_sourcedyepfieldvalid:original_table_export": {
+    "placement": "maintenance",
+    "audit": "B0240"
+  },
+  "erp_base_sourcedyepfieldvalid:original_field_number": {
+    "placement": "maintenance",
+    "audit": "B0241"
+  },
+  "erp_base_sourcedyepfieldvalid:original_table_transform": {
+    "placement": "maintenance",
+    "audit": "B0242"
+  },
+  "erp_base_sourcedyepfieldvalid:original_function": {
+    "placement": "maintenance",
+    "audit": "B0243"
+  },
+  "erp_base_sourcedyepfieldvalid:continuous_dates": {
+    "placement": "maintenance",
+    "audit": "B0244"
+  },
+  "erp_base_sourcedyepfieldvalid:original_lookup": {
+    "placement": "business",
+    "audit": "B0245"
+  },
+  "erp_base_sourcedyepfieldvalid:original_shared_function": {
+    "placement": "maintenance",
+    "audit": "B0246"
+  },
+  "erp_base_sourcedyepfieldvalid:original_foundation_report": {
+    "placement": "business",
+    "audit": "B0247"
+  },
+  "erp_base_sourcedyepfieldvalid:original_period": {
+    "placement": "business",
+    "audit": "B0248"
+  },
+  "erp_base_sourcedyepfieldvalid:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0249"
+  },
+  "erp_base_sourcedyepgray:correspondence": {
+    "placement": "maintenance",
+    "audit": "B0250"
+  },
+  "erp_base_sourcedyepmachine:machine_case_projects": {
+    "placement": "business",
+    "audit": "B0251"
+  },
+  "erp_base_sourcedyepmachine:lookup_shift": {
+    "placement": "business",
+    "audit": "B0252"
+  },
+  "erp_base_sourcedyepmachine:resolve_shift": {
+    "placement": "automatic",
+    "audit": "B0253"
+  },
+  "erp_base_sourcedyepmachine:undo_calendar": {
+    "placement": "business",
+    "audit": "B0254"
+  },
+  "erp_base_sourcedyepmachine:continuation": {
+    "placement": "business",
+    "audit": "B0255"
+  },
+  "erp_base_sourcedyepmachine:correspondence": {
+    "placement": "maintenance",
+    "audit": "B0256"
+  },
+  "erp_base_sourcedyepshiftarrange:lookup_shift": {
+    "placement": "business",
+    "audit": "B0257"
+  },
+  "erp_base_sourcedyepshiftarrange:resolve_shift": {
+    "placement": "automatic",
+    "audit": "B0258"
+  },
+  "erp_base_sourcedyepshiftarrange:undo_calendar": {
+    "placement": "business",
+    "audit": "B0259"
+  },
+  "erp_base_sourcedyepshiftarrange:continuation": {
+    "placement": "business",
+    "audit": "B0260"
+  },
+  "erp_base_sourcedyepshiftarrange:preview_calendar": {
+    "placement": "business",
+    "audit": "B0261"
+  },
+  "erp_base_sourcedyepshiftarrange:generate_calendar": {
+    "placement": "business",
+    "audit": "B0262"
+  },
+  "erp_base_sourcedyepshiftarrangedetail:lookup_shift": {
+    "placement": "business",
+    "audit": "B0263"
+  },
+  "erp_base_sourcedyepstorageunitid:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0264"
+  },
+  "erp_base_sourcedyepstuff:calculate": {
+    "placement": "automatic",
+    "audit": "B0265"
+  },
+  "erp_base_sourcedyepstuff:phase4_report": {
+    "placement": "business",
+    "audit": "B0266"
+  },
+  "erp_base_sourcedyepstuff:phase4_function": {
+    "placement": "maintenance",
+    "audit": "B0267"
+  },
+  "erp_base_sourcedyepstuff:phase4_operation": {
+    "placement": "business",
+    "audit": "B0268"
+  },
+  "erp_base_sourcedyepstuff:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0269"
+  },
+  "erp_base_sourcedyeppastedosage:confirm": {
+    "placement": "business",
+    "audit": "B0270"
+  },
+  "erp_base_sourcedyeppastedosage:approve": {
+    "placement": "business",
+    "audit": "B0271"
+  },
+  "erp_base_sourcedyeppastedosage:reopen": {
+    "placement": "business",
+    "audit": "B0272"
+  },
+  "erp_base_sourcedyeprintscreen:confirm": {
+    "placement": "business",
+    "audit": "B0273"
+  },
+  "erp_base_sourcedyeprintscreen:approve": {
+    "placement": "business",
+    "audit": "B0274"
+  },
+  "erp_base_sourcedyeprintscreen:reopen": {
+    "placement": "business",
+    "audit": "B0275"
+  },
+  "erp_base_sourcedyereportitem:confirm": {
+    "placement": "business",
+    "audit": "B0276"
+  },
+  "erp_base_sourcedyereportitem:approve": {
+    "placement": "business",
+    "audit": "B0277"
+  },
+  "erp_base_sourcedyereportitem:reopen": {
+    "placement": "business",
+    "audit": "B0278"
+  },
+  "erp_base_sourcedyerequestlimit:confirm": {
+    "placement": "business",
+    "audit": "B0279"
+  },
+  "erp_base_sourcedyerequestlimit:approve": {
+    "placement": "business",
+    "audit": "B0280"
+  },
+  "erp_base_sourcedyerequestlimit:reopen": {
+    "placement": "business",
+    "audit": "B0281"
+  },
+  "erp_base_sourcedyesaccmonth:original_period": {
+    "placement": "business",
+    "audit": "B0282"
+  },
+  "erp_base_sourcedyesautoid:allocate_number": {
+    "placement": "automatic",
+    "audit": "B0283"
+  },
+  "erp_base_sourcedyesdbcombovalue:original_combo": {
+    "placement": "business",
+    "audit": "B0284"
+  },
+  "erp_base_sourcedyesfieldright:original_config": {
+    "placement": "maintenance",
+    "audit": "B0285"
+  },
+  "erp_base_sourcedyesfunctions:original_config": {
+    "placement": "maintenance",
+    "audit": "B0286"
+  },
+  "erp_base_sourcedyesfuncuser:original_config": {
+    "placement": "maintenance",
+    "audit": "B0287"
+  },
+  "erp_base_sourcedyespermission:original_config": {
+    "placement": "maintenance",
+    "audit": "B0288"
+  },
+  "erp_base_sourcedyesroles:original_config": {
+    "placement": "maintenance",
+    "audit": "B0289"
+  },
+  "erp_base_sourcedyesrptinfo:original_config": {
+    "placement": "maintenance",
+    "audit": "B0290"
+  },
+  "erp_base_sourcedyesrptmenu:original_config": {
+    "placement": "maintenance",
+    "audit": "B0291"
+  },
+  "erp_base_sourcedyesrptright:original_config": {
+    "placement": "maintenance",
+    "audit": "B0292"
+  },
+  "erp_base_sourcedyessysparams:original_value": {
+    "placement": "maintenance",
+    "audit": "B0293"
+  },
+  "erp_base_sourcedyessysparams:system_parameters": {
+    "placement": "maintenance",
+    "audit": "B0294"
+  },
+  "erp_base_sourcedyesuinav:original_config": {
+    "placement": "maintenance",
+    "audit": "B0295"
+  },
+  "erp_base_sourcedyeschclass:confirm": {
+    "placement": "business",
+    "audit": "B0296"
+  },
+  "erp_base_sourcedyeschclass:approve": {
+    "placement": "business",
+    "audit": "B0297"
+  },
+  "erp_base_sourcedyeschclass:reopen": {
+    "placement": "business",
+    "audit": "B0298"
+  },
+  "erp_base_sourcedyeshift:confirm": {
+    "placement": "business",
+    "audit": "B0299"
+  },
+  "erp_base_sourcedyeshift:approve": {
+    "placement": "business",
+    "audit": "B0300"
+  },
+  "erp_base_sourcedyeshift:reopen": {
+    "placement": "business",
+    "audit": "B0301"
+  },
+  "erp_base_sourcedyeshoupitongzhidan:confirm": {
+    "placement": "business",
+    "audit": "B0302"
+  },
+  "erp_base_sourcedyeshoupitongzhidan:approve": {
+    "placement": "business",
+    "audit": "B0303"
+  },
+  "erp_base_sourcedyeshoupitongzhidan:reopen": {
+    "placement": "business",
+    "audit": "B0304"
+  },
+  "erp_base_sourcedyestaffestablishing:confirm": {
+    "placement": "business",
+    "audit": "B0305"
+  },
+  "erp_base_sourcedyestaffestablishing:approve": {
+    "placement": "business",
+    "audit": "B0306"
+  },
+  "erp_base_sourcedyestaffestablishing:reopen": {
+    "placement": "business",
+    "audit": "B0307"
+  },
+  "erp_base_sourcedyeswipeempedit:confirm": {
+    "placement": "business",
+    "audit": "B0308"
+  },
+  "erp_base_sourcedyeswipeempedit:approve": {
+    "placement": "business",
+    "audit": "B0309"
+  },
+  "erp_base_sourcedyeswipeempedit:reopen": {
+    "placement": "business",
+    "audit": "B0310"
+  },
+  "erp_base_sourcedyetbkey:confirm": {
+    "placement": "business",
+    "audit": "B0311"
+  },
+  "erp_base_sourcedyetbkey:approve": {
+    "placement": "business",
+    "audit": "B0312"
+  },
+  "erp_base_sourcedyetbkey:reopen": {
+    "placement": "business",
+    "audit": "B0313"
+  },
+  "erp_base_sourcedyetbsmsallot:confirm": {
+    "placement": "business",
+    "audit": "B0314"
+  },
+  "erp_base_sourcedyetbsmsallot:approve": {
+    "placement": "business",
+    "audit": "B0315"
+  },
+  "erp_base_sourcedyetbsmsallot:reopen": {
+    "placement": "business",
+    "audit": "B0316"
+  },
+  "erp_base_sourcedyetbsmsinfo:confirm": {
+    "placement": "business",
+    "audit": "B0317"
+  },
+  "erp_base_sourcedyetbsmsinfo:approve": {
+    "placement": "business",
+    "audit": "B0318"
+  },
+  "erp_base_sourcedyetbsmsinfo:reopen": {
+    "placement": "business",
+    "audit": "B0319"
+  },
+  "erp_base_sourcedyetemplate:confirm": {
+    "placement": "business",
+    "audit": "B0320"
+  },
+  "erp_base_sourcedyetemplate:approve": {
+    "placement": "business",
+    "audit": "B0321"
+  },
+  "erp_base_sourcedyetemplate:reopen": {
+    "placement": "business",
+    "audit": "B0322"
+  },
+  "erp_base_sourcedyeuserofrun:confirm": {
+    "placement": "business",
+    "audit": "B0323"
+  },
+  "erp_base_sourcedyeuserofrun:approve": {
+    "placement": "business",
+    "audit": "B0324"
+  },
+  "erp_base_sourcedyeuserofrun:reopen": {
+    "placement": "business",
+    "audit": "B0325"
+  },
+  "erp_base_sourcedyeuserspeday:confirm": {
+    "placement": "business",
+    "audit": "B0326"
+  },
+  "erp_base_sourcedyeuserspeday:approve": {
+    "placement": "business",
+    "audit": "B0327"
+  },
+  "erp_base_sourcedyeuserspeday:reopen": {
+    "placement": "business",
+    "audit": "B0328"
+  },
+  "erp_base_sourcedyeusertempsch:confirm": {
+    "placement": "business",
+    "audit": "B0329"
+  },
+  "erp_base_sourcedyeusertempsch:approve": {
+    "placement": "business",
+    "audit": "B0330"
+  },
+  "erp_base_sourcedyeusertempsch:reopen": {
+    "placement": "business",
+    "audit": "B0331"
+  },
+  "erp_base_sourcedyeuserinfo:confirm": {
+    "placement": "business",
+    "audit": "B0332"
+  },
+  "erp_base_sourcedyeuserinfo:approve": {
+    "placement": "business",
+    "audit": "B0333"
+  },
+  "erp_base_sourcedyeuserinfo:reopen": {
+    "placement": "business",
+    "audit": "B0334"
+  },
+  "erp_base_sourcedyeuserusedsclasses:confirm": {
+    "placement": "business",
+    "audit": "B0335"
+  },
+  "erp_base_sourcedyeuserusedsclasses:approve": {
+    "placement": "business",
+    "audit": "B0336"
+  },
+  "erp_base_sourcedyeuserusedsclasses:reopen": {
+    "placement": "business",
+    "audit": "B0337"
+  },
+  "erp_base_sourcedyeyunfeibiaozhun:confirm": {
+    "placement": "business",
+    "audit": "B0338"
+  },
+  "erp_base_sourcedyeyunfeibiaozhun:approve": {
+    "placement": "business",
+    "audit": "B0339"
+  },
+  "erp_base_sourcedyeyunfeibiaozhun:reopen": {
+    "placement": "business",
+    "audit": "B0340"
+  },
+  "erp_base_sourcedyezrevisionkey:phase5_report": {
+    "placement": "business",
+    "audit": "B0341"
+  },
+  "erp_base_sourcedyezrevisionkey:phase5_function": {
+    "placement": "maintenance",
+    "audit": "B0342"
+  },
+  "erp_base_sourcedyezrevisionkey:phase5_operation": {
+    "placement": "business",
+    "audit": "B0343"
+  },
+  "erp_base_sourcedyesdatatablecopy:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0344"
+  },
+  "erp_sales_salesorder:confirm": {
+    "placement": "business",
+    "audit": "B0345"
+  },
+  "erp_sales_salesorder:complete": {
+    "placement": "business",
+    "audit": "B0346"
+  },
+  "erp_sales_salesorder:close": {
+    "placement": "business",
+    "audit": "B0347"
+  },
+  "erp_sales_salesorder:reopen": {
+    "placement": "business",
+    "audit": "B0348"
+  },
+  "erp_sales_salesorderchange:confirm": {
+    "placement": "business",
+    "audit": "B0349"
+  },
+  "erp_sales_commercialprice:confirm": {
+    "placement": "business",
+    "audit": "B0350"
+  },
+  "erp_sales_delivery:confirm": {
+    "placement": "business",
+    "audit": "B0351"
+  },
+  "erp_sales_delivery:deliver": {
+    "placement": "business",
+    "audit": "B0352"
+  },
+  "erp_sales_delivery:cancel": {
+    "placement": "business",
+    "audit": "B0353"
+  },
+  "erp_sales_delivery:undo_delivery": {
+    "placement": "business",
+    "audit": "B0354"
+  },
+  "erp_sales_salesreturn:confirm": {
+    "placement": "business",
+    "audit": "B0355"
+  },
+  "erp_sales_salesreturn:close": {
+    "placement": "business",
+    "audit": "B0356"
+  },
+  "erp_sales_salesreturn:cancel": {
+    "placement": "business",
+    "audit": "B0357"
+  },
+  "erp_sales_salesreturn:reopen": {
+    "placement": "business",
+    "audit": "B0358"
+  },
+  "erp_sales_customercomplaint:handle": {
+    "placement": "business",
+    "audit": "B0359"
+  },
+  "erp_sales_customercomplaint:close": {
+    "placement": "business",
+    "audit": "B0360"
+  },
+  "erp_sales_sourcedyeclothgetmoney:confirm": {
+    "placement": "business",
+    "audit": "B0361"
+  },
+  "erp_sales_sourcedyeclothgetmoney:approve": {
+    "placement": "business",
+    "audit": "B0362"
+  },
+  "erp_sales_sourcedyeclothgetmoney:reopen": {
+    "placement": "business",
+    "audit": "B0363"
+  },
+  "erp_sales_sourcedyeclothgetmoney:phase5_report": {
+    "placement": "business",
+    "audit": "B0364"
+  },
+  "erp_sales_sourcedyeclothgetmoney:phase5_function": {
+    "placement": "maintenance",
+    "audit": "B0365"
+  },
+  "erp_sales_sourcedyeclothgetmoney:phase5_operation": {
+    "placement": "business",
+    "audit": "B0366"
+  },
+  "erp_sales_sourcedyecusaddprice:confirm": {
+    "placement": "business",
+    "audit": "B0367"
+  },
+  "erp_sales_sourcedyecusaddprice:approve": {
+    "placement": "business",
+    "audit": "B0368"
+  },
+  "erp_sales_sourcedyecusaddprice:reopen": {
+    "placement": "business",
+    "audit": "B0369"
+  },
+  "erp_sales_sourcedyecusbasicsprice:confirm": {
+    "placement": "business",
+    "audit": "B0370"
+  },
+  "erp_sales_sourcedyecusbasicsprice:approve": {
+    "placement": "business",
+    "audit": "B0371"
+  },
+  "erp_sales_sourcedyecusbasicsprice:reopen": {
+    "placement": "business",
+    "audit": "B0372"
+  },
+  "erp_sales_sourcedyecusextracharge:confirm": {
+    "placement": "business",
+    "audit": "B0373"
+  },
+  "erp_sales_sourcedyecusextracharge:approve": {
+    "placement": "business",
+    "audit": "B0374"
+  },
+  "erp_sales_sourcedyecusextracharge:reopen": {
+    "placement": "business",
+    "audit": "B0375"
+  },
+  "erp_sales_sourcedyecustomernolimit:confirm": {
+    "placement": "business",
+    "audit": "B0376"
+  },
+  "erp_sales_sourcedyecustomernolimit:approve": {
+    "placement": "business",
+    "audit": "B0377"
+  },
+  "erp_sales_sourcedyecustomernolimit:reopen": {
+    "placement": "business",
+    "audit": "B0378"
+  },
+  "erp_sales_sourcedyecustomerts:confirm": {
+    "placement": "business",
+    "audit": "B0379"
+  },
+  "erp_sales_sourcedyecustomerts:approve": {
+    "placement": "business",
+    "audit": "B0380"
+  },
+  "erp_sales_sourcedyecustomerts:reopen": {
+    "placement": "business",
+    "audit": "B0381"
+  },
+  "erp_sales_sourcedyefixedprice:confirm": {
+    "placement": "business",
+    "audit": "B0382"
+  },
+  "erp_sales_sourcedyefixedprice:approve": {
+    "placement": "business",
+    "audit": "B0383"
+  },
+  "erp_sales_sourcedyefixedprice:reopen": {
+    "placement": "business",
+    "audit": "B0384"
+  },
+  "erp_sales_sourcedyefixedprice:calculate": {
+    "placement": "automatic",
+    "audit": "B0385"
+  },
+  "erp_sales_sourcedyefixedprice:phase2_price": {
+    "placement": "maintenance",
+    "audit": "B0386"
+  },
+  "erp_sales_sourcedyefixedprice:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0387"
+  },
+  "erp_sales_sourcedyefixedpricedetail:calculate": {
+    "placement": "automatic",
+    "audit": "B0388"
+  },
+  "erp_sales_sourcedyefixedpricedetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0389"
+  },
+  "erp_sales_sourcedyefixedpriceprocess:confirm": {
+    "placement": "business",
+    "audit": "B0390"
+  },
+  "erp_sales_sourcedyefixedpriceprocess:approve": {
+    "placement": "business",
+    "audit": "B0391"
+  },
+  "erp_sales_sourcedyefixedpriceprocess:reopen": {
+    "placement": "business",
+    "audit": "B0392"
+  },
+  "erp_sales_sourcedyeorderassign:confirm": {
+    "placement": "business",
+    "audit": "B0393"
+  },
+  "erp_sales_sourcedyeorderassign:approve": {
+    "placement": "business",
+    "audit": "B0394"
+  },
+  "erp_sales_sourcedyeorderassign:reopen": {
+    "placement": "business",
+    "audit": "B0395"
+  },
+  "erp_sales_sourcedyeorderassign2:confirm": {
+    "placement": "business",
+    "audit": "B0396"
+  },
+  "erp_sales_sourcedyeorderassign2:approve": {
+    "placement": "business",
+    "audit": "B0397"
+  },
+  "erp_sales_sourcedyeorderassign2:reopen": {
+    "placement": "business",
+    "audit": "B0398"
+  },
+  "erp_sales_sourcedyeordercolor:confirm": {
+    "placement": "business",
+    "audit": "B0399"
+  },
+  "erp_sales_sourcedyeordercolor:approve": {
+    "placement": "business",
+    "audit": "B0400"
+  },
+  "erp_sales_sourcedyeordercolor:reopen": {
+    "placement": "business",
+    "audit": "B0401"
+  },
+  "erp_sales_sourcedyeordercolor:outwork_remaining": {
+    "placement": "business",
+    "audit": "B0402"
+  },
+  "erp_sales_sourcedyeordercolor:apply_outwork": {
+    "placement": "business",
+    "audit": "B0403"
+  },
+  "erp_sales_sourcedyeordercolor:calculate": {
+    "placement": "automatic",
+    "audit": "B0404"
+  },
+  "erp_sales_sourcedyeordercolor:open_first_card": {
+    "placement": "business",
+    "audit": "B0405"
+  },
+  "erp_sales_sourcedyeordercolor:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0406"
+  },
+  "erp_sales_sourcedyeordercombine:confirm": {
+    "placement": "business",
+    "audit": "B0407"
+  },
+  "erp_sales_sourcedyeordercombine:approve": {
+    "placement": "business",
+    "audit": "B0408"
+  },
+  "erp_sales_sourcedyeordercombine:reopen": {
+    "placement": "business",
+    "audit": "B0409"
+  },
+  "erp_sales_sourcedyeorderdlvapply:confirm": {
+    "placement": "business",
+    "audit": "B0410"
+  },
+  "erp_sales_sourcedyeorderdlvapply:approve": {
+    "placement": "business",
+    "audit": "B0411"
+  },
+  "erp_sales_sourcedyeorderdlvapply:reopen": {
+    "placement": "business",
+    "audit": "B0412"
+  },
+  "erp_sales_sourcedyeorderdlvapplylock:confirm": {
+    "placement": "business",
+    "audit": "B0413"
+  },
+  "erp_sales_sourcedyeorderdlvapplylock:approve": {
+    "placement": "business",
+    "audit": "B0414"
+  },
+  "erp_sales_sourcedyeorderdlvapplylock:reopen": {
+    "placement": "business",
+    "audit": "B0415"
+  },
+  "erp_sales_sourcedyeorderdlvapplysheet:confirm": {
+    "placement": "business",
+    "audit": "B0416"
+  },
+  "erp_sales_sourcedyeorderdlvapplysheet:approve": {
+    "placement": "business",
+    "audit": "B0417"
+  },
+  "erp_sales_sourcedyeorderdlvapplysheet:reopen": {
+    "placement": "business",
+    "audit": "B0418"
+  },
+  "erp_sales_sourcedyeorderfee:confirm": {
+    "placement": "business",
+    "audit": "B0419"
+  },
+  "erp_sales_sourcedyeorderfee:approve": {
+    "placement": "business",
+    "audit": "B0420"
+  },
+  "erp_sales_sourcedyeorderfee:reopen": {
+    "placement": "business",
+    "audit": "B0421"
+  },
+  "erp_sales_sourcedyeorderinfo:confirm": {
+    "placement": "business",
+    "audit": "B0422"
+  },
+  "erp_sales_sourcedyeorderinfo:approve": {
+    "placement": "business",
+    "audit": "B0423"
+  },
+  "erp_sales_sourcedyeorderinfo:reopen": {
+    "placement": "business",
+    "audit": "B0424"
+  },
+  "erp_sales_sourcedyeorderinfo:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0425"
+  },
+  "erp_sales_sourcedyeorderinfoprocess:confirm": {
+    "placement": "business",
+    "audit": "B0426"
+  },
+  "erp_sales_sourcedyeorderinfoprocess:approve": {
+    "placement": "business",
+    "audit": "B0427"
+  },
+  "erp_sales_sourcedyeorderinfoprocess:reopen": {
+    "placement": "business",
+    "audit": "B0428"
+  },
+  "erp_sales_sourcedyeordermain:confirm": {
+    "placement": "business",
+    "audit": "B0429"
+  },
+  "erp_sales_sourcedyeordermain:approve": {
+    "placement": "business",
+    "audit": "B0430"
+  },
+  "erp_sales_sourcedyeordermain:reopen": {
+    "placement": "business",
+    "audit": "B0431"
+  },
+  "erp_sales_sourcedyeordermain:close_expired": {
+    "placement": "maintenance",
+    "audit": "B0432"
+  },
+  "erp_sales_sourcedyeordermain:phase2_report": {
+    "placement": "business",
+    "audit": "B0433"
+  },
+  "erp_sales_sourcedyeordermain:app_order_save": {
+    "placement": "business",
+    "audit": "B0434"
+  },
+  "erp_sales_sourcedyeordermain:app_order_modify": {
+    "placement": "business",
+    "audit": "B0435"
+  },
+  "erp_sales_sourcedyeordermain:app_order_check": {
+    "placement": "automatic",
+    "audit": "B0436"
+  },
+  "erp_sales_sourcedyeordermain:refresh_order_prices": {
+    "placement": "automatic",
+    "audit": "B0437"
+  },
+  "erp_sales_sourcedyeordermain:phase6_reverse_head_transfer": {
+    "placement": "business",
+    "audit": "B0438"
+  },
+  "erp_sales_sourcedyeorderpriceprocess:confirm": {
+    "placement": "business",
+    "audit": "B0439"
+  },
+  "erp_sales_sourcedyeorderpriceprocess:approve": {
+    "placement": "business",
+    "audit": "B0440"
+  },
+  "erp_sales_sourcedyeorderpriceprocess:reopen": {
+    "placement": "business",
+    "audit": "B0441"
+  },
+  "erp_sales_sourcedyeorderprocess:confirm": {
+    "placement": "business",
+    "audit": "B0442"
+  },
+  "erp_sales_sourcedyeorderprocess:approve": {
+    "placement": "business",
+    "audit": "B0443"
+  },
+  "erp_sales_sourcedyeorderprocess:reopen": {
+    "placement": "business",
+    "audit": "B0444"
+  },
+  "erp_sales_sourcedyeorderprocesspre:confirm": {
+    "placement": "business",
+    "audit": "B0445"
+  },
+  "erp_sales_sourcedyeorderprocesspre:approve": {
+    "placement": "business",
+    "audit": "B0446"
+  },
+  "erp_sales_sourcedyeorderprocesspre:reopen": {
+    "placement": "business",
+    "audit": "B0447"
+  },
+  "erp_sales_sourcedyepriceadjust:confirm": {
+    "placement": "business",
+    "audit": "B0448"
+  },
+  "erp_sales_sourcedyepriceadjust:approve": {
+    "placement": "business",
+    "audit": "B0449"
+  },
+  "erp_sales_sourcedyepriceadjust:reopen": {
+    "placement": "business",
+    "audit": "B0450"
+  },
+  "erp_sales_sourcedyepriceadjust:original_quote_adjustment": {
+    "placement": "business",
+    "audit": "B0451"
+  },
+  "erp_sales_sourcedyepriceadjustdetail:phase6_reverse_quote_adjustment": {
+    "placement": "business",
+    "audit": "B0452"
+  },
+  "erp_sales_sourcedyepriceadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0453"
+  },
+  "erp_sales_sourcedyequote:confirm": {
+    "placement": "business",
+    "audit": "B0454"
+  },
+  "erp_sales_sourcedyequote:approve": {
+    "placement": "business",
+    "audit": "B0455"
+  },
+  "erp_sales_sourcedyequote:reopen": {
+    "placement": "business",
+    "audit": "B0456"
+  },
+  "erp_sales_sourcedyequote:quote_function": {
+    "placement": "maintenance",
+    "audit": "B0457"
+  },
+  "erp_sales_sourcedyequote:calculate": {
+    "placement": "automatic",
+    "audit": "B0458"
+  },
+  "erp_sales_sourcedyequote:phase2_report": {
+    "placement": "business",
+    "audit": "B0459"
+  },
+  "erp_sales_sourcedyequote:phase2_price": {
+    "placement": "maintenance",
+    "audit": "B0460"
+  },
+  "erp_sales_sourcedyequote:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0461"
+  },
+  "erp_sales_sourcedyequotedetail:quote_trigger_check": {
+    "placement": "automatic",
+    "audit": "B0462"
+  },
+  "erp_sales_sourcedyequotedetail:quote_function": {
+    "placement": "maintenance",
+    "audit": "B0463"
+  },
+  "erp_sales_sourcedyequotedetail:calculate": {
+    "placement": "automatic",
+    "audit": "B0464"
+  },
+  "erp_sales_sourcedyequotedetail:phase6_quote_to_price_adjustment": {
+    "placement": "business",
+    "audit": "B0465"
+  },
+  "erp_sales_sourcedyequotedetail:phase6_quote_to_order": {
+    "placement": "business",
+    "audit": "B0466"
+  },
+  "erp_sales_sourcedyequotedetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0467"
+  },
+  "erp_sales_sourcedyequoteitemprice:confirm": {
+    "placement": "business",
+    "audit": "B0468"
+  },
+  "erp_sales_sourcedyequoteitemprice:approve": {
+    "placement": "business",
+    "audit": "B0469"
+  },
+  "erp_sales_sourcedyequoteitemprice:reopen": {
+    "placement": "business",
+    "audit": "B0470"
+  },
+  "erp_sales_sourcedyequotepriceprocess:confirm": {
+    "placement": "business",
+    "audit": "B0471"
+  },
+  "erp_sales_sourcedyequotepriceprocess:approve": {
+    "placement": "business",
+    "audit": "B0472"
+  },
+  "erp_sales_sourcedyequotepriceprocess:reopen": {
+    "placement": "business",
+    "audit": "B0473"
+  },
+  "erp_sales_sourcedyercordercolor:confirm": {
+    "placement": "business",
+    "audit": "B0474"
+  },
+  "erp_sales_sourcedyercordercolor:approve": {
+    "placement": "business",
+    "audit": "B0475"
+  },
+  "erp_sales_sourcedyercordercolor:reopen": {
+    "placement": "business",
+    "audit": "B0476"
+  },
+  "erp_sales_sourcedyercordermain:confirm": {
+    "placement": "business",
+    "audit": "B0477"
+  },
+  "erp_sales_sourcedyercordermain:approve": {
+    "placement": "business",
+    "audit": "B0478"
+  },
+  "erp_sales_sourcedyercordermain:reopen": {
+    "placement": "business",
+    "audit": "B0479"
+  },
+  "erp_sales_sourcedyezdaddprice:confirm": {
+    "placement": "business",
+    "audit": "B0480"
+  },
+  "erp_sales_sourcedyezdaddprice:approve": {
+    "placement": "business",
+    "audit": "B0481"
+  },
+  "erp_sales_sourcedyezdaddprice:reopen": {
+    "placement": "business",
+    "audit": "B0482"
+  },
+  "erp_purchase_purchaserequest:confirm": {
+    "placement": "business",
+    "audit": "B0483"
+  },
+  "erp_purchase_purchaserequest:close": {
+    "placement": "business",
+    "audit": "B0484"
+  },
+  "erp_purchase_purchaserequest:reopen": {
+    "placement": "business",
+    "audit": "B0485"
+  },
+  "erp_purchase_purchaseorder:confirm": {
+    "placement": "business",
+    "audit": "B0486"
+  },
+  "erp_purchase_purchaseorder:close": {
+    "placement": "business",
+    "audit": "B0487"
+  },
+  "erp_purchase_purchaseorder:reopen": {
+    "placement": "business",
+    "audit": "B0488"
+  },
+  "erp_purchase_purchasereturn:confirm": {
+    "placement": "business",
+    "audit": "B0489"
+  },
+  "erp_purchase_purchasereturn:close": {
+    "placement": "business",
+    "audit": "B0490"
+  },
+  "erp_purchase_purchasereturn:reopen": {
+    "placement": "business",
+    "audit": "B0491"
+  },
+  "erp_purchase_sourcedyearticlepurdetail:material_receipts": {
+    "placement": "business",
+    "audit": "B0492"
+  },
+  "erp_purchase_sourcedyearticlepurdetail:receive_material": {
+    "placement": "business",
+    "audit": "B0493"
+  },
+  "erp_purchase_sourcedyearticlepurmain:confirm": {
+    "placement": "business",
+    "audit": "B0494"
+  },
+  "erp_purchase_sourcedyearticlepurmain:approve": {
+    "placement": "business",
+    "audit": "B0495"
+  },
+  "erp_purchase_sourcedyearticlepurmain:reopen": {
+    "placement": "business",
+    "audit": "B0496"
+  },
+  "erp_purchase_sourcedyefabricpurmain:confirm": {
+    "placement": "business",
+    "audit": "B0497"
+  },
+  "erp_purchase_sourcedyefabricpurmain:approve": {
+    "placement": "business",
+    "audit": "B0498"
+  },
+  "erp_purchase_sourcedyefabricpurmain:reopen": {
+    "placement": "business",
+    "audit": "B0499"
+  },
+  "erp_purchase_sourcedyepurapplydetail:material_receipts": {
+    "placement": "business",
+    "audit": "B0500"
+  },
+  "erp_purchase_sourcedyepurapplydetail:receive_material": {
+    "placement": "business",
+    "audit": "B0501"
+  },
+  "erp_purchase_sourcedyepurapplydetail:calculate": {
+    "placement": "automatic",
+    "audit": "B0502"
+  },
+  "erp_purchase_sourcedyepurapplydetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0503"
+  },
+  "erp_purchase_sourcedyepurapplymain:confirm": {
+    "placement": "business",
+    "audit": "B0504"
+  },
+  "erp_purchase_sourcedyepurapplymain:approve": {
+    "placement": "business",
+    "audit": "B0505"
+  },
+  "erp_purchase_sourcedyepurapplymain:reopen": {
+    "placement": "business",
+    "audit": "B0506"
+  },
+  "erp_purchase_sourcedyepurdetail:receipt_progress": {
+    "placement": "business",
+    "audit": "B0507"
+  },
+  "erp_purchase_sourcedyepurdetail:receive": {
+    "placement": "business",
+    "audit": "B0508"
+  },
+  "erp_purchase_sourcedyepurdetail:purchase_movements": {
+    "placement": "business",
+    "audit": "B0509"
+  },
+  "erp_purchase_sourcedyepurdetail:material_receipts": {
+    "placement": "business",
+    "audit": "B0510"
+  },
+  "erp_purchase_sourcedyepurdetail:receive_material": {
+    "placement": "business",
+    "audit": "B0511"
+  },
+  "erp_purchase_sourcedyepurdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B0512"
+  },
+  "erp_purchase_sourcedyepurdetail:phase6_reverse_line_transfer": {
+    "placement": "business",
+    "audit": "B0513"
+  },
+  "erp_purchase_sourcedyepurdetail:phase6_purchase_to_product": {
+    "placement": "business",
+    "audit": "B0514"
+  },
+  "erp_purchase_sourcedyepurdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0515"
+  },
+  "erp_purchase_sourcedyepurmain:confirm": {
+    "placement": "business",
+    "audit": "B0516"
+  },
+  "erp_purchase_sourcedyepurmain:approve": {
+    "placement": "business",
+    "audit": "B0517"
+  },
+  "erp_purchase_sourcedyepurmain:reopen": {
+    "placement": "business",
+    "audit": "B0518"
+  },
+  "erp_purchase_sourcedyepurmain:phase3_operation": {
+    "placement": "business",
+    "audit": "B0519"
+  },
+  "erp_purchase_sourcedyepurmain:phase3_report": {
+    "placement": "business",
+    "audit": "B0520"
+  },
+  "erp_purchase_sourcedyestuffpurdetail:material_receipts": {
+    "placement": "business",
+    "audit": "B0521"
+  },
+  "erp_purchase_sourcedyestuffpurdetail:receive_material": {
+    "placement": "business",
+    "audit": "B0522"
+  },
+  "erp_purchase_sourcedyestuffpurmain:confirm": {
+    "placement": "business",
+    "audit": "B0523"
+  },
+  "erp_purchase_sourcedyestuffpurmain:approve": {
+    "placement": "business",
+    "audit": "B0524"
+  },
+  "erp_purchase_sourcedyestuffpurmain:reopen": {
+    "placement": "business",
+    "audit": "B0525"
+  },
+  "erp_sampling_samplerequest:receive": {
+    "placement": "business",
+    "audit": "B0526"
+  },
+  "erp_sampling_sampleline:assign": {
+    "placement": "business",
+    "audit": "B0527"
+  },
+  "erp_sampling_sampletrial:start": {
+    "placement": "business",
+    "audit": "B0528"
+  },
+  "erp_sampling_sampletrial:complete": {
+    "placement": "business",
+    "audit": "B0529"
+  },
+  "erp_sampling_sampleconfirmation:send": {
+    "placement": "business",
+    "audit": "B0530"
+  },
+  "erp_sampling_sampleconfirmation:reply": {
+    "placement": "business",
+    "audit": "B0531"
+  },
+  "erp_sampling_recipeversion:approve": {
+    "placement": "business",
+    "audit": "B0532"
+  },
+  "erp_sampling_recipeversion:activate": {
+    "placement": "business",
+    "audit": "B0533"
+  },
+  "erp_sampling_recipeversion:retire": {
+    "placement": "business",
+    "audit": "B0534"
+  },
+  "erp_sampling_recipeversion:clone": {
+    "placement": "business",
+    "audit": "B0535"
+  },
+  "erp_sampling_processcurveversion:approve": {
+    "placement": "business",
+    "audit": "B0536"
+  },
+  "erp_sampling_processcurveversion:activate": {
+    "placement": "business",
+    "audit": "B0537"
+  },
+  "erp_sampling_processcurveversion:retire": {
+    "placement": "business",
+    "audit": "B0538"
+  },
+  "erp_sampling_processcurveversion:clone": {
+    "placement": "business",
+    "audit": "B0539"
+  },
+  "erp_sampling_sourcedyecolorcard:confirm": {
+    "placement": "business",
+    "audit": "B0540"
+  },
+  "erp_sampling_sourcedyecolorcard:approve": {
+    "placement": "business",
+    "audit": "B0541"
+  },
+  "erp_sampling_sourcedyecolorcard:reopen": {
+    "placement": "business",
+    "audit": "B0542"
+  },
+  "erp_sampling_sourcedyecolorcardflow:confirm": {
+    "placement": "business",
+    "audit": "B0543"
+  },
+  "erp_sampling_sourcedyecolorcardflow:approve": {
+    "placement": "business",
+    "audit": "B0544"
+  },
+  "erp_sampling_sourcedyecolorcardflow:reopen": {
+    "placement": "business",
+    "audit": "B0545"
+  },
+  "erp_sampling_sourcedyecolorchangerisk:confirm": {
+    "placement": "business",
+    "audit": "B0546"
+  },
+  "erp_sampling_sourcedyecolorchangerisk:approve": {
+    "placement": "business",
+    "audit": "B0547"
+  },
+  "erp_sampling_sourcedyecolorchangerisk:reopen": {
+    "placement": "business",
+    "audit": "B0548"
+  },
+  "erp_sampling_sourcedyecptlabrecipe:confirm": {
+    "placement": "business",
+    "audit": "B0549"
+  },
+  "erp_sampling_sourcedyecptlabrecipe:approve": {
+    "placement": "business",
+    "audit": "B0550"
+  },
+  "erp_sampling_sourcedyecptlabrecipe:reopen": {
+    "placement": "business",
+    "audit": "B0551"
+  },
+  "erp_sampling_sourcedyecursmpprescriptentry:confirm": {
+    "placement": "business",
+    "audit": "B0552"
+  },
+  "erp_sampling_sourcedyecursmpprescriptentry:approve": {
+    "placement": "business",
+    "audit": "B0553"
+  },
+  "erp_sampling_sourcedyecursmpprescriptentry:reopen": {
+    "placement": "business",
+    "audit": "B0554"
+  },
+  "erp_sampling_sourcedyedyecolor:confirm": {
+    "placement": "business",
+    "audit": "B0555"
+  },
+  "erp_sampling_sourcedyedyecolor:approve": {
+    "placement": "business",
+    "audit": "B0556"
+  },
+  "erp_sampling_sourcedyedyecolor:reopen": {
+    "placement": "business",
+    "audit": "B0557"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:update_result": {
+    "placement": "automatic",
+    "audit": "B0558"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:record_reply": {
+    "placement": "business",
+    "audit": "B0559"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:adopt_recipe": {
+    "placement": "business",
+    "audit": "B0560"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:sample_work_report": {
+    "placement": "business",
+    "audit": "B0561"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:sample_checker_report": {
+    "placement": "business",
+    "audit": "B0562"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:preview_sample_variant": {
+    "placement": "business",
+    "audit": "B0563"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:apply_sample_variant": {
+    "placement": "business",
+    "audit": "B0564"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:undo_sample_variant": {
+    "placement": "business",
+    "audit": "B0565"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:phase2_report": {
+    "placement": "business",
+    "audit": "B0566"
+  },
+  "erp_sampling_sourcedyedyedipsrecord:phase2_price": {
+    "placement": "maintenance",
+    "audit": "B0567"
+  },
+  "erp_sampling_sourcedyedyedipsrecordemp:confirm": {
+    "placement": "business",
+    "audit": "B0568"
+  },
+  "erp_sampling_sourcedyedyedipsrecordemp:approve": {
+    "placement": "business",
+    "audit": "B0569"
+  },
+  "erp_sampling_sourcedyedyedipsrecordemp:reopen": {
+    "placement": "business",
+    "audit": "B0570"
+  },
+  "erp_sampling_sourcedyedyedipsrecordnote:confirm": {
+    "placement": "business",
+    "audit": "B0571"
+  },
+  "erp_sampling_sourcedyedyedipsrecordnote:approve": {
+    "placement": "business",
+    "audit": "B0572"
+  },
+  "erp_sampling_sourcedyedyedipsrecordnote:reopen": {
+    "placement": "business",
+    "audit": "B0573"
+  },
+  "erp_sampling_sourcedyedyedipsrecordphase:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0574"
+  },
+  "erp_sampling_sourcedyedyelabcolor:confirm": {
+    "placement": "business",
+    "audit": "B0575"
+  },
+  "erp_sampling_sourcedyedyelabcolor:approve": {
+    "placement": "business",
+    "audit": "B0576"
+  },
+  "erp_sampling_sourcedyedyelabcolor:reopen": {
+    "placement": "business",
+    "audit": "B0577"
+  },
+  "erp_sampling_sourcedyedyelabcolor:sample_schedule_options": {
+    "placement": "business",
+    "audit": "B0578"
+  },
+  "erp_sampling_sourcedyedyelabcolor:schedule_sample": {
+    "placement": "business",
+    "audit": "B0579"
+  },
+  "erp_sampling_sourcedyedyelabcolor:calculate": {
+    "placement": "automatic",
+    "audit": "B0580"
+  },
+  "erp_sampling_sourcedyedyelabcolor:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0581"
+  },
+  "erp_sampling_sourcedyedyelabmain:confirm": {
+    "placement": "business",
+    "audit": "B0582"
+  },
+  "erp_sampling_sourcedyedyelabmain:approve": {
+    "placement": "business",
+    "audit": "B0583"
+  },
+  "erp_sampling_sourcedyedyelabmain:reopen": {
+    "placement": "business",
+    "audit": "B0584"
+  },
+  "erp_sampling_sourcedyedyeproduceitem:confirm": {
+    "placement": "business",
+    "audit": "B0585"
+  },
+  "erp_sampling_sourcedyedyeproduceitem:approve": {
+    "placement": "business",
+    "audit": "B0586"
+  },
+  "erp_sampling_sourcedyedyeproduceitem:reopen": {
+    "placement": "business",
+    "audit": "B0587"
+  },
+  "erp_sampling_sourcedyedyerecipe:confirm": {
+    "placement": "business",
+    "audit": "B0588"
+  },
+  "erp_sampling_sourcedyedyerecipe:approve": {
+    "placement": "business",
+    "audit": "B0589"
+  },
+  "erp_sampling_sourcedyedyerecipe:reopen": {
+    "placement": "business",
+    "audit": "B0590"
+  },
+  "erp_sampling_sourcedyedyerecipe:to_production": {
+    "placement": "business",
+    "audit": "B0591"
+  },
+  "erp_sampling_sourcedyedyerecipe:calculate": {
+    "placement": "automatic",
+    "audit": "B0592"
+  },
+  "erp_sampling_sourcedyedyerecipe:refresh_recipe_costs": {
+    "placement": "maintenance",
+    "audit": "B0593"
+  },
+  "erp_sampling_sourcedyedyerecipe:adopt_recipe_references": {
+    "placement": "business",
+    "audit": "B0594"
+  },
+  "erp_sampling_sourcedyedyerecipe:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0595"
+  },
+  "erp_sampling_sourcedyedyerecipedetail:calculate": {
+    "placement": "automatic",
+    "audit": "B0596"
+  },
+  "erp_sampling_sourcedyedyerecipedetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0597"
+  },
+  "erp_sampling_sourcedyedyerecipejob:confirm": {
+    "placement": "business",
+    "audit": "B0598"
+  },
+  "erp_sampling_sourcedyedyerecipejob:approve": {
+    "placement": "business",
+    "audit": "B0599"
+  },
+  "erp_sampling_sourcedyedyerecipejob:reopen": {
+    "placement": "business",
+    "audit": "B0600"
+  },
+  "erp_sampling_sourcedyedyereprint:confirm": {
+    "placement": "business",
+    "audit": "B0601"
+  },
+  "erp_sampling_sourcedyedyereprint:approve": {
+    "placement": "business",
+    "audit": "B0602"
+  },
+  "erp_sampling_sourcedyedyereprint:reopen": {
+    "placement": "business",
+    "audit": "B0603"
+  },
+  "erp_sampling_sourcedyedyereprint:sample_work_report": {
+    "placement": "business",
+    "audit": "B0604"
+  },
+  "erp_sampling_sourcedyedyereprint:sample_checker_report": {
+    "placement": "business",
+    "audit": "B0605"
+  },
+  "erp_sampling_sourcedyedyereprint:reprint_allocation": {
+    "placement": "automatic",
+    "audit": "B0606"
+  },
+  "erp_sampling_sourcedyedyestartdatetime:confirm": {
+    "placement": "business",
+    "audit": "B0607"
+  },
+  "erp_sampling_sourcedyedyestartdatetime:approve": {
+    "placement": "business",
+    "audit": "B0608"
+  },
+  "erp_sampling_sourcedyedyestartdatetime:reopen": {
+    "placement": "business",
+    "audit": "B0609"
+  },
+  "erp_sampling_sourcedyelabdips:confirm": {
+    "placement": "business",
+    "audit": "B0610"
+  },
+  "erp_sampling_sourcedyelabdips:approve": {
+    "placement": "business",
+    "audit": "B0611"
+  },
+  "erp_sampling_sourcedyelabdips:reopen": {
+    "placement": "business",
+    "audit": "B0612"
+  },
+  "erp_sampling_sourcedyeprintcolorseparate:confirm": {
+    "placement": "business",
+    "audit": "B0613"
+  },
+  "erp_sampling_sourcedyeprintcolorseparate:approve": {
+    "placement": "business",
+    "audit": "B0614"
+  },
+  "erp_sampling_sourcedyeprintcolorseparate:reopen": {
+    "placement": "business",
+    "audit": "B0615"
+  },
+  "erp_sampling_sourcedyeprintcolorseparatedetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0616"
+  },
+  "erp_sampling_sourcedyeprintcolorseparaterecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0617"
+  },
+  "erp_sampling_sourcedyeprintingtest:confirm": {
+    "placement": "business",
+    "audit": "B0618"
+  },
+  "erp_sampling_sourcedyeprintingtest:approve": {
+    "placement": "business",
+    "audit": "B0619"
+  },
+  "erp_sampling_sourcedyeprintingtest:reopen": {
+    "placement": "business",
+    "audit": "B0620"
+  },
+  "erp_sampling_sourcedyeprintingtestcolor:confirm": {
+    "placement": "business",
+    "audit": "B0621"
+  },
+  "erp_sampling_sourcedyeprintingtestcolor:approve": {
+    "placement": "business",
+    "audit": "B0622"
+  },
+  "erp_sampling_sourcedyeprintingtestcolor:reopen": {
+    "placement": "business",
+    "audit": "B0623"
+  },
+  "erp_sampling_sourcedyeprintingtestcolor:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0624"
+  },
+  "erp_sampling_sourcedyeprintingtestdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0625"
+  },
+  "erp_sampling_sourcedyeprintingteststuff:confirm": {
+    "placement": "business",
+    "audit": "B0626"
+  },
+  "erp_sampling_sourcedyeprintingteststuff:approve": {
+    "placement": "business",
+    "audit": "B0627"
+  },
+  "erp_sampling_sourcedyeprintingteststuff:reopen": {
+    "placement": "business",
+    "audit": "B0628"
+  },
+  "erp_sampling_sourcedyeprintingteststuff:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0629"
+  },
+  "erp_sampling_sourcedyeprintlabattach:confirm": {
+    "placement": "business",
+    "audit": "B0630"
+  },
+  "erp_sampling_sourcedyeprintlabattach:approve": {
+    "placement": "business",
+    "audit": "B0631"
+  },
+  "erp_sampling_sourcedyeprintlabattach:reopen": {
+    "placement": "business",
+    "audit": "B0632"
+  },
+  "erp_sampling_sourcedyeprintlabmain:confirm": {
+    "placement": "business",
+    "audit": "B0633"
+  },
+  "erp_sampling_sourcedyeprintlabmain:approve": {
+    "placement": "business",
+    "audit": "B0634"
+  },
+  "erp_sampling_sourcedyeprintlabmain:reopen": {
+    "placement": "business",
+    "audit": "B0635"
+  },
+  "erp_sampling_sourcedyeprintrecipe:confirm": {
+    "placement": "business",
+    "audit": "B0636"
+  },
+  "erp_sampling_sourcedyeprintrecipe:approve": {
+    "placement": "business",
+    "audit": "B0637"
+  },
+  "erp_sampling_sourcedyeprintrecipe:reopen": {
+    "placement": "business",
+    "audit": "B0638"
+  },
+  "erp_sampling_sourcedyeprintrecipecolor:confirm": {
+    "placement": "business",
+    "audit": "B0639"
+  },
+  "erp_sampling_sourcedyeprintrecipecolor:approve": {
+    "placement": "business",
+    "audit": "B0640"
+  },
+  "erp_sampling_sourcedyeprintrecipecolor:reopen": {
+    "placement": "business",
+    "audit": "B0641"
+  },
+  "erp_sampling_sourcedyeptsampleregist:confirm": {
+    "placement": "business",
+    "audit": "B0642"
+  },
+  "erp_sampling_sourcedyeptsampleregist:approve": {
+    "placement": "business",
+    "audit": "B0643"
+  },
+  "erp_sampling_sourcedyeptsampleregist:reopen": {
+    "placement": "business",
+    "audit": "B0644"
+  },
+  "erp_sampling_sourcedyeptsampleregist:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0645"
+  },
+  "erp_sampling_sourcedyesamplechoice:confirm": {
+    "placement": "business",
+    "audit": "B0646"
+  },
+  "erp_sampling_sourcedyesamplechoice:approve": {
+    "placement": "business",
+    "audit": "B0647"
+  },
+  "erp_sampling_sourcedyesamplechoice:reopen": {
+    "placement": "business",
+    "audit": "B0648"
+  },
+  "erp_sampling_sourcedyesamplein:confirm": {
+    "placement": "business",
+    "audit": "B0649"
+  },
+  "erp_sampling_sourcedyesamplein:approve": {
+    "placement": "business",
+    "audit": "B0650"
+  },
+  "erp_sampling_sourcedyesamplein:reopen": {
+    "placement": "business",
+    "audit": "B0651"
+  },
+  "erp_sampling_sourcedyesamplein:refresh_sample_book": {
+    "placement": "automatic",
+    "audit": "B0652"
+  },
+  "erp_sampling_sourcedyesampleout:confirm": {
+    "placement": "business",
+    "audit": "B0653"
+  },
+  "erp_sampling_sourcedyesampleout:approve": {
+    "placement": "business",
+    "audit": "B0654"
+  },
+  "erp_sampling_sourcedyesampleout:reopen": {
+    "placement": "business",
+    "audit": "B0655"
+  },
+  "erp_sampling_sourcedyesampleout:refresh_sample_book": {
+    "placement": "automatic",
+    "audit": "B0656"
+  },
+  "erp_sampling_sourcedyesamplestockbook:phase2_report": {
+    "placement": "business",
+    "audit": "B0657"
+  },
+  "erp_sampling_sourcedyesamplestockbook:refresh_sample_book": {
+    "placement": "automatic",
+    "audit": "B0658"
+  },
+  "erp_sampling_sourcedyesmpprescriptentry:confirm": {
+    "placement": "business",
+    "audit": "B0659"
+  },
+  "erp_sampling_sourcedyesmpprescriptentry:approve": {
+    "placement": "business",
+    "audit": "B0660"
+  },
+  "erp_sampling_sourcedyesmpprescriptentry:reopen": {
+    "placement": "business",
+    "audit": "B0661"
+  },
+  "erp_sampling_sourcedyesmpprescriptentry:complete_sample_phases": {
+    "placement": "maintenance",
+    "audit": "B0662"
+  },
+  "erp_sampling_sourcedyeyedye:confirm": {
+    "placement": "business",
+    "audit": "B0663"
+  },
+  "erp_sampling_sourcedyeyedye:approve": {
+    "placement": "business",
+    "audit": "B0664"
+  },
+  "erp_sampling_sourcedyeyedye:reopen": {
+    "placement": "business",
+    "audit": "B0665"
+  },
+  "erp_production_physicalbatchexecution:complete": {
+    "placement": "business",
+    "audit": "B0666"
+  },
+  "erp_production_workcard:prepare": {
+    "placement": "business",
+    "audit": "B0667"
+  },
+  "erp_production_workcard:release": {
+    "placement": "business",
+    "audit": "B0668"
+  },
+  "erp_production_workcard:cancel": {
+    "placement": "business",
+    "audit": "B0669"
+  },
+  "erp_production_dyebatch:cancel": {
+    "placement": "business",
+    "audit": "B0670"
+  },
+  "erp_production_dyebatch:adopt_recipe": {
+    "placement": "business",
+    "audit": "B0671"
+  },
+  "erp_production_dyebatch:start": {
+    "placement": "business",
+    "audit": "B0672"
+  },
+  "erp_production_workcardoperation:schedule": {
+    "placement": "business",
+    "audit": "B0673"
+  },
+  "erp_production_workcardoperation:start": {
+    "placement": "business",
+    "audit": "B0674"
+  },
+  "erp_production_workcardoperation:skip": {
+    "placement": "business",
+    "audit": "B0675"
+  },
+  "erp_production_scheduleassignment:publish": {
+    "placement": "business",
+    "audit": "B0676"
+  },
+  "erp_production_scheduleassignment:reschedule": {
+    "placement": "business",
+    "audit": "B0677"
+  },
+  "erp_production_scheduleassignment:cancel": {
+    "placement": "business",
+    "audit": "B0678"
+  },
+  "erp_production_operationexecution:complete": {
+    "placement": "business",
+    "audit": "B0679"
+  },
+  "erp_production_operationexecution:correct": {
+    "placement": "business",
+    "audit": "B0680"
+  },
+  "erp_production_productionrecipe:create_order": {
+    "placement": "business",
+    "audit": "B0681"
+  },
+  "erp_production_weighingorder:confirm": {
+    "placement": "business",
+    "audit": "B0682"
+  },
+  "erp_production_weighingorder:close": {
+    "placement": "business",
+    "audit": "B0683"
+  },
+  "erp_production_weighingorder:cancel": {
+    "placement": "business",
+    "audit": "B0684"
+  },
+  "erp_production_weighingline:weigh": {
+    "placement": "business",
+    "audit": "B0685"
+  },
+  "erp_production_weighingrecord:void": {
+    "placement": "business",
+    "audit": "B0686"
+  },
+  "erp_production_reworkorder:release": {
+    "placement": "business",
+    "audit": "B0687"
+  },
+  "erp_production_reworkorder:close": {
+    "placement": "business",
+    "audit": "B0688"
+  },
+  "erp_production_sourcedyecolorshiftemp:confirm": {
+    "placement": "business",
+    "audit": "B0689"
+  },
+  "erp_production_sourcedyecolorshiftemp:approve": {
+    "placement": "business",
+    "audit": "B0690"
+  },
+  "erp_production_sourcedyecolorshiftemp:reopen": {
+    "placement": "business",
+    "audit": "B0691"
+  },
+  "erp_production_sourcedyedpworkqty:confirm": {
+    "placement": "business",
+    "audit": "B0692"
+  },
+  "erp_production_sourcedyedpworkqty:approve": {
+    "placement": "business",
+    "audit": "B0693"
+  },
+  "erp_production_sourcedyedpworkqty:reopen": {
+    "placement": "business",
+    "audit": "B0694"
+  },
+  "erp_production_sourcedyedpworkqty:phase4_attendance": {
+    "placement": "business",
+    "audit": "B0695"
+  },
+  "erp_production_sourcedyeeenergyday:confirm": {
+    "placement": "business",
+    "audit": "B0696"
+  },
+  "erp_production_sourcedyeeenergyday:approve": {
+    "placement": "business",
+    "audit": "B0697"
+  },
+  "erp_production_sourcedyeeenergyday:reopen": {
+    "placement": "business",
+    "audit": "B0698"
+  },
+  "erp_production_sourcedyeeyardmetergether:confirm": {
+    "placement": "business",
+    "audit": "B0699"
+  },
+  "erp_production_sourcedyeeyardmetergether:approve": {
+    "placement": "business",
+    "audit": "B0700"
+  },
+  "erp_production_sourcedyeeyardmetergether:reopen": {
+    "placement": "business",
+    "audit": "B0701"
+  },
+  "erp_production_sourcedyeempshiftclock:confirm": {
+    "placement": "business",
+    "audit": "B0702"
+  },
+  "erp_production_sourcedyeempshiftclock:approve": {
+    "placement": "business",
+    "audit": "B0703"
+  },
+  "erp_production_sourcedyeempshiftclock:reopen": {
+    "placement": "business",
+    "audit": "B0704"
+  },
+  "erp_production_sourcedyeempshiftclock:phase4_attendance": {
+    "placement": "business",
+    "audit": "B0705"
+  },
+  "erp_production_sourcedyeenergyconsumption:confirm": {
+    "placement": "business",
+    "audit": "B0706"
+  },
+  "erp_production_sourcedyeenergyconsumption:approve": {
+    "placement": "business",
+    "audit": "B0707"
+  },
+  "erp_production_sourcedyeenergyconsumption:reopen": {
+    "placement": "business",
+    "audit": "B0708"
+  },
+  "erp_production_sourcedyeenergyconsumptiondetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0709"
+  },
+  "erp_production_sourcedyegetclothnotice:confirm": {
+    "placement": "business",
+    "audit": "B0710"
+  },
+  "erp_production_sourcedyegetclothnotice:approve": {
+    "placement": "business",
+    "audit": "B0711"
+  },
+  "erp_production_sourcedyegetclothnotice:reopen": {
+    "placement": "business",
+    "audit": "B0712"
+  },
+  "erp_production_sourcedyegetclothnotice:phase4_equipment": {
+    "placement": "business",
+    "audit": "B0713"
+  },
+  "erp_production_sourcedyegetclothnotice:phase5_report": {
+    "placement": "business",
+    "audit": "B0714"
+  },
+  "erp_production_sourcedyegetclothnotice:phase5_function": {
+    "placement": "maintenance",
+    "audit": "B0715"
+  },
+  "erp_production_sourcedyegetclothnotice:phase5_operation": {
+    "placement": "business",
+    "audit": "B0716"
+  },
+  "erp_production_sourcedyegrayreturnapply:confirm": {
+    "placement": "business",
+    "audit": "B0717"
+  },
+  "erp_production_sourcedyegrayreturnapply:approve": {
+    "placement": "business",
+    "audit": "B0718"
+  },
+  "erp_production_sourcedyegrayreturnapply:reopen": {
+    "placement": "business",
+    "audit": "B0719"
+  },
+  "erp_production_sourcedyehsjobsheetno:confirm": {
+    "placement": "business",
+    "audit": "B0720"
+  },
+  "erp_production_sourcedyehsjobsheetno:approve": {
+    "placement": "business",
+    "audit": "B0721"
+  },
+  "erp_production_sourcedyehsjobsheetno:reopen": {
+    "placement": "business",
+    "audit": "B0722"
+  },
+  "erp_production_sourcedyejingsharegister:confirm": {
+    "placement": "business",
+    "audit": "B0723"
+  },
+  "erp_production_sourcedyejingsharegister:approve": {
+    "placement": "business",
+    "audit": "B0724"
+  },
+  "erp_production_sourcedyejingsharegister:reopen": {
+    "placement": "business",
+    "audit": "B0725"
+  },
+  "erp_production_sourcedyejobassign:confirm": {
+    "placement": "business",
+    "audit": "B0726"
+  },
+  "erp_production_sourcedyejobassign:approve": {
+    "placement": "business",
+    "audit": "B0727"
+  },
+  "erp_production_sourcedyejobassign:reopen": {
+    "placement": "business",
+    "audit": "B0728"
+  },
+  "erp_production_sourcedyejobcolor:confirm": {
+    "placement": "business",
+    "audit": "B0729"
+  },
+  "erp_production_sourcedyejobcolor:approve": {
+    "placement": "business",
+    "audit": "B0730"
+  },
+  "erp_production_sourcedyejobcolor:reopen": {
+    "placement": "business",
+    "audit": "B0731"
+  },
+  "erp_production_sourcedyejobcombine:confirm": {
+    "placement": "business",
+    "audit": "B0732"
+  },
+  "erp_production_sourcedyejobcombine:approve": {
+    "placement": "business",
+    "audit": "B0733"
+  },
+  "erp_production_sourcedyejobcombine:reopen": {
+    "placement": "business",
+    "audit": "B0734"
+  },
+  "erp_production_sourcedyejobcombine:reverse_link": {
+    "placement": "business",
+    "audit": "B0735"
+  },
+  "erp_production_sourcedyejobcombine:combine_group": {
+    "placement": "business",
+    "audit": "B0736"
+  },
+  "erp_production_sourcedyejobcombine:adopt_combine_link": {
+    "placement": "business",
+    "audit": "B0737"
+  },
+  "erp_production_sourcedyejobcombine:continuation": {
+    "placement": "business",
+    "audit": "B0738"
+  },
+  "erp_production_sourcedyejobcombineorder:confirm": {
+    "placement": "business",
+    "audit": "B0739"
+  },
+  "erp_production_sourcedyejobcombineorder:approve": {
+    "placement": "business",
+    "audit": "B0740"
+  },
+  "erp_production_sourcedyejobcombineorder:reopen": {
+    "placement": "business",
+    "audit": "B0741"
+  },
+  "erp_production_sourcedyejobcombineorder:reverse_allocation": {
+    "placement": "business",
+    "audit": "B0742"
+  },
+  "erp_production_sourcedyejobcombineorder:transfer_allocation": {
+    "placement": "business",
+    "audit": "B0743"
+  },
+  "erp_production_sourcedyejobcombineorder:continuation": {
+    "placement": "business",
+    "audit": "B0744"
+  },
+  "erp_production_sourcedyejobexceptions:confirm": {
+    "placement": "business",
+    "audit": "B0745"
+  },
+  "erp_production_sourcedyejobexceptions:approve": {
+    "placement": "business",
+    "audit": "B0746"
+  },
+  "erp_production_sourcedyejobexceptions:reopen": {
+    "placement": "business",
+    "audit": "B0747"
+  },
+  "erp_production_sourcedyejobgrayrecord:split_gray": {
+    "placement": "business",
+    "audit": "B0748"
+  },
+  "erp_production_sourcedyejobgrayrecord:merge_gray": {
+    "placement": "business",
+    "audit": "B0749"
+  },
+  "erp_production_sourcedyejobgrayrecord:continuation": {
+    "placement": "business",
+    "audit": "B0750"
+  },
+  "erp_production_sourcedyejobgrayrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0751"
+  },
+  "erp_production_sourcedyejobinwareedit:confirm": {
+    "placement": "business",
+    "audit": "B0752"
+  },
+  "erp_production_sourcedyejobinwareedit:approve": {
+    "placement": "business",
+    "audit": "B0753"
+  },
+  "erp_production_sourcedyejobinwareedit:reopen": {
+    "placement": "business",
+    "audit": "B0754"
+  },
+  "erp_production_sourcedyejobinwareedit:register_outgoing": {
+    "placement": "business",
+    "audit": "B0755"
+  },
+  "erp_production_sourcedyejobmain:confirm": {
+    "placement": "business",
+    "audit": "B0756"
+  },
+  "erp_production_sourcedyejobmain:approve": {
+    "placement": "business",
+    "audit": "B0757"
+  },
+  "erp_production_sourcedyejobmain:reopen": {
+    "placement": "business",
+    "audit": "B0758"
+  },
+  "erp_production_sourcedyejoboutwareedit:confirm": {
+    "placement": "business",
+    "audit": "B0759"
+  },
+  "erp_production_sourcedyejoboutwareedit:approve": {
+    "placement": "business",
+    "audit": "B0760"
+  },
+  "erp_production_sourcedyejoboutwareedit:reopen": {
+    "placement": "business",
+    "audit": "B0761"
+  },
+  "erp_production_sourcedyejobpreregist:confirm": {
+    "placement": "business",
+    "audit": "B0762"
+  },
+  "erp_production_sourcedyejobpreregist:approve": {
+    "placement": "business",
+    "audit": "B0763"
+  },
+  "erp_production_sourcedyejobpreregist:reopen": {
+    "placement": "business",
+    "audit": "B0764"
+  },
+  "erp_production_sourcedyejobprocess:confirm": {
+    "placement": "business",
+    "audit": "B0765"
+  },
+  "erp_production_sourcedyejobprocess:approve": {
+    "placement": "business",
+    "audit": "B0766"
+  },
+  "erp_production_sourcedyejobprocess:reopen": {
+    "placement": "business",
+    "audit": "B0767"
+  },
+  "erp_production_sourcedyejobprocess:preview_dye_quality": {
+    "placement": "business",
+    "audit": "B0768"
+  },
+  "erp_production_sourcedyejobprocess:rebuild_dye_quality": {
+    "placement": "business",
+    "audit": "B0769"
+  },
+  "erp_production_sourcedyejobprocess:preview_auto_combine": {
+    "placement": "business",
+    "audit": "B0770"
+  },
+  "erp_production_sourcedyejobprocess:automatic_combine": {
+    "placement": "automatic",
+    "audit": "B0771"
+  },
+  "erp_production_sourcedyejobprocess:sync_combined_process": {
+    "placement": "automatic",
+    "audit": "B0772"
+  },
+  "erp_production_sourcedyejobprocess:continuation": {
+    "placement": "business",
+    "audit": "B0773"
+  },
+  "erp_production_sourcedyejobprocesspre:confirm": {
+    "placement": "business",
+    "audit": "B0774"
+  },
+  "erp_production_sourcedyejobprocesspre:approve": {
+    "placement": "business",
+    "audit": "B0775"
+  },
+  "erp_production_sourcedyejobprocesspre:reopen": {
+    "placement": "business",
+    "audit": "B0776"
+  },
+  "erp_production_sourcedyejobsheet:confirm": {
+    "placement": "business",
+    "audit": "B0777"
+  },
+  "erp_production_sourcedyejobsheet:approve": {
+    "placement": "business",
+    "audit": "B0778"
+  },
+  "erp_production_sourcedyejobsheet:reopen": {
+    "placement": "business",
+    "audit": "B0779"
+  },
+  "erp_production_sourcedyejobsheet:charge_quote": {
+    "placement": "business",
+    "audit": "B0780"
+  },
+  "erp_production_sourcedyejobsheet:site_records": {
+    "placement": "business",
+    "audit": "B0781"
+  },
+  "erp_production_sourcedyejobsheet:create_site_record": {
+    "placement": "business",
+    "audit": "B0782"
+  },
+  "erp_production_sourcedyejobsheet:entered_machine": {
+    "placement": "business",
+    "audit": "B0783"
+  },
+  "erp_production_sourcedyejobsheet:process_machines": {
+    "placement": "business",
+    "audit": "B0784"
+  },
+  "erp_production_sourcedyejobsheet:scan_dye_job": {
+    "placement": "business",
+    "audit": "B0785"
+  },
+  "erp_production_sourcedyejobsheet:formal_dye_steps": {
+    "placement": "business",
+    "audit": "B0786"
+  },
+  "erp_production_sourcedyejobsheet:trial_steps": {
+    "placement": "business",
+    "audit": "B0787"
+  },
+  "erp_production_sourcedyejobsheet:preview_package_labels": {
+    "placement": "business",
+    "audit": "B0788"
+  },
+  "erp_production_sourcedyejobsheet:synchronize_package_labels": {
+    "placement": "automatic",
+    "audit": "B0789"
+  },
+  "erp_production_sourcedyejobsheet:undo_package_labels": {
+    "placement": "business",
+    "audit": "B0790"
+  },
+  "erp_production_sourcedyejobsheet:preview_package_pairing": {
+    "placement": "business",
+    "audit": "B0791"
+  },
+  "erp_production_sourcedyejobsheet:apply_package_pairing": {
+    "placement": "business",
+    "audit": "B0792"
+  },
+  "erp_production_sourcedyejobsheet:undo_package_pairing": {
+    "placement": "business",
+    "audit": "B0793"
+  },
+  "erp_production_sourcedyejobsheet:link_execution_source": {
+    "placement": "maintenance",
+    "audit": "B0794"
+  },
+  "erp_production_sourcedyejobsheet:preview_execution_reverse": {
+    "placement": "business",
+    "audit": "B0795"
+  },
+  "erp_production_sourcedyejobsheet:reverse_execution_chain": {
+    "placement": "business",
+    "audit": "B0796"
+  },
+  "erp_production_sourcedyejobsheet:undo_execution_reverse": {
+    "placement": "business",
+    "audit": "B0797"
+  },
+  "erp_production_sourcedyejobsheet:preview_progress": {
+    "placement": "maintenance",
+    "audit": "B0798"
+  },
+  "erp_production_sourcedyejobsheet:maintain_progress": {
+    "placement": "maintenance",
+    "audit": "B0799"
+  },
+  "erp_production_sourcedyejobsheet:reverse_card": {
+    "placement": "business",
+    "audit": "B0800"
+  },
+  "erp_production_sourcedyejobsheet:split_card": {
+    "placement": "business",
+    "audit": "B0801"
+  },
+  "erp_production_sourcedyejobsheet:merge_cards": {
+    "placement": "business",
+    "audit": "B0802"
+  },
+  "erp_production_sourcedyejobsheet:combine_members": {
+    "placement": "business",
+    "audit": "B0803"
+  },
+  "erp_production_sourcedyejobsheet:reprocess": {
+    "placement": "business",
+    "audit": "B0804"
+  },
+  "erp_production_sourcedyejobsheet:continuation": {
+    "placement": "business",
+    "audit": "B0805"
+  },
+  "erp_production_sourcedyejobsheet:calculate": {
+    "placement": "automatic",
+    "audit": "B0806"
+  },
+  "erp_production_sourcedyejobsheet:phase4_report": {
+    "placement": "business",
+    "audit": "B0807"
+  },
+  "erp_production_sourcedyejobsheet:phase4_function": {
+    "placement": "maintenance",
+    "audit": "B0808"
+  },
+  "erp_production_sourcedyejobsheet:phase4_operation": {
+    "placement": "business",
+    "audit": "B0809"
+  },
+  "erp_production_sourcedyejobsheet:phase5_report": {
+    "placement": "business",
+    "audit": "B0810"
+  },
+  "erp_production_sourcedyejobsheet:phase5_function": {
+    "placement": "maintenance",
+    "audit": "B0811"
+  },
+  "erp_production_sourcedyejobsheet:phase5_operation": {
+    "placement": "business",
+    "audit": "B0812"
+  },
+  "erp_production_sourcedyejobsheet:adopt_route": {
+    "placement": "business",
+    "audit": "B0813"
+  },
+  "erp_production_sourcedyejobsheet:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0814"
+  },
+  "erp_production_sourcedyejobsheetmasrkcar:confirm": {
+    "placement": "business",
+    "audit": "B0815"
+  },
+  "erp_production_sourcedyejobsheetmasrkcar:approve": {
+    "placement": "business",
+    "audit": "B0816"
+  },
+  "erp_production_sourcedyejobsheetmasrkcar:reopen": {
+    "placement": "business",
+    "audit": "B0817"
+  },
+  "erp_production_sourcedyejobsheetnorushorder:confirm": {
+    "placement": "business",
+    "audit": "B0818"
+  },
+  "erp_production_sourcedyejobsheetnorushorder:approve": {
+    "placement": "business",
+    "audit": "B0819"
+  },
+  "erp_production_sourcedyejobsheetnorushorder:reopen": {
+    "placement": "business",
+    "audit": "B0820"
+  },
+  "erp_production_sourcedyejobsheetother:confirm": {
+    "placement": "business",
+    "audit": "B0821"
+  },
+  "erp_production_sourcedyejobsheetother:approve": {
+    "placement": "business",
+    "audit": "B0822"
+  },
+  "erp_production_sourcedyejobsheetother:reopen": {
+    "placement": "business",
+    "audit": "B0823"
+  },
+  "erp_production_sourcedyejobsheetother:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0824"
+  },
+  "erp_production_sourcedyejobsheetreceive:confirm": {
+    "placement": "business",
+    "audit": "B0825"
+  },
+  "erp_production_sourcedyejobsheetreceive:approve": {
+    "placement": "business",
+    "audit": "B0826"
+  },
+  "erp_production_sourcedyejobsheetreceive:reopen": {
+    "placement": "business",
+    "audit": "B0827"
+  },
+  "erp_production_sourcedyejobsheetregister:confirm": {
+    "placement": "business",
+    "audit": "B0828"
+  },
+  "erp_production_sourcedyejobsheetregister:approve": {
+    "placement": "business",
+    "audit": "B0829"
+  },
+  "erp_production_sourcedyejobsheetregister:reopen": {
+    "placement": "business",
+    "audit": "B0830"
+  },
+  "erp_production_sourcedyejobsheetschedule:confirm": {
+    "placement": "business",
+    "audit": "B0831"
+  },
+  "erp_production_sourcedyejobsheetschedule:approve": {
+    "placement": "business",
+    "audit": "B0832"
+  },
+  "erp_production_sourcedyejobsheetschedule:reopen": {
+    "placement": "business",
+    "audit": "B0833"
+  },
+  "erp_production_sourcedyejobshiftemp:confirm": {
+    "placement": "business",
+    "audit": "B0834"
+  },
+  "erp_production_sourcedyejobshiftemp:approve": {
+    "placement": "business",
+    "audit": "B0835"
+  },
+  "erp_production_sourcedyejobshiftemp:reopen": {
+    "placement": "business",
+    "audit": "B0836"
+  },
+  "erp_production_sourcedyejobshiftemp:calculate": {
+    "placement": "automatic",
+    "audit": "B0837"
+  },
+  "erp_production_sourcedyejobshiftemp:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0838"
+  },
+  "erp_production_sourcedyejobshiftempbak:confirm": {
+    "placement": "business",
+    "audit": "B0839"
+  },
+  "erp_production_sourcedyejobshiftempbak:approve": {
+    "placement": "business",
+    "audit": "B0840"
+  },
+  "erp_production_sourcedyejobshiftempbak:reopen": {
+    "placement": "business",
+    "audit": "B0841"
+  },
+  "erp_production_sourcedyejobstartrollno:confirm": {
+    "placement": "business",
+    "audit": "B0842"
+  },
+  "erp_production_sourcedyejobstartrollno:approve": {
+    "placement": "business",
+    "audit": "B0843"
+  },
+  "erp_production_sourcedyejobstartrollno:reopen": {
+    "placement": "business",
+    "audit": "B0844"
+  },
+  "erp_production_sourcedyemachinecareplan:confirm": {
+    "placement": "business",
+    "audit": "B0845"
+  },
+  "erp_production_sourcedyemachinecareplan:approve": {
+    "placement": "business",
+    "audit": "B0846"
+  },
+  "erp_production_sourcedyemachinecareplan:reopen": {
+    "placement": "business",
+    "audit": "B0847"
+  },
+  "erp_production_sourcedyemachinecareplandetail:phase6_care_plan_to_article_out": {
+    "placement": "business",
+    "audit": "B0848"
+  },
+  "erp_production_sourcedyemachinecareproject:confirm": {
+    "placement": "business",
+    "audit": "B0849"
+  },
+  "erp_production_sourcedyemachinecareproject:approve": {
+    "placement": "business",
+    "audit": "B0850"
+  },
+  "erp_production_sourcedyemachinecareproject:reopen": {
+    "placement": "business",
+    "audit": "B0851"
+  },
+  "erp_production_sourcedyemachinecarerecords:equipment_projects": {
+    "placement": "business",
+    "audit": "B0852"
+  },
+  "erp_production_sourcedyemachinecarerecords:preview_equipment_projects": {
+    "placement": "business",
+    "audit": "B0853"
+  },
+  "erp_production_sourcedyemachinecarerecords:create_equipment_document": {
+    "placement": "business",
+    "audit": "B0854"
+  },
+  "erp_production_sourcedyemachinecarerecords:save_equipment_document": {
+    "placement": "business",
+    "audit": "B0855"
+  },
+  "erp_production_sourcedyemachinecarerecords:undo_equipment": {
+    "placement": "business",
+    "audit": "B0856"
+  },
+  "erp_production_sourcedyemachinecarerecords:continuation": {
+    "placement": "business",
+    "audit": "B0857"
+  },
+  "erp_production_sourcedyemachinecase:confirm": {
+    "placement": "business",
+    "audit": "B0858"
+  },
+  "erp_production_sourcedyemachinecase:approve": {
+    "placement": "business",
+    "audit": "B0859"
+  },
+  "erp_production_sourcedyemachinecase:reopen": {
+    "placement": "business",
+    "audit": "B0860"
+  },
+  "erp_production_sourcedyemachinecase:machine_case_projects": {
+    "placement": "business",
+    "audit": "B0861"
+  },
+  "erp_production_sourcedyemachinecaseproject:confirm": {
+    "placement": "business",
+    "audit": "B0862"
+  },
+  "erp_production_sourcedyemachinecaseproject:approve": {
+    "placement": "business",
+    "audit": "B0863"
+  },
+  "erp_production_sourcedyemachinecaseproject:reopen": {
+    "placement": "business",
+    "audit": "B0864"
+  },
+  "erp_production_sourcedyemachinefault:confirm": {
+    "placement": "business",
+    "audit": "B0865"
+  },
+  "erp_production_sourcedyemachinefault:approve": {
+    "placement": "business",
+    "audit": "B0866"
+  },
+  "erp_production_sourcedyemachinefault:reopen": {
+    "placement": "business",
+    "audit": "B0867"
+  },
+  "erp_production_sourcedyemachinefault:create_fault": {
+    "placement": "business",
+    "audit": "B0868"
+  },
+  "erp_production_sourcedyemachinefault:save_fault": {
+    "placement": "business",
+    "audit": "B0869"
+  },
+  "erp_production_sourcedyemachinefault:fault_save_check": {
+    "placement": "automatic",
+    "audit": "B0870"
+  },
+  "erp_production_sourcedyemachinefault:fault_actions": {
+    "placement": "business",
+    "audit": "B0871"
+  },
+  "erp_production_sourcedyemachinefault:check_fault_action": {
+    "placement": "automatic",
+    "audit": "B0872"
+  },
+  "erp_production_sourcedyemachinefault:perform_fault_action": {
+    "placement": "business",
+    "audit": "B0873"
+  },
+  "erp_production_sourcedyemachinefault:fault_history": {
+    "placement": "business",
+    "audit": "B0874"
+  },
+  "erp_production_sourcedyemachinefault:undo_equipment": {
+    "placement": "business",
+    "audit": "B0875"
+  },
+  "erp_production_sourcedyemachinefault:continuation": {
+    "placement": "business",
+    "audit": "B0876"
+  },
+  "erp_production_sourcedyemachinefault:phase4_equipment": {
+    "placement": "business",
+    "audit": "B0877"
+  },
+  "erp_production_sourcedyemachinefault:phase4_report": {
+    "placement": "business",
+    "audit": "B0878"
+  },
+  "erp_production_sourcedyemachinefault:phase4_function": {
+    "placement": "maintenance",
+    "audit": "B0879"
+  },
+  "erp_production_sourcedyemachinefault:phase4_operation": {
+    "placement": "business",
+    "audit": "B0880"
+  },
+  "erp_production_sourcedyemachinefaultarticleinfo:confirm": {
+    "placement": "business",
+    "audit": "B0881"
+  },
+  "erp_production_sourcedyemachinefaultarticleinfo:approve": {
+    "placement": "business",
+    "audit": "B0882"
+  },
+  "erp_production_sourcedyemachinefaultarticleinfo:reopen": {
+    "placement": "business",
+    "audit": "B0883"
+  },
+  "erp_production_sourcedyemachinefaultarticleinfo:phase4_equipment": {
+    "placement": "business",
+    "audit": "B0884"
+  },
+  "erp_production_sourcedyemachinefaultcomment:confirm": {
+    "placement": "business",
+    "audit": "B0885"
+  },
+  "erp_production_sourcedyemachinefaultcomment:approve": {
+    "placement": "business",
+    "audit": "B0886"
+  },
+  "erp_production_sourcedyemachinefaultcomment:reopen": {
+    "placement": "business",
+    "audit": "B0887"
+  },
+  "erp_production_sourcedyemachinefaultfilter:confirm": {
+    "placement": "business",
+    "audit": "B0888"
+  },
+  "erp_production_sourcedyemachinefaultfilter:approve": {
+    "placement": "business",
+    "audit": "B0889"
+  },
+  "erp_production_sourcedyemachinefaultfilter:reopen": {
+    "placement": "business",
+    "audit": "B0890"
+  },
+  "erp_production_sourcedyemachines:confirm": {
+    "placement": "business",
+    "audit": "B0891"
+  },
+  "erp_production_sourcedyemachines:approve": {
+    "placement": "business",
+    "audit": "B0892"
+  },
+  "erp_production_sourcedyemachines:reopen": {
+    "placement": "business",
+    "audit": "B0893"
+  },
+  "erp_production_sourcedyemoveshiftbill:confirm": {
+    "placement": "business",
+    "audit": "B0894"
+  },
+  "erp_production_sourcedyemoveshiftbill:approve": {
+    "placement": "business",
+    "audit": "B0895"
+  },
+  "erp_production_sourcedyemoveshiftbill:reopen": {
+    "placement": "business",
+    "audit": "B0896"
+  },
+  "erp_production_sourcedyemoveshiftbill:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0897"
+  },
+  "erp_production_sourcedyeoutworkapply:confirm": {
+    "placement": "business",
+    "audit": "B0898"
+  },
+  "erp_production_sourcedyeoutworkapply:approve": {
+    "placement": "business",
+    "audit": "B0899"
+  },
+  "erp_production_sourcedyeoutworkapply:reopen": {
+    "placement": "business",
+    "audit": "B0900"
+  },
+  "erp_production_sourcedyeoutworkapply:close_outwork": {
+    "placement": "business",
+    "audit": "B0901"
+  },
+  "erp_production_sourcedyeoutworkapply:outwork_closure": {
+    "placement": "business",
+    "audit": "B0902"
+  },
+  "erp_production_sourcedyeoutworkapply:reopen_outwork": {
+    "placement": "business",
+    "audit": "B0903"
+  },
+  "erp_production_sourcedyeoutworkapply:trace_outwork": {
+    "placement": "business",
+    "audit": "B0904"
+  },
+  "erp_production_sourcedyeoutworkapply:review_followup": {
+    "placement": "business",
+    "audit": "B0905"
+  },
+  "erp_production_sourcedyeoutworkapplydetail:dispatch_outwork": {
+    "placement": "business",
+    "audit": "B0906"
+  },
+  "erp_production_sourcedyeplanmain:confirm": {
+    "placement": "business",
+    "audit": "B0907"
+  },
+  "erp_production_sourcedyeplanmain:approve": {
+    "placement": "business",
+    "audit": "B0908"
+  },
+  "erp_production_sourcedyeplanmain:reopen": {
+    "placement": "business",
+    "audit": "B0909"
+  },
+  "erp_production_sourcedyepreplanorder:confirm": {
+    "placement": "business",
+    "audit": "B0910"
+  },
+  "erp_production_sourcedyepreplanorder:approve": {
+    "placement": "business",
+    "audit": "B0911"
+  },
+  "erp_production_sourcedyepreplanorder:reopen": {
+    "placement": "business",
+    "audit": "B0912"
+  },
+  "erp_production_sourcedyeprocesscraft:confirm": {
+    "placement": "business",
+    "audit": "B0913"
+  },
+  "erp_production_sourcedyeprocesscraft:approve": {
+    "placement": "business",
+    "audit": "B0914"
+  },
+  "erp_production_sourcedyeprocesscraft:reopen": {
+    "placement": "business",
+    "audit": "B0915"
+  },
+  "erp_production_sourcedyeprocesscraftjobno:confirm": {
+    "placement": "business",
+    "audit": "B0916"
+  },
+  "erp_production_sourcedyeprocesscraftjobno:approve": {
+    "placement": "business",
+    "audit": "B0917"
+  },
+  "erp_production_sourcedyeprocesscraftjobno:reopen": {
+    "placement": "business",
+    "audit": "B0918"
+  },
+  "erp_production_sourcedyeprocesscraftorderno:confirm": {
+    "placement": "business",
+    "audit": "B0919"
+  },
+  "erp_production_sourcedyeprocesscraftorderno:approve": {
+    "placement": "business",
+    "audit": "B0920"
+  },
+  "erp_production_sourcedyeprocesscraftorderno:reopen": {
+    "placement": "business",
+    "audit": "B0921"
+  },
+  "erp_production_sourcedyeprocessschedule:confirm": {
+    "placement": "business",
+    "audit": "B0922"
+  },
+  "erp_production_sourcedyeprocessschedule:approve": {
+    "placement": "business",
+    "audit": "B0923"
+  },
+  "erp_production_sourcedyeprocessschedule:reopen": {
+    "placement": "business",
+    "audit": "B0924"
+  },
+  "erp_production_sourcedyeprocessschedule:existing_schedules": {
+    "placement": "business",
+    "audit": "B0925"
+  },
+  "erp_production_sourcedyeprocessschedulebak:confirm": {
+    "placement": "business",
+    "audit": "B0926"
+  },
+  "erp_production_sourcedyeprocessschedulebak:approve": {
+    "placement": "business",
+    "audit": "B0927"
+  },
+  "erp_production_sourcedyeprocessschedulebak:reopen": {
+    "placement": "business",
+    "audit": "B0928"
+  },
+  "erp_production_sourcedyepstuffweight:confirm": {
+    "placement": "business",
+    "audit": "B0929"
+  },
+  "erp_production_sourcedyepstuffweight:approve": {
+    "placement": "business",
+    "audit": "B0930"
+  },
+  "erp_production_sourcedyepstuffweight:reopen": {
+    "placement": "business",
+    "audit": "B0931"
+  },
+  "erp_production_sourcedyepstuffweightdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0932"
+  },
+  "erp_production_sourcedyerecordemp:confirm": {
+    "placement": "business",
+    "audit": "B0933"
+  },
+  "erp_production_sourcedyerecordemp:approve": {
+    "placement": "business",
+    "audit": "B0934"
+  },
+  "erp_production_sourcedyerecordemp:reopen": {
+    "placement": "business",
+    "audit": "B0935"
+  },
+  "erp_production_sourcedyesalarychanges:confirm": {
+    "placement": "business",
+    "audit": "B0936"
+  },
+  "erp_production_sourcedyesalarychanges:approve": {
+    "placement": "business",
+    "audit": "B0937"
+  },
+  "erp_production_sourcedyesalarychanges:reopen": {
+    "placement": "business",
+    "audit": "B0938"
+  },
+  "erp_production_sourcedyesemioutworkapply:confirm": {
+    "placement": "business",
+    "audit": "B0939"
+  },
+  "erp_production_sourcedyesemioutworkapply:approve": {
+    "placement": "business",
+    "audit": "B0940"
+  },
+  "erp_production_sourcedyesemioutworkapply:reopen": {
+    "placement": "business",
+    "audit": "B0941"
+  },
+  "erp_production_sourcedyesemioutworkapply:close_outwork": {
+    "placement": "business",
+    "audit": "B0942"
+  },
+  "erp_production_sourcedyesemioutworkapply:outwork_closure": {
+    "placement": "business",
+    "audit": "B0943"
+  },
+  "erp_production_sourcedyesemioutworkapply:reopen_outwork": {
+    "placement": "business",
+    "audit": "B0944"
+  },
+  "erp_production_sourcedyesemioutworkapply:trace_outwork": {
+    "placement": "business",
+    "audit": "B0945"
+  },
+  "erp_production_sourcedyesemioutworkapply:review_followup": {
+    "placement": "business",
+    "audit": "B0946"
+  },
+  "erp_production_sourcedyesemioutworkapply:phase3_operation": {
+    "placement": "business",
+    "audit": "B0947"
+  },
+  "erp_production_sourcedyesemioutworkapply:phase3_report": {
+    "placement": "business",
+    "audit": "B0948"
+  },
+  "erp_production_sourcedyesemioutworkapplydetail:dispatch_outwork": {
+    "placement": "business",
+    "audit": "B0949"
+  },
+  "erp_production_sourcedyeshiftarrange:confirm": {
+    "placement": "business",
+    "audit": "B0950"
+  },
+  "erp_production_sourcedyeshiftarrange:approve": {
+    "placement": "business",
+    "audit": "B0951"
+  },
+  "erp_production_sourcedyeshiftarrange:reopen": {
+    "placement": "business",
+    "audit": "B0952"
+  },
+  "erp_production_sourcedyeshiftarrange:preview_shift_work": {
+    "placement": "business",
+    "audit": "B0953"
+  },
+  "erp_production_sourcedyeshiftarrange:apply_shift_work": {
+    "placement": "business",
+    "audit": "B0954"
+  },
+  "erp_production_sourcedyeshiftarrange:undo_shift_work": {
+    "placement": "business",
+    "audit": "B0955"
+  },
+  "erp_production_sourcedyeshiftarrangedetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0956"
+  },
+  "erp_production_sourcedyeshiftplan:confirm": {
+    "placement": "business",
+    "audit": "B0957"
+  },
+  "erp_production_sourcedyeshiftplan:approve": {
+    "placement": "business",
+    "audit": "B0958"
+  },
+  "erp_production_sourcedyeshiftplan:reopen": {
+    "placement": "business",
+    "audit": "B0959"
+  },
+  "erp_production_sourcedyestandcraft:confirm": {
+    "placement": "business",
+    "audit": "B0960"
+  },
+  "erp_production_sourcedyestandcraft:approve": {
+    "placement": "business",
+    "audit": "B0961"
+  },
+  "erp_production_sourcedyestandcraft:reopen": {
+    "placement": "business",
+    "audit": "B0962"
+  },
+  "erp_production_sourcedyestandcraftjobno:confirm": {
+    "placement": "business",
+    "audit": "B0963"
+  },
+  "erp_production_sourcedyestandcraftjobno:approve": {
+    "placement": "business",
+    "audit": "B0964"
+  },
+  "erp_production_sourcedyestandcraftjobno:reopen": {
+    "placement": "business",
+    "audit": "B0965"
+  },
+  "erp_production_sourcedyesterotypetech:confirm": {
+    "placement": "business",
+    "audit": "B0966"
+  },
+  "erp_production_sourcedyesterotypetech:approve": {
+    "placement": "business",
+    "audit": "B0967"
+  },
+  "erp_production_sourcedyesterotypetech:reopen": {
+    "placement": "business",
+    "audit": "B0968"
+  },
+  "erp_production_sourcedyestuffcombinesheets:confirm": {
+    "placement": "business",
+    "audit": "B0969"
+  },
+  "erp_production_sourcedyestuffcombinesheets:approve": {
+    "placement": "business",
+    "audit": "B0970"
+  },
+  "erp_production_sourcedyestuffcombinesheets:reopen": {
+    "placement": "business",
+    "audit": "B0971"
+  },
+  "erp_production_sourcedyestuffdeptapply:confirm": {
+    "placement": "business",
+    "audit": "B0972"
+  },
+  "erp_production_sourcedyestuffdeptapply:approve": {
+    "placement": "business",
+    "audit": "B0973"
+  },
+  "erp_production_sourcedyestuffdeptapply:reopen": {
+    "placement": "business",
+    "audit": "B0974"
+  },
+  "erp_production_sourcedyestuffdeptapplydetail:phase6_department_apply_to_purchase": {
+    "placement": "business",
+    "audit": "B0975"
+  },
+  "erp_production_sourcedyestuffoutapply:confirm": {
+    "placement": "business",
+    "audit": "B0976"
+  },
+  "erp_production_sourcedyestuffoutapply:approve": {
+    "placement": "business",
+    "audit": "B0977"
+  },
+  "erp_production_sourcedyestuffoutapply:reopen": {
+    "placement": "business",
+    "audit": "B0978"
+  },
+  "erp_production_sourcedyestuffweight:confirm": {
+    "placement": "business",
+    "audit": "B0979"
+  },
+  "erp_production_sourcedyestuffweight:approve": {
+    "placement": "business",
+    "audit": "B0980"
+  },
+  "erp_production_sourcedyestuffweight:reopen": {
+    "placement": "business",
+    "audit": "B0981"
+  },
+  "erp_production_sourcedyestuffweight:issue_materials": {
+    "placement": "business",
+    "audit": "B0982"
+  },
+  "erp_production_sourcedyestuffweight:material_steps": {
+    "placement": "business",
+    "audit": "B0983"
+  },
+  "erp_production_sourcedyestuffweight:calculate": {
+    "placement": "automatic",
+    "audit": "B0984"
+  },
+  "erp_production_sourcedyestuffweight:phase4_report": {
+    "placement": "business",
+    "audit": "B0985"
+  },
+  "erp_production_sourcedyestuffweight:phase4_function": {
+    "placement": "maintenance",
+    "audit": "B0986"
+  },
+  "erp_production_sourcedyestuffweight:phase4_operation": {
+    "placement": "business",
+    "audit": "B0987"
+  },
+  "erp_production_sourcedyestuffweight:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0988"
+  },
+  "erp_production_sourcedyestuffweightdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B0989"
+  },
+  "erp_production_sourcedyestuffweightdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0990"
+  },
+  "erp_production_sourcedyestuffweightjobsheetno:confirm": {
+    "placement": "business",
+    "audit": "B0991"
+  },
+  "erp_production_sourcedyestuffweightjobsheetno:approve": {
+    "placement": "business",
+    "audit": "B0992"
+  },
+  "erp_production_sourcedyestuffweightjobsheetno:reopen": {
+    "placement": "business",
+    "audit": "B0993"
+  },
+  "erp_production_sourcedyestuffweightphase:calculate": {
+    "placement": "automatic",
+    "audit": "B0994"
+  },
+  "erp_production_sourcedyestuffweightphase:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B0995"
+  },
+  "erp_production_sourcedyestuffweightprint:confirm": {
+    "placement": "business",
+    "audit": "B0996"
+  },
+  "erp_production_sourcedyestuffweightprint:approve": {
+    "placement": "business",
+    "audit": "B0997"
+  },
+  "erp_production_sourcedyestuffweightprint:reopen": {
+    "placement": "business",
+    "audit": "B0998"
+  },
+  "erp_production_sourcedyetighttube:confirm": {
+    "placement": "business",
+    "audit": "B0999"
+  },
+  "erp_production_sourcedyetighttube:approve": {
+    "placement": "business",
+    "audit": "B1000"
+  },
+  "erp_production_sourcedyetighttube:reopen": {
+    "placement": "business",
+    "audit": "B1001"
+  },
+  "erp_production_sourcedyetighttubeplan:confirm": {
+    "placement": "business",
+    "audit": "B1002"
+  },
+  "erp_production_sourcedyetighttubeplan:approve": {
+    "placement": "business",
+    "audit": "B1003"
+  },
+  "erp_production_sourcedyetighttubeplan:reopen": {
+    "placement": "business",
+    "audit": "B1004"
+  },
+  "erp_production_sourcedyeuseracmachines:confirm": {
+    "placement": "business",
+    "audit": "B1005"
+  },
+  "erp_production_sourcedyeuseracmachines:approve": {
+    "placement": "business",
+    "audit": "B1006"
+  },
+  "erp_production_sourcedyeuseracmachines:reopen": {
+    "placement": "business",
+    "audit": "B1007"
+  },
+  "erp_production_sourcedyeusersmachines:confirm": {
+    "placement": "business",
+    "audit": "B1008"
+  },
+  "erp_production_sourcedyeusersmachines:approve": {
+    "placement": "business",
+    "audit": "B1009"
+  },
+  "erp_production_sourcedyeusersmachines:reopen": {
+    "placement": "business",
+    "audit": "B1010"
+  },
+  "erp_production_sourcedyewashthetankdye:confirm": {
+    "placement": "business",
+    "audit": "B1011"
+  },
+  "erp_production_sourcedyewashthetankdye:approve": {
+    "placement": "business",
+    "audit": "B1012"
+  },
+  "erp_production_sourcedyewashthetankdye:reopen": {
+    "placement": "business",
+    "audit": "B1013"
+  },
+  "erp_production_sourcedyewprocess:confirm": {
+    "placement": "business",
+    "audit": "B1014"
+  },
+  "erp_production_sourcedyewprocess:approve": {
+    "placement": "business",
+    "audit": "B1015"
+  },
+  "erp_production_sourcedyewprocess:reopen": {
+    "placement": "business",
+    "audit": "B1016"
+  },
+  "erp_production_sourcedyewprocess:delete_shift_record": {
+    "placement": "business",
+    "audit": "B1017"
+  },
+  "erp_production_sourcedyewprocess:site_work_details": {
+    "placement": "business",
+    "audit": "B1018"
+  },
+  "erp_production_sourcedyewprocess:employee_proportion": {
+    "placement": "business",
+    "audit": "B1019"
+  },
+  "erp_production_sourcedyewprocess:preview_work_archive": {
+    "placement": "maintenance",
+    "audit": "B1020"
+  },
+  "erp_production_sourcedyewprocess:archive_work": {
+    "placement": "maintenance",
+    "audit": "B1021"
+  },
+  "erp_production_sourcedyewprocess:undo_work_archive": {
+    "placement": "maintenance",
+    "audit": "B1022"
+  },
+  "erp_production_sourcedyewprocess:work_quantity": {
+    "placement": "business",
+    "audit": "B1023"
+  },
+  "erp_production_sourcedyewprocess:process_status": {
+    "placement": "business",
+    "audit": "B1024"
+  },
+  "erp_production_sourcedyewprocess:calculate": {
+    "placement": "automatic",
+    "audit": "B1025"
+  },
+  "erp_production_sourcedyewprocess:phase4_attendance": {
+    "placement": "business",
+    "audit": "B1026"
+  },
+  "erp_production_sourcedyewprocess:phase4_report": {
+    "placement": "business",
+    "audit": "B1027"
+  },
+  "erp_production_sourcedyewprocess:phase4_function": {
+    "placement": "maintenance",
+    "audit": "B1028"
+  },
+  "erp_production_sourcedyewprocess:phase4_operation": {
+    "placement": "business",
+    "audit": "B1029"
+  },
+  "erp_production_sourcedyewprocess:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1030"
+  },
+  "erp_production_sourcedyewprocessbak:confirm": {
+    "placement": "business",
+    "audit": "B1031"
+  },
+  "erp_production_sourcedyewprocessbak:approve": {
+    "placement": "business",
+    "audit": "B1032"
+  },
+  "erp_production_sourcedyewprocessbak:reopen": {
+    "placement": "business",
+    "audit": "B1033"
+  },
+  "erp_production_sourcedyewprocessstepbak:confirm": {
+    "placement": "business",
+    "audit": "B1034"
+  },
+  "erp_production_sourcedyewprocessstepbak:approve": {
+    "placement": "business",
+    "audit": "B1035"
+  },
+  "erp_production_sourcedyewprocessstepbak:reopen": {
+    "placement": "business",
+    "audit": "B1036"
+  },
+  "erp_production_sourcedyewvehicle:confirm": {
+    "placement": "business",
+    "audit": "B1037"
+  },
+  "erp_production_sourcedyewvehicle:approve": {
+    "placement": "business",
+    "audit": "B1038"
+  },
+  "erp_production_sourcedyewvehicle:reopen": {
+    "placement": "business",
+    "audit": "B1039"
+  },
+  "erp_production_sourcedyewworktime:confirm": {
+    "placement": "business",
+    "audit": "B1040"
+  },
+  "erp_production_sourcedyewworktime:approve": {
+    "placement": "business",
+    "audit": "B1041"
+  },
+  "erp_production_sourcedyewworktime:reopen": {
+    "placement": "business",
+    "audit": "B1042"
+  },
+  "erp_warehouse_stockreceipt:confirm": {
+    "placement": "business",
+    "audit": "B1043"
+  },
+  "erp_warehouse_stockreceipt:post": {
+    "placement": "business",
+    "audit": "B1044"
+  },
+  "erp_warehouse_stockreceipt:reverse": {
+    "placement": "business",
+    "audit": "B1045"
+  },
+  "erp_warehouse_stockissue:confirm": {
+    "placement": "business",
+    "audit": "B1046"
+  },
+  "erp_warehouse_stockissue:post": {
+    "placement": "business",
+    "audit": "B1047"
+  },
+  "erp_warehouse_stockissue:reverse": {
+    "placement": "business",
+    "audit": "B1048"
+  },
+  "erp_warehouse_stocktransfer:confirm": {
+    "placement": "business",
+    "audit": "B1049"
+  },
+  "erp_warehouse_stocktransfer:post": {
+    "placement": "business",
+    "audit": "B1050"
+  },
+  "erp_warehouse_stocktransfer:reverse": {
+    "placement": "business",
+    "audit": "B1051"
+  },
+  "erp_warehouse_stockcount:begin": {
+    "placement": "business",
+    "audit": "B1052"
+  },
+  "erp_warehouse_stockcount:confirm": {
+    "placement": "business",
+    "audit": "B1053"
+  },
+  "erp_warehouse_stockcount:adjust": {
+    "placement": "business",
+    "audit": "B1054"
+  },
+  "erp_warehouse_stockadjustment:confirm": {
+    "placement": "business",
+    "audit": "B1055"
+  },
+  "erp_warehouse_stockadjustment:post": {
+    "placement": "business",
+    "audit": "B1056"
+  },
+  "erp_warehouse_stockadjustment:reverse": {
+    "placement": "business",
+    "audit": "B1057"
+  },
+  "erp_warehouse_lottransformation:confirm": {
+    "placement": "business",
+    "audit": "B1058"
+  },
+  "erp_warehouse_lottransformation:void": {
+    "placement": "business",
+    "audit": "B1059"
+  },
+  "erp_warehouse_package:pack": {
+    "placement": "business",
+    "audit": "B1060"
+  },
+  "erp_warehouse_package:void": {
+    "placement": "business",
+    "audit": "B1061"
+  },
+  "erp_warehouse_package:request_print": {
+    "placement": "deferred",
+    "audit": "B1062"
+  },
+  "erp_warehouse_labelprint:confirm": {
+    "placement": "deferred",
+    "audit": "B1063"
+  },
+  "erp_warehouse_sourcedboprodin1029:confirm": {
+    "placement": "business",
+    "audit": "B1064"
+  },
+  "erp_warehouse_sourcedboprodin1029:approve": {
+    "placement": "business",
+    "audit": "B1065"
+  },
+  "erp_warehouse_sourcedboprodin1029:reopen": {
+    "placement": "business",
+    "audit": "B1066"
+  },
+  "erp_warehouse_sourcedyearticledeptapply:confirm": {
+    "placement": "business",
+    "audit": "B1067"
+  },
+  "erp_warehouse_sourcedyearticledeptapply:approve": {
+    "placement": "business",
+    "audit": "B1068"
+  },
+  "erp_warehouse_sourcedyearticledeptapply:reopen": {
+    "placement": "business",
+    "audit": "B1069"
+  },
+  "erp_warehouse_sourcedyearticledeptapplydetail:phase6_department_apply_to_purchase": {
+    "placement": "business",
+    "audit": "B1070"
+  },
+  "erp_warehouse_sourcedyearticlein:confirm": {
+    "placement": "business",
+    "audit": "B1071"
+  },
+  "erp_warehouse_sourcedyearticlein:approve": {
+    "placement": "business",
+    "audit": "B1072"
+  },
+  "erp_warehouse_sourcedyearticlein:reopen": {
+    "placement": "business",
+    "audit": "B1073"
+  },
+  "erp_warehouse_sourcedyearticlein:continuation": {
+    "placement": "business",
+    "audit": "B1074"
+  },
+  "erp_warehouse_sourcedyearticlein:material_price_adjustment": {
+    "placement": "business",
+    "audit": "B1075"
+  },
+  "erp_warehouse_sourcedyearticlein:phase3_operation": {
+    "placement": "business",
+    "audit": "B1076"
+  },
+  "erp_warehouse_sourcedyearticleindetail:return_purchase": {
+    "placement": "business",
+    "audit": "B1077"
+  },
+  "erp_warehouse_sourcedyearticleindetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1078"
+  },
+  "erp_warehouse_sourcedyearticleindetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1079"
+  },
+  "erp_warehouse_sourcedyearticleout:confirm": {
+    "placement": "business",
+    "audit": "B1080"
+  },
+  "erp_warehouse_sourcedyearticleout:approve": {
+    "placement": "business",
+    "audit": "B1081"
+  },
+  "erp_warehouse_sourcedyearticleout:reopen": {
+    "placement": "business",
+    "audit": "B1082"
+  },
+  "erp_warehouse_sourcedyearticleout:phase3_operation": {
+    "placement": "business",
+    "audit": "B1083"
+  },
+  "erp_warehouse_sourcedyearticleoutapply:confirm": {
+    "placement": "business",
+    "audit": "B1084"
+  },
+  "erp_warehouse_sourcedyearticleoutapply:approve": {
+    "placement": "business",
+    "audit": "B1085"
+  },
+  "erp_warehouse_sourcedyearticleoutapply:reopen": {
+    "placement": "business",
+    "audit": "B1086"
+  },
+  "erp_warehouse_sourcedyearticleoutdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1087"
+  },
+  "erp_warehouse_sourcedyearticleoutdetail:phase6_reverse_line_transfer": {
+    "placement": "business",
+    "audit": "B1088"
+  },
+  "erp_warehouse_sourcedyearticleoutdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1089"
+  },
+  "erp_warehouse_sourcedyearticlestock:confirm": {
+    "placement": "business",
+    "audit": "B1090"
+  },
+  "erp_warehouse_sourcedyearticlestock:approve": {
+    "placement": "business",
+    "audit": "B1091"
+  },
+  "erp_warehouse_sourcedyearticlestock:reopen": {
+    "placement": "business",
+    "audit": "B1092"
+  },
+  "erp_warehouse_sourcedyearticlestock:phase3_carry": {
+    "placement": "business",
+    "audit": "B1093"
+  },
+  "erp_warehouse_sourcedyearticlestockadjust:confirm": {
+    "placement": "business",
+    "audit": "B1094"
+  },
+  "erp_warehouse_sourcedyearticlestockadjust:approve": {
+    "placement": "business",
+    "audit": "B1095"
+  },
+  "erp_warehouse_sourcedyearticlestockadjust:reopen": {
+    "placement": "business",
+    "audit": "B1096"
+  },
+  "erp_warehouse_sourcedyearticlestockadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1097"
+  },
+  "erp_warehouse_sourcedyearticlestockbook:phase3_report": {
+    "placement": "business",
+    "audit": "B1098"
+  },
+  "erp_warehouse_sourcedyecarrymaterial:confirm": {
+    "placement": "business",
+    "audit": "B1099"
+  },
+  "erp_warehouse_sourcedyecarrymaterial:approve": {
+    "placement": "business",
+    "audit": "B1100"
+  },
+  "erp_warehouse_sourcedyecarrymaterial:reopen": {
+    "placement": "business",
+    "audit": "B1101"
+  },
+  "erp_warehouse_sourcedyecookindetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1102"
+  },
+  "erp_warehouse_sourcedyedyestuffout:confirm": {
+    "placement": "business",
+    "audit": "B1103"
+  },
+  "erp_warehouse_sourcedyedyestuffout:approve": {
+    "placement": "business",
+    "audit": "B1104"
+  },
+  "erp_warehouse_sourcedyedyestuffout:reopen": {
+    "placement": "business",
+    "audit": "B1105"
+  },
+  "erp_warehouse_sourcedyegraybalance:confirm": {
+    "placement": "business",
+    "audit": "B1106"
+  },
+  "erp_warehouse_sourcedyegraybalance:approve": {
+    "placement": "business",
+    "audit": "B1107"
+  },
+  "erp_warehouse_sourcedyegraybalance:reopen": {
+    "placement": "business",
+    "audit": "B1108"
+  },
+  "erp_warehouse_sourcedyegrayin:confirm": {
+    "placement": "business",
+    "audit": "B1109"
+  },
+  "erp_warehouse_sourcedyegrayin:approve": {
+    "placement": "business",
+    "audit": "B1110"
+  },
+  "erp_warehouse_sourcedyegrayin:reopen": {
+    "placement": "business",
+    "audit": "B1111"
+  },
+  "erp_warehouse_sourcedyegrayin:continuation": {
+    "placement": "business",
+    "audit": "B1112"
+  },
+  "erp_warehouse_sourcedyegrayin:phase3_operation": {
+    "placement": "business",
+    "audit": "B1113"
+  },
+  "erp_warehouse_sourcedyegrayin:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1114"
+  },
+  "erp_warehouse_sourcedyegrayindefect:confirm": {
+    "placement": "business",
+    "audit": "B1115"
+  },
+  "erp_warehouse_sourcedyegrayindefect:approve": {
+    "placement": "business",
+    "audit": "B1116"
+  },
+  "erp_warehouse_sourcedyegrayindefect:reopen": {
+    "placement": "business",
+    "audit": "B1117"
+  },
+  "erp_warehouse_sourcedyegrayindetail:factory_quality": {
+    "placement": "business",
+    "audit": "B1118"
+  },
+  "erp_warehouse_sourcedyegrayindetail:return_outwork_material": {
+    "placement": "business",
+    "audit": "B1119"
+  },
+  "erp_warehouse_sourcedyegrayindetail:issue_to_job": {
+    "placement": "business",
+    "audit": "B1120"
+  },
+  "erp_warehouse_sourcedyegrayindetail:return_raw_purchase": {
+    "placement": "business",
+    "audit": "B1121"
+  },
+  "erp_warehouse_sourcedyegrayindetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1122"
+  },
+  "erp_warehouse_sourcedyegrayindetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1123"
+  },
+  "erp_warehouse_sourcedyegrayinrecord:split_gray": {
+    "placement": "business",
+    "audit": "B1124"
+  },
+  "erp_warehouse_sourcedyegrayinrecord:merge_gray": {
+    "placement": "business",
+    "audit": "B1125"
+  },
+  "erp_warehouse_sourcedyegrayinrecord:continuation": {
+    "placement": "business",
+    "audit": "B1126"
+  },
+  "erp_warehouse_sourcedyegrayinrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1127"
+  },
+  "erp_warehouse_sourcedyegraymaterial:confirm": {
+    "placement": "business",
+    "audit": "B1128"
+  },
+  "erp_warehouse_sourcedyegraymaterial:approve": {
+    "placement": "business",
+    "audit": "B1129"
+  },
+  "erp_warehouse_sourcedyegraymaterial:reopen": {
+    "placement": "business",
+    "audit": "B1130"
+  },
+  "erp_warehouse_sourcedyegrayout:confirm": {
+    "placement": "business",
+    "audit": "B1131"
+  },
+  "erp_warehouse_sourcedyegrayout:approve": {
+    "placement": "business",
+    "audit": "B1132"
+  },
+  "erp_warehouse_sourcedyegrayout:reopen": {
+    "placement": "business",
+    "audit": "B1133"
+  },
+  "erp_warehouse_sourcedyegrayout:phase3_operation": {
+    "placement": "business",
+    "audit": "B1134"
+  },
+  "erp_warehouse_sourcedyegrayout:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1135"
+  },
+  "erp_warehouse_sourcedyegrayoutdetail:receive_outwork": {
+    "placement": "business",
+    "audit": "B1136"
+  },
+  "erp_warehouse_sourcedyegrayoutdetail:material_receipt_options": {
+    "placement": "business",
+    "audit": "B1137"
+  },
+  "erp_warehouse_sourcedyegrayoutdetail:receive_outwork_material": {
+    "placement": "business",
+    "audit": "B1138"
+  },
+  "erp_warehouse_sourcedyegrayoutdetail:return_material": {
+    "placement": "business",
+    "audit": "B1139"
+  },
+  "erp_warehouse_sourcedyegrayoutdetail:transfer_to_job": {
+    "placement": "business",
+    "audit": "B1140"
+  },
+  "erp_warehouse_sourcedyegrayoutdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1141"
+  },
+  "erp_warehouse_sourcedyegrayoutdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1142"
+  },
+  "erp_warehouse_sourcedyegraypostionup:confirm": {
+    "placement": "business",
+    "audit": "B1143"
+  },
+  "erp_warehouse_sourcedyegraypostionup:approve": {
+    "placement": "business",
+    "audit": "B1144"
+  },
+  "erp_warehouse_sourcedyegraypostionup:reopen": {
+    "placement": "business",
+    "audit": "B1145"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:confirm": {
+    "placement": "business",
+    "audit": "B1146"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:approve": {
+    "placement": "business",
+    "audit": "B1147"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:reopen": {
+    "placement": "business",
+    "audit": "B1148"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:operation_report": {
+    "placement": "business",
+    "audit": "B1149"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:undo_gray": {
+    "placement": "business",
+    "audit": "B1150"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:history_recovery_preview": {
+    "placement": "business",
+    "audit": "B1151"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:recover_history": {
+    "placement": "maintenance",
+    "audit": "B1152"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:undo_history_recovery": {
+    "placement": "maintenance",
+    "audit": "B1153"
+  },
+  "erp_warehouse_sourcedyegrayrecordcutlogs:continuation": {
+    "placement": "business",
+    "audit": "B1154"
+  },
+  "erp_warehouse_sourcedyegraystock:confirm": {
+    "placement": "business",
+    "audit": "B1155"
+  },
+  "erp_warehouse_sourcedyegraystock:approve": {
+    "placement": "business",
+    "audit": "B1156"
+  },
+  "erp_warehouse_sourcedyegraystock:reopen": {
+    "placement": "business",
+    "audit": "B1157"
+  },
+  "erp_warehouse_sourcedyegraystock:phase3_carry": {
+    "placement": "business",
+    "audit": "B1158"
+  },
+  "erp_warehouse_sourcedyegraystockadjust:confirm": {
+    "placement": "business",
+    "audit": "B1159"
+  },
+  "erp_warehouse_sourcedyegraystockadjust:approve": {
+    "placement": "business",
+    "audit": "B1160"
+  },
+  "erp_warehouse_sourcedyegraystockadjust:reopen": {
+    "placement": "business",
+    "audit": "B1161"
+  },
+  "erp_warehouse_sourcedyegraystockadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1162"
+  },
+  "erp_warehouse_sourcedyegraystockallot:confirm": {
+    "placement": "business",
+    "audit": "B1163"
+  },
+  "erp_warehouse_sourcedyegraystockallot:approve": {
+    "placement": "business",
+    "audit": "B1164"
+  },
+  "erp_warehouse_sourcedyegraystockallot:reopen": {
+    "placement": "business",
+    "audit": "B1165"
+  },
+  "erp_warehouse_sourcedyegraystockbook:phase3_report": {
+    "placement": "business",
+    "audit": "B1166"
+  },
+  "erp_warehouse_sourcedyegraystockcheck:confirm": {
+    "placement": "business",
+    "audit": "B1167"
+  },
+  "erp_warehouse_sourcedyegraystockcheck:approve": {
+    "placement": "business",
+    "audit": "B1168"
+  },
+  "erp_warehouse_sourcedyegraystockcheck:reopen": {
+    "placement": "business",
+    "audit": "B1169"
+  },
+  "erp_warehouse_sourcedyegraystockspecup:confirm": {
+    "placement": "business",
+    "audit": "B1170"
+  },
+  "erp_warehouse_sourcedyegraystockspecup:approve": {
+    "placement": "business",
+    "audit": "B1171"
+  },
+  "erp_warehouse_sourcedyegraystockspecup:reopen": {
+    "placement": "business",
+    "audit": "B1172"
+  },
+  "erp_warehouse_sourcedyegraystorageadjust:confirm": {
+    "placement": "business",
+    "audit": "B1173"
+  },
+  "erp_warehouse_sourcedyegraystorageadjust:approve": {
+    "placement": "business",
+    "audit": "B1174"
+  },
+  "erp_warehouse_sourcedyegraystorageadjust:reopen": {
+    "placement": "business",
+    "audit": "B1175"
+  },
+  "erp_warehouse_sourcedyegraystorageadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1176"
+  },
+  "erp_warehouse_sourcedyegraystorageadjustrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1177"
+  },
+  "erp_warehouse_sourcedyeodmin:confirm": {
+    "placement": "business",
+    "audit": "B1178"
+  },
+  "erp_warehouse_sourcedyeodmin:approve": {
+    "placement": "business",
+    "audit": "B1179"
+  },
+  "erp_warehouse_sourcedyeodmin:reopen": {
+    "placement": "business",
+    "audit": "B1180"
+  },
+  "erp_warehouse_sourcedyeodmout:confirm": {
+    "placement": "business",
+    "audit": "B1181"
+  },
+  "erp_warehouse_sourcedyeodmout:approve": {
+    "placement": "business",
+    "audit": "B1182"
+  },
+  "erp_warehouse_sourcedyeodmout:reopen": {
+    "placement": "business",
+    "audit": "B1183"
+  },
+  "erp_warehouse_sourcedyeotherin:confirm": {
+    "placement": "business",
+    "audit": "B1184"
+  },
+  "erp_warehouse_sourcedyeotherin:approve": {
+    "placement": "business",
+    "audit": "B1185"
+  },
+  "erp_warehouse_sourcedyeotherin:reopen": {
+    "placement": "business",
+    "audit": "B1186"
+  },
+  "erp_warehouse_sourcedyeotherindetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1187"
+  },
+  "erp_warehouse_sourcedyeoutgoingbill:confirm": {
+    "placement": "business",
+    "audit": "B1188"
+  },
+  "erp_warehouse_sourcedyeoutgoingbill:approve": {
+    "placement": "business",
+    "audit": "B1189"
+  },
+  "erp_warehouse_sourcedyeoutgoingbill:reopen": {
+    "placement": "business",
+    "audit": "B1190"
+  },
+  "erp_warehouse_sourcedyeoutplan:confirm": {
+    "placement": "business",
+    "audit": "B1191"
+  },
+  "erp_warehouse_sourcedyeoutplan:approve": {
+    "placement": "business",
+    "audit": "B1192"
+  },
+  "erp_warehouse_sourcedyeoutplan:reopen": {
+    "placement": "business",
+    "audit": "B1193"
+  },
+  "erp_warehouse_sourcedyepackqty:confirm": {
+    "placement": "business",
+    "audit": "B1194"
+  },
+  "erp_warehouse_sourcedyepackqty:approve": {
+    "placement": "business",
+    "audit": "B1195"
+  },
+  "erp_warehouse_sourcedyepackqty:reopen": {
+    "placement": "business",
+    "audit": "B1196"
+  },
+  "erp_warehouse_sourcedyepackqty1:confirm": {
+    "placement": "business",
+    "audit": "B1197"
+  },
+  "erp_warehouse_sourcedyepackqty1:approve": {
+    "placement": "business",
+    "audit": "B1198"
+  },
+  "erp_warehouse_sourcedyepackqty1:reopen": {
+    "placement": "business",
+    "audit": "B1199"
+  },
+  "erp_warehouse_sourcedyepackworkqty:confirm": {
+    "placement": "business",
+    "audit": "B1200"
+  },
+  "erp_warehouse_sourcedyepackworkqty:approve": {
+    "placement": "business",
+    "audit": "B1201"
+  },
+  "erp_warehouse_sourcedyepackworkqty:reopen": {
+    "placement": "business",
+    "audit": "B1202"
+  },
+  "erp_warehouse_sourcedyepackworkqty1:confirm": {
+    "placement": "business",
+    "audit": "B1203"
+  },
+  "erp_warehouse_sourcedyepackworkqty1:approve": {
+    "placement": "business",
+    "audit": "B1204"
+  },
+  "erp_warehouse_sourcedyepackworkqty1:reopen": {
+    "placement": "business",
+    "audit": "B1205"
+  },
+  "erp_warehouse_sourcedyepackworksumqty:confirm": {
+    "placement": "business",
+    "audit": "B1206"
+  },
+  "erp_warehouse_sourcedyepackworksumqty:approve": {
+    "placement": "business",
+    "audit": "B1207"
+  },
+  "erp_warehouse_sourcedyepackworksumqty:reopen": {
+    "placement": "business",
+    "audit": "B1208"
+  },
+  "erp_warehouse_sourcedyeprodin:confirm": {
+    "placement": "business",
+    "audit": "B1209"
+  },
+  "erp_warehouse_sourcedyeprodin:approve": {
+    "placement": "business",
+    "audit": "B1210"
+  },
+  "erp_warehouse_sourcedyeprodin:reopen": {
+    "placement": "business",
+    "audit": "B1211"
+  },
+  "erp_warehouse_sourcedyeprodin:factory_quality": {
+    "placement": "business",
+    "audit": "B1212"
+  },
+  "erp_warehouse_sourcedyeprodin:dispatch_product": {
+    "placement": "business",
+    "audit": "B1213"
+  },
+  "erp_warehouse_sourcedyeprodin:continuation": {
+    "placement": "business",
+    "audit": "B1214"
+  },
+  "erp_warehouse_sourcedyeprodin:calculate": {
+    "placement": "automatic",
+    "audit": "B1215"
+  },
+  "erp_warehouse_sourcedyeprodin:phase3_operation": {
+    "placement": "business",
+    "audit": "B1216"
+  },
+  "erp_warehouse_sourcedyeprodin:phase6_reverse_head_transfer": {
+    "placement": "business",
+    "audit": "B1217"
+  },
+  "erp_warehouse_sourcedyeprodin:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1218"
+  },
+  "erp_warehouse_sourcedyeprodinto:confirm": {
+    "placement": "business",
+    "audit": "B1219"
+  },
+  "erp_warehouse_sourcedyeprodinto:approve": {
+    "placement": "business",
+    "audit": "B1220"
+  },
+  "erp_warehouse_sourcedyeprodinto:reopen": {
+    "placement": "business",
+    "audit": "B1221"
+  },
+  "erp_warehouse_sourcedyeprodinpriceprocess:confirm": {
+    "placement": "business",
+    "audit": "B1222"
+  },
+  "erp_warehouse_sourcedyeprodinpriceprocess:approve": {
+    "placement": "business",
+    "audit": "B1223"
+  },
+  "erp_warehouse_sourcedyeprodinpriceprocess:reopen": {
+    "placement": "business",
+    "audit": "B1224"
+  },
+  "erp_warehouse_sourcedyeprodinrecord:calculate": {
+    "placement": "automatic",
+    "audit": "B1225"
+  },
+  "erp_warehouse_sourcedyeprodinrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1226"
+  },
+  "erp_warehouse_sourcedyeprodloading:confirm": {
+    "placement": "business",
+    "audit": "B1227"
+  },
+  "erp_warehouse_sourcedyeprodloading:approve": {
+    "placement": "business",
+    "audit": "B1228"
+  },
+  "erp_warehouse_sourcedyeprodloading:reopen": {
+    "placement": "business",
+    "audit": "B1229"
+  },
+  "erp_warehouse_sourcedyeprodloading:add_outgoing_lines": {
+    "placement": "business",
+    "audit": "B1230"
+  },
+  "erp_warehouse_sourcedyeprodout:confirm": {
+    "placement": "business",
+    "audit": "B1231"
+  },
+  "erp_warehouse_sourcedyeprodout:approve": {
+    "placement": "business",
+    "audit": "B1232"
+  },
+  "erp_warehouse_sourcedyeprodout:reopen": {
+    "placement": "business",
+    "audit": "B1233"
+  },
+  "erp_warehouse_sourcedyeprodout:confirm_delivery": {
+    "placement": "business",
+    "audit": "B1234"
+  },
+  "erp_warehouse_sourcedyeprodout:continuation": {
+    "placement": "business",
+    "audit": "B1235"
+  },
+  "erp_warehouse_sourcedyeprodout:phase5_report": {
+    "placement": "business",
+    "audit": "B1236"
+  },
+  "erp_warehouse_sourcedyeprodout:phase5_function": {
+    "placement": "maintenance",
+    "audit": "B1237"
+  },
+  "erp_warehouse_sourcedyeprodout:phase5_operation": {
+    "placement": "business",
+    "audit": "B1238"
+  },
+  "erp_warehouse_sourcedyeprodout:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1239"
+  },
+  "erp_warehouse_sourcedyeprodoutdetail:receive_return": {
+    "placement": "business",
+    "audit": "B1240"
+  },
+  "erp_warehouse_sourcedyeprodoutdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1241"
+  },
+  "erp_warehouse_sourcedyeprodoutdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1242"
+  },
+  "erp_warehouse_sourcedyeprodoutpriceprocess:confirm": {
+    "placement": "business",
+    "audit": "B1243"
+  },
+  "erp_warehouse_sourcedyeprodoutpriceprocess:approve": {
+    "placement": "business",
+    "audit": "B1244"
+  },
+  "erp_warehouse_sourcedyeprodoutpriceprocess:reopen": {
+    "placement": "business",
+    "audit": "B1245"
+  },
+  "erp_warehouse_sourcedyeprodoutrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1246"
+  },
+  "erp_warehouse_sourcedyeprodstock:confirm": {
+    "placement": "business",
+    "audit": "B1247"
+  },
+  "erp_warehouse_sourcedyeprodstock:approve": {
+    "placement": "business",
+    "audit": "B1248"
+  },
+  "erp_warehouse_sourcedyeprodstock:reopen": {
+    "placement": "business",
+    "audit": "B1249"
+  },
+  "erp_warehouse_sourcedyeprodstock:phase3_carry": {
+    "placement": "business",
+    "audit": "B1250"
+  },
+  "erp_warehouse_sourcedyeprodstockadjust:confirm": {
+    "placement": "business",
+    "audit": "B1251"
+  },
+  "erp_warehouse_sourcedyeprodstockadjust:approve": {
+    "placement": "business",
+    "audit": "B1252"
+  },
+  "erp_warehouse_sourcedyeprodstockadjust:reopen": {
+    "placement": "business",
+    "audit": "B1253"
+  },
+  "erp_warehouse_sourcedyeprodstockadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1254"
+  },
+  "erp_warehouse_sourcedyeprodstockallot:confirm": {
+    "placement": "business",
+    "audit": "B1255"
+  },
+  "erp_warehouse_sourcedyeprodstockallot:approve": {
+    "placement": "business",
+    "audit": "B1256"
+  },
+  "erp_warehouse_sourcedyeprodstockallot:reopen": {
+    "placement": "business",
+    "audit": "B1257"
+  },
+  "erp_warehouse_sourcedyeprodstockbook:phase3_report": {
+    "placement": "business",
+    "audit": "B1258"
+  },
+  "erp_warehouse_sourcedyeprodstockcheck:confirm": {
+    "placement": "business",
+    "audit": "B1259"
+  },
+  "erp_warehouse_sourcedyeprodstockcheck:approve": {
+    "placement": "business",
+    "audit": "B1260"
+  },
+  "erp_warehouse_sourcedyeprodstockcheck:reopen": {
+    "placement": "business",
+    "audit": "B1261"
+  },
+  "erp_warehouse_sourcedyeprodstorageadjust:confirm": {
+    "placement": "business",
+    "audit": "B1262"
+  },
+  "erp_warehouse_sourcedyeprodstorageadjust:approve": {
+    "placement": "business",
+    "audit": "B1263"
+  },
+  "erp_warehouse_sourcedyeprodstorageadjust:reopen": {
+    "placement": "business",
+    "audit": "B1264"
+  },
+  "erp_warehouse_sourcedyeprodstorageadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1265"
+  },
+  "erp_warehouse_sourcedyerecordyield:confirm": {
+    "placement": "business",
+    "audit": "B1266"
+  },
+  "erp_warehouse_sourcedyerecordyield:approve": {
+    "placement": "business",
+    "audit": "B1267"
+  },
+  "erp_warehouse_sourcedyerecordyield:reopen": {
+    "placement": "business",
+    "audit": "B1268"
+  },
+  "erp_warehouse_sourcedyerecordyield:package_people": {
+    "placement": "business",
+    "audit": "B1269"
+  },
+  "erp_warehouse_sourcedyerecordyield:preview_package_replace": {
+    "placement": "business",
+    "audit": "B1270"
+  },
+  "erp_warehouse_sourcedyerecordyield:replace_package": {
+    "placement": "business",
+    "audit": "B1271"
+  },
+  "erp_warehouse_sourcedyerecordyield:undo_package_replace": {
+    "placement": "business",
+    "audit": "B1272"
+  },
+  "erp_warehouse_sourcedyerecordyield:undo_gray_record": {
+    "placement": "business",
+    "audit": "B1273"
+  },
+  "erp_warehouse_sourcedyerecordyield:receive_package": {
+    "placement": "business",
+    "audit": "B1274"
+  },
+  "erp_warehouse_sourcedyerecordyield:adopt_gray_record": {
+    "placement": "business",
+    "audit": "B1275"
+  },
+  "erp_warehouse_sourcedyerecordyield:continuation": {
+    "placement": "business",
+    "audit": "B1276"
+  },
+  "erp_warehouse_sourcedyerecordyield:package_yield": {
+    "placement": "business",
+    "audit": "B1277"
+  },
+  "erp_warehouse_sourcedyerecordyield:calculate": {
+    "placement": "automatic",
+    "audit": "B1278"
+  },
+  "erp_warehouse_sourcedyerecordyield:phase4_report": {
+    "placement": "business",
+    "audit": "B1279"
+  },
+  "erp_warehouse_sourcedyerecordyield:phase4_function": {
+    "placement": "maintenance",
+    "audit": "B1280"
+  },
+  "erp_warehouse_sourcedyerecordyield:phase4_operation": {
+    "placement": "business",
+    "audit": "B1281"
+  },
+  "erp_warehouse_sourcedyerecordyield:phase5_report": {
+    "placement": "business",
+    "audit": "B1282"
+  },
+  "erp_warehouse_sourcedyerecordyield:phase5_function": {
+    "placement": "maintenance",
+    "audit": "B1283"
+  },
+  "erp_warehouse_sourcedyerecordyield:phase5_operation": {
+    "placement": "business",
+    "audit": "B1284"
+  },
+  "erp_warehouse_sourcedyerecordyield:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1285"
+  },
+  "erp_warehouse_sourcedyesemiaxisremain:confirm": {
+    "placement": "business",
+    "audit": "B1286"
+  },
+  "erp_warehouse_sourcedyesemiaxisremain:approve": {
+    "placement": "business",
+    "audit": "B1287"
+  },
+  "erp_warehouse_sourcedyesemiaxisremain:reopen": {
+    "placement": "business",
+    "audit": "B1288"
+  },
+  "erp_warehouse_sourcedyesemiin:confirm": {
+    "placement": "business",
+    "audit": "B1289"
+  },
+  "erp_warehouse_sourcedyesemiin:approve": {
+    "placement": "business",
+    "audit": "B1290"
+  },
+  "erp_warehouse_sourcedyesemiin:reopen": {
+    "placement": "business",
+    "audit": "B1291"
+  },
+  "erp_warehouse_sourcedyesemiin:continuation": {
+    "placement": "business",
+    "audit": "B1292"
+  },
+  "erp_warehouse_sourcedyesemiin:phase3_operation": {
+    "placement": "business",
+    "audit": "B1293"
+  },
+  "erp_warehouse_sourcedyesemiindetail:factory_quality": {
+    "placement": "business",
+    "audit": "B1294"
+  },
+  "erp_warehouse_sourcedyesemiindetail:return_outwork_material": {
+    "placement": "business",
+    "audit": "B1295"
+  },
+  "erp_warehouse_sourcedyesemiindetail:issue_to_job": {
+    "placement": "business",
+    "audit": "B1296"
+  },
+  "erp_warehouse_sourcedyesemiindetail:return_raw_purchase": {
+    "placement": "business",
+    "audit": "B1297"
+  },
+  "erp_warehouse_sourcedyesemiindetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1298"
+  },
+  "erp_warehouse_sourcedyesemiindetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1299"
+  },
+  "erp_warehouse_sourcedyesemiinrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1300"
+  },
+  "erp_warehouse_sourcedyesemiout:confirm": {
+    "placement": "business",
+    "audit": "B1301"
+  },
+  "erp_warehouse_sourcedyesemiout:approve": {
+    "placement": "business",
+    "audit": "B1302"
+  },
+  "erp_warehouse_sourcedyesemiout:reopen": {
+    "placement": "business",
+    "audit": "B1303"
+  },
+  "erp_warehouse_sourcedyesemiout:phase3_operation": {
+    "placement": "business",
+    "audit": "B1304"
+  },
+  "erp_warehouse_sourcedyesemioutdetail:receive_outwork": {
+    "placement": "business",
+    "audit": "B1305"
+  },
+  "erp_warehouse_sourcedyesemioutdetail:material_receipt_options": {
+    "placement": "business",
+    "audit": "B1306"
+  },
+  "erp_warehouse_sourcedyesemioutdetail:receive_outwork_material": {
+    "placement": "business",
+    "audit": "B1307"
+  },
+  "erp_warehouse_sourcedyesemioutdetail:return_material": {
+    "placement": "business",
+    "audit": "B1308"
+  },
+  "erp_warehouse_sourcedyesemioutdetail:transfer_to_job": {
+    "placement": "business",
+    "audit": "B1309"
+  },
+  "erp_warehouse_sourcedyesemioutdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1310"
+  },
+  "erp_warehouse_sourcedyesemioutdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1311"
+  },
+  "erp_warehouse_sourcedyesemipostionup:confirm": {
+    "placement": "business",
+    "audit": "B1312"
+  },
+  "erp_warehouse_sourcedyesemipostionup:approve": {
+    "placement": "business",
+    "audit": "B1313"
+  },
+  "erp_warehouse_sourcedyesemipostionup:reopen": {
+    "placement": "business",
+    "audit": "B1314"
+  },
+  "erp_warehouse_sourcedyesemistock:confirm": {
+    "placement": "business",
+    "audit": "B1315"
+  },
+  "erp_warehouse_sourcedyesemistock:approve": {
+    "placement": "business",
+    "audit": "B1316"
+  },
+  "erp_warehouse_sourcedyesemistock:reopen": {
+    "placement": "business",
+    "audit": "B1317"
+  },
+  "erp_warehouse_sourcedyesemistock:phase3_carry": {
+    "placement": "business",
+    "audit": "B1318"
+  },
+  "erp_warehouse_sourcedyesemistockadjust:confirm": {
+    "placement": "business",
+    "audit": "B1319"
+  },
+  "erp_warehouse_sourcedyesemistockadjust:approve": {
+    "placement": "business",
+    "audit": "B1320"
+  },
+  "erp_warehouse_sourcedyesemistockadjust:reopen": {
+    "placement": "business",
+    "audit": "B1321"
+  },
+  "erp_warehouse_sourcedyesemistockadjustdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1322"
+  },
+  "erp_warehouse_sourcedyesemistockadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1323"
+  },
+  "erp_warehouse_sourcedyesemistockbook:phase3_report": {
+    "placement": "business",
+    "audit": "B1324"
+  },
+  "erp_warehouse_sourcedyesemistockspecup:confirm": {
+    "placement": "business",
+    "audit": "B1325"
+  },
+  "erp_warehouse_sourcedyesemistockspecup:approve": {
+    "placement": "business",
+    "audit": "B1326"
+  },
+  "erp_warehouse_sourcedyesemistockspecup:reopen": {
+    "placement": "business",
+    "audit": "B1327"
+  },
+  "erp_warehouse_sourcedyestuffallot:confirm": {
+    "placement": "business",
+    "audit": "B1328"
+  },
+  "erp_warehouse_sourcedyestuffallot:approve": {
+    "placement": "business",
+    "audit": "B1329"
+  },
+  "erp_warehouse_sourcedyestuffallot:reopen": {
+    "placement": "business",
+    "audit": "B1330"
+  },
+  "erp_warehouse_sourcedyestuffallotdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1331"
+  },
+  "erp_warehouse_sourcedyestuffallotdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1332"
+  },
+  "erp_warehouse_sourcedyestuffchange:confirm": {
+    "placement": "business",
+    "audit": "B1333"
+  },
+  "erp_warehouse_sourcedyestuffchange:approve": {
+    "placement": "business",
+    "audit": "B1334"
+  },
+  "erp_warehouse_sourcedyestuffchange:reopen": {
+    "placement": "business",
+    "audit": "B1335"
+  },
+  "erp_warehouse_sourcedyestuffin:confirm": {
+    "placement": "business",
+    "audit": "B1336"
+  },
+  "erp_warehouse_sourcedyestuffin:approve": {
+    "placement": "business",
+    "audit": "B1337"
+  },
+  "erp_warehouse_sourcedyestuffin:reopen": {
+    "placement": "business",
+    "audit": "B1338"
+  },
+  "erp_warehouse_sourcedyestuffin:continuation": {
+    "placement": "business",
+    "audit": "B1339"
+  },
+  "erp_warehouse_sourcedyestuffin:material_price_adjustment": {
+    "placement": "business",
+    "audit": "B1340"
+  },
+  "erp_warehouse_sourcedyestuffin:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1341"
+  },
+  "erp_warehouse_sourcedyestuffindetail:return_purchase": {
+    "placement": "business",
+    "audit": "B1342"
+  },
+  "erp_warehouse_sourcedyestuffindetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1343"
+  },
+  "erp_warehouse_sourcedyestuffindetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1344"
+  },
+  "erp_warehouse_sourcedyestuffout:confirm": {
+    "placement": "business",
+    "audit": "B1345"
+  },
+  "erp_warehouse_sourcedyestuffout:approve": {
+    "placement": "business",
+    "audit": "B1346"
+  },
+  "erp_warehouse_sourcedyestuffout:reopen": {
+    "placement": "business",
+    "audit": "B1347"
+  },
+  "erp_warehouse_sourcedyestuffout:phase3_operation": {
+    "placement": "business",
+    "audit": "B1348"
+  },
+  "erp_warehouse_sourcedyestuffoutdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1349"
+  },
+  "erp_warehouse_sourcedyestuffoutdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1350"
+  },
+  "erp_warehouse_sourcedyestuffstock:confirm": {
+    "placement": "business",
+    "audit": "B1351"
+  },
+  "erp_warehouse_sourcedyestuffstock:approve": {
+    "placement": "business",
+    "audit": "B1352"
+  },
+  "erp_warehouse_sourcedyestuffstock:reopen": {
+    "placement": "business",
+    "audit": "B1353"
+  },
+  "erp_warehouse_sourcedyestuffstock:phase3_carry": {
+    "placement": "business",
+    "audit": "B1354"
+  },
+  "erp_warehouse_sourcedyestuffstockadjust:confirm": {
+    "placement": "business",
+    "audit": "B1355"
+  },
+  "erp_warehouse_sourcedyestuffstockadjust:approve": {
+    "placement": "business",
+    "audit": "B1356"
+  },
+  "erp_warehouse_sourcedyestuffstockadjust:reopen": {
+    "placement": "business",
+    "audit": "B1357"
+  },
+  "erp_warehouse_sourcedyestuffstockadjustdetail:calculate": {
+    "placement": "automatic",
+    "audit": "B1358"
+  },
+  "erp_warehouse_sourcedyestuffstockadjustdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1359"
+  },
+  "erp_warehouse_sourcedyestuffstockbook:phase3_report": {
+    "placement": "business",
+    "audit": "B1360"
+  },
+  "erp_warehouse_sourcedyeswipelabelprint:confirm": {
+    "placement": "business",
+    "audit": "B1361"
+  },
+  "erp_warehouse_sourcedyeswipelabelprint:approve": {
+    "placement": "business",
+    "audit": "B1362"
+  },
+  "erp_warehouse_sourcedyeswipelabelprint:reopen": {
+    "placement": "business",
+    "audit": "B1363"
+  },
+  "erp_warehouse_sourcedyeurgentinstruct:confirm": {
+    "placement": "business",
+    "audit": "B1364"
+  },
+  "erp_warehouse_sourcedyeurgentinstruct:approve": {
+    "placement": "business",
+    "audit": "B1365"
+  },
+  "erp_warehouse_sourcedyeurgentinstruct:reopen": {
+    "placement": "business",
+    "audit": "B1366"
+  },
+  "erp_warehouse_sourcedyewarehouseprodcount:confirm": {
+    "placement": "business",
+    "audit": "B1367"
+  },
+  "erp_warehouse_sourcedyewarehouseprodcount:approve": {
+    "placement": "business",
+    "audit": "B1368"
+  },
+  "erp_warehouse_sourcedyewarehouseprodcount:reopen": {
+    "placement": "business",
+    "audit": "B1369"
+  },
+  "erp_warehouse_sourcedyewarehouseprodcount:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1370"
+  },
+  "erp_warehouse_sourcedyeweighttechinfo:confirm": {
+    "placement": "business",
+    "audit": "B1371"
+  },
+  "erp_warehouse_sourcedyeweighttechinfo:approve": {
+    "placement": "business",
+    "audit": "B1372"
+  },
+  "erp_warehouse_sourcedyeweighttechinfo:reopen": {
+    "placement": "business",
+    "audit": "B1373"
+  },
+  "erp_warehouse_sourcedyewidthgramweight:confirm": {
+    "placement": "business",
+    "audit": "B1374"
+  },
+  "erp_warehouse_sourcedyewidthgramweight:approve": {
+    "placement": "business",
+    "audit": "B1375"
+  },
+  "erp_warehouse_sourcedyewidthgramweight:reopen": {
+    "placement": "business",
+    "audit": "B1376"
+  },
+  "erp_quality_qualityinspection:void": {
+    "placement": "business",
+    "audit": "B1377"
+  },
+  "erp_quality_qualityinspection:judge": {
+    "placement": "business",
+    "audit": "B1378"
+  },
+  "erp_quality_qualityinspection:dispose": {
+    "placement": "business",
+    "audit": "B1379"
+  },
+  "erp_quality_qualitydefect:close": {
+    "placement": "business",
+    "audit": "B1380"
+  },
+  "erp_quality_sourcedyecheckexact:confirm": {
+    "placement": "business",
+    "audit": "B1381"
+  },
+  "erp_quality_sourcedyecheckexact:approve": {
+    "placement": "business",
+    "audit": "B1382"
+  },
+  "erp_quality_sourcedyecheckexact:reopen": {
+    "placement": "business",
+    "audit": "B1383"
+  },
+  "erp_quality_sourcedyecheckinout:confirm": {
+    "placement": "business",
+    "audit": "B1384"
+  },
+  "erp_quality_sourcedyecheckinout:approve": {
+    "placement": "business",
+    "audit": "B1385"
+  },
+  "erp_quality_sourcedyecheckinout:reopen": {
+    "placement": "business",
+    "audit": "B1386"
+  },
+  "erp_quality_sourcedyecoloringcheck:confirm": {
+    "placement": "business",
+    "audit": "B1387"
+  },
+  "erp_quality_sourcedyecoloringcheck:approve": {
+    "placement": "business",
+    "audit": "B1388"
+  },
+  "erp_quality_sourcedyecoloringcheck:reopen": {
+    "placement": "business",
+    "audit": "B1389"
+  },
+  "erp_quality_sourcedyedefectivein:confirm": {
+    "placement": "business",
+    "audit": "B1390"
+  },
+  "erp_quality_sourcedyedefectivein:approve": {
+    "placement": "business",
+    "audit": "B1391"
+  },
+  "erp_quality_sourcedyedefectivein:reopen": {
+    "placement": "business",
+    "audit": "B1392"
+  },
+  "erp_quality_sourcedyedefectiveindetail:defective_balance": {
+    "placement": "business",
+    "audit": "B1393"
+  },
+  "erp_quality_sourcedyedefectiveindetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1394"
+  },
+  "erp_quality_sourcedyedefectiveinrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1395"
+  },
+  "erp_quality_sourcedyedefectiveout:confirm": {
+    "placement": "business",
+    "audit": "B1396"
+  },
+  "erp_quality_sourcedyedefectiveout:approve": {
+    "placement": "business",
+    "audit": "B1397"
+  },
+  "erp_quality_sourcedyedefectiveout:reopen": {
+    "placement": "business",
+    "audit": "B1398"
+  },
+  "erp_quality_sourcedyedefectiveoutdetail:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1399"
+  },
+  "erp_quality_sourcedyedefectiveoutrecord:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1400"
+  },
+  "erp_quality_sourcedyedyecheck:confirm": {
+    "placement": "business",
+    "audit": "B1401"
+  },
+  "erp_quality_sourcedyedyecheck:approve": {
+    "placement": "business",
+    "audit": "B1402"
+  },
+  "erp_quality_sourcedyedyecheck:reopen": {
+    "placement": "business",
+    "audit": "B1403"
+  },
+  "erp_quality_sourcedyedyecheckout:confirm": {
+    "placement": "business",
+    "audit": "B1404"
+  },
+  "erp_quality_sourcedyedyecheckout:approve": {
+    "placement": "business",
+    "audit": "B1405"
+  },
+  "erp_quality_sourcedyedyecheckout:reopen": {
+    "placement": "business",
+    "audit": "B1406"
+  },
+  "erp_quality_sourcedyedyecheckout:quality_award": {
+    "placement": "business",
+    "audit": "B1407"
+  },
+  "erp_quality_sourcedyedyecheckout:dye_rate": {
+    "placement": "business",
+    "audit": "B1408"
+  },
+  "erp_quality_sourcedyedyecheckout:station_dashboard": {
+    "placement": "business",
+    "audit": "B1409"
+  },
+  "erp_quality_sourcedyedyecheckout:phase5_report": {
+    "placement": "business",
+    "audit": "B1410"
+  },
+  "erp_quality_sourcedyedyecheckout:phase5_function": {
+    "placement": "maintenance",
+    "audit": "B1411"
+  },
+  "erp_quality_sourcedyedyecheckout:phase5_operation": {
+    "placement": "business",
+    "audit": "B1412"
+  },
+  "erp_quality_sourcedyeinspectionlog:confirm": {
+    "placement": "business",
+    "audit": "B1413"
+  },
+  "erp_quality_sourcedyeinspectionlog:approve": {
+    "placement": "business",
+    "audit": "B1414"
+  },
+  "erp_quality_sourcedyeinspectionlog:reopen": {
+    "placement": "business",
+    "audit": "B1415"
+  },
+  "erp_quality_sourcedyeinspectionlog:equipment_projects": {
+    "placement": "business",
+    "audit": "B1416"
+  },
+  "erp_quality_sourcedyeinspectionlog:preview_equipment_projects": {
+    "placement": "business",
+    "audit": "B1417"
+  },
+  "erp_quality_sourcedyeinspectionlog:create_equipment_document": {
+    "placement": "business",
+    "audit": "B1418"
+  },
+  "erp_quality_sourcedyeinspectionlog:save_equipment_document": {
+    "placement": "business",
+    "audit": "B1419"
+  },
+  "erp_quality_sourcedyeinspectionlog:undo_equipment": {
+    "placement": "business",
+    "audit": "B1420"
+  },
+  "erp_quality_sourcedyeinspectionlog:continuation": {
+    "placement": "business",
+    "audit": "B1421"
+  },
+  "erp_quality_sourcedyeinspectionproject:confirm": {
+    "placement": "business",
+    "audit": "B1422"
+  },
+  "erp_quality_sourcedyeinspectionproject:approve": {
+    "placement": "business",
+    "audit": "B1423"
+  },
+  "erp_quality_sourcedyeinspectionproject:reopen": {
+    "placement": "business",
+    "audit": "B1424"
+  },
+  "erp_quality_sourcedyeprodtest:confirm": {
+    "placement": "business",
+    "audit": "B1425"
+  },
+  "erp_quality_sourcedyeprodtest:approve": {
+    "placement": "business",
+    "audit": "B1426"
+  },
+  "erp_quality_sourcedyeprodtest:reopen": {
+    "placement": "business",
+    "audit": "B1427"
+  },
+  "erp_quality_sourcedyeprodtest:preview_trial_work": {
+    "placement": "business",
+    "audit": "B1428"
+  },
+  "erp_quality_sourcedyeprodtest:apply_trial_work": {
+    "placement": "business",
+    "audit": "B1429"
+  },
+  "erp_quality_sourcedyeprodtest:undo_trial_work": {
+    "placement": "business",
+    "audit": "B1430"
+  },
+  "erp_quality_sourcedyequalityaccident:confirm": {
+    "placement": "business",
+    "audit": "B1431"
+  },
+  "erp_quality_sourcedyequalityaccident:approve": {
+    "placement": "business",
+    "audit": "B1432"
+  },
+  "erp_quality_sourcedyequalityaccident:reopen": {
+    "placement": "business",
+    "audit": "B1433"
+  },
+  "erp_quality_sourcedyequalitydeduction:confirm": {
+    "placement": "business",
+    "audit": "B1434"
+  },
+  "erp_quality_sourcedyequalitydeduction:approve": {
+    "placement": "business",
+    "audit": "B1435"
+  },
+  "erp_quality_sourcedyequalitydeduction:reopen": {
+    "placement": "business",
+    "audit": "B1436"
+  },
+  "erp_quality_sourcedyequalityregister:confirm": {
+    "placement": "business",
+    "audit": "B1437"
+  },
+  "erp_quality_sourcedyequalityregister:approve": {
+    "placement": "business",
+    "audit": "B1438"
+  },
+  "erp_quality_sourcedyequalityregister:reopen": {
+    "placement": "business",
+    "audit": "B1439"
+  },
+  "erp_quality_sourcedyerecorddefect:confirm": {
+    "placement": "business",
+    "audit": "B1440"
+  },
+  "erp_quality_sourcedyerecorddefect:approve": {
+    "placement": "business",
+    "audit": "B1441"
+  },
+  "erp_quality_sourcedyerecorddefect:reopen": {
+    "placement": "business",
+    "audit": "B1442"
+  },
+  "erp_quality_sourcedyerecorddefect:phase6_formula": {
+    "placement": "maintenance",
+    "audit": "B1443"
+  },
+  "erp_quality_sourcedyetestmain:confirm": {
+    "placement": "business",
+    "audit": "B1444"
+  },
+  "erp_quality_sourcedyetestmain:approve": {
+    "placement": "business",
+    "audit": "B1445"
+  },
+  "erp_quality_sourcedyetestmain:reopen": {
+    "placement": "business",
+    "audit": "B1446"
+  },
+  "erp_quality_sourcedyewdefect:confirm": {
+    "placement": "business",
+    "audit": "B1447"
+  },
+  "erp_quality_sourcedyewdefect:approve": {
+    "placement": "business",
+    "audit": "B1448"
+  },
+  "erp_quality_sourcedyewdefect:reopen": {
+    "placement": "business",
+    "audit": "B1449"
+  },
+  "erp_quality_sourcedyewdefect:quality_statistics": {
+    "placement": "business",
+    "audit": "B1450"
+  },
+  "erp_quality_sourcedyewdefect:rework_daily": {
+    "placement": "business",
+    "audit": "B1451"
+  },
+  "erp_quality_sourcedyewdefect:rework_extended": {
+    "placement": "business",
+    "audit": "B1452"
+  },
+  "erp_quality_sourcedyewdefect:rework_statistics": {
+    "placement": "business",
+    "audit": "B1453"
+  },
+  "erp_quality_sourcedyewdefect:open_rework_card": {
+    "placement": "business",
+    "audit": "B1454"
+  },
+  "erp_quality_sourcedyezhijianwenti:confirm": {
+    "placement": "business",
+    "audit": "B1455"
+  },
+  "erp_quality_sourcedyezhijianwenti:approve": {
+    "placement": "business",
+    "audit": "B1456"
+  },
+  "erp_quality_sourcedyezhijianwenti:reopen": {
+    "placement": "business",
+    "audit": "B1457"
+  }
+}

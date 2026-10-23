@@ -74,14 +74,7 @@ const hooks=computed(()=>Object.entries(detail.value?.table??{}).filter(([key,va
           <el-table :data="detail.hook_support" border><el-table-column prop="event" label="原触发时机"/><el-table-column prop="connection" label="开发核验" min-width="240"/><el-table-column prop="historical_reconciliation" label="历史数据对账"/><el-table-column prop="field_acceptance" label="现场验收"/></el-table>
           <el-collapse><el-collapse-item v-for="[key,value] in hooks" :key="key" :title="key"><pre>{{value}}</pre></el-collapse-item></el-collapse><p>这里展示原联动依据。已移植逻辑由业务服务执行；展示配置不等于该联动已开发完成。</p>
         </el-tab-pane>
-        <el-tab-pane :label="'全部原打印配置（'+(printing?.reports.length??0)+'）'">
-          <p>原版式包含旧客户端控件和脚本；下载保留原文。数据版打印从单据行办理，准备和人工确认分别留档。</p>
-          <el-form v-if="['DyeDipsRecordPhaseDetail','ProdLoadingDetail','GrayInWaste','GrayOutWaste','ProdOutDetailSum','ProdOutDetailXISHU'].includes(selected)" label-width="170px"><el-form-item :label="selected==='GrayOutWaste'?'打印客户编码（R015）':'打印父单流水号'"><el-input v-model="printParent" :disabled="printNull" placeholder="填写本次打印范围的编码"/><el-button @click="printNull=false;printParent=''">采用空字符串编码</el-button><el-checkbox v-model="printNull">选择未填写编码（NULL）</el-checkbox></el-form-item><p>试样留底、装车单、入库单（R121）及送货单（H008/H024/H015/H017/H018/H025/H029）按父单打印，坯布出库对账（R015）按客户打印，使页眉与明细对应。查询保留全部行，校样保留所选范围的全部明细。</p></el-form>
-          <el-input v-model="reportSearch" placeholder="搜索原报表编号、标题、数据入口"/>
-          <el-table :data="templates" height="50vh" border><el-table-column prop="RptID" label="报表编号"/><el-table-column prop="RptTitle" label="原标题"/><el-table-column prop="data_member" label="原数据入口"/><el-table-column label="原文件" min-width="280"><template #default="s"><el-button v-if="s.row.has_xml" @click="previewLayout(s.row.index)">核对原版式</el-button><el-button v-if="s.row.has_xml&&s.row.data_member===selected" @click="createProof(s.row.index)">按当前查询填数校样</el-button><el-button v-if="s.row.has_xml" @click="downloadTemplate(s.row.index,'TemplateXml')">原 XML</el-button><el-button v-if="s.row.has_template" @click="downloadTemplate(s.row.index,'Template')">原模板</el-button></template></el-table-column></el-table>
-          <p>原打印关联按功能编号保留；入口配置多数没有功能编号，未擅自把同名报表绑定到当前单据。</p>
-          <el-table :data="printing?.menus" height="30vh" border><el-table-column prop="RptID" label="报表编号"/><el-table-column prop="FuncNo" label="原功能编号"/><el-table-column prop="RptNo" label="原打印序号"/><el-table-column prop="IsDefault" label="原默认打印"/></el-table>
-        </el-tab-pane>
+        <el-tab-pane label="打印（暂缓）"><el-alert title="打印功能暂缓，原版式及配置保留。" type="info" :closable="false"/></el-tab-pane>
       </el-tabs>
     </template>
     <el-dialog v-model="layoutVisible" title="原打印版式核对" width="94%"><p v-for="issue in layout?.proof_issues" :key="issue">填数待补：{{issue}}</p><OriginalLayoutReview v-if="layout" :layout="layout"/></el-dialog>

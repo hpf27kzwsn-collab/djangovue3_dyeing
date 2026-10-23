@@ -42,6 +42,8 @@ class SourceRecordSerializer(BusinessSerializer):
 
     def to_representation(self,instance):
         result=super().to_representation(instance)
+        from .button_presentation import effect_states
+        result['action_effects']=effect_states(instance)
         if instance.SOURCE_TABLE=='OrderColor' and all(self.field_permissions.get(k,{}).get('is_query',True) for k in ['old_price','old_amount']):
             from .source_order_pricing import info
             result['pricing_info']=info(instance)
@@ -690,6 +692,7 @@ class SourceJobViewSet(RouteMixin,SourceRecordViewSet):
         fields.update({k:serializers.DecimalField(max_digits=24,decimal_places=6,allow_null=True,required=False,default=None) for k in ['rolls','weight','length','real_value']})
         fields.update({k:serializers.DateTimeField(allow_null=True,required=False,default=None) for k in ['start','end']})
         fields.update(process_no=serializers.IntegerField(allow_null=True),entry=serializers.ChoiceField(choices=['DPWProcess','AddWProcessEdit','WProcessEdit','AddDyeWProcessStep']))
+        fields['auto_shift']=serializers.BooleanField(required=False,default=False)
         values=parameters(self,fields);entry=values.pop('entry')
         item=create_record(self.get_object(),entry,values,request.user)
         return success({'entity':item._meta.app_label+'_'+item._meta.model_name,'id':item.pk},'已创建现场记录')

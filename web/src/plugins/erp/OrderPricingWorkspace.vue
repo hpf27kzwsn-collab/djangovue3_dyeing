@@ -6,14 +6,14 @@ import OrderPriceChooser from './OrderPriceChooser.vue'
 import {useAccount} from '../../store'
 const props=defineProps<{row:any}>(),emit=defineEmits(['saved'])
 const data=ref<any>(),selected=ref<any>(),choice=ref<any>(),saving=ref(false)
+const chooser=ref<InstanceType<typeof OrderPriceChooser>>()
 const account=useAccount()
 const frozen=computed(()=>data.value?.historical||['confirmed','approved'].includes(props.row.approval_stage)||!account.can('erp_sales_sourcedyeordercolor:patch'))
 async function load(){data.value=(await api(`/api/system/erp_sales_sourcedyeordermain/${props.row.id}/pricing_lines/`)).data}
 function edit(row:any){selected.value={...row,source_parent_1:props.row.id};choice.value=undefined}
 async function save(){
-  if(!choice.value){ElMessage.info('请先试算并采用到本行');return}
   saving.value=true
-  try{await api(`/api/system/erp_sales_sourcedyeordercolor/${selected.value.id}/`,{method:'PATCH',data:{_pricing:choice.value}});selected.value=undefined;await load();emit('saved');ElMessage.success('订单单价、金额及采用来源已保存')}finally{saving.value=false}
+  try{const value=await chooser.value!.prepare();if(value===null)return;await api(`/api/system/erp_sales_sourcedyeordercolor/${selected.value.id}/`,{method:'PATCH',data:{_pricing:value}});selected.value=undefined;await load();emit('saved');ElMessage.success('订单单价、金额及采用来源已保存')}finally{saving.value=false}
 }
 onMounted(load)
 </script>
@@ -30,7 +30,7 @@ onMounted(load)
       <el-table-column label="操作" width="170" fixed="right"><template #default="s"><el-button @click="edit(s.row)">{{frozen?'查看采用记录':'选择或重取报价'}}</el-button></template></el-table-column>
     </el-table>
     <el-dialog :model-value="!!selected" title="订单明细选价" width="min(1200px, 94vw)" append-to-body @close="selected=undefined">
-      <template v-if="selected"><p>物料 {{selected.old_prod_id}} · 数量 {{selected.old_order_qty}} {{selected.old_unit}}</p><OrderPriceChooser :key="selected.id" v-model="choice" :row="selected" :order="{...row,old_customer_id:data.customer_id}" :readonly="frozen"/></template>
+      <template v-if="selected"><p>物料 {{selected.old_prod_id}} · 数量 {{selected.old_order_qty}} {{selected.old_unit}}</p><OrderPriceChooser ref="chooser" :key="selected.id" v-model="choice" :row="selected" :order="{...row,old_customer_id:data.customer_id}" :readonly="frozen"/></template>
       <template #footer><el-button @click="selected=undefined">关闭</el-button><el-button v-if="!frozen" type="primary" :loading="saving" @click="save">保存本行计价</el-button></template>
     </el-dialog>
   </div><el-skeleton v-else animated/>

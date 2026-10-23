@@ -52,7 +52,7 @@ onMounted(async()=>{
 </script>
 <template>
   <el-skeleton v-if="!ready" animated/>
-  <div v-else class="document-editor"><el-alert title="本页修改在点击保存后一次生效。确认前，请先保存明细。" type="info" :closable="false"/>
+  <div v-else class="document-editor"><el-alert title="本页修改在点击保存后一次生效。审核或其他业务操作前，请先保存明细。" type="info" :closable="false"/>
     <el-checkbox v-if="meta.workflow.source_model" v-model="useLayout">按业务类型的字段规则编辑</el-checkbox>
     <el-form ref="headForm" :model="head" label-width="150px"><el-form-item v-for="field in headFields" :key="field.key" :prop="field.key" :label="input(meta,field,row.entry_name,head).title" :rules="rules(meta,field,row.entry_name,head,row,false)"><FieldInput v-model="head[field.key]" :field="input(meta,field,row.entry_name,head)" :disabled="field.key in (meta.foundation?.filters??{})||codeLocked(field)||disabled(meta,field,row.entry_name)"/></el-form-item></el-form>
     <section v-for="child in children" :key="child.entity"><h3>{{child.title}}</h3><el-button v-if="account.can(child.entity+':add')" @click="add(child)">添加明细</el-button>
