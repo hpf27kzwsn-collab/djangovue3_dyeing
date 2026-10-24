@@ -67,7 +67,7 @@ class ServiceValuesTests(TestCase):
         self.assertEqual(entry_values(head,'BulkDyeRecipe')['old_cost'],-8)
         self.assertEqual(entry_values(head,'FinishDyeRecipe')['old_cost'],-8)
         self.assertEqual(entry_values(head,'TrialDyeRecipe')['old_cost'],-8)
-        from plugins.erp_base.source_phase6_expressions import evaluate
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_expressions import evaluate
         from .test_source_phase6 import reader
         self.assertEqual(evaluate(head,'BulkDyeRecipe',reader)['changes']['old_cost'],-8)
         limited=lambda name,module:reader(name,module).exclude(pk=duplicate.pk) if name=='DyeRecipePhase' else reader(name,module)

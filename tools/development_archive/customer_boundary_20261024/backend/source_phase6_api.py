@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.core.exceptions import ValidationError
 from rest_framework import serializers
 from core.responses import success
-from .business_api import parameters
+from plugins.erp_base.business_api import parameters
 from . import source_phase6_entries as entries
 
 
@@ -25,7 +25,7 @@ def web_values(value):
 
 def catalog_view(view):
     if view.request.query_params.get('reports')=='1':
-        from .source_phase6_layouts import manifest
+        from plugins.erp_base.source_phase6_layouts import manifest
         catalog=entries.catalog()
         layouts=manifest()['reports']
         reports=[{**r,'layout_state':layouts[r['index']]['geometry_state'],
@@ -45,7 +45,7 @@ def query_view(view,export=False):
         'include_retained':serializers.BooleanField(default=True),
         'calculate_formulas':serializers.BooleanField(default=False)})
     if 'editor_field' in p:
-        from .source_phase6_editors import options
+        from plugins.erp_base.source_phase6_editors import options
         return success(web_values(options(p['entry'],p['editor_field'],p['filter_text'],entries.reader(view.request),p.get('editor_context'))))
     p.pop('editor_context',None)
     p.pop('filter_text')
@@ -54,11 +54,11 @@ def query_view(view,export=False):
         raise ValidationError({'entry':'此入口查询仍有待解决差异，原配置、全部字段和对应原表保留。','difference':support['error']})
     calculate=p.pop('calculate_formulas',False)
     query_name=p.pop('entry');query_parameters=p.pop('parameters');reader=entries.reader(view.request)
-    from .source_phase6_projection_overrides import projections as formula_projections
+    from plugins.erp_base.source_phase6_projection_overrides import projections as formula_projections
     result=entries.run(query_name,query_parameters,reader,additional_projection=formula_projections(query_name) if calculate else (),**p)
     if calculate:
-        from .source_phase6_projection_formulas import calculate as project_formulas
-        from .source_phase6_projection_context import ProjectionContext
+        from plugins.erp_base.source_phase6_projection_formulas import calculate as project_formulas
+        from plugins.erp_base.source_phase6_projection_context import ProjectionContext
         result=project_formulas(result,entries.definition(result['entry'])['fields'],ProjectionContext(result,reader,query_parameters,p['include_retained']))
     if not export:return success(web_values(result))
     output=io.StringIO(newline='');writer=csv.writer(output)
@@ -72,11 +72,11 @@ def query_view(view,export=False):
 
 @lru_cache(maxsize=1)
 def templates():
-    return json.loads(gzip.decompress(Path(__file__).with_name('source_phase6_templates.json.gz').read_bytes()))
+    return json.loads(gzip.decompress((Path(__file__).resolve().parent.parent/'data').joinpath('source_phase6_templates.json.gz').read_bytes()))
 
 
 def template_view(view):
-    from .source_foundation_api import require_original_admin
+    from plugins.erp_base.source_foundation_api import require_original_admin
     require_original_admin(view.request)
     p=parameters(view,{'index':serializers.IntegerField(min_value=0,max_value=len(templates())-1),
         'format':serializers.ChoiceField(choices=['Template','TemplateXml','Layout','Proof']),
@@ -87,21 +87,21 @@ def template_view(view):
         'include_retained':serializers.BooleanField(default=True)})
     row=templates()[p['index']]
     if p['format']=='Layout':
-        from .source_phase6_layouts import describe
-        from .source_phase6_rendering import requirements
+        from plugins.erp_base.source_phase6_layouts import describe
+        from plugins.erp_base.source_phase6_rendering import requirements
         layout=describe(row);layout['proof_issues']=requirements(row)
         return success(layout)
     if p['format']=='Proof':
-        from .source_phase6_rendering import render, requirements, reference_columns
-        from .source_phase6_layouts import describe
+        from plugins.erp_base.source_phase6_rendering import render, requirements, reference_columns
+        from plugins.erp_base.source_phase6_layouts import describe
         issues=requirements(row)
         if issues:raise ValidationError({'layout':issues})
         name=describe(row)['data_member']
-        from .source_phase6_print_sources import projections
+        from plugins.erp_base.source_phase6_print_sources import projections
         result=entries.run(name,p['parameters'],entries.reader(view.request),
                            load_records=p['load_records'],include_retained=p['include_retained'],additional_projection=projections(name))
-        from .source_phase6_print_sources import attach,select_parent
-        from .source_phase6_layouts import parse_xml
+        from plugins.erp_base.source_phase6_print_sources import attach,select_parent
+        from plugins.erp_base.source_phase6_layouts import parse_xml
         root,_=parse_xml(base64.b64decode(row['TemplateXml']))
         result=select_parent(row['RptID'],result,p['print_key'],p['print_null_key'])
         result=attach(root,result,entries.reader(view.request),p['parameters'],p['include_retained'])

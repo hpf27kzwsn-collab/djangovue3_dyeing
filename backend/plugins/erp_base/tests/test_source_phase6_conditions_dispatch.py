@@ -127,7 +127,7 @@ class ConditionalPrintTests(SimpleTestCase):
         with self.assertRaises(ValueError):self.expression('RunProcess([x])',{'x':'anything'})
 
     def test_original_dye_recipe_conditions_and_dependencies(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_layouts import parse_xml
         from plugins.erp_base.source_phase6_calculated_print import apply
         root,_=parse_xml(base64.b64decode(templates()[43]['TemplateXml']))
@@ -139,7 +139,7 @@ class ConditionalPrintTests(SimpleTestCase):
         self.assertEqual(rows[1]['NeedQtyNew'],Decimal('1.26'))
 
     def test_original_r010_missing_fields_are_detected_despite_star_projection(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import requirements
         issues=requirements(templates()[149])
         self.assertIn('当前原查询未提供计算来源：KKind',issues)

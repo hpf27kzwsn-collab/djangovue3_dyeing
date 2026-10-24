@@ -5,6 +5,7 @@ from django.db.models import Sum, Count, Q
 
 DIMENSIONS = [('BusinessUnitID', '经营单位原码'), ('WareHouseID', '仓库原码'), ('StorageUnitIDs', '库位原码'),
               ('SupplierID', '供应商原码'), ('CustomerID', '客户原码'), ('Spec', '规格'), ('LotNo', '批号'),
+              ('StockUnit', '库存单位编码'), ('Unit', '单位'), ('WeightUnit', '重量单位'),
               ('ReceSheetNo', '收料单号'), ('ColorID', '色号原码'), ('CheckNo', '订单明细号'), ('StockFlag', '原库存标志')]
 FAMILIES = {
     'stuff': ('StuffStockBook', '染化料', 'StuffID', [('Qty', '原库存数量'), ('Money', '原库存金额')]),
@@ -43,7 +44,7 @@ def balances(reader, filters, family):
         totals[quantity + '_out'] = Sum(outgoing)
         totals[quantity + '_unknown'] = Count('pk', filter=Q(**{incoming + '__isnull': True, outgoing + '__isnull': True}))
     groups = query.order_by().values(*fields).annotate(**totals)
-    count = groups.count(); offset = (filters['page'] - 1) * filters['page_size']
+    count = groups.count(); offset = filters.get('_offset', (filters['page'] - 1) * filters['page_size'])
     result = []
     for row in groups.order_by(*fields)[offset:offset + filters['page_size']]:
         current = {old: row[field] for old, field in zip(keys, fields)}

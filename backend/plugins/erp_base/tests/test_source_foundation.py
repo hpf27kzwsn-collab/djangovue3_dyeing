@@ -10,7 +10,7 @@ from rest_framework.test import APIClient
 from system.models import Users
 from plugins.erp_base import source_foundation as service
 from plugins.erp_base.source_services import write
-from plugins.erp_base.source_import import link_relations
+from tools.development_archive.customer_boundary_20261024.backend.source_import import link_relations
 from plugins.erp_base.source_provenance import reference
 from plugins.erp_base.legacy_models import LegacyImportBatch
 from plugins.erp_base.source_entry_registry import ENTRY_RULES

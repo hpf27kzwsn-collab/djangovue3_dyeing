@@ -15,7 +15,7 @@ from plugins.erp_base.source_static_lookup import execute,lookup
 from plugins.erp_base.source_foundation_queries import LOOKUPS
 from plugins.erp_base.source_quality_reports import rows
 from plugins.erp_base.source_foundation_view_reports import report
-from plugins.erp_base.source_foundation_api import SourceFoundationViewSet
+from tools.development_archive.customer_boundary_20261024.backend.source_foundation_api import SourceFoundationViewSet
 
 
 def create(table,**values):
@@ -76,7 +76,7 @@ class FoundationCompletionTests(TestCase):
         self.assertFalse(same_numeric_color(type(a).objects.all(),None).exists())
 
     def test_navigation_exclusions_and_field_rights_fixed_role_preserve_originals(self):
-        from plugins.erp_base import source_foundation_platform as platform
+        from tools.development_archive.customer_boundary_20261024.backend import source_foundation_platform as platform
         from plugins.erp_base.source_execution_state import active
         actor=Users.objects.create_superuser(username='config-complete',password='test')
         for role in ['002','028','003']:create('s_Roles',RoleNo=role)

@@ -1,0 +1,29 @@
+class PlatformOperationInput(serializers.Serializer):
+    operation=serializers.ChoiceField(choices=['s_FuncUser_Add','s_FuncUser_UpdateSerialNum','GetPrintRight',
+        'sp_FuncStop','Sp_UpdateFuncNo','sp_UINav_To_Functions','sp_s_FieldRight','sp_FuncNoPrint'])
+    value=serializers.CharField(allow_null=True,allow_blank=True,trim_whitespace=False)
+    extra=serializers.CharField(allow_null=True,allow_blank=True,trim_whitespace=False)
+    index=serializers.IntegerField(allow_null=True)
+
+
+class SourcePlatformFoundationViewSet(SourceRecordViewSet):
+    @action(methods=['post'], detail=False)
+    def original_config(self, request):
+        from rest_framework.exceptions import PermissionDenied
+        if not request.user.is_superuser:
+            raise PermissionDenied('原权限与导航配置由当前系统管理员办理。')
+        data=PlatformOperationInput(data=request.data);data.is_valid(raise_exception=True)
+        name=data.validated_data['operation'];value=data.validated_data['value'];extra=data.validated_data['extra']
+        operations={
+            's_FuncUser_Add':lambda:platform.add_favorite(value,extra,request.user),
+            's_FuncUser_UpdateSerialNum':lambda:platform.move_favorite(value,extra,data.validated_data['index'],request.user),
+            'sp_FuncStop':lambda:platform.stop_function(value,request.user),
+            'Sp_UpdateFuncNo':lambda:platform.rename_function(value,extra,request.user),
+            'sp_UINav_To_Functions':lambda:platform.navigation_permissions(value,request.user),
+            'sp_s_FieldRight':lambda:platform.field_rights(value,request.user),
+            'sp_FuncNoPrint':lambda:platform.allocate_print_rights(value,request.user)}
+        if name=='GetPrintRight':
+            result=platform.print_rights(value,extra)
+        else:
+            result=[{'entity':item._meta.label,'record_id':item.pk,'source': source_reference(item)} for item in operations[name]()]
+        return report_result({'report':name,'rows':result,'notes':['办理原配置记录并留存修改记录；不授予当前Django账号权限。']})

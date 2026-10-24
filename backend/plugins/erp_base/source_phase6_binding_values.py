@@ -6,7 +6,6 @@ from .source_entry_calculations import difference
 RULES={
     'DStuffWeight': {'ClothNetKg':('ClothQtyKg','SubRate')},
     'qry_QuoteRelaStuff': {'ClothNetKg':('ClothQtyKg','SubRate')},
-    'qry_Employee': {'LoginName':('EmpID',),'Password':('EmpID',)},
     'QueryRecordCheck': {'CustQty':('Kg','Addkg'),'NetKg':('Kg','TubeWeight'),
         'Pound':('Kg',),'RealQty':('Meter','AddQty','CutQty','Qty'),'Tubes':('Status','GradeID')},
 }
@@ -18,15 +17,14 @@ def before_save(item,data,entry,creating):
     if is_historical(item):return
     if entry=='qry_Employee' and not creating:
         from django.utils import timezone
-        if 'old_modifyer' not in data:item.old_modifyer=item.modifier.username
+        if 'old_modifyer' not in data:
+            item.old_modifyer=item.modifier.username[:item._meta.get_field('old_modifyer').max_length]
         if 'old_modify_date' not in data:item.old_modify_date=timezone.localtime()
     for target,inputs in RULES.get(entry,{}).items():
         if item.SOURCE_FIELDS[target] in data:continue
         if not creating and not {item.SOURCE_FIELDS[name] for name in inputs}.intersection(data):continue
-        if entry=='qry_Employee' and target=='Password' and not creating:continue
         values=[raw(item,name) for name in inputs]
         if target=='ClothNetKg':value=difference(values[0],product(*values))
-        elif target in ['LoginName','Password']:value=values[0]
         elif target=='CustQty':value=sum(zero(v) for v in values)
         elif target=='NetKg':value=difference(values[0],zero(values[1]))
         elif target=='Pound':value=product(values[0],Decimal('2.2046'))

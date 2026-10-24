@@ -18,9 +18,7 @@ def rules_for(model,entry):return registry().get(model,{}).get(entry,{})
 
 @lru_cache(maxsize=1)
 def unresolved_fields():
-    outcomes=json.loads(Path(__file__).with_name('source_phase6_formula_registry.json').read_text(encoding='utf8'))['outcomes']
-    return [(row['entry'],row['field'],result['model'],result['reason'])
-            for row in outcomes for result in row['results'] if result['state']=='explicit_difference']
+    return json.loads(Path(__file__).with_name('source_phase6_formula_registry.json').read_text(encoding='utf8'))['unresolved_inputs']
 
 
 def generated_fields(entry,model=None):
@@ -196,7 +194,6 @@ def refresh(item,actor,upstream=None,aggregate=False,trail=()):
     if changes:
         persist(item,actor);record(item,'entry_formula_refresh',before,actor,'明确父子来源公式：'+','.join(changes))
         for key,value in changes.items():setattr(original,key,value)
-    if pending:record(item,'entry_formula_source_pending',before,actor,json.dumps(pending,ensure_ascii=False))
     if upstream or changes:
         context={**(upstream or {}),item._meta.label:{name for name,key in item.SOURCE_FIELDS.items() if key in changes}}
         for child in child_rows(item):refresh(child,actor,upstream=context,trail=(*trail,item._meta.label))
@@ -212,7 +209,6 @@ def saved(item,data,entry,creating,actor):
     from .source_services import child_rows
     from .source_phase6_formula_links import child_rows as raw_children,parent_rows
     pending=getattr(item,'_entry_formula_pending',[])
-    if pending:record(item,'entry_formula_source_pending',snapshot(item),actor,json.dumps(pending,ensure_ascii=False))
     # 保存本行后只沿明确主从关系向下传播；汇总由finish在子行写完后向上执行。
     fields={name for name,key in item.SOURCE_FIELDS.items() if key in getattr(item,'_entry_formula_changed',set(data))}
     if fields:

@@ -9,7 +9,7 @@ APPS = [
     'plugins.erp_quality.apps.ErpQualityConfig',
 ]
 URLS = [('erp','plugins.erp_base.urls')]
-# 七模块基础资料、单据动作、查询和旧新对照统一登记。
+# 客户本地基础资料、业务单据及必要运行服务。
 MODEL_EXCLUDE_APPS = [
     'auth', 'contenttypes', 'sessions', 'captcha',
     'django_celery_beat', 'django_celery_results',

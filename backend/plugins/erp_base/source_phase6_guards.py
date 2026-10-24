@@ -53,5 +53,5 @@ def before(item,event,actor):
     result=evaluate(spec,values)
     if result['message'] is not None and not spec.get('advisory',False):
         raise ValidationError({'entry':result['message'],'original_event':event})
-    record(item,'entry_original_condition',snapshot(item),actor,
-        json.dumps({'body':index,'entry':key[0],'event':event,**result},ensure_ascii=False,default=str))
+    if result['message'] is not None:
+        record(item,'entry_condition_advisory',snapshot(item),actor,str(result['message']))

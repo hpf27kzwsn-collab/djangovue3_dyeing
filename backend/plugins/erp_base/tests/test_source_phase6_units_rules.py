@@ -90,7 +90,7 @@ class UnitAndDefectTests(TestCase):
     def test_h023_api_reports_original_paper_limit_and_retains_query_duplicates(self):
         from rest_framework.test import APIClient
         from plugins.erp_base.source_phase6_entries import run
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import render,reference_columns
         from .test_source_phase6 import reader
         for _ in range(2):
@@ -115,7 +115,7 @@ class UnitAndDefectTests(TestCase):
 
 class FormattingRuleTests(SimpleTestCase):
     def test_h023_original_rules_are_unassigned_and_retained(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_layouts import parse_xml
         from plugins.erp_base.source_phase6_rendering import requirements
         from plugins.erp_base.source_phase6_print_rules import formatting_usage
@@ -126,7 +126,7 @@ class FormattingRuleTests(SimpleTestCase):
         self.assertEqual(row['TemplateXml'],original)
 
     def test_assigned_or_unresolved_rules_still_require_implementation(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import requirements
         for assignment in [b'<FormattingRules><Item Ref="#Ref-38" /></FormattingRules>',
                            b'<FormattingRules><Item Ref="#Ref-999" /></FormattingRules>']:
@@ -150,7 +150,7 @@ class FormattingRuleTests(SimpleTestCase):
             with self.assertRaises(ValidationError):formatted(date(2026,1,2),pattern)
 
     def test_r001_keeps_missing_dynamic_quantity_source_instead_of_printing_zero_stock(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import requirements
         issues=requirements(templates()[132])
         self.assertTrue(any('0占位' in issue for issue in issues))

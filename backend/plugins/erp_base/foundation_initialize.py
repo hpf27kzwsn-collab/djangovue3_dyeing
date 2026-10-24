@@ -28,26 +28,11 @@ def grant_path(role_id, menu):
 
 @transaction.atomic
 def load():
-    # 原“完整旧业务资料”角色原本覆盖全部来源：新增表补齐同等权限，其他角色保留现有范围。
-    for key, writable in [('erp_original_manager', True), ('erp_original_viewer', False)]:
-        role = Role.objects.get(key=key)
-        for item in DEFINITIONS.values():
-            if not item.get('canonical'):
-                continue
-            menu = Menu.objects.get(component_name=item['entity'])
-            if RoleMenuPermission.objects.filter(role=role, menu=menu).exists():
-                continue
-            RoleMenuPermission.objects.create(role=role, menu=menu)
-            buttons = MenuButton.objects.filter(menu=menu)
-            if not writable:
-                buttons = buttons.filter(method=0)
-            RoleMenuButtonPermission.objects.bulk_create([
-                RoleMenuButtonPermission(role=role, menu_button=b, data_range=3) for b in buttons])
-            FieldPermission.objects.bulk_create([FieldPermission(role=role, field=f, is_query=True,
-                is_create=writable and f.field_name not in OWNED, is_update=writable and f.field_name not in OWNED)
-                for f in MenuField.objects.filter(menu=menu)])
     count = 0
+    from system.catalog import ENTITIES
     for item in DEFINITIONS.values():
+        if item['entity'] not in ENTITIES or item['path'][:2] in [['系统管理', '旧权限来源'], ['系统管理', '旧配置来源'], ['系统管理', '旧平台来源'], ['系统管理', '配置档案']]:
+            continue
         canonical = Menu.objects.get(component_name=item['entity'])
         parent = folder(item['path'][:-1])
         roles = list(RoleMenuPermission.objects.filter(menu=canonical).values_list('role_id', flat=True))
@@ -72,15 +57,4 @@ def load():
             if created:
                 added.dept.set(grant.dept.all())
         count += 1
-    # 整理主档不自动采用原资料，独立分组，避免与原表资料混成两套可随意替换的入口。
-    from .resource_options import MODEL_FIELDS
-    for name in MODEL_FIELDS:
-        if name.startswith('Legacy') or name == 'SourceBusinessParameter':
-            continue
-        menu = Menu.objects.get(component_name='erp_base_' + name.lower())
-        menu.parent = folder(['基础信息', '整理主档（按需采用）'])
-        menu.save(update_fields=['parent'])
-        for role_id in RoleMenuPermission.objects.filter(menu=menu).values_list('role_id', flat=True):
-            grant_path(role_id, menu)
     return count
-

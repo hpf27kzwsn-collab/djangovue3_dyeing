@@ -8,7 +8,7 @@ def workflow_actions(entity, view, workflow):
         from plugins.erp_base.button_presentation import present
         actions = [present(entity, view.queryset.model, item) for item in actions]
     return {**workflow, 'actions': [
-        {**item, 'permission': f"{entity}:{methods[item['key']].url_name}-post"}
+        {**item, 'permission': entity+':list' if item['key'] in ['business_query','machine_board'] else f"{entity}:{methods[item['key']].url_name}-post"}
         for item in actions]}
 
 
@@ -17,8 +17,12 @@ def resource_actions(entity, view):
     actions = [('list', '查询', 0, base), ('add', '新增', 1, base), ('copy', '复制', 1, base),
                ('detail', '详情', 0, base+'{id}/'), ('edit', '修改', 2, base+'{id}/'),
                ('patch', '局部修改', 5, base+'{id}/'), ('delete', '删除', 3, base+'{id}/')]
+    allowed = {METHODS[verb] for verb in view.http_method_names if verb in METHODS}
+    actions = [item for item in actions if item[2] in allowed]
     for method in view.get_extra_actions():
         for verb in method.mapping:
+            if verb not in view.http_method_names:
+                continue
             actions.append((method.url_name+'-'+verb, method.__name__, METHODS[verb],
                             base+('{id}/' if method.detail else '')+method.url_path+'/'))
     return actions

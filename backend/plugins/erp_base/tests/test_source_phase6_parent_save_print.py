@@ -125,7 +125,7 @@ class ParentSavePrintTests(TestCase):
 
     def test_customer_proof_api_keeps_duplicate_join_rows_in_selected_scope(self):
         from rest_framework.test import APIClient
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         for name in ['客户甲','客户乙']:create('p_Customer',CustomerID='P-C',NameC=name)
         create('GrayOut',SheetSeries='P-OUT',SheetNo='P-OUT',CustomerID='P-C')
         for qty in [2,2,-3]:create('GrayOutDetail',SheetSeries='P-OUT',ReceSheetNo='DUP',Rolls=qty,WeightQty=qty*10)
@@ -144,7 +144,7 @@ class ParentSavePrintTests(TestCase):
 
     def test_packing_print_requires_selected_parent_and_keeps_original_aggregation(self):
         import base64
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_layouts import parse_xml
         from plugins.erp_base.source_phase6_entries import run
         from plugins.erp_base.source_phase6_rendering import render,reference_columns

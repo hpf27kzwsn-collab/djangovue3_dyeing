@@ -40,22 +40,18 @@ class SourceExcelActions:
                 if profile.get('readonly'):
                     raise serializers.ValidationError({'基础资料入口':'此类财务来源目前暂缓办理。'})
                 self.excel_foundation=profile
-            self.excel_historical=settings.get('导入方式')=='历史基础资料原值承接'
+            self.excel_historical=settings.get('导入方式') in ['原值导入', '历史基础资料原值承接']
             if self.excel_historical:
                 from .numbering import lock_model
                 lock_model(self.queryset.model)
-                from types import SimpleNamespace
-                from core.permissions import ApiPermission
-                from rest_framework.exceptions import PermissionDenied
-                scope=SimpleNamespace(user=self.request.user,method='POST',path='/api/system/erp_base_legacyimportbatch/')
-                if not ApiPermission().has_permission(scope,self):raise PermissionDenied('历史资料承接需要旧资料批次新增权限。')
                 self.excel_history_settings=settings
                 headers=[c.value for c in book['数据'][1]]
-                ordinal=headers.index('序号')
-                self.excel_history_rows={n:values[ordinal] for n,values in enumerate(book['数据'].iter_rows(min_row=2,values_only=True),2)}
+                ordinal=headers.index('序号') if '序号' in headers else None
+                self.excel_history_rows={n:values[ordinal] if ordinal is not None and values[ordinal] is not None else n-1
+                    for n,values in enumerate(book['数据'].iter_rows(min_row=2,values_only=True),2)}
             if ENTRY_TITLE in settings:selected=settings[ENTRY_TITLE]
         profile_context={'基础资料入口':self.excel_foundation['key'],'基础资料类别':self.excel_foundation['title']} if self.excel_foundation else {}
-        if getattr(self,'excel_historical',False):return {'导入方式':'历史基础资料原值承接',**profile_context}
+        if getattr(self,'excel_historical',False):return {'导入方式':'原值导入',**profile_context}
         if selected in [None,''] and self.excel_foundation:selected=self.excel_foundation['entry']
         if selected in [None,'']:
             from core.resources import resource_options
@@ -85,13 +81,12 @@ class SourceExcelActions:
         sync_model(self.queryset.model)
         if getattr(self,'excel_historical',False) and hasattr(self,'excel_history_batch'):
             from django.db.models import F
-            from .source_import import entries,link_relations
+            from .source_relations import link_imported
             batch=self.excel_history_batch
             from django.utils import timezone
             type(batch).objects.filter(pk=batch.pk).update(row_count=F('row_count')+counts['created'],byte_count=F('byte_count')+self.request.FILES['file'].size,finished_at=timezone.now())
             model=self.queryset.model
-            tables=[model.SOURCE_TABLE,*[t['table'] for t in entries() if any(r['target']==model._meta.label for r in t['relations'])]]
-            link_relations(batch,tables)
+            counts['relations'] = link_imported(batch, model, self.request)
 
     def excel_save(self,serializer,audit,mode):
         if getattr(self,'excel_historical',False):

@@ -30,7 +30,7 @@ async function submit(){
   </div>
   <p>空白或 #KEEP：新增采用默认值，更新保留原值。#NULL：设为空值；#EMPTY：清空文本或多选。0、负数和空格文本照常提交。</p>
   <p v-if="entries?.length">新增单据按业务入口生成编号并执行保存联动。表格逐行入口优先，其次模板保存的入口，最后使用这里的选择；已有单据保留原入口。</p>
-  <p>资料包中的历史文件按“导入设置”承接原值和原主键；日常新增使用空白模板。历史文件的 #UTF8: 特殊文本会在导入时还原。</p>
+  <p>选择“原值导入”时保留文件中的原编号和字段，不重新执行业务事件；普通新增使用空白模板。既有原值模板继续兼容。</p>
   <p>已设置编号规则的资料：编号空白时按规则生成；填写编号须符合手工录入权限。历史原值承接保留原编号，不消耗新号，导入成功后同步流水上限。</p>
   <p>含“更新主键”的模板用于更新。标记本身作为文本时加 #TEXT: 前缀，例如 #TEXT:#NULL。重复数据逐行处理，一行失败则整批不保存。</p>
   <el-upload v-model:file-list="files" drag accept=".xlsx" :auto-upload="false" :disabled="busy" :on-change="choose">
@@ -39,6 +39,13 @@ async function submit(){
   </el-upload>
   <el-alert v-if="problem" type="error" :title="problem" :closable="false" show-icon/>
   <el-alert v-if="result" type="success" :title="`导入完成：新增 ${result.created} 条，更新 ${result.updated} 条，跳过空白 ${result.skipped} 行`" :closable="false" show-icon/>
+  <template v-if="result?.relations?.some((row:any)=>row.unresolved)">
+    <el-alert title="以下编码未匹配或有多个候选，原资料已逐行保存，请在业务资料中确认关联。" type="warning" :closable="false"/>
+    <el-table :data="result.relations.filter((row:any)=>row.unresolved)" max-height="200">
+      <el-table-column prop="title" label="资料"/><el-table-column prop="relation" label="关联资料"/>
+      <el-table-column prop="linked" label="已关联"/><el-table-column prop="unresolved" label="待确认"/>
+    </el-table>
+  </template>
   <el-table v-if="result" :data="result.rows" max-height="240"><el-table-column prop="row" label="Excel行"/><el-table-column label="结果"><template #default="{row}">{{row.status==='created'?'已新增':row.status==='updated'?'已更新':'空白行'}}</template></el-table-column><el-table-column prop="id" label="记录ID"/></el-table>
   <template #footer><div class="import-footer"><el-button :disabled="busy" @click="emit('update:modelValue',false)">关闭</el-button><el-button type="primary" :loading="busy" :disabled="!files.length" @click="submit">提交导入</el-button></div></template>
 </el-dialog>

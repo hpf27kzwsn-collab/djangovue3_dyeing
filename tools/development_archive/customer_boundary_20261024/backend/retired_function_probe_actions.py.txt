@@ -1,0 +1,50 @@
+    @action(methods=['post'],detail=False,url_name='phase5_function')
+    def phase5_function(self,request):
+        from .source_phase5_api import function_view
+        return function_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase4_function')
+    def phase4_function(self,request):
+        from .source_phase4_api import function_view
+        return function_view(self)
+
+    @action(methods=['post'],detail=True,url_name='app_order_check')
+    def app_order_check(self,request,pk=None):
+        from .source_phase2_orders import check_modify
+        from .source_stock_services import raw
+        return report_result({'report':'订单修改检查','rows':[check_modify(raw(self.get_object(),'SheetSeries'))]})
+
+    @action(methods=['post'],detail=False,url_name='quote_function')
+    def quote_function(self,request):
+        from .source_quote_functions import calculate,FUNCTIONS
+        from .business_api import parameters
+        fields={'function':serializers.ChoiceField(choices=FUNCTIONS)}
+        fields.update({name:serializers.CharField(allow_blank=True,allow_null=True,trim_whitespace=False,required=False,default=None)
+            for name in ['color','customer','charging','process','phase','grade','service','job','detail']})
+        fields['kind']=serializers.IntegerField(allow_null=True,required=False,default=None)
+        fields.update({name:serializers.DecimalField(max_digits=24,decimal_places=6,allow_null=True,required=False,default=None)
+            for name in ['weight','gray_quantity','cost','dosage']})
+        fields.update({name:serializers.DateTimeField(allow_null=True,required=False,default=None) for name in ['sheet_date','order_date']})
+        values=parameters(self,fields);function=values.pop('function')
+        return report_result(calculate(function,values,query=report_query(request)))
+
+    @action(methods=['post'],detail=True,url_name='quote_trigger_check')
+    def quote_trigger_check(self,request,pk=None):
+        from .source_quote_rules import inspect
+        from .business_api import parameters
+        fields={'operation':serializers.ChoiceField(choices=['insert','update','delete']),
+            'right_status_in_statement':serializers.BooleanField(required=False,default=False)}
+        return report_result(inspect(self.get_object(),query=chain_query(request),**parameters(self,fields)))
+
+    @action(methods=['post'],detail=True,url_name='check_fault_action')
+    def check_fault_action(self,request,pk=None):
+        from .source_equipment_faults import check_action
+        from .business_api import parameters
+        return report_result(check_action(self.get_object(),query=report_query(request),**parameters(self,equipment_texts(['action','fixers']))))
+
+    @action(methods=['post'],detail=True,url_name='fault_save_check')
+    def fault_save_check(self,request,pk=None):
+        from .source_equipment_faults import fault_check
+        item=self.get_object()
+        return report_result(fault_check({'fault':item.old_fault_remarks,'machine':item.old_machine_id,'machine_name':item.old_machine_name,
+            'fault_class':item.old_fault_class,'group':item.old_emp_group}))

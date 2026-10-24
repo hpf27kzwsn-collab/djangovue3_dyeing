@@ -4,12 +4,12 @@ from sqlglot import exp,parse_one
 from sqlglot.errors import ParseError
 from django.core.exceptions import ValidationError
 from django.db import transaction,DatabaseError
-from .source_entry_registry import ENTRY_RULES
-from .source_phase6_entries import bindings
-from .source_ownership import OWNERS
-from .source_business_updates import matching
-from .source_stock_services import raw
-from .source_static_lookup import execute_table
+from plugins.erp_base.source_entry_registry import ENTRY_RULES
+from plugins.erp_base.source_phase6_entries import bindings
+from plugins.erp_base.source_ownership import OWNERS
+from plugins.erp_base.source_business_updates import matching
+from plugins.erp_base.source_stock_services import raw
+from plugins.erp_base.source_static_lookup import execute_table
 
 
 def linked(query,child_fields,parent,parent_fields):
@@ -83,7 +83,7 @@ def evaluate(item,entry,reader):
         try:
             with transaction.atomic():
                 if item.SOURCE_TABLE=='DyeRecipe' and entry in ['BulkDyeRecipe','FinishDyeRecipe','TrialDyeRecipe'] and field=='Cost':
-                    from .source_sampling_services import recipe_cost
+                    from plugins.erp_base.source_sampling_services import recipe_cost
                     value=recipe_cost(item,reader)
                 else:value=expression(item,entry,spec['expression'],reader)
         except (ValueError,KeyError,ParseError,DatabaseError,ArithmeticError) as error:
@@ -97,12 +97,12 @@ def evaluate(item,entry,reader):
 
 @transaction.atomic
 def calculate(item,entry,reader,actor,apply=False):
-    from .business import locked,record,snapshot
-    from .source_services import write,managed_fields
-    from .source_provenance import is_historical
+    from plugins.erp_base.business import locked,record,snapshot
+    from plugins.erp_base.source_services import write,managed_fields
+    from plugins.erp_base.source_provenance import is_historical
     item=locked(item)
     reader(type(item).__name__.removeprefix('SourceDye'),item._meta.app_label).get(pk=item.pk)
-    from .source_execution_state import active
+    from plugins.erp_base.source_execution_state import active
     result=evaluate(item,entry,lambda name,module:active(reader(name,module)))
     result['notes'].append('本次公式使用活动父子行；已撤回留档的原行仍可查询，但不重复计入本次办理数量。')
     if apply:

@@ -5,7 +5,7 @@ from django.apps import apps
 from django.test import SimpleTestCase, TestCase
 from system.models import Users
 from plugins.erp_base import source_foundation_scalars as scalar
-from plugins.erp_base import source_foundation_platform as platform
+from tools.development_archive.customer_boundary_20261024.backend import source_foundation_platform as platform
 from plugins.erp_base.source_foundation_periods import periods, parameter_first_date
 from plugins.erp_base.source_quality_reports import rows
 from plugins.erp_base.source_stock_services import raw

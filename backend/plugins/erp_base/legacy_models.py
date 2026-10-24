@@ -5,11 +5,11 @@ from .models import ErpModel
 
 class LegacyImportBatch(ErpModel):
     number=models.CharField('资料批次号',max_length=80,unique=True)
-    database_name=models.CharField('旧数据库',max_length=128)
-    started_at=models.DateTimeField('提取开始')
-    finished_at=models.DateTimeField('提取结束')
-    manifest_sha256=models.CharField('资料清单摘要',max_length=64,unique=True)
-    source_directory=models.TextField('本地资料目录')
+    database_name=models.CharField('来源说明',max_length=128,blank=True,default='')
+    started_at=models.DateTimeField('导入开始')
+    finished_at=models.DateTimeField('导入结束')
+    manifest_sha256=models.CharField('资料文件摘要',max_length=64)
+    source_directory=models.TextField('上传文件名称')
     table_count=models.PositiveIntegerField('来源表数')
     row_count=models.BigIntegerField('完整来源行数')
     byte_count=models.BigIntegerField('来源文件字节数')
@@ -18,7 +18,7 @@ class LegacyImportBatch(ErpModel):
 
     class Meta:
         db_table='erp_base_legacyimportbatch'
-        verbose_name=verbose_name_plural='旧资料提取批次'
+        verbose_name=verbose_name_plural='资料导入批次'
 
 
 class LegacySourceTable(ErpModel):
@@ -68,4 +68,4 @@ class LegacyImportIssue(ErpModel):
 
     class Meta:
         db_table='erp_base_legacyimportissue'
-        verbose_name=verbose_name_plural='旧数据待核实事项'
+        verbose_name=verbose_name_plural='导入处理事项'

@@ -29,6 +29,11 @@ import json
 
 
 class ResourceViewSet(ExcelActions, ModelViewSet):
+    lookup_value_regex = r'\d+'
+    @classmethod
+    def get_extra_actions(cls):
+        return [method for method in super().get_extra_actions() if method.__name__ != 'init_data']
+
     @action(methods=['get'], detail=False)
     def tree(self, request):
         return success(self.get_serializer(self.filter_queryset(self.get_queryset()), many=True).data)
@@ -206,6 +211,7 @@ class DictionaryViewSet(ResourceViewSet):
 class PeriodicViewSet(ResourceViewSet):
     queryset = PeriodicTask.objects.order_by('-pk')
     serializer_class = serializer_for(PeriodicTask)
+    serializer_class.Meta.exclude = ['solar']
 
     @action(methods=['post'], detail=True)
     def run(self, request, pk=None):
@@ -540,6 +546,9 @@ class Metadata(APIView):
     def get(self, request, entity):
         from plugins.erp_base.source_documents import SourceRecord
         from plugins.erp_base.source_services import literal_default
+        if entity not in ENTITIES:
+            from django.http import Http404
+            raise Http404('此业务资源未启用。')
         model = ENTITIES[entity]
         entry_defaults=set()
         if issubclass(model,SourceRecord):

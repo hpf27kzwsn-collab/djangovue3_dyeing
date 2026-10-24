@@ -1,6 +1,7 @@
-"""原形业务模型明确录入及草稿、确认、审核；不重演历史库存。"""
+"""本地业务录入、按原审核状态办理及实际业务联动；原值导入不重演库存。"""
 from rest_framework import serializers
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
 from core.responses import success
 from . import source_services as services
@@ -42,6 +43,7 @@ class SourceRecordSerializer(BusinessSerializer):
 
     def to_representation(self,instance):
         result=super().to_representation(instance)
+        result['approval_stage'] = services.stage(instance)
         from .button_presentation import effect_states
         result['action_effects']=effect_states(instance)
         if instance.SOURCE_TABLE=='OrderColor' and all(self.field_permissions.get(k,{}).get('is_query',True) for k in ['old_price','old_amount']):
@@ -76,6 +78,51 @@ class SourceRecordSerializer(BusinessSerializer):
 
 
 class SourceRecordViewSet(SourceExcelActions,BusinessViewSet):
+    @action(methods=['post'], detail=False, permission_classes=[IsAuthenticated])
+    def business_query(self, request):
+        from .source_business_queries import run
+        return report_result(run(self.queryset.model, request))
+
+    @classmethod
+    def get_extra_actions(cls):
+        from core.resources import resource_options
+        from .customer_resources import DEVELOPMENT_ACTIONS
+        workflow = resource_options(cls.queryset.model).get('workflow', {})
+        allowed = {a['key'] for a in workflow.get('actions', [])}
+        allowed |= {'tree', 'batch_update',
+                    'export', 'async_export', 'import_template', 'update_template', 'import_data',
+                    'multiple_delete'}
+        if any(child.get('atomic') for child in workflow.get('children', [])):
+            allowed.add('save_document')
+        from .foundation_catalog import DEFINITIONS
+        if any(item['model'] == cls.queryset.model._meta.label for item in DEFINITIONS.values()):
+            allowed.add('foundation_entry')
+        if cls.queryset.model.SOURCE_TABLE == 'OrderColor':
+            allowed |= {'pricing_candidates', 'pricing_preview'}
+        if cls.queryset.model.SOURCE_TABLE == 'OrderMain':
+            allowed.add('pricing_lines')
+        if any(rule['editor_kind'] in ['Lookup','Lookup_NoCheck','DBCombo','DBCombo_Edit']
+               for entry in workflow.get('entries', []) for rule in entry.get('field_rules', {}).values()):
+            allowed.add('lookup_options')
+        return [method for method in super().get_extra_actions()
+                if method.__name__ in allowed and method.__name__ not in DEVELOPMENT_ACTIONS]
+
+    @action(methods=['post'], detail=False, permission_classes=[IsAuthenticated])
+    def lookup_options(self, request):
+        from .reports import Reader
+        from .source_phase6_editors import options
+        from .source_phase6_entries import reader
+        model = self.queryset.model
+        Reader(request).source(model, [])
+        data = parameters(self, {
+            'entry': serializers.ChoiceField(choices=list(ENTRY_RULES[model._meta.label])),
+            'field': serializers.ChoiceField(choices=list(model.SOURCE_FIELDS)),
+            'context': serializers.DictField(default=dict),
+            'filter_text': serializers.CharField(default='', allow_blank=True),
+        })
+        result = options(data['entry'], data['field'], data['filter_text'], reader(request), data['context'])
+        return success({key:result[key] for key in ['rows','columns','implemented']})
+
     def get_queryset(self):
         from .foundation_catalog import request_definition,scope
         queryset=super().get_queryset()
@@ -271,69 +318,19 @@ class SourceRecordViewSet(SourceExcelActions,BusinessViewSet):
             queryset=selected, many=True, allow_empty=False)})
         return report_result(purchase_to_arrival(self.get_object(), actor=request.user, **p))
 
-    @action(methods=['get'],detail=True,url_name='phase6_print_history')
-    def phase6_print_history(self,request,pk=None):
-        from .source_context import SourceDocumentContext
-        from .source_foundation_api import require_original_admin
-        require_original_admin(request)
-        item=self.get_object()
-        context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
-        return success(context.effects.get('entry_print_jobs',[]) if context else [])
 
-    @action(methods=['post'],detail=True,url_name='phase6_formula')
-    def phase6_formula(self,request,pk=None):
-        from .source_phase6_expressions import calculate
-        from .source_phase6_entries import reader
-        p=parameters(self,{'entry':serializers.CharField(),'apply':serializers.BooleanField(default=False)})
-        return report_result(calculate(self.get_object(),reader=reader(request),actor=request.user,**p))
 
-    @action(methods=['post'],detail=True,url_name='phase6_prepare_print')
-    def phase6_prepare_print(self,request,pk=None):
-        from .source_phase6_printing import prepare_print
-        from .source_phase6_entries import reader
-        from .source_foundation_api import require_original_admin
-        require_original_admin(request)
-        p=parameters(self,{'entry':serializers.CharField()})
-        return success(prepare_print(self.get_object(),p['entry'],request.user,reader(request)))
 
-    @action(methods=['post'],detail=True,url_name='phase6_finish_print')
-    def phase6_finish_print(self,request,pk=None):
-        from .source_phase6_printing import finish_print
-        from .source_foundation_api import require_original_admin
-        require_original_admin(request)
-        p=parameters(self,{'job_id':serializers.CharField(),'state':serializers.ChoiceField(choices=['cancelled','failed','operator_confirmed']),
-            'reason':serializers.CharField(trim_whitespace=False)})
-        return success(finish_print(self.get_object(),actor=request.user,**p))
 
-    @action(methods=['get'],detail=False,url_name='phase6_catalog')
-    def phase6_catalog(self,request):
-        from .source_phase6_api import catalog_view
-        return catalog_view(self)
 
-    @action(methods=['post'],detail=False,url_name='phase6_query')
-    def phase6_query(self,request):
-        from .source_phase6_api import query_view
-        return query_view(self)
 
-    @action(methods=['post'],detail=False,url_name='phase6_export')
-    def phase6_export(self,request):
-        from .source_phase6_api import query_view
-        return query_view(self,True)
 
-    @action(methods=['post'],detail=False,url_name='phase6_template')
-    def phase6_template(self,request):
-        from .source_phase6_api import template_view
-        return template_view(self)
 
     @action(methods=['post'],detail=False,url_name='phase5_report')
     def phase5_report(self,request):
         from .source_phase5_api import report_view
         return report_view(self)
 
-    @action(methods=['post'],detail=False,url_name='phase5_function')
-    def phase5_function(self,request):
-        from .source_phase5_api import function_view
-        return function_view(self)
 
     @action(methods=['post'],detail=False,url_name='phase5_operation')
     def phase5_operation(self,request):
@@ -355,10 +352,6 @@ class SourceRecordViewSet(SourceExcelActions,BusinessViewSet):
         from .source_phase4_api import report_view
         return report_view(self)
 
-    @action(methods=['post'],detail=False,url_name='phase4_function')
-    def phase4_function(self,request):
-        from .source_phase4_api import function_view
-        return function_view(self)
 
     @action(methods=['post'],detail=False,url_name='phase4_operation')
     def phase4_operation(self,request):
@@ -426,11 +419,6 @@ class SourceRecordViewSet(SourceExcelActions,BusinessViewSet):
         require_original_admin(request)
         return app_order(self,True)
 
-    @action(methods=['post'],detail=True,url_name='app_order_check')
-    def app_order_check(self,request,pk=None):
-        from .source_phase2_orders import check_modify
-        from .source_stock_services import raw
-        return report_result({'report':'订单修改检查','rows':[check_modify(raw(self.get_object(),'SheetSeries'))]})
 
     @action(methods=['post'],detail=False,url_name='app_order_check_save')
     def app_order_check_save(self,request):
@@ -1609,29 +1597,11 @@ def sample_variant_fields():
 
 
 class SourceQuoteFunctionsViewSet(SourceRecordViewSet):
-    @action(methods=['post'],detail=False,url_name='quote_function')
-    def quote_function(self,request):
-        from .source_quote_functions import calculate,FUNCTIONS
-        from .business_api import parameters
-        fields={'function':serializers.ChoiceField(choices=FUNCTIONS)}
-        fields.update({name:serializers.CharField(allow_blank=True,allow_null=True,trim_whitespace=False,required=False,default=None)
-            for name in ['color','customer','charging','process','phase','grade','service','job','detail']})
-        fields['kind']=serializers.IntegerField(allow_null=True,required=False,default=None)
-        fields.update({name:serializers.DecimalField(max_digits=24,decimal_places=6,allow_null=True,required=False,default=None)
-            for name in ['weight','gray_quantity','cost','dosage']})
-        fields.update({name:serializers.DateTimeField(allow_null=True,required=False,default=None) for name in ['sheet_date','order_date']})
-        values=parameters(self,fields);function=values.pop('function')
-        return report_result(calculate(function,values,query=report_query(request)))
+    pass
 
 
 class SourceQuoteDetailViewSet(SourceQuoteFunctionsViewSet):
-    @action(methods=['post'],detail=True,url_name='quote_trigger_check')
-    def quote_trigger_check(self,request,pk=None):
-        from .source_quote_rules import inspect
-        from .business_api import parameters
-        fields={'operation':serializers.ChoiceField(choices=['insert','update','delete']),
-            'right_status_in_statement':serializers.BooleanField(required=False,default=False)}
-        return report_result(inspect(self.get_object(),query=chain_query(request),**parameters(self,fields)))
+    pass
 
 
 class SourceLabColorViewSet(SourceRecordViewSet):
@@ -1726,11 +1696,6 @@ class SourceMachineFaultViewSet(SourceEquipmentViewSet):
         return report_result(actions(self.get_object(),query=report_query(request),**parameters(self,{
             **equipment_texts(['employee']),'version':serializers.ChoiceField(choices=[1,2])})))
 
-    @action(methods=['post'],detail=True,url_name='check_fault_action')
-    def check_fault_action(self,request,pk=None):
-        from .source_equipment_faults import check_action
-        from .business_api import parameters
-        return report_result(check_action(self.get_object(),query=report_query(request),**parameters(self,equipment_texts(['action','fixers']))))
 
     @action(methods=['post'],detail=True,url_name='perform_fault_action')
     def perform_fault_action(self,request,pk=None):
@@ -1763,12 +1728,6 @@ class SourceMachineFaultViewSet(SourceEquipmentViewSet):
     @action(methods=['post'],detail=True,url_name='save_fault')
     def save_fault(self,request,pk=None):return self.save_fault_document(request,self.get_object())
 
-    @action(methods=['post'],detail=True,url_name='fault_save_check')
-    def fault_save_check(self,request,pk=None):
-        from .source_equipment_faults import fault_check
-        item=self.get_object()
-        return report_result(fault_check({'fault':item.old_fault_remarks,'machine':item.old_machine_id,'machine_name':item.old_machine_name,
-            'fault_class':item.old_fault_class,'group':item.old_emp_group}))
 
 
 class SourceSalesLimitReadOnlyViewSet(SourceRecordViewSet):

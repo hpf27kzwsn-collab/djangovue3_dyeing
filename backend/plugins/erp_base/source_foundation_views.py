@@ -6,12 +6,20 @@ from .source_business_updates import matching
 from .source_stock_services import raw
 from .source_foundation_queries import values
 from .source_foundation_scalars import feel_code
-from .source_foundation_platform import distinct
 from .source_package_labels import varchar
 
 NAMES=['A_GrayID','s_vwCustomer','v_App_Customer','v_APP_EmployeeDevice','v_Customer','v_DyePhase',
        'V_GrayToProduct','V_Stuff','v_KQ_CType','MaxSavePlease','sp_App_GetEmployeePhone',
        'sp_App_O_GetPostList','sp_App_sysGetMFEmpGroup','sp_App_GetAppChildFunctions']
+
+
+def distinct(values):
+    result, seen = [], set()
+    for row in values:
+        identity = tuple(key(v) if isinstance(v,str) else v for v in row.values())
+        if identity not in seen:
+            result.append(row); seen.add(identity)
+    return result
 
 
 def month_start(value):

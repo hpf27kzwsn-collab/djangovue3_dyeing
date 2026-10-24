@@ -2,6 +2,7 @@
 import re
 from . import source_phase6_entries as entries
 from .source_trial_steps import equal
+from .button_presentation import DEFERRED
 from .source_phase6_projection_overrides import PRINT_PARENTS
 
 CHILD=re.compile(r'(sum|count)\s*\(\s*Child\(([^)]+)\)\.\[([^]]+)\]\s*\)',re.I)
@@ -17,8 +18,7 @@ class ProjectionContext:
 
     def query(self,name):
         if name not in self.cache:
-            support=entries.query_support()[name]
-            if support['query_state'] not in ['executed_empty_fixture','reconstructed_missing_projection']:
+            if name in DEFERRED['queries']:
                 raise ValueError('父子来源查询仍有差异或暂缓：'+name)
             if entries.definition(name)['finance'] or name.startswith(('ImpairmentPayouts','FAR','FAP','FMoney')):
                 raise ValueError('财务来源暂缓：'+name)

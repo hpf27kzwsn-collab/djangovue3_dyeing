@@ -125,7 +125,7 @@ class CalculatedPrintTests(SimpleTestCase):
         with self.assertRaises(ValidationError):self.proof([1],formula='Abs([Missing])')
 
     def test_original_r127_arithmetic_plan(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_layouts import parse_xml
         from plugins.erp_base.source_phase6_calculated_print import apply
         root,_=parse_xml(base64.b64decode(templates()[244]['TemplateXml']))

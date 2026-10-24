@@ -9,9 +9,9 @@ from django.db import transaction
 from django.utils import timezone
 from django.db import models
 from . import models as base
-from .legacy_models import LegacyObjectMap
+from plugins.erp_base.legacy_models import LegacyObjectMap
 from .legacy_services import issue,source_path
-from .business import persist
+from plugins.erp_base.business import persist
 
 RULES={
     'p_FieldValid':(base.BusinessChoice,{'namespace':'FieldType','code':'Code','name':'Name','numeric_value':'NumValue','sort':'SortValue','is_active':'IsStop'}, {'is_active':'invert_bool'}),

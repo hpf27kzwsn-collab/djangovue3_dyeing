@@ -10,7 +10,7 @@ GROUPS = [
     ('system_records', '操作与导入记录', 40),
     ('system_devices', '设备接入设置', 50),
     ('system_runtime', '运行维护', 60),
-    ('system_archives', '配置档案', 70),
+    ('system_archives', '审批、变更与通知', 70),
 ]
 PAGES = {
     'user': ('system_identity', '登录账号'),
@@ -35,17 +35,12 @@ PAGES = {
     'download_center': ('system_records', '下载记录'),
     'erp_base_businessaction': ('system_records', '业务操作记录'),
     'erp_base_legacyimportbatch': ('system_records', '资料导入批次'),
-    'erp_base_legacyimportissue': ('system_records', '资料核对事项'),
-    'erp_base_legacysourcetable': ('system_archives', '资料来源登记'),
-    'erp_base_legacyobjectmap': ('system_archives', '资料对应记录'),
-    'erp_base_sourceidentitysequence': ('system_archives', '专用编号计数'),
-    'erp_base_sourcedocumentcontext': ('system_archives', '单据办理来源'),
+    'erp_base_legacyimportissue': ('system_records', '导入处理事项'),
     'periodic_task': ('system_runtime', '计划任务'),
     'task_result': ('system_runtime', '任务执行记录'),
     'interval_schedule': ('system_runtime', '间隔计划配置'),
     'crontab_schedule': ('system_runtime', '日历计划配置'),
     'clocked_schedule': ('system_runtime', '指定时间配置'),
-    'solar_schedule': ('system_runtime', '日照计划配置'),
 }
 
 
@@ -86,6 +81,8 @@ def load():
     for profile in DEFINITIONS.values():
         if profile['path'][0] != '系统管理':
             continue
+        if profile['key'] not in menus:
+            continue
         menu = menus[profile['key']]
         menu.parent = folders['system_devices' if profile['path'][1] == '设备接入设置' else 'system_archives']
         menu.save(update_fields=['parent'])
@@ -97,10 +94,6 @@ def load():
             menu = menus[entity]
             menu.parent = folders['system_archives']
             menu.save(update_fields=['parent'])
-    # 整理主档仍属于基础信息，业务参数仍是生产业务资料。
-    business_options = menus['erp_base_businesschoice']
-    business_options.name = '业务选项（整理主档）'
-    business_options.save(update_fields=['name'])
     parameters = menus['erp_base_sourcebusinessparameter']
     parameters.parent = menus['erp_production']
     parameters.name = '生产业务参数'
@@ -118,5 +111,6 @@ def load():
             for role_id in role_ids:
                 RoleMenuPermission.objects.get_or_create(role_id=role_id, menu=overview)
     # 演示页保留原定义，退出业务导航；旧任务根目录的实际页面已归运行维护。
-    Menu.objects.filter(component_name__in=['component_demo', 'chart_demo', 'tasks']).update(visible=False)
+    Menu.objects.filter(component_name__in=['component_demo', 'chart_demo']).update(visible=False, status=False)
+    Menu.objects.filter(component_name='tasks').update(visible=False)
     return {'root': root.pk, 'overview': overview.pk, 'groups': len(GROUPS), 'reused_pages': len(PAGES)}

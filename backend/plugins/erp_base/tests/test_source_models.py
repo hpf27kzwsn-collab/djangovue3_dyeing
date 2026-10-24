@@ -17,7 +17,7 @@ from plugins.erp_sampling.source_models import SourceDyeColorCardDetail
 from system.models import Role,Menu,MenuField,FieldPermission,RoleMenuButtonPermission
 from plugins.erp_base.source_models import SourceDyeSFlow,SourceDyeSFlowStep,SourceDyeSFlowStepEmp
 from plugins.erp_base.legacy_models import LegacyImportBatch
-from plugins.erp_base.source_import import link_relations
+from tools.development_archive.customer_boundary_20261024.backend.source_import import link_relations
 from plugins.erp_quality.source_models import SourceDyeWDefectPenalty
 
 

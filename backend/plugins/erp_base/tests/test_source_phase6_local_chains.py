@@ -136,7 +136,7 @@ class LocalChainsTests(TestCase):
 
 class ContinuousPrintTests(SimpleTestCase):
     def proof(self,rows):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import render
         return render(templates()[221],{'entry':'h_Employeelit','columns':[{'name':n} for n in ['DeptID_R','EmpID','Name','EmpKind_R']],
             'rows':[[dept,str(i),'同名员工','原代码：1'] for i,dept in enumerate(rows)]})

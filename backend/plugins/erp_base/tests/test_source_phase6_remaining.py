@@ -21,7 +21,7 @@ class OriginalConditionTests(TestCase):
 
     def test_workbench_api_exposes_live_difference_hook_status_and_original_geometry(self):
         from rest_framework.test import APIClient
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         client=APIClient();client.force_authenticate(self.actor)
         base='/api/system/erp_production_sourcedyejobsheet/'
         detail=client.get(base+'phase6_catalog/',{'entry':'NormalStuffWeight'})
@@ -463,7 +463,7 @@ class OriginalConditionTests(TestCase):
 
 class OriginalLayoutTests(SimpleTestCase):
     def test_all_xml_layouts_parse_and_invalid_entities_are_preserved(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_layouts import describe
         counts=0;repaired=[]
         for row in templates():

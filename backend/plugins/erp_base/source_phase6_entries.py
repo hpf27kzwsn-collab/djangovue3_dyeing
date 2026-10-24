@@ -16,14 +16,8 @@ def catalog():
     return json.loads(gzip.decompress(Path(__file__).with_name('source_phase6_catalog.json.gz').read_bytes()))
 
 
-@lru_cache(maxsize=1)
-def query_support():
-    return json.loads(Path(__file__).with_name('source_phase6_query_support.json').read_text(encoding='utf8'))
 
 
-@lru_cache(maxsize=1)
-def hook_support():
-    return json.loads(Path(__file__).with_name('source_phase6_hook_manifest.json').read_text(encoding='utf8'))
 
 
 @lru_cache(maxsize=1)
@@ -44,10 +38,6 @@ def definition(name):
     return entries()[name]
 
 
-def summaries():
-    return [{'name':name,'title':r['table']['Alias'],'kind':r['table']['Kind'],
-        'module':r['table']['ModuleName'],'finance':r['finance'],'models':bindings()[name],
-        'query_state':query_support()[name]['query_state'],'field_count':len(r['fields'])} for name,r in entries().items()]
 
 
 def tree_for(name):
@@ -149,11 +139,3 @@ def reader(request):
         model=apps.get_model(module+'.SourceDye'+name)
         return scoped.source(model,list(model.SOURCE_FIELDS.values()))
     return source
-
-
-def detail(name):
-    row=definition(name)
-    return {**row,'models':bindings()[name],
-        'write_bindings':[{'model':label,**ENTRY_RULES[label][name]['write_binding']} for label in bindings()[name]],
-        'query_support':query_support()[name],'hook_support':hook_support().get(name,[]),
-        'reports':[r for r in catalog()['reports'] if any(m['RptID']==r['RptID'] and m['FuncNo']==row['table']['ModuleNo'] for m in catalog()['report_menus'])]}

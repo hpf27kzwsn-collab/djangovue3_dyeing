@@ -101,7 +101,7 @@ def present(entity, model, action):
         else:
             item['states'] = ['draft', 'confirmed']
     if item['placement'] == 'maintenance' or item['placement'] == 'automatic':
-        item['topic'] = '维护与核验'
+        item['topic'] = '业务维护'
     else:
         item['topic'] = next((title for title, keys in TOPICS.items() if key in keys),
                              '查询与统计' if any(word in item['title'] for word in ['查询','查看','统计','看板','核对','预览']) else '单据办理')

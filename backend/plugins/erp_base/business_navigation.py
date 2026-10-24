@@ -8,6 +8,7 @@ RESOURCES['erp_base.SourceDyeGetJobSheetReceive']={'entity':'erp_base_sourcedyeg
     'title':'部门接收登记','table':'GetJobSheetReceive','module':'erp_production'}
 RESOURCES['erp_production.SourceDyeTightTube']['title']='紧筒取消与平账'
 RESOURCES['erp_production.SourceDyeTightTubeDetail']['title']='紧筒业务明细'
+RESOURCES['erp_warehouse.SourceDyeRecordYield']['title']='包装细码与实称'
 MODULES = {'erp_technology': '工艺设计', 'erp_scheduling': '排产管理', 'erp_production': '生产管理'}
 
 
@@ -28,6 +29,8 @@ def configure_resources(options, app):
     }
     for name,entry in defaults.get(app,{}).items():
         options[name]['workflow']['default_entry'] = entry
+    from .customer_resources import configure
+    configure(options)
 
 
 @transaction.atomic
@@ -48,12 +51,12 @@ def load():
     menus = {m.component_name: m for m in Menu.objects.all()}
     folders = {}
     for module in MODULES:
-        for suffix, title, sort in [('documents', '业务办理', 10), ('details', '业务明细与历史来源', 90), ('organized', '整理单据（按需采用）', 95)]:
+        for suffix, title, sort in [('documents', '业务办理', 10), ('details', '业务明细', 90)]:
             key = module + '_' + suffix
             folders[(module, suffix)], _ = Menu.objects.update_or_create(component_name=key, defaults={
                 'name': title, 'parent': menus[module], 'is_catalog': True, 'visible': True, 'status': True,
                 'sort': sort, 'web_path': '/erp/navigation/' + key})
-    for key, title in [('sales_main', '染整订单与报价'), ('sales_details', '订单与报价明细'), ('sales_quote_rules', '报价加价与克重规则'), ('sales_other', '其他原订单与报价'), ('sales_organized', '整理单据（按需采用）')]:
+    for key, title in [('sales_main', '染整订单与报价'), ('sales_details', '订单与报价明细'), ('sales_quote_rules', '报价加价与克重规则'), ('sales_other', '其他订单与报价')]:
         folders[('erp_sales', key)], _ = Menu.objects.update_or_create(component_name='erp_' + key, defaults={
             'name': title, 'parent': folders[('erp_sales','sales_main')] if key in ['sales_details','sales_quote_rules'] else menus['erp_sales'], 'is_catalog': True, 'visible': True, 'status': True,
             'sort': {'sales_main': 5, 'sales_details': 30, 'sales_quote_rules': 40, 'sales_other': 85, 'sales_organized': 95}[key], 'web_path': '/erp/navigation/' + key})
@@ -62,6 +65,8 @@ def load():
     profiles = {p['entity'] for p in DEFINITIONS.values()}
     primary = {'JobSheet','ProcessSchedule','ProcessCraft','StandCraft','DyeRecipe','WProcess','StuffWeight','RecordYield','OutWorkApply','ReworkOrder','GetJobSheetReceive'}
     for label, spec in RESOURCES.items():
+        if spec['entity'] not in ENTITIES:
+            continue
         menu = menus[spec['entity']]
         menu.name = spec['title']
         module, model = spec['module'], ENTITIES[spec['entity']]

@@ -4,8 +4,8 @@ from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 from django.db import transaction
 from django.conf import settings
-from .business import persist,snapshot,record
-from .legacy_models import LegacyImportBatch,LegacySourceTable,LegacyImportIssue
+from plugins.erp_base.business import persist,snapshot,record
+from plugins.erp_base.legacy_models import LegacyImportBatch,LegacySourceTable,LegacyImportIssue
 
 
 def digest(path):

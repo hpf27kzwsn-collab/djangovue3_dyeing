@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 from .test_phase_report_audit import create
 from plugins.erp_base.source_static_lookup import execute_table,execute
-from plugins.erp_base import source_phase6_entries as entries
+from tools.development_archive.customer_boundary_20261024.backend import source_phase6_entries as entries
 from plugins.erp_base.source_phase6_printing import prepare_print,finish_print,before_print
 from plugins.erp_base.source_phase3_operations import model
 from plugins.erp_base.source_context import SourceDocumentContext
@@ -27,7 +27,7 @@ class Phase6Tests(TestCase):
     def setUp(self):self.actor=get_user_model().objects.create(username='phase6',name='第六阶段',is_superuser=True)
 
     def test_complete_configuration_and_original_templates(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         self.assertEqual(len(entries.entries()),1682)
         self.assertEqual(sum(len(e['fields']) for e in entries.entries().values()),48962)
         self.assertEqual(sum(e['finance'] for e in entries.entries().values()),108)
@@ -82,11 +82,11 @@ class Phase6Tests(TestCase):
     def test_query_api_preserves_decimal_and_big_integer_before_browser_export(self):
         import json
         from rest_framework.renderers import JSONRenderer
-        from plugins.erp_base.source_phase6_api import query_view
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import query_view
         spec={'table':{'SQL':"SELECT CAST('12345678901234567890.12345678' AS DECIMAL(38,8)) AS Amount,CAST('9007199254740993' AS BIGINT) AS OriginalNo",'Alias':'精确原值'},'finance':False,'fields':[]}
         payload={'entry':'fixture','parameters':{},'filter_text':'','load_records':True,'include_retained':True}
         view=SimpleNamespace(request=SimpleNamespace())
-        with patch('plugins.erp_base.source_phase6_api.parameters',side_effect=lambda *a:dict(payload)),patch.object(entries,'definition',return_value=spec),patch.object(entries,'query_support',return_value={'fixture':{'query_state':'executed_empty_fixture'}}),patch.object(entries,'reader',return_value=reader):
+        with patch('tools.development_archive.customer_boundary_20261024.backend.source_phase6_api.parameters',side_effect=lambda *a:dict(payload)),patch.object(entries,'definition',return_value=spec),patch.object(entries,'query_support',return_value={'fixture':{'query_state':'executed_empty_fixture'}}),patch.object(entries,'reader',return_value=reader):
             response=query_view(view);data=json.loads(JSONRenderer().render(response.data))
             self.assertEqual(data['data']['rows'],[['12345678901234567890.12345678','9007199254740993']])
             csv=query_view(view,True).content.decode('utf-8-sig')
@@ -171,7 +171,7 @@ class Phase6Tests(TestCase):
         self.assertEqual(execute("SELECT CAST('2' AS VARCHAR(10))*3 AS n",reader),[{'n':6}])
 
     def test_formula_parent_sum_duplicate_detail_and_unresolved_are_visible(self):
-        from plugins.erp_base.source_phase6_expressions import expression,evaluate
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_expressions import expression,evaluate
         item=create('GrayOut',SheetSeries='S',StockUnit=1)
         for _ in range(2):create('GrayOutDetail',SheetSeries='S',Rolls=3)
         self.assertEqual(expression(item,'GrayOut','Sum(Child(GrayOut_GrayOutDetail).[Rolls])',reader),6)
@@ -258,7 +258,7 @@ class Phase6Tests(TestCase):
         with self.assertRaises(ValidationError):prepare_print(row,'AddStuffWeight',self.actor,reader)
 
     def test_formula_permission_checked_before_own_fields_are_read(self):
-        from plugins.erp_base.source_phase6_expressions import calculate
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_expressions import calculate
         row=create('GrayOut',SheetSeries='S',StockUnit=1)
         def denied(name,module):raise PermissionError('field permission')
         with self.assertRaises(PermissionError):calculate(row,'GrayOut',denied,self.actor)

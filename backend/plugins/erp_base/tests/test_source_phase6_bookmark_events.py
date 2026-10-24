@@ -11,7 +11,7 @@ from plugins.erp_base.source_phase3_operations import model
 from plugins.erp_base.source_entry_services import save_context
 from plugins.erp_base import source_services
 from plugins.erp_base.models import BusinessAction
-from plugins.erp_base.source_phase6_api import templates
+from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
 from plugins.erp_base.source_phase6_layouts import parse_xml
 from plugins.erp_base.source_phase6_rendering import render, requirements
 

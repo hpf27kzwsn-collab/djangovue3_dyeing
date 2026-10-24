@@ -33,6 +33,8 @@ class Command(BaseCommand):
             if role_created:
                 RoleMenuPermission.objects.get_or_create(role=role, menu=menu)
             actions = resource_actions(entity, view_for(entity, model))
+            current_values = [f'{entity}:{key}' for key, _, _, _ in actions]
+            MenuButton.objects.filter(menu=menu).exclude(value__in=current_values).delete()
             if issubclass(model, SourceRecord):
                 existing={button.value for button in MenuButton.objects.filter(menu=menu)}
                 MenuButton.objects.bulk_create([MenuButton(value=f'{entity}:{key}',name=title,menu=menu,method=verb,api=api)
@@ -58,12 +60,6 @@ class Command(BaseCommand):
                                                            defaults={'title':str(field.verbose_name)})
                 if role_created:
                     FieldPermission.objects.get_or_create(role=role, field=column)
-        demo, _ = Menu.objects.get_or_create(component_name='component_demo', defaults={'name':'组件示例','web_path':'/components','component':'pages/Components','icon':'Grid','sort':3})
-        if role_created:
-            RoleMenuPermission.objects.get_or_create(role=role, menu=demo)
-        chart, _ = Menu.objects.get_or_create(component_name='chart_demo', defaults={'name':'图表 CRUD 示例','web_path':'/chart-crud','component':'pages/ChartCrud','icon':'TrendCharts','sort':4})
-        if role_created:
-            RoleMenuPermission.objects.get_or_create(role=role, menu=chart)
         groups={key:SystemConfig.objects.get_or_create(key=key,defaults={'title':title})[0] for key,title in [('site','平台设置'),('login','登录设置'),('base','基础设置')]}
         for key, title, value in [('site.title','平台名称','ERP 管理平台'), ('login.captcha','登录验证码',False),
                                  ('site.logo','平台 Logo',''),('site.subtitle','平台介绍','组织、权限、系统数据与消息任务'),
@@ -81,6 +77,10 @@ class Command(BaseCommand):
         from system.dictionaries import initialize_dictionaries
         initialize_dictionaries()
         self.stdout.write(self.style.SUCCESS('初始化完成。首次管理员：superadmin / admin123456；重复初始化保留现有密码。'))
+        # 退役的是技术入口，不删除对应业务/历史数据。
+        from plugins.erp_base.reports import REPORTS
+        active_resources = [*ENTITIES, *['erp_report_' + key for key in REPORTS], 'erp_scanning']
+        Menu.objects.exclude(resource='').exclude(resource__in=active_resources).update(status=False, visible=False)
         from application.plugins import INITIALIZERS
         from django.utils.module_loading import import_string
         for initializer in INITIALIZERS:

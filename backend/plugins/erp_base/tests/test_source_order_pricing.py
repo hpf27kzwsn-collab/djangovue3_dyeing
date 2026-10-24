@@ -146,16 +146,17 @@ class OrderPricingTests(TestCase):
             response=self.query('pricing_candidates',yarn_category='客户来纱');self.assertEqual(response.status_code,403,response.data)
         with patch('core.permissions.field_access',return_value={'old_price':{'is_update':False,'is_create':False,'is_query':True}}):
             response=self.adopt();self.assertEqual(response.status_code,400,response.data)
-        pricing.model('OrderMain').objects.filter(pk=self.head.pk).update(approval_stage='confirmed')
+        pricing.model('OrderMain').objects.filter(pk=self.head.pk).update(old_right_status=10)
         response=self.adopt();self.assertEqual(response.status_code,400,response.data)
         self.line.refresh_from_db();self.assertIsNone(pricing.current(self.line))
 
     def test_q11_preview_is_read_only_and_legacy_outwork_actions_still_exist(self):
         self.ok(self.query('pricing_preview',pricing=self.choice()));self.line.refresh_from_db()
         self.assertIsNone(self.line.old_price);self.assertIsNone(pricing.current(self.line))
-        from plugins.erp_base.source_api import SourceOrderColorViewSet,SourceOutworkOrderViewSet
-        original={a.__name__ for a in SourceOutworkOrderViewSet.get_extra_actions()}
-        self.assertTrue(original<={a.__name__ for a in SourceOrderColorViewSet.get_extra_actions()})
+        from system.views import view_for
+        view=view_for('erp_sales_sourcedyeordercolor',pricing.model('OrderColor'))
+        methods={a.__name__ for a in view.get_extra_actions()}
+        self.assertTrue({'outwork_remaining','apply_outwork','pricing_candidates','pricing_preview'}<=methods)
 
     def test_q03_ambiguous_original_header_and_same_detail_number_keep_all_origins(self):
         duplicate=pricing.model('FixedPrice').objects.create(old_sheet_series=self.quote.old_sheet_series,old_customer_id='C1')

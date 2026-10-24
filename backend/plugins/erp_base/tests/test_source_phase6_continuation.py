@@ -11,7 +11,7 @@ from .test_source_phase6 import reader
 from plugins.erp_base.source_phase3_operations import model, source
 from plugins.erp_base.source_phase6_entries import run
 from plugins.erp_base.source_phase6_transfers import purchase_to_arrival
-from plugins.erp_base.source_phase6_api import templates
+from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
 from plugins.erp_base.source_phase6_rendering import render, requirements
 from plugins.erp_base.source_context import SourceDocumentContext
 from plugins.erp_base import source_services as services

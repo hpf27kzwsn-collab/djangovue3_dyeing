@@ -11,7 +11,7 @@ from .test_phase_report_audit import create
 from .test_source_phase6 import reader
 from plugins.erp_base.source_phase3_operations import model, source
 from plugins.erp_base.source_entry_identity import login_value, LOGIN_KINDS
-from plugins.erp_base.source_phase6_api import templates
+from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
 from plugins.erp_base.source_phase6_layouts import describe
 from plugins.erp_base.source_phase6_rendering import render, requirements, formatted
 from plugins.erp_base import source_services as services
@@ -140,7 +140,7 @@ class EntryBehaviorTests(TestCase):
         self.assertEqual(len(proof['reference_resolutions']),6)
 
     def test_formula_and_current_document_do_not_recount_retired_child_rows(self):
-        from plugins.erp_base.source_phase6_expressions import calculate
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_expressions import calculate
         from plugins.erp_base.source_phase6_printing import document
         from plugins.erp_base.source_phase3_operations import retire
         head=create('GrayIn',SheetSeries='G')

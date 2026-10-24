@@ -1,0 +1,2515 @@
+{
+  "database": "erp_customer_regression_20261024",
+  "port": 5441,
+  "business_rows_before_probe": 0,
+  "source_models_preserved": 655,
+  "customer_resources": 599,
+  "metadata_checked": 599,
+  "metadata_failures": [],
+  "reports": 17,
+  "relocated_queries": [
+    [
+      "erp_sales_sourcedyefixedprice",
+      200
+    ],
+    [
+      "erp_production_sourcedyewprocess",
+      200
+    ],
+    [
+      "erp_purchase_sourcedyepurmain",
+      200
+    ]
+  ],
+  "legacy_roles": [],
+  "demo_menus_created": 0,
+  "extra_legacy_id_fields": [],
+  "action_bindings": 5976,
+  "date": "2026-10-24",
+  "test_suite": {
+    "count": 191,
+    "result": "passed",
+    "seconds": 105.624
+  },
+  "roles": [
+    {
+      "role": "erp_business_manager",
+      "import_status": 200
+    },
+    {
+      "role": "erp_business_viewer",
+      "import_status": 403
+    }
+  ],
+  "retired_models": [
+    {
+      "model": "erp_base.BusinessUnit",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Factory",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Employee",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Shift",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Party",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.PartyRole",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.PartyContact",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.PartyAddress",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.BusinessChoice",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Unit",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Material",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.YarnSpecification",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.ChemicalSpecification",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.CustomerMaterial",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Warehouse",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.StorageLocation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.WorkCenter",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Process",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Machine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.MachineProcess",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.Route",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.RouteVersion",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.RouteStep",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.ColorStandard",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.PackagingSpecification",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.LabelTemplate",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.LegacySourceTable",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.LegacyObjectMap",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeHEmpDeptPerm",
+      "table": "h_EmpDeptPerm",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeHEmpRole",
+      "table": "h_EmpRole",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAccMonth",
+      "table": "s_AccMonth",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAutoID",
+      "table": "s_AutoID",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDataLink",
+      "table": "s_DataLink",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTable",
+      "table": "s_DataTable",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableField",
+      "table": "s_DataTableField",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDBCombo",
+      "table": "s_DBCombo",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFieldRight",
+      "table": "s_FieldRight",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFormParam",
+      "table": "s_FormParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFunctions",
+      "table": "s_Functions",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFuncUser",
+      "table": "s_FuncUser",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSGridColumnParam",
+      "table": "s_GridColumnParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSGridParam",
+      "table": "s_GridParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSLookup",
+      "table": "s_Lookup",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSModule",
+      "table": "s_Module",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSPanelParam",
+      "table": "s_PanelParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSPermission",
+      "table": "s_Permission",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSPivotGridColumnParam",
+      "table": "s_PivotGridColumnParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSPivotGridParam",
+      "table": "s_PivotGridParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSQuerySQL",
+      "table": "s_QuerySQL",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRoles",
+      "table": "s_Roles",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRptInfo",
+      "table": "s_RptInfo",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRptMenu",
+      "table": "s_RptMenu",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRptRight",
+      "table": "s_RptRight",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSSheetNo",
+      "table": "s_SheetNo",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSSysParams",
+      "table": "s_SysParams",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSTimerJob",
+      "table": "s_TimerJob",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSUINav",
+      "table": "s_UINav",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeTBKEY",
+      "table": "TBKEY",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeZAccessLog",
+      "table": "z_AccessLog",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertFormat",
+      "table": "s_AlertFormat",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertItem",
+      "table": "s_AlertItem",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertLog",
+      "table": "s_AlertLog",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertParams",
+      "table": "s_AlertParams",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertUser",
+      "table": "s_AlertUser",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSApp",
+      "table": "s_App",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAppFuncs",
+      "table": "s_AppFuncs",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAppQuerys",
+      "table": "s_AppQuerys",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAppTables",
+      "table": "s_AppTables",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableCopy",
+      "table": "s_DataTableCopy",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableFieldRely",
+      "table": "s_DataTableFieldRely",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFormButton",
+      "table": "s_FormButton",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSGridCondition",
+      "table": "s_GridCondition",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSGridParamChart",
+      "table": "s_GridParamChart",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSGridUser",
+      "table": "s_GridUser",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSLanguage",
+      "table": "s_Language",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSLookupColumn",
+      "table": "s_LookupColumn",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSManagerSQL",
+      "table": "s_ManagerSQL",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSMessage",
+      "table": "s_Message",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSNotice",
+      "table": "s_Notice",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSPanelFieldParam",
+      "table": "s_PanelFieldParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSQueryParam",
+      "table": "s_QueryParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRecordRight",
+      "table": "s_RecordRight",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRptInfoDetail",
+      "table": "s_RptInfoDetail",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRptInfoSub",
+      "table": "s_RptInfoSub",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSRptParam",
+      "table": "s_RptParam",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSSubscribePage",
+      "table": "s_SubscribePage",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSTimerJobField",
+      "table": "s_TimerJobField",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSTimerJobParams",
+      "table": "s_TimerJobParams",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSUIModule",
+      "table": "s_UIModule",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSUpgradeFile",
+      "table": "s_UpgradeFile",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeRpPermission",
+      "table": "rp_Permission",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAccessLog",
+      "table": "s_AccessLog",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertEmp",
+      "table": "s_AlertEmp",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAlertSender",
+      "table": "s_AlertSender",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSAppApiLog",
+      "table": "s_App_ApiLog",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSClientMacAddress",
+      "table": "s_ClientMacAddress",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDataRelation",
+      "table": "s_DataRelation",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSDataTableRelation",
+      "table": "s_DataTableRelation",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSException",
+      "table": "s_Exception",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFieldCopy",
+      "table": "s_FieldCopy",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFormFormat",
+      "table": "s_FormFormat",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSFunDesktop",
+      "table": "s_FunDesktop",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSLanguage1",
+      "table": "s_Language1",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSLocalAdmins",
+      "table": "s_LocalAdmins",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSManagerSetting",
+      "table": "s_ManagerSetting",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSModuleDesktop",
+      "table": "s_ModuleDesktop",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSMonthEnd",
+      "table": "s_MonthEnd",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSPersonalDataRight",
+      "table": "s_PersonalDataRight",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSSecurityInfo",
+      "table": "s_SecurityInfo",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSSysAdmins",
+      "table": "s_SysAdmins",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSTVScreenReport",
+      "table": "s_TVScreenReport",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSTVScreenReportDetail",
+      "table": "s_TVScreenReportDetail",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSWeiXinAgent",
+      "table": "s_WeiXinAgent",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSWeiXinMenu",
+      "table": "s_WeiXinMenu",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDyeSManagerSQLDash",
+      "table": "s_ManagerSQL-",
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceIdentitySequence",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_base.SourceDocumentContext",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.SalesOrder",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.SalesOrderLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.SalesLineRequirement",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.SalesOrderChange",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.SalesOrderChangeLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.CommercialPrice",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.CommercialPriceLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.Delivery",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.DeliveryLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.SalesReturn",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.SalesReturnLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.CustomerComplaint",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sales.CustomerComplaintLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_purchase.PurchaseRequest",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_purchase.PurchaseRequestLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_purchase.PurchaseOrder",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_purchase.PurchaseOrderLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_purchase.PurchaseReturn",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_purchase.PurchaseReturnLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.SampleRequest",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.SampleLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.SampleTrial",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.SampleConfirmation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.Recipe",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.RecipeVersion",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.RecipeStage",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.RecipeIngredient",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.ProcessCurveVersion",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_sampling.ProcessCurveStep",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.PhysicalBatchExecution",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.PhysicalExecutionCorrection",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WorkCard",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WorkCardOrderAllocation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.DyeBatch",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.DyeBatchWorkCard",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.DyeBatchAllocation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WorkCardOperation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.OperationParameter",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WorkCardRequirement",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.ScheduleAssignment",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.OperationExecution",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.ExecutionWorker",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.ExecutionMeasurement",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.ExecutionCorrection",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.ProductionRecipe",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.MaterialPlanStage",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.MaterialPlanLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WeighingOrder",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WeighingStage",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WeighingLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.WeighingRecord",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_production.ReworkOrder",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.InventoryLot",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockReceipt",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockReceiptLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockIssue",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockIssueLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.InventoryMovement",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockBalance",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockTransfer",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockTransferLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockCount",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockCountLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockAdjustment",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.StockAdjustmentLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.LotTransformation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.LotTransformationLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.Package",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.PackageDispositionAllocation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.PackageOrderAllocation",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_warehouse.LabelPrint",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_quality.QualityInspection",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_quality.InspectionResultLine",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_quality.QualityDisposition",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    },
+    {
+      "model": "erp_quality.QualityDefect",
+      "table": null,
+      "operation": "退出默认资源；物理表与原有记录保留"
+    }
+  ],
+  "unconfirmed_business_names": [
+    {
+      "model": "erp_base.SourceDboAA",
+      "table": "AA",
+      "reference_title": "其他或待确认相关表（AA，待确认）",
+      "customer_title": "业务附表（AA）"
+    },
+    {
+      "model": "erp_base.SourceDboAAA",
+      "table": "AAA",
+      "reference_title": "其他或待确认相关表（AAA，待确认）",
+      "customer_title": "业务附表（AAA）"
+    },
+    {
+      "model": "erp_base.SourceDboAAKC1",
+      "table": "AAKC1",
+      "reference_title": "其他或待确认相关表（AAKC1，待确认）",
+      "customer_title": "业务附表（AAKC1）"
+    },
+    {
+      "model": "erp_base.SourceDboABC",
+      "table": "ABC",
+      "reference_title": "其他或待确认相关表（ABC，待确认）",
+      "customer_title": "业务附表（ABC）"
+    },
+    {
+      "model": "erp_base.SourceDboADD",
+      "table": "ADD",
+      "reference_title": "其他或待确认相关表（ADD，待确认）",
+      "customer_title": "业务附表（ADD）"
+    },
+    {
+      "model": "erp_base.SourceDboAEE",
+      "table": "AEE",
+      "reference_title": "其他或待确认相关表（AEE，待确认）",
+      "customer_title": "业务附表（AEE）"
+    },
+    {
+      "model": "erp_base.SourceDboCbbz1109",
+      "table": "cbbz1109",
+      "reference_title": "其他或待确认相关表（cbbz1109，待确认）",
+      "customer_title": "业务附表（cbbz1109）"
+    },
+    {
+      "model": "erp_base.SourceDboCkpd20221024",
+      "table": "ckpd20221024",
+      "reference_title": "其他或待确认相关表（ckpd20221024，待确认）",
+      "customer_title": "业务附表（ckpd20221024）"
+    },
+    {
+      "model": "erp_base.SourceDboCkpd20221024bak",
+      "table": "ckpd20221024bak",
+      "reference_title": "其他或待确认相关表（ckpd20221024bak，待确认）",
+      "customer_title": "业务附表（ckpd20221024bak）"
+    },
+    {
+      "model": "erp_base.SourceDboCkpd20221027",
+      "table": "ckpd20221027",
+      "reference_title": "其他或待确认相关表（ckpd20221027，待确认）",
+      "customer_title": "业务附表（ckpd20221027）"
+    },
+    {
+      "model": "erp_base.SourceDboCksgz20221024",
+      "table": "cksgz20221024",
+      "reference_title": "其他或待确认相关表（cksgz20221024，待确认）",
+      "customer_title": "业务附表（cksgz20221024）"
+    },
+    {
+      "model": "erp_base.SourceDboCpdqkc20221024",
+      "table": "cpdqkc20221024",
+      "reference_title": "其他或待确认相关表（cpdqkc20221024，待确认）",
+      "customer_title": "业务附表（cpdqkc20221024）"
+    },
+    {
+      "model": "erp_base.SourceDboDXCHANLIANG",
+      "table": "DXCHANLIANG",
+      "reference_title": "其他或待确认相关表（DXCHANLIANG，待确认）",
+      "customer_title": "业务附表（DXCHANLIANG）"
+    },
+    {
+      "model": "erp_base.SourceDboHypf",
+      "table": "hypf",
+      "reference_title": "其他或待确认相关表（hypf，待确认）",
+      "customer_title": "业务附表（hypf）"
+    },
+    {
+      "model": "erp_base.SourceDboJxtbzyq",
+      "table": "jxtbzyq",
+      "reference_title": "其他或待确认相关表（jxtbzyq，待确认）",
+      "customer_title": "业务附表（jxtbzyq）"
+    },
+    {
+      "model": "erp_base.SourceDboJxtkckh",
+      "table": "jxtkckh",
+      "reference_title": "其他或待确认相关表（jxtkckh，待确认）",
+      "customer_title": "业务附表（jxtkckh）"
+    },
+    {
+      "model": "erp_base.SourceDboNHTJ",
+      "table": "NHTJ",
+      "reference_title": "其他或待确认相关表（NHTJ，待确认）",
+      "customer_title": "业务附表（NHTJ）"
+    },
+    {
+      "model": "erp_base.SourceDboPbpd20230422",
+      "table": "pbpd20230422",
+      "reference_title": "其他或待确认相关表（pbpd20230422，待确认）",
+      "customer_title": "业务附表（pbpd20230422）"
+    },
+    {
+      "model": "erp_base.SourceDboRansechugangtongji",
+      "table": "ransechugangtongji",
+      "reference_title": "其他或待确认相关表（ransechugangtongji，待确认）",
+      "customer_title": "业务附表（ransechugangtongji）"
+    },
+    {
+      "model": "erp_base.SourceDboRansetongji",
+      "table": "ransetongji",
+      "reference_title": "其他或待确认相关表（ransetongji，待确认）",
+      "customer_title": "业务附表（ransetongji）"
+    },
+    {
+      "model": "erp_base.SourceDboRCDDZJB",
+      "table": "RCDDZJB",
+      "reference_title": "其他或待确认相关表（RCDDZJB，待确认）",
+      "customer_title": "业务附表（RCDDZJB）"
+    },
+    {
+      "model": "erp_base.SourceDboTmp20221104",
+      "table": "tmp20221104",
+      "reference_title": "其他或待确认相关表（tmp20221104，待确认）",
+      "customer_title": "业务附表（tmp20221104）"
+    },
+    {
+      "model": "erp_base.SourceDboXxtcbkc20221023",
+      "table": "xxtcbkc20221023",
+      "reference_title": "其他或待确认相关表（xxtcbkc20221023，待确认）",
+      "customer_title": "业务附表（xxtcbkc20221023）"
+    },
+    {
+      "model": "erp_base.SourceDboXxtzzp20221024",
+      "table": "xxtzzp20221024",
+      "reference_title": "其他或待确认相关表（xxtzzp20221024，待确认）",
+      "customer_title": "业务附表（xxtzzp20221024）"
+    },
+    {
+      "model": "erp_base.SourceDboZhenzhibaobiao",
+      "table": "zhenzhibaobiao",
+      "reference_title": "其他或待确认相关表（zhenzhibaobiao，待确认）",
+      "customer_title": "业务附表（zhenzhibaobiao）"
+    },
+    {
+      "model": "erp_base.SourceDboZJHXMXBB",
+      "table": "ZJHXMXBB",
+      "reference_title": "其他或待确认相关表（ZJHXMXBB，待确认）",
+      "customer_title": "业务附表（ZJHXMXBB）"
+    },
+    {
+      "model": "erp_base.SourceDyeAPPUploadFilesInfo",
+      "table": "APPUploadFilesInfo",
+      "reference_title": "其他或待确认相关表（APPUploadFilesInfo，待确认）",
+      "customer_title": "业务附表（APPUploadFilesInfo）"
+    },
+    {
+      "model": "erp_base.SourceDyeAPPUploadFilesInfoDel",
+      "table": "APPUploadFilesInfoDel",
+      "reference_title": "其他或待确认相关表（APPUploadFilesInfoDel，待确认）",
+      "customer_title": "业务附表（APPUploadFilesInfoDel）"
+    },
+    {
+      "model": "erp_base.SourceDyeArrivalNotice",
+      "table": "ArrivalNotice",
+      "reference_title": "其他或待确认相关表（ArrivalNotice，待确认）",
+      "customer_title": "业务附表（ArrivalNotice）"
+    },
+    {
+      "model": "erp_base.SourceDyeArrivalNoticeDetail",
+      "table": "ArrivalNoticeDetail",
+      "reference_title": "其他或待确认相关表（ArrivalNoticeDetail，待确认）",
+      "customer_title": "业务附表（ArrivalNoticeDetail）"
+    },
+    {
+      "model": "erp_base.SourceDyeAttachment",
+      "table": "Attachment",
+      "reference_title": "其他或待确认相关表（Attachment，待确认）",
+      "customer_title": "业务附表（Attachment）"
+    },
+    {
+      "model": "erp_base.SourceDyeAuditedExc",
+      "table": "AuditedExc",
+      "reference_title": "其他或待确认相关表（AuditedExc，待确认）",
+      "customer_title": "业务附表（AuditedExc）"
+    },
+    {
+      "model": "erp_base.SourceDyeCompensatedetail",
+      "table": "compensatedetail",
+      "reference_title": "其他或待确认相关表（compensatedetail，待确认）",
+      "customer_title": "业务附表（compensatedetail）"
+    },
+    {
+      "model": "erp_base.SourceDyeCompensatemain",
+      "table": "compensatemain",
+      "reference_title": "其他或待确认相关表（compensatemain，待确认）",
+      "customer_title": "业务附表（compensatemain）"
+    },
+    {
+      "model": "erp_base.SourceDyeCookIn",
+      "table": "CookIn",
+      "reference_title": "其他或待确认相关表（CookIn，待确认）",
+      "customer_title": "业务附表（CookIn）"
+    },
+    {
+      "model": "erp_base.SourceDyeEXCNOTES",
+      "table": "EXCNOTES",
+      "reference_title": "其他或待确认相关表（EXCNOTES，待确认）",
+      "customer_title": "业务附表（EXCNOTES）"
+    },
+    {
+      "model": "erp_base.SourceDyeFeelOfferDetail",
+      "table": "FeelOfferDetail",
+      "reference_title": "其他或待确认相关表（FeelOfferDetail，待确认）",
+      "customer_title": "业务附表（FeelOfferDetail）"
+    },
+    {
+      "model": "erp_base.SourceDyeFeelOfferMain",
+      "table": "FeelOfferMain",
+      "reference_title": "其他或待确认相关表（FeelOfferMain，待确认）",
+      "customer_title": "业务附表（FeelOfferMain）"
+    },
+    {
+      "model": "erp_base.SourceDyeHContract",
+      "table": "h_Contract",
+      "reference_title": "客户订单与销售相关表（h_Contract，待确认）",
+      "customer_title": "业务附表（h_Contract）"
+    },
+    {
+      "model": "erp_base.SourceDyeHEmployeeIORecord",
+      "table": "h_EmployeeIORecord",
+      "reference_title": "基础主数据相关表（h_EmployeeIORecord，待确认）",
+      "customer_title": "业务附表（h_EmployeeIORecord）"
+    },
+    {
+      "model": "erp_base.SourceDyeHLeave",
+      "table": "h_Leave",
+      "reference_title": "基础主数据相关表（h_Leave，待确认）",
+      "customer_title": "业务附表（h_Leave）"
+    },
+    {
+      "model": "erp_base.SourceDyeHPositionChange",
+      "table": "h_PositionChange",
+      "reference_title": "基础主数据相关表（h_PositionChange，待确认）",
+      "customer_title": "业务附表（h_PositionChange）"
+    },
+    {
+      "model": "erp_base.SourceDyeHRewardPunish",
+      "table": "h_RewardPunish",
+      "reference_title": "基础主数据相关表（h_RewardPunish，待确认）",
+      "customer_title": "业务附表（h_RewardPunish）"
+    },
+    {
+      "model": "erp_base.SourceDyeKQ",
+      "table": "KQ",
+      "reference_title": "其他或待确认相关表（KQ，待确认）",
+      "customer_title": "业务附表（KQ）"
+    },
+    {
+      "model": "erp_base.SourceDyeKQQuery",
+      "table": "KQ_Query",
+      "reference_title": "其他或待确认相关表（KQ_Query，待确认）",
+      "customer_title": "业务附表（KQ_Query）"
+    },
+    {
+      "model": "erp_base.SourceDyeLimit",
+      "table": "Limit",
+      "reference_title": "其他或待确认相关表（Limit，待确认）",
+      "customer_title": "业务附表（Limit）"
+    },
+    {
+      "model": "erp_base.SourceDyeLossBill",
+      "table": "LossBill",
+      "reference_title": "其他或待确认相关表（LossBill，待确认）",
+      "customer_title": "业务附表（LossBill）"
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjust",
+      "table": "MaterialPriceAdjust",
+      "reference_title": "财务结算与成本相关表（MaterialPriceAdjust，待确认）",
+      "customer_title": "业务附表（MaterialPriceAdjust）"
+    },
+    {
+      "model": "erp_base.SourceDyeMaterialPriceAdjustDetail",
+      "table": "MaterialPriceAdjustDetail",
+      "reference_title": "财务结算与成本相关表（MaterialPriceAdjustDetail，待确认）",
+      "customer_title": "业务附表（MaterialPriceAdjustDetail）"
+    },
+    {
+      "model": "erp_base.SourceDyeNoLimit",
+      "table": "NoLimit",
+      "reference_title": "其他或待确认相关表（NoLimit，待确认）",
+      "customer_title": "业务附表（NoLimit）"
+    },
+    {
+      "model": "erp_base.SourceDyePPasteDosage",
+      "table": "PPasteDosage",
+      "reference_title": "其他或待确认相关表（PPasteDosage，待确认）",
+      "customer_title": "业务附表（PPasteDosage）"
+    },
+    {
+      "model": "erp_base.SourceDyePPasteDosageDetail",
+      "table": "PPasteDosageDetail",
+      "reference_title": "其他或待确认相关表（PPasteDosageDetail，待确认）",
+      "customer_title": "业务附表（PPasteDosageDetail）"
+    },
+    {
+      "model": "erp_base.SourceDyePrintDipsRecord",
+      "table": "PrintDipsRecord",
+      "reference_title": "其他或待确认相关表（PrintDipsRecord，待确认）",
+      "customer_title": "业务附表（PrintDipsRecord）"
+    },
+    {
+      "model": "erp_base.SourceDyePrintScreen",
+      "table": "PrintScreen",
+      "reference_title": "其他或待确认相关表（PrintScreen，待确认）",
+      "customer_title": "业务附表（PrintScreen）"
+    },
+    {
+      "model": "erp_base.SourceDyePrintScreenDetail",
+      "table": "PrintScreenDetail",
+      "reference_title": "其他或待确认相关表（PrintScreenDetail，待确认）",
+      "customer_title": "业务附表（PrintScreenDetail）"
+    },
+    {
+      "model": "erp_base.SourceDyePrintScreenRecord",
+      "table": "PrintScreenRecord",
+      "reference_title": "其他或待确认相关表（PrintScreenRecord，待确认）",
+      "customer_title": "业务附表（PrintScreenRecord）"
+    },
+    {
+      "model": "erp_base.SourceDyeSHOUPITONGZHIDAN",
+      "table": "SHOUPITONGZHIDAN",
+      "reference_title": "其他或待确认相关表（SHOUPITONGZHIDAN，待确认）",
+      "customer_title": "业务附表（SHOUPITONGZHIDAN）"
+    },
+    {
+      "model": "erp_base.SourceDyeSwipeEmpEdit",
+      "table": "SwipeEmpEdit",
+      "reference_title": "基础主数据相关表（SwipeEmpEdit，待确认）",
+      "customer_title": "业务附表（SwipeEmpEdit）"
+    },
+    {
+      "model": "erp_base.SourceDyeSwipeEmpEditDetail",
+      "table": "SwipeEmpEditDetail",
+      "reference_title": "基础主数据相关表（SwipeEmpEditDetail，待确认）",
+      "customer_title": "业务附表（SwipeEmpEditDetail）"
+    },
+    {
+      "model": "erp_base.SourceDyeTBSMSALLOT",
+      "table": "TBSMSALLOT",
+      "reference_title": "其他或待确认相关表（TBSMSALLOT，待确认）",
+      "customer_title": "业务附表（TBSMSALLOT）"
+    },
+    {
+      "model": "erp_base.SourceDyeTBSMSINFO",
+      "table": "TBSMSINFO",
+      "reference_title": "其他或待确认相关表（TBSMSINFO，待确认）",
+      "customer_title": "业务附表（TBSMSINFO）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCusAddPrice",
+      "table": "CusAddPrice",
+      "reference_title": "财务结算与成本相关表（CusAddPrice，待确认）",
+      "customer_title": "业务附表（CusAddPrice）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCusAddPriceDetail",
+      "table": "CusAddPriceDetail",
+      "reference_title": "财务结算与成本相关表（CusAddPriceDetail，待确认）",
+      "customer_title": "业务附表（CusAddPriceDetail）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCusBasicsPrice",
+      "table": "CusBasicsPrice",
+      "reference_title": "财务结算与成本相关表（CusBasicsPrice，待确认）",
+      "customer_title": "业务附表（CusBasicsPrice）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCusBasicsPriceDetail",
+      "table": "CusBasicsPriceDetail",
+      "reference_title": "财务结算与成本相关表（CusBasicsPriceDetail，待确认）",
+      "customer_title": "业务附表（CusBasicsPriceDetail）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCusExtraCharge",
+      "table": "CusExtraCharge",
+      "reference_title": "其他或待确认相关表（CusExtraCharge，待确认）",
+      "customer_title": "业务附表（CusExtraCharge）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerNoLimit",
+      "table": "CustomerNoLimit",
+      "reference_title": "客户订单与销售相关表（CustomerNoLimit，待确认）",
+      "customer_title": "业务附表（CustomerNoLimit）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerTS",
+      "table": "CustomerTS",
+      "reference_title": "客户订单与销售相关表（CustomerTS，待确认）",
+      "customer_title": "业务附表（CustomerTS）"
+    },
+    {
+      "model": "erp_sales.SourceDyeCustomerTSDetail",
+      "table": "CustomerTSDetail",
+      "reference_title": "客户订单与销售相关表（CustomerTSDetail，待确认）",
+      "customer_title": "业务附表（CustomerTSDetail）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderAssign",
+      "table": "OrderAssign",
+      "reference_title": "客户订单与销售相关表（OrderAssign，待确认）",
+      "customer_title": "业务附表（OrderAssign）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderAssign2",
+      "table": "OrderAssign2",
+      "reference_title": "客户订单与销售相关表（OrderAssign2，待确认）",
+      "customer_title": "业务附表（OrderAssign2）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderCombine",
+      "table": "OrderCombine",
+      "reference_title": "客户订单与销售相关表（OrderCombine，待确认）",
+      "customer_title": "业务附表（OrderCombine）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderDlvApply",
+      "table": "OrderDlvApply",
+      "reference_title": "客户订单与销售相关表（OrderDlvApply，待确认）",
+      "customer_title": "业务附表（OrderDlvApply）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderDlvApplyLock",
+      "table": "OrderDlvApplyLock",
+      "reference_title": "客户订单与销售相关表（OrderDlvApplyLock，待确认）",
+      "customer_title": "业务附表（OrderDlvApplyLock）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderDlvApplySheet",
+      "table": "OrderDlvApplySheet",
+      "reference_title": "客户订单与销售相关表（OrderDlvApplySheet，待确认）",
+      "customer_title": "业务附表（OrderDlvApplySheet）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderFee",
+      "table": "OrderFee",
+      "reference_title": "客户订单与销售相关表（OrderFee，待确认）",
+      "customer_title": "业务附表（OrderFee）"
+    },
+    {
+      "model": "erp_sales.SourceDyeOrderPriceProcess",
+      "table": "OrderPriceProcess",
+      "reference_title": "财务结算与成本相关表（OrderPriceProcess，待确认）",
+      "customer_title": "业务附表（OrderPriceProcess）"
+    },
+    {
+      "model": "erp_sales.SourceDyePriceAdjust",
+      "table": "PriceAdjust",
+      "reference_title": "财务结算与成本相关表（PriceAdjust，待确认）",
+      "customer_title": "业务附表（PriceAdjust）"
+    },
+    {
+      "model": "erp_sales.SourceDyePriceAdjustDetail",
+      "table": "PriceAdjustDetail",
+      "reference_title": "财务结算与成本相关表（PriceAdjustDetail，待确认）",
+      "customer_title": "业务附表（PriceAdjustDetail）"
+    },
+    {
+      "model": "erp_sales.SourceDyeRCORDERCOLOR",
+      "table": "RCORDERCOLOR",
+      "reference_title": "染色工艺与配方相关表（RCORDERCOLOR，待确认）",
+      "customer_title": "业务附表（RCORDERCOLOR）"
+    },
+    {
+      "model": "erp_sales.SourceDyeRCORDERMAIN",
+      "table": "RCORDERMAIN",
+      "reference_title": "客户订单与销售相关表（RCORDERMAIN，待确认）",
+      "customer_title": "业务附表（RCORDERMAIN）"
+    },
+    {
+      "model": "erp_sales.SourceDyeZDAddPrice",
+      "table": "ZDAddPrice",
+      "reference_title": "财务结算与成本相关表（ZDAddPrice，待确认）",
+      "customer_title": "业务附表（ZDAddPrice）"
+    },
+    {
+      "model": "erp_sales.SourceDyeZDAddPriceDetail",
+      "table": "ZDAddPriceDetail",
+      "reference_title": "财务结算与成本相关表（ZDAddPriceDetail，待确认）",
+      "customer_title": "业务附表（ZDAddPriceDetail）"
+    },
+    {
+      "model": "erp_purchase.SourceDyeArticlePurDetail",
+      "table": "ArticlePurDetail",
+      "reference_title": "其他或待确认相关表（ArticlePurDetail，待确认）",
+      "customer_title": "业务附表（ArticlePurDetail）"
+    },
+    {
+      "model": "erp_purchase.SourceDyeArticlePurMain",
+      "table": "ArticlePurMain",
+      "reference_title": "其他或待确认相关表（ArticlePurMain，待确认）",
+      "customer_title": "业务附表（ArticlePurMain）"
+    },
+    {
+      "model": "erp_purchase.SourceDyeFabricPurDetail",
+      "table": "FabricPurDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（FabricPurDetail，待确认）",
+      "customer_title": "业务附表（FabricPurDetail）"
+    },
+    {
+      "model": "erp_purchase.SourceDyeFabricPurMain",
+      "table": "FabricPurMain",
+      "reference_title": "坯布半成品成品与仓储相关表（FabricPurMain，待确认）",
+      "customer_title": "业务附表（FabricPurMain）"
+    },
+    {
+      "model": "erp_purchase.SourceDyePurApplyDetail",
+      "table": "PurApplyDetail",
+      "reference_title": "其他或待确认相关表（PurApplyDetail，待确认）",
+      "customer_title": "业务附表（PurApplyDetail）"
+    },
+    {
+      "model": "erp_purchase.SourceDyePurApplyMain",
+      "table": "PurApplyMain",
+      "reference_title": "其他或待确认相关表（PurApplyMain，待确认）",
+      "customer_title": "业务附表（PurApplyMain）"
+    },
+    {
+      "model": "erp_purchase.SourceDyePurDetail",
+      "table": "PurDetail",
+      "reference_title": "其他或待确认相关表（PurDetail，待确认）",
+      "customer_title": "业务附表（PurDetail）"
+    },
+    {
+      "model": "erp_purchase.SourceDyeStuffPurDetail",
+      "table": "StuffPurDetail",
+      "reference_title": "染化料与称料库存相关表（StuffPurDetail，待确认）",
+      "customer_title": "业务附表（StuffPurDetail）"
+    },
+    {
+      "model": "erp_purchase.SourceDyeStuffPurMain",
+      "table": "StuffPurMain",
+      "reference_title": "染化料与称料库存相关表（StuffPurMain，待确认）",
+      "customer_title": "业务附表（StuffPurMain）"
+    },
+    {
+      "model": "erp_sampling.SourceDboBackDyeRecipePhase",
+      "table": "BackDyeRecipePhase",
+      "reference_title": "染色工艺与配方相关表（BackDyeRecipePhase，待确认）",
+      "customer_title": "业务附表（BackDyeRecipePhase）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeColorCardFlow",
+      "table": "ColorCardFlow",
+      "reference_title": "系统平台与配置相关表（ColorCardFlow，待确认）",
+      "customer_title": "业务附表（ColorCardFlow）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeCptLabRecipe",
+      "table": "CptLabRecipe",
+      "reference_title": "染色工艺与配方相关表（CptLabRecipe，待确认）",
+      "customer_title": "业务附表（CptLabRecipe）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeCptLabRecipeDetail",
+      "table": "CptLabRecipeDetail",
+      "reference_title": "染色工艺与配方相关表（CptLabRecipeDetail，待确认）",
+      "customer_title": "业务附表（CptLabRecipeDetail）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeCurSmpPrescriptEntry",
+      "table": "Cur_Smp_PrescriptEntry",
+      "reference_title": "其他或待确认相关表（Cur_Smp_PrescriptEntry，待确认）",
+      "customer_title": "业务附表（Cur_Smp_PrescriptEntry）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeColor",
+      "table": "DyeColor",
+      "reference_title": "染色工艺与配方相关表（DyeColor，待确认）",
+      "customer_title": "业务附表（DyeColor）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordDetail",
+      "table": "DyeDipsRecordDetail",
+      "reference_title": "染色工艺与配方相关表（DyeDipsRecordDetail，待确认）",
+      "customer_title": "业务附表（DyeDipsRecordDetail）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordEmp",
+      "table": "DyeDipsRecordEmp",
+      "reference_title": "染色工艺与配方相关表（DyeDipsRecordEmp，待确认）",
+      "customer_title": "业务附表（DyeDipsRecordEmp）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordNote",
+      "table": "DyeDipsRecordNote",
+      "reference_title": "染色工艺与配方相关表（DyeDipsRecordNote，待确认）",
+      "customer_title": "业务附表（DyeDipsRecordNote）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeDipsRecordPhase",
+      "table": "DyeDipsRecordPhase",
+      "reference_title": "染色工艺与配方相关表（DyeDipsRecordPhase，待确认）",
+      "customer_title": "业务附表（DyeDipsRecordPhase）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabAtte",
+      "table": "DyeLabAtte",
+      "reference_title": "染色工艺与配方相关表（DyeLabAtte，待确认）",
+      "customer_title": "业务附表（DyeLabAtte）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeLabColorRecord",
+      "table": "DyeLabColorRecord",
+      "reference_title": "染色工艺与配方相关表（DyeLabColorRecord，待确认）",
+      "customer_title": "业务附表（DyeLabColorRecord）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeDyeReprint",
+      "table": "DyeReprint",
+      "reference_title": "染色工艺与配方相关表（DyeReprint，待确认）",
+      "customer_title": "业务附表（DyeReprint）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeLabDips",
+      "table": "LabDips",
+      "reference_title": "染色工艺与配方相关表（LabDips，待确认）",
+      "customer_title": "业务附表（LabDips）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparate",
+      "table": "PrintColorSeparate",
+      "reference_title": "染色工艺与配方相关表（PrintColorSeparate，待确认）",
+      "customer_title": "业务附表（PrintColorSeparate）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparateDetail",
+      "table": "PrintColorSeparateDetail",
+      "reference_title": "染色工艺与配方相关表（PrintColorSeparateDetail，待确认）",
+      "customer_title": "业务附表（PrintColorSeparateDetail）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintColorSeparateRecord",
+      "table": "PrintColorSeparateRecord",
+      "reference_title": "染色工艺与配方相关表（PrintColorSeparateRecord，待确认）",
+      "customer_title": "业务附表（PrintColorSeparateRecord）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTest",
+      "table": "PrintingTest",
+      "reference_title": "质量检验与异常相关表（PrintingTest，待确认）",
+      "customer_title": "业务附表（PrintingTest）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTestColor",
+      "table": "PrintingTestColor",
+      "reference_title": "质量检验与异常相关表（PrintingTestColor，待确认）",
+      "customer_title": "业务附表（PrintingTestColor）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTestDetail",
+      "table": "PrintingTestDetail",
+      "reference_title": "质量检验与异常相关表（PrintingTestDetail，待确认）",
+      "customer_title": "业务附表（PrintingTestDetail）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintingTestStuff",
+      "table": "PrintingTestStuff",
+      "reference_title": "质量检验与异常相关表（PrintingTestStuff，待确认）",
+      "customer_title": "业务附表（PrintingTestStuff）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintLabAttach",
+      "table": "PrintLabAttach",
+      "reference_title": "染色工艺与配方相关表（PrintLabAttach，待确认）",
+      "customer_title": "业务附表（PrintLabAttach）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintLabAtte",
+      "table": "PrintLabAtte",
+      "reference_title": "染色工艺与配方相关表（PrintLabAtte，待确认）",
+      "customer_title": "业务附表（PrintLabAtte）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePrintLabMain",
+      "table": "PrintLabMain",
+      "reference_title": "染色工艺与配方相关表（PrintLabMain，待确认）",
+      "customer_title": "业务附表（PrintLabMain）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePTSampleRegist",
+      "table": "PTSampleRegist",
+      "reference_title": "质量检验与异常相关表（PTSampleRegist，待确认）",
+      "customer_title": "业务附表（PTSampleRegist）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePTSampleRegistAtte",
+      "table": "PTSampleRegistAtte",
+      "reference_title": "质量检验与异常相关表（PTSampleRegistAtte，待确认）",
+      "customer_title": "业务附表（PTSampleRegistAtte）"
+    },
+    {
+      "model": "erp_sampling.SourceDyePTSampleRegistDetail",
+      "table": "PTSampleRegistDetail",
+      "reference_title": "质量检验与异常相关表（PTSampleRegistDetail，待确认）",
+      "customer_title": "业务附表（PTSampleRegistDetail）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleChoice",
+      "table": "SampleChoice",
+      "reference_title": "质量检验与异常相关表（SampleChoice，待确认）",
+      "customer_title": "业务附表（SampleChoice）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleIn",
+      "table": "SampleIn",
+      "reference_title": "质量检验与异常相关表（SampleIn，待确认）",
+      "customer_title": "业务附表（SampleIn）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleInDetail",
+      "table": "SampleInDetail",
+      "reference_title": "质量检验与异常相关表（SampleInDetail，待确认）",
+      "customer_title": "业务附表（SampleInDetail）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleOut",
+      "table": "SampleOut",
+      "reference_title": "质量检验与异常相关表（SampleOut，待确认）",
+      "customer_title": "业务附表（SampleOut）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleOutDetail",
+      "table": "SampleOutDetail",
+      "reference_title": "质量检验与异常相关表（SampleOutDetail，待确认）",
+      "customer_title": "业务附表（SampleOutDetail）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeSampleStockBook",
+      "table": "SampleStockBook",
+      "reference_title": "质量检验与异常相关表（SampleStockBook，待确认）",
+      "customer_title": "业务附表（SampleStockBook）"
+    },
+    {
+      "model": "erp_sampling.SourceDyeSmpPrescriptEntry",
+      "table": "Smp_PrescriptEntry",
+      "reference_title": "其他或待确认相关表（Smp_PrescriptEntry，待确认）",
+      "customer_title": "业务附表（Smp_PrescriptEntry）"
+    },
+    {
+      "model": "erp_warehouse.SourceDboProdin1029",
+      "table": "prodin1029",
+      "reference_title": "坯布半成品成品与仓储相关表（prodin1029，待确认）",
+      "customer_title": "业务附表（prodin1029）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleDeptApply",
+      "table": "ArticleDeptApply",
+      "reference_title": "其他或待确认相关表（ArticleDeptApply，待确认）",
+      "customer_title": "业务附表（ArticleDeptApply）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleDeptApplyDetail",
+      "table": "ArticleDeptApplyDetail",
+      "reference_title": "其他或待确认相关表（ArticleDeptApplyDetail，待确认）",
+      "customer_title": "业务附表（ArticleDeptApplyDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutApply",
+      "table": "ArticleOutApply",
+      "reference_title": "其他或待确认相关表（ArticleOutApply，待确认）",
+      "customer_title": "业务附表（ArticleOutApply）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleOutApplyDetail",
+      "table": "ArticleOutApplyDetail",
+      "reference_title": "其他或待确认相关表（ArticleOutApplyDetail，待确认）",
+      "customer_title": "业务附表（ArticleOutApplyDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStock",
+      "table": "ArticleStock",
+      "reference_title": "坯布半成品成品与仓储相关表（ArticleStock，待确认）",
+      "customer_title": "业务附表（ArticleStock）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStockAdjust",
+      "table": "ArticleStockAdjust",
+      "reference_title": "坯布半成品成品与仓储相关表（ArticleStockAdjust，待确认）",
+      "customer_title": "业务附表（ArticleStockAdjust）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeArticleStockAdjustDetail",
+      "table": "ArticleStockAdjustDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（ArticleStockAdjustDetail，待确认）",
+      "customer_title": "业务附表（ArticleStockAdjustDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeCarryMaterial",
+      "table": "CarryMaterial",
+      "reference_title": "染化料与称料库存相关表（CarryMaterial，待确认）",
+      "customer_title": "业务附表（CarryMaterial）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeCarryMaterialDetail",
+      "table": "CarryMaterialDetail",
+      "reference_title": "染化料与称料库存相关表（CarryMaterialDetail，待确认）",
+      "customer_title": "业务附表（CarryMaterialDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeCookInDetail",
+      "table": "CookInDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（CookInDetail，待确认）",
+      "customer_title": "业务附表（CookInDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeDyeStuffOut",
+      "table": "DyeStuffOut",
+      "reference_title": "染化料与称料库存相关表（DyeStuffOut，待确认）",
+      "customer_title": "业务附表（DyeStuffOut）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeDyeStuffOutDetail",
+      "table": "DyeStuffOutDetail",
+      "reference_title": "染化料与称料库存相关表（DyeStuffOutDetail，待确认）",
+      "customer_title": "业务附表（DyeStuffOutDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayBalance",
+      "table": "GrayBalance",
+      "reference_title": "财务结算与成本相关表（GrayBalance，待确认）",
+      "customer_title": "业务附表（GrayBalance）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayBalanceDetail",
+      "table": "GrayBalanceDetail",
+      "reference_title": "财务结算与成本相关表（GrayBalanceDetail，待确认）",
+      "customer_title": "业务附表（GrayBalanceDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayInDefect",
+      "table": "GrayInDefect",
+      "reference_title": "质量检验与异常相关表（GrayInDefect，待确认）",
+      "customer_title": "业务附表（GrayInDefect）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayInRecord",
+      "table": "GrayInRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayInRecord，待确认）",
+      "customer_title": "业务附表（GrayInRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayMaterial",
+      "table": "GrayMaterial",
+      "reference_title": "染化料与称料库存相关表（GrayMaterial，待确认）",
+      "customer_title": "业务附表（GrayMaterial）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayMaterialDetail",
+      "table": "GrayMaterialDetail",
+      "reference_title": "染化料与称料库存相关表（GrayMaterialDetail，待确认）",
+      "customer_title": "业务附表（GrayMaterialDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayOutRecord",
+      "table": "GrayOutRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayOutRecord，待确认）",
+      "customer_title": "业务附表（GrayOutRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayPostionUp",
+      "table": "GrayPostionUp",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayPostionUp，待确认）",
+      "customer_title": "业务附表（GrayPostionUp）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayRecord",
+      "table": "GrayRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayRecord，待确认）",
+      "customer_title": "业务附表（GrayRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayRecordCutLogs",
+      "table": "GrayRecordCutLogs",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayRecordCutLogs，待确认）",
+      "customer_title": "业务附表（GrayRecordCutLogs）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStock",
+      "table": "GrayStock",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStock，待确认）",
+      "customer_title": "业务附表（GrayStock）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAdjust",
+      "table": "GrayStockAdjust",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStockAdjust，待确认）",
+      "customer_title": "业务附表（GrayStockAdjust）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAdjustDetail",
+      "table": "GrayStockAdjustDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStockAdjustDetail，待确认）",
+      "customer_title": "业务附表（GrayStockAdjustDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockAllot",
+      "table": "GrayStockAllot",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStockAllot，待确认）",
+      "customer_title": "业务附表（GrayStockAllot）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockCheck",
+      "table": "GrayStockCheck",
+      "reference_title": "质量检验与异常相关表（GrayStockCheck，待确认）",
+      "customer_title": "业务附表（GrayStockCheck）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockSpecUp",
+      "table": "GrayStockSpecUp",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStockSpecUp，待确认）",
+      "customer_title": "业务附表（GrayStockSpecUp）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStockSpecUpDetail",
+      "table": "GrayStockSpecUpDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStockSpecUpDetail，待确认）",
+      "customer_title": "业务附表（GrayStockSpecUpDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStorageAdjust",
+      "table": "GrayStorageAdjust",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStorageAdjust，待确认）",
+      "customer_title": "业务附表（GrayStorageAdjust）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStorageAdjustDetail",
+      "table": "GrayStorageAdjustDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStorageAdjustDetail，待确认）",
+      "customer_title": "业务附表（GrayStorageAdjustDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeGrayStorageAdjustRecord",
+      "table": "GrayStorageAdjustRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（GrayStorageAdjustRecord，待确认）",
+      "customer_title": "业务附表（GrayStorageAdjustRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMIn",
+      "table": "ODMIn",
+      "reference_title": "其他或待确认相关表（ODMIn，待确认）",
+      "customer_title": "业务附表（ODMIn）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMInDetail",
+      "table": "ODMInDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（ODMInDetail，待确认）",
+      "customer_title": "业务附表（ODMInDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMInRecord",
+      "table": "ODMInRecord",
+      "reference_title": "其他或待确认相关表（ODMInRecord，待确认）",
+      "customer_title": "业务附表（ODMInRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMOut",
+      "table": "ODMOut",
+      "reference_title": "其他或待确认相关表（ODMOut，待确认）",
+      "customer_title": "业务附表（ODMOut）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMOutDetail",
+      "table": "ODMOutDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（ODMOutDetail，待确认）",
+      "customer_title": "业务附表（ODMOutDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeODMOutRecord",
+      "table": "ODMOutRecord",
+      "reference_title": "其他或待确认相关表（ODMOutRecord，待确认）",
+      "customer_title": "业务附表（ODMOutRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOtherIn",
+      "table": "OtherIn",
+      "reference_title": "其他或待确认相关表（OtherIn，待确认）",
+      "customer_title": "业务附表（OtherIn）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOtherInDetail",
+      "table": "OtherInDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（OtherInDetail，待确认）",
+      "customer_title": "业务附表（OtherInDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutGoingBill",
+      "table": "OutGoingBill",
+      "reference_title": "其他或待确认相关表（OutGoingBill，待确认）",
+      "customer_title": "业务附表（OutGoingBill）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutGoingBillDetail",
+      "table": "OutGoingBillDetail",
+      "reference_title": "其他或待确认相关表（OutGoingBillDetail，待确认）",
+      "customer_title": "业务附表（OutGoingBillDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutPlan",
+      "table": "OutPlan",
+      "reference_title": "生产工单与排程相关表（OutPlan，待确认）",
+      "customer_title": "业务附表（OutPlan）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeOutPlanDetail",
+      "table": "OutPlanDetail",
+      "reference_title": "生产工单与排程相关表（OutPlanDetail，待确认）",
+      "customer_title": "业务附表（OutPlanDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackQty",
+      "table": "PackQty",
+      "reference_title": "其他或待确认相关表（PackQty，待确认）",
+      "customer_title": "业务附表（PackQty）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackQty1",
+      "table": "PackQty1",
+      "reference_title": "其他或待确认相关表（PackQty1，待确认）",
+      "customer_title": "业务附表（PackQty1）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkQty",
+      "table": "PackWorkQty",
+      "reference_title": "生产工单与排程相关表（PackWorkQty，待确认）",
+      "customer_title": "业务附表（PackWorkQty）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkQty1",
+      "table": "PackWorkQty1",
+      "reference_title": "生产工单与排程相关表（PackWorkQty1，待确认）",
+      "customer_title": "业务附表（PackWorkQty1）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkQtyDetail",
+      "table": "PackWorkQtyDetail",
+      "reference_title": "生产工单与排程相关表（PackWorkQtyDetail，待确认）",
+      "customer_title": "业务附表（PackWorkQtyDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyePackWorkSumQty",
+      "table": "PackWorkSumQty",
+      "reference_title": "生产工单与排程相关表（PackWorkSumQty，待确认）",
+      "customer_title": "业务附表（PackWorkSumQty）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInTo",
+      "table": "ProdIn_to",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdIn_to，待确认）",
+      "customer_title": "业务附表（ProdIn_to）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInPDARecord",
+      "table": "ProdInPDARecord",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdInPDARecord，待确认）",
+      "customer_title": "业务附表（ProdInPDARecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInPriceAtte",
+      "table": "ProdInPriceAtte",
+      "reference_title": "财务结算与成本相关表（ProdInPriceAtte，待确认）",
+      "customer_title": "业务附表（ProdInPriceAtte）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdInPriceProcess",
+      "table": "ProdInPriceProcess",
+      "reference_title": "财务结算与成本相关表（ProdInPriceProcess，待确认）",
+      "customer_title": "业务附表（ProdInPriceProcess）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdLoading",
+      "table": "ProdLoading",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdLoading，待确认）",
+      "customer_title": "业务附表（ProdLoading）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdLoadingDetail",
+      "table": "ProdLoadingDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdLoadingDetail，待确认）",
+      "customer_title": "业务附表（ProdLoadingDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutPDARecord",
+      "table": "ProdOutPDARecord",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdOutPDARecord，待确认）",
+      "customer_title": "业务附表（ProdOutPDARecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutPriceAtte",
+      "table": "ProdOutPriceAtte",
+      "reference_title": "财务结算与成本相关表（ProdOutPriceAtte，待确认）",
+      "customer_title": "业务附表（ProdOutPriceAtte）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutPriceProcess",
+      "table": "ProdOutPriceProcess",
+      "reference_title": "财务结算与成本相关表（ProdOutPriceProcess，待确认）",
+      "customer_title": "业务附表（ProdOutPriceProcess）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdOutRecord",
+      "table": "ProdOutRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdOutRecord，待确认）",
+      "customer_title": "业务附表（ProdOutRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStock",
+      "table": "ProdStock",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdStock，待确认）",
+      "customer_title": "业务附表（ProdStock）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAdjust",
+      "table": "ProdStockAdjust",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdStockAdjust，待确认）",
+      "customer_title": "业务附表（ProdStockAdjust）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAdjustDetail",
+      "table": "ProdStockAdjustDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdStockAdjustDetail，待确认）",
+      "customer_title": "业务附表（ProdStockAdjustDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockAllot",
+      "table": "ProdStockAllot",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdStockAllot，待确认）",
+      "customer_title": "业务附表（ProdStockAllot）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockCheck",
+      "table": "ProdStockCheck",
+      "reference_title": "质量检验与异常相关表（ProdStockCheck，待确认）",
+      "customer_title": "业务附表（ProdStockCheck）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStockCheckDetail",
+      "table": "ProdStockCheckDetail",
+      "reference_title": "质量检验与异常相关表（ProdStockCheckDetail，待确认）",
+      "customer_title": "业务附表（ProdStockCheckDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStorageAdjust",
+      "table": "ProdStorageAdjust",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdStorageAdjust，待确认）",
+      "customer_title": "业务附表（ProdStorageAdjust）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStorageAdjustDetail",
+      "table": "ProdStorageAdjustDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdStorageAdjustDetail，待确认）",
+      "customer_title": "业务附表（ProdStorageAdjustDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeProdStorageAdjustRecord",
+      "table": "ProdStorageAdjustRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（ProdStorageAdjustRecord，待确认）",
+      "customer_title": "业务附表（ProdStorageAdjustRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiAxisBook",
+      "table": "SemiAxisBook",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiAxisBook，待确认）",
+      "customer_title": "业务附表（SemiAxisBook）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiAxisRemain",
+      "table": "SemiAxisRemain",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiAxisRemain，待确认）",
+      "customer_title": "业务附表（SemiAxisRemain）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiInRecord",
+      "table": "SemiInRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiInRecord，待确认）",
+      "customer_title": "业务附表（SemiInRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiOutRecord",
+      "table": "SemiOutRecord",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiOutRecord，待确认）",
+      "customer_title": "业务附表（SemiOutRecord）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiPostionUp",
+      "table": "SemiPostionUp",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiPostionUp，待确认）",
+      "customer_title": "业务附表（SemiPostionUp）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStock",
+      "table": "SemiStock",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiStock，待确认）",
+      "customer_title": "业务附表（SemiStock）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockAdjust",
+      "table": "SemiStockAdjust",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiStockAdjust，待确认）",
+      "customer_title": "业务附表（SemiStockAdjust）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockAdjustDetail",
+      "table": "SemiStockAdjustDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiStockAdjustDetail，待确认）",
+      "customer_title": "业务附表（SemiStockAdjustDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockSpecUp",
+      "table": "SemiStockSpecUp",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiStockSpecUp，待确认）",
+      "customer_title": "业务附表（SemiStockSpecUp）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSemiStockSpecUpDetail",
+      "table": "SemiStockSpecUpDetail",
+      "reference_title": "坯布半成品成品与仓储相关表（SemiStockSpecUpDetail，待确认）",
+      "customer_title": "业务附表（SemiStockSpecUpDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffAllot",
+      "table": "StuffAllot",
+      "reference_title": "染化料与称料库存相关表（StuffAllot，待确认）",
+      "customer_title": "业务附表（StuffAllot）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffAllotDetail",
+      "table": "StuffAllotDetail",
+      "reference_title": "染化料与称料库存相关表（StuffAllotDetail，待确认）",
+      "customer_title": "业务附表（StuffAllotDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffChange",
+      "table": "StuffChange",
+      "reference_title": "染化料与称料库存相关表（StuffChange，待确认）",
+      "customer_title": "业务附表（StuffChange）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStock",
+      "table": "StuffStock",
+      "reference_title": "染化料与称料库存相关表（StuffStock，待确认）",
+      "customer_title": "业务附表（StuffStock）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStockAdjust",
+      "table": "StuffStockAdjust",
+      "reference_title": "染化料与称料库存相关表（StuffStockAdjust，待确认）",
+      "customer_title": "业务附表（StuffStockAdjust）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeStuffStockAdjustDetail",
+      "table": "StuffStockAdjustDetail",
+      "reference_title": "染化料与称料库存相关表（StuffStockAdjustDetail，待确认）",
+      "customer_title": "业务附表（StuffStockAdjustDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeSwipeLabelPrint",
+      "table": "SwipeLabelPrint",
+      "reference_title": "染色工艺与配方相关表（SwipeLabelPrint，待确认）",
+      "customer_title": "业务附表（SwipeLabelPrint）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeUrgentInStruct",
+      "table": "UrgentInStruct",
+      "reference_title": "其他或待确认相关表（UrgentInStruct，待确认）",
+      "customer_title": "业务附表（UrgentInStruct）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeUrgentInStructDetail",
+      "table": "UrgentInStructDetail",
+      "reference_title": "其他或待确认相关表（UrgentInStructDetail，待确认）",
+      "customer_title": "业务附表（UrgentInStructDetail）"
+    },
+    {
+      "model": "erp_warehouse.SourceDyeWareHouseProdCount",
+      "table": "WareHouseProdCount",
+      "reference_title": "坯布半成品成品与仓储相关表（WareHouseProdCount，待确认）",
+      "customer_title": "业务附表（WareHouseProdCount）"
+    },
+    {
+      "model": "erp_quality.SourceDyeCHECKEXACT",
+      "table": "CHECKEXACT",
+      "reference_title": "质量检验与异常相关表（CHECKEXACT，待确认）",
+      "customer_title": "业务附表（CHECKEXACT）"
+    },
+    {
+      "model": "erp_quality.SourceDyeCHECKINOUT",
+      "table": "CHECKINOUT",
+      "reference_title": "质量检验与异常相关表（CHECKINOUT，待确认）",
+      "customer_title": "业务附表（CHECKINOUT）"
+    },
+    {
+      "model": "erp_quality.SourceDyeColoringCheck",
+      "table": "ColoringCheck",
+      "reference_title": "质量检验与异常相关表（ColoringCheck，待确认）",
+      "customer_title": "业务附表（ColoringCheck）"
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveIn",
+      "table": "DefectiveIn",
+      "reference_title": "质量检验与异常相关表（DefectiveIn，待确认）",
+      "customer_title": "业务附表（DefectiveIn）"
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveInDetail",
+      "table": "DefectiveInDetail",
+      "reference_title": "质量检验与异常相关表（DefectiveInDetail，待确认）",
+      "customer_title": "业务附表（DefectiveInDetail）"
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveInRecord",
+      "table": "DefectiveInRecord",
+      "reference_title": "质量检验与异常相关表（DefectiveInRecord，待确认）",
+      "customer_title": "业务附表（DefectiveInRecord）"
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveOut",
+      "table": "DefectiveOut",
+      "reference_title": "质量检验与异常相关表（DefectiveOut，待确认）",
+      "customer_title": "业务附表（DefectiveOut）"
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveOutDetail",
+      "table": "DefectiveOutDetail",
+      "reference_title": "质量检验与异常相关表（DefectiveOutDetail，待确认）",
+      "customer_title": "业务附表（DefectiveOutDetail）"
+    },
+    {
+      "model": "erp_quality.SourceDyeDefectiveOutRecord",
+      "table": "DefectiveOutRecord",
+      "reference_title": "质量检验与异常相关表（DefectiveOutRecord，待确认）",
+      "customer_title": "业务附表（DefectiveOutRecord）"
+    },
+    {
+      "model": "erp_quality.SourceDyeDyeCheck",
+      "table": "DyeCheck",
+      "reference_title": "质量检验与异常相关表（DyeCheck，待确认）",
+      "customer_title": "业务附表（DyeCheck）"
+    },
+    {
+      "model": "erp_quality.SourceDyeInspectionLog",
+      "table": "InspectionLog",
+      "reference_title": "质量检验与异常相关表（InspectionLog，待确认）",
+      "customer_title": "业务附表（InspectionLog）"
+    },
+    {
+      "model": "erp_quality.SourceDyeInspectionLogDetail",
+      "table": "InspectionLogDetail",
+      "reference_title": "质量检验与异常相关表（InspectionLogDetail，待确认）",
+      "customer_title": "业务附表（InspectionLogDetail）"
+    },
+    {
+      "model": "erp_quality.SourceDyeProdTest",
+      "table": "ProdTest",
+      "reference_title": "质量检验与异常相关表（ProdTest，待确认）",
+      "customer_title": "业务附表（ProdTest）"
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityAccident",
+      "table": "QualityAccident",
+      "reference_title": "质量检验与异常相关表（QualityAccident，待确认）",
+      "customer_title": "业务附表（QualityAccident）"
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityDeduction",
+      "table": "QualityDeduction",
+      "reference_title": "质量检验与异常相关表（QualityDeduction，待确认）",
+      "customer_title": "业务附表（QualityDeduction）"
+    },
+    {
+      "model": "erp_quality.SourceDyeQualityRegister",
+      "table": "QualityRegister",
+      "reference_title": "质量检验与异常相关表（QualityRegister，待确认）",
+      "customer_title": "业务附表（QualityRegister）"
+    },
+    {
+      "model": "erp_quality.SourceDyeRecordDefect",
+      "table": "RecordDefect",
+      "reference_title": "质量检验与异常相关表（RecordDefect，待确认）",
+      "customer_title": "业务附表（RecordDefect）"
+    },
+    {
+      "model": "erp_quality.SourceDyeTestDetail",
+      "table": "Test_Detail",
+      "reference_title": "质量检验与异常相关表（Test_Detail，待确认）",
+      "customer_title": "业务附表（Test_Detail）"
+    },
+    {
+      "model": "erp_quality.SourceDyeTestMain",
+      "table": "Test_Main",
+      "reference_title": "质量检验与异常相关表（Test_Main，待确认）",
+      "customer_title": "业务附表（Test_Main）"
+    }
+  ],
+  "default_database_probe": "127.0.0.1:5439 no response; 未启动、未修改",
+  "package": "不含tools、outputs、JSONL、SQLite、examples及开发对照API",
+  "historical_reconciliation": "未执行",
+  "onsite_acceptance": "未执行",
+  "browser_pages": [
+    {
+      "title": "采购订单",
+      "path": "/erp/purchase/original/sourcedyepurmain",
+      "heading": true,
+      "add": true,
+      "import": true
+    },
+    {
+      "title": "打样记录主信息",
+      "path": "/erp/sampling/original/sourcedyedyedipsrecord",
+      "heading": true,
+      "add": true,
+      "import": true
+    },
+    {
+      "title": "染色配方",
+      "heading": true,
+      "import": true
+    },
+    {
+      "title": "工序工艺单",
+      "heading": true,
+      "import": true
+    },
+    {
+      "title": "工序排产与染色排产",
+      "path": "/erp/production/original/sourcedyeprocessschedule",
+      "heading": true,
+      "add": true,
+      "import": true
+    },
+    {
+      "title": "工序出疵表",
+      "module": "质量管理",
+      "heading": true,
+      "add": true,
+      "import": true
+    },
+    {
+      "heading": [
+        "\t\t\t\t198 heading 生产产量记录, Value: 2"
+      ],
+      "path": "/erp/warehouse/original/sourcedyerecordyield",
+      "add": true,
+      "import": true
+    },
+    {
+      "heading": [
+        "\t\t\t\t265 heading 成品入库主表, Value: 2"
+      ],
+      "path": "/erp/warehouse/original/sourcedyeprodin",
+      "add": true,
+      "import": true
+    }
+  ],
+  "browser_stock": {
+    "approval_entry": 22,
+    "approved_stock_rows": 2,
+    "approved_quantities": [
+      "5.00",
+      "10.00"
+    ],
+    "save_entry": 21,
+    "save_mode_stock_retained_after_reopen": "10.00",
+    "approval_reopened": true,
+    "reopened_stock_rows": 1,
+    "reopened_quantities": [
+      "10.00"
+    ]
+  },
+  "browser_scan": {
+    "barcode": "VSAME",
+    "matches": 2,
+    "all_retained": true,
+    "selected_record_filter": true
+  },
+  "package_python_files_checked": 501,
+  "package_source_mismatches": [],
+  "customer_metadata_development_labels": [],
+  "browser_system_management": {
+    "verified": true,
+    "groups": [
+      "账号与权限",
+      "编号管理",
+      "系统设置",
+      "操作与导入记录",
+      "设备接入设置",
+      "运行维护",
+      "审批、变更与通知"
+    ],
+    "developer_archive_or_comparison_menu": false
+  }
+}

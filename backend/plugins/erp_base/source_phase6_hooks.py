@@ -149,9 +149,6 @@ def saved(item,actor):
         heads=list(matching(source('ArticleIn'),SheetSeries=raw(item,'SheetSeries')).order_by('pk'))
         if heads and raw(heads[0],'SheetKind')==13:
             material_adjustment(item,actor)
-    elif entry=='s_Roles':
-        from .source_foundation_platform import allocate_print_rights,field_rights
-        allocate_print_rights(raw(item,'RoleNo'),actor);field_rights(raw(item,'RoleNo'),actor)
     elif entry in ['ODMIn','ODMOut']:
         for head in matching(source(entry),SheetSeries=raw(item,'SheetSeries')):
             for line in matching(source(entry+'Detail'),SheetSeries=raw(head,'SheetSeries')):

@@ -84,7 +84,9 @@ def create_record(job,entry,values,actor):
             shift,cls=identities.pop()
             if values['shift'] is None:data['ShiftID']=shift
             if values['class_id'] is None:data['ClassID']=cls
-    item=write(model,{'_entry':entry,**{model.SOURCE_FIELDS[k]:v for k,v in data.items()}},actor=actor)
+    from .source_calculations import store_value
+    # 现场接口共用六位数量，落单时采用目标业务字段的实际精度。
+    item=write(model,{'_entry':entry,**dict(store_value(model(),k,v) for k,v in data.items())},actor=actor)
     if resolution is not None:
         from .source_continuation import save_effect
         save_effect(item,'site_shift_resolution',resolution,actor,'保留全部班组候选及缺日历依据；未匹配不补默认班组')

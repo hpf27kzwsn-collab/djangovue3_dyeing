@@ -1,4 +1,4 @@
-from django_celery_beat.models import PeriodicTask, IntervalSchedule, CrontabSchedule, ClockedSchedule, SolarSchedule
+from django_celery_beat.models import PeriodicTask, IntervalSchedule, CrontabSchedule, ClockedSchedule
 from django_celery_results.models import TaskResult
 from . import models
 from .model_catalog import project_models
@@ -12,7 +12,7 @@ ENTITIES = {
     'file': models.FileList, 'operation_log': models.OperationLog, 'login_log': models.LoginLog,
     'message_center': models.MessageCenter, 'download_center': models.DownloadCenter,
     'periodic_task': PeriodicTask, 'interval_schedule': IntervalSchedule, 'crontab_schedule': CrontabSchedule,
-    'clocked_schedule': ClockedSchedule, 'solar_schedule': SolarSchedule, 'task_result': TaskResult,
+    'clocked_schedule': ClockedSchedule, 'task_result': TaskResult,
 }
 
 ENTITIES.update({f'{model._meta.app_label}_{model._meta.model_name}': model for model in project_models()

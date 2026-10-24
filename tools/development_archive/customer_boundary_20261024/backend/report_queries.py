@@ -23,7 +23,7 @@ def choices(model,field,value):return None if value is None else dict(model._met
 
 
 def prices(reader,filters):
-    from .reports import page
+    from plugins.erp_base.reports import page
     count,heads=page(reader.source(sales.CommercialPrice,['number','customer','document_at','status']),filters,'document_at','status')
     h={row.pk:row for row in heads};customers=reader.labels(base.Party,'name',[row.customer_id for row in heads])
     lines=list(reader.source(sales.CommercialPriceLine,['price_document','material','version','unit_price','unit','is_confirmed','valid_from','valid_to']).filter(price_document_id__in=h))
@@ -33,7 +33,7 @@ def prices(reader,filters):
 
 
 def samples(reader,filters):
-    from .reports import page
+    from plugins.erp_base.reports import page
     count,heads=page(reader.source(sampling.SampleRequest,['number','customer','document_at','status']),filters,'document_at','status')
     h={row.pk:row for row in heads};customers=reader.labels(base.Party,'name',[row.customer_id for row in heads])
     lines=list(reader.source(sampling.SampleLine,['request','line_number','material','color_number','status']).filter(request_id__in=h))
@@ -54,7 +54,7 @@ def samples(reader,filters):
 
 
 def purchases(reader,filters):
-    from .reports import page
+    from plugins.erp_base.reports import page
     count,heads=page(reader.source(purchase.PurchaseOrder,['number','supplier','status','document_at']),filters,'document_at','status')
     h={row.pk:row for row in heads};parties=reader.labels(base.Party,'name',[row.supplier_id for row in heads])
     lines=list(reader.source(purchase.PurchaseOrderLine,['order','line_number','material','quantity','unit']).filter(order_id__in=h));ids=[row.pk for row in lines]
@@ -73,7 +73,7 @@ def purchases(reader,filters):
 
 
 def schedules(reader,filters):
-    from .reports import page
+    from plugins.erp_base.reports import page
     count,slots=page(reader.source(production.ScheduleAssignment,['operation','machine','version','status','planned_start','planned_end']),filters,'planned_start','status')
     operations={row.pk:row for row in reader.source(production.WorkCardOperation,['work_card','process']).filter(pk__in=[row.operation_id for row in slots])}
     # 阅读每项关联同样必须有来源查询及数据范围。
@@ -100,7 +100,7 @@ def schedules(reader,filters):
 
 
 def rework(reader,filters):
-    from .reports import page
+    from plugins.erp_base.reports import page
     count,items=page(reader.source(production.ReworkOrder,['number','original_work_card','rework_work_card','quantity','unit','status','reason','create_datetime']),filters,'create_datetime','status')
     cards=reader.labels(production.WorkCard,'number',[key for row in items for key in [row.original_work_card_id,row.rework_work_card_id]])
     inspections=list(reader.source(q.QualityInspection,['number','work_card','kind','result','is_void','inspected_at']).filter(work_card_id__in=[row.rework_work_card_id for row in items],kind='reinspection',is_void=False).order_by('inspected_at','pk'))
@@ -113,7 +113,7 @@ def rework(reader,filters):
 
 
 def lineage(reader,filters):
-    from .reports import page
+    from plugins.erp_base.reports import page
     count,items=page(reader.source(warehouse.LotTransformation,['number','work_card','occurred_at','is_confirmed','is_void']),filters,'occurred_at')
     h={row.pk:row for row in items};cards=reader.labels(production.WorkCard,'number',[row.work_card_id for row in items])
     lines=list(reader.source(warehouse.LotTransformationLine,['transformation','direction','lot','quantity','unit','receipt_line','issue_line']).filter(transformation_id__in=h))

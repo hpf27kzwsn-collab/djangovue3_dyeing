@@ -30,8 +30,3 @@ def export_file(item_id, rows, columns):
         item.save(update_fields=['task_status'])
         raise
     return item.url.url
-
-
-@shared_task
-def demo_task(text='定时任务运行成功'):
-    return text

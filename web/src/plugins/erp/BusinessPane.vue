@@ -14,8 +14,6 @@ import EditableActionRows from './EditableActionRows.vue'
 import ActionChanges from './ActionChanges.vue'
 import LossRows from './LossRows.vue'
 import ReworkSources from './ReworkSources.vue'
-import OriginalEntryWorkbench from './OriginalEntryWorkbench.vue'
-import OriginalDocumentPrint from './OriginalDocumentPrint.vue'
 import {originalValues} from './source-form'
 import OrderPricingWorkspace from './OrderPricingWorkspace.vue'
 import BusinessActionPanel from './BusinessActionPanel.vue'
@@ -26,7 +24,6 @@ const account=useAccount(),meta=ref<any>(),table=ref(),selected=ref<any>(),open=
 const actionOpen=ref(false),currentAction=ref<any>(),actionRow=ref<any>(),actionData=ref<Record<string,any>>({}),actionForm=ref(),saving=ref(false)
 const actionResult=ref('')
 const reportOpen=ref(false),report=ref<any>()
-const entryWorkbench=ref(false),printOpen=ref(false),printRow=ref<any>()
 const pricingOrder=ref<any>()
 const operationOpen=ref(false),operationRow=ref<any>(),collectionOpen=ref(false)
 const generatedDocument=ref<any>()
@@ -75,6 +72,7 @@ async function submitAction(){
 }
 async function performAction(action:BusinessAction,row:any,data:any){
   const result=await api(`/api/system/${props.entity}/${action.detail===false?'':row.id+'/'}${action.key}/`,{method:'POST',data})
+  if(result.data?.report){result.data.title=action.display_title;result.msg='操作完成'}
   showActionResult(result);await table.value.refresh()
   if(action.detail!==false&&operationRow.value?.id===row.id){
     if(action.key==='delete_shift_record'){operationOpen.value=false;operationRow.value=undefined}
@@ -132,9 +130,6 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons,maintenan
       <BusinessActionPanel :actions="rowActions" @execute="action=>executeAction(action,operationRow)"/>
     </el-drawer>
     <el-drawer v-model="collectionOpen" :title="meta?.title+' · '+(maintenance?'专题工具':'业务查询与办理')" size="min(1000px,96vw)" destroy-on-close><BusinessActionPanel :actions="collectionActions" collection @execute="action=>executeAction(action)"/></el-drawer>
-    <div v-if="maintenance&&!foundation&&workflow.source_model&&account.can(entity+':phase6_catalog-get')"><el-button @click="entryWorkbench=true">数据来源与字段配置</el-button></div>
-    <el-drawer v-model="entryWorkbench" title="旧业务入口" size="96vw" destroy-on-close><OriginalEntryWorkbench v-if="entryWorkbench" :entity="entity"/></el-drawer>
-    <el-dialog v-model="printOpen" title="单据数据版打印" width="800px" destroy-on-close><OriginalDocumentPrint v-if="printOpen" :entity="entity" :row="printRow" :entries="workflow.print_entries" @saved="table.refresh()"/></el-dialog>
     <div v-if="collectionActions.length||hasMaintenance" class="business-toolbar"><el-button v-if="collectionActions.length" @click="collectionOpen=true">{{maintenance?'专题工具':'业务查询与办理'}}</el-button><el-button v-if="hasMaintenance" text @click="switchWorkspace">{{maintenance?'返回业务':'数据维护'}}</el-button></div>
     <el-alert v-if="readonly" title="本层资料已经冻结，业务进度通过对应操作维护。" type="info" :closable="false"/>
     <ResourceTable v-if="meta" ref="table" :key="entity" :meta="meta" :context="context" :lookup-context="lookupContext" :parent-entry="parentEntry" :context-label="contextLabel" :readonly="readonly||workflow.readonly" :disable-delete="workflow.delete_disabled" :row-actions="actions"/><el-skeleton v-else animated/>
@@ -148,7 +143,7 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons,maintenan
     <el-dialog v-model="actionOpen" :title="currentAction?.display_title" width="min(900px,95vw)" destroy-on-close><el-form v-if="actionOpen" ref="actionForm" :model="actionData" label-width="150px">
       <el-form-item v-for="field in currentAction.inputs" :key="field.key" :prop="field.key" :label="field.title" :rules="[{required:field.required,message:'请填写'+field.title}]"><ReworkSources v-if="field.kind==='rework_sources'" v-model="actionData[field.key]"/><LossRows v-else-if="field.kind==='losses'" v-model="actionData[field.key]"/><EditableActionRows v-else-if="field.kind==='editable_rows'" v-model="actionData[field.key]" :field="field"/><ActionRows v-else-if="field.kind==='rows'" v-model="actionData[field.key]" :field="field" :form="actionData" :row="actionRow"/><ActionChanges v-else-if="field.kind==='changes'" v-model="actionData[field.key]" :field="field"/><FieldInput v-else v-model="actionData[field.key]" :field="actionField(field)"/></el-form-item>
     </el-form><template #footer><el-button @click="actionOpen=false">取消</el-button><el-button type="primary" :loading="saving" @click="submitAction">确认操作</el-button></template></el-dialog>
-    <el-dialog v-model="reportOpen" :title="report?.report" width="96vw" destroy-on-close>
+    <el-dialog v-model="reportOpen" :title="report?.title??report?.report" width="96vw" destroy-on-close>
       <template v-if="reportOpen">
         <el-alert v-for="note in report.notes" :key="note" :title="note" type="info" :closable="false"/>
         <p v-if="report.period">统计区间：{{report.period.start}} 至 {{report.period.end}}<span v-if="report.period.month_start">；月起点：{{report.period.month_start}}</span></p>

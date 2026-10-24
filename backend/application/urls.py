@@ -4,7 +4,6 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 from system.auth import Login, Captcha, PublicConfig, PublicConfigValues, Account, Password, FirstPassword
 from system.views import Metadata, Inbox, DictionaryData, view_for
 from system.catalog import ENTITIES
@@ -27,9 +26,6 @@ urlpatterns = [
     path('api/events/', MessageEvents.as_view()),
     path('api/dictionary/', DictionaryData.as_view()),
     path('api/meta/<str:entity>/', Metadata.as_view()), path('api/system/', include(router.urls)),
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema')),
-    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [path(f'api/plugins/{name}/', include(urls)) for name, urls in URLS]
 urlpatterns += [re_path(r'^(?!api/|media/|captcha/|static/).*$', TemplateView.as_view(template_name='index.html'))]

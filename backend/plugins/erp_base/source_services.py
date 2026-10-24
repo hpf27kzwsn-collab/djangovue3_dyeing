@@ -63,13 +63,24 @@ def require_origin_edit(item):
         raise ValidationError({'parent': '此记录由来源单据办理生成，请修改实际来源单据。'})
 
 
+def stage(item):
+    if 'RightStatus' not in item.SOURCE_FIELDS:
+        return None
+    status = getattr(item, item.SOURCE_FIELDS['RightStatus'])
+    if status == 10:
+        return 'approved'
+    if status == 0:
+        return 'draft'
+    return item.approval_stage
+
+
 def editable(items):
     for item in items:
         require_origin_edit(item)
         if item.pk is not None and item.SOURCE_TABLE in ['GrayInRecord','JobGrayRecord']:
             from .source_gray_split_merge import require_active
             require_active(item)
-        if item.approval_stage in ['confirmed', 'approved']:
+        if stage(item) in ['confirmed', 'approved']:
             raise ValidationError({'approval_stage': '所属单据已经确认或审核，请先重新办理。'})
 
 
@@ -269,7 +280,7 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
         from .source_site_work import bind
         bind(item,data,entry)
     if instance is None:
-        item.approval_stage = 'draft' if item.SOURCE_DOCUMENT and not parents(item) else None
+        item.approval_stage = 'draft' if item.SOURCE_DOCUMENT and 'RightStatus' in item.SOURCE_FIELDS and not parents(item) else None
         allocate(item, actor)
     if actor is not None:
         item.modifier = actor
@@ -479,7 +490,7 @@ def advance(item, actor, expected, target):
     require_origin_edit(item)
     if not item.SOURCE_DOCUMENT or len(objects) > 1:
         raise ValidationError({'approval_stage': '关联明细由所属表头办理，请从表头确认或审核。'})
-    if item.approval_stage not in expected:
+    if stage(item) not in expected:
         raise ValidationError({'approval_stage': '当前办理阶段不允许此动作。'})
     validate_document(item)
     if target=='approved':
@@ -492,7 +503,7 @@ def advance(item, actor, expected, target):
         item.confirmed_at, item.confirmed_by = at, actor
     elif target == 'approved':
         item.approved_at, item.approved_by = at, actor
-        if entries.entry_for(item) is not None and 'RightStatus' in item.SOURCE_FIELDS:
+        if 'RightStatus' in item.SOURCE_FIELDS:
             setattr(item, item.SOURCE_FIELDS['RightStatus'], 10)
     persist(item, actor)
     if target == 'approved':
@@ -519,7 +530,7 @@ def confirm(item, actor):
 
 
 def approve(item, actor):
-    return advance(item, actor, ['draft', 'confirmed'], 'approved')
+    return advance(item, actor, [None, 'draft', 'confirmed'], 'approved')
 
 
 @transaction.atomic
@@ -532,12 +543,12 @@ def reopen(item, actor, reason):
         raise ValidationError({'parent': '此记录由来源单据办理生成，请从实际来源单据重新办理。'})
     if len(objects) > 1:
         raise ValidationError({'approval_stage': '请从所属表头重新办理。'})
-    if item.approval_stage not in ['confirmed', 'approved']:
+    if stage(item) not in ['confirmed', 'approved']:
         raise ValidationError({'approval_stage': '此单据当前不在确认或审核阶段。'})
     if not reason.strip():
         raise ValidationError({'reason': '重新办理须说明原因。'})
     before = snapshot(item)
-    was_approved = item.approval_stage == 'approved'
+    was_approved = stage(item) == 'approved'
     if was_approved:
         from .source_phase6_guards import before as entry_before
         entry_before(item,'BeforeUnApproveSQL',actor)
@@ -545,7 +556,7 @@ def reopen(item, actor, reason):
     item.approval_stage = 'draft'
     item.confirmed_at = item.approved_at = None
     item.confirmed_by = item.approved_by = None
-    if entries.entry_for(item) is not None and 'RightStatus' in item.SOURCE_FIELDS:
+    if 'RightStatus' in item.SOURCE_FIELDS:
         setattr(item, item.SOURCE_FIELDS['RightStatus'], 0)
     persist(item, actor)
     if was_approved:

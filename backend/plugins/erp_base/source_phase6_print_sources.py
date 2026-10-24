@@ -56,7 +56,8 @@ def source_issue(entry,member):
     try:
         parent_path(entry,target)
         if entries.definition(target)['finance']:return '财务打印来源暂缓：'+member
-        if entries.query_support()[target]['query_state']=='unresolved':return '原打印父查询暂缓：'+target
+        from .button_presentation import DEFERRED
+        if target in DEFERRED['queries']:return '原打印父查询暂缓：'+target
         projected=projection_names(entries.tree_for(target))
         if field.lower() not in projected and not reference_available(target,field,projected):return '原打印父投影缺字段：'+member
     except ValueError:return '缺跨表关联：'+member

@@ -7,7 +7,7 @@ from rest_framework.test import APIClient
 from django.core.exceptions import ValidationError
 from .test_phase_report_audit import create
 from .test_source_phase6_six_groups_continued import reader
-from plugins.erp_base.source_phase6_api import templates
+from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
 from plugins.erp_base.source_phase6_layouts import parse_xml
 from plugins.erp_base.source_phase6_rendering import render, reference_columns, requirements
 from plugins.erp_base.source_phase6_print_sources import attach, select_parent

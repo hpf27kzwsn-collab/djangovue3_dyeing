@@ -154,7 +154,7 @@ class QuantityAndTransferTests(TestCase):
 
 class ReportSummaryTests(SimpleTestCase):
     def test_original_monthly_report_sums_duplicates_negative_and_null(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import render,requirements
         row=templates()[155];self.assertEqual(requirements(row),[])
         result={'entry':'qryDyeDipsRecord','columns':[{'name':n} for n in ['EmpID_R','DNum','WNum','TNum','MNum']],
@@ -178,7 +178,7 @@ class ReportSummaryTests(SimpleTestCase):
         with self.assertRaises(ValidationError):summarize(['原异常',1],{'Func':'Sum'})
 
     def test_unused_calculations_are_retained_but_not_required_for_order_delivery(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_layouts import parse_xml
         from plugins.erp_base.source_phase6_print_rules import calculation_usage
         from plugins.erp_base.source_phase6_rendering import render,requirements

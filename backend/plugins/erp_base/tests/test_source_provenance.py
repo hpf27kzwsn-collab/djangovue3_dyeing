@@ -7,7 +7,7 @@ from django.db import migrations, models
 from django.db.migrations.state import ProjectState
 from system.models import Users
 from plugins.erp_base.legacy_models import LegacySourceTable, LegacyImportBatch
-from plugins.erp_base.source_import import import_table, compare_table
+from tools.development_archive.customer_boundary_20261024.backend.source_import import import_table, compare_table
 from plugins.erp_base.source_models import SourceDyeSAutoID, SourceDyePFieldValid
 from plugins.erp_base.source_provenance import reference
 from plugins.erp_base.source_migrations import RemoveSourceFields

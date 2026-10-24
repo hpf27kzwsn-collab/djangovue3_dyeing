@@ -1,12 +1,12 @@
 """原导航、个人菜单、报表权限配置办理；不赋予新系统用户权限。"""
 from django.db import transaction
-from .business import persist, record
-from .source_sequences import allocate
-from .source_master_data import update, retain
-from .source_business_updates import matching
-from .source_quality_reports import rows, key
-from .source_stock_services import raw
-from .source_package_labels import varchar
+from plugins.erp_base.business import persist, record
+from plugins.erp_base.source_sequences import allocate
+from plugins.erp_base.source_master_data import update, retain
+from plugins.erp_base.source_business_updates import matching
+from plugins.erp_base.source_quality_reports import rows, key
+from plugins.erp_base.source_stock_services import raw
+from plugins.erp_base.source_package_labels import varchar
 
 
 def source(name):
@@ -14,7 +14,7 @@ def source(name):
 
 
 def create(name, values, actor, reason):
-    from .source_services import apply_defaults
+    from plugins.erp_base.source_services import apply_defaults
     model = source(name).model
     data = {model.SOURCE_FIELDS[k]:v for k,v in values.items()}
     item = model(**data)

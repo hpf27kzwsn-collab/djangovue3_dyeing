@@ -11,7 +11,7 @@ from django.utils import timezone
 from .legacy_services import source_path,rows
 
 
-CATALOG=Path(__file__).resolve().parents[3]/'tools/legacy_models/source_catalog.json'
+CATALOG=Path(__file__).resolve().parents[4]/'tools/legacy_models/source_catalog.json'
 
 
 def entries():return json.loads(CATALOG.read_text(encoding='utf-8'))['tables']
@@ -47,7 +47,7 @@ def import_table(table,actor,sample_rows=None):
     if model.objects.filter(source_batch=table.batch).exists():raise ValueError('该表已经承接本批原行，请先对照，不覆盖已有数据：'+table.table_name)
     count=0
     with transaction.atomic():
-        from .numbering import lock_model, sync_model
+        from plugins.erp_base.numbering import lock_model, sync_model
         lock_model(model)
         if sample_rows is not None:
             originals=[rows(table,ordinal,1)[0] for ordinal in sample_rows]

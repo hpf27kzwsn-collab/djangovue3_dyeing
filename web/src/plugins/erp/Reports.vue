@@ -14,7 +14,6 @@ onMounted(load)
 <template>
   <div class="erp-reports">
     <h2>{{title}}</h2>
-    <el-alert title="按当前来源查询权限汇总。不同物料、货权及计量维度分别展示；计划、实测、出入库及交付量分别核对。" type="info" :closable="false"/>
     <div class="filters">
       <el-date-picker v-if="report!=='stock'" v-model="dates" type="datetimerange" start-placeholder="开始时间（含）" end-placeholder="截止时间（不含）" value-format="YYYY-MM-DDTHH:mm:ssZ"/>
       <el-input v-if="report==='packages'" v-model="barcode" placeholder="包装条码" clearable style="width:240px" @keyup.enter="query"/>

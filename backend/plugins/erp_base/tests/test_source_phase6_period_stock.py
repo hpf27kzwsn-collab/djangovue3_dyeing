@@ -140,6 +140,6 @@ class GroupFooterPrintTests(SimpleTestCase):
         with self.assertRaises(ValidationError):self.proof([['A','A',1]],height='20')
 
     def test_original_r132_remains_blocked_by_missing_sort_source(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import requirements
         self.assertIn('当前原查询未提供排序/分组字段：GrayID',requirements(templates()[249]))

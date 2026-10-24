@@ -5,7 +5,8 @@ from django.db.models.functions import RTrim, Upper
 from rest_framework.exceptions import ValidationError, PermissionDenied
 
 CATALOG = json.loads(Path(__file__).with_suffix('.json').read_text(encoding='utf-8'))
-DEFINITIONS = CATALOG['definitions']
+DEFINITIONS = {key: item for key, item in CATALOG['definitions'].items()
+               if item['path'][0] != '系统管理' or item['path'][1] == '设备接入设置'}
 MODEL_TITLES = CATALOG['model_titles']
 
 

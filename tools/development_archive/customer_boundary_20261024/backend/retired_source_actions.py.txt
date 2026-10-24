@@ -1,0 +1,53 @@
+    @action(methods=['get'],detail=True,url_name='phase6_print_history')
+    def phase6_print_history(self,request,pk=None):
+        from .source_context import SourceDocumentContext
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        item=self.get_object()
+        context=SourceDocumentContext.objects.filter(entity=item._meta.label,object_id=item.pk).first()
+        return success(context.effects.get('entry_print_jobs',[]) if context else [])
+
+    @action(methods=['post'],detail=True,url_name='phase6_formula')
+    def phase6_formula(self,request,pk=None):
+        from .source_phase6_expressions import calculate
+        from .source_phase6_entries import reader
+        p=parameters(self,{'entry':serializers.CharField(),'apply':serializers.BooleanField(default=False)})
+        return report_result(calculate(self.get_object(),reader=reader(request),actor=request.user,**p))
+
+    @action(methods=['post'],detail=True,url_name='phase6_prepare_print')
+    def phase6_prepare_print(self,request,pk=None):
+        from .source_phase6_printing import prepare_print
+        from .source_phase6_entries import reader
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        p=parameters(self,{'entry':serializers.CharField()})
+        return success(prepare_print(self.get_object(),p['entry'],request.user,reader(request)))
+
+    @action(methods=['post'],detail=True,url_name='phase6_finish_print')
+    def phase6_finish_print(self,request,pk=None):
+        from .source_phase6_printing import finish_print
+        from .source_foundation_api import require_original_admin
+        require_original_admin(request)
+        p=parameters(self,{'job_id':serializers.CharField(),'state':serializers.ChoiceField(choices=['cancelled','failed','operator_confirmed']),
+            'reason':serializers.CharField(trim_whitespace=False)})
+        return success(finish_print(self.get_object(),actor=request.user,**p))
+
+    @action(methods=['get'],detail=False,url_name='phase6_catalog')
+    def phase6_catalog(self,request):
+        from .source_phase6_api import catalog_view
+        return catalog_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase6_query')
+    def phase6_query(self,request):
+        from .source_phase6_api import query_view
+        return query_view(self)
+
+    @action(methods=['post'],detail=False,url_name='phase6_export')
+    def phase6_export(self,request):
+        from .source_phase6_api import query_view
+        return query_view(self,True)
+
+    @action(methods=['post'],detail=False,url_name='phase6_template')
+    def phase6_template(self,request):
+        from .source_phase6_api import template_view
+        return template_view(self)

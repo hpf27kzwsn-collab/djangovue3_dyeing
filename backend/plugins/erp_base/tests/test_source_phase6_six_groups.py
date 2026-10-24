@@ -185,7 +185,7 @@ class SixGroupFormulaTests(TestCase):
         self.assertIn('>1</div>',answer['html']);self.assertIn('>2</div>',answer['html'])
 
     def test_original_machine_qr_and_fixed_capacity_preserve_utf8(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import requirements,render
         from plugins.erp_base.source_phase6_qr_print import svg
         from django.core.exceptions import ValidationError
@@ -223,7 +223,7 @@ class SixGroupFormulaTests(TestCase):
         self.assertEqual((item.old_rolls,item.old_weight_qty),(4,-10))
 
     def test_original_outbound_report_queries_duplicate_and_return_rows(self):
-        from plugins.erp_base.source_phase6_api import templates
+        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
         from plugins.erp_base.source_phase6_rendering import render,reference_columns
         from plugins.erp_base.source_phase6_entries import run
         from plugins.erp_base.source_quality_reports import rows

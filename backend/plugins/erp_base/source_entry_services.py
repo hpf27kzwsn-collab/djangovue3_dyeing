@@ -47,6 +47,9 @@ def apply_new_rules(item, data, actor, entry):
         else:
             from .source_entry_identity import login_value
             value = login_value(kind, actor)
+            if kind == 'LoginPeople_LoginName' and old in {'Creater','Modifyer'}:
+                # 原短署名按字段长度填写，完整操作人由creator/modifier外键记录。
+                value = value[:item._meta.get_field(key).max_length]
         if value is not None:
             setattr(item, key, item._meta.get_field(key).to_python(value))
     for old, definition in rule['number_fields'].items():
