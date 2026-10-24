@@ -30,24 +30,24 @@ def extend(resources):
             options['workflow'].setdefault('freeze_when',[]).append('transfer_retained')
         if model in ['SourceDyeOrderMain','SourceDyeProdIn']:
             options['workflow']['actions'].append({'key':'phase6_reverse_head_transfer','title':'撤回转入整单（原单留档）',
-                'states':['draft',None],'inputs':[
+                'states':['unreviewed', None],'inputs':[
                     {'key':'at','title':'撤回时间','kind':'datetime','required':True,'options':[]},
                     {'key':'reason','title':'撤回原因','kind':'text','required':True,'options':[]}]})
         if model in ['SourceDyeArrivalNoticeDetail','SourceDyePurDetail','SourceDyeArticleOutDetail']:
             options['workflow']['actions'].append({'key':'phase6_reverse_line_transfer','title':'撤回本次转入明细（保留来源）',
-                'states':['draft',None],'inputs':[
+                'states':['unreviewed', None],'inputs':[
                     {'key':'at','title':'撤回时间','kind':'datetime','required':True,'options':[]},
                     {'key':'reason','title':'撤回原因','kind':'text','required':True,'options':[]}]})
         if model=='SourceDyePriceAdjustDetail':
             options['workflow']['actions'].append({'key':'phase6_reverse_quote_adjustment','title':'撤回报价转调价（原删除回写并留档）',
-                'states':['draft',None],'inputs':[
+                'states':['unreviewed', None],'inputs':[
                     {'key':'at','title':'撤回时间','kind':'datetime','required':True,'options':[]},
                     {'key':'reason','title':'撤回原因','kind':'text','required':True,'options':[]}]})
         if model in ['SourceDyeArticleDeptApplyDetail','SourceDyeStuffDeptApplyDetail']:
             article=model=='SourceDyeArticleDeptApplyDetail';prefix='article' if article else 'stuff'
             source_module='erp_warehouse' if article else 'erp_production'
             options['workflow']['actions'].append({'key':'phase6_department_apply_to_purchase','title':'部门申请转采购（明确原行）',
-                'states':['draft','confirmed','approved',None],'inputs':[
+                'states':['unreviewed', 'approved', None],'inputs':[
                     {'key':key,'title':title,'kind':'select','required':True,'options':[],
                      'remote':{'entity':entity,'pk':'id','label':'old_sheet_no',
                          'columns':[{'field':'id','title':'记录ID'},{'field':'old_sheet_no','title':'原单号'},
@@ -58,7 +58,7 @@ def extend(resources):
                         for key,title in [('quantity','本次采购原数量'),('price','本次采购单价')]]})
         if model=='SourceDyeMachineCarePlanDetail':
             options['workflow']['actions'].append({'key':'phase6_care_plan_to_article_out','title':'保养配件领料（明确来源）',
-                'states':['draft','confirmed','approved',None],'inputs':[
+                'states':['unreviewed', 'approved', None],'inputs':[
                     {'key':'head','title':'目标配件出库单','kind':'select','required':True,'options':[],
                      'remote':{'entity':'erp_warehouse_sourcedyearticleout','pk':'id','label':'old_sheet_no',
                         'columns':[{'field':'id','title':'记录ID'},{'field':'old_sheet_no','title':'出库单号'},{'field':'old_ware_house_id','title':'仓库'}]}},
@@ -70,7 +70,7 @@ def extend(resources):
                         ('in_detail_no','入库明细原编号（未知可设为空）','text'),('storage_unit_ids','实际库位原代码（未知可设为空）','text')]]]})
         if model=='SourceDyePurDetail':
             options['workflow']['actions'].append({'key':'phase6_purchase_to_product','title':'采购转成品入库（明确来源）',
-                'states':['draft','confirmed','approved',None],'inputs':[
+                'states':['unreviewed', 'approved', None],'inputs':[
                     {'key':'purchase','title':'采用的采购表头','kind':'select','required':True,'options':[],
                      'remote':{'entity':'erp_purchase_sourcedyepurmain','pk':'id','label':'old_sheet_no',
                         'columns':[{'field':'id','title':'记录ID'},{'field':'old_sheet_no','title':'采购单号'},
@@ -82,14 +82,14 @@ def extend(resources):
                         ('warehouse_id','仓库原代码','text'),('customer_id','客户原代码','text'),('prod_id','本厂规格原代码','text')]]]})
         if model == 'SourceDyeQuoteDetail':
             options['workflow']['actions'].append({'key':'phase6_quote_to_price_adjustment','title':'报价转调价（保存回写关联报价）',
-                'states':['draft','confirmed','approved',None],'inputs':[
+                'states':['unreviewed', 'approved', None],'inputs':[
                     {'key':key,'title':title,'kind':'select','required':True,'options':[],
                      'remote':{'entity':'erp_sales_sourcedye'+entity,'pk':'id','label':'old_sheet_no',
                         'columns':[{'field':'id','title':'记录ID'},{'field':'old_sheet_no','title':'单号'},
                                    {'field':'old_sheet_series','title':'流水号'}]}}
                     for key,title,entity in [('quote','采用的报价头','quote'),('head','目标调价单（采用加价金额）','priceadjust')]]})
             options['workflow']['actions'].append({'key':'phase6_quote_to_order','title':'报价转新订单（明确来源）',
-                'states':['draft','confirmed','approved',None], 'inputs':[
+                'states':['unreviewed', 'approved', None], 'inputs':[
                     {'key':'quote','title':'本次采用的报价表头','kind':'select','required':True,'options':[],
                      'remote':{'entity':'erp_sales_sourcedyequote','pk':'id','label':'old_sheet_no',
                         'columns':[{'field':'id','title':'记录ID'},{'field':'old_sheet_no','title':'报价单号'},
@@ -97,7 +97,7 @@ def extend(resources):
                     {'key':'fabric_id','title':'订单客户规格代码（未知可留空）','kind':'text','required':False,'options':[]}]})
         if model == 'SourceDyeArrivalNotice':
             options['workflow']['actions'].append({'key':'phase6_purchase_to_arrival','title':'采购转到货通知',
-                'states':['draft',None], 'inputs':[{'key':'selected','title':'采购明细','kind':'multi',
+                'states':['unreviewed', None], 'inputs':[{'key':'selected','title':'采购明细','kind':'multi',
                 'remote':{'entity':'erp_purchase_sourcedyepurdetail','pk':'id','label':'old_detail_no',
                     'columns':[{'field':'id','title':'记录ID'},{'field':'old_detail_no','title':'采购明细号'},
                                {'field':'old_fabric_id','title':'物料'},{'field':'old_qty','title':'数量'}]},
@@ -109,7 +109,7 @@ def extend(resources):
         options['workflow']['entries']=[{'value':name,'label':rule['title'],'master_entry':rule['master_entry'],
             'generated_fields':[field_key(old) for old in [*rule['number_fields'],*rule['default_fields']]]} for name,rule in rules.items()]
         formulas=[{'value':name,'label':rule['title']} for label,rules in ENTRY_RULES.items() if label.split('.')[1]==model for name,rule in rules.items() if rule['formula_fields']]
-        if formulas:options['workflow']['actions'].append({'key':'phase6_formula','title':'旧入口公式试算与采用','states':['draft','confirmed','approved',None],
+        if formulas:options['workflow']['actions'].append({'key':'phase6_formula','title':'旧入口公式试算与采用','states':['unreviewed', 'approved', None],
             'inputs':[{'key':'entry','title':'原计算入口','kind':'select','required':True,'options':formulas},
                       {'key':'apply','title':'采用可计算结果（关闭为只试算）','kind':'boolean','default':False,'options':[]}]})
         options['workflow']['print_entries']=[{'value':e['value'],'label':e['label']} for e in options['workflow'].get('entries',[])]

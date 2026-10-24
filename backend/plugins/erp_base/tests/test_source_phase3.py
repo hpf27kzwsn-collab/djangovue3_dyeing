@@ -256,9 +256,9 @@ class Phase3OperationTests(TestCase):
         self.assertEqual(response.status_code,200,response.data)
         response=client.post(endpoint+'phase3_carry/',{'name':'Sp_UpdateGrayStock','kind':0,
             'maxstockdate':at(1).isoformat(),'startdate':at(1).isoformat(),'enddate':at(3).isoformat()},format='json')
-        self.assertEqual(response.status_code,200,response.data)
+        self.assertEqual(response.status_code,404)
         response=client.post(endpoint+'phase3_operation/',{'name':'Sp_Stuffin_Price'},format='json')
-        self.assertEqual(response.status_code,200,response.data)
+        self.assertEqual(response.status_code,404)
 
     def test_semi_scan_uses_receipt_and_workcard_paths(self):
         create('SemiIn',SheetSeries='S',CustomerID='C')

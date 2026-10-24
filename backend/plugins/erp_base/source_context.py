@@ -18,7 +18,6 @@ class SourceDocumentContext(ErpModel):
 class SourceBusinessParameter(ErpModel):
     name = models.CharField('原业务参数名称', max_length=100, unique=True)
     value = models.TextField('原业务参数值', null=True, blank=True)
-    captured_at = models.DateTimeField('原参数核对时间', null=True, blank=True)
 
     class Meta:
         db_table = 'erp_base_sourcebusinessparameter'

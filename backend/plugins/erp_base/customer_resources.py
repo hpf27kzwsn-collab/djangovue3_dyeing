@@ -7,7 +7,7 @@ BUSINESS_CONFIG_TABLES = {
     's_SaveMessRule', 's_SaveMessRuleDetail',
 }
 SUPPORT_MODELS = {
-    'BusinessAction', 'LegacyImportBatch', 'LegacyImportIssue', 'NumberingRule',
+    'BusinessAction', 'LegacyImportBatch', 'NumberingRule',
     'SourceBusinessParameter', 'QualityQuantityBatch', 'QualityQuantitySource',
 }
 DEVELOPMENT_ACTIONS = {
@@ -54,10 +54,12 @@ def configure(options):
         if not workflow.get('source_model'):
             continue
         # 通用确认不是客户录单步骤；有明确原审核字段的单据保留审核及反审。
-        reviewed = 'old_right_status' in config['crud_fields']
+        reviewed = 'old_right_status' in config['crud_fields'] and any(action['key']=='approve' for action in workflow.get('actions',[]))
         excluded = DEVELOPMENT_ACTIONS | {'confirm'}
         if name=='SourceDyePFieldValid':
             excluded |= {'machine_board'}
+        if reviewed:
+            workflow['editable_states'] = ['unreviewed',None]
         if not reviewed:
             excluded |= {'approve', 'reopen'}
             workflow.pop('editable_states', None)
@@ -77,8 +79,6 @@ def configure(options):
             workflow['actions'].append({'key':'business_query','title':title,'detail':False,'inputs':inputs})
         if name=='SourceDyePMachine':
             workflow['actions'].append({'key':'machine_board','title':'染色机台排程看板','detail':False,'inputs':[]})
-        hidden = {'approval_stage', 'confirmed_at', 'confirmed_by', 'approved_at', 'approved_by'}
-        config['crud_fields'] = [field for field in config['crud_fields'] if field not in hidden]
         if name=='SourceDyePCustomer':
             # 旧门户/客户端配置原值可导入留存，新系统登录不使用这些字段。
             for field in ['old_password','old_login_name','old_xmlfolder','old_port_no']:

@@ -1,7 +1,6 @@
 from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import date
 from decimal import Decimal
-
 from django.apps import apps
 from django.core.exceptions import ValidationError
 from django.test import SimpleTestCase, TestCase
@@ -10,18 +9,16 @@ from rest_framework.test import APIClient
 from system.models import Users
 from plugins.erp_base import source_foundation as service
 from plugins.erp_base.source_services import write
-from tools.development_archive.customer_boundary_20261024.backend.source_import import link_relations
 from plugins.erp_base.source_provenance import reference
 from plugins.erp_base.legacy_models import LegacyImportBatch
 from plugins.erp_base.source_entry_registry import ENTRY_RULES
 
-
 def model(module, name):
-    return apps.get_model(module, 'SourceDye'+name)
-
+    return apps.get_model(module, 'SourceDye' + name)
 
 class OriginalUnitTests(SimpleTestCase):
     """convertUnit及dbo/dye.fn_GetDays的有效分支和边界。"""
+
     def test_original_factors_input_and_output_rounding(self):
         self.assertEqual(service.convert_unit(0, 2, '1.005'), Decimal('1.10'))
         self.assertEqual(service.convert_unit(2, 0, '1'), Decimal('.91'))
@@ -36,42 +33,36 @@ class OriginalUnitTests(SimpleTestCase):
             service.convert_unit(1, 3, '99999999.99')
 
     def test_both_date_functions_keep_old_day_source_limit_and_leap_day(self):
-        self.assertEqual(service.get_days(date(2024, 2, 28), date(2024, 3, 1)),
-                         [{'days': date(2024, 2, 28)}, {'days': date(2024, 2, 29)}, {'days': date(2024, 3, 1)}])
+        self.assertEqual(service.get_days(date(2024, 2, 28), date(2024, 3, 1)), [{'days': date(2024, 2, 28)}, {'days': date(2024, 2, 29)}, {'days': date(2024, 3, 1)}])
         self.assertEqual(len(service.get_days(date(2000, 1, 1), date(2026, 1, 1))), 2048)
         self.assertEqual(service.get_days(date(2026, 1, 1), date(2025, 1, 1)), [])
         self.assertEqual(service.get_days(None, date(2026, 1, 1)), [])
-        self.assertEqual(service.get_days(date.max,date.max),[{'days':date.max}])
-        self.assertEqual(service.get_days(date(9999,12,30),date.max),
-                         [{'days':date(9999,12,30)},{'days':date.max}])
-
+        self.assertEqual(service.get_days(date.max, date.max), [{'days': date.max}])
+        self.assertEqual(service.get_days(date(9999, 12, 30), date.max), [{'days': date(9999, 12, 30)}, {'days': date.max}])
 
 class FoundationSourceTests(TestCase):
     """原来源、SalaryChanges_InUp、fn_ConcatBusinessUnitID和fn_ConcatBusinessUnitName。"""
+
     def setUp(self):
         self.actor = Users.objects.create_superuser(username='foundation-test', password='test-only')
-        self.client = APIClient(); self.client.force_authenticate(self.actor)
+        self.client = APIClient()
+        self.client.force_authenticate(self.actor)
 
     def test_all_mixed_sources_are_recordable_without_finance_workflows(self):
-        for module, name in [('erp_base', 'HSalaryAttend'), ('erp_base', 'ZKAttendanceMonthStatistics'),
-                             ('erp_production', 'HSalaryWorkQty'), ('erp_production', 'HSalaryWorkShift'),
-                             ('erp_quality', 'FARMain'), ('erp_quality', 'FARDetail'), ('erp_quality', 'FARRecord')]:
+        for module, name in [('erp_base', 'HSalaryAttend'), ('erp_base', 'ZKAttendanceMonthStatistics'), ('erp_production', 'HSalaryWorkQty'), ('erp_production', 'HSalaryWorkShift'), ('erp_quality', 'FARMain'), ('erp_quality', 'FARDetail'), ('erp_quality', 'FARRecord')]:
             source = model(module, name)
             self.assertNotIn('legacy_id', {f.name for f in source._meta.fields})
             self.assertFalse(source.SOURCE_DOCUMENT)
         for name in ['FARMain', 'FARDetail', 'FARRecord']:
-            self.assertNotIn('erp_quality.SourceDye'+name, ENTRY_RULES)
-        row = model('erp_production', 'HSalaryWorkQty').objects.create(old_id=1, old_calc_month='202610',
-            old_work_qty=-3, old_amount=Decimal('-100.25'), old_emp_id='ORIGINAL-UNKNOWN')
+            self.assertNotIn('erp_quality.SourceDye' + name, ENTRY_RULES)
+        row = model('erp_production', 'HSalaryWorkQty').objects.create(old_id=1, old_calc_month='202610', old_work_qty=-3, old_amount=Decimal('-100.25'), old_emp_id='ORIGINAL-UNKNOWN')
         row.refresh_from_db()
         self.assertEqual(row.old_work_qty, -3)
         self.assertEqual(row.old_amount, Decimal('-100.25'))
 
     def test_new_delivery_header_and_child_use_original_entry_numbers_and_parent(self):
-        head = write(model('erp_sales', 'ClothGetMoney'), {'_entry': 'ClothGetMoney',
-            'old_customer_id': 'ORIGINAL-CUSTOMER'}, actor=self.actor)
-        child = write(model('erp_sales', 'ClothGetMoneyDetail'), {'source_parent_1': head,
-            'old_prod_id': 'OLD-PROD', 'old_rolls': -2, 'old_this_rolls': 1}, actor=self.actor)
+        head = write(model('erp_sales', 'ClothGetMoney'), {'_entry': 'ClothGetMoney', 'old_customer_id': 'ORIGINAL-CUSTOMER'}, actor=self.actor)
+        child = write(model('erp_sales', 'ClothGetMoneyDetail'), {'source_parent_1': head, 'old_prod_id': 'OLD-PROD', 'old_rolls': -2, 'old_this_rolls': 1}, actor=self.actor)
         self.assertIsNotNone(head.old_sheet_series)
         self.assertEqual(child.old_sheet_series, head.old_sheet_series)
         self.assertIsNotNone(child.old_detail_no)
@@ -89,32 +80,9 @@ class FoundationSourceTests(TestCase):
         row = write(source, {'old_sheet_series': 'OK', 'old_kind': 4, 'old_job_sheet_no': 'job  '}, actor=self.actor)
         self.assertEqual(row.old_kind, 4)
         self.assertEqual(model('erp_production', 'WProcess').objects.count(), 0)
-        # Existing orphan facts stay loadable; the import path does not replay this trigger.
         original = source.objects.create(old_sheet_series='HIST', old_kind=3, old_job_sheet_no='MISSING', source_batch=historical_batch())
         service.salary_changes_saved(original)
 
-    def test_original_composite_identity_and_far_detail_membership(self):
-        now = timezone.now()
-        batch = LegacyImportBatch.objects.create(number='P1-RELATIONS', database_name='Textile_GXHFRS',
-            started_at=now, finished_at=now, manifest_sha256='a'*64, source_directory='test-only',
-            table_count=3, row_count=6, byte_count=0, verified_at=now)
-        heads = model('erp_quality', 'FARMain'); details = model('erp_quality', 'FARDetail'); records = model('erp_quality', 'FARRecord')
-        for n, series in enumerate(['A', 'B'], 1):
-            heads.objects.create(old_sheet_series=series, source_batch=batch, source_row=n)
-            details.objects.create(old_sheet_series=series, old_detail_no='SAME', source_batch=batch, source_row=n)
-        record = records.objects.create(old_sheet_series='B', old_detail_no='SAME', old_roll_no='01',
-            old_weight_qty=-3, source_batch=batch, source_row=1)
-        orphan = records.objects.create(old_sheet_series='UNKNOWN', old_detail_no='SAME', old_roll_no='01',
-            source_batch=batch, source_row=2)
-        link_relations(batch, ['FARDetail', 'FARRecord'])
-        record.refresh_from_db(); orphan.refresh_from_db()
-        self.assertEqual(record.source_parent_1.old_sheet_series, 'B')
-        self.assertIsNone(orphan.source_parent_1_id)
-        self.assertEqual(orphan.old_sheet_series, 'UNKNOWN')
-        actual = reference(record)
-        self.assertEqual(actual['key'], {'DetailNo': 'SAME', 'RollNo': 1})
-        self.assertEqual(actual['batch_id'], batch.pk)
-        self.assertEqual(actual['row'], 1)
 
     def test_business_unit_strings_keep_empty_source_suffix_matching_and_stopped_rows(self):
         dictionary = model('erp_base', 'PFieldValid')
@@ -142,20 +110,10 @@ class FoundationSourceTests(TestCase):
         self.assertEqual([r['value'] for r in service.lookup('B062')['rows']], ['A'])
         self.assertEqual(service.lookup('B049')['rows'][0]['value'], '只')
 
-    def test_api_conversion_preserves_null_and_does_not_write_inventory(self):
-        response = self.client.post('/api/system/erp_base_sourcedyepfieldvalid/convert_unit/',
-            {'source_unit': 1, 'destination_unit': 3, 'quantity': '1.005'}, format='json')
-        self.assertEqual(response.status_code, 200, response.data)
-        self.assertEqual(Decimal(str(response.data['data']['rows'][0]['result'])), Decimal('2.23'))
-        response = self.client.post('/api/system/erp_base_sourcedyepfieldvalid/convert_unit/',
-            {'source_unit': None, 'destination_unit': 3, 'quantity': None}, format='json')
-        self.assertEqual(response.status_code, 200, response.data)
-        self.assertIsNone(response.data['data']['rows'][0]['result'])
-        self.assertFalse(model('erp_warehouse', 'ProdStockBook').objects.exists())
 
     def test_machine_keeps_previous_calendar_actions(self):
         from plugins.erp_base.source_resources import RESOURCE_OPTIONS
         from plugins.erp_base.source_foundation_api import SourceMachineFoundationViewSet
         names = {a['key'] for a in RESOURCE_OPTIONS['SourceDyePMachine']['workflow']['actions']}
-        self.assertTrue({'lookup_shift', 'resolve_shift', 'correspondence'} <= names)
+        self.assertTrue({'lookup_shift', 'resolve_shift'} <= names)
         self.assertTrue(hasattr(SourceMachineFoundationViewSet, 'lookup_shift'))

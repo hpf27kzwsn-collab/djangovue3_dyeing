@@ -85,7 +85,7 @@ class SixGroupFormulaTests(TestCase):
         row=self.save('StuffWeightPhase','NormalStuffWeightPhaseDetail',SheetSeries='SIXO',PhaseNo=1,BathRatio=7,ProgramID='P')
         self.assertEqual(row.old_bath_ratio,7)
         from plugins.erp_base.models import BusinessAction
-        self.assertTrue(BusinessAction.objects.filter(entity=row._meta.label,object_id=row.pk,action='entry_formula_source_pending').exists())
+        self.assertFalse(BusinessAction.objects.filter(entity=row._meta.label,object_id=row.pk,action='entry_formula_source_pending').exists())
 
     def test_zero_divisor_retains_prior_transaction_and_explicit_anomaly_is_recordable(self):
         row=self.save('StuffWeight','ReworkStuffWeight',SheetSeries='SIXZ',SheetNo='SIXZ',ClothQtyKg=10,Votl=20)

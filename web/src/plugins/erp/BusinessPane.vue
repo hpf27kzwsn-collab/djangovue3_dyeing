@@ -97,7 +97,6 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons,maintenan
   data.title=account.menus.find(menu=>menu.component_name===props.entity)?.name??businessTitle(data.title)
   for(const field of data.fields)field.title=businessFieldTitle(field.title)
   if(data.workflow?.source_model&&!maintenance.value)for(const field of data.fields){
-    if(['approval_stage','confirmed_at','confirmed_by','approved_at','approved_by'].includes(field.key))field.column={...field.column,show:false}
   }
   if(props.foundation){
     const entry=props.foundation
@@ -149,7 +148,7 @@ watch(()=>[props.entity,props.foundation,account.menus,account.buttons,maintenan
         <p v-if="report.period">统计区间：{{report.period.start}} 至 {{report.period.end}}<span v-if="report.period.month_start">；月起点：{{report.period.month_start}}</span></p>
         <p v-if="report.denominator">原分母：{{report.denominator}}；来源：{{report.denominator_reference||'未提供'}}</p>
         <p v-if="report.quantity_sources">数量来源依据：{{report.quantity_reference||'未提供'}}；本次输入 {{report.quantity_sources.length}} 行</p>
-        <p v-if="report.quantity_mapping">数量取数状态：{{({mapped:'已自动映射',unavailable:'尚无来源批次',manual:'本次手动输入'} as Record<string,string>)[report.quantity_mapping.state]}}<span v-if="report.quantity_mapping.batch_id">；批次 {{report.quantity_mapping.batch_id}}；抽取时间 {{report.quantity_mapping.captured_at}}</span></p>
+        <p v-if="report.quantity_mapping">数量取数状态：{{({mapped:'已采用本地数量集',unavailable:'尚无本地数量集',manual:'本次手动输入'} as Record<string,string>)[report.quantity_mapping.state]}}<span v-if="report.quantity_mapping.batch_id">；数量集 {{report.quantity_mapping.batch_id}}</span></p>
         <p v-if="report.ambiguous">原检查存在多个候选，已逐项列出结果。</p>
         <p v-if="report.calculation_mode">上月栏目口径：{{report.calculation_mode==='legacy'?'原栏目连接':'明确修正上月栏目连接'}}</p>
         <p v-if="report.mode">同比口径：{{report.mode==='legacy'?'原过程':'同期修正'}}</p>

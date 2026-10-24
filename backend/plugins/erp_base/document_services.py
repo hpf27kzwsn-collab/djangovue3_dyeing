@@ -1,9 +1,7 @@
 """整单主从事务；参数类型和页面权限由接口明确处理。"""
 from django.core.exceptions import ValidationError
 from django.db import transaction
-from .business import locked, write, delete
-from .business_policies import policy_for, document_children
-from .source_documents import SourceRecord
+from .business_policies import document_children
 from . import source_services
 from .source_phase6_save_timing import document_formulas
 
@@ -12,23 +10,16 @@ def write_row(model, data, item, actor, department):
     values = dict(data, modifier=actor)
     if item is None:
         values.update(creator=actor, dept_belong_id=department)
-    if issubclass(model, SourceRecord):
-        values.pop('modifier')
-        return source_services.write(model, values, item, actor, apply_effects=False)
-    return write(model, values, item, policy_for(model))
+    values.pop('modifier')
+    return source_services.write(model, values, item, actor, apply_effects=False)
 
 
 @transaction.atomic
 @document_formulas()
 def save_document(item, actor, head, children):
     model = type(item)
-    original = issubclass(model, SourceRecord)
-    if original:
-        item = source_services.lock_chain(item)[-1]
-        source_services.editable(source_services.chain(item))
-    else:
-        item = locked(item)
-        policy_for(model)['editable'](item)
+    item = source_services.lock_chain(item)[-1]
+    source_services.editable(source_services.chain(item))
     allowed = document_children(model)
     if set(children) - set(allowed):
         raise ValidationError({'children': '明细类型不属于本表头。'})
@@ -49,11 +40,7 @@ def save_document(item, actor, head, children):
             rows = child.objects.filter(pk__in=keys, **{parent_key: item})
             if rows.count() != len(set(keys)):
                 raise ValidationError({'children': '待删除明细不属于本表头。'})
-            if original:
-                source_services.delete(rows,actor,apply_effects=False)
-            else:
-                delete(rows, policy_for(child))
-    if original:
-        source_services.finish(source_services.chain(item), actor)
-        item.refresh_from_db()
+            source_services.delete(rows,actor,apply_effects=False)
+    source_services.finish(source_services.chain(item), actor)
+    item.refresh_from_db()
     return item

@@ -257,14 +257,6 @@ class QuoteSampleTests(TestCase):
         undo_trial(item,self.actor,**self.event)
         self.assertEqual(active(reader('WProcess','erp_production')).count(),0)
 
-    def test_http_actions(self):
-        response=self.client.post('/api/system/erp_sales_sourcedyequote/quote_function/',{'function':'fn_GetPackPrice','process':'GX'},format='json')
-        self.assertEqual(response.status_code,200,response.data)
-        item=self.sample();root=f'/api/system/erp_sampling_sourcedyedyedipsrecord/{item.pk}/'
-        data={'variant':'Sp_DyeDipsRecord','scope':'selected','at':self.at.isoformat(),'reason':'接口核对'}
-        for name,body in [('preview_sample_variant',{key:data[key] for key in ['variant','scope']}),
-                          ('apply_sample_variant',data),('undo_sample_variant',{key:data[key] for key in ['at','reason']})]:
-            response=self.client.post(root+name+'/',body,format='json');self.assertEqual(response.status_code,200,response.data)
 
     def test_http_schedule_and_trial_actions(self):
         color=self.old('DyeLabColor',ColorNum='C',ColorNo='N')

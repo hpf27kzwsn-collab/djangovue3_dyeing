@@ -8,7 +8,7 @@ const props=defineProps<{row:any}>(),emit=defineEmits(['saved'])
 const data=ref<any>(),selected=ref<any>(),choice=ref<any>(),saving=ref(false)
 const chooser=ref<InstanceType<typeof OrderPriceChooser>>()
 const account=useAccount()
-const frozen=computed(()=>data.value?.historical||['confirmed','approved'].includes(props.row.approval_stage)||!account.can('erp_sales_sourcedyeordercolor:patch'))
+const frozen=computed(()=>data.value?.historical||props.row.review_state==='approved'||!account.can('erp_sales_sourcedyeordercolor:patch'))
 async function load(){data.value=(await api(`/api/system/erp_sales_sourcedyeordermain/${props.row.id}/pricing_lines/`)).data}
 function edit(row:any){selected.value={...row,source_parent_1:props.row.id};choice.value=undefined}
 async function save(){

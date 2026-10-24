@@ -157,7 +157,9 @@ def decode(value, column):
         values = {str(option['value']): option['value'] for option in column['options']}
 
         def relation(token):
-            return values[token.rstrip().rsplit(' [', 1)[1].removesuffix(']')]
+            text = str(token).rstrip()
+            key = text.rsplit(' [', 1)[1].removesuffix(']') if ' [' in text else text
+            return values[key]
 
         return [relation(token) for token in next(csv.reader([value], delimiter=';', strict=True))] if kind == 'multi' else relation(value)
     if kind == 'json':

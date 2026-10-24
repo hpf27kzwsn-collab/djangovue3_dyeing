@@ -83,21 +83,6 @@ class DispatchTests(TestCase):
             response=client.post(path,body,format='json')
         self.assertEqual(response.status_code,400);self.assertEqual(model('PriceAdjustDetail').objects.count(),1)
 
-    def test_original_r013_api_keeps_duplicate_outgoing_and_returns(self):
-        from rest_framework.test import APIClient
-        create('p_Customer',CustomerID='C',ShortName='客户',NameC='客户')
-        create('ProdOut',SheetSeries='O',SheetNo='OUT',CustomerID='C',SheetDate=at(1))
-        create('ProdOutDetail',SheetSeries='O',JobSheetNo='J',Rolls=3,GrayQty=4,WeightQty=5)
-        for _ in range(2):
-            create('JobSheet',SheetNo='J',JobKindID='02')
-            create('ProdIn',SheetKind=16,CustomerID='C',SheetNo='RET',SheetDate=at(2),Rolls=2,GaryWeight=3,WeightQty=4)
-        client=APIClient();client.force_authenticate(self.actor)
-        response=client.post('/api/system/erp_production_sourcedyejobsheet/phase6_template/',{'index':152,'format':'Proof','load_records':True},format='json')
-        self.assertEqual(response.status_code,200,response.data)
-        data=response.data['data'];self.assertEqual(data['record_count'],4)
-        self.assertEqual(data['html'].count('>OUT</div>'),2)
-        self.assertEqual(data['html'].count('>退车间</div>'),2)
-        self.assertIn('返工布',data['html'])
 
 
 class ConditionalPrintTests(SimpleTestCase):

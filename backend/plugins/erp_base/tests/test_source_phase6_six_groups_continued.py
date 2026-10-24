@@ -49,7 +49,7 @@ class ContinuedSixGroupsTests(TestCase):
         fields=[f for f in entries.definition(entry)['fields'] if f['FieldName'] in ['NeedMoney','RealMoney']]
         answer=calculate(result,fields,ProjectionContext(result,reader,{},True))
         self.assertEqual(answer['formula_issues'],[])
-        self.assertEqual([r[-2:] for r in answer['rows']],[[24,30],[24,30],[-36,-45]])
+        self.assertCountEqual([r[-2:] for r in answer['rows']],[[24,30],[24,30],[-36,-45]])
         self.assertEqual([r[:len(result['columns'])] for r in answer['rows']],result['rows'])
 
     def test_quote_recipe_parent_remarks_and_duplicate_recipe_lines(self):

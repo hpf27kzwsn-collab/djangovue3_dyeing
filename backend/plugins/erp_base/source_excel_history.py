@@ -38,8 +38,8 @@ def save(view,serializer,audit):
         upload=view.request.FILES['file'];upload.seek(0);digest=sha256(upload.read()).hexdigest();now=timezone.now()
         settings=view.excel_history_settings
         package=settings.get('资料批次号')
-        view.excel_history_batch=LegacyImportBatch.objects.get_or_create(number=package or 'xlsx-'+uuid4().hex,defaults=dict(database_name='',started_at=now,finished_at=now,manifest_sha256=settings.get('批次摘要') or digest,source_directory=upload.name,table_count=int(settings.get('原表数') or 1),row_count=0,byte_count=0,verified_at=now,note='用户上传Excel原值导入；保留文件内行号和原字段，不触发新编号、库存或生产事件。',**audit))[0]
+        view.excel_history_batch=LegacyImportBatch.objects.get_or_create(number=package or 'xlsx-'+uuid4().hex,defaults=dict(started_at=now,finished_at=now,manifest_sha256=digest,source_directory=upload.name,row_count=0,byte_count=0,note='用户上传Excel原值导入；保留文件内行号和原字段，不触发新编号、库存或生产事件。',**audit))[0]
     ordinal=serializers.IntegerField(min_value=1).run_validation(view.excel_history_rows[serializer.context['excel_row']])
     if serializer.Meta.model.objects.filter(source_batch=view.excel_history_batch,source_row=ordinal).exists():
         raise serializers.ValidationError('本批次的该原表提取行已承接，请核对原行序号；未覆盖或跳过。')
-    return serializer.Meta.model.objects.create(**serializer.validated_data,source_batch=view.excel_history_batch,source_row=ordinal,approval_stage=None,**audit)
+    return serializer.Meta.model.objects.create(**serializer.validated_data,source_batch=view.excel_history_batch,source_row=ordinal,**audit)

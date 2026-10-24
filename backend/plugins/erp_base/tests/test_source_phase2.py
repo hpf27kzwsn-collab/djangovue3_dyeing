@@ -283,7 +283,10 @@ class PhaseTwoTests(TestCase):
     def test_page_action_permission_names_match_registered_endpoints(self):
         from plugins.erp_sales.source_resources import RESOURCE_OPTIONS
         from plugins.erp_base.source_api import SourceOrderViewSet
-        methods={a.__name__:a for a in SourceOrderViewSet.get_extra_actions()}
+        from system.views import view_for
+        from system.catalog import ENTITIES
+        entity='erp_sales_sourcedyeordermain'
+        methods={a.__name__:a for a in view_for(entity,ENTITIES[entity]).get_extra_actions()}
         actions=RESOURCE_OPTIONS['SourceDyeOrderMain']['workflow']['actions']
         for action in actions:
             if action['key'] in ['phase2_report','app_order_save','app_order_modify','app_order_check','refresh_order_prices']:

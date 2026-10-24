@@ -87,30 +87,6 @@ class UnitAndDefectTests(TestCase):
             self.assertEqual(response.status_code,200,response.data)
         self.assertEqual(list(target.objects.values_list('old_sum_dots',flat=True)),[6,6])
 
-    def test_h023_api_reports_original_paper_limit_and_retains_query_duplicates(self):
-        from rest_framework.test import APIClient
-        from plugins.erp_base.source_phase6_entries import run
-        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_api import templates
-        from plugins.erp_base.source_phase6_rendering import render,reference_columns
-        from .test_source_phase6 import reader
-        for _ in range(2):
-            create('JobSheet',SheetNo='J')
-            create('JobSheetRegister',SheetNo='J',JobSheetNo='J',MachineNo='M')
-        client=APIClient();client.force_authenticate(self.actor)
-        response=client.post('/api/system/erp_production_sourcedyejobsheet/phase6_template/',
-            {'index':25,'format':'Proof','load_records':True},format='json')
-        self.assertEqual(response.status_code,400,response.data)
-        self.assertIn('超过纸张可用高度',str(response.data))
-        result=run('JobSheetRegister',{},reader,True)
-        self.assertEqual(result['count'],4)
-        # 加高测试副本用于验证填数，不修改/升级原H023模板。
-        row=dict(templates()[25]);original=row['TemplateXml']
-        row['TemplateXml']=base64.b64encode(base64.b64decode(original).replace(b'PageHeight="350"',b'PageHeight="400"')).decode()
-        data=render(row,reference_columns(row,result,reader))
-        self.assertEqual(data['record_count'],4)
-        self.assertEqual(data['html'].count('>J</div>'),4)
-        self.assertEqual(len(data['formatting_usage']['unreferenced']),5)
-        self.assertFalse(data['formatting_usage']['has_assignments'])
 
 
 class FormattingRuleTests(SimpleTestCase):

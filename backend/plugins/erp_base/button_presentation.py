@@ -80,8 +80,6 @@ def present(entity, model, action):
     item = {**action, **policy, 'display_title': TITLES.get(key, action['title'])}
     if key in REVERSALS:
         item['effect_required'] = REVERSALS[key]
-    if entity == 'erp_sampling_sampleconfirmation' and key == 'send':
-        item['hide_when'] = [*item.get('hide_when', []), 'sent_at']
     item['inputs'] = [{**field, 'options': [
         {**option, 'disabled': True, 'label': option['label'] + '（暂缓）'}
         if field['key'] in ['name', 'entry', 'function', 'operation'] and option['value'] in DEFERRED_OPTIONS
@@ -92,14 +90,6 @@ def present(entity, model, action):
                                'kind':'boolean','default':True,'required':False,'options':[]})
     if key in PROCESS_TOOLS:
         item['placement'] = 'maintenance'
-    if key == 'confirm' and item['title'] == '确认' and hasattr(model, 'SOURCE_TABLE'):
-        item['placement'] = 'maintenance'
-        item['display_title'] = '原确认阶段处理'
-    if key == 'approve' and hasattr(model, 'SOURCE_TABLE'):
-        if 'RightStatus' not in model.SOURCE_FIELDS:
-            item['placement'] = 'maintenance'
-        else:
-            item['states'] = ['draft', 'confirmed']
     if item['placement'] == 'maintenance' or item['placement'] == 'automatic':
         item['topic'] = '业务维护'
     else:

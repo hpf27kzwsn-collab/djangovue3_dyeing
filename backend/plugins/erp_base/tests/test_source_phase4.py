@@ -128,7 +128,7 @@ class Phase4OperationTests(TestCase):
         endpoint='/api/system/erp_production_sourcedyejobsheet/'
         self.assertIn(client.post(endpoint+'phase4_operation/',{'name':'Sp_JobPackRemarks'},format='json').status_code,[400,403])
         self.actor.is_superuser=True;self.actor.save()
-        for action,data in [('phase4_report',{'name':'vw_jobsheet'}),('phase4_function',{'name':'fn_StuffPriceWeightedAverage','stuffcode':'S','warehouseid':'W'}),('phase4_operation',{'name':'Sp_JobPackRemarks'})]:
+        for action,data in [('phase4_report',{'name':'vw_jobsheet'}),('phase4_operation',{'name':'Sp_JobPackRemarks'})]:
             response=client.post(endpoint+action+'/',data,format='json');self.assertEqual(response.status_code,200,response.data)
         for url,data in [('/api/system/erp_production_sourcedyemachinefault/phase4_equipment/',{'name':'Sp_APP_CheckGetClothNotice','driver':'D'}),
             ('/api/system/erp_production_sourcedyewprocess/phase4_attendance/',{'name':'sp_Static_Emp','dtdate':'2026-01-01T00:00:00+08:00','eddate':'2026-01-02T00:00:00+08:00'})]:

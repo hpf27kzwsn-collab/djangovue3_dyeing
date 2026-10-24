@@ -87,23 +87,6 @@ class PeriodStockTests(TestCase):
         item=services.write(m,{'old_this_read_qty':30,'old_amount':Decimal('-99')},item,actor=actor)
         self.assertEqual((item.old_use_qty,item.old_amount),(22,-99))
 
-    def test_stock_period_api_and_csv_keep_explicit_basis_and_duplicate_candidates(self):
-        from rest_framework.test import APIClient
-        import csv,io
-        client=APIClient();client.force_authenticate(get_user_model().objects.create(username='p6-period-api',is_superuser=True))
-        create('ProdStock',StockDate=at(1),CarryDate=at(1),CustomerID='C',WareHouseID='W',PreMonthRolls=-2,PreMonthWeightQty=-4)
-        params={'StockDate':'2026-01-01','FromDate':'2026-01-02','UntilDate':'2026-01-03','QuantityBasis':'weight'}
-        path='/api/system/erp_production_sourcedyejobsheet/'
-        body={'entry':'vwProdStockTotal','parameters':params,'load_records':True}
-        response=client.post(path+'phase6_query/',body,format='json')
-        self.assertEqual(response.status_code,200,response.data)
-        self.assertEqual(response.data['data']['period']['opening_date'],'2026-01-01')
-        response=client.post(path+'phase6_export/',body,format='json')
-        self.assertEqual(response.status_code,200,response.content)
-        data=list(csv.reader(io.StringIO(response.content.decode('utf-8-sig'))))
-        self.assertEqual(data[1][[x.lower() for x in data[0]].index('residualqty')],'-4.00')
-        params['UntilDate']='bad'
-        self.assertEqual(client.post(path+'phase6_query/',body,format='json').status_code,400)
 
 
 class GroupFooterPrintTests(SimpleTestCase):

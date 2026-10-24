@@ -35,18 +35,6 @@ class EntryBehaviorTests(TestCase):
             with self.subTest(kind=kind):self.assertEqual(login_value(kind,self.actor),value)
         self.assertEqual(source('h_Employee').count(),2)
 
-    def test_original_lookup_returns_each_duplicate_join_and_copies_original_code(self):
-        from plugins.erp_base.source_phase6_editors import options
-        for name in ['甲','乙']:create('h_Employee',EmpID='DUP',Name=name,DeptID='D',IsOut=False)
-        for name in ['部门一','部门二']:create('p_Dept',DeptID='D',Name=name)
-        result=options('ArticleOutDetail','EmpID','DUP',reader)
-        self.assertTrue(result['implemented']);self.assertEqual(len(result['rows']),4)
-        self.assertTrue(all(r['id']=='DUP' for r in result['rows']))
-        client=APIClient();client.force_authenticate(self.actor)
-        response=client.post('/api/system/'+model('ArticleOutDetail')._meta.label_lower.replace('.','_')+'/phase6_query/',{
-            'entry':'ArticleOutDetail','editor_field':'EmpID','filter_text':'DUP'},format='json')
-        self.assertEqual(response.status_code,200,response.data)
-        self.assertEqual(len(response.data['data']['rows']),4)
 
     def test_editor_requires_original_registered_field(self):
         from plugins.erp_base.source_phase6_editors import options
@@ -113,17 +101,6 @@ class EntryBehaviorTests(TestCase):
         self.assertEqual((first.old_pdots,first.old_pkg,first.old_prolls,first.old_plength_qyt),(-2,Decimal('-1.25'),1,-1))
         self.assertEqual(second.old_pdots,3);self.assertIsNone(second.old_pkg)
 
-    def test_original_h003_api_fills_authorized_query(self):
-        from plugins.erp_base import source_phase6_entries as entries
-        row=templates()[4];layout=describe(row)
-        columns=sorted({b['DataMember'].split('.',1)[1] for band in layout['bands'] for c in leaves(band['controls']) for b in c['bindings']})
-        result={'entry':'DyeLabColor','columns':[{'name':c} for c in columns],
-                'rows':[[timezone.make_aware(datetime(2026,10,17)) if c=='SheetDate' else '<数据>' for c in columns]]}
-        client=APIClient();client.force_authenticate(self.actor)
-        with patch.object(entries,'run',return_value=result) as run:
-            response=client.post('/api/system/erp_sampling_sourcedyedyelabmain/phase6_template/',{'index':4,'format':'Proof'},format='json')
-        self.assertEqual(response.status_code,200,response.data);self.assertEqual(response.data['data']['page_count'],1)
-        self.assertIn('&lt;数据&gt;',response.data['data']['html']);self.assertEqual(run.call_args.args[0],'DyeLabColor')
 
     def test_h003_actual_projection_resolves_reference_names_and_keeps_missing_enum_code(self):
         from plugins.erp_base import source_phase6_entries as entries

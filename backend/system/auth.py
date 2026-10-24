@@ -12,7 +12,6 @@ from drf_spectacular.utils import extend_schema, extend_schema_view, inline_seri
 from core.api import success
 from .models import Users, LoginLog, SystemConfig
 from application.build_version import BUILD_VERSION
-import requests
 
 
 def config(key, default=None):
@@ -39,10 +38,6 @@ class Login(APIView):
         agent = parse(request.META.get('HTTP_USER_AGENT', ''))
         log = dict(username=username, ip=request.META.get('REMOTE_ADDR'), browser=agent.browser.family,
                    os=agent.os.family, agent=request.META.get('HTTP_USER_AGENT', ''))
-        if config('login.ip_analysis', False):
-            response = requests.get(config('login.ip_analysis_url', 'https://ip.django-vue-admin.com/ip/analysis'), params={'ip':log['ip']})
-            response.raise_for_status()
-            log.update(response.json()['data'])
         if config('login.captcha', False):
             challenge = CaptchaStore.objects.filter(hashkey=request.data['captcha_key'], response=request.data['captcha'].lower(), expiration__gt=timezone.now()).first()
             if challenge is None:

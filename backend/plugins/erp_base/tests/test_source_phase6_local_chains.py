@@ -65,22 +65,6 @@ class LocalChainsTests(TestCase):
         self.assertEqual(len(rows),5);self.assertEqual(sorted(r['lastprice'] for r in rows if r['articleid']=='A'),[1,1,2,2])
         self.assertEqual(sum(r['machineid'] is None for r in rows),1)
 
-    def test_production_date_boundaries_filter_before_employee_aggregation_and_print(self):
-        create('p_FieldValid',FieldType='RecipeKind',Code='0',NumValue=1)
-        create('h_Employee',EmpID='E',Name='跨月员工')
-        for at in [datetime(2026,2,1,7,29),datetime(2026,2,1,7,30),datetime(2026,3,1,7,29),datetime(2026,3,1,7,30)]:
-            create('DyeDipsRecord',EmpID='E',IsDoubleDye=0,ColorVersion='A',SheetDate=timezone.make_aware(at))
-        p={'FromProductionDate':'2026-02-01','UntilProductionDate':'2026-03-01'}
-        rows=dictionaries(run('qryDyeDipsRecord',p,reader,True));self.assertEqual(rows[0]['dnum'],2)
-        self.assertEqual(dictionaries(run('qryDyeDipsRecord',{},reader,True))[0]['dnum'],4)
-        response=self.client.post('/api/system/erp_production_sourcedyejobsheet/phase6_template/',
-            {'index':155,'format':'Proof','parameters':p,'load_records':True},format='json')
-        self.assertEqual(response.status_code,200,response.data)
-        self.assertEqual(response.data['data']['period']['from_inclusive'],'2026-02-01')
-        self.assertIn('>2</div>',response.data['data']['html'])
-        for p in [{'FromProductionDate':'2026-02-01'},{'FromProductionDate':'bad','UntilProductionDate':'2026-03-01'},
-                  {'FromProductionDate':'2026-03-01','UntilProductionDate':'2026-02-01'}]:
-            with self.assertRaises(ValidationError):run('qryDyeDipsRecord',p,reader,True)
 
     def test_purchase_transfer_explicit_head_and_quantity_preserves_repeated_use(self):
         first=create('PurMain',SheetSeries='P',SupplierID='A',BusinessUnitID='A')
@@ -104,16 +88,6 @@ class LocalChainsTests(TestCase):
         with self.assertRaises(ValidationError):purchase_to_product(line,wrong,'length',18,9,'W',None,None,self.actor)
         self.assertEqual(model('ProdIn').objects.count(),3)
 
-    def test_original_employee_proof_queries_actual_rows_and_original_lookup_names(self):
-        create('p_Dept',DeptID='D',Name='染色车间')
-        create('p_FieldValid',FieldType='EmpKind',Code='1',Name='生产人员')
-        for _ in range(2):create('h_Employee',EmpID='E',Name='同名员工',DeptID='D',EmpKind=1,IsOut=False)
-        response=self.client.post('/api/system/erp_production_sourcedyejobsheet/phase6_template/',
-            {'index':221,'format':'Proof','load_records':True},format='json')
-        self.assertEqual(response.status_code,200,response.data)
-        self.assertEqual(response.data['data']['record_count'],2)
-        self.assertEqual(response.data['data']['html'].count('>同名员工</div>'),2)
-        self.assertIn('生产人员',response.data['data']['html'])
 
     def test_twenty_added_auto_entries_match_original_formula_and_manual_null_wins(self):
         from plugins.erp_base import source_services as services

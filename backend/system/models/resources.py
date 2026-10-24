@@ -96,19 +96,7 @@ class LoginLog(CoreModel):
     os = models.CharField('操作系统', max_length=200, blank=True)
     status = models.BooleanField('成功', default=True)
     msg = models.CharField('结果', max_length=255, blank=True)
-    location = models.CharField('地点', max_length=255, blank=True)
     agent = models.TextField('客户端信息', blank=True)
-    continent = models.CharField('洲', max_length=100, blank=True)
-    country = models.CharField('国家', max_length=100, blank=True)
-    province = models.CharField('省份', max_length=100, blank=True)
-    city = models.CharField('城市', max_length=100, blank=True)
-    district = models.CharField('区县', max_length=100, blank=True)
-    isp = models.CharField('运营商', max_length=100, blank=True)
-    area_code = models.CharField('区域编码', max_length=100, blank=True)
-    country_english = models.CharField('国家英文名', max_length=100, blank=True)
-    country_code = models.CharField('国家代码', max_length=100, blank=True)
-    longitude = models.CharField('经度', max_length=100, blank=True)
-    latitude = models.CharField('纬度', max_length=100, blank=True)
 
     class Meta:
         verbose_name = '登录日志'

@@ -35,6 +35,7 @@ class Command(BaseCommand):
             actions = resource_actions(entity, view_for(entity, model))
             current_values = [f'{entity}:{key}' for key, _, _, _ in actions]
             MenuButton.objects.filter(menu=menu).exclude(value__in=current_values).delete()
+            MenuField.objects.filter(model=model._meta.label).exclude(field_name__in=[f.name for f in model._meta.get_fields()]).delete()
             if issubclass(model, SourceRecord):
                 existing={button.value for button in MenuButton.objects.filter(menu=menu)}
                 MenuButton.objects.bulk_create([MenuButton(value=f'{entity}:{key}',name=title,menu=menu,method=verb,api=api)
@@ -63,7 +64,7 @@ class Command(BaseCommand):
         groups={key:SystemConfig.objects.get_or_create(key=key,defaults={'title':title})[0] for key,title in [('site','平台设置'),('login','登录设置'),('base','基础设置')]}
         for key, title, value in [('site.title','平台名称','ERP 管理平台'), ('login.captcha','登录验证码',False),
                                  ('site.logo','平台 Logo',''),('site.subtitle','平台介绍','组织、权限、系统数据与消息任务'),
-                                 ('login.first_password','首次登录修改密码',True),('login.ip_analysis','登录 IP 地理信息',False),
+                                 ('login.first_password','首次登录修改密码',True),
                                  ('login.copyright','版权信息','ERP 管理平台'),('login.keep_record','备案号',''),
                                  ('login.help_url','帮助链接',''),('login.privacy_url','隐私链接','/terms/privacy'),
                                  ('login.clause_url','条款链接','/terms/service'),
@@ -71,6 +72,7 @@ class Command(BaseCommand):
             group, name = key.split('.',1)
             SystemConfig.objects.get_or_create(key=name, parent=groups[group], defaults={'title':title, 'value':value,
                 'status':key!='base.default_password','form_item_type':9 if isinstance(value,bool) else 0})
+        SystemConfig.objects.filter(parent__key='login',key='ip_analysis').delete()
         root, _ = Dictionary.objects.get_or_create(value='status', is_value=False, defaults={'label':'状态'})
         for sort, (label, value) in enumerate([('启用','true'),('停用','false')]):
             Dictionary.objects.get_or_create(parent=root, value=value, defaults={'label':label,'is_value':True,'type':6,'sort':sort})

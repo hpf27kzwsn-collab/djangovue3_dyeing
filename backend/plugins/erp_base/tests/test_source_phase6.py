@@ -170,19 +170,6 @@ class Phase6Tests(TestCase):
         self.assertEqual(execute("SELECT 0 AS d UNION ALL SELECT CAST('2026-01-01' AS DATETIME)",reader),[{'d':datetime(1900,1,1)},{'d':datetime(2026,1,1)}])
         self.assertEqual(execute("SELECT CAST('2' AS VARCHAR(10))*3 AS n",reader),[{'n':6}])
 
-    def test_formula_parent_sum_duplicate_detail_and_unresolved_are_visible(self):
-        from tools.development_archive.customer_boundary_20261024.backend.source_phase6_expressions import expression,evaluate
-        item=create('GrayOut',SheetSeries='S',StockUnit=1)
-        for _ in range(2):create('GrayOutDetail',SheetSeries='S',Rolls=3)
-        self.assertEqual(expression(item,'GrayOut','Sum(Child(GrayOut_GrayOutDetail).[Rolls])',reader),6)
-        line=create('GrayInDetail',SheetSeries='G',WeightQty=5)
-        create('GrayIn',SheetSeries='G',StockUnit=3)
-        self.assertEqual(expression(line,'GrayInDetail','Parent.[StockUnit]',reader),3)
-        spec={'a':{'formula_fields':{'WeightQty':{'expression':'[DoesNotExist]+1','generate_time':1}}}}
-        with patch('plugins.erp_base.source_phase6_expressions.ENTRY_RULES',{line._meta.label:spec}):
-            result=evaluate(line,'a',reader)
-        self.assertEqual(result['rows'][0]['state'],'unresolved');self.assertEqual(result['changes'],{})
-        line.refresh_from_db();self.assertEqual(line.old_weight_qty,5)
 
     def test_save_hook_and_approval_use_all_original_matches(self):
         from plugins.erp_base.source_phase6_hooks import saved,approved

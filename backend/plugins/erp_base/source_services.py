@@ -23,8 +23,7 @@ from . import source_purchase_flow as purchase
 from . import source_quality_flow as quality
 from . import source_packaging_flow as packing
 
-OWNED = {'source_batch', 'source_row', 'approval_stage', 'confirmed_at',
-         'confirmed_by', 'approved_at', 'approved_by'}
+OWNED = {'source_batch', 'source_row'}
 
 
 def managed_fields(model):
@@ -70,8 +69,8 @@ def stage(item):
     if status == 10:
         return 'approved'
     if status == 0:
-        return 'draft'
-    return item.approval_stage
+        return 'unreviewed'
+    return None
 
 
 def editable(items):
@@ -80,8 +79,8 @@ def editable(items):
         if item.pk is not None and item.SOURCE_TABLE in ['GrayInRecord','JobGrayRecord']:
             from .source_gray_split_merge import require_active
             require_active(item)
-        if stage(item) in ['confirmed', 'approved']:
-            raise ValidationError({'approval_stage': '所属单据已经确认或审核，请先重新办理。'})
+        if item.SOURCE_DOCUMENT and stage(item) == 'approved':
+            raise ValidationError({'old_right_status': '所属单据已经审核，请先反审核。'})
 
 
 def child_rows(item):
@@ -280,7 +279,6 @@ def write(model, data, instance=None, actor=None, apply_effects=True, check_entr
         from .source_site_work import bind
         bind(item,data,entry)
     if instance is None:
-        item.approval_stage = 'draft' if item.SOURCE_DOCUMENT and 'RightStatus' in item.SOURCE_FIELDS and not parents(item) else None
         allocate(item, actor)
     if actor is not None:
         item.modifier = actor
@@ -484,53 +482,38 @@ def delete(queryset,actor=None,apply_effects=True):
 
 
 @transaction.atomic
-def advance(item, actor, expected, target):
+def approve(item, actor):
     objects = lock_chain(item)
     item = objects[-1]
     require_origin_edit(item)
     if not item.SOURCE_DOCUMENT or len(objects) > 1:
-        raise ValidationError({'approval_stage': '关联明细由所属表头办理，请从表头确认或审核。'})
-    if stage(item) not in expected:
-        raise ValidationError({'approval_stage': '当前办理阶段不允许此动作。'})
+        raise ValidationError({'review': '关联明细由所属表头审核。'})
+    if 'RightStatus' not in item.SOURCE_FIELDS:
+        raise ValidationError({'review': '此单据没有独立审核状态。'})
+    if stage(item) == 'approved':
+        raise ValidationError({'old_right_status': '此单据已经审核。'})
     validate_document(item)
-    if target=='approved':
-        from .source_phase6_guards import before as entry_before
-        entry_before(item,'BeforeApproveSQL',actor)
+    from .source_phase6_guards import before as entry_before
+    entry_before(item,'BeforeApproveSQL',actor)
     before = snapshot(item)
-    item.approval_stage = target
     at = timezone.now()
-    if target == 'confirmed':
-        item.confirmed_at, item.confirmed_by = at, actor
-    elif target == 'approved':
-        item.approved_at, item.approved_by = at, actor
-        if 'RightStatus' in item.SOURCE_FIELDS:
-            setattr(item, item.SOURCE_FIELDS['RightStatus'], 10)
+    setattr(item, item.SOURCE_FIELDS['RightStatus'], 10)
     persist(item, actor)
-    if target == 'approved':
-        sales.adjustment_audit(item, actor, True)
-        if item.SOURCE_TABLE=='ShiftArrange' and entries.entry_for(item)=='ShiftArrange':
-            from .source_shift_work import trigger,apply
-            trigger(item,{'old_right_status':10},False,actor,at)
-            apply(item,actor,at,'原排班AfterApproveSQL调整报工人员')
+    sales.adjustment_audit(item, actor, True)
+    if item.SOURCE_TABLE=='ShiftArrange' and entries.entry_for(item)=='ShiftArrange':
+        from .source_shift_work import trigger,apply
+        trigger(item,{'old_right_status':10},False,actor,at)
+        apply(item,actor,at,'原排班AfterApproveSQL调整报工人员')
     if item.SOURCE_TABLE=='MachineFault':
         from .source_equipment_faults import trigger
         trigger(item,actor,at)
     stock.refresh(item, actor)
     workflow.refresh_chain([item], actor)
-    if target=='approved':
-        from .source_phase6_hooks import approved as entry_approved
-        entry_before(item,'AfterApproveSQL',actor)
-        entry_approved(item,actor,True)
-    record(item, target, before, actor)
+    from .source_phase6_hooks import approved as entry_approved
+    entry_before(item,'AfterApproveSQL',actor)
+    entry_approved(item,actor,True)
+    record(item, 'approved', before, actor)
     return item
-
-
-def confirm(item, actor):
-    return advance(item, actor, ['draft'], 'confirmed')
-
-
-def approve(item, actor):
-    return advance(item, actor, [None, 'draft', 'confirmed'], 'approved')
 
 
 @transaction.atomic
@@ -542,36 +525,28 @@ def reopen(item, actor, reason):
     if context is not None and 'derived_from' in context.effects:
         raise ValidationError({'parent': '此记录由来源单据办理生成，请从实际来源单据重新办理。'})
     if len(objects) > 1:
-        raise ValidationError({'approval_stage': '请从所属表头重新办理。'})
-    if stage(item) not in ['confirmed', 'approved']:
-        raise ValidationError({'approval_stage': '此单据当前不在确认或审核阶段。'})
+        raise ValidationError({'review': '请从所属表头反审核。'})
+    if stage(item) != 'approved':
+        raise ValidationError({'old_right_status': '此单据当前未审核。'})
     if not reason.strip():
         raise ValidationError({'reason': '重新办理须说明原因。'})
     before = snapshot(item)
-    was_approved = stage(item) == 'approved'
-    if was_approved:
-        from .source_phase6_guards import before as entry_before
-        entry_before(item,'BeforeUnApproveSQL',actor)
-        purchase.require_change(item, 'reopen')
-    item.approval_stage = 'draft'
-    item.confirmed_at = item.approved_at = None
-    item.confirmed_by = item.approved_by = None
-    if 'RightStatus' in item.SOURCE_FIELDS:
-        setattr(item, item.SOURCE_FIELDS['RightStatus'], 0)
+    from .source_phase6_guards import before as entry_before
+    entry_before(item,'BeforeUnApproveSQL',actor)
+    purchase.require_change(item, 'reopen')
+    setattr(item, item.SOURCE_FIELDS['RightStatus'], 0)
     persist(item, actor)
-    if was_approved:
-        sales.adjustment_audit(item, actor, False)
-        if item.SOURCE_TABLE=='ShiftArrange' and entries.entry_for(item)=='ShiftArrange':
-            from .source_shift_work import trigger
-            trigger(item,{'old_right_status':0},False,actor)
+    sales.adjustment_audit(item, actor, False)
+    if item.SOURCE_TABLE=='ShiftArrange' and entries.entry_for(item)=='ShiftArrange':
+        from .source_shift_work import trigger
+        trigger(item,{'old_right_status':0},False,actor)
     if item.SOURCE_TABLE=='MachineFault':
         from .source_equipment_faults import trigger
         trigger(item,actor)
     stock.refresh(item, actor)
     workflow.refresh_chain([item], actor)
-    if was_approved:
-        from .source_phase6_hooks import approved as entry_approved
-        entry_approved(item,actor,False)
+    from .source_phase6_hooks import approved as entry_approved
+    entry_approved(item,actor,False)
     record(item, 'reopen', before, actor, reason)
     return item
 

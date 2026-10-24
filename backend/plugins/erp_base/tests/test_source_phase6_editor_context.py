@@ -29,18 +29,6 @@ class EditorContextTests(TestCase):
         self.assertEqual([r['id'] for r in result['rows']],['R','R'])
         self.assertEqual(result['original_filters'][0]['LookupFilterField'],'Mnemonic')
 
-    def test_color_plate_filters_join_rows_from_actual_api(self):
-        for _ in range(2):create('PrintColorSeparate',SheetSeries='P',PrintCode='FLOWER')
-        create('PrintColorSeparate',SheetSeries='Q',PrintCode='OTHER')
-        for _ in range(2):create('PrintColorSeparateDetail',SheetSeries='P',ColorPlateID='1',ColorPlateName='红')
-        create('PrintColorSeparateDetail',SheetSeries='Q',ColorPlateID='2',ColorPlateName='蓝')
-        actor=get_user_model().objects.create(username='selector-context',is_superuser=True)
-        client=APIClient();client.force_authenticate(actor)
-        response=client.post('/api/system/'+model('JobSheet')._meta.label_lower.replace('.','_')+'/phase6_query/',{
-            'entry':'PrintJobSheet','editor_field':'ColorPlateID','editor_context':{'PrintCode':'FLOWER'}},format='json')
-        self.assertEqual(response.status_code,200,response.data)
-        self.assertEqual(len(response.data['data']['rows']),4)
-        self.assertEqual({r['id'] for r in response.data['data']['rows']},{'1'})
 
     def test_machine_filter_uses_explicit_station_mapping_and_keeps_duplicates(self):
         for name in ['甲','乙']:create('p_Machine',MachineID='M',Name=name,StationID='S')

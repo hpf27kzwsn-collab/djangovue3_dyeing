@@ -59,7 +59,8 @@ def load():
             if not model._meta.app_label.startswith('erp_') and entity not in ['dept','user','file']:
                 continue
             menu = Menu.objects.get(component_name=entity)
-            writable = model._meta.app_label in writable_apps and issubclass(model,SourceRecord)
+            writable = model._meta.app_label in writable_apps and (
+                issubclass(model,SourceRecord) or model.__name__ in {'QualityQuantityBatch','QualityQuantitySource'})
             if key == 'erp_production_operator':
                 writable = writable and model.SOURCE_TABLE in {
                     'WProcess','WProcessStep','JobShiftEmp','WProcessAdditional','StuffWeight',

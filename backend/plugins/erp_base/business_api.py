@@ -8,10 +8,8 @@ from core.permissions import ApiPermission, scoped_queryset
 from core.responses import success
 from system.catalog import ENTITIES
 from system.views import ResourceViewSet
-from . import business
 from .business_policies import policy_for,document_children
 from .document_services import save_document
-from .source_documents import SourceRecord
 
 
 class ActionInput(serializers.Serializer):
@@ -77,29 +75,9 @@ class BusinessSerializer(CoreSerializer):
             raise serializers.ValidationError(denied)
         return super().to_internal_value(data)
 
-    def create(self, validated_data):
-        return self.write(validated_data)
-
-    def update(self, instance, validated_data):
-        return self.write(validated_data, instance)
-
-    def write(self, data, instance=None):
-        try:
-            return business.write(self.Meta.model, data, instance, policy_for(self.Meta.model))
-        except ModelValidationError as error:
-            raise serializers.ValidationError(serializers.as_serializer_error(error)) from error
-
 
 class BusinessViewSet(ResourceViewSet):
-    def destroy(self, request, *args, **kwargs):
-        item = self.get_object()
-        business.delete(self.get_queryset().filter(pk=item.pk), policy_for(type(item)))
-        return success([], '删除成功')
 
-    @action(methods=['delete'], detail=False)
-    def multiple_delete(self, request):
-        business.delete(self.get_queryset().filter(pk__in=request.data['keys']), policy_for(self.queryset.model))
-        return success([], '删除成功')
 
     def performed(self, service, parameters):
         item = service(self.get_object(), self.request.user, **parameters)
@@ -134,16 +112,14 @@ class BusinessViewSet(ResourceViewSet):
                 previous = get_object_or_404(scoped_queryset(model.objects.all(), scope), pk=key, **{parent_key: item}) if key is not None else None
                 if parent_key in data:
                     raise serializers.ValidationError({parent_key: '所属表头由整单保存确定，不接收明细中的父关联。'})
-                serializer_class = BusinessSerializer
-                if issubclass(model,SourceRecord):
-                    from .source_api import SourceRecordSerializer
-                    serializer_class = SourceRecordSerializer
+                from .source_api import SourceRecordSerializer
+                serializer_class = SourceRecordSerializer
                 # 归属由整单服务写入；验证新明细时只注入实际父项，不接收用户指定父项。
                 if previous is None:data[parent_key] = item.pk
                 serializer = serializer_for(model, serializer_class)(previous, data=data, partial=previous is not None, context={'request': request})
                 serializer.is_valid(raise_exception=True)
                 values = dict(serializer.validated_data)
-                if previous is None and issubclass(model,SourceRecord):
+                if previous is None:
                     from .source_entry_registry import ENTRY_RULES
                     from .source_entry_services import resolve_entry
                     from .source_services import parents

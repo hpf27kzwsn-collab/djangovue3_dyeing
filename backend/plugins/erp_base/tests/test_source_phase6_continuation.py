@@ -95,16 +95,6 @@ class ContinuationTests(TestCase):
             self.assertIsNone(row[names.index('outsheetdate')])
         self.assertEqual(len(result['reconstruction']['missing_columns']), 4)
 
-    def test_reconstructed_query_api_keeps_difference_and_csv_nulls(self):
-        create('JobSheet', SheetSeries='J', SheetNo='J')
-        create('JobProcess', SheetSeries='J', ProcessID='GX', ProcessNo='1')
-        path = '/api/system/erp_production_sourcedyejobsheet/'
-        body = {'entry':'qry_CraftPreCheckJobSheet','load_records':True}
-        response = self.client.post(path+'phase6_query/', body, format='json')
-        self.assertEqual(response.status_code, 200, response.data)
-        self.assertEqual(len(response.data['data']['reconstruction']['missing_columns']), 1)
-        csv = self.client.post(path+'phase6_export/', body, format='json')
-        self.assertEqual(csv.status_code, 200);self.assertIn('\\N', csv.content.decode('utf-8-sig'))
 
     def test_transfer_repeated_source_is_not_silently_removed_and_http_works(self):
         head = services.write(model('ArrivalNotice'), {'_entry':'ArrivalNotice'}, actor=self.actor)

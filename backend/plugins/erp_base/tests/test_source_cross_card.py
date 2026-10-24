@@ -1,6 +1,6 @@
 from plugins.erp_base.tests.source_fixtures import historical_batch
 from datetime import datetime, timedelta
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from django.apps import apps
 from django.core.exceptions import ValidationError
 from django.db.models import Sum
@@ -230,11 +230,12 @@ class CrossCardTests(TestCase):
             {**payload,'sheet_kind':10,'processes':[]},format='json')
         self.assertEqual(response.status_code,200,response.data)
 
-    def test_number_failure_rolls_back_return_and_new_issue_together(self):
+    def test_quantity_overflow_rolls_back_return_and_new_issue_together(self):
         source=self.job();target=self.job('T')
         line=self.old('GrayOutDetail',old_assigned_no='NONNUMERIC',old_sheet_series='OLD',old_job_sheet_no='J')
         values={key:value for key,value in self.move.items() if key!='sheet_kind'}
-        with self.assertRaises(ValidationError):
+        values['weight']=Decimal('1e80')  # 超出原数量精度才报错，非常规原编号本身允许。
+        with self.assertRaises(InvalidOperation):
             transfer_issue(line,self.actor,source,target,return_kind=16,issue_kind=34,customer='C',**values)
         self.assertEqual(self.model('GrayIn').objects.count(),0);self.assertEqual(self.model('GrayOut').objects.count(),0)
         line.refresh_from_db();self.assertEqual(line.old_assigned_no,'NONNUMERIC')

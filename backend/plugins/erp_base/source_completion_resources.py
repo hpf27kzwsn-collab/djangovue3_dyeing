@@ -32,21 +32,21 @@ def extend(resources):
         resources[child]['crud_fields'].append('source_parent_1')
     event=[field('at','办理时间','datetime',required=True),field('reason','办理说明',required=True)]
     if 'SourceDyeDyeRecipe' in resources:
-        resources['SourceDyeDyeRecipe']['workflow']['actions'].append({'key':'adopt_recipe_references','title':'选择来样及配方来源','states':[None,'draft'],'inputs':[
+        resources['SourceDyeDyeRecipe']['workflow']['actions'].append({'key':'adopt_recipe_references','title':'选择来样及配方来源','states':[None, 'unreviewed'],'inputs':[
             field('color','采用来样颜色记录','select',remote=remote('DyeLabColor','ColorNo')),
             field('original','采用原配方记录','select',remote=remote('DyeRecipe','SheetNo')),
             field('standard','采用标准配方记录','select',remote=remote('DyeRecipe','SheetNo')),*event]})
     if 'SourceDyeProdLoading' in resources:
         resources['SourceDyeProdLoading']['viewset']='plugins.erp_base.source_api.SourceLoadingViewSet'
-        resources['SourceDyeProdLoading']['workflow']['actions'].append({'key':'add_outgoing_lines','title':'选择成品出库明细装车','states':[None,'draft'],'inputs':[
+        resources['SourceDyeProdLoading']['workflow']['actions'].append({'key':'add_outgoing_lines','title':'选择成品出库明细装车','states':[None, 'unreviewed'],'inputs':[
             field('lines','采用的成品出库原行','multi',required=True,remote=remote('ProdOutDetail','DetailNo')),*event]})
     if 'SourceDyeJobInWareEdit' in resources:
         resources['SourceDyeJobInWareEdit']['viewset']='plugins.erp_base.source_api.SourceJobWarehouseViewSet'
-        resources['SourceDyeJobInWareEdit']['workflow']['actions'].append({'key':'register_outgoing','title':'根据进仓记录登记出仓','states':[None,'draft','confirmed','approved'],'inputs':[
+        resources['SourceDyeJobInWareEdit']['workflow']['actions'].append({'key':'register_outgoing','title':'根据进仓记录登记出仓','states':[None, 'unreviewed', 'approved'],'inputs':[
             field('rolls','本次登记粒数','decimal'),field('weight','本次登记重量','decimal'),*event]})
     if 'SourceDyeWDefect' in resources:
         resources['SourceDyeWDefect']['viewset']='plugins.erp_base.source_api.SourceReviewViewSet'
-        resources['SourceDyeWDefect']['workflow']['actions'].append({'key':'open_rework_card','title':'按评审开回修工卡','states':[None,'draft','confirmed','approved'],'inputs':[
+        resources['SourceDyeWDefect']['workflow']['actions'].append({'key':'open_rework_card','title':'按评审开回修工卡','states':[None, 'unreviewed', 'approved'],'inputs':[
             field('job','明确来源工卡','select',required=True,remote=remote('JobSheet','SheetNo')),
             field('quantity','回修计划数量','decimal'),field('rolls','回修计划粒数','decimal'),field('unit','分配单位编码','number'),
             field('sheet_kind','回修单据类型编码','number',required=True),field('job_kind','回修业务类型编码'),
@@ -54,7 +54,7 @@ def extend(resources):
     if 'SourceDyeOrderColor' in resources:
         route=field('route','采用工艺路线','select',remote=remote('p_FieldValid','Name'))
         route['remote']['params']={'old_field_type':'Production'}
-        resources['SourceDyeOrderColor']['workflow']['actions'].append({'key':'open_first_card','title':'订单首次开卡','states':[None,'draft'],'inputs':[
+        resources['SourceDyeOrderColor']['workflow']['actions'].append({'key':'open_first_card','title':'订单首次开卡','states':[None, 'unreviewed'],'inputs':[
             field('head','所属染整订单','select',required=True,remote=remote('OrderMain','SheetNo'),source_field='source_parent_1'),
             field('number_prefix','工卡编号前缀（如J01，可留空）'),
             field('quantity','本订单行分配数量','decimal',source_field='old_order_qty'),field('rolls','本次计划总粒数','decimal',source_field='old_order_rolls'),
@@ -65,4 +65,4 @@ def extend(resources):
     if 'SourceDyeJobSheet' in resources:
         route=field('route','明确采用工艺路线','select',required=True,remote=remote('p_FieldValid','Name'))
         route['remote']['params']={'old_field_type':'Production'}
-        resources['SourceDyeJobSheet']['workflow']['actions'].append({'key':'adopt_route','title':'采用路线生成计划工序','states':['draft',None],'inputs':[route,*event]})
+        resources['SourceDyeJobSheet']['workflow']['actions'].append({'key':'adopt_route','title':'采用路线生成计划工序','states':['unreviewed', None],'inputs':[route,*event]})

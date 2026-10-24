@@ -43,7 +43,7 @@ class SourceRecordSerializer(BusinessSerializer):
 
     def to_representation(self,instance):
         result=super().to_representation(instance)
-        result['approval_stage'] = services.stage(instance)
+        result['review_state'] = services.stage(instance)
         from .button_presentation import effect_states
         result['action_effects']=effect_states(instance)
         if instance.SOURCE_TABLE=='OrderColor' and all(self.field_permissions.get(k,{}).get('is_query',True) for k in ['old_price','old_amount']):
@@ -479,8 +479,6 @@ class SourceRecordViewSet(SourceExcelActions,BusinessViewSet):
             'evidence_reference':serializers.CharField(trim_whitespace=False)})
         return self.performed(issue,values)
 
-    @action(methods=['post'],detail=True)
-    def confirm(self,request,pk=None):return self.performed(services.confirm,{})
 
     @action(methods=['post'],detail=True)
     def approve(self,request,pk=None):return self.performed(services.approve,{})
@@ -1179,7 +1177,7 @@ class SourceQualityViewSet(SourceRecordViewSet):
             values['far_rows'],values['far_reference'],mapping=automatic(values['start'],values['end'],
                 scoped_sources(request,QualityQuantityBatch),scoped_sources(request,QualityQuantitySource),batch,**previous)
         if values['far_rows'] and not values['far_reference'].strip():
-            raise ValidationError({'far_reference':'请注明本次数量明细的来源及抽取范围。'})
+            raise ValidationError({'far_reference':'请注明本次数量明细的来源及统计范围。'})
         if name in ['Rework_Comparison1','Rework_Comparison2']:
             result=comparison(station='05' if name.endswith('1') else '06',mode=mode,query=report_query(request),**values)
         else:result=(combined if name=='Sp_ReworkCloth4' else responsibility)(query=report_query(request),**values)

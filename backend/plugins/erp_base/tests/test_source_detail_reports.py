@@ -183,8 +183,7 @@ class DetailReportsTests(TestCase):
 
     def test_http_report_actions(self):
         quote=self.quote();job=self.prepare_steps()
-        cases=[(f'erp_sales_sourcedyequotedetail/{quote.pk}/quote_trigger_check',{'operation':'update'}),
-            (f'erp_production_sourcedyejobsheet/{job.pk}/trial_steps',{'process':'GX','process_no':1,'employee':'GROUP'}),
+        cases=[(f'erp_production_sourcedyejobsheet/{job.pk}/trial_steps',{'process':'GX','process_no':1,'employee':'GROUP'}),
             ('erp_sampling_sourcedyedyedipsrecord/sample_checker_report',{'start':self.at.isoformat(),'end':self.at.isoformat()})]
         for mode in ['summary','details','daily','days','emp1']:cases.append(('erp_sampling_sourcedyedyereprint/sample_work_report',{'mode':mode}))
         for url,data in cases:

@@ -34,16 +34,16 @@ def extend(resources):
                     ('CustSelfProduct','客户缸号','text'),('LotNo','成份','text'),('DlvDate','发货日期','datetime'),('OrderQty','重量','decimal'),('OrderRolls','匹数','decimal')]]),
                 field('requirements','加工要求','editable_rows',default=[],columns=[field(k,t) for k,t in [('AtteCode','要求编码'),('AtteValue','事项内容'),('Description','描述'),('FieldType','要求类别')]])]
             for key,title,detail in [('app_order_save','按现场订单方式录入',False),('app_order_modify','替换订单并保留旧版',True)]:
-                actions.append({'key':key,'title':title,'detail':detail,'states':['draft','confirmed','approved',None],'inputs':inputs})
+                actions.append({'key':key,'title':title,'detail':detail,'states':['unreviewed', 'approved', None],'inputs':inputs})
             actions.extend([
-                {'key':'app_order_check','title':'检查原订单修改状态','states':['draft','confirmed','approved',None],'inputs':[]},
-                {'key':'refresh_order_prices','title':'回写订单收费单价','states':['draft','confirmed','approved',None],'inputs':[field('feel_only','仅手感要求','boolean',default=False),field('all_orders','全部订单手感收费','boolean',default=False)]}])
-        if model=='SourceDyeDyeReprint':actions.append({'key':'reprint_allocation','title':'按复版人员分配产量','states':['draft','confirmed','approved',None],'inputs':[]})
-        if model in ['SourceDyeStuffIn','SourceDyeArticleIn']:actions.append({'key':'material_price_adjustment','title':'生成材料涨价调整','states':['draft','confirmed','approved',None],'inputs':[]})
+                {'key':'app_order_check','title':'检查原订单修改状态','states':['unreviewed', 'approved', None],'inputs':[]},
+                {'key':'refresh_order_prices','title':'回写订单收费单价','states':['unreviewed', 'approved', None],'inputs':[field('feel_only','仅手感要求','boolean',default=False),field('all_orders','全部订单手感收费','boolean',default=False)]}])
+        if model=='SourceDyeDyeReprint':actions.append({'key':'reprint_allocation','title':'按复版人员分配产量','states':['unreviewed', 'approved', None],'inputs':[]})
+        if model in ['SourceDyeStuffIn','SourceDyeArticleIn']:actions.append({'key':'material_price_adjustment','title':'生成材料涨价调整','states':['unreviewed', 'approved', None],'inputs':[]})
         if model=='SourceDyeSmpPrescriptEntry':actions.append({'key':'complete_sample_phases','title':'补排旧配方空阶段号','detail':False,'inputs':[]})
 
         if model=='SourceDyeDyeRecipe':actions.append({'key':'refresh_recipe_costs','title':'重算全部配方原连接成本','detail':False,'inputs':[]})
-        if model=='SourceDyePriceAdjust':actions.append({'key':'original_quote_adjustment','title':'按原调价规则回写报价','states':['draft','confirmed','approved',None],'inputs':[field('audited','采用调价（关闭为反调价）','boolean',default=True)]})
+        if model=='SourceDyePriceAdjust':actions.append({'key':'original_quote_adjustment','title':'按原调价规则回写报价','states':['unreviewed', 'approved', None],'inputs':[field('audited','采用调价（关闭为反调价）','boolean',default=True)]})
         if model in ['SourceDyeSampleIn','SourceDyeSampleOut','SourceDyeSampleStockBook']:
-            actions.append({'key':'refresh_sample_book','title':'按原明细号同步小样收发','states':['draft','confirmed','approved',None],'inputs':[
+            actions.append({'key':'refresh_sample_book','title':'按原明细号同步小样收发','states':['unreviewed', 'approved', None],'inputs':[
                 field('sheet_no','原单据号',required=True),field('detail_no','原明细号',required=True),field('kind','收发类别','select',required=True,options=[{'value':1,'label':'入库'},{'value':2,'label':'出库'}])]})

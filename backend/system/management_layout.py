@@ -35,7 +35,6 @@ PAGES = {
     'download_center': ('system_records', '下载记录'),
     'erp_base_businessaction': ('system_records', '业务操作记录'),
     'erp_base_legacyimportbatch': ('system_records', '资料导入批次'),
-    'erp_base_legacyimportissue': ('system_records', '导入处理事项'),
     'periodic_task': ('system_runtime', '计划任务'),
     'task_result': ('system_runtime', '任务执行记录'),
     'interval_schedule': ('system_runtime', '间隔计划配置'),

@@ -1,0 +1,203 @@
+"""业务页面字段与分页关联选择；与模型实际字段对应。"""
+from plugins.erp_base.business_resources import options
+
+MODEL_FIELDS = {'SampleRequest': 'number document_at customer salesperson sales_order received_at due_at return_customer_sample primary_light '
+                  'secondary_light requirement_text status',
+ 'SampleLine': 'request line_number material order_line specification_snapshot customer_specification customer_color_number '
+               'color_number color_number_input color_prefix color_suffix color_depth assigned_employee original_sample_line '
+               'status',
+ 'SampleTrial': 'sample_line trial_number recipe_version operator shift started_at finished_at result_text status',
+ 'SampleConfirmation': 'sample_line trial sent_at confirmed_at result confirmed_color confirmed_recipe customer_reply',
+ 'Recipe': 'code name customer material color_standard purpose is_active',
+ 'RecipeVersion': 'recipe version original_version sample_trial primary_light color_l color_a color_b status approved_by '
+                  'approved_at valid_from',
+ 'RecipeStage': 'version sequence phase bath_ratio bath_ratio_basis ph_text curve_version water_reference water_reference_unit '
+                'hold_minutes temperature_c',
+ 'RecipeIngredient': 'stage sequence material dosage dosage_basis process_step_name note',
+ 'ProcessCurveVersion': 'code name version preparation_minutes category status',
+ 'ProcessCurveStep': 'curve_version sequence process_code_snapshot name target_temperature_c hold_minutes rate_c_per_minute '
+                     'handover_ratio instruction'}
+
+RELATIONS = {'SampleRequest': {'customer': ('erp_base_party', 'name'),
+                   'salesperson': ('erp_base_employee', 'name'),
+                   'sales_order': ('erp_sales_salesorder', 'number'),
+                   'primary_light': ('erp_base_businesschoice', 'name'),
+                   'secondary_light': ('erp_base_businesschoice', 'name')},
+ 'SampleLine': {'request': ('erp_sampling_samplerequest', 'number'),
+                'material': ('erp_base_material', 'name'),
+                'order_line': ('erp_sales_salesorderline', 'line_number'),
+                'color_depth': ('erp_base_businesschoice', 'name'),
+                'assigned_employee': ('erp_base_employee', 'name'),
+                'original_sample_line': ('erp_sampling_sampleline', 'line_number')},
+ 'SampleTrial': {'sample_line': ('erp_sampling_sampleline', 'line_number'),
+                 'recipe_version': ('erp_sampling_recipeversion', 'version'),
+                 'operator': ('erp_base_employee', 'name'),
+                 'shift': ('erp_base_shift', 'name')},
+ 'SampleConfirmation': {'sample_line': ('erp_sampling_sampleline', 'line_number'),
+                        'trial': ('erp_sampling_sampletrial', 'id'),
+                        'confirmed_color': ('erp_base_colorstandard', 'code'),
+                        'confirmed_recipe': ('erp_sampling_recipeversion', 'version')},
+ 'Recipe': {'customer': ('erp_base_party', 'name'),
+            'material': ('erp_base_material', 'name'),
+            'color_standard': ('erp_base_colorstandard', 'code')},
+ 'RecipeVersion': {'recipe': ('erp_sampling_recipe', 'name'),
+                   'original_version': ('erp_sampling_recipeversion', 'version'),
+                   'sample_trial': ('erp_sampling_sampletrial', 'id'),
+                   'primary_light': ('erp_base_businesschoice', 'name'),
+                   'approved_by': ('erp_base_employee', 'name')},
+ 'RecipeStage': {'version': ('erp_sampling_recipeversion', 'version'),
+                 'phase': ('erp_base_businesschoice', 'name'),
+                 'curve_version': ('erp_sampling_processcurveversion', 'name'),
+                 'water_reference_unit': ('erp_base_unit', 'name')},
+ 'RecipeIngredient': {'stage': ('erp_sampling_recipestage', 'version'), 'material': ('erp_base_material', 'name')},
+ 'ProcessCurveVersion': {'category': ('erp_base_businesschoice', 'name')},
+ 'ProcessCurveStep': {'curve_version': ('erp_sampling_processcurveversion', 'name')}}
+
+VIEWSETS = {'SampleRequest': 'plugins.erp_sampling.views.SampleRequestViewSet',
+ 'SampleLine': 'plugins.erp_sampling.views.SampleLineViewSet',
+ 'SampleTrial': 'plugins.erp_sampling.views.SampleTrialViewSet',
+ 'SampleConfirmation': 'plugins.erp_sampling.views.SampleConfirmationViewSet',
+ 'Recipe': 'plugins.erp_base.business_api.BusinessViewSet',
+ 'RecipeVersion': 'plugins.erp_sampling.views.VersionViewSet',
+ 'RecipeStage': 'plugins.erp_base.business_api.BusinessViewSet',
+ 'RecipeIngredient': 'plugins.erp_base.business_api.BusinessViewSet',
+ 'ProcessCurveVersion': 'plugins.erp_sampling.views.VersionViewSet',
+ 'ProcessCurveStep': 'plugins.erp_base.business_api.BusinessViewSet'}
+
+RESOURCE_OPTIONS = options('erp_sampling', MODEL_FIELDS, RELATIONS, VIEWSETS)
+RESOURCE_OPTIONS['SampleRequest']['label_field'] = 'number'
+RESOURCE_OPTIONS['SampleLine']['label_field'] = 'line_number'
+RESOURCE_OPTIONS['SampleTrial']['label_field'] = 'id'
+RESOURCE_OPTIONS['SampleConfirmation']['label_field'] = 'id'
+RESOURCE_OPTIONS['Recipe']['label_field'] = 'name'
+RESOURCE_OPTIONS['RecipeVersion']['label_field'] = 'version'
+RESOURCE_OPTIONS['RecipeStage']['label_field'] = 'version'
+RESOURCE_OPTIONS['RecipeIngredient']['label_field'] = 'sequence'
+RESOURCE_OPTIONS['ProcessCurveVersion']['label_field'] = 'name'
+RESOURCE_OPTIONS['ProcessCurveStep']['label_field'] = 'name'
+
+WORKFLOWS = {'SampleRequest': {'editable_states': ['draft'],
+                   'children': [{'entity': 'erp_sampling_sampleline', 'title': '打样明细', 'key': 'request', 'atomic': True}],
+                   'actions': [{'key': 'receive',
+                                'title': '收样',
+                                'states': ['draft'],
+                                'inputs': [{'key': 'at',
+                                            'title': '实际时间',
+                                            'kind': 'datetime',
+                                            'options': [],
+                                            'required': True}]}]},
+ 'SampleLine': {'editable_states': ['pending'],
+                'children': [{'entity': 'erp_sampling_sampletrial',
+                              'title': '试验轮次',
+                              'key': 'sample_line',
+                              'atomic': True,
+                              'parent_states': ['assigned', 'running', 'sent', 'rejected']},
+                             {'entity': 'erp_sampling_sampleconfirmation',
+                              'title': '送版确板',
+                              'key': 'sample_line',
+                              'atomic': True,
+                              'parent_states': ['assigned', 'running', 'sent', 'rejected']}],
+                'actions': [{'key': 'assign',
+                             'title': '分配人员',
+                             'states': ['pending', 'assigned', 'rejected'],
+                             'inputs': [{'key': 'employee',
+                                         'title': '操作员工',
+                                         'kind': 'select',
+                                         'options': [],
+                                         'required': True,
+                                         'remote': {'entity': 'erp_base_employee', 'pk': 'id', 'label': 'name'}}]}]},
+ 'SampleTrial': {'editable_states': ['planned'],
+                 'actions': [{'key': 'start',
+                              'title': '开始试验',
+                              'states': ['planned'],
+                              'inputs': [{'key': 'at', 'title': '实际时间', 'kind': 'datetime', 'options': [], 'required': True}]},
+                             {'key': 'complete',
+                              'title': '完成试验',
+                              'states': ['running'],
+                              'inputs': [{'key': 'at', 'title': '实际时间', 'kind': 'datetime', 'options': [], 'required': True},
+                                         {'key': 'result_text',
+                                          'title': '试验结果',
+                                          'kind': 'textarea',
+                                          'options': [],
+                                          'required': True}]}]},
+ 'SampleConfirmation': {'state_field': 'result',
+                        'editable_states': ['pending'],
+                        'actions': [{'key': 'send',
+                                     'title': '送版',
+                                     'states': ['pending'],
+                                     'inputs': [{'key': 'at',
+                                                 'title': '实际时间',
+                                                 'kind': 'datetime',
+                                                 'options': [],
+                                                 'required': True}]},
+                                    {'key': 'reply',
+                                     'title': '客户回复',
+                                     'states': ['pending'],
+                                     'inputs': [{'key': 'result',
+                                                 'title': '回复结果',
+                                                 'kind': 'select',
+                                                 'options': [{'value': 'accepted', 'label': '接受'},
+                                                             {'value': 'rejected', 'label': '拒绝'}],
+                                                 'required': True},
+                                                {'key': 'at',
+                                                 'title': '实际时间',
+                                                 'kind': 'datetime',
+                                                 'options': [],
+                                                 'required': True},
+                                                {'key': 'customer_reply',
+                                                 'title': '客户意见',
+                                                 'kind': 'textarea',
+                                                 'options': [],
+                                                 'required': True}]}]},
+ 'Recipe': {'children': [{'entity': 'erp_sampling_recipeversion', 'title': '配方版本', 'key': 'recipe', 'atomic': True}]},
+ 'RecipeVersion': {'editable_states': ['draft'],
+                   'children': [{'entity': 'erp_sampling_recipestage', 'title': '染程阶段', 'key': 'version', 'atomic': True}],
+                   'actions': [{'key': 'approve',
+                                'title': '审核',
+                                'states': ['draft'],
+                                'inputs': [{'key': 'employee',
+                                            'title': '操作员工',
+                                            'kind': 'select',
+                                            'options': [],
+                                            'required': True,
+                                            'remote': {'entity': 'erp_base_employee', 'pk': 'id', 'label': 'name'}}]},
+                               {'key': 'activate', 'title': '启用', 'states': ['approved'], 'inputs': []},
+                               {'key': 'retire', 'title': '停用', 'states': ['approved', 'active'], 'inputs': []},
+                               {'key': 'clone',
+                                'title': '复制新版本',
+                                'states': ['draft', 'approved', 'active', 'retired'],
+                                'inputs': []}]},
+ 'RecipeStage': {'children': [{'entity': 'erp_sampling_recipeingredient', 'title': '染化料用量', 'key': 'stage', 'atomic': True}]},
+ 'RecipeIngredient': {},
+ 'ProcessCurveVersion': {'editable_states': ['draft'],
+                         'children': [{'entity': 'erp_sampling_processcurvestep',
+                                       'title': '曲线步骤',
+                                       'key': 'curve_version',
+                                       'atomic': True}],
+                         'actions': [{'key': 'approve',
+                                      'title': '审核',
+                                      'states': ['draft'],
+                                      'inputs': [{'key': 'employee',
+                                                  'title': '操作员工',
+                                                  'kind': 'select',
+                                                  'options': [],
+                                                  'required': True,
+                                                  'remote': {'entity': 'erp_base_employee', 'pk': 'id', 'label': 'name'}}]},
+                                     {'key': 'activate', 'title': '启用', 'states': ['approved'], 'inputs': []},
+                                     {'key': 'retire', 'title': '停用', 'states': ['approved', 'active'], 'inputs': []},
+                                     {'key': 'clone',
+                                      'title': '复制新版本',
+                                      'states': ['draft', 'approved', 'active', 'retired'],
+                                      'inputs': []}]},
+ 'ProcessCurveStep': {}}
+for name, workflow in WORKFLOWS.items():
+    RESOURCE_OPTIONS[name]["workflow"] = workflow
+
+from .source_resources import RESOURCE_OPTIONS as SOURCE_RESOURCES
+RESOURCE_OPTIONS.update(SOURCE_RESOURCES)
+
+from plugins.erp_base.foundation_catalog import configure_resources
+configure_resources(RESOURCE_OPTIONS, 'erp_sampling')
+
+from plugins.erp_base.business_navigation import configure_resources as configure_business_navigation
+configure_business_navigation(RESOURCE_OPTIONS, 'erp_sampling')
